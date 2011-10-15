@@ -180,19 +180,26 @@
  *****************************************************************/
 - (BOOL)displayDistanceSort
 {
-    BOOL    ret = YES;
+    BOOL    ret = NO;
     NSArray *results = [[BMLTAppDelegate getBMLTAppDelegate] getSearchResults];
     
-    for ( BMLT_Meeting *meeting in results )
+    if ( [results count] > 1 )
         {
-        if ( ![meeting getValueFromField:@"distance_in_km"] )
+        ret = YES;
+        
+        for ( BMLT_Meeting *meeting in results )
             {
-            ret = NO;
-            break;
+            if ( ![meeting getValueFromField:@"distance_in_km"] )
+                {
+                ret = NO;
+                break;
+                }
             }
+        
+        ret = [self isKindOfClass:[ListViewController class]] && ret;
         }
     
-    return [self isKindOfClass:[ListViewController class]] && ret;
+    return ret;
 }
 
 #pragma mark - Table Data Source Functions -

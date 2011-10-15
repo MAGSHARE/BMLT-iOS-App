@@ -49,6 +49,10 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
+= Version 1.0b1 =
+* October 15, 2011
+* If there is only 1 result in the list, the time/distance sort will not be shown.
+
 = Version 1.0b0 =
 * October 14, 2011
 * The localization for the settings items wasn't being done. That is now fixed.
