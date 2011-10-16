@@ -9,8 +9,6 @@ the BMLT root servers, and will, eventually, execute searches transparently acro
 
 The initial version of the app will be "tuned" to specific servers, as opposed to being a general-purpose app.
 
-The first version will be BMLT-NY, and will use the Greater New York Regional Root Server (http://bmlt.newyorkna.org/main_server).
-
 NOTE ON CODE QUALITY
 --------------------
 
