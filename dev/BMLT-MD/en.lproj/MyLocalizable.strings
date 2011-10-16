@@ -1,7 +1,7 @@
 /* Settings Dialog Product Name */
 "SETTINGS-PRODUCT-NAME" = "BMLT-MD";
 "SETTINGS-BYLINE" = "A MAGSHARE Production";
-"SETTINGS-BLURB" = "Find NA Meetings In Maryland, DC and Northern VA";
+"SETTINGS-BLURB" = "Find NA Meetings In MD, DC & Northern VA";
 
 /* Initial Server */
 "INITIAL-SERVER-NAME" = "FSRNA";
