@@ -133,15 +133,10 @@
 		77016EA814424918003E7D3F /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E014177EBC00E32A6F /* Convex.png */; };
 		77016EA914424918003E7D3F /* GreenCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E114177EBC00E32A6F /* GreenCheck.png */; };
 		77016EAA14424918003E7D3F /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E214177EBC00E32A6F /* RedX.png */; };
-		77016EAB14424918003E7D3F /* FormatCircleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BC14210900008A0FC3 /* FormatCircleBlue.png */; };
 		77016EAC14424918003E7D3F /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BD14210900008A0FC3 /* FormatCircleBlue@2x.png */; };
-		77016EAD14424918003E7D3F /* FormatCircleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBE14210DAE004AE7AA /* FormatCircleGreen.png */; };
 		77016EAE14424918003E7D3F /* FormatCircleGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */; };
-		77016EAF14424918003E7D3F /* FormatCircleRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC014210DAE004AE7AA /* FormatCircleRed.png */; };
 		77016EB014424918003E7D3F /* FormatCircleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */; };
-		77016EB114424918003E7D3F /* FormatCircleYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC214210DAE004AE7AA /* FormatCircleYellow.png */; };
 		77016EB214424918003E7D3F /* FormatCircleYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */; };
-		77016EB314424918003E7D3F /* FormatCircleWC.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCB14210E9F004AE7AA /* FormatCircleWC.png */; };
 		77016EB414424918003E7D3F /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		77016EB514424918003E7D3F /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		77016EB614424918003E7D3F /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
@@ -305,15 +300,10 @@
 		772631B7144A7137008C8112 /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E014177EBC00E32A6F /* Convex.png */; };
 		772631B8144A7137008C8112 /* GreenCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E114177EBC00E32A6F /* GreenCheck.png */; };
 		772631B9144A7137008C8112 /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E214177EBC00E32A6F /* RedX.png */; };
-		772631BA144A7137008C8112 /* FormatCircleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BC14210900008A0FC3 /* FormatCircleBlue.png */; };
 		772631BB144A7137008C8112 /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BD14210900008A0FC3 /* FormatCircleBlue@2x.png */; };
-		772631BC144A7137008C8112 /* FormatCircleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBE14210DAE004AE7AA /* FormatCircleGreen.png */; };
 		772631BD144A7137008C8112 /* FormatCircleGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */; };
-		772631BE144A7137008C8112 /* FormatCircleRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC014210DAE004AE7AA /* FormatCircleRed.png */; };
 		772631BF144A7137008C8112 /* FormatCircleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */; };
-		772631C0144A7137008C8112 /* FormatCircleYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC214210DAE004AE7AA /* FormatCircleYellow.png */; };
 		772631C1144A7137008C8112 /* FormatCircleYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */; };
-		772631C2144A7137008C8112 /* FormatCircleWC.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCB14210E9F004AE7AA /* FormatCircleWC.png */; };
 		772631C3144A7137008C8112 /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		772631C4144A7137008C8112 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		772631C5144A7137008C8112 /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
@@ -471,15 +461,10 @@
 		7728E9E81449B33700F1DFD1 /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E014177EBC00E32A6F /* Convex.png */; };
 		7728E9E91449B33700F1DFD1 /* GreenCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E114177EBC00E32A6F /* GreenCheck.png */; };
 		7728E9EA1449B33700F1DFD1 /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E214177EBC00E32A6F /* RedX.png */; };
-		7728E9EB1449B33700F1DFD1 /* FormatCircleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BC14210900008A0FC3 /* FormatCircleBlue.png */; };
 		7728E9EC1449B33700F1DFD1 /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BD14210900008A0FC3 /* FormatCircleBlue@2x.png */; };
-		7728E9ED1449B33700F1DFD1 /* FormatCircleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBE14210DAE004AE7AA /* FormatCircleGreen.png */; };
 		7728E9EE1449B33700F1DFD1 /* FormatCircleGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */; };
-		7728E9EF1449B33700F1DFD1 /* FormatCircleRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC014210DAE004AE7AA /* FormatCircleRed.png */; };
 		7728E9F01449B33700F1DFD1 /* FormatCircleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */; };
-		7728E9F11449B33700F1DFD1 /* FormatCircleYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC214210DAE004AE7AA /* FormatCircleYellow.png */; };
 		7728E9F21449B33700F1DFD1 /* FormatCircleYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */; };
-		7728E9F31449B33700F1DFD1 /* FormatCircleWC.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCB14210E9F004AE7AA /* FormatCircleWC.png */; };
 		7728E9F41449B33700F1DFD1 /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		7728E9F51449B33700F1DFD1 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		7728E9F61449B33700F1DFD1 /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
@@ -636,15 +621,10 @@
 		7738B85E1441F34A004E7DC2 /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E014177EBC00E32A6F /* Convex.png */; };
 		7738B85F1441F34A004E7DC2 /* GreenCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E114177EBC00E32A6F /* GreenCheck.png */; };
 		7738B8601441F34A004E7DC2 /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E214177EBC00E32A6F /* RedX.png */; };
-		7738B8611441F34A004E7DC2 /* FormatCircleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BC14210900008A0FC3 /* FormatCircleBlue.png */; };
 		7738B8621441F34A004E7DC2 /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BD14210900008A0FC3 /* FormatCircleBlue@2x.png */; };
-		7738B8631441F34A004E7DC2 /* FormatCircleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBE14210DAE004AE7AA /* FormatCircleGreen.png */; };
 		7738B8641441F34A004E7DC2 /* FormatCircleGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */; };
-		7738B8651441F34A004E7DC2 /* FormatCircleRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC014210DAE004AE7AA /* FormatCircleRed.png */; };
 		7738B8661441F34A004E7DC2 /* FormatCircleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */; };
-		7738B8671441F34A004E7DC2 /* FormatCircleYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC214210DAE004AE7AA /* FormatCircleYellow.png */; };
 		7738B8681441F34A004E7DC2 /* FormatCircleYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */; };
-		7738B8691441F34A004E7DC2 /* FormatCircleWC.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCB14210E9F004AE7AA /* FormatCircleWC.png */; };
 		7738B86A1441F34A004E7DC2 /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		7738B86B1441F34A004E7DC2 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		7738B86C1441F34A004E7DC2 /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
@@ -813,15 +793,10 @@
 		77CF5745143D4194002E5A5B /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E014177EBC00E32A6F /* Convex.png */; };
 		77CF5746143D4194002E5A5B /* GreenCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E114177EBC00E32A6F /* GreenCheck.png */; };
 		77CF5747143D4194002E5A5B /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E214177EBC00E32A6F /* RedX.png */; };
-		77CF5748143D4194002E5A5B /* FormatCircleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BC14210900008A0FC3 /* FormatCircleBlue.png */; };
 		77CF5749143D4194002E5A5B /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BD14210900008A0FC3 /* FormatCircleBlue@2x.png */; };
-		77CF574A143D4194002E5A5B /* FormatCircleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBE14210DAE004AE7AA /* FormatCircleGreen.png */; };
 		77CF574B143D4194002E5A5B /* FormatCircleGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */; };
-		77CF574C143D4194002E5A5B /* FormatCircleRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC014210DAE004AE7AA /* FormatCircleRed.png */; };
 		77CF574D143D4194002E5A5B /* FormatCircleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */; };
-		77CF574E143D4194002E5A5B /* FormatCircleYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC214210DAE004AE7AA /* FormatCircleYellow.png */; };
 		77CF574F143D4194002E5A5B /* FormatCircleYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */; };
-		77CF5750143D4194002E5A5B /* FormatCircleWC.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCB14210E9F004AE7AA /* FormatCircleWC.png */; };
 		77CF5751143D4194002E5A5B /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		77CF5752143D4194002E5A5B /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		77CF5753143D4194002E5A5B /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
@@ -969,15 +944,10 @@
 		77F1D3841439F5BD00B816CB /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E014177EBC00E32A6F /* Convex.png */; };
 		77F1D3851439F5BD00B816CB /* GreenCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E114177EBC00E32A6F /* GreenCheck.png */; };
 		77F1D3861439F5BD00B816CB /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 776324E214177EBC00E32A6F /* RedX.png */; };
-		77F1D3871439F5BD00B816CB /* FormatCircleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BC14210900008A0FC3 /* FormatCircleBlue.png */; };
 		77F1D3881439F5BD00B816CB /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7769A7BD14210900008A0FC3 /* FormatCircleBlue@2x.png */; };
-		77F1D3891439F5BD00B816CB /* FormatCircleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBE14210DAE004AE7AA /* FormatCircleGreen.png */; };
 		77F1D38A1439F5BD00B816CB /* FormatCircleGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */; };
-		77F1D38B1439F5BD00B816CB /* FormatCircleRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC014210DAE004AE7AA /* FormatCircleRed.png */; };
 		77F1D38C1439F5BD00B816CB /* FormatCircleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */; };
-		77F1D38D1439F5BD00B816CB /* FormatCircleYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC214210DAE004AE7AA /* FormatCircleYellow.png */; };
 		77F1D38E1439F5BD00B816CB /* FormatCircleYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */; };
-		77F1D38F1439F5BD00B816CB /* FormatCircleWC.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCB14210E9F004AE7AA /* FormatCircleWC.png */; };
 		77F1D3901439F5BD00B816CB /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		77F1D3911439F5BD00B816CB /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		77F1D3921439F5BD00B816CB /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
@@ -1191,7 +1161,6 @@
 		776324E514177EBC00E32A6F /* BMLT_Prefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Prefs.m; sourceTree = "<group>"; };
 		7763256D14177ED100E32A6F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7763256F14177EDE00E32A6F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		7769A7BC14210900008A0FC3 /* FormatCircleBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FormatCircleBlue.png; sourceTree = "<group>"; };
 		7769A7BD14210900008A0FC3 /* FormatCircleBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleBlue@2x.png"; sourceTree = "<group>"; };
 		77715FFE14424BF5002D4552 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		77715FFF14424BF5002D4552 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -1203,13 +1172,9 @@
 		77791D5F1434EFEF0046A138 /* SpecifyNewSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecifyNewSearchViewController.h; sourceTree = "<group>"; };
 		77791D601434EFEF0046A138 /* SpecifyNewSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecifyNewSearchViewController.m; sourceTree = "<group>"; };
 		77791D611434EFEF0046A138 /* SpecifyNewSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecifyNewSearchViewController.xib; sourceTree = "<group>"; };
-		77985FBE14210DAE004AE7AA /* FormatCircleGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FormatCircleGreen.png; sourceTree = "<group>"; };
 		77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleGreen@2x.png"; sourceTree = "<group>"; };
-		77985FC014210DAE004AE7AA /* FormatCircleRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FormatCircleRed.png; sourceTree = "<group>"; };
 		77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleRed@2x.png"; sourceTree = "<group>"; };
-		77985FC214210DAE004AE7AA /* FormatCircleYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FormatCircleYellow.png; sourceTree = "<group>"; };
 		77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleYellow@2x.png"; sourceTree = "<group>"; };
-		77985FCB14210E9F004AE7AA /* FormatCircleWC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FormatCircleWC.png; sourceTree = "<group>"; };
 		77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleWC@2x.png"; sourceTree = "<group>"; };
 		77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeanieLogoHighlight.png; sourceTree = "<group>"; };
 		77B070EF14177A6100549DA8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1533,15 +1498,10 @@
 				77444E1A143559E00023DB5C /* BeanieLogoList.png */,
 				77444E1B143559E00023DB5C /* BeanieLogoMap.png */,
 				77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */,
-				77985FBE14210DAE004AE7AA /* FormatCircleGreen.png */,
 				77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */,
-				77985FC014210DAE004AE7AA /* FormatCircleRed.png */,
 				77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */,
-				77985FCB14210E9F004AE7AA /* FormatCircleWC.png */,
 				77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */,
-				77985FC214210DAE004AE7AA /* FormatCircleYellow.png */,
 				77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */,
-				7769A7BC14210900008A0FC3 /* FormatCircleBlue.png */,
 				7769A7BD14210900008A0FC3 /* FormatCircleBlue@2x.png */,
 				7763247A14177EBC00E32A6F /* BeanieBack.png */,
 				7763247B14177EBC00E32A6F /* BlueBeanie.png */,
@@ -2041,15 +2001,10 @@
 				77016EA814424918003E7D3F /* Convex.png in Resources */,
 				77016EA914424918003E7D3F /* GreenCheck.png in Resources */,
 				77016EAA14424918003E7D3F /* RedX.png in Resources */,
-				77016EAB14424918003E7D3F /* FormatCircleBlue.png in Resources */,
 				77016EAC14424918003E7D3F /* FormatCircleBlue@2x.png in Resources */,
-				77016EAD14424918003E7D3F /* FormatCircleGreen.png in Resources */,
 				77016EAE14424918003E7D3F /* FormatCircleGreen@2x.png in Resources */,
-				77016EAF14424918003E7D3F /* FormatCircleRed.png in Resources */,
 				77016EB014424918003E7D3F /* FormatCircleRed@2x.png in Resources */,
-				77016EB114424918003E7D3F /* FormatCircleYellow.png in Resources */,
 				77016EB214424918003E7D3F /* FormatCircleYellow@2x.png in Resources */,
-				77016EB314424918003E7D3F /* FormatCircleWC.png in Resources */,
 				77016EB414424918003E7D3F /* FormatCircleWC@2x.png in Resources */,
 				77016EB514424918003E7D3F /* FormatDetailView.xib in Resources */,
 				77016EB614424918003E7D3F /* MeetingDetailViewController.xib in Resources */,
@@ -2180,15 +2135,10 @@
 				772631B7144A7137008C8112 /* Convex.png in Resources */,
 				772631B8144A7137008C8112 /* GreenCheck.png in Resources */,
 				772631B9144A7137008C8112 /* RedX.png in Resources */,
-				772631BA144A7137008C8112 /* FormatCircleBlue.png in Resources */,
 				772631BB144A7137008C8112 /* FormatCircleBlue@2x.png in Resources */,
-				772631BC144A7137008C8112 /* FormatCircleGreen.png in Resources */,
 				772631BD144A7137008C8112 /* FormatCircleGreen@2x.png in Resources */,
-				772631BE144A7137008C8112 /* FormatCircleRed.png in Resources */,
 				772631BF144A7137008C8112 /* FormatCircleRed@2x.png in Resources */,
-				772631C0144A7137008C8112 /* FormatCircleYellow.png in Resources */,
 				772631C1144A7137008C8112 /* FormatCircleYellow@2x.png in Resources */,
-				772631C2144A7137008C8112 /* FormatCircleWC.png in Resources */,
 				772631C3144A7137008C8112 /* FormatCircleWC@2x.png in Resources */,
 				772631C4144A7137008C8112 /* FormatDetailView.xib in Resources */,
 				772631C5144A7137008C8112 /* MeetingDetailViewController.xib in Resources */,
@@ -2319,15 +2269,10 @@
 				7728E9E81449B33700F1DFD1 /* Convex.png in Resources */,
 				7728E9E91449B33700F1DFD1 /* GreenCheck.png in Resources */,
 				7728E9EA1449B33700F1DFD1 /* RedX.png in Resources */,
-				7728E9EB1449B33700F1DFD1 /* FormatCircleBlue.png in Resources */,
 				7728E9EC1449B33700F1DFD1 /* FormatCircleBlue@2x.png in Resources */,
-				7728E9ED1449B33700F1DFD1 /* FormatCircleGreen.png in Resources */,
 				7728E9EE1449B33700F1DFD1 /* FormatCircleGreen@2x.png in Resources */,
-				7728E9EF1449B33700F1DFD1 /* FormatCircleRed.png in Resources */,
 				7728E9F01449B33700F1DFD1 /* FormatCircleRed@2x.png in Resources */,
-				7728E9F11449B33700F1DFD1 /* FormatCircleYellow.png in Resources */,
 				7728E9F21449B33700F1DFD1 /* FormatCircleYellow@2x.png in Resources */,
-				7728E9F31449B33700F1DFD1 /* FormatCircleWC.png in Resources */,
 				7728E9F41449B33700F1DFD1 /* FormatCircleWC@2x.png in Resources */,
 				7728E9F51449B33700F1DFD1 /* FormatDetailView.xib in Resources */,
 				7728E9F61449B33700F1DFD1 /* MeetingDetailViewController.xib in Resources */,
@@ -2459,15 +2404,10 @@
 				7738B85E1441F34A004E7DC2 /* Convex.png in Resources */,
 				7738B85F1441F34A004E7DC2 /* GreenCheck.png in Resources */,
 				7738B8601441F34A004E7DC2 /* RedX.png in Resources */,
-				7738B8611441F34A004E7DC2 /* FormatCircleBlue.png in Resources */,
 				7738B8621441F34A004E7DC2 /* FormatCircleBlue@2x.png in Resources */,
-				7738B8631441F34A004E7DC2 /* FormatCircleGreen.png in Resources */,
 				7738B8641441F34A004E7DC2 /* FormatCircleGreen@2x.png in Resources */,
-				7738B8651441F34A004E7DC2 /* FormatCircleRed.png in Resources */,
 				7738B8661441F34A004E7DC2 /* FormatCircleRed@2x.png in Resources */,
-				7738B8671441F34A004E7DC2 /* FormatCircleYellow.png in Resources */,
 				7738B8681441F34A004E7DC2 /* FormatCircleYellow@2x.png in Resources */,
-				7738B8691441F34A004E7DC2 /* FormatCircleWC.png in Resources */,
 				7738B86A1441F34A004E7DC2 /* FormatCircleWC@2x.png in Resources */,
 				7738B86B1441F34A004E7DC2 /* FormatDetailView.xib in Resources */,
 				7738B86C1441F34A004E7DC2 /* MeetingDetailViewController.xib in Resources */,
@@ -2598,15 +2538,10 @@
 				77CF5745143D4194002E5A5B /* Convex.png in Resources */,
 				77CF5746143D4194002E5A5B /* GreenCheck.png in Resources */,
 				77CF5747143D4194002E5A5B /* RedX.png in Resources */,
-				77CF5748143D4194002E5A5B /* FormatCircleBlue.png in Resources */,
 				77CF5749143D4194002E5A5B /* FormatCircleBlue@2x.png in Resources */,
-				77CF574A143D4194002E5A5B /* FormatCircleGreen.png in Resources */,
 				77CF574B143D4194002E5A5B /* FormatCircleGreen@2x.png in Resources */,
-				77CF574C143D4194002E5A5B /* FormatCircleRed.png in Resources */,
 				77CF574D143D4194002E5A5B /* FormatCircleRed@2x.png in Resources */,
-				77CF574E143D4194002E5A5B /* FormatCircleYellow.png in Resources */,
 				77CF574F143D4194002E5A5B /* FormatCircleYellow@2x.png in Resources */,
-				77CF5750143D4194002E5A5B /* FormatCircleWC.png in Resources */,
 				77CF5751143D4194002E5A5B /* FormatCircleWC@2x.png in Resources */,
 				77CF5752143D4194002E5A5B /* FormatDetailView.xib in Resources */,
 				77CF5753143D4194002E5A5B /* MeetingDetailViewController.xib in Resources */,
@@ -2737,15 +2672,10 @@
 				77F1D3841439F5BD00B816CB /* Convex.png in Resources */,
 				77F1D3851439F5BD00B816CB /* GreenCheck.png in Resources */,
 				77F1D3861439F5BD00B816CB /* RedX.png in Resources */,
-				77F1D3871439F5BD00B816CB /* FormatCircleBlue.png in Resources */,
 				77F1D3881439F5BD00B816CB /* FormatCircleBlue@2x.png in Resources */,
-				77F1D3891439F5BD00B816CB /* FormatCircleGreen.png in Resources */,
 				77F1D38A1439F5BD00B816CB /* FormatCircleGreen@2x.png in Resources */,
-				77F1D38B1439F5BD00B816CB /* FormatCircleRed.png in Resources */,
 				77F1D38C1439F5BD00B816CB /* FormatCircleRed@2x.png in Resources */,
-				77F1D38D1439F5BD00B816CB /* FormatCircleYellow.png in Resources */,
 				77F1D38E1439F5BD00B816CB /* FormatCircleYellow@2x.png in Resources */,
-				77F1D38F1439F5BD00B816CB /* FormatCircleWC.png in Resources */,
 				77F1D3901439F5BD00B816CB /* FormatCircleWC@2x.png in Resources */,
 				77F1D3911439F5BD00B816CB /* FormatDetailView.xib in Resources */,
 				77F1D3921439F5BD00B816CB /* MeetingDetailViewController.xib in Resources */,

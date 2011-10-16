@@ -49,6 +49,11 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
+= Version 1.0b2 =
+* October 16, 2011
+* Reduced the file size slightly, by removing some unused images.
+* Made the formats in the meeting detail view a bit bigger, so they will be easier for chubby fingers.
+
 = Version 1.0b1 =
 * October 15, 2011
 * If there is only 1 result in the list, the time/distance sort will not be shown.

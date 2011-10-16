@@ -26,7 +26,6 @@
 typedef struct FormatUIElements_Struct
 {
     UIColor     *textColor;
-    NSString    *imageName;
     NSString    *imageName2x;
     NSString    *title;
 } FormatUIElements, *FormatUIElementsPtr;

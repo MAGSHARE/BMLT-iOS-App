@@ -26,6 +26,8 @@
 @class BMLT_Meeting;
 @class A_SearchController;
 
+#define List_Meeting_Format_Circle_Size_Big 30
+
 @interface MeetingDetailViewController : UIViewController <MKMapViewDelegate>
 {
     BMLT_Meeting                    *myMeeting;

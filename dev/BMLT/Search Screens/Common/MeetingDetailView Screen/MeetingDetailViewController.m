@@ -158,7 +158,7 @@
         CGRect  boundsRect = [formatsContainerView bounds];
         
         boundsRect.origin = CGPointZero;
-        boundsRect.size.width = boundsRect.size.height = (List_Meeting_Format_Circle_Size);
+        boundsRect.size.width = boundsRect.size.height = (List_Meeting_Format_Circle_Size_Big);
         boundsRect.origin.y = (formatsBounds.size.height - boundsRect.size.height) / 2;
         
         for ( BMLT_Format *format in formats )

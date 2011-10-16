@@ -35,14 +35,12 @@
 {
     FormatUIElements    ret;
     
-    ret.imageName = @"FormatCircleYellow.png";
     ret.imageName2x = @"FormatCircleYellow@2x.png";
     ret.textColor = [UIColor blackColor];
     ret.title = [inFormat getKey];
     
     if ( [ret.title isEqualToString:NSLocalizedString(@"FORMAT-KEY-OPEN", nil)] )
         {
-        ret.imageName = @"FormatCircleGreen.png";
         ret.imageName2x = @"FormatCircleGreen@2x.png";
         ret.textColor = [UIColor whiteColor];
         }
@@ -50,7 +48,6 @@
         {
         if ( [ret.title isEqualToString:NSLocalizedString(@"FORMAT-KEY-CLOSED", nil)] )
             {
-            ret.imageName = @"FormatCircleRed.png";
             ret.imageName2x = @"FormatCircleRed@2x.png";
             ret.textColor = [UIColor whiteColor];
             }
@@ -58,7 +55,6 @@
             {
             if ( [ret.title isEqualToString:NSLocalizedString(@"FORMAT-KEY-WHEELCHAIR", nil)] )
                 {
-                ret.imageName = @"FormatCircleWC.png";
                 ret.imageName2x = @"FormatCircleWC@2x.png";
                 ret.title = @"";
                 }
