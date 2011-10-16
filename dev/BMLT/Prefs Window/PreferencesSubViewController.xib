@@ -85,15 +85,15 @@
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC41AA</bytes>
 								</object>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="1048235678">
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="8383264">
 									<string key="name">Helvetica-Bold</string>
 									<string key="family">Helvetica</string>
 									<int key="traits">2</int>
-									<double key="pointSize">13</double>
+									<double key="pointSize">14</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="326276026">
+								<object class="NSFont" key="IBUIFont" id="285923827">
 									<string key="NSName">Helvetica-Bold</string>
-									<double key="NSSize">13</double>
+									<double key="NSSize">14</double>
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
@@ -127,8 +127,8 @@
 								<reference key="IBUIHighlightedTitleColor" ref="897597156"/>
 								<reference key="IBUINormalTitleColor" ref="897597156"/>
 								<reference key="IBUINormalTitleShadowColor" ref="85548455"/>
-								<reference key="IBUIFontDescription" ref="1048235678"/>
-								<reference key="IBUIFont" ref="326276026"/>
+								<reference key="IBUIFontDescription" ref="8383264"/>
+								<reference key="IBUIFont" ref="285923827"/>
 							</object>
 							<object class="IBUISwitch" id="698025105">
 								<reference key="NSNextResponder" ref="1034934280"/>
@@ -164,13 +164,13 @@
 								</object>
 								<reference key="IBUINormalTitleColor" ref="897597156"/>
 								<reference key="IBUINormalTitleShadowColor" ref="85548455"/>
-								<reference key="IBUIFontDescription" ref="1048235678"/>
-								<reference key="IBUIFont" ref="326276026"/>
+								<reference key="IBUIFontDescription" ref="8383264"/>
+								<reference key="IBUIFont" ref="285923827"/>
 							</object>
 							<object class="IBUIButton" id="867421809">
 								<reference key="NSNextResponder" ref="1034934280"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 125}, {280, 37}}</string>
+								<string key="NSFrame">{{20, 130}, {280, 37}}</string>
 								<reference key="NSSuperview" ref="1034934280"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
@@ -402,12 +402,12 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="1029878905"/>
-							<reference ref="867421809"/>
 							<reference ref="251316819"/>
 							<reference ref="914080932"/>
 							<reference ref="864040610"/>
 							<reference ref="126781801"/>
 							<reference ref="698025105"/>
+							<reference ref="867421809"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">Basic Prefs</string>
