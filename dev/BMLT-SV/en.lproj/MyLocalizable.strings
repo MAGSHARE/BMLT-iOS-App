@@ -1,0 +1,18 @@
+/* Settings Dialog Product Name */
+"SETTINGS-PRODUCT-NAME" = "BMLT-NY";
+"SETTINGS-BYLINE" = "A MAGSHARE Production";
+"SETTINGS-BLURB" = "Find NA Meetings In Sweden";
+
+/* Initial Server */
+"INITIAL-SERVER-NAME" = "GNYR";
+"INITIAL-SERVER-DESCRIPTION" = "The root server for the Sweden Region";
+"INITIAL-SERVER-URI" = "http://www.nasverige.org/bmlt";
+
+/* Initial Map Coordinates */
+"INITIAL-MAP-LONG" = "18.10409";
+"INITIAL-MAP-LAT" = "59.319178";
+
+/* Format keys */
+"FORMAT-KEY-OPEN" = "O";
+"FORMAT-KEY-CLOSED" = "S";
+"FORMAT-KEY-WHEELCHAIR" = "R";

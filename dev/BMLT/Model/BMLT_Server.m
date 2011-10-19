@@ -207,8 +207,8 @@
         current_element = nil;
         
         [myParser setDelegate:self];
-        [self performSelector:@selector(timeoutHandler) withObject:nil afterDelay:format_query_timeout_in_seconds];
-        [myParser parse];
+//        [self performSelector:@selector(timeoutHandler) withObject:nil afterDelay:format_query_timeout_in_seconds];
+        [myParser parseAsync:NO WithTimeout:format_query_timeout_in_seconds];
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(timeoutHandler) object:nil];
         [myParser release];
         myParser = nil;
