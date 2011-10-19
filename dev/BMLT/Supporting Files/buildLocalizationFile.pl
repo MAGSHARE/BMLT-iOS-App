@@ -8,9 +8,13 @@ use strict;         # I'm anal. What can I say?
 use Cwd;            # We'll be operating on the working directory.
 use File::Path;
 
+my $lang = "en";
+
+$lang = $ARGV[1] if exists $ARGV[1];
+
 my $input1File = cwd()."/BMLT/Supporting\ Files/en.lproj/MyLocalizable.strings";
-my $input2File = cwd()."/".$ARGV[0]."/en.lproj/MyLocalizable.strings";
-my $outputFile = cwd()."/".$ARGV[0]."/en.lproj/Localizable.strings";
+my $input2File = cwd()."/".$ARGV[0]."/".$lang.".lproj/MyLocalizable.strings";
+my $outputFile = cwd()."/".$ARGV[0]."/".$lang.".lproj/Localizable.strings";
 
 open ( MAIN_FILE, $input1File ) || die ( "Could not open main file!" );
 

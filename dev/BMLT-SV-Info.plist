@@ -17,7 +17,7 @@
 		<string>AppIcon@iPad.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>org.magshare.BMLTMN</string>
+	<string>org.magshare.BMLTSV</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -27,7 +27,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.1d0</string>
 	<key>CFBundleSignature</key>
-	<string>BMMN</string>
+	<string>BMNY</string>
 	<key>CFBundleVersion</key>
 	<string>1.0.1d0</string>
 	<key>LSRequiresIPhoneOS</key>
