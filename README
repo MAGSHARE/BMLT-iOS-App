@@ -47,6 +47,10 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
+= Version 1.0.1 =
+* TBD
+* Simplified the parser calls in the BMLT_Server class.
+
 = Version 1.0 =
 * October 17, 2011
 * Oh, what the heck. Go for the gusto. I'll submit the following to the App. Store: BMLT-FL, BMLT-MN, BMLT-NY and BMLT-TXOX.

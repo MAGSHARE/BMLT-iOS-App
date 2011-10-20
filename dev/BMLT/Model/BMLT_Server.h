@@ -38,7 +38,6 @@
     BOOL                loadFormats;
     NSString            *current_element;
     NSObject            *delegate;
-    BMLT_Parser         *myParser;
 }
 - (id)initWithURI:(NSString *)inURI andParent:(NSObject *)inParentObject andName:(NSString *)inName andDescription:(NSString *)inDescription andDelegate:(NSObject *)inDelegate;
 - (void)setDelegate:(NSObject *)inDelegate;

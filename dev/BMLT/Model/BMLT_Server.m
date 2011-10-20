@@ -42,7 +42,6 @@
         languages = nil;
         version = nil;
         delegate = nil;
-        myParser = nil;
         }
     
     return self;
@@ -58,7 +57,6 @@
     [languages release];
     [version release];
     [delegate release];
-    [myParser release];
     [super dealloc];
 }
 
@@ -162,11 +160,9 @@
                        dataWithContentsOfURL: [NSURL 
                                                URLWithString:serverURI]];
         
-        myParser = [[BMLT_Parser alloc] initWithData:xml];
+        BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithData:xml];
         [myParser setDelegate:self];
-        [self performSelector:@selector(timeoutHandler) withObject:nil afterDelay:initial_query_timeout_in_seconds];
-        [myParser parse];
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(timeoutHandler) object:nil];
+        [myParser parseAsync:NO WithTimeout:initial_query_timeout_in_seconds];
         [myParser release];
         myParser = nil;
 
@@ -196,7 +192,7 @@
                        dataWithContentsOfURL: [NSURL 
                                                URLWithString:serverURI]];
         
-        myParser = [[BMLT_Parser alloc] initWithData:xml];
+        BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithData:xml];
 
         versionCheck = NO;
         versionSuccess = NO;
@@ -207,9 +203,7 @@
         current_element = nil;
         
         [myParser setDelegate:self];
-//        [self performSelector:@selector(timeoutHandler) withObject:nil afterDelay:format_query_timeout_in_seconds];
         [myParser parseAsync:NO WithTimeout:format_query_timeout_in_seconds];
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(timeoutHandler) object:nil];
         [myParser release];
         myParser = nil;
         }
@@ -390,8 +384,6 @@ parseErrorOccurred:(NSError *)parseError
 #endif
         [(NSObject <BMLT_ServerDelegateProtocol> *)delegate serverFAIL:self];
         }
-    [myParser release];
-    myParser = nil;
 }
 
 /***************************************************************\**
@@ -422,9 +414,6 @@ parseErrorOccurred:(NSError *)parseError
  *****************************************************************/
 - (void)showTimeoutAlert
 {
-    [myParser abortParsing];
-    [myParser release];
-    myParser = nil;
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"SERVER-TIMEOUT-ERROR",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
     
     [myAlert show];
