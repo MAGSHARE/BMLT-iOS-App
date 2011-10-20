@@ -393,6 +393,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [tabBarController setSelectedIndex: [myPrefs startWithMap] ? 1 : 0];
         
         [BMLT_Prefs saveChanges];
+        
+        [self engageNewSearch:[myPrefs startWithMap]];
         }
     
     visitingMAGSHARE = NO;
@@ -407,7 +409,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     if ( !mySearch && createIfNotAlreadyThere )
         {
-        mySearch = [[BMLT_Meeting_Search  alloc] initWithCriteria:inSearchParams andName:nil andDescription:nil];
+        mySearch = [[BMLT_Meeting_Search alloc] initWithCriteria:inSearchParams andName:nil andDescription:nil];
         }
     
     return mySearch;

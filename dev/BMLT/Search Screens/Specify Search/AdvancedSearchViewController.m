@@ -122,6 +122,7 @@
     [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-0", nil) forSegmentAtIndex:0];
     [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-1", nil) forSegmentAtIndex:1];
     [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-2", nil) forSegmentAtIndex:2];
+    [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-3", nil) forSegmentAtIndex:3];
     
     [sunLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-0", nil)];
     [monLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-1", nil)];
@@ -386,8 +387,8 @@
     [thuButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
     [friButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
     [satButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    
-    if ( [theControl selectedSegmentIndex] == 1 )
+
+    if ( [theControl selectedSegmentIndex] == kWeekdaySelectWeekdays )
         {
         [sunButton setEnabled:YES];
         [monButton setEnabled:YES];
@@ -409,46 +410,52 @@
         [satButton setEnabled:NO];
         }
     
-    if ( [theControl selectedSegmentIndex] == 2 )
+    if ( ([theControl selectedSegmentIndex] == kWeekdaySelectToday) || ([theControl selectedSegmentIndex] == kWeekdaySelectTomorrow) )
         {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"c"];
         int wd = [[dateFormatter stringFromDate:[NSDate date]] intValue];
         [dateFormatter release];
-        
-        if ( wd == 1 )
+
+        if ( [theControl selectedSegmentIndex] == kWeekdaySelectTomorrow )
             {
-            [sunButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+            wd++;
+            
+            if ( wd > kWeekdaySelectValue_Sat )
+                {
+                wd = kWeekdaySelectValue_Sun;
+                }
             }
         
-        if ( wd == 2 )
+        switch ( wd )
             {
-            [monButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-            }
+                case kWeekdaySelectValue_Sun:
+                [sunButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
+                
+                case kWeekdaySelectValue_Mon:
+                [monButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
+                
+                case kWeekdaySelectValue_Tue:
+                [tueButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
         
-        if ( wd == 3 )
-            {
-            [tueButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-            }
+                case kWeekdaySelectValue_Wed:
+                [wedButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
         
-        if ( wd == 4 )
-            {
-            [wedButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-            }
+                case kWeekdaySelectValue_Thu:
+                [thuButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
         
-        if ( wd == 5 )
-            {
-            [thuButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-            }
+                case kWeekdaySelectValue_Fri:
+                [friButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
         
-        if ( wd == 6 )
-            {
-            [friButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-            }
-        
-        if ( wd == 7 )
-            {
-            [satButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                case kWeekdaySelectValue_Sat:
+                [satButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
             }
         }
 }

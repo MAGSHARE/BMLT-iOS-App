@@ -28,7 +28,7 @@ This is an iOS app, made for iPhones and iPads. It is only available via the App
 INSTALLATION
 ------------
 
-This will be installed via the Apple App Store, and will be a free app. However, it is currently still under development.
+This will be installed via the Apple App Store, and will be a free app.
 
 LICENSE
 -------
@@ -50,6 +50,7 @@ CHANGELIST
 = Version 1.0.1 =
 * TBD
 * Simplified the parser calls in the BMLT_Server class.
+* Starting up the app will put you at the search page for whichever search you select (list or map).
 
 = Version 1.0 =
 * October 17, 2011

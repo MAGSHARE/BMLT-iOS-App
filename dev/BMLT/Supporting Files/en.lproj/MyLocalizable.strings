@@ -85,19 +85,15 @@
 /* Selected Weekdays */
 "SEARCH-SPEC-SELECTED-WEEKDAYS" = "Search By Weekday";
 "SEARCH-SPEC-SELECTED-WEEKDAYS-0" = "Any Day";
-"SEARCH-SPEC-SELECTED-WEEKDAYS-1" = "Selected Days";
+"SEARCH-SPEC-SELECTED-WEEKDAYS-1" = "Weekdays";
 "SEARCH-SPEC-SELECTED-WEEKDAYS-2" = "Later Today";
+"SEARCH-SPEC-SELECTED-WEEKDAYS-3" = "Tomorrow";
 
 /* The default text for the address field */
 "DEFAULT-ADDRESS-STRING" = "Enter an address, location or zip code";
 
 /* The Main Search Button */
 "DO-SEARCH-BUTTON" = "Find These Meetings";
-
-/* The Day Selection Bar */
-"DAY-SELECT-0" = "Any Day";
-"DAY-SELECT-1" = "Later Today";
-"DAY-SELECT-2" = "These Days";
 
 /* Distance */
 "DISTANCE-MILE" = "Miles";

@@ -24,6 +24,19 @@
 
 #define kBMLT_AdvancedItemsBottomPaddingInPixels    8
 
+#define kWeekdaySelectAllDays       0
+#define kWeekdaySelectWeekdays      1
+#define kWeekdaySelectToday         2
+#define kWeekdaySelectTomorrow      3
+
+#define kWeekdaySelectValue_Sun     1
+#define kWeekdaySelectValue_Mon     2
+#define kWeekdaySelectValue_Tue     3
+#define kWeekdaySelectValue_Wed     4
+#define kWeekdaySelectValue_Thu     5
+#define kWeekdaySelectValue_Fri     6
+#define kWeekdaySelectValue_Sat     7
+
 @class SpecifyNewSearchViewController;
 
 @interface AdvancedSearchViewController : UIViewController <UITextFieldDelegate>
