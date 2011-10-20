@@ -164,7 +164,6 @@
         [myParser setDelegate:self];
         [myParser parseAsync:NO WithTimeout:initial_query_timeout_in_seconds];
         [myParser release];
-        myParser = nil;
 
         if ( loadFormats )
             {
@@ -205,7 +204,6 @@
         [myParser setDelegate:self];
         [myParser parseAsync:NO WithTimeout:format_query_timeout_in_seconds];
         [myParser release];
-        myParser = nil;
         }
 }
 
