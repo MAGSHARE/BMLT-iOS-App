@@ -413,6 +413,11 @@
     if ( ([theControl selectedSegmentIndex] == kWeekdaySelectToday) || ([theControl selectedSegmentIndex] == kWeekdaySelectTomorrow) )
         {
         NSInteger       grace_period = [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60;
+        if ( [theControl selectedSegmentIndex] == kWeekdaySelectTomorrow )
+            {
+            grace_period = 0;
+            }
+        
         NSDate          *date = [NSDate dateWithTimeIntervalSinceNow:-grace_period];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
