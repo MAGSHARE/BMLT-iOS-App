@@ -153,14 +153,7 @@
         versionSuccess = NO;
         parsingVersion = 0;
         loadFormats = NO;
-        [[NSURLCache sharedURLCache] setMemoryCapacity:0];
-        [[NSURLCache sharedURLCache] setDiskCapacity:0];
-        
-        NSData *xml = [NSData 
-                       dataWithContentsOfURL: [NSURL 
-                                               URLWithString:serverURI]];
-        
-        BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithData:xml];
+        BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithContentsOfURL:[NSURL URLWithString:serverURI]];
         [myParser setDelegate:self];
         [myParser parseAsync:NO WithTimeout:initial_query_timeout_in_seconds];
         [myParser release];
@@ -184,14 +177,8 @@
     if ( uri )
         {
         NSString *serverURI = [NSString stringWithFormat:@"%@/client_interface/xml/index.php?switcher=GetFormats", uri];
-        [[NSURLCache sharedURLCache] setMemoryCapacity:0];
-        [[NSURLCache sharedURLCache] setDiskCapacity:0];
-        
-        NSData *xml = [NSData 
-                       dataWithContentsOfURL: [NSURL 
-                                               URLWithString:serverURI]];
-        
-        BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithData:xml];
+        BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithContentsOfURL:[NSURL 
+                                                                            URLWithString:serverURI]];
 
         versionCheck = NO;
         versionSuccess = NO;

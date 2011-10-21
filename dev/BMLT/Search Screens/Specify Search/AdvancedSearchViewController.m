@@ -412,20 +412,39 @@
     
     if ( ([theControl selectedSegmentIndex] == kWeekdaySelectToday) || ([theControl selectedSegmentIndex] == kWeekdaySelectTomorrow) )
         {
+        NSInteger       grace_period = [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60;
+        NSDate          *date = [NSDate dateWithTimeIntervalSinceNow:-grace_period];
+        
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        
         [dateFormatter setDateFormat:@"c"];
-        int wd = [[dateFormatter stringFromDate:[NSDate date]] intValue];
-        [dateFormatter release];
-
+        NSInteger   wd = [[dateFormatter stringFromDate:date] intValue];
+        
+        NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
+        
         if ( [theControl selectedSegmentIndex] == kWeekdaySelectTomorrow )
             {
             wd++;
-            
             if ( wd > kWeekdaySelectValue_Sat )
                 {
                 wd = kWeekdaySelectValue_Sun;
                 }
             }
+        else
+            {
+            [dateFormatter setDateFormat:@"H"];
+            NSString *hours = [dateFormatter stringFromDate:date];
+            [dateFormatter setDateFormat:@"m"];
+            NSString *minutes = [dateFormatter stringFromDate:date];
+            [myParams setObject:hours forKey:@"StartsAfterH"];
+            [myParams setObject:minutes forKey:@"StartsAfterM"];
+            }
+        
+        [myParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
+        [myParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
+        [mySpecController setMySearchParams:myParams];
+        [myParams release];
+        [dateFormatter release];
         
         switch ( wd )
             {
