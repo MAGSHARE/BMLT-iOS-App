@@ -60,6 +60,7 @@
 + (CLLocationCoordinate2D)getLastLookup;
 + (BMLTAppDelegate *)getBMLTAppDelegate;
 + (void)imVisitingMAGSHARE;
++ (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod;
 - (void)setVisitingMAGSHARE;
 - (IBAction)swipeFromList:(UIGestureRecognizer *)sender;
 - (IBAction)swipeFromMapToList:(UIGestureRecognizer *)sender;

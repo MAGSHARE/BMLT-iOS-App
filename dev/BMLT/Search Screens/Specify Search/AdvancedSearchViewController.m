@@ -220,11 +220,10 @@
 - (void)findMeetingsLaterToday:(BOOL)inLocal
 {
         // We have a "grace period," so that you can be a bit late for meetings.
-    NSInteger       grace_period = [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60;
-    NSDate          *date = [NSDate dateWithTimeIntervalSinceNow:-grace_period];
-    
+    NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
+    [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
     [dateFormatter setDateFormat:@"c"];
     NSString *weekday = [dateFormatter stringFromDate:date];
     [dateFormatter setDateFormat:@"H"];
@@ -412,16 +411,10 @@
     
     if ( ([theControl selectedSegmentIndex] == kWeekdaySelectToday) || ([theControl selectedSegmentIndex] == kWeekdaySelectTomorrow) )
         {
-        NSInteger       grace_period = [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60;
-        if ( [theControl selectedSegmentIndex] == kWeekdaySelectTomorrow )
-            {
-            grace_period = 0;
-            }
-        
-        NSDate          *date = [NSDate dateWithTimeIntervalSinceNow:-grace_period];
-        
+        NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:[theControl selectedSegmentIndex] != kWeekdaySelectTomorrow];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         
+        [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
         [dateFormatter setDateFormat:@"c"];
         NSInteger   wd = [[dateFormatter stringFromDate:date] intValue];
         

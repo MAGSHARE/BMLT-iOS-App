@@ -152,6 +152,17 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 
 /***************************************************************\**
  \brief 
+ \returns 
+ *****************************************************************/
++ (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod
+{
+    NSTimeInterval  interval = useGracePeriod ? [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60 : 0;
+    
+    return [NSDate dateWithTimeIntervalSinceNow:-interval];
+}
+
+/***************************************************************\**
+ \brief 
  *****************************************************************/
 - (void)setVisitingMAGSHARE
 {

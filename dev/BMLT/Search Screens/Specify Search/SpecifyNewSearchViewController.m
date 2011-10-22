@@ -21,6 +21,7 @@
 
 #import "SpecifyNewSearchViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "BMLTAppDelegate.h"
 
 @implementation SpecifyNewSearchViewController
 
@@ -208,11 +209,10 @@
 - (void)findMeetingsLaterToday:(BOOL)inLocal
 {
         // We have a "grace period," so that you can be a bit late for meetings.
-    NSInteger       grace_period = [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60;
-    NSDate          *date = [NSDate dateWithTimeIntervalSinceNow:-grace_period];
-    
+    NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
+    [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
     [dateFormatter setDateFormat:@"c"];
     NSString *weekday = [dateFormatter stringFromDate:date];
     [dateFormatter setDateFormat:@"H"];
@@ -254,10 +254,12 @@
  *****************************************************************/
 - (void)findMeetingsNearbyTomorrow_exec
 {
+    NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:NO];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
+    [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
     [dateFormatter setDateFormat:@"c"];
-    int wd = [[dateFormatter stringFromDate:[NSDate date]] intValue] + 1;
+    int wd = [[dateFormatter stringFromDate:date] intValue] + 1;
     
     if ( wd > 7 )
         {
