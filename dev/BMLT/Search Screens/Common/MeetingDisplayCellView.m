@@ -324,7 +324,8 @@
             [distanceLabel setTextAlignment:UITextAlignmentRight];
             double   distance = [(NSString *)[myMeeting getValueFromField:@"distance_in_km"] doubleValue] / 1.609344;
             distance = round(distance * 100) / 100.0;
-            NSString    *distanceString = [NSString stringWithFormat:@"%.2F %@", distance, NSLocalizedString(@"DISTANCE-MILE", nil)];
+            NSString    *units = NSLocalizedString(@"DISTANCE-UNITS", nil);
+            NSString    *distanceString = [NSString stringWithFormat:@"%.2F %@", distance, ([units isEqualToString:@"KM"] ? NSLocalizedString(@"DISTANCE-MILE", nil) : NSLocalizedString(@"DISTANCE-MILE", nil))];
             [distanceLabel setText:distanceString];
             [distanceLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
             [wrapperView addSubview:distanceLabel];

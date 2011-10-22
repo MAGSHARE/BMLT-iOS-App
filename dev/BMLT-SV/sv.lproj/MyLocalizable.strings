@@ -16,3 +16,6 @@
 "FORMAT-KEY-OPEN" = "O";
 "FORMAT-KEY-CLOSED" = "S";
 "FORMAT-KEY-WHEELCHAIR" = "R";
+
+/* Distance Units (either "KM" or "MI" */
+"DISTANCE-UNITS" = "KM";
