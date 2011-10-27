@@ -1750,14 +1750,8 @@
 		775EEE941447C7E0000027B9 /* Variants */ = {
 			isa = PBXGroup;
 			children = (
-				77715FFD14424BF5002D4552 /* BMLT-FL */,
-				772631FC144A71DE008C8112 /* BMLT-MD */,
-				7738B8961441F3A4004E7DC2 /* BMLT-MN */,
-				772631EA144A71C5008C8112 /* BMLT-NY */,
-				774627C5145302730034B457 /* BMLT-OAHU */,
-				77D7ACFF144DA557002CFDFE /* BMLT-SV */,
-				77CF5779143D41FB002E5A5B /* BMLT-TXOK */,
-				7728EA1B1449B49300F1DFD1 /* BMLT-UK */,
+				778BC3EA145A0B1900784509 /* Released */,
+				778BC3EC145A0B2900784509 /* Pre-Release */,
 			);
 			name = Variants;
 			sourceTree = "<group>";
@@ -2054,6 +2048,28 @@
 				77D05EC714489F960076D1CC /* Localizable.strings */,
 			);
 			path = "BMLT-FL";
+			sourceTree = "<group>";
+		};
+		778BC3EA145A0B1900784509 /* Released */ = {
+			isa = PBXGroup;
+			children = (
+				77715FFD14424BF5002D4552 /* BMLT-FL */,
+				7738B8961441F3A4004E7DC2 /* BMLT-MN */,
+				772631EA144A71C5008C8112 /* BMLT-NY */,
+				77CF5779143D41FB002E5A5B /* BMLT-TXOK */,
+				7728EA1B1449B49300F1DFD1 /* BMLT-UK */,
+			);
+			name = Released;
+			sourceTree = "<group>";
+		};
+		778BC3EC145A0B2900784509 /* Pre-Release */ = {
+			isa = PBXGroup;
+			children = (
+				772631FC144A71DE008C8112 /* BMLT-MD */,
+				774627C5145302730034B457 /* BMLT-OAHU */,
+				77D7ACFF144DA557002CFDFE /* BMLT-SV */,
+			);
+			name = "Pre-Release";
 			sourceTree = "<group>";
 		};
 		77B070E014177A6000549DA8 = {

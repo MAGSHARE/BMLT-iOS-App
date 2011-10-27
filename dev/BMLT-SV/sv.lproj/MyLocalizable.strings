@@ -1,11 +1,11 @@
 /* Settings Dialog Product Name */
 "SETTINGS-PRODUCT-NAME" = "BMLT-SV";
-"SETTINGS-BYLINE" = "A MAGSHARE Production";
-"SETTINGS-BLURB" = "Find NA Meetings In Sweden";
+"SETTINGS-BYLINE" = "A MAGSHARE Produktion";
+"SETTINGS-BLURB" = "Möteslistan för NA möten i Sverige";
 
 /* Initial Server */
-"INITIAL-SERVER-NAME" = "GNYR";
-"INITIAL-SERVER-DESCRIPTION" = "The root server for the Sweden Region";
+"INITIAL-SERVER-NAME" = "SV";
+"INITIAL-SERVER-DESCRIPTION" = "Root servern för svenska regionen";
 "INITIAL-SERVER-URI" = "http://www.nasverige.org/bmlt";
 
 /* Initial Map Coordinates */
@@ -15,7 +15,7 @@
 /* Format keys */
 "FORMAT-KEY-OPEN" = "O";
 "FORMAT-KEY-CLOSED" = "S";
-"FORMAT-KEY-WHEELCHAIR" = "R";
+"FORMAT-KEY-WHEELCHAIR" = "RL";
 
 /* Distance Units (either "KM" or "MI" */
 "DISTANCE-UNITS" = "KM";

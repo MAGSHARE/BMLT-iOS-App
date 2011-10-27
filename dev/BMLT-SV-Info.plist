@@ -25,11 +25,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1d2</string>
+	<string>1.0.2b1</string>
 	<key>CFBundleSignature</key>
 	<string>BMNY</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1d2</string>
+	<string>1.0.2b1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
