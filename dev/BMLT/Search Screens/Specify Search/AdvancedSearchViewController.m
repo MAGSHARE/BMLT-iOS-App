@@ -223,9 +223,6 @@
     NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
-    [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
-    [dateFormatter setDateFormat:@"c"];
-    NSString *weekday = [dateFormatter stringFromDate:date];
     [dateFormatter setDateFormat:@"H"];
     NSString *hours = [dateFormatter stringFromDate:date];
     [dateFormatter setDateFormat:@"m"];
@@ -233,7 +230,11 @@
     
     NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
     
-    [myParams setObject:weekday forKey:@"weekdays"];
+    NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
+    NSInteger           wd = [weekdayComponents weekday];
+    [gregorian release];
+    [myParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
     [myParams setObject:hours forKey:@"StartsAfterH"];
     [myParams setObject:minutes forKey:@"StartsAfterM"];
     [myParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
@@ -414,9 +415,10 @@
         NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:[theControl selectedSegmentIndex] != kWeekdaySelectTomorrow];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         
-        [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
-        [dateFormatter setDateFormat:@"c"];
-        NSInteger   wd = [[dateFormatter stringFromDate:date] intValue];
+        NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
+        NSInteger           wd = [weekdayComponents weekday];
+        [gregorian release];
         
         NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
         

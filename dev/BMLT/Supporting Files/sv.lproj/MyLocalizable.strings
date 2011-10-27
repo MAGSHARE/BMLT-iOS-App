@@ -1,156 +1,156 @@
 /**
-    MAIN LOCALIZATION FILE
-
-    This file contains all the strings that are displayed in the BMLT app.
-
-    The app is designed to be entirely localizable, so no strings are included
-    in the main app. Instead, we use keys and the NSLocalizedString function to
-    develop the displayed strings. Whatever is written here, will be displayed
-    in the app.
-
-    It is important that this file be UTF-8 encoded. Xcode has a bug, where it keeps
-    saving these as UTF-16. If this happens, you will see a bunch of upside-down
-    question marks (¿) displayed, if viewed in Xcode. It will probably display fine
-    in other text editors.
+ MAIN LOCALIZATION FILE
  
-    You localize these strings by changing the string in the RIGHT side of the "=".
+ This file contains all the strings that are displayed in the BMLT app.
  
-    DO NOT CHANGE THE LEFT SIDE!
+ The app is designed to be entirely localizable, so no strings are included
+ in the main app. Instead, we use keys and the NSLocalizedString function to
+ develop the displayed strings. Whatever is written here, will be displayed
+ in the app.
  
-    Only change the string on the right.
-
-    DO NOT CHANGE    CHANGE
-           |           |
-           |           |
-           V           V
-       "TAB-BAR-1" = "Map";
-
-    This is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    BMLT is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this code.  If not, see <http://www.gnu.org/licenses/>.
+ It is important that this file be UTF-8 encoded. Xcode has a bug, where it keeps
+ saving these as UTF-16. If this happens, you will see a bunch of upside-down
+ question marks (Â¿) displayed, if viewed in Xcode. It will probably display fine
+ in other text editors.
+ 
+ You localize these strings by changing the string in the RIGHT side of the "=".
+ 
+ DO NOT CHANGE THE LEFT SIDE!
+ 
+ Only change the string on the right.
+ 
+ DO NOT CHANGE    CHANGE
+ |           |
+ |           |
+ V           V
+ "TAB-BAR-1" = "Map";
+ 
+ This is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ BMLT is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this code.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /***********************************************************/
 /* These don't change */
 "SETTINGS-VERSION-LABEL" = "Version:";
-"SETTINGS-URI-BLURB" = "Complete GPL Source Is Available Here:";
+"SETTINGS-URI-BLURB" = "Komplett källkod GPL kan laddas ner här:";
 "SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
-"SETTINGS-UPDATE-LOCATION" = "Update My Location Now";
-"SETTINGS-UPDATE-LOCATION-ON-STARTUP" = "Find My Location On Startup";
-"SETTINGS-START-WITH-MAP" = "Start With Map Search";
-"SETTINGS-PREFER-DISTANCE-SORT" = "Prefer Sort By Distance";
+"SETTINGS-UPDATE-LOCATION" = "Uppdatera min position nu.";
+"SETTINGS-UPDATE-LOCATION-ON-STARTUP" = "Hitta min position vid uppstart.";
+"SETTINGS-START-WITH-MAP" = "Starta alltid i kartsökning";
+"SETTINGS-PREFER-DISTANCE-SORT" = "Föredrar Sortering efter Avstånd";
 
 /* The names of the tab bar items, and the views they produce. */
-"TAB-BAR-1" = "Map";
-"TAB-BAR-2" = "List";
-"TAB-BAR-3" = "Settings";
+"TAB-BAR-1" = "Karta";
+"TAB-BAR-2" = "Lista";
+"TAB-BAR-3" = "Inställningar";
 
 /* Used in the map and list searches to specify a new search. */
-"NEW-SEARCH" = "New Search";
-"NEW-MAP-SEARCH" = "New Search";
-"NEW-LIST-SEARCH" = "New Search";
+"NEW-SEARCH" = "Ny sökning";
+"NEW-MAP-SEARCH" = "Ny sökning";
+"NEW-LIST-SEARCH" = "Ny sökning";
 
 /* Prefs Edit Button Titles */
-"PREFS-EDIT-1" = "Edit";
-"PREFS-EDIT-2" = "Done";
+"PREFS-EDIT-1" = "Redigera";
+"PREFS-EDIT-2" = "Klar";
 
 /* Prefs modal dialog titles */
-"PREFS-EDIT-MODAL-1" = "Edit Server Details";
-"PREFS-EDIT-MODAL-2" = "Add New Server";
+"PREFS-EDIT-MODAL-1" = "Redigera serverinfo.";
+"PREFS-EDIT-MODAL-2" = "Lägg till ny server.";
 
 /* The title for the server list */
-"PREFS-SERVER-TITLE" = "Meeting List Servers";
+"PREFS-SERVER-TITLE" = "Möteslist servrar";
 
 /* Section header titles */
-"SEARCH-SPEC-SECTION-1" = "Quick Search";
-"SEARCH-SPEC-ADVANCED-OPTIONS" = "Advanced Search";
-"SEARCH-SPEC-SECTION-1-SHORT" = "Quick";
-"SEARCH-SPEC-ADVANCED-SHORT" = "Advanced";
+"SEARCH-SPEC-SECTION-1" = "Snabbsökning";
+"SEARCH-SPEC-ADVANCED-OPTIONS" = "Avancerad sökning";
+"SEARCH-SPEC-SECTION-1-SHORT" = "Snabb";
+"SEARCH-SPEC-ADVANCED-SHORT" = "Avancerad";
 
 /* Quick Search Titles */
-"SEARCH-SPEC-NEARBY-TITLE" = "Find Nearby Meetings";
-"SEARCH-SPEC-LATER-TODAY-TITLE" = "Find Nearby Meetings Later Today";
-"SEARCH-SPEC-TOMORROW-TITLE" = "Find Nearby Meetings Tomorrow";
-"SEARCH-SPEC-DISABLED-TEXT" = "These searches are disabled, because the Location Services are not available (You have either turned them off, or they are selectively disabled for this app).";
+"SEARCH-SPEC-NEARBY-TITLE" = "hitta närliggande möten";
+"SEARCH-SPEC-LATER-TODAY-TITLE" = "hitta närliggande möten senare idag";
+"SEARCH-SPEC-TOMORROW-TITLE" = "hitta närliggande möten imorgon";
+"SEARCH-SPEC-DISABLED-TEXT" = "Dessa sökningar är inaktiverade, För översättningen är ej tillgänglig (Antingen har du stängt av dem, eller så är dom spcifikt avstängda för denna app.).";
 
 /* Selected Weekdays */
-"SEARCH-SPEC-SELECTED-WEEKDAYS" = "Search By Weekday";
-"SEARCH-SPEC-SELECTED-WEEKDAYS-0" = "Any Day";
-"SEARCH-SPEC-SELECTED-WEEKDAYS-1" = "Selected Days";
-"SEARCH-SPEC-SELECTED-WEEKDAYS-2" = "Later Today";
+"SEARCH-SPEC-SELECTED-WEEKDAYS" = "Sök på veckodag";
+"SEARCH-SPEC-SELECTED-WEEKDAYS-0" = "Vilken dag som helst";
+"SEARCH-SPEC-SELECTED-WEEKDAYS-1" = "Valda dagar";
+"SEARCH-SPEC-SELECTED-WEEKDAYS-2" = "Senare Idag";
 
 /* The default text for the address field */
-"DEFAULT-ADDRESS-STRING" = "Enter an address, location or zip code";
+"DEFAULT-ADDRESS-STRING" = "Fyll i adress, plats eller postnummer";
 
 /* The Main Search Button */
-"DO-SEARCH-BUTTON" = "Find These Meetings";
+"DO-SEARCH-BUTTON" = "Sök möten";
 
 /* The Day Selection Bar */
-"DAY-SELECT-0" = "Any Day";
-"DAY-SELECT-1" = "Later Today";
-"DAY-SELECT-2" = "These Days";
+"DAY-SELECT-0" = "Vilken dag som helst";
+"DAY-SELECT-1" = "Senare idag";
+"DAY-SELECT-2" = "Valda dagar";
 
 /* Distance */
 "DISTANCE-MILE" = "Miles";
 "DISTANCE-KM" = "Km";
 
 /* Search Results Header -List */
-"SEARCH-RESULTS-PREFIX" = "Results:";
-"SEARCH-RESULTS-SUFFIX" = "Meetings";
-"SEARCH-RESULTS-SORT-HEADER" = "Sort Options";
-"SEARCH-RESULTS-SORT-TIME" = "Sort By Time";
-"SEARCH-RESULTS-SORT-DAY" = "Sort By Weekday";
-"SEARCH-RESULTS-SORT-DISTANCE" = "Sort By Distance";
+"SEARCH-RESULTS-PREFIX" = "Resultat:";
+"SEARCH-RESULTS-SUFFIX" = "Möten";
+"SEARCH-RESULTS-SORT-HEADER" = "Sorterings val";
+"SEARCH-RESULTS-SORT-TIME" = "Sortera på tid";
+"SEARCH-RESULTS-SORT-DAY" = "Sortera på veckodag";
+"SEARCH-RESULTS-SORT-DISTANCE" = "Sortera på avstånd";
 
 /* No Search Results Alert */
-"NO-SEARCH-RESULTS" = "The search Found No Meetings.";
+"NO-SEARCH-RESULTS" = "Inga möten funna.";
 
 /* Too many results error. */
-"TOO-MANY-RESULTS-FORMAT" = "There are more than %d meetings in the response. Please narrow your search, and try again.";
+"TOO-MANY-RESULTS-FORMAT" = "Det blev fler än %d möten som svar. gör din sökning mer specifik och försök igen";
 
 /* Find Near Me */
-"FIND-NEAR-ME" = "Find Meetings Near Me:";
+"FIND-NEAR-ME" = "Hitta möten nära mig:";
 
 /* Clear Search Button Title */
-"CLEAR-SEARCH-BUTTON" = "Clear Search";
+"CLEAR-SEARCH-BUTTON" = "Ny sökning";
 
 /* Search Result Meeting Details Strings */
-"MEETING-DETAILS-FREQUENCY-FORMAT" = "Meets Every %@, at %@.";
+"MEETING-DETAILS-FREQUENCY-FORMAT" = "Mötet är varje %@, klockan %@.";
 
 /* Error Strings */
-"COMM-ERROR" = "Search Error";
-"PARSER-TIMEOUT-SEARCH" = "The Search Took Too Long, So It Was Stopped.";
-"SERVER-TIMEOUT-ERROR" = "The Connection to the Server Took Too Long, So It Was Stopped.";
+"COMM-ERROR" = "Fel vid sökning";
+"PARSER-TIMEOUT-SEARCH" = "Sökningen tog för lång tid. Sökningen avbröts.";
+"SERVER-TIMEOUT-ERROR" = "Anslutningen mot servern tog för lång tid.anslutningen avbröts.";
 "OK-BUTTON" = "OK";
 
 /* Day Names */
-"WEEKDAY-NAME-0" = "Sunday";
-"WEEKDAY-NAME-1" = "Monday";
-"WEEKDAY-NAME-2" = "Tuesday";
-"WEEKDAY-NAME-3" = "Wednesday";
-"WEEKDAY-NAME-4" = "Thursday";
-"WEEKDAY-NAME-5" = "Friday";
-"WEEKDAY-NAME-6" = "Saturday";
+"WEEKDAY-NAME-0" = "Söndag";
+"WEEKDAY-NAME-1" = "Måndag";
+"WEEKDAY-NAME-2" = "Tisdag";
+"WEEKDAY-NAME-3" = "Onsdag";
+"WEEKDAY-NAME-4" = "Torsdag";
+"WEEKDAY-NAME-5" = "Fredag";
+"WEEKDAY-NAME-6" = "Lördag";
 
-"WEEKDAY-SHORT-NAME-0" = "Sun";
-"WEEKDAY-SHORT-NAME-1" = "Mon";
-"WEEKDAY-SHORT-NAME-2" = "Tue";
-"WEEKDAY-SHORT-NAME-3" = "Wed";
-"WEEKDAY-SHORT-NAME-4" = "Thu";
-"WEEKDAY-SHORT-NAME-5" = "Fri";
-"WEEKDAY-SHORT-NAME-6" = "Sat";
+"WEEKDAY-SHORT-NAME-0" = "Sön";
+"WEEKDAY-SHORT-NAME-1" = "Mån";
+"WEEKDAY-SHORT-NAME-2" = "Tis";
+"WEEKDAY-SHORT-NAME-3" = "Ons";
+"WEEKDAY-SHORT-NAME-4" = "Tor";
+"WEEKDAY-SHORT-NAME-5" = "Fre";
+"WEEKDAY-SHORT-NAME-6" = "Lör";
 
 /* The default title for the black marker */
-"BLACK-MARKER-TITLE" = "Search Location";
+"BLACK-MARKER-TITLE" = "Sök plats";
 
 /* The MAGSHARE URI (For Settings/Info) */
 "SETTINGS-BEANIE-BUTTON-URI" = "http://magshare.org";
