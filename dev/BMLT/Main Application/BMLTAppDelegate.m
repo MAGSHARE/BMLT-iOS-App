@@ -215,6 +215,19 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 
 /***************************************************************\**
  \brief 
+ \returns   
+ *****************************************************************/
+- (BOOL)getOpenAdvanced
+{
+    BOOL    ret = openAdvanced;
+    
+    openAdvanced = NO;
+    
+    return ret;
+}
+
+/***************************************************************\**
+ \brief 
  *****************************************************************/
 - (void)clearListNeedsRefresh
 {
@@ -409,6 +422,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         
         if ( ![[BMLT_Prefs getBMLT_Prefs] lookupMyLocation] )
             {
+            openAdvanced = YES;
             [self engageNewSearch:[myPrefs startWithMap]];
             }
         }

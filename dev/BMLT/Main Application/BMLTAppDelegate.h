@@ -54,6 +54,7 @@
     NSString                            *currentElement;
     BOOL                                visitingMAGSHARE;
     BOOL                                openSearch;
+    BOOL                                openAdvanced;
 }
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
@@ -70,6 +71,7 @@
 - (BOOL)listNeedsRefresh;
 - (BOOL)mapNeedsRefresh;
 - (BOOL)isLookupValid;
+- (BOOL)getOpenAdvanced;
 - (CLLocationCoordinate2D)lastLookup;
 - (void)clearLastLookup;
 - (void)clearListNeedsRefresh;

@@ -141,6 +141,19 @@
 /***************************************************************\**
  \brief 
  *****************************************************************/
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if ( [[BMLTAppDelegate getBMLTAppDelegate] getOpenAdvanced] )
+        {
+        [self goToAdvanced];
+        }
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
 - (void)viewDidUnload
 {
     [quickSearchLabel release];
