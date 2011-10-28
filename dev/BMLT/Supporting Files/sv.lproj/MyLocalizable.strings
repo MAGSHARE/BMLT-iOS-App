@@ -87,6 +87,8 @@
 "SEARCH-SPEC-SELECTED-WEEKDAYS-0" = "Vilken dag som helst";
 "SEARCH-SPEC-SELECTED-WEEKDAYS-1" = "Valda dagar";
 "SEARCH-SPEC-SELECTED-WEEKDAYS-2" = "Senare Idag";
+/* ######## */
+"SEARCH-SPEC-SELECTED-WEEKDAYS-3" = "Tomorrow";
 
 /* The default text for the address field */
 "DEFAULT-ADDRESS-STRING" = "Fyll i adress, plats eller postnummer";

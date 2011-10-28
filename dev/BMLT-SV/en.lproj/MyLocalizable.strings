@@ -1,21 +1,21 @@
 /* Settings Dialog Product Name */
-"SETTINGS-PRODUCT-NAME" = "BMLT-SV";
+"SETTINGS-PRODUCT-NAME" = "BMLT-NY";
 "SETTINGS-BYLINE" = "A MAGSHARE Production";
-"SETTINGS-BLURB" = "Find NA Meetings In Sweden";
+"SETTINGS-BLURB" = "Find NA Meetings In New York";
 
 /* Initial Server */
 "INITIAL-SERVER-NAME" = "GNYR";
-"INITIAL-SERVER-DESCRIPTION" = "The root server for the Sweden Region";
-"INITIAL-SERVER-URI" = "http://www.nasverige.org/bmlt";
+"INITIAL-SERVER-DESCRIPTION" = "The root server for the Greater New York Region";
+"INITIAL-SERVER-URI" = "http://bmlt.newyorkna.org/main_server";
 
 /* Initial Map Coordinates */
-"INITIAL-MAP-LONG" = "18.10409";
-"INITIAL-MAP-LAT" = "59.319178";
+"INITIAL-MAP-LONG" = "-73.974187";
+"INITIAL-MAP-LAT" = "40.771133";
 
 /* Format keys */
 "FORMAT-KEY-OPEN" = "O";
-"FORMAT-KEY-CLOSED" = "S";
-"FORMAT-KEY-WHEELCHAIR" = "R";
+"FORMAT-KEY-CLOSED" = "C";
+"FORMAT-KEY-WHEELCHAIR" = "WC";
 
 /* Distance Units (either "KM" or "MI" */
-"DISTANCE-UNITS" = "KM";
+"DISTANCE-UNITS" = "MI";
