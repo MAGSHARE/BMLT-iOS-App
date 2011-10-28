@@ -12,7 +12,7 @@ my $lang = "en";
 
 $lang = $ARGV[1] if exists $ARGV[1];
 
-my $input1File = cwd()."/BMLT/Supporting\ Files/en.lproj/MyLocalizable.strings";
+my $input1File = cwd()."/BMLT/Supporting\ Files/".$lang.".lproj/MyLocalizable.strings";
 my $input2File = cwd()."/".$ARGV[0]."/".$lang.".lproj/MyLocalizable.strings";
 my $outputFile = cwd()."/".$ARGV[0]."/".$lang.".lproj/Localizable.strings";
 
