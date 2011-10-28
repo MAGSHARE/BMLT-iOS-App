@@ -47,8 +47,12 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
-= Version 1.0.1 =
+= Version 1.0.2 =
 * TBD
+* Made it so that the quick search will be disabled if an initial location lookup is not done, but it will dynamically re-enable if a subsequent manual lookup is done.
+
+= Version 1.0.1 =
+* October 27, 2011
 * Simplified the parser calls in the BMLT_Server class.
 * Starting up the app will put you at the search page for whichever search you select (list or map).
 
