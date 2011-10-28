@@ -123,23 +123,7 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
  *****************************************************************/
 + (CLLocationCoordinate2D)getLastLookup
 {
-    CLLocationCoordinate2D  lLookup = [bmlt_app_delegate lastLookup];
-    
-    if ( lLookup.longitude || lLookup.latitude )
-        {
-        return lLookup;
-        }
-    else
-        {
-        if ( [[BMLT_Prefs getBMLT_Prefs] lookupMyLocation] )
-            {
-            return [bmlt_app_delegate getWhereImAt].coordinate;
-            }
-        else
-            {
-            return lLookup;
-            }
-        }
+    return [bmlt_app_delegate getWhereImAt].coordinate;
 }
 
 /***************************************************************\**
@@ -210,6 +194,23 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 - (BOOL)mapNeedsRefresh
 {
     return mapNeedsRefresh;
+}
+
+/***************************************************************\**
+ \brief 
+ \returns   
+ *****************************************************************/
+- (BOOL)isLookupValid
+{
+    BOOL    ret = YES;
+    CLLocationCoordinate2D  lLookup = [self getWhereImAt].coordinate;
+    
+    if ( lLookup.longitude == 0 && lLookup.latitude == 0 )
+        {
+        ret = NO;
+        }
+    
+    return ret;
 }
 
 /***************************************************************\**
@@ -394,6 +395,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
         if ( [[BMLT_Prefs getBMLT_Prefs] lookupMyLocation] )
             {
+            openSearch = YES;
             [self findLocation];
             }
         
@@ -405,7 +407,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         
         [BMLT_Prefs saveChanges];
         
-        [self engageNewSearch:[myPrefs startWithMap]];
+        if ( ![[BMLT_Prefs getBMLT_Prefs] lookupMyLocation] )
+            {
+            [self engageNewSearch:[myPrefs startWithMap]];
+            }
         }
     
     visitingMAGSHARE = NO;
@@ -662,20 +667,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 /***************************************************************\**
  \brief 
- *****************************************************************/
-- (void)foundLocation:(CLLocation *)newLocation
-{
-#ifdef DEBUG
-    NSLog(@"BMLTAppDelegate newLocation I know where I'm at!");
-#endif
-    [newLocation retain];
-    [whereImAt release];
-    whereImAt = newLocation;
-    [locationManager stopUpdatingLocation];
-}
-
-/***************************************************************\**
- \brief 
  \returns 
  *****************************************************************/
 - (CLLocation *)getWhereImAt
@@ -706,7 +697,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     [locationManager stopUpdatingLocation];
     
-    [self foundLocation:newLocation];
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f).", newLocation.coordinate.longitude, newLocation.coordinate.latitude);
+#endif
+    [newLocation retain];
+    [whereImAt release];
+    whereImAt = newLocation;
+    if ( openSearch )
+        {
+        openSearch = NO;
+        [self engageNewSearch:[[BMLT_Prefs getBMLT_Prefs] startWithMap]];
+        }
 }
 
 /***************************************************************\**

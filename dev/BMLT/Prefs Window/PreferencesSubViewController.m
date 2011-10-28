@@ -32,15 +32,15 @@
  *****************************************************************/
 - (void)setSwitches
 {
-    BMLT_Prefs  *prefs = [BMLT_Prefs getBMLT_Prefs];
-    BOOL    llActive = [CLLocationManager locationServicesEnabled] != NO && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
     
     [findMyLocationLabel setTitle:NSLocalizedString(@"SETTINGS-UPDATE-LOCATION-ON-STARTUP", nil) forState:UIControlStateNormal];
     [startWithMapLabel setTitle:NSLocalizedString(@"SETTINGS-START-WITH-MAP", nil) forState:UIControlStateNormal];
     [preferDistanceSortLabel setTitle:NSLocalizedString(@"SETTINGS-PREFER-DISTANCE-SORT", nil) forState:UIControlStateNormal];
     [findLocationNowButton setTitle:NSLocalizedString(@"SETTINGS-UPDATE-LOCATION", nil) forState:UIControlStateNormal];
     
-    if ( llActive )
+    BMLT_Prefs  *prefs = [BMLT_Prefs getBMLT_Prefs];
+    
+    if ( ([CLLocationManager locationServicesEnabled] != NO) && ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied) )
         {
         [findLocationNowButton setAlpha:1];
         [findMyLocationLabel setAlpha:1];

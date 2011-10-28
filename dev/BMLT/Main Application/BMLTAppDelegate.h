@@ -53,6 +53,7 @@
     CLLocationCoordinate2D              lastLookup;
     NSString                            *currentElement;
     BOOL                                visitingMAGSHARE;
+    BOOL                                openSearch;
 }
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
@@ -68,6 +69,7 @@
 - (IBAction)swipeFromPrefs:(UIGestureRecognizer *)sender;
 - (BOOL)listNeedsRefresh;
 - (BOOL)mapNeedsRefresh;
+- (BOOL)isLookupValid;
 - (CLLocationCoordinate2D)lastLookup;
 - (void)clearLastLookup;
 - (void)clearListNeedsRefresh;
@@ -84,7 +86,6 @@
 - (void)disableMapNewSearch;
 - (void)validateSearches;
 - (void)findLocation;
-- (void)foundLocation:(CLLocation *)newLocation;
 - (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView;
 - (void)sortMeetingsByWeekdayAndTime;
 - (void)sortMeetingsByDistance;

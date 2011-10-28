@@ -138,7 +138,7 @@
     
     [self setBeanieBackground];
     [super viewDidLoad];
-    if ( ![[BMLT_Prefs getBMLT_Prefs] lookupMyLocation] )
+    if ( ![[BMLTAppDelegate getBMLTAppDelegate] isLookupValid] )
         {
         [findNearMeCheckbox setIsOn:NO];
         [findNearMeCheckbox setEnabled:NO];
@@ -220,28 +220,24 @@
 - (void)findMeetingsLaterToday:(BOOL)inLocal
 {
         // We have a "grace period," so that you can be a bit late for meetings.
-    NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    [dateFormatter setDateFormat:@"H"];
-    NSString *hours = [dateFormatter stringFromDate:date];
-    [dateFormatter setDateFormat:@"m"];
-    NSString *minutes = [dateFormatter stringFromDate:date];
-    
-    NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
-    
+    NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
     NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
     NSInteger           wd = [weekdayComponents weekday];
+    weekdayComponents = [gregorian components:(NSHourCalendarUnit) fromDate:date];
+    NSInteger           hr = [weekdayComponents hour];
+    weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
+    NSInteger           mn = [weekdayComponents minute];
     [gregorian release];
+    
+    NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
     [myParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
-    [myParams setObject:hours forKey:@"StartsAfterH"];
-    [myParams setObject:minutes forKey:@"StartsAfterM"];
+    [myParams setObject:[NSString stringWithFormat:@"%d",hr] forKey:@"StartsAfterH"];
+    [myParams setObject:[NSString stringWithFormat:@"%d",mn] forKey:@"StartsAfterM"];
     [myParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
     [mySpecController setMySearchParams:myParams];
     [myParams release];
-    [dateFormatter release];
     if ( inLocal )
         {
         [mySpecController searchForMeetingsAroundHere];
@@ -412,12 +408,14 @@
     
     if ( ([theControl selectedSegmentIndex] == kWeekdaySelectToday) || ([theControl selectedSegmentIndex] == kWeekdaySelectTomorrow) )
         {
-        NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:[theControl selectedSegmentIndex] != kWeekdaySelectTomorrow];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        
+        NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
         NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
         NSInteger           wd = [weekdayComponents weekday];
+        weekdayComponents = [gregorian components:(NSHourCalendarUnit) fromDate:date];
+        NSInteger           hr = [weekdayComponents hour];
+        weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
+        NSInteger           mn = [weekdayComponents minute];
         [gregorian release];
         
         NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
@@ -432,19 +430,14 @@
             }
         else
             {
-            [dateFormatter setDateFormat:@"H"];
-            NSString *hours = [dateFormatter stringFromDate:date];
-            [dateFormatter setDateFormat:@"m"];
-            NSString *minutes = [dateFormatter stringFromDate:date];
-            [myParams setObject:hours forKey:@"StartsAfterH"];
-            [myParams setObject:minutes forKey:@"StartsAfterM"];
+            [myParams setObject:[NSString stringWithFormat:@"%d",hr] forKey:@"StartsAfterH"];
+            [myParams setObject:[NSString stringWithFormat:@"%d",mn] forKey:@"StartsAfterM"];
             }
         
         [myParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
         [myParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
         [mySpecController setMySearchParams:myParams];
         [myParams release];
-        [dateFormatter release];
         
         switch ( wd )
             {

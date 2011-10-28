@@ -125,7 +125,7 @@
     
     [super viewDidLoad];
     
-    if ( ![[BMLT_Prefs getBMLT_Prefs] lookupMyLocation] )
+    if ( ![[BMLTAppDelegate getBMLTAppDelegate] isLookupValid] )
         {
         [findMeetingsNearbyButton setEnabled:NO];
         [findMeetingsNearbyButton setAlpha:0];
@@ -209,28 +209,26 @@
 - (void)findMeetingsLaterToday:(BOOL)inLocal
 {
         // We have a "grace period," so that you can be a bit late for meetings.
-    NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    [dateFormatter setDateFormat:@"H"];
-    NSString *hours = [dateFormatter stringFromDate:date];
-    [dateFormatter setDateFormat:@"m"];
-    NSString *minutes = [dateFormatter stringFromDate:date];
-    
     NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
     
+    NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
     NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
     NSInteger           wd = [weekdayComponents weekday];
+    weekdayComponents = [gregorian components:(NSHourCalendarUnit) fromDate:date];
+    NSInteger           hr = [weekdayComponents hour];
+    weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
+    NSInteger           mn = [weekdayComponents minute];
     [gregorian release];
+    
     [myParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
-    [myParams setObject:hours forKey:@"StartsAfterH"];
-    [myParams setObject:minutes forKey:@"StartsAfterM"];
+    [myParams setObject:[NSString stringWithFormat:@"%d",hr] forKey:@"StartsAfterH"];
+    [myParams setObject:[NSString stringWithFormat:@"%d",mn] forKey:@"StartsAfterM"];
     [myParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
     [self setMySearchParams:myParams];
     [myParams release];
-    [dateFormatter release];
+
     if ( inLocal )
         {
         [self searchForMeetingsAroundHere];
@@ -255,13 +253,8 @@
  *****************************************************************/
 - (void)findMeetingsNearbyTomorrow_exec
 {
-    NSDate          *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:NO];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    [dateFormatter setDateFormat:@"c"];
-    
     NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
+    NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:[BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:NO]];
     NSInteger           wd = [weekdayComponents weekday] + 1;
     [gregorian release];
     
@@ -277,7 +270,6 @@
     
     [self setMySearchParams:myParams];
     [myParams release];
-    [dateFormatter release];
     [self searchForMeetingsAroundHere];
     
 }

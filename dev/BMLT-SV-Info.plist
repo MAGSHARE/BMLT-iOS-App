@@ -20,6 +20,11 @@
 	<string>org.magshare.BMLTSV</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>sv</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
@@ -27,7 +32,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.2a0</string>
 	<key>CFBundleSignature</key>
-	<string>BMNY</string>
+	<string>BMSV</string>
 	<key>CFBundleVersion</key>
 	<string>1.0.2a0</string>
 	<key>LSRequiresIPhoneOS</key>
