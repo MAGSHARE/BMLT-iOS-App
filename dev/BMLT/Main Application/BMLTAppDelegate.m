@@ -406,21 +406,21 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     if ( !visitingMAGSHARE )
         {
-        if ( [[BMLT_Prefs getBMLT_Prefs] lookupMyLocation] )
+        BMLT_Prefs *myPrefs = [BMLT_Prefs getBMLT_Prefs];
+        
+        if ( [myPrefs lookupMyLocation] )
             {
-            openSearch = YES;
+            openSearch = [myPrefs startWithSearch];
             [self findLocation];
             }
         
         [self clearSearch];
         
-        BMLT_Prefs *myPrefs = [BMLT_Prefs getBMLT_Prefs];
-        
         [tabBarController setSelectedIndex: [myPrefs startWithMap] ? 1 : 0];
         
         [BMLT_Prefs saveChanges];
         
-        if ( ![[BMLT_Prefs getBMLT_Prefs] lookupMyLocation] )
+        if ( ![myPrefs lookupMyLocation] && [myPrefs startWithSearch] )
             {
             openAdvanced = YES;
             [self engageNewSearch:[myPrefs startWithMap]];
@@ -577,6 +577,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     if ( ![self isLookupValid] )
         {
         openAdvanced = YES;
+        }
+    else
+        {
+        openAdvanced = [[BMLT_Prefs getBMLT_Prefs] preferAdvancedSearch];
         }
     
     if ( theController )
