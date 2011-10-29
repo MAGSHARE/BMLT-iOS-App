@@ -55,6 +55,8 @@ CHANGELIST
 * October 27, 2011
 * Simplified the parser calls in the BMLT_Server class.
 * Starting up the app will put you at the search page for whichever search you select (list or map).
+* Fixed an issue with weeks that start on Monday.
+* This is the version that includes the BMLT-UK project.
 
 = Version 1.0 =
 * October 17, 2011
