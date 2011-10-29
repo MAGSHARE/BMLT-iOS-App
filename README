@@ -47,7 +47,7 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
-= Version 1.0.2 =
+= Version 1.1 =
 * TBD
 * Made it so that the quick search will be disabled if an initial location lookup is not done, but it will dynamically re-enable if a subsequent manual lookup is done.
 
