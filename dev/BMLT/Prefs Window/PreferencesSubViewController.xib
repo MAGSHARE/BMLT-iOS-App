@@ -167,10 +167,83 @@
 								<reference key="IBUIFontDescription" ref="8383264"/>
 								<reference key="IBUIFont" ref="285923827"/>
 							</object>
+							<object class="IBUISwitch" id="110562446">
+								<reference key="NSNextResponder" ref="1034934280"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{218, 125}, {94, 27}}</string>
+								<reference key="NSSuperview" ref="1034934280"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:590</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<bool key="IBUIOn">YES</bool>
+							</object>
+							<object class="IBUIButton" id="826923190">
+								<reference key="NSNextResponder" ref="1034934280"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{0, 120}, {215, 37}}</string>
+								<reference key="NSSuperview" ref="1034934280"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="110562446"/>
+								<string key="NSReuseIdentifierKey">_NS:222</string>
+								<reference key="IBUIBackgroundColor" ref="209386213"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIContentHorizontalAlignment">2</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<string key="IBUINormalTitle">SETTINGS-START-WITH-SEARCH</string>
+								<reference key="IBUIHighlightedTitleColor" ref="897597156"/>
+								<object class="NSColor" key="IBUIDisabledTitleColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MSAwLjUAA</bytes>
+								</object>
+								<reference key="IBUINormalTitleColor" ref="897597156"/>
+								<reference key="IBUINormalTitleShadowColor" ref="85548455"/>
+								<reference key="IBUIFontDescription" ref="8383264"/>
+								<reference key="IBUIFont" ref="285923827"/>
+							</object>
+							<object class="IBUISwitch" id="314424125">
+								<reference key="NSNextResponder" ref="1034934280"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{218, 160}, {94, 27}}</string>
+								<reference key="NSSuperview" ref="1034934280"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:590</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+							</object>
+							<object class="IBUIButton" id="354051567">
+								<reference key="NSNextResponder" ref="1034934280"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{-1, 155}, {216, 37}}</string>
+								<reference key="NSSuperview" ref="1034934280"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="314424125"/>
+								<string key="NSReuseIdentifierKey">_NS:222</string>
+								<reference key="IBUIBackgroundColor" ref="209386213"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIContentHorizontalAlignment">2</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<string key="IBUINormalTitle">SETTINGS-PREFER-ADVANCED</string>
+								<reference key="IBUIHighlightedTitleColor" ref="897597156"/>
+								<object class="NSColor" key="IBUIDisabledTitleColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MSAwLjUAA</bytes>
+								</object>
+								<reference key="IBUINormalTitleColor" ref="897597156"/>
+								<reference key="IBUINormalTitleShadowColor" ref="85548455"/>
+								<reference key="IBUIFontDescription" ref="8383264"/>
+								<reference key="IBUIFont" ref="285923827"/>
+							</object>
 							<object class="IBUIButton" id="867421809">
 								<reference key="NSNextResponder" ref="1034934280"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 130}, {280, 37}}</string>
+								<string key="NSFrame">{{20, 194}, {280, 37}}</string>
 								<reference key="NSSuperview" ref="1034934280"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
@@ -209,7 +282,7 @@
 								</object>
 							</object>
 						</object>
-						<string key="NSFrame">{{0, -16}, {320, 168}}</string>
+						<string key="NSFrame">{{0, -16}, {320, 242}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="251316819"/>
@@ -218,7 +291,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 152}</string>
+				<string key="NSFrameSize">{320, 226}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="1034934280"/>
@@ -302,6 +375,38 @@
 					<int key="connectionID">41</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">startWithSearchSwitch</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="110562446"/>
+					</object>
+					<int key="connectionID">51</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">startWithSearchButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="826923190"/>
+					</object>
+					<int key="connectionID">52</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">preferAdvancedSwitch</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="314424125"/>
+					</object>
+					<int key="connectionID">53</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">preferAdvancedButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="354051567"/>
+					</object>
+					<int key="connectionID">54</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">findLocationTouched:</string>
 						<reference key="source" ref="864040610"/>
@@ -364,6 +469,42 @@
 					</object>
 					<int key="connectionID">40</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">startWithSearchTouched:</string>
+						<reference key="source" ref="110562446"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">55</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">startWithSearchToggle:</string>
+						<reference key="source" ref="826923190"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">56</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">preferAdvancedTouched:</string>
+						<reference key="source" ref="314424125"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">57</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">preferAdvancedToggle:</string>
+						<reference key="source" ref="354051567"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">58</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -408,6 +549,10 @@
 							<reference ref="126781801"/>
 							<reference ref="698025105"/>
 							<reference ref="867421809"/>
+							<reference ref="110562446"/>
+							<reference ref="314424125"/>
+							<reference ref="354051567"/>
+							<reference ref="826923190"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">Basic Prefs</string>
@@ -450,6 +595,28 @@
 						<reference key="object" ref="867421809"/>
 						<reference key="parent" ref="1034934280"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">42</int>
+						<reference key="object" ref="110562446"/>
+						<reference key="parent" ref="1034934280"/>
+						<string key="objectName">Start With Search Switch</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">43</int>
+						<reference key="object" ref="826923190"/>
+						<reference key="parent" ref="1034934280"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">46</int>
+						<reference key="object" ref="314424125"/>
+						<reference key="parent" ref="1034934280"/>
+						<string key="objectName">Prefer Advanced Search Switch</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">47</int>
+						<reference key="object" ref="354051567"/>
+						<reference key="parent" ref="1034934280"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -470,6 +637,12 @@
 					<string>29.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>38.IBPluginDependency</string>
 					<string>38.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
+					<string>42.IBPluginDependency</string>
+					<string>43.IBPluginDependency</string>
+					<string>43.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
+					<string>46.IBPluginDependency</string>
+					<string>47.IBPluginDependency</string>
+					<string>47.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>9.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -489,6 +662,12 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="2"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="3"/>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="3"/>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -503,7 +682,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">41</int>
+			<int key="maxID">58</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -518,13 +697,21 @@
 							<string>findLocationTouched:</string>
 							<string>findMyLocationToggle:</string>
 							<string>findNewLocation:</string>
+							<string>preferAdvancedToggle:</string>
+							<string>preferAdvancedTouched:</string>
 							<string>preferDistanceSortToggle:</string>
 							<string>preferDistanceSortTouched:</string>
 							<string>startWithMapToggle:</string>
 							<string>startWithMapTouched:</string>
+							<string>startWithSearchToggle:</string>
+							<string>startWithSearchTouched:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -541,10 +728,14 @@
 							<string>findLocationTouched:</string>
 							<string>findMyLocationToggle:</string>
 							<string>findNewLocation:</string>
+							<string>preferAdvancedToggle:</string>
+							<string>preferAdvancedTouched:</string>
 							<string>preferDistanceSortToggle:</string>
 							<string>preferDistanceSortTouched:</string>
 							<string>startWithMapToggle:</string>
 							<string>startWithMapTouched:</string>
+							<string>startWithSearchToggle:</string>
+							<string>startWithSearchTouched:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -558,6 +749,14 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">findNewLocation:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">preferAdvancedToggle:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">preferAdvancedTouched:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -576,6 +775,14 @@
 								<string key="name">startWithMapTouched:</string>
 								<string key="candidateClassName">id</string>
 							</object>
+							<object class="IBActionInfo">
+								<string key="name">startWithSearchToggle:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">startWithSearchTouched:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -586,15 +793,23 @@
 							<string>findLocationNowButton</string>
 							<string>findMyLocationLabel</string>
 							<string>findMyLocationSwitch</string>
+							<string>preferAdvancedButton</string>
+							<string>preferAdvancedSwitch</string>
 							<string>preferDistanceSortLabel</string>
 							<string>preferDistanceSortSwitch</string>
 							<string>startWithMapLabel</string>
 							<string>startWithMapSwitch</string>
+							<string>startWithSearchButton</string>
+							<string>startWithSearchSwitch</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIView</string>
 							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UISwitch</string>
+							<string>UIButton</string>
+							<string>UISwitch</string>
 							<string>UIButton</string>
 							<string>UISwitch</string>
 							<string>UIButton</string>
@@ -611,10 +826,14 @@
 							<string>findLocationNowButton</string>
 							<string>findMyLocationLabel</string>
 							<string>findMyLocationSwitch</string>
+							<string>preferAdvancedButton</string>
+							<string>preferAdvancedSwitch</string>
 							<string>preferDistanceSortLabel</string>
 							<string>preferDistanceSortSwitch</string>
 							<string>startWithMapLabel</string>
 							<string>startWithMapSwitch</string>
+							<string>startWithSearchButton</string>
+							<string>startWithSearchSwitch</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -635,6 +854,14 @@
 								<string key="candidateClassName">UISwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">preferAdvancedButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">preferAdvancedSwitch</string>
+								<string key="candidateClassName">UISwitch</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">preferDistanceSortLabel</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
@@ -648,6 +875,14 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">startWithMapSwitch</string>
+								<string key="candidateClassName">UISwitch</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">startWithSearchButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">startWithSearchSwitch</string>
 								<string key="candidateClassName">UISwitch</string>
 							</object>
 						</object>

@@ -48,6 +48,8 @@
 "SETTINGS-UPDATE-LOCATION-ON-STARTUP" = "Find My Location On Startup";
 "SETTINGS-START-WITH-MAP" = "Start With Map Search";
 "SETTINGS-PREFER-DISTANCE-SORT" = "Prefer Sort By Distance";
+"SETTINGS-START-WITH-SEARCH" = "Open Search On Startup";
+"SETTINGS-PREFER-ADVANCED" = "Start With Advanced Search";
 
 /* The names of the tab bar items, and the views they produce. */
 "TAB-BAR-1" = "Map";

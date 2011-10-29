@@ -331,6 +331,24 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  \brief 
  \returns 
  *****************************************************************/
+- (BOOL)startWithSearch
+{
+    return startWithSearch;
+}
+
+/***************************************************************\**
+ \brief 
+ \returns 
+ *****************************************************************/
+- (BOOL)preferAdvancedSearch
+{
+    return preferAdvancedSearch;
+}
+
+/***************************************************************\**
+ \brief 
+ \returns 
+ *****************************************************************/
 - (int)gracePeriod
 {
     return gracePeriod;
@@ -486,6 +504,24 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
                 {
                 [self setGracePeriod:BMLT_Pref_Default_Value_Grace_Period];
                 }
+            
+            if ( [decoder containsValueForKey:@"startWithSearch"] )
+                {
+                startWithSearch = [decoder decodeBoolForKey:@"startWithSearch"];
+                }
+            else
+                {
+                [self setStartWithSearch:YES];
+                }
+            
+            if ( [decoder containsValueForKey:@"preferAdvancedSearch"] )
+                {
+                preferAdvancedSearch = [decoder decodeBoolForKey:@"preferAdvancedSearch"];
+                }
+            else
+                {
+                [self setPreferAdvancedSearch:NO];
+                }
             }
         else
             {
@@ -493,6 +529,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
             [self setPreferDistanceSort:NO];
             [self setLookupMyLocation:YES];
             [self setGracePeriod:BMLT_Pref_Default_Value_Grace_Period];
+            [self setStartWithSearch:YES];
+            [self setPreferAdvancedSearch:NO];
             }
         }
     
@@ -509,6 +547,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
     [encoder encodeBool:preferDistanceSort forKey:@"preferDistanceSort"];
     [encoder encodeBool:lookupMyLocation forKey:@"lookupMyLocation"];
     [encoder encodeInt:gracePeriod forKey:@"gracePeriod"];
+    [encoder encodeBool:startWithSearch forKey:@"startWithSearch"];
+    [encoder encodeBool:preferAdvancedSearch forKey:@"preferAdvancedSearch"];
 }
 
 /***************************************************************\**
@@ -541,6 +581,22 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 - (void)setGracePeriod:(int)inValue
 {
     gracePeriod = inValue;
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)setStartWithSearch:(BOOL)inValue
+{
+    startWithSearch = inValue;
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)setPreferAdvancedSearch:(BOOL)inValue
+{
+    preferAdvancedSearch = inValue;
 }
 
 @end

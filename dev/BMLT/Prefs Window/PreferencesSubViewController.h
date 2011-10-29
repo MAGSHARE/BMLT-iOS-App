@@ -31,6 +31,10 @@
     IBOutlet UISwitch   *startWithMapSwitch;
     IBOutlet UISwitch   *preferDistanceSortSwitch;
     IBOutlet UIButton   *findLocationNowButton;
+    IBOutlet UISwitch   *startWithSearchSwitch;
+    IBOutlet UIButton   *startWithSearchButton;
+    IBOutlet UISwitch   *preferAdvancedSwitch;
+    IBOutlet UIButton   *preferAdvancedButton;
 }
 - (void)setSwitches;
 - (IBAction)findNewLocation:(id)sender;
@@ -40,5 +44,9 @@
 - (IBAction)startWithMapToggle:(id)sender;
 - (IBAction)preferDistanceSortToggle:(id)sender;
 - (IBAction)preferDistanceSortTouched:(id)sender;
+- (IBAction)startWithSearchTouched:(id)sender;
+- (IBAction)startWithSearchToggle:(id)sender;
+- (IBAction)preferAdvancedTouched:(id)sender;
+- (IBAction)preferAdvancedToggle:(id)sender;
 
 @end

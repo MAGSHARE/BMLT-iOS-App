@@ -37,6 +37,8 @@
     [startWithMapLabel setTitle:NSLocalizedString(@"SETTINGS-START-WITH-MAP", nil) forState:UIControlStateNormal];
     [preferDistanceSortLabel setTitle:NSLocalizedString(@"SETTINGS-PREFER-DISTANCE-SORT", nil) forState:UIControlStateNormal];
     [findLocationNowButton setTitle:NSLocalizedString(@"SETTINGS-UPDATE-LOCATION", nil) forState:UIControlStateNormal];
+    [startWithSearchButton setTitle:NSLocalizedString(@"SETTINGS-START-WITH-SEARCH", nil) forState:UIControlStateNormal];
+    [preferAdvancedButton setTitle:NSLocalizedString(@"SETTINGS-PREFER-ADVANCED", nil) forState:UIControlStateNormal];
     
     BMLT_Prefs  *prefs = [BMLT_Prefs getBMLT_Prefs];
     
@@ -56,6 +58,8 @@
     
     [startWithMapSwitch setOn:[prefs startWithMap]];
     [preferDistanceSortSwitch setOn:[prefs preferDistanceSort]];
+    [startWithSearchSwitch setOn:[prefs startWithSearch]];
+    [preferAdvancedSwitch setOn:[prefs preferAdvancedSearch]];
 }
 
 /***************************************************************\**
@@ -79,6 +83,14 @@
     preferDistanceSortSwitch = nil;
     [findLocationNowButton release];
     findLocationNowButton = nil;
+    [startWithSearchSwitch release];
+    startWithSearchSwitch = nil;
+    [startWithSearchButton release];
+    startWithSearchButton = nil;
+    [preferAdvancedSwitch release];
+    preferAdvancedSwitch = nil;
+    [preferAdvancedButton release];
+    preferAdvancedButton = nil;
     [super viewDidUnload];
 }
 
@@ -111,6 +123,10 @@
     [startWithMapSwitch release];
     [preferDistanceSortSwitch release];
     [findLocationNowButton release];
+    [startWithSearchSwitch release];
+    [startWithSearchButton release];
+    [preferAdvancedSwitch release];
+    [preferAdvancedButton release];
     [super dealloc];
 }
 
@@ -184,4 +200,43 @@
     [preferDistanceSortSwitch setOn:![preferDistanceSortSwitch isOn]];
     [self preferDistanceSortTouched:preferDistanceSortSwitch];
 }
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (IBAction)startWithSearchTouched:(id)sender
+{
+    BMLT_Prefs  *thePrefs = [BMLT_Prefs getBMLT_Prefs];
+    [thePrefs setStartWithSearch:[(UISwitch *)sender isOn]];
+    [BMLT_Prefs saveChanges];
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (IBAction)startWithSearchToggle:(id)sender
+{
+    [startWithSearchSwitch setOn:![startWithSearchSwitch isOn]];
+    [self startWithSearchTouched:startWithSearchSwitch];
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (IBAction)preferAdvancedTouched:(id)sender
+{
+    BMLT_Prefs  *thePrefs = [BMLT_Prefs getBMLT_Prefs];
+    [thePrefs setPreferAdvancedSearch:[(UISwitch *)sender isOn]];
+    [BMLT_Prefs saveChanges];
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (IBAction)preferAdvancedToggle:(id)sender
+{
+    [preferAdvancedSwitch setOn:![preferAdvancedSwitch isOn]];
+    [self preferAdvancedTouched:preferAdvancedSwitch];
+}
+
 @end

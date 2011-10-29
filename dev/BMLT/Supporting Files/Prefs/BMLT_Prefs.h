@@ -47,6 +47,8 @@
     BOOL            preferDistanceSort;
     BOOL            lookupMyLocation;
     int             gracePeriod;
+    BOOL            startWithSearch;
+    BOOL            preferAdvancedSearch;
 }
 
 + (BMLT_Prefs *)getBMLT_Prefs;
@@ -62,10 +64,14 @@
 - (BOOL)startWithMap;
 - (BOOL)preferDistanceSort;
 - (BOOL)lookupMyLocation;
+- (BOOL)startWithSearch;
+- (BOOL)preferAdvancedSearch;
 - (int)gracePeriod;
 - (void)setStartWithMap:(BOOL)inValue;
 - (void)setPreferDistanceSort:(BOOL)inValue;
 - (void)setLookupMyLocation:(BOOL)inValue;
 - (void)setGracePeriod:(int)inValue;
+- (void)setStartWithSearch:(BOOL)inValue;
+- (void)setPreferAdvancedSearch:(BOOL)inValue;
 
 @end
