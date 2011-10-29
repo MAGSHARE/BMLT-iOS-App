@@ -574,6 +574,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     SpecifyNewSearchViewController  *theController = [[SpecifyNewSearchViewController alloc] initWithSearchController:(A_SearchController *)[navController topViewController]];
     
+    if ( ![self isLookupValid] )
+        {
+        openAdvanced = YES;
+        }
+    
     if ( theController )
         {
         if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
