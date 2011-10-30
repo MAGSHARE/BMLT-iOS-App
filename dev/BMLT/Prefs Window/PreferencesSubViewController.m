@@ -38,7 +38,6 @@
     [preferDistanceSortLabel setTitle:NSLocalizedString(@"SETTINGS-PREFER-DISTANCE-SORT", nil) forState:UIControlStateNormal];
     [findLocationNowButton setTitle:NSLocalizedString(@"SETTINGS-UPDATE-LOCATION", nil) forState:UIControlStateNormal];
     [startWithSearchButton setTitle:NSLocalizedString(@"SETTINGS-START-WITH-SEARCH", nil) forState:UIControlStateNormal];
-    [preferAdvancedButton setTitle:NSLocalizedString(@"SETTINGS-PREFER-ADVANCED", nil) forState:UIControlStateNormal];
     
     BMLT_Prefs  *prefs = [BMLT_Prefs getBMLT_Prefs];
     
@@ -55,11 +54,21 @@
         [findMyLocationLabel setAlpha:0];
         [findMyLocationSwitch setAlpha:0];
         }
+
+    if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
+        {
+        [preferAdvancedButton setAlpha:0];
+        [preferAdvancedSwitch setAlpha:0];
+        }
+    else
+        {
+        [preferAdvancedButton setTitle:NSLocalizedString(@"SETTINGS-PREFER-ADVANCED", nil) forState:UIControlStateNormal];
+        [preferAdvancedSwitch setOn:[prefs preferAdvancedSearch]];
+        }
     
     [startWithMapSwitch setOn:[prefs startWithMap]];
     [preferDistanceSortSwitch setOn:[prefs preferDistanceSort]];
     [startWithSearchSwitch setOn:[prefs startWithSearch]];
-    [preferAdvancedSwitch setOn:[prefs preferAdvancedSearch]];
 }
 
 /***************************************************************\**

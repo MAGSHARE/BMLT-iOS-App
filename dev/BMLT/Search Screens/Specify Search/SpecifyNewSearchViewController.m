@@ -145,7 +145,7 @@
 {
     [super viewDidAppear:animated];
     
-    if ( [[BMLTAppDelegate getBMLTAppDelegate] getOpenAdvanced] )
+    if ( ([[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPad) && [[BMLTAppDelegate getBMLTAppDelegate] getOpenAdvanced] )
         {
         [self goToAdvanced];
         }
