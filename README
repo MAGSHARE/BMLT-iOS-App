@@ -50,6 +50,8 @@ CHANGELIST
 = Version 1.1 =
 * TBD
 * Made it so that the quick search will be disabled if an initial location lookup is not done, but it will dynamically re-enable if a subsequent manual lookup is done.
+* Added preferences for starting in a search, and for preferring an advanced search as the first choice (iPhone/iPod Touch only).
+* Added Swedish localization.
 
 = Version 1.0.1 =
 * October 27, 2011
