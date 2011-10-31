@@ -52,6 +52,7 @@ CHANGELIST
 * Made it so that the quick search will be disabled if an initial location lookup is not done, but it will dynamically re-enable if a subsequent manual lookup is done.
 * Added preferences for starting in a search, and for preferring an advanced search as the first choice (iPhone/iPod Touch only).
 * Added Swedish localization.
+* Fixed a bug in the parser that manifested in Swedish, but could have affected other languages, as well. It would result in incomplete strings being displayed.
 
 = Version 1.0.1 =
 * October 27, 2011

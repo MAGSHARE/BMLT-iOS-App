@@ -84,7 +84,16 @@
 #ifdef _CONNECTION_PARSE_TRACE_
             NSLog(@"\t\t\tBMLT_Location Setting Location Value of \"%@\" for the Key \"%@\".", (NSString *)inValue, inKey );
 #endif
-            [location_strings setObject:inValue forKey:inKey];
+            NSString    *value = (NSString*)[location_strings objectForKey:inKey];
+            
+            if ( !value )
+                {
+                value = @"";
+                }
+            
+            value = [value stringByAppendingString:inValue];
+            
+            [location_strings setObject:value forKey:inKey];
             }
         }
 }
