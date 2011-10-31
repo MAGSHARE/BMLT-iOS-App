@@ -48,8 +48,8 @@
 "SETTINGS-UPDATE-LOCATION-ON-STARTUP" = "Hitta min position vid uppstart.";
 "SETTINGS-START-WITH-MAP" = "Starta alltid i kartsökning";
 "SETTINGS-PREFER-DISTANCE-SORT" = "Föredra avståndssortering";
-"SETTINGS-START-WITH-SEARCH" = "Open Search On Startup";
-"SETTINGS-PREFER-ADVANCED" = "Start With Advanced Search";
+"SETTINGS-START-WITH-SEARCH" = "Sökning vid uppstart";
+"SETTINGS-PREFER-ADVANCED" = "Avancerad sökning vid uppstart";
 
 /* The names of the tab bar items, and the views they produce. */
 "TAB-BAR-1" = "Karta";
@@ -127,7 +127,7 @@
 "CLEAR-SEARCH-BUTTON" = "Ny sökning";
 
 /* Search Result Meeting Details Strings */
-"MEETING-DETAILS-FREQUENCY-FORMAT" = "Mötet är varje %@, klockan %@.";
+"MEETING-DETAILS-FREQUENCY-FORMAT" = "%@, %@";
 
 /* Error Strings */
 "COMM-ERROR" = "Fel vid sökning";
