@@ -64,8 +64,8 @@
 - (void)dealloc
 {
     [myTableView release];
-    [sortByDateAndTime release];
-    [sortByDistance release];
+    [sortByTimeLabel release];
+    [sortByDistanceLabel release];
     [super dealloc];
 }
 
@@ -140,11 +140,11 @@
  *****************************************************************/
 - (void)sortByDayAndTime
 {
-    [sortByDistance setIsOn:NO];
-    [sortByDateAndTime setIsOn:YES];
     [[BMLTAppDelegate getBMLTAppDelegate] sortMeetingsByWeekdayAndTime];
     [myTableView setDisplayedSearchResults:[[BMLTAppDelegate getBMLTAppDelegate] getSearchResults]];
     [myTableView reloadData];
+    sortByDist = NO;
+    [self setSortLabelStates];
 }
 
 /***************************************************************\**
@@ -152,11 +152,11 @@
  *****************************************************************/
 - (void)sortByDistance
 {
-    [sortByDistance setIsOn:YES];
-    [sortByDateAndTime setIsOn:NO];
     [[BMLTAppDelegate getBMLTAppDelegate] sortMeetingsByDistance];
     [myTableView setDisplayedSearchResults:[[BMLTAppDelegate getBMLTAppDelegate] getSearchResults]];
     [myTableView reloadData];
+    sortByDist = YES;
+    [self setSortLabelStates];
 }
 
 /***************************************************************\**
@@ -164,7 +164,7 @@
  *****************************************************************/
 - (void)toggleSort
 {
-    if ( [sortByDistance isOn] )
+    if ( sortByDist )
         {
         [self sortByDayAndTime];
         }
@@ -286,102 +286,45 @@ titleForHeaderInSection:(NSInteger)section
         {
         CGRect  boundsRect = [tableView bounds];
         
-        int rowHeight = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? kSortOptionsRowHeight_iPad : kSortOptionsRowHeight;
-        int buttonHeight = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? kSortButtonHeight_iPad : kSortButtonHeight;
-        int buttonWidth = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? kSortButtonWidth_iPad : kSortButtonWidth;
-        int padding = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? kSortButtonPadding_iPad : kSortButtonPadding;
-        
         boundsRect.origin = CGPointZero;
-        boundsRect.size.height = rowHeight;
+        boundsRect.size.height = kSortOptionsRowHeight;
+        boundsRect.size.width /= 2.0;
         
         UIView      *wrapper1 = [[UIView alloc] initWithFrame:boundsRect];
         
         if ( wrapper1 )
             {
             [wrapper1 setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+            sortByTimeLabel = [[UILabel alloc] initWithFrame:boundsRect];
             
-            UIView      *wrapper = [[UIView alloc] initWithFrame:boundsRect];
-            
-            if ( wrapper )
+            if ( sortByTimeLabel )
                 {
-                [wrapper setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
-                CGRect  button1Rect = boundsRect;
-                CGRect  button2Rect = boundsRect;
+                [sortByTimeLabel setFont:[UIFont  boldSystemFontOfSize:14]];
+                [sortByTimeLabel setTextAlignment:UITextAlignmentCenter];
+                [sortByTimeLabel setAdjustsFontSizeToFitWidth:YES];
+                NSArray *sr = [(BMLTTableView *)tableView getDisplayedSearchResults];
                 
-                button1Rect.size.width /= 2;
-                button2Rect.size.width /= 2;
-                button2Rect.origin.x = button1Rect.origin.x + button1Rect.size.width;
-                
-                sortByDateAndTime = [[BrassCheckBox alloc] init];
-                
-                if ( sortByDateAndTime )
+                if ( [(BMLT_Meeting *)[sr objectAtIndex:0] getWeekdayOrdinal] == [(BMLT_Meeting *)[sr objectAtIndex:[sr count] - 1] getWeekdayOrdinal] )
                     {
-                    CGRect frame = [sortByDateAndTime bounds];
-                    frame.size.height = buttonHeight;
-                    frame.size.width = buttonWidth;
-                    frame.origin.x = (button1Rect.origin.x + button1Rect.size.width) - (frame.size.width + padding);
-                    frame.origin.y = (button1Rect.size.height - frame.size.height) / 2;
-                    [sortByDateAndTime setFrame:frame];
-                    [sortByDateAndTime setIsOn:![[BMLT_Prefs getBMLT_Prefs] preferDistanceSort]];
-                    [sortByDateAndTime setUserInteractionEnabled:NO];
-                    [wrapper addSubview:sortByDateAndTime];
+                    [sortByTimeLabel setText:NSLocalizedString(@"SEARCH-RESULTS-SORT-TIME", nil)];
                     }
-                
-                button1Rect.size.width -= (buttonWidth + (padding * 2));
-                
-                UILabel    *label = [[UILabel alloc] initWithFrame:button1Rect];
-                
-                if ( label )
+                else
                     {
-                    [label setFont:[UIFont  boldSystemFontOfSize:14]];
-                    [label setTextAlignment:UITextAlignmentRight];
-                    [label setAdjustsFontSizeToFitWidth:YES];
-                    [label setBackgroundColor:[UIColor clearColor]];
-                    NSArray *sr = [(BMLTTableView *)tableView getDisplayedSearchResults];
-                    
-                    if ( [(BMLT_Meeting *)[sr objectAtIndex:0] getWeekdayOrdinal] == [(BMLT_Meeting *)[sr objectAtIndex:[sr count] - 1] getWeekdayOrdinal] )
-                        {
-                        [label setText:NSLocalizedString(@"SEARCH-RESULTS-SORT-TIME", nil)];
-                        }
-                    else
-                        {
-                        [label setText:NSLocalizedString(@"SEARCH-RESULTS-SORT-DAY", nil)];
-                        }
-                    [wrapper addSubview:label];
-                    [label release];
+                    [sortByTimeLabel setText:NSLocalizedString(@"SEARCH-RESULTS-SORT-DAY", nil)];
                     }
+                [wrapper1 addSubview:sortByTimeLabel];
                 
-                sortByDistance = [[BrassCheckBox alloc] init];
-                if ( sortByDistance )
+                boundsRect.origin.x = boundsRect.size.width;
+                sortByDistanceLabel = [[UILabel alloc] initWithFrame:boundsRect];
+                if ( sortByDistanceLabel )
                     {
-                    CGRect frame = [sortByDistance bounds];
-                    frame.size.height = buttonHeight;
-                    frame.size.width = buttonWidth;
-                    frame.origin.x = button2Rect.origin.x + padding;
-                    frame.origin.y = (button2Rect.size.height - frame.size.height) / 2;
-                    [sortByDistance setFrame:frame];
-                    [sortByDistance setIsOn:[[BMLT_Prefs getBMLT_Prefs] preferDistanceSort]];
-                    [sortByDistance setUserInteractionEnabled:NO];
-                    [wrapper addSubview:sortByDistance];
+                    [sortByDistanceLabel setFont:[UIFont  boldSystemFontOfSize:14]];
+                    [sortByDistanceLabel setTextAlignment:UITextAlignmentCenter];
+                    [sortByDistanceLabel setAdjustsFontSizeToFitWidth:YES];
+                    [sortByDistanceLabel setText:NSLocalizedString(@"SEARCH-RESULTS-SORT-DISTANCE", nil)];
+
+                    [wrapper1 addSubview:sortByDistanceLabel];
                     }
-                
-                button2Rect.size.width -= (buttonWidth + (padding * 2));
-                button2Rect.origin.x += (buttonWidth + padding);
-                
-                label = [[UILabel alloc] initWithFrame:button2Rect];
-                
-                if ( label )
-                    {
-                    [label setFont:[UIFont  boldSystemFontOfSize:14]];
-                    [label setAdjustsFontSizeToFitWidth:YES];
-                    [label setBackgroundColor:[UIColor clearColor]];
-                    [label setText:NSLocalizedString(@"SEARCH-RESULTS-SORT-DISTANCE", nil)];
-                    [wrapper addSubview:label];
-                    [label release];
-                    }
-                
-                [wrapper1 addSubview:wrapper];
-                [wrapper release];
                 }
             
             [ret addSubview:wrapper1];
@@ -392,9 +335,21 @@ titleForHeaderInSection:(NSInteger)section
             {
             [self sortByDistance];
             }
+        
+        [self setSortLabelStates];
         }
     
     return ret;
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)setSortLabelStates
+{
+    UIColor *selectedColor = [UIColor colorWithRed:.8 green:.9 blue:1 alpha:1];
+    [sortByDistanceLabel setBackgroundColor:(sortByDist ? selectedColor : [UIColor clearColor])];
+    [sortByTimeLabel setBackgroundColor:(sortByDist ? [UIColor clearColor] : selectedColor)];
 }
 
 /***************************************************************\**
@@ -434,7 +389,7 @@ titleForHeaderInSection:(NSInteger)section
     CGFloat ret = List_Meeting_Display_CellHeight;
     if ( [self displayDistanceSort] && [indexPath section] == 0 )
         {
-        ret = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? kSortOptionsRowHeight_iPad : kSortOptionsRowHeight;
+        ret = kSortOptionsRowHeight;
         }
     
     return ret;

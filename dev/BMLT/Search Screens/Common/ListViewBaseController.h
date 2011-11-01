@@ -24,15 +24,7 @@
 #import "FormatDetailView.h"
 #import "BrassCheckBox.h"
 
-#define kSortOptionsRowHeight        40
-#define kSortButtonHeight            32
-#define kSortButtonWidth             32
-#define kSortButtonPadding            2
-
-#define kSortOptionsRowHeight_iPad   52
-#define kSortButtonHeight_iPad       48
-#define kSortButtonWidth_iPad        48
-#define kSortButtonPadding_iPad       4
+#define kSortOptionsRowHeight        20
 
 @interface BMLTTableView : UITableView
 {
@@ -47,11 +39,13 @@
 @interface ListViewBaseController : A_SearchController <UITableViewDelegate, UITableViewDataSource>
 {
     BMLTTableView   *myTableView;
-    BrassCheckBox   *sortByDateAndTime;
-    BrassCheckBox   *sortByDistance;
     BOOL            noDistance;
+    BOOL            sortByDist;
+    UILabel         *sortByTimeLabel;
+    UILabel         *sortByDistanceLabel;
 }
 - (UITableViewCell *)setUpSortTableCell:(UITableView *)tableView;
+- (void)setSortLabelStates;
 - (void)displayListOfMeetings:(NSArray *)inResults;
 - (void)sortByDayAndTime;
 - (void)sortByDistance;
