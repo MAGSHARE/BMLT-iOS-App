@@ -89,8 +89,13 @@
 - (void)viewDidLoad
 {
     [self setBeanieBackground];
-    [self loadSettingsView];
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadSettingsView];
 }
 
 /***************************************************************\**
@@ -185,17 +190,21 @@
  *****************************************************************/
 - (void)loadSettingsView
 {
-    prefsController = [[PreferencesSubViewController alloc] initWithNibName:nil bundle:nil];
-    
-    CGRect  frame = [settingsScrollView bounds];
-    
-    frame.origin = CGPointZero;
-    frame.size.height = [[prefsController view] frame].size.height;
-    
-    [[prefsController view] setFrame:frame];
-    [settingsScrollView setContentSize:frame.size];
-    [settingsScrollView setContentOffset:CGPointZero];
-    [prefsController setSwitches];
-    [settingsScrollView addSubview:[prefsController view]];
+    if ( !prefsController )
+        {
+        prefsController = [[PreferencesSubViewController alloc] initWithNibName:nil bundle:nil];
+        
+        CGRect  frame = [settingsScrollView bounds];
+        
+        frame.origin = CGPointZero;
+        frame.size.height = [[prefsController view] frame].size.height;
+        frame.size.width = [settingsScrollView bounds].size.width;
+        
+        [[prefsController view] setFrame:frame];
+        [settingsScrollView setContentSize:frame.size];
+        [settingsScrollView setContentOffset:CGPointZero];
+        [prefsController setSwitches];
+        [settingsScrollView addSubview:[prefsController view]];
+        }
 }
 @end

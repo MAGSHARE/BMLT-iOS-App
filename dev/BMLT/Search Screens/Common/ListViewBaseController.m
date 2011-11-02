@@ -294,7 +294,7 @@ titleForHeaderInSection:(NSInteger)section
         
         if ( wrapper1 )
             {
-            [wrapper1 setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+            [wrapper1 setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
             sortByTimeLabel = [[UILabel alloc] initWithFrame:boundsRect];
             
             if ( sortByTimeLabel )
@@ -347,9 +347,11 @@ titleForHeaderInSection:(NSInteger)section
  *****************************************************************/
 - (void)setSortLabelStates
 {
-    UIColor *selectedColor = [UIColor colorWithRed:.8 green:.9 blue:1 alpha:1];
+    UIColor *selectedColor = [UIColor colorWithRed:0 green:.5 blue:1 alpha:1];
     [sortByDistanceLabel setBackgroundColor:(sortByDist ? selectedColor : [UIColor clearColor])];
+    [sortByDistanceLabel setTextColor:(sortByDist ? [UIColor whiteColor] : selectedColor)];
     [sortByTimeLabel setBackgroundColor:(sortByDist ? [UIColor clearColor] : selectedColor)];
+    [sortByTimeLabel setTextColor:(sortByDist ? selectedColor : [UIColor whiteColor])];
 }
 
 /***************************************************************\**
