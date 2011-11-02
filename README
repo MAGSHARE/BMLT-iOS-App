@@ -54,6 +54,7 @@ CHANGELIST
 * Added Swedish localization.
 * Fixed a bug in the parser that manifested in Swedish, but could have affected other languages, as well. It would result in incomplete strings being displayed.
 * Removed the "brass" checkboxes from the meeting sort row, and the whole row now acts as a big checkbox. This gives us a lot more room, and is more consistent with standard iPhone UI.
+* Various cosmetic tweaks and fixes.
 
 = Version 1.0.1 =
 * October 27, 2011
