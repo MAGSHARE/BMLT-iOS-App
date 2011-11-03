@@ -81,6 +81,14 @@
 /***************************************************************\**
  \brief 
  *****************************************************************/
+- (void)viewDidLayoutSubviews
+{
+    [self setSortLabelStates];
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
 - (void)displaySearchResults:(NSArray *)inResults
 {
 #ifdef DEBUG
@@ -347,6 +355,17 @@ titleForHeaderInSection:(NSInteger)section
  *****************************************************************/
 - (void)setSortLabelStates
 {
+    CGRect  boundsRect = [myTableView bounds];
+    
+    boundsRect.origin = CGPointZero;
+    boundsRect.size.height = kSortOptionsRowHeight;
+    boundsRect.size.width /= 2.0;
+    
+    [sortByTimeLabel setFrame:boundsRect];
+    
+    boundsRect.origin.x = boundsRect.size.width;
+    [sortByDistanceLabel setFrame:boundsRect];
+    
     UIColor *selectedColor = [UIColor colorWithRed:0 green:.5 blue:1 alpha:1];
     [sortByDistanceLabel setBackgroundColor:(sortByDist ? selectedColor : [UIColor clearColor])];
     [sortByDistanceLabel setTextColor:(sortByDist ? [UIColor whiteColor] : selectedColor)];
