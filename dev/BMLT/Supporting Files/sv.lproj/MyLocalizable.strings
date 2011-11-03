@@ -107,8 +107,8 @@
 "DISTANCE-KM" = "Km";
 
 /* Special strings for noon and midnight */
-"TIME-NOON" = "Noon";
-"TIME-MIDNIGHT" = "Midnight";
+"TIME-NOON" = "12:00";
+"TIME-MIDNIGHT" = "00:00";
 
 /* Search Results Header -List */
 "SEARCH-RESULTS-PREFIX" = "Resultat:";
