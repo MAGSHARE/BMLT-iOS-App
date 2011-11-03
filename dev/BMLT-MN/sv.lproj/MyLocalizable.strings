@@ -1,0 +1,21 @@
+/* Settings Dialog Product Name */
+"SETTINGS-PRODUCT-NAME" = "BMLT-MN";
+"SETTINGS-BYLINE" = "A MAGSHARE Production";
+"SETTINGS-BLURB" = "Find NA Meetings In Minnesota";
+
+/* Initial Server */
+"INITIAL-SERVER-NAME" = "MN";
+"INITIAL-SERVER-DESCRIPTION" = "The root server for the Minnesota Region";
+"INITIAL-SERVER-URI" = "http://naminnesota.net/bmlt/main_server";
+
+/* Initial Map Coordinates */
+"INITIAL-MAP-LONG" = "-94.21875";
+"INITIAL-MAP-LAT" = "45.552525";
+
+/* Format keys */
+"FORMAT-KEY-OPEN" = "O";
+"FORMAT-KEY-CLOSED" = "C";
+"FORMAT-KEY-WHEELCHAIR" = "WC";
+
+/* Distance Units (either "KM" or "MI" */
+"DISTANCE-UNITS" = "MI";

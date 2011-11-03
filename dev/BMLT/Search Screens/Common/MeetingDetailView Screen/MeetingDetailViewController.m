@@ -190,8 +190,25 @@
 {
     NSString    *formatString = NSLocalizedString ( @"MEETING-DETAILS-FREQUENCY-FORMAT", nil );
     NSString    *weekday = [myMeeting getWeekday];
-    NSDate      *myDate = [myMeeting getStartTime];
-    NSString    *time = [NSDateFormatter localizedStringFromDate:myDate dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+    NSDate      *startTime = [myMeeting getStartTime];
+    NSString    *time = [NSDateFormatter localizedStringFromDate:startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+    NSCalendar  *gregorian = [[NSCalendar alloc]
+                              initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    if ( gregorian )
+        {
+        NSDateComponents    *dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:startTime];
+        
+        if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
+            {
+            time = NSLocalizedString(@"TIME-MIDNIGHT", nil);
+            }
+        else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
+            {
+            time = NSLocalizedString(@"TIME-NOON", nil);
+            }
+        [gregorian release];
+        }
     
     [frequencyTextView setText:[NSString stringWithFormat:formatString, weekday, time]];
 }

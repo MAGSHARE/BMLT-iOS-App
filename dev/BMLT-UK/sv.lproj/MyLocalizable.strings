@@ -1,0 +1,21 @@
+/* Settings Dialog Product Name */
+"SETTINGS-PRODUCT-NAME" = "BMLT-UK";
+"SETTINGS-BYLINE" = "A MAGSHARE Production";
+"SETTINGS-BLURB" = "Find NA Meetings the United Kingdom";
+
+/* Initial Server */
+"INITIAL-SERVER-NAME" = "UKNA";
+"INITIAL-SERVER-DESCRIPTION" = "The root server for the UK";
+"INITIAL-SERVER-URI" = "http://ukna.org/BMLT/main_server";
+
+/* Initial Map Coordinates */
+"INITIAL-MAP-LONG" = "-3.076408";
+"INITIAL-MAP-LAT" = "55.228962";
+
+/* Format keys */
+"FORMAT-KEY-OPEN" = "O";
+"FORMAT-KEY-CLOSED" = "C";
+"FORMAT-KEY-WHEELCHAIR" = "WA";
+
+/* Distance Units (either "KM" or "MI" */
+"DISTANCE-UNITS" = "MI";

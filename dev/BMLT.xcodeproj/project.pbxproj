@@ -1514,6 +1514,20 @@
 		7771600014424BF5002D4552 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7771600114424BF5002D4552 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7771600314424BF5002D4552 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7773EA8C1462A9B700A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		7773EA8D1462A9CB00A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		7773EA8E1462A9D600A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		7773EA8F1462A9DE00A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7773EA901462A9E600A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		7773EA911462A9EE00A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7773EA921462A9F900A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		7773EA931462A9FF00A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7773EA941462AA0A00A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		7773EA951462AA1200A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7773EA961462AA1800A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		7773EA971462AA2400A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7773EA981462AA2E00A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7773EA991462AA3600A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7777C9531436262100A0AFA7 /* BrassCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrassCheckBox.h; sourceTree = "<group>"; };
 		7777C9541436262100A0AFA7 /* BrassCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrassCheckBox.m; sourceTree = "<group>"; };
 		77791D5F1434EFEF0046A138 /* SpecifyNewSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecifyNewSearchViewController.h; sourceTree = "<group>"; };
@@ -3472,7 +3486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}";
+			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}\n${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME} \"sv\"\n";
 		};
 		7728E98D1449B33700F1DFD1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3485,7 +3499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}";
+			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}\n${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME} \"sv\"\n";
 		};
 		7746273C1453021F0034B457 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3498,7 +3512,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}";
+			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}\n${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME} \"sv\"\n";
 		};
 		77E913321448887200D8F1F7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3511,7 +3525,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}";
+			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}\n${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME} \"sv\"\n";
 		};
 		77E91338144898C300D8F1F7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3524,7 +3538,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}";
+			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}\n${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME} \"sv\"\n";
 		};
 		77E91339144898D000D8F1F7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3537,7 +3551,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}";
+			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}\n${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME} \"sv\"\n";
 		};
 		77E9133A144898DB00D8F1F7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3550,7 +3564,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}";
+			shellScript = "${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME}\n${PROJECT_DIR}/BMLT/Supporting\\ Files/buildLocalizationFile.pl ${PRODUCT_NAME} \"sv\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3877,6 +3891,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				772631F2144A71C5008C8112 /* en */,
+				7773EA951462AA1200A9209F /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3885,6 +3900,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				772631F4144A71C5008C8112 /* en */,
+				7773EA901462A9E600A9209F /* sv */,
 			);
 			name = MyLocalizable.strings;
 			sourceTree = "<group>";
@@ -3901,6 +3917,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				77263204144A71DE008C8112 /* en */,
+				7773EA981462AA2E00A9209F /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3909,6 +3926,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				77263206144A71DE008C8112 /* en */,
+				7773EA8C1462A9B700A9209F /* sv */,
 			);
 			name = MyLocalizable.strings;
 			sourceTree = "<group>";
@@ -3925,6 +3943,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7728EA231449B49300F1DFD1 /* en */,
+				7773EA971462AA2400A9209F /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3933,6 +3952,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7728EA251449B49300F1DFD1 /* en */,
+				7773EA8E1462A9D600A9209F /* sv */,
 			);
 			name = MyLocalizable.strings;
 			sourceTree = "<group>";
@@ -3957,6 +3977,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				774627CD145302730034B457 /* en */,
+				7773EA991462AA3600A9209F /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3965,6 +3986,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				774627CF145302730034B457 /* en */,
+				7773EA8D1462A9CB00A9209F /* sv */,
 			);
 			name = MyLocalizable.strings;
 			sourceTree = "<group>";
@@ -3989,6 +4011,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				77D05EC814489F960076D1CC /* en */,
+				7773EA931462A9FF00A9209F /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3997,6 +4020,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				77D05ECB14489FB40076D1CC /* en */,
+				7773EA911462A9EE00A9209F /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -4005,6 +4029,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				77D05ECE14489FCF0076D1CC /* en */,
+				7773EA8F1462A9DE00A9209F /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -4022,6 +4047,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				77E9133C1448999300D8F1F7 /* en */,
+				7773EA921462A9F900A9209F /* sv */,
 			);
 			name = MyLocalizable.strings;
 			sourceTree = "<group>";
@@ -4030,6 +4056,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				77E9133E144899AA00D8F1F7 /* en */,
+				7773EA941462AA0A00A9209F /* sv */,
 			);
 			name = MyLocalizable.strings;
 			sourceTree = "<group>";
@@ -4038,6 +4065,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				77E91340144899E500D8F1F7 /* en */,
+				7773EA961462AA1800A9209F /* sv */,
 			);
 			name = MyLocalizable.strings;
 			sourceTree = "<group>";

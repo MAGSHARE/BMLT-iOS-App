@@ -238,7 +238,27 @@
         {
         [timeLabel setFont:theFont];
         [timeLabel setBackgroundColor:[UIColor clearColor]];
-        [timeLabel setText:[NSDateFormatter localizedStringFromDate:[myMeeting getStartTime] dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle]];
+        NSDate      *startTime = [myMeeting getStartTime];
+        NSString    *timeString = [NSDateFormatter localizedStringFromDate:startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+        NSCalendar  *gregorian = [[NSCalendar alloc]
+                                 initWithCalendarIdentifier:NSGregorianCalendar];
+        
+        if ( gregorian )
+            {
+            NSDateComponents    *dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:startTime];
+            
+            if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
+                {
+                timeString = NSLocalizedString(@"TIME-MIDNIGHT", nil);
+                }
+            else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
+                {
+                timeString = NSLocalizedString(@"TIME-NOON", nil);
+                }
+            [gregorian release];
+            }
+
+        [timeLabel setText:timeString];
         [timeLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
         [wrapperView addSubview:timeLabel];
         [timeLabel release];

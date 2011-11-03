@@ -1,0 +1,21 @@
+/* Settings Dialog Product Name */
+"SETTINGS-PRODUCT-NAME" = "BMLT-NY";
+"SETTINGS-BYLINE" = "A MAGSHARE Production";
+"SETTINGS-BLURB" = "Find NA Meetings In Oahu, Hawaii";
+
+/* Initial Server */
+"INITIAL-SERVER-NAME" = "OAHU";
+"INITIAL-SERVER-DESCRIPTION" = "The root server for the Oahu, HI Area";
+"INITIAL-SERVER-URI" = "http://na-oahu.org/bmlt/main_server";
+
+/* Initial Map Coordinates */
+"INITIAL-MAP-LONG" = "-157.964172";
+"INITIAL-MAP-LAT" = "21.442364";
+
+/* Format keys */
+"FORMAT-KEY-OPEN" = "O";
+"FORMAT-KEY-CLOSED" = "C";
+"FORMAT-KEY-WHEELCHAIR" = "WC";
+
+/* Distance Units (either "KM" or "MI" */
+"DISTANCE-UNITS" = "MI";

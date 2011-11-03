@@ -51,12 +51,13 @@ CHANGELIST
 * TBD
 * Made it so that the quick search will be disabled if an initial location lookup is not done, but it will dynamically re-enable if a subsequent manual lookup is done.
 * Added preferences for starting in a search, and for preferring an advanced search as the first choice (iPhone/iPod Touch only).
-* Added Swedish localization.
+* Added Swedish localization. This will be available when BMLT-SV is released.
 * Fixed a bug in the parser that manifested in Swedish, but could have affected other languages, as well. It would result in incomplete strings being displayed.
 * Removed the "brass" checkboxes from the meeting sort row, and the whole row now acts as a big checkbox. This gives us a lot more room, and is more consistent with standard iPhone UI.
 * Various cosmetic tweaks and fixes.
 * Made the format buttons slightly more "3D," so they afford touching. I found people weren't touching them, as they seem display-only.
-* Removed the sort header, and made the sort display a bit wider, to more easily afford touching, while still providing more room for the data display.
+* Removed the sort header, to more easily afford touching, while still providing more room for the data display.
+* Midnight and noon meetings are now reported with "Midnight" and "Noon."
 
 = Version 1.0.1 =
 * October 27, 2011
