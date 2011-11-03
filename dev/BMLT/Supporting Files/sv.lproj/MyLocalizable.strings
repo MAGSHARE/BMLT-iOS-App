@@ -106,6 +106,10 @@
 "DISTANCE-MILE" = "Miles";
 "DISTANCE-KM" = "Km";
 
+/* Special strings for noon and midnight */
+"TIME-NOON" = "Noon";
+"TIME-MIDNIGHT" = "Midnight";
+
 /* Search Results Header -List */
 "SEARCH-RESULTS-PREFIX" = "Resultat:";
 "SEARCH-RESULTS-SUFFIX" = "Möten";
