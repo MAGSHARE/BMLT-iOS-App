@@ -113,7 +113,6 @@
 /* Search Results Header -List */
 "SEARCH-RESULTS-PREFIX" = "Resultat:";
 "SEARCH-RESULTS-SUFFIX" = "Möten";
-"SEARCH-RESULTS-SORT-HEADER" = "Sorterings val";
 "SEARCH-RESULTS-SORT-TIME" = "Sortera på tid";
 "SEARCH-RESULTS-SORT-DAY" = "Sortera på veckodag";
 "SEARCH-RESULTS-SORT-DISTANCE" = "Sortera på avstånd";

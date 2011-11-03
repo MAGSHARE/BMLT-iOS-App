@@ -220,7 +220,7 @@
 - (NSString *)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section
 {
-    NSString    *ret = ([self displayDistanceSort] && (section == 0)) ? NSLocalizedString(@"SEARCH-RESULTS-SORT-HEADER", nil) : [NSString stringWithFormat:@"%@ %d %@", NSLocalizedString(@"SEARCH-RESULTS-PREFIX", nil), [[(BMLTTableView *)tableView getDisplayedSearchResults] count], NSLocalizedString(@"SEARCH-RESULTS-SUFFIX", nil)];
+    NSString    *ret = ([self displayDistanceSort] && (section == 0)) ? nil : [NSString stringWithFormat:@"%@ %d %@", NSLocalizedString(@"SEARCH-RESULTS-PREFIX", nil), [[(BMLTTableView *)tableView getDisplayedSearchResults] count], NSLocalizedString(@"SEARCH-RESULTS-SUFFIX", nil)];
 
     return ret;
 }

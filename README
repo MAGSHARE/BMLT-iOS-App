@@ -56,6 +56,7 @@ CHANGELIST
 * Removed the "brass" checkboxes from the meeting sort row, and the whole row now acts as a big checkbox. This gives us a lot more room, and is more consistent with standard iPhone UI.
 * Various cosmetic tweaks and fixes.
 * Made the format buttons slightly more "3D," so they afford touching. I found people weren't touching them, as they seem display-only.
+* Removed the sort header, and made the sort display a bit wider, to more easily afford touching, while still providing more room for the data display.
 
 = Version 1.0.1 =
 * October 27, 2011

@@ -108,7 +108,6 @@
 /* Search Results Header -List */
 "SEARCH-RESULTS-PREFIX" = "Results:";
 "SEARCH-RESULTS-SUFFIX" = "Meetings";
-"SEARCH-RESULTS-SORT-HEADER" = "Sort Options";
 "SEARCH-RESULTS-SORT-TIME" = "Sort By Time";
 "SEARCH-RESULTS-SORT-DAY" = "Sort By Weekday";
 "SEARCH-RESULTS-SORT-DISTANCE" = "Sort By Distance";

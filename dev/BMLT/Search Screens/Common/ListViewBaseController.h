@@ -24,7 +24,7 @@
 #import "FormatDetailView.h"
 #import "BrassCheckBox.h"
 
-#define kSortOptionsRowHeight        20
+#define kSortOptionsRowHeight        26
 
 @interface BMLTTableView : UITableView
 {
