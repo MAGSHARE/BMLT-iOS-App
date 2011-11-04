@@ -288,10 +288,6 @@
  *****************************************************************/
 - (void)executeSearch
 {
-    if ( [self getMySearchQueueLocationString] )
-        {
-        
-        }
     [[BMLTAppDelegate getBMLTAppDelegate] resetNavigationControllers];
     [[[BMLTAppDelegate getBMLTAppDelegate] getMeetingSearch:NO withParams:nil] doSearch];
 }
@@ -508,13 +504,6 @@
         [animatedImage removeFromSuperview];
         animatedImage = nil;
         }
-}
-
-/***************************************************************\**
- \brief 
- *****************************************************************/
-- (void)lookUpLocation:(NSString *)inLocationText
-{
 }
 
 /***************************************************************\**

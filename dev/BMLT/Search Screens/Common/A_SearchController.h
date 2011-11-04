@@ -82,7 +82,6 @@ typedef struct SearchQueueElement_struct
 - (void)viewMeetingList:(NSArray *)inList;
 - (void)beanieButtonHit:(id)sender;
 - (void)specifyNewSearch:(id)sender;
-- (void)lookUpLocation:(NSString *)inLocationText;
 - (void)findLocation;
 - (void)searchAtLocation:(CLLocationCoordinate2D)inCoords;
 - (void)displaySearchResults:(NSArray *)inResults;

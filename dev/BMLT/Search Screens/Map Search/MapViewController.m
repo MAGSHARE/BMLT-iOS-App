@@ -184,19 +184,11 @@
 - (void)determineMapSize:(NSArray *)inResults
 {    
     [self clearLastRegion];
-    CLLocationCoordinate2D lastLookup = [BMLTAppDelegate getLastLookup];
     CLLocationCoordinate2D  northWestCorner;
     CLLocationCoordinate2D  southEastCorner;
     
-    if ( lastLookup.longitude && lastLookup.latitude )
-        {
-        northWestCorner = southEastCorner = lastLookup;
-        }
-    else
-        {
-        northWestCorner = [(BMLT_Meeting *)[inResults objectAtIndex:0] getMeetingLocationCoords].coordinate;
-        southEastCorner = [(BMLT_Meeting *)[inResults objectAtIndex:0] getMeetingLocationCoords].coordinate;
-        }
+    northWestCorner = [(BMLT_Meeting *)[inResults objectAtIndex:0] getMeetingLocationCoords].coordinate;
+    southEastCorner = [(BMLT_Meeting *)[inResults objectAtIndex:0] getMeetingLocationCoords].coordinate;
 
     for ( BMLT_Meeting *meeting in inResults )
         {
