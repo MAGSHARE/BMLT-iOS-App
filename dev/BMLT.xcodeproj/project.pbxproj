@@ -1695,6 +1695,7 @@
 		77791D5F1434EFEF0046A138 /* SpecifyNewSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecifyNewSearchViewController.h; sourceTree = "<group>"; };
 		77791D601434EFEF0046A138 /* SpecifyNewSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecifyNewSearchViewController.m; sourceTree = "<group>"; };
 		77791D611434EFEF0046A138 /* SpecifyNewSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecifyNewSearchViewController.xib; sourceTree = "<group>"; };
+		7795BEA014636735004D80FF /* BMLT-CT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMLT-CT-Info.plist"; sourceTree = SOURCE_ROOT; };
 		77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleGreen@2x.png"; sourceTree = "<group>"; };
 		77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleRed@2x.png"; sourceTree = "<group>"; };
 		77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleYellow@2x.png"; sourceTree = "<group>"; };
@@ -1739,7 +1740,6 @@
 		77E91340144899E500D8F1F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		77F1D3B41439F5BD00B816CB /* BMLT-NY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-NY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F5E3741463588D00B0C770 /* BMLT-CT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-CT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		77F5E3771463588E00B0C770 /* BMLT-NY copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BMLT-NY copy-Info.plist"; path = "/Users/cmarshall/Documents/Development/iOS/BMLT/dev/BMLT-NY copy-Info.plist"; sourceTree = "<absolute>"; };
 		77F5E379146358DC00B0C770 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		77F5E37A146358DC00B0C770 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		77F5E37B146358DC00B0C770 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -2293,7 +2293,6 @@
 				77B070F514177A6100549DA8 /* BMLT */,
 				775EEE941447C7E0000027B9 /* Variants */,
 				77B070EC14177A6000549DA8 /* Products */,
-				77F5E3771463588E00B0C770 /* BMLT-NY copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2394,6 +2393,7 @@
 		77F5E378146358DC00B0C770 /* BMLT-CT */ = {
 			isa = PBXGroup;
 			children = (
+				7795BEA014636735004D80FF /* BMLT-CT-Info.plist */,
 				77F5E379146358DC00B0C770 /* Default-Landscape~ipad.png */,
 				77F5E37A146358DC00B0C770 /* Default-Portrait~ipad.png */,
 				77F5E37B146358DC00B0C770 /* Default.png */,
