@@ -59,6 +59,7 @@ CHANGELIST
 * Removed the sort header, to more easily afford touching, while still providing more room for the data display.
 * Midnight and noon meetings are now reported with "Midnight" and "Noon."
 * Removed the current location from the calculation of the map size, as this could cause extremely zoomed-out maps when using the typed-in address. The black marker is visible, but it may be offscreen.
+* Fixed a bug in the Kilometer display (the units were not being converted to KM).
 
 = Version 1.0.1 =
 * October 27, 2011

@@ -342,9 +342,9 @@
             [distanceLabel setFont:[UIFont boldSystemFontOfSize:List_Meeting_Display_Text_Size]];
             [distanceLabel setBackgroundColor:[UIColor clearColor]];
             [distanceLabel setTextAlignment:UITextAlignmentRight];
-            double   distance = [(NSString *)[myMeeting getValueFromField:@"distance_in_km"] doubleValue] / 1.609344;
-            distance = round(distance * 100) / 100.0;
             NSString    *units = NSLocalizedString(@"DISTANCE-UNITS", nil);
+            double      distance = [(NSString *)[myMeeting getValueFromField:@"distance_in_km"] doubleValue] / ([units isEqualToString:@"KM"] ? 1.0 : 1.609344);
+            distance = round(distance * 100) / 100.0;
             NSString    *distanceString = [NSString stringWithFormat:@"%.2F %@", distance, ([units isEqualToString:@"KM"] ? NSLocalizedString(@"DISTANCE-KM", nil) : NSLocalizedString(@"DISTANCE-MILE", nil))];
             [distanceLabel setText:distanceString];
             [distanceLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
