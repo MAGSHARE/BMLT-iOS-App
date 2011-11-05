@@ -607,14 +607,7 @@ foundCharacters:(NSString *)string
                     
                     NSString    *string = [NSString stringWithFormat:@"%f", distance];
                     
-                    if ( [moreFields objectForKey:currentElement] )
-                        {
-                        [moreFields setObject:[(NSString *)[moreFields objectForKey:@"distance_in_km"] stringByAppendingString:string] forKey:@"distance_in_km"];
-                        }
-                    else
-                        {
-                        [moreFields setObject:string forKey:@"distance_in_km"];
-                        }
+                    [moreFields setObject:string forKey:@"distance_in_km"];
                     }
                 }
             }
