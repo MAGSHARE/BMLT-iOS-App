@@ -101,6 +101,15 @@
 /***************************************************************\**
  \brief 
  *****************************************************************/
+- (void)executeSearch
+{
+    sortByDist = [[BMLT_Prefs getBMLT_Prefs] preferDistanceSort];
+    [super executeSearch];
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
 - (void)displayListOfMeetings:(NSArray *)inResults
 {
     [myTableView setDataSource:nil];
