@@ -156,7 +156,7 @@
 "WEEKDAY-SHORT-NAME-6" = "Lör";
 
 /* The default title for the black marker */
-"BLACK-MARKER-TITLE" = "Sök plats";
+"BLACK-MARKER-TITLE" = "Din Plats";
 
 /* The MAGSHARE URI (For Settings/Info) */
 "SETTINGS-BEANIE-BUTTON-URI" = "http://magshare.org";

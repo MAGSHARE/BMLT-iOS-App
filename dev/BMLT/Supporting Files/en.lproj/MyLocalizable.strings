@@ -151,7 +151,7 @@
 "WEEKDAY-SHORT-NAME-6" = "Sat";
 
 /* The default title for the black marker */
-"BLACK-MARKER-TITLE" = "Search Location";
+"BLACK-MARKER-TITLE" = "Your Location";
 
 /* The MAGSHARE URI (For Settings/Info) */
 "SETTINGS-BEANIE-BUTTON-URI" = "http://magshare.org";
