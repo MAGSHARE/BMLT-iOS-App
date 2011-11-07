@@ -112,6 +112,9 @@
 "SEARCH-RESULTS-SORT-DAY" = "Sort By Weekday";
 "SEARCH-RESULTS-SORT-DISTANCE" = "Sort By Distance";
 
+/* If there is an unkown error during the parse, this is displayed */
+"PARSER-UNKNOWN-ERROR" = "Unknown Search Error";
+
 /* No Search Results Alert */
 "NO-SEARCH-RESULTS" = "The search Found No Meetings.";
 

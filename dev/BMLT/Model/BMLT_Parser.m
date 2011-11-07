@@ -65,15 +65,6 @@
 /***************************************************************\**
  \brief 
  *****************************************************************/
-- (BOOL)parse
-{
-    myAutoReleasePool = [[NSAutoreleasePool alloc] init];
-    return [super parse];
-}
-
-/***************************************************************\**
- \brief 
- *****************************************************************/
 - (void)abortParsing
 {
     [self cancelTimeout];
@@ -94,8 +85,6 @@
     myFirstDelegate = nil;
     [myCurrentDelegate release];
     myCurrentDelegate = nil;
-    [myAutoReleasePool release];
-    myAutoReleasePool = nil;
     [super setDelegate:nil];
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
@@ -427,7 +416,14 @@ parseErrorOccurred:(NSError *)parseError
 {
     if ( myCurrentDelegate )
         {
-        [myCurrentDelegate parser:parser parseErrorOccurred:parseError];
+        NSError *passItOn = parseError;
+        
+        if ( ![parseError userInfo] || (![[parseError userInfo] count]) )
+            {
+            passItOn = [NSError errorWithDomain:@"BMLT_Parser Unknown Error" code:-1 userInfo:[NSDictionary dictionaryWithObject:NSLocalizedString(@"PARSER-UNKNOWN-ERROR",nil) forKey:NSLocalizedDescriptionKey]];
+            }
+        
+        [myCurrentDelegate parser:parser parseErrorOccurred:passItOn];
         }
 }
 

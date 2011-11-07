@@ -117,6 +117,9 @@
 "SEARCH-RESULTS-SORT-DAY" = "Sortera på veckodag";
 "SEARCH-RESULTS-SORT-DISTANCE" = "Sortera på avstånd";
 
+/* If there is an unkown error during the parse, this is displayed */
+"PARSER-UNKNOWN-ERROR" = "Unknown Search Error";
+
 /* No Search Results Alert */
 "NO-SEARCH-RESULTS" = "Inga möten funna.";
 

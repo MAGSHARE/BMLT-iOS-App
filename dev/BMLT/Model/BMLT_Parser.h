@@ -27,7 +27,6 @@
     NSObject                        *currentElement;
     NSObject<NSXMLParserDelegate>   *myFirstDelegate;
     NSObject<NSXMLParserDelegate>   *myCurrentDelegate;
-    NSAutoreleasePool               *myAutoReleasePool;
 }
 - (void)setCurrentElement:(NSObject *)inObject;
 - (void)setMyServer:(BMLT_Server *)inServerObject;

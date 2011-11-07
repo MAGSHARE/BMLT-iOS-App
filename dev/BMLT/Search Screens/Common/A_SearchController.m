@@ -308,7 +308,7 @@
 - (void)searchCompleteWithError:(NSError *)inError
 {
 #ifdef DEBUG
-    NSLog(@"A_SearchController searchCompleteWithError Search Complete With %@", (inError ? [inError description] : @"No Errors"));
+//    NSLog(@"A_SearchController searchCompleteWithError Search Complete With %@", (inError ? [inError description] : @"No Errors"));
 #endif
     if ( inError )
         {

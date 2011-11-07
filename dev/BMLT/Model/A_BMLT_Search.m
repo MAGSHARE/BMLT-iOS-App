@@ -382,20 +382,12 @@ foundCharacters:(NSString *)string
 - (void)parser:(NSXMLParser *)parser
 parseErrorOccurred:(NSError *)parseError
 {
-#ifdef _CONNECTION_PARSE_TRACE_
-    NSLog(@"A_BMLT_Search Parser Error: %@", [parseError localizedDescription] );
-#endif
-    [parser abortParsing];
     if ( myDelegate )
         {
-        [myDelegate searchCompleteWithError:parseError];
+        [myDelegate performSelectorOnMainThread:@selector(searchCompleteWithError:) withObject:parseError waitUntilDone:YES];
         }
-    
-#ifdef DEBUG
-    NSLog(@"A_BMLT_Search parseErrorOccurred Releasing Parser");
-#endif
+    [parser abortParsing];
     searchInProgress = NO;
-    
 }
 
 /***************************************************************\**
