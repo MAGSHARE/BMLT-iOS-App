@@ -281,7 +281,16 @@
     
     if ( townLabel )
         {
-        NSString    *town = [NSString stringWithFormat:@"%@, %@", (([myMeeting getValueFromField:@"location_city_subsection"]) ? (NSString *)[myMeeting getValueFromField:@"location_city_subsection"] : (NSString *)[myMeeting getValueFromField:@"location_municipality"]), (NSString *)[myMeeting getValueFromField:@"location_province"]];
+        NSString    *town = @"";
+        
+        if ( [myMeeting getValueFromField:@"location_province"] )
+            {
+            town = [NSString stringWithFormat:@"%@, %@", (([myMeeting getValueFromField:@"location_city_subsection"]) ? (NSString *)[myMeeting getValueFromField:@"location_city_subsection"] : (NSString *)[myMeeting getValueFromField:@"location_municipality"]), (NSString *)[myMeeting getValueFromField:@"location_province"]];
+            }
+        else
+            {
+            town = [NSString stringWithString: (([myMeeting getValueFromField:@"location_city_subsection"]) ? (NSString *)[myMeeting getValueFromField:@"location_city_subsection"] : (NSString *)[myMeeting getValueFromField:@"location_municipality"])];
+            }
         [townLabel setTextAlignment:UITextAlignmentRight];
         [townLabel setFont:[UIFont boldSystemFontOfSize:List_Meeting_Display_Text_Size]];
         [townLabel setBackgroundColor:[UIColor clearColor]];
