@@ -319,6 +319,11 @@
         {
         NSString    *meetingLocationString = [NSString stringWithFormat:@"%@%@", (([myMeeting getValueFromField:@"location_text"]) ? [NSString stringWithFormat:@"%@, ", (NSString *)[myMeeting getValueFromField:@"location_text"]] : @""), [myMeeting getValueFromField:@"location_street"]];
         
+        if ( !meetingLocationString )
+            {
+            meetingLocationString =  @"";
+            }
+        
         [meetingText setFont:[UIFont boldSystemFontOfSize:List_Meeting_Display_Text_Size]];
         [meetingText setTextAlignment:UITextAlignmentCenter];
         [meetingText setAdjustsFontSizeToFitWidth:YES];
