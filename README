@@ -52,6 +52,9 @@ KNOWN ISSUES
 
 CHANGELIST
 ----------
+= Version 1.1.1 =
+* TBD
+
 = Version 1.1 =
 * November 11, 2011
 * Made it so that the quick search will be disabled if an initial location lookup is not done, but it will dynamically re-enable if a subsequent manual lookup is done.
