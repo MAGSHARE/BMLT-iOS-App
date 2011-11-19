@@ -140,9 +140,6 @@
 		77016EB414424918003E7D3F /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		77016EB514424918003E7D3F /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		77016EB614424918003E7D3F /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
-		77016EB714424918003E7D3F /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584C1424D23700B879CA /* AppIcon.png */; };
-		77016EB814424918003E7D3F /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584D1424D23700B879CA /* AppIcon@2x.png */; };
-		77016EB914424918003E7D3F /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */; };
 		77016EBA14424918003E7D3F /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		77016EBB14424918003E7D3F /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		77016EBC14424918003E7D3F /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
@@ -295,9 +292,6 @@
 		77111D22145AE2660048448D /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		77111D23145AE2660048448D /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		77111D24145AE2660048448D /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
-		77111D25145AE2660048448D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584C1424D23700B879CA /* AppIcon.png */; };
-		77111D26145AE2660048448D /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584D1424D23700B879CA /* AppIcon@2x.png */; };
-		77111D27145AE2660048448D /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */; };
 		77111D28145AE2660048448D /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		77111D29145AE2660048448D /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		77111D2A145AE2660048448D /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
@@ -469,9 +463,6 @@
 		772631C3144A7137008C8112 /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		772631C4144A7137008C8112 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		772631C5144A7137008C8112 /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
-		772631C6144A7137008C8112 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584C1424D23700B879CA /* AppIcon.png */; };
-		772631C7144A7137008C8112 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584D1424D23700B879CA /* AppIcon@2x.png */; };
-		772631C8144A7137008C8112 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */; };
 		772631C9144A7137008C8112 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		772631CA144A7137008C8112 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		772631CB144A7137008C8112 /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
@@ -630,9 +621,6 @@
 		7728E9F41449B33700F1DFD1 /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		7728E9F51449B33700F1DFD1 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		7728E9F61449B33700F1DFD1 /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
-		7728E9F71449B33700F1DFD1 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584C1424D23700B879CA /* AppIcon.png */; };
-		7728E9F81449B33700F1DFD1 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584D1424D23700B879CA /* AppIcon@2x.png */; };
-		7728E9F91449B33700F1DFD1 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */; };
 		7728E9FA1449B33700F1DFD1 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		7728E9FB1449B33700F1DFD1 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		7728E9FC1449B33700F1DFD1 /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
@@ -790,9 +778,6 @@
 		7738B86A1441F34A004E7DC2 /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		7738B86B1441F34A004E7DC2 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		7738B86C1441F34A004E7DC2 /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
-		7738B86D1441F34A004E7DC2 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584C1424D23700B879CA /* AppIcon.png */; };
-		7738B86E1441F34A004E7DC2 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584D1424D23700B879CA /* AppIcon@2x.png */; };
-		7738B86F1441F34A004E7DC2 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */; };
 		7738B8701441F34A004E7DC2 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		7738B8711441F34A004E7DC2 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		7738B87A1441F34A004E7DC2 /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
@@ -946,9 +931,6 @@
 		7746279E1453021F0034B457 /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		7746279F1453021F0034B457 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		774627A01453021F0034B457 /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
-		774627A11453021F0034B457 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584C1424D23700B879CA /* AppIcon.png */; };
-		774627A21453021F0034B457 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584D1424D23700B879CA /* AppIcon@2x.png */; };
-		774627A31453021F0034B457 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */; };
 		774627A41453021F0034B457 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		774627A51453021F0034B457 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		774627A61453021F0034B457 /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
@@ -1130,9 +1112,6 @@
 		77CF5751143D4194002E5A5B /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		77CF5752143D4194002E5A5B /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		77CF5753143D4194002E5A5B /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
-		77CF5754143D4194002E5A5B /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584C1424D23700B879CA /* AppIcon.png */; };
-		77CF5755143D4194002E5A5B /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584D1424D23700B879CA /* AppIcon@2x.png */; };
-		77CF5756143D4194002E5A5B /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */; };
 		77CF5757143D4194002E5A5B /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		77CF5758143D4194002E5A5B /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		77CF5761143D4194002E5A5B /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
@@ -1150,6 +1129,33 @@
 		77D05EC914489F960076D1CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77D05EC714489F960076D1CC /* Localizable.strings */; };
 		77D05ECC14489FB40076D1CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77D05ECA14489FB40076D1CC /* Localizable.strings */; };
 		77D05ECF14489FCF0076D1CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77D05ECD14489FCF0076D1CC /* Localizable.strings */; };
+		77E720221477E5F200AD1299 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7201F1477E5F200AD1299 /* AppIcon.png */; };
+		77E720231477E5F200AD1299 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720201477E5F200AD1299 /* AppIcon@2x.png */; };
+		77E720241477E5F200AD1299 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720211477E5F200AD1299 /* AppIcon@iPad.png */; };
+		77E720281477E61900AD1299 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720251477E61900AD1299 /* AppIcon.png */; };
+		77E720291477E61900AD1299 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720261477E61900AD1299 /* AppIcon@2x.png */; };
+		77E7202A1477E61900AD1299 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720271477E61900AD1299 /* AppIcon@iPad.png */; };
+		77E7202E1477E63100AD1299 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7202B1477E63100AD1299 /* AppIcon.png */; };
+		77E7202F1477E63100AD1299 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7202C1477E63100AD1299 /* AppIcon@2x.png */; };
+		77E720301477E63100AD1299 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7202D1477E63100AD1299 /* AppIcon@iPad.png */; };
+		77E720341477E64700AD1299 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720311477E64700AD1299 /* AppIcon.png */; };
+		77E720351477E64700AD1299 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720321477E64700AD1299 /* AppIcon@2x.png */; };
+		77E720361477E64700AD1299 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720331477E64700AD1299 /* AppIcon@iPad.png */; };
+		77E7203A1477E65E00AD1299 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720371477E65E00AD1299 /* AppIcon.png */; };
+		77E7203B1477E65E00AD1299 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720381477E65E00AD1299 /* AppIcon@2x.png */; };
+		77E7203C1477E65E00AD1299 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720391477E65E00AD1299 /* AppIcon@iPad.png */; };
+		77E720401477E67600AD1299 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7203D1477E67600AD1299 /* AppIcon.png */; };
+		77E720411477E67600AD1299 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7203E1477E67600AD1299 /* AppIcon@2x.png */; };
+		77E720421477E67600AD1299 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7203F1477E67600AD1299 /* AppIcon@iPad.png */; };
+		77E720461477E68700AD1299 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720431477E68700AD1299 /* AppIcon.png */; };
+		77E720471477E68700AD1299 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720441477E68700AD1299 /* AppIcon@2x.png */; };
+		77E720481477E68700AD1299 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720451477E68700AD1299 /* AppIcon@iPad.png */; };
+		77E7204C1477E6A300AD1299 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720491477E6A300AD1299 /* AppIcon.png */; };
+		77E7204D1477E6A300AD1299 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7204A1477E6A300AD1299 /* AppIcon@2x.png */; };
+		77E7204E1477E6A300AD1299 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7204B1477E6A300AD1299 /* AppIcon@iPad.png */; };
+		77E720521477E6BB00AD1299 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E7204F1477E6BB00AD1299 /* AppIcon.png */; };
+		77E720531477E6BB00AD1299 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720501477E6BB00AD1299 /* AppIcon@2x.png */; };
+		77E720541477E6BB00AD1299 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E720511477E6BB00AD1299 /* AppIcon@iPad.png */; };
 		77F1D2F61439F5BD00B816CB /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243814177EBC00E32A6F /* BMLTAppDelegate.m */; };
 		77F1D2F71439F5BD00B816CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243914177EBC00E32A6F /* main.m */; };
 		77F1D2F81439F5BD00B816CB /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243D14177EBC00E32A6F /* A_BMLT_ChildClass.m */; };
@@ -1281,9 +1287,6 @@
 		77F1D3901439F5BD00B816CB /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		77F1D3911439F5BD00B816CB /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		77F1D3921439F5BD00B816CB /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
-		77F1D3931439F5BD00B816CB /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584C1424D23700B879CA /* AppIcon.png */; };
-		77F1D3941439F5BD00B816CB /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584D1424D23700B879CA /* AppIcon@2x.png */; };
-		77F1D3951439F5BD00B816CB /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */; };
 		77F1D3961439F5BD00B816CB /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		77F1D3971439F5BD00B816CB /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		77F1D3A01439F5BD00B816CB /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
@@ -1429,9 +1432,6 @@
 		77F5E3511463588D00B0C770 /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */; };
 		77F5E3521463588D00B0C770 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FF01423851200973011 /* FormatDetailView.xib */; };
 		77F5E3531463588D00B0C770 /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
-		77F5E3541463588D00B0C770 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584C1424D23700B879CA /* AppIcon.png */; };
-		77F5E3551463588D00B0C770 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770A584D1424D23700B879CA /* AppIcon@2x.png */; };
-		77F5E3561463588D00B0C770 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */; };
 		77F5E3571463588D00B0C770 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		77F5E3581463588D00B0C770 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		77F5E3591463588D00B0C770 /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
@@ -1468,8 +1468,6 @@
 		77044ACB14377424008CAC44 /* AdvancedSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSearchViewController.h; sourceTree = "<group>"; };
 		77044ACC14377424008CAC44 /* AdvancedSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSearchViewController.m; sourceTree = "<group>"; };
 		77044ACF14377794008CAC44 /* AdvancedSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvancedSearchViewController.xib; sourceTree = "<group>"; };
-		770A584C1424D23700B879CA /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
-		770A584D1424D23700B879CA /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
 		77111D45145AE2660048448D /* BMLT-SV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-SV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77111D49145AE2970048448D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		77111D4A145AE2970048448D /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -1535,7 +1533,6 @@
 		77494BFA1435EDB8008AAEF2 /* BMLT_Results_MapPointAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Results_MapPointAnnotationView.m; sourceTree = "<group>"; };
 		775259101438DAFE0068AE8D /* QuickSearchButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuickSearchButton.png; sourceTree = "<group>"; };
 		775259111438DAFE0068AE8D /* QuickSearchButtonHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuickSearchButtonHighlighted.png; sourceTree = "<group>"; };
-		7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
 		77590F38143DDA370075DD9E /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		77590F39143DDA370075DD9E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		77590F3A143DDA370075DD9E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -1733,6 +1730,33 @@
 		77D7AD13144DA5A3002CFDFE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		77E01F84142FFF450077CCDF /* BMLT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BMLT-Prefix.pch"; path = "../BMLT-Prefix.pch"; sourceTree = "<group>"; };
 		77E53C451423A79000F8E3F9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		77E7201F1477E5F200AD1299 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		77E720201477E5F200AD1299 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		77E720211477E5F200AD1299 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
+		77E720251477E61900AD1299 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		77E720261477E61900AD1299 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		77E720271477E61900AD1299 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
+		77E7202B1477E63100AD1299 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		77E7202C1477E63100AD1299 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		77E7202D1477E63100AD1299 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
+		77E720311477E64700AD1299 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		77E720321477E64700AD1299 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		77E720331477E64700AD1299 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
+		77E720371477E65E00AD1299 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		77E720381477E65E00AD1299 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		77E720391477E65E00AD1299 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
+		77E7203D1477E67600AD1299 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		77E7203E1477E67600AD1299 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		77E7203F1477E67600AD1299 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
+		77E720431477E68700AD1299 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		77E720441477E68700AD1299 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		77E720451477E68700AD1299 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
+		77E720491477E6A300AD1299 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		77E7204A1477E6A300AD1299 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		77E7204B1477E6A300AD1299 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
+		77E7204F1477E6BB00AD1299 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		77E720501477E6BB00AD1299 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		77E720511477E6BB00AD1299 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@iPad.png"; sourceTree = "<group>"; };
 		77E91330144887F600D8F1F7 /* buildLocalizationFile.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = buildLocalizationFile.pl; sourceTree = "<group>"; };
 		77E913341448942900D8F1F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		77E9133C1448999300D8F1F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
@@ -1876,6 +1900,9 @@
 		77111D48145AE2970048448D /* BMLT-SV */ = {
 			isa = PBXGroup;
 			children = (
+				77E720491477E6A300AD1299 /* AppIcon.png */,
+				77E7204A1477E6A300AD1299 /* AppIcon@2x.png */,
+				77E7204B1477E6A300AD1299 /* AppIcon@iPad.png */,
 				77111D49145AE2970048448D /* Default-Landscape~ipad.png */,
 				77111D4A145AE2970048448D /* Default-Portrait~ipad.png */,
 				77111D4B145AE2970048448D /* Default.png */,
@@ -1890,6 +1917,9 @@
 		772631EA144A71C5008C8112 /* BMLT-NY */ = {
 			isa = PBXGroup;
 			children = (
+				77E720371477E65E00AD1299 /* AppIcon.png */,
+				77E720381477E65E00AD1299 /* AppIcon@2x.png */,
+				77E720391477E65E00AD1299 /* AppIcon@iPad.png */,
 				772631EB144A71C5008C8112 /* Default-Landscape~ipad.png */,
 				772631EC144A71C5008C8112 /* Default-Portrait~ipad.png */,
 				772631ED144A71C5008C8112 /* Default.png */,
@@ -1904,6 +1934,9 @@
 		772631FC144A71DE008C8112 /* BMLT-MD */ = {
 			isa = PBXGroup;
 			children = (
+				77E7202B1477E63100AD1299 /* AppIcon.png */,
+				77E7202C1477E63100AD1299 /* AppIcon@2x.png */,
+				77E7202D1477E63100AD1299 /* AppIcon@iPad.png */,
 				7726320E144A71F1008C8112 /* BMLT-MD-Info.plist */,
 				772631FD144A71DE008C8112 /* Default-Landscape~ipad.png */,
 				772631FE144A71DE008C8112 /* Default-Portrait~ipad.png */,
@@ -1919,6 +1952,9 @@
 		7728EA1B1449B49300F1DFD1 /* BMLT-UK */ = {
 			isa = PBXGroup;
 			children = (
+				77E720431477E68700AD1299 /* AppIcon.png */,
+				77E720441477E68700AD1299 /* AppIcon@2x.png */,
+				77E720451477E68700AD1299 /* AppIcon@iPad.png */,
 				7728EA1A1449B33700F1DFD1 /* BMLT-UK-Info.plist */,
 				7728EA1C1449B49300F1DFD1 /* Default-Landscape~ipad.png */,
 				7728EA1D1449B49300F1DFD1 /* Default-Portrait~ipad.png */,
@@ -1934,6 +1970,9 @@
 		7738B8961441F3A4004E7DC2 /* BMLT-MN */ = {
 			isa = PBXGroup;
 			children = (
+				77E720311477E64700AD1299 /* AppIcon.png */,
+				77E720321477E64700AD1299 /* AppIcon@2x.png */,
+				77E720331477E64700AD1299 /* AppIcon@iPad.png */,
 				7738B8951441F34B004E7DC2 /* BMLT-MN-Info.plist */,
 				7738B8971441F3A4004E7DC2 /* Default-Landscape~ipad.png */,
 				7738B8981441F3A4004E7DC2 /* Default-Portrait~ipad.png */,
@@ -1949,6 +1988,9 @@
 		774627C5145302730034B457 /* BMLT-OAHU */ = {
 			isa = PBXGroup;
 			children = (
+				77E7204F1477E6BB00AD1299 /* AppIcon.png */,
+				77E720501477E6BB00AD1299 /* AppIcon@2x.png */,
+				77E720511477E6BB00AD1299 /* AppIcon@iPad.png */,
 				774627D7145302870034B457 /* BMLT-OAHU-Info.plist */,
 				774627C6145302730034B457 /* Default-Landscape~ipad.png */,
 				774627C7145302730034B457 /* Default-Portrait~ipad.png */,
@@ -2093,9 +2135,6 @@
 			isa = PBXGroup;
 			children = (
 				77D447A31437471D0025291D /* Shadow.png */,
-				770A584C1424D23700B879CA /* AppIcon.png */,
-				770A584D1424D23700B879CA /* AppIcon@2x.png */,
-				7753398B14253F2C0037EBE9 /* AppIcon@iPad.png */,
 				77FF7219143F6AB900FF4D23 /* BeanieBadge.png */,
 				77444E1A143559E00023DB5C /* BeanieLogoList.png */,
 				77444E1B143559E00023DB5C /* BeanieLogoMap.png */,
@@ -2252,6 +2291,9 @@
 		77715FFD14424BF5002D4552 /* BMLT-FL */ = {
 			isa = PBXGroup;
 			children = (
+				77E720251477E61900AD1299 /* AppIcon.png */,
+				77E720261477E61900AD1299 /* AppIcon@2x.png */,
+				77E720271477E61900AD1299 /* AppIcon@iPad.png */,
 				77016EDC14424919003E7D3F /* BMLT-FL-Info.plist */,
 				77715FFE14424BF5002D4552 /* Default-Landscape~ipad.png */,
 				77715FFF14424BF5002D4552 /* Default-Portrait~ipad.png */,
@@ -2281,8 +2323,8 @@
 		778BC3EC145A0B2900784509 /* Pre-Release */ = {
 			isa = PBXGroup;
 			children = (
-				77111D48145AE2970048448D /* BMLT-SV */,
 				774627C5145302730034B457 /* BMLT-OAHU */,
+				77111D48145AE2970048448D /* BMLT-SV */,
 			);
 			name = "Pre-Release";
 			sourceTree = "<group>";
@@ -2378,6 +2420,9 @@
 		77CF5779143D41FB002E5A5B /* BMLT-TXOK */ = {
 			isa = PBXGroup;
 			children = (
+				77E7203D1477E67600AD1299 /* AppIcon.png */,
+				77E7203E1477E67600AD1299 /* AppIcon@2x.png */,
+				77E7203F1477E67600AD1299 /* AppIcon@iPad.png */,
 				77CF5780143D420B002E5A5B /* BMLT-TXOK-Info.plist */,
 				77590F38143DDA370075DD9E /* Default-Landscape~ipad.png */,
 				77590F39143DDA370075DD9E /* Default-Portrait~ipad.png */,
@@ -2393,6 +2438,9 @@
 		77F5E378146358DC00B0C770 /* BMLT-CT */ = {
 			isa = PBXGroup;
 			children = (
+				77E7201F1477E5F200AD1299 /* AppIcon.png */,
+				77E720201477E5F200AD1299 /* AppIcon@2x.png */,
+				77E720211477E5F200AD1299 /* AppIcon@iPad.png */,
 				7795BEA014636735004D80FF /* BMLT-CT-Info.plist */,
 				77F5E379146358DC00B0C770 /* Default-Landscape~ipad.png */,
 				77F5E37A146358DC00B0C770 /* Default-Portrait~ipad.png */,
@@ -2709,9 +2757,6 @@
 				77016EB414424918003E7D3F /* FormatCircleWC@2x.png in Resources */,
 				77016EB514424918003E7D3F /* FormatDetailView.xib in Resources */,
 				77016EB614424918003E7D3F /* MeetingDetailViewController.xib in Resources */,
-				77016EB714424918003E7D3F /* AppIcon.png in Resources */,
-				77016EB814424918003E7D3F /* AppIcon@2x.png in Resources */,
-				77016EB914424918003E7D3F /* AppIcon@iPad.png in Resources */,
 				77016EBA14424918003E7D3F /* MapMarkerBlue.png in Resources */,
 				77016EBB14424918003E7D3F /* MapMarkerRed.png in Resources */,
 				77016EBC14424918003E7D3F /* BeanieLogoHighlight.png in Resources */,
@@ -2737,6 +2782,9 @@
 				7771600914424BF5002D4552 /* Default@2x.png in Resources */,
 				7771600A14424BF5002D4552 /* InfoPlist.strings in Resources */,
 				77D05EC914489F960076D1CC /* Localizable.strings in Resources */,
+				77E720281477E61900AD1299 /* AppIcon.png in Resources */,
+				77E720291477E61900AD1299 /* AppIcon@2x.png in Resources */,
+				77E7202A1477E61900AD1299 /* AppIcon@iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2843,9 +2891,6 @@
 				77111D22145AE2660048448D /* FormatCircleWC@2x.png in Resources */,
 				77111D23145AE2660048448D /* FormatDetailView.xib in Resources */,
 				77111D24145AE2660048448D /* MeetingDetailViewController.xib in Resources */,
-				77111D25145AE2660048448D /* AppIcon.png in Resources */,
-				77111D26145AE2660048448D /* AppIcon@2x.png in Resources */,
-				77111D27145AE2660048448D /* AppIcon@iPad.png in Resources */,
 				77111D28145AE2660048448D /* MapMarkerBlue.png in Resources */,
 				77111D29145AE2660048448D /* MapMarkerRed.png in Resources */,
 				77111D2A145AE2660048448D /* BeanieLogoHighlight.png in Resources */,
@@ -2872,6 +2917,9 @@
 				77111D57145AE2970048448D /* InfoPlist.strings in Resources */,
 				77111D58145AE2970048448D /* Localizable.strings in Resources */,
 				77111D59145AE2970048448D /* MyLocalizable.strings in Resources */,
+				77E7204C1477E6A300AD1299 /* AppIcon.png in Resources */,
+				77E7204D1477E6A300AD1299 /* AppIcon@2x.png in Resources */,
+				77E7204E1477E6A300AD1299 /* AppIcon@iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2978,9 +3026,6 @@
 				772631C3144A7137008C8112 /* FormatCircleWC@2x.png in Resources */,
 				772631C4144A7137008C8112 /* FormatDetailView.xib in Resources */,
 				772631C5144A7137008C8112 /* MeetingDetailViewController.xib in Resources */,
-				772631C6144A7137008C8112 /* AppIcon.png in Resources */,
-				772631C7144A7137008C8112 /* AppIcon@2x.png in Resources */,
-				772631C8144A7137008C8112 /* AppIcon@iPad.png in Resources */,
 				772631C9144A7137008C8112 /* MapMarkerBlue.png in Resources */,
 				772631CA144A7137008C8112 /* MapMarkerRed.png in Resources */,
 				772631CB144A7137008C8112 /* BeanieLogoHighlight.png in Resources */,
@@ -3006,6 +3051,9 @@
 				7726320A144A71DE008C8112 /* Default@2x.png in Resources */,
 				7726320B144A71DE008C8112 /* InfoPlist.strings in Resources */,
 				7726320C144A71DE008C8112 /* Localizable.strings in Resources */,
+				77E7202E1477E63100AD1299 /* AppIcon.png in Resources */,
+				77E7202F1477E63100AD1299 /* AppIcon@2x.png in Resources */,
+				77E720301477E63100AD1299 /* AppIcon@iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3112,9 +3160,6 @@
 				7728E9F41449B33700F1DFD1 /* FormatCircleWC@2x.png in Resources */,
 				7728E9F51449B33700F1DFD1 /* FormatDetailView.xib in Resources */,
 				7728E9F61449B33700F1DFD1 /* MeetingDetailViewController.xib in Resources */,
-				7728E9F71449B33700F1DFD1 /* AppIcon.png in Resources */,
-				7728E9F81449B33700F1DFD1 /* AppIcon@2x.png in Resources */,
-				7728E9F91449B33700F1DFD1 /* AppIcon@iPad.png in Resources */,
 				7728E9FA1449B33700F1DFD1 /* MapMarkerBlue.png in Resources */,
 				7728E9FB1449B33700F1DFD1 /* MapMarkerRed.png in Resources */,
 				7728E9FC1449B33700F1DFD1 /* BeanieLogoHighlight.png in Resources */,
@@ -3141,6 +3186,9 @@
 				7728EA2A1449B49300F1DFD1 /* InfoPlist.strings in Resources */,
 				7728EA2C1449B49300F1DFD1 /* MyLocalizable.strings in Resources */,
 				774EDFEA1449B595001EB914 /* Localizable.strings in Resources */,
+				77E720461477E68700AD1299 /* AppIcon.png in Resources */,
+				77E720471477E68700AD1299 /* AppIcon@2x.png in Resources */,
+				77E720481477E68700AD1299 /* AppIcon@iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3247,9 +3295,6 @@
 				7738B86A1441F34A004E7DC2 /* FormatCircleWC@2x.png in Resources */,
 				7738B86B1441F34A004E7DC2 /* FormatDetailView.xib in Resources */,
 				7738B86C1441F34A004E7DC2 /* MeetingDetailViewController.xib in Resources */,
-				7738B86D1441F34A004E7DC2 /* AppIcon.png in Resources */,
-				7738B86E1441F34A004E7DC2 /* AppIcon@2x.png in Resources */,
-				7738B86F1441F34A004E7DC2 /* AppIcon@iPad.png in Resources */,
 				7738B8701441F34A004E7DC2 /* MapMarkerBlue.png in Resources */,
 				7738B8711441F34A004E7DC2 /* MapMarkerRed.png in Resources */,
 				7738B87A1441F34A004E7DC2 /* BeanieLogoHighlight.png in Resources */,
@@ -3275,6 +3320,9 @@
 				77183E1B144226450027D6CF /* SButtonConvex.png in Resources */,
 				77603E8B144232DC003C0FC6 /* PreferencesSubViewController.xib in Resources */,
 				77D05ECC14489FB40076D1CC /* Localizable.strings in Resources */,
+				77E720341477E64700AD1299 /* AppIcon.png in Resources */,
+				77E720351477E64700AD1299 /* AppIcon@2x.png in Resources */,
+				77E720361477E64700AD1299 /* AppIcon@iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3381,9 +3429,6 @@
 				7746279E1453021F0034B457 /* FormatCircleWC@2x.png in Resources */,
 				7746279F1453021F0034B457 /* FormatDetailView.xib in Resources */,
 				774627A01453021F0034B457 /* MeetingDetailViewController.xib in Resources */,
-				774627A11453021F0034B457 /* AppIcon.png in Resources */,
-				774627A21453021F0034B457 /* AppIcon@2x.png in Resources */,
-				774627A31453021F0034B457 /* AppIcon@iPad.png in Resources */,
 				774627A41453021F0034B457 /* MapMarkerBlue.png in Resources */,
 				774627A51453021F0034B457 /* MapMarkerRed.png in Resources */,
 				774627A61453021F0034B457 /* BeanieLogoHighlight.png in Resources */,
@@ -3410,6 +3455,9 @@
 				774627D4145302730034B457 /* InfoPlist.strings in Resources */,
 				774627D5145302730034B457 /* Localizable.strings in Resources */,
 				774627D6145302730034B457 /* MyLocalizable.strings in Resources */,
+				77E720521477E6BB00AD1299 /* AppIcon.png in Resources */,
+				77E720531477E6BB00AD1299 /* AppIcon@2x.png in Resources */,
+				77E720541477E6BB00AD1299 /* AppIcon@iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3516,9 +3564,6 @@
 				77CF5751143D4194002E5A5B /* FormatCircleWC@2x.png in Resources */,
 				77CF5752143D4194002E5A5B /* FormatDetailView.xib in Resources */,
 				77CF5753143D4194002E5A5B /* MeetingDetailViewController.xib in Resources */,
-				77CF5754143D4194002E5A5B /* AppIcon.png in Resources */,
-				77CF5755143D4194002E5A5B /* AppIcon@2x.png in Resources */,
-				77CF5756143D4194002E5A5B /* AppIcon@iPad.png in Resources */,
 				77CF5757143D4194002E5A5B /* MapMarkerBlue.png in Resources */,
 				77CF5758143D4194002E5A5B /* MapMarkerRed.png in Resources */,
 				77CF5761143D4194002E5A5B /* BeanieLogoHighlight.png in Resources */,
@@ -3544,6 +3589,9 @@
 				77183E1A144226450027D6CF /* SButtonConvex.png in Resources */,
 				77603E8A144232DC003C0FC6 /* PreferencesSubViewController.xib in Resources */,
 				77D05ECF14489FCF0076D1CC /* Localizable.strings in Resources */,
+				77E720401477E67600AD1299 /* AppIcon.png in Resources */,
+				77E720411477E67600AD1299 /* AppIcon@2x.png in Resources */,
+				77E720421477E67600AD1299 /* AppIcon@iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3650,9 +3698,6 @@
 				77F1D3901439F5BD00B816CB /* FormatCircleWC@2x.png in Resources */,
 				77F1D3911439F5BD00B816CB /* FormatDetailView.xib in Resources */,
 				77F1D3921439F5BD00B816CB /* MeetingDetailViewController.xib in Resources */,
-				77F1D3931439F5BD00B816CB /* AppIcon.png in Resources */,
-				77F1D3941439F5BD00B816CB /* AppIcon@2x.png in Resources */,
-				77F1D3951439F5BD00B816CB /* AppIcon@iPad.png in Resources */,
 				77F1D3961439F5BD00B816CB /* MapMarkerBlue.png in Resources */,
 				77F1D3971439F5BD00B816CB /* MapMarkerRed.png in Resources */,
 				77F1D3A01439F5BD00B816CB /* BeanieLogoHighlight.png in Resources */,
@@ -3678,6 +3723,9 @@
 				778A2E97144B139B00F4A36D /* Default@2x.png in Resources */,
 				778A2E98144B139E00F4A36D /* InfoPlist.strings in Resources */,
 				778A2E99144B13A200F4A36D /* Localizable.strings in Resources */,
+				77E7203A1477E65E00AD1299 /* AppIcon.png in Resources */,
+				77E7203B1477E65E00AD1299 /* AppIcon@2x.png in Resources */,
+				77E7203C1477E65E00AD1299 /* AppIcon@iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3784,9 +3832,6 @@
 				77F5E3511463588D00B0C770 /* FormatCircleWC@2x.png in Resources */,
 				77F5E3521463588D00B0C770 /* FormatDetailView.xib in Resources */,
 				77F5E3531463588D00B0C770 /* MeetingDetailViewController.xib in Resources */,
-				77F5E3541463588D00B0C770 /* AppIcon.png in Resources */,
-				77F5E3551463588D00B0C770 /* AppIcon@2x.png in Resources */,
-				77F5E3561463588D00B0C770 /* AppIcon@iPad.png in Resources */,
 				77F5E3571463588D00B0C770 /* MapMarkerBlue.png in Resources */,
 				77F5E3581463588D00B0C770 /* MapMarkerRed.png in Resources */,
 				77F5E3591463588D00B0C770 /* BeanieLogoHighlight.png in Resources */,
@@ -3813,6 +3858,9 @@
 				77F5E389146358DC00B0C770 /* InfoPlist.strings in Resources */,
 				77F5E38A146358DC00B0C770 /* Localizable.strings in Resources */,
 				77F5E38B146358DC00B0C770 /* MyLocalizable.strings in Resources */,
+				77E720221477E5F200AD1299 /* AppIcon.png in Resources */,
+				77E720231477E5F200AD1299 /* AppIcon@2x.png in Resources */,
+				77E720241477E5F200AD1299 /* AppIcon@iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
