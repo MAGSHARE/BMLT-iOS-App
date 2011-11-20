@@ -52,6 +52,10 @@ KNOWN ISSUES
 
 CHANGELIST
 ----------
+= Version 1.1.2 =
+* TBD
+* Turned on the option to parse the comments field for phone numbers.
+
 = Version 1.1.1 =
 * November 19, 2011
 * Changes the app icon to bring the app in line with Apple App Store Policy (Each variant of the app now has a slightly different icon).
