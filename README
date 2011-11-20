@@ -47,7 +47,7 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 KNOWN ISSUES
 ------------
-*   There seems to be a problem that is pretty minor, and only happens very, very infrequently (first time an app is used). In some cases, the Advanced Search may become "stacked" over another Advanced Search, so you have to go back through it twice. This does not seem to cause any operational difficulties, and I'm looking for the cause. If I can't find it for 1.1, or if the fix causes too much code footprint, it is likely to be a 1.1.2 issue.
+*   There seems to be a problem that is pretty minor, and only happens very, very infrequently (first time an app is used). In some cases, the Advanced Search may become "stacked" over another Advanced Search, so you have to go back through it twice. This does not seem to cause any operational difficulties, and I'm looking for the cause. If I can't find it for 1.1, or if the fix causes too much code footprint, it is likely to be a 1.1.2o issue.
 
 
 CHANGELIST
