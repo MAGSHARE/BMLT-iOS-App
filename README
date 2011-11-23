@@ -53,8 +53,9 @@ KNOWN ISSUES
 CHANGELIST
 ----------
 = Version 1.1.2 =
-* TBD
+* November 23, 2011
 * Turned on the option to parse the comments field for phone numbers.
+* Changed the "MD" variant to "MDC," and re-released it.
 
 = Version 1.1.1 =
 * November 19, 2011
