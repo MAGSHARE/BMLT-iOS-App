@@ -317,7 +317,6 @@
 		77111D56145AE2970048448D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111D4C145AE2970048448D /* Default@2x.png */; };
 		77111D57145AE2970048448D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77111D4D145AE2970048448D /* InfoPlist.strings */; };
 		77111D58145AE2970048448D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77111D4F145AE2970048448D /* Localizable.strings */; };
-		77111D59145AE2970048448D /* MyLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77111D51145AE2970048448D /* MyLocalizable.strings */; };
 		77183E10144226450027D6CF /* MButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77183E0C144226450027D6CF /* MButtonConcave.png */; };
 		77183E11144226450027D6CF /* MButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77183E0C144226450027D6CF /* MButtonConcave.png */; };
 		77183E12144226450027D6CF /* MButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77183E0C144226450027D6CF /* MButtonConcave.png */; };
@@ -639,7 +638,6 @@
 		7728EA281449B49300F1DFD1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA1E1449B49300F1DFD1 /* Default.png */; };
 		7728EA291449B49300F1DFD1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA1F1449B49300F1DFD1 /* Default@2x.png */; };
 		7728EA2A1449B49300F1DFD1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA201449B49300F1DFD1 /* InfoPlist.strings */; };
-		7728EA2C1449B49300F1DFD1 /* MyLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA241449B49300F1DFD1 /* MyLocalizable.strings */; };
 		7738B7D11441F34A004E7DC2 /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243814177EBC00E32A6F /* BMLTAppDelegate.m */; };
 		7738B7D21441F34A004E7DC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243914177EBC00E32A6F /* main.m */; };
 		7738B7D31441F34A004E7DC2 /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243D14177EBC00E32A6F /* A_BMLT_ChildClass.m */; };
@@ -950,7 +948,6 @@
 		774627D3145302730034B457 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 774627C9145302730034B457 /* Default@2x.png */; };
 		774627D4145302730034B457 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 774627CA145302730034B457 /* InfoPlist.strings */; };
 		774627D5145302730034B457 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 774627CC145302730034B457 /* Localizable.strings */; };
-		774627D6145302730034B457 /* MyLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 774627CE145302730034B457 /* MyLocalizable.strings */; };
 		774EDFEA1449B595001EB914 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA221449B49300F1DFD1 /* Localizable.strings */; };
 		77590F3C143DDA370075DD9E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77590F38143DDA370075DD9E /* Default-Landscape~ipad.png */; };
 		77590F3D143DDA370075DD9E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77590F39143DDA370075DD9E /* Default-Portrait~ipad.png */; };
@@ -981,7 +978,6 @@
 		77AE0869147D8996004DF90F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AE0862147D8996004DF90F /* Default.png */; };
 		77AE086A147D8996004DF90F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AE0863147D8996004DF90F /* Default@2x.png */; };
 		77AE0872147D89FA004DF90F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77AE0874147D89FA004DF90F /* Localizable.strings */; };
-		77AE0875147D89FE004DF90F /* MyLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77AE0877147D89FE004DF90F /* MyLocalizable.strings */; };
 		77C93C55143CEBE1005A3287 /* MapMarkerBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C93C54143CEBE1005A3287 /* MapMarkerBlack.png */; };
 		77CF56B6143D4194002E5A5B /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243814177EBC00E32A6F /* BMLTAppDelegate.m */; };
 		77CF56B7143D4194002E5A5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243914177EBC00E32A6F /* main.m */; };
@@ -1457,7 +1453,6 @@
 		77F5E388146358DC00B0C770 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F5E37C146358DC00B0C770 /* Default@2x.png */; };
 		77F5E389146358DC00B0C770 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77F5E37D146358DC00B0C770 /* InfoPlist.strings */; };
 		77F5E38A146358DC00B0C770 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77F5E37F146358DC00B0C770 /* Localizable.strings */; };
-		77F5E38B146358DC00B0C770 /* MyLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77F5E381146358DC00B0C770 /* MyLocalizable.strings */; };
 		77FF721A143F6AB900FF4D23 /* BeanieBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 77FF7219143F6AB900FF4D23 /* BeanieBadge.png */; };
 		77FF721B143F6AB900FF4D23 /* BeanieBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 77FF7219143F6AB900FF4D23 /* BeanieBadge.png */; };
 /* End PBXBuildFile section */
@@ -2917,7 +2912,6 @@
 				77111D56145AE2970048448D /* Default@2x.png in Resources */,
 				77111D57145AE2970048448D /* InfoPlist.strings in Resources */,
 				77111D58145AE2970048448D /* Localizable.strings in Resources */,
-				77111D59145AE2970048448D /* MyLocalizable.strings in Resources */,
 				77E7204C1477E6A300AD1299 /* AppIcon.png in Resources */,
 				77E7204D1477E6A300AD1299 /* AppIcon@2x.png in Resources */,
 				77E7204E1477E6A300AD1299 /* AppIcon@iPad.png in Resources */,
@@ -3054,7 +3048,6 @@
 				77AE0869147D8996004DF90F /* Default.png in Resources */,
 				77AE086A147D8996004DF90F /* Default@2x.png in Resources */,
 				77AE0872147D89FA004DF90F /* Localizable.strings in Resources */,
-				77AE0875147D89FE004DF90F /* MyLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3185,7 +3178,6 @@
 				7728EA281449B49300F1DFD1 /* Default.png in Resources */,
 				7728EA291449B49300F1DFD1 /* Default@2x.png in Resources */,
 				7728EA2A1449B49300F1DFD1 /* InfoPlist.strings in Resources */,
-				7728EA2C1449B49300F1DFD1 /* MyLocalizable.strings in Resources */,
 				774EDFEA1449B595001EB914 /* Localizable.strings in Resources */,
 				77E720461477E68700AD1299 /* AppIcon.png in Resources */,
 				77E720471477E68700AD1299 /* AppIcon@2x.png in Resources */,
@@ -3455,7 +3447,6 @@
 				774627D3145302730034B457 /* Default@2x.png in Resources */,
 				774627D4145302730034B457 /* InfoPlist.strings in Resources */,
 				774627D5145302730034B457 /* Localizable.strings in Resources */,
-				774627D6145302730034B457 /* MyLocalizable.strings in Resources */,
 				77E720521477E6BB00AD1299 /* AppIcon.png in Resources */,
 				77E720531477E6BB00AD1299 /* AppIcon@2x.png in Resources */,
 				77E720541477E6BB00AD1299 /* AppIcon@iPad.png in Resources */,
@@ -3858,7 +3849,6 @@
 				77F5E388146358DC00B0C770 /* Default@2x.png in Resources */,
 				77F5E389146358DC00B0C770 /* InfoPlist.strings in Resources */,
 				77F5E38A146358DC00B0C770 /* Localizable.strings in Resources */,
-				77F5E38B146358DC00B0C770 /* MyLocalizable.strings in Resources */,
 				77E720221477E5F200AD1299 /* AppIcon.png in Resources */,
 				77E720231477E5F200AD1299 /* AppIcon@2x.png in Resources */,
 				77E720241477E5F200AD1299 /* AppIcon@iPad.png in Resources */,
