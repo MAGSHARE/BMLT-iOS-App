@@ -17,7 +17,7 @@
 		<string>AppIcon@iPad.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>org.magshare.BMLTMN</string>
+	<string>org.naminnesota.MNNA</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleLocalizations</key>
