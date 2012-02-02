@@ -6,7 +6,7 @@
 /* Initial Server */
 "INITIAL-SERVER-NAME" = "MN";
 "INITIAL-SERVER-DESCRIPTION" = "The root server for the Minnesota Region";
-"INITIAL-SERVER-URI" = "http://naminnesota.net/bmlt/main_server";
+"INITIAL-SERVER-URI" = "http://bmlt.naminnesota.org/main_server";
 
 /* Initial Map Coordinates */
 "INITIAL-MAP-LONG" = "-94.21875";
