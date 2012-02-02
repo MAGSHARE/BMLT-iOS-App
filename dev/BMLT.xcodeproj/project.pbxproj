@@ -1002,8 +1002,6 @@
 		7772056314AB9EED00372C21 /* PrefsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7763245D14177EBC00E32A6F /* PrefsViewController.xib */; };
 		7772056414AB9EED00372C21 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7763246514177EBC00E32A6F /* ListViewController.xib */; };
 		7772056514AB9EED00372C21 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7763246914177EBC00E32A6F /* MapViewController.xib */; };
-		7772056614AB9EED00372C21 /* BeanieBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7763247A14177EBC00E32A6F /* BeanieBack.png */; };
-		7772056714AB9EED00372C21 /* BlueBeanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 7763247B14177EBC00E32A6F /* BlueBeanie.png */; };
 		7772056814AB9EED00372C21 /* BottomLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 7763247D14177EBC00E32A6F /* BottomLayer.png */; };
 		7772056914AB9EED00372C21 /* Globe_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 7763247F14177EBC00E32A6F /* Globe_00.png */; };
 		7772056A14AB9EED00372C21 /* Globe_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 7763248014177EBC00E32A6F /* Globe_01.png */; };
@@ -1101,8 +1099,6 @@
 		777205C614AB9EED00372C21 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
 		777205C714AB9EED00372C21 /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
 		777205C814AB9EED00372C21 /* SpecifyNewSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77791D611434EFEF0046A138 /* SpecifyNewSearchViewController.xib */; };
-		777205C914AB9EED00372C21 /* BeanieLogoList.png in Resources */ = {isa = PBXBuildFile; fileRef = 77444E1A143559E00023DB5C /* BeanieLogoList.png */; };
-		777205CA14AB9EED00372C21 /* BeanieLogoMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 77444E1B143559E00023DB5C /* BeanieLogoMap.png */; };
 		777205CB14AB9EED00372C21 /* GreenCheckConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 771D91B6143628B8008A016A /* GreenCheckConcave.png */; };
 		777205CC14AB9EED00372C21 /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 771D91B7143628B8008A016A /* RedXConcave.png */; };
 		777205CD14AB9EED00372C21 /* Shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D447A31437471D0025291D /* Shadow.png */; };
@@ -1110,7 +1106,6 @@
 		777205CF14AB9EED00372C21 /* QuickSearchButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 775259101438DAFE0068AE8D /* QuickSearchButton.png */; };
 		777205D014AB9EED00372C21 /* QuickSearchButtonHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 775259111438DAFE0068AE8D /* QuickSearchButtonHighlighted.png */; };
 		777205D114AB9EED00372C21 /* MapMarkerBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C93C54143CEBE1005A3287 /* MapMarkerBlack.png */; };
-		777205D214AB9EED00372C21 /* BeanieBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 77FF7219143F6AB900FF4D23 /* BeanieBadge.png */; };
 		777205D314AB9EED00372C21 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7738B8971441F3A4004E7DC2 /* Default-Landscape~ipad.png */; };
 		777205D414AB9EED00372C21 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7738B8981441F3A4004E7DC2 /* Default-Portrait~ipad.png */; };
 		777205D514AB9EED00372C21 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7738B8991441F3A4004E7DC2 /* Default.png */; };
@@ -1131,6 +1126,12 @@
 		778A2E97144B139B00F4A36D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 772631EE144A71C5008C8112 /* Default@2x.png */; };
 		778A2E98144B139E00F4A36D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 772631EF144A71C5008C8112 /* InfoPlist.strings */; };
 		778A2E99144B13A200F4A36D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 772631F1144A71C5008C8112 /* Localizable.strings */; };
+		7793F71914DA2AF000DE5E0C /* BeanieBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7793F71314DA2AF000DE5E0C /* BeanieBack.png */; };
+		7793F71A14DA2AF000DE5E0C /* BeanieBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7793F71414DA2AF000DE5E0C /* BeanieBadge.png */; };
+		7793F71B14DA2AF000DE5E0C /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7793F71514DA2AF000DE5E0C /* BeanieLogoHighlight.png */; };
+		7793F71C14DA2AF000DE5E0C /* BeanieLogoList.png in Resources */ = {isa = PBXBuildFile; fileRef = 7793F71614DA2AF000DE5E0C /* BeanieLogoList.png */; };
+		7793F71D14DA2AF000DE5E0C /* BeanieLogoMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 7793F71714DA2AF000DE5E0C /* BeanieLogoMap.png */; };
+		7793F71E14DA2AF000DE5E0C /* BlueBeanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 7793F71814DA2AF000DE5E0C /* BlueBeanie.png */; };
 		77AE0864147D8996004DF90F /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AE085D147D8996004DF90F /* AppIcon.png */; };
 		77AE0865147D8996004DF90F /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AE085E147D8996004DF90F /* AppIcon@2x.png */; };
 		77AE0866147D8996004DF90F /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AE085F147D8996004DF90F /* AppIcon@iPad.png */; };
@@ -1839,6 +1840,12 @@
 		77791D5F1434EFEF0046A138 /* SpecifyNewSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecifyNewSearchViewController.h; sourceTree = "<group>"; };
 		77791D601434EFEF0046A138 /* SpecifyNewSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecifyNewSearchViewController.m; sourceTree = "<group>"; };
 		77791D611434EFEF0046A138 /* SpecifyNewSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecifyNewSearchViewController.xib; sourceTree = "<group>"; };
+		7793F71314DA2AF000DE5E0C /* BeanieBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeanieBack.png; path = images/BeanieBack.png; sourceTree = "<group>"; };
+		7793F71414DA2AF000DE5E0C /* BeanieBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeanieBadge.png; path = images/BeanieBadge.png; sourceTree = "<group>"; };
+		7793F71514DA2AF000DE5E0C /* BeanieLogoHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeanieLogoHighlight.png; path = images/BeanieLogoHighlight.png; sourceTree = "<group>"; };
+		7793F71614DA2AF000DE5E0C /* BeanieLogoList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeanieLogoList.png; path = images/BeanieLogoList.png; sourceTree = "<group>"; };
+		7793F71714DA2AF000DE5E0C /* BeanieLogoMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeanieLogoMap.png; path = images/BeanieLogoMap.png; sourceTree = "<group>"; };
+		7793F71814DA2AF000DE5E0C /* BlueBeanie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BlueBeanie.png; path = images/BlueBeanie.png; sourceTree = "<group>"; };
 		7795BEA014636735004D80FF /* BMLT-CT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMLT-CT-Info.plist"; sourceTree = SOURCE_ROOT; };
 		77985FBF14210DAE004AE7AA /* FormatCircleGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleGreen@2x.png"; sourceTree = "<group>"; };
 		77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleRed@2x.png"; sourceTree = "<group>"; };
@@ -2141,6 +2148,7 @@
 		7738B8961441F3A4004E7DC2 /* BMLT-MN */ = {
 			isa = PBXGroup;
 			children = (
+				7793F71114DA2AD700DE5E0C /* Images */,
 				77E720311477E64700AD1299 /* AppIcon.png */,
 				77E720321477E64700AD1299 /* AppIcon@2x.png */,
 				77E720331477E64700AD1299 /* AppIcon@iPad.png */,
@@ -2498,6 +2506,19 @@
 				774627C5145302730034B457 /* BMLT-OAHU */,
 			);
 			name = "Pre-Release";
+			sourceTree = "<group>";
+		};
+		7793F71114DA2AD700DE5E0C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7793F71314DA2AF000DE5E0C /* BeanieBack.png */,
+				7793F71414DA2AF000DE5E0C /* BeanieBadge.png */,
+				7793F71514DA2AF000DE5E0C /* BeanieLogoHighlight.png */,
+				7793F71614DA2AF000DE5E0C /* BeanieLogoList.png */,
+				7793F71714DA2AF000DE5E0C /* BeanieLogoMap.png */,
+				7793F71814DA2AF000DE5E0C /* BlueBeanie.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		77B070E014177A6000549DA8 = {
@@ -3656,8 +3677,19 @@
 				7772056314AB9EED00372C21 /* PrefsViewController.xib in Resources */,
 				7772056414AB9EED00372C21 /* ListViewController.xib in Resources */,
 				7772056514AB9EED00372C21 /* MapViewController.xib in Resources */,
-				7772056614AB9EED00372C21 /* BeanieBack.png in Resources */,
-				7772056714AB9EED00372C21 /* BlueBeanie.png in Resources */,
+				777205DC14AB9EED00372C21 /* PreferencesSubViewController.xib in Resources */,
+				777205CE14AB9EED00372C21 /* AdvancedSearchViewController.xib in Resources */,
+				777205C314AB9EED00372C21 /* FormatDetailView.xib in Resources */,
+				777205C414AB9EED00372C21 /* MeetingDetailViewController.xib in Resources */,
+				777205C814AB9EED00372C21 /* SpecifyNewSearchViewController.xib in Resources */,
+				777205A614AB9EED00372C21 /* Globe.png in Resources */,
+				777205A714AB9EED00372C21 /* Globe@2x.png in Resources */,
+				777205A814AB9EED00372C21 /* InfoButton.png in Resources */,
+				777205A914AB9EED00372C21 /* InfoButton@2x.png in Resources */,
+				777205AA14AB9EED00372C21 /* List.png in Resources */,
+				777205AB14AB9EED00372C21 /* List@2x.png in Resources */,
+				777205AC14AB9EED00372C21 /* Prefs.png in Resources */,
+				777205AD14AB9EED00372C21 /* Prefs@2x.png in Resources */,
 				7772056814AB9EED00372C21 /* BottomLayer.png in Resources */,
 				7772056914AB9EED00372C21 /* Globe_00.png in Resources */,
 				7772056A14AB9EED00372C21 /* Globe_01.png in Resources */,
@@ -3720,14 +3752,6 @@
 				777205A314AB9EED00372C21 /* Globe_58.png in Resources */,
 				777205A414AB9EED00372C21 /* Globe_59.png in Resources */,
 				777205A514AB9EED00372C21 /* TopLayer.png in Resources */,
-				777205A614AB9EED00372C21 /* Globe.png in Resources */,
-				777205A714AB9EED00372C21 /* Globe@2x.png in Resources */,
-				777205A814AB9EED00372C21 /* InfoButton.png in Resources */,
-				777205A914AB9EED00372C21 /* InfoButton@2x.png in Resources */,
-				777205AA14AB9EED00372C21 /* List.png in Resources */,
-				777205AB14AB9EED00372C21 /* List@2x.png in Resources */,
-				777205AC14AB9EED00372C21 /* Prefs.png in Resources */,
-				777205AD14AB9EED00372C21 /* Prefs@2x.png in Resources */,
 				777205AE14AB9EED00372C21 /* TestButton_01.png in Resources */,
 				777205AF14AB9EED00372C21 /* TestButton_02.png in Resources */,
 				777205B014AB9EED00372C21 /* TestButton_03.png in Resources */,
@@ -3749,36 +3773,34 @@
 				777205C014AB9EED00372C21 /* FormatCircleRed@2x.png in Resources */,
 				777205C114AB9EED00372C21 /* FormatCircleYellow@2x.png in Resources */,
 				777205C214AB9EED00372C21 /* FormatCircleWC@2x.png in Resources */,
-				777205C314AB9EED00372C21 /* FormatDetailView.xib in Resources */,
-				777205C414AB9EED00372C21 /* MeetingDetailViewController.xib in Resources */,
 				777205C514AB9EED00372C21 /* MapMarkerBlue.png in Resources */,
 				777205C614AB9EED00372C21 /* MapMarkerRed.png in Resources */,
 				777205C714AB9EED00372C21 /* BeanieLogoHighlight.png in Resources */,
-				777205C814AB9EED00372C21 /* SpecifyNewSearchViewController.xib in Resources */,
-				777205C914AB9EED00372C21 /* BeanieLogoList.png in Resources */,
-				777205CA14AB9EED00372C21 /* BeanieLogoMap.png in Resources */,
 				777205CB14AB9EED00372C21 /* GreenCheckConcave.png in Resources */,
 				777205CC14AB9EED00372C21 /* RedXConcave.png in Resources */,
 				777205CD14AB9EED00372C21 /* Shadow.png in Resources */,
-				777205CE14AB9EED00372C21 /* AdvancedSearchViewController.xib in Resources */,
 				777205CF14AB9EED00372C21 /* QuickSearchButton.png in Resources */,
 				777205D014AB9EED00372C21 /* QuickSearchButtonHighlighted.png in Resources */,
 				777205D114AB9EED00372C21 /* MapMarkerBlack.png in Resources */,
-				777205D214AB9EED00372C21 /* BeanieBadge.png in Resources */,
-				777205D314AB9EED00372C21 /* Default-Landscape~ipad.png in Resources */,
-				777205D414AB9EED00372C21 /* Default-Portrait~ipad.png in Resources */,
-				777205D514AB9EED00372C21 /* Default.png in Resources */,
-				777205D614AB9EED00372C21 /* Default@2x.png in Resources */,
-				777205D714AB9EED00372C21 /* InfoPlist.strings in Resources */,
 				777205D814AB9EED00372C21 /* MButtonConcave.png in Resources */,
 				777205D914AB9EED00372C21 /* MButtonConvex.png in Resources */,
 				777205DA14AB9EED00372C21 /* SButtonConcave.png in Resources */,
 				777205DB14AB9EED00372C21 /* SButtonConvex.png in Resources */,
-				777205DC14AB9EED00372C21 /* PreferencesSubViewController.xib in Resources */,
+				777205D714AB9EED00372C21 /* InfoPlist.strings in Resources */,
 				777205DD14AB9EED00372C21 /* Localizable.strings in Resources */,
+				777205D314AB9EED00372C21 /* Default-Landscape~ipad.png in Resources */,
+				777205D414AB9EED00372C21 /* Default-Portrait~ipad.png in Resources */,
+				777205D514AB9EED00372C21 /* Default.png in Resources */,
+				777205D614AB9EED00372C21 /* Default@2x.png in Resources */,
 				777205DE14AB9EED00372C21 /* AppIcon.png in Resources */,
 				777205DF14AB9EED00372C21 /* AppIcon@2x.png in Resources */,
 				777205E014AB9EED00372C21 /* AppIcon@iPad.png in Resources */,
+				7793F71914DA2AF000DE5E0C /* BeanieBack.png in Resources */,
+				7793F71A14DA2AF000DE5E0C /* BeanieBadge.png in Resources */,
+				7793F71B14DA2AF000DE5E0C /* BeanieLogoHighlight.png in Resources */,
+				7793F71C14DA2AF000DE5E0C /* BeanieLogoList.png in Resources */,
+				7793F71D14DA2AF000DE5E0C /* BeanieLogoMap.png in Resources */,
+				7793F71E14DA2AF000DE5E0C /* BlueBeanie.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
