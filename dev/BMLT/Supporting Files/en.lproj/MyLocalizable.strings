@@ -42,8 +42,6 @@
 /***********************************************************/
 /* These don't change */
 "SETTINGS-VERSION-LABEL" = "Version:";
-"SETTINGS-URI-BLURB" = "Complete GPL Source Is Available Here:";
-"SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
 "SETTINGS-UPDATE-LOCATION" = "Update My Location Now";
 "SETTINGS-UPDATE-LOCATION-ON-STARTUP" = "Find My Location On Startup";
 "SETTINGS-START-WITH-MAP" = "Start With Map Search";
@@ -155,6 +153,10 @@
 
 /* The default title for the black marker */
 "BLACK-MARKER-TITLE" = "Your Location";
+
+/* Used in the Prefs window */
+"SETTINGS-URI-BLURB" = "Complete GPL Source Is Available Here:";
+"SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
 
 /* The MAGSHARE URI (For Settings/Info) */
 "SETTINGS-BEANIE-BUTTON-URI" = "http://magshare.org";

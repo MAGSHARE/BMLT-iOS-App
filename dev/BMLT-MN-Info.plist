@@ -16,6 +16,20 @@
 		<string>AppIcon@2x.png</string>
 		<string>AppIcon@iPad.png</string>
 	</array>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>AppIcon.png</string>
+				<string>AppIcon@2x.png</string>
+				<string>AppIcon@iPad.png</string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>org.naminnesota.MNNA</string>
 	<key>CFBundleInfoDictionaryVersion</key>

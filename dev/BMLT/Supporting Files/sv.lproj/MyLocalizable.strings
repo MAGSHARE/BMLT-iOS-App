@@ -42,8 +42,6 @@
 /***********************************************************/
 /* These don't change */
 "SETTINGS-VERSION-LABEL" = "Version:";
-"SETTINGS-URI-BLURB" = "Komplett källkod GPL kan laddas ner här:";
-"SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
 "SETTINGS-UPDATE-LOCATION" = "Uppdatera min position nu.";
 "SETTINGS-UPDATE-LOCATION-ON-STARTUP" = "Hitta min position vid uppstart.";
 "SETTINGS-START-WITH-MAP" = "Starta alltid i kartsökning";
@@ -160,6 +158,10 @@
 
 /* The default title for the black marker */
 "BLACK-MARKER-TITLE" = "Din Plats";
+
+/* Used in the Prefs window */
+"SETTINGS-URI-BLURB" = "Komplett källkod GPL kan laddas ner här:";
+"SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
 
 /* The MAGSHARE URI (For Settings/Info) */
 "SETTINGS-BEANIE-BUTTON-URI" = "http://magshare.org";
