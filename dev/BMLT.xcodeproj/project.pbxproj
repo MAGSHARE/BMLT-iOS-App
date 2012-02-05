@@ -1116,10 +1116,6 @@
 		777205DB14AB9EED00372C21 /* SButtonConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77183E0F144226450027D6CF /* SButtonConvex.png */; };
 		777205DC14AB9EED00372C21 /* PreferencesSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77603E85144232DC003C0FC6 /* PreferencesSubViewController.xib */; };
 		777205DD14AB9EED00372C21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77D05ECA14489FB40076D1CC /* Localizable.strings */; };
-		7773865914DEF970003D1E23 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7773865614DEF970003D1E23 /* AppIcon.png */; };
-		7773865A14DEF970003D1E23 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7773865714DEF970003D1E23 /* AppIcon@2x.png */; };
-		7773865B14DEF970003D1E23 /* AppIcon@iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7773865814DEF970003D1E23 /* AppIcon@iPad.png */; };
-		7773865D14DEF981003D1E23 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7773865C14DEF981003D1E23 /* Default@2x.png */; };
 		778A2E94144B139000F4A36D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 772631EB144A71C5008C8112 /* Default-Landscape~ipad.png */; };
 		778A2E95144B139400F4A36D /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 772631EC144A71C5008C8112 /* Default-Portrait~ipad.png */; };
 		778A2E96144B139700F4A36D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 772631ED144A71C5008C8112 /* Default.png */; };
@@ -1823,10 +1819,6 @@
 		7771600114424BF5002D4552 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7771600314424BF5002D4552 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		777205E514AB9EED00372C21 /* MNNA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MNNA.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7773865614DEF970003D1E23 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon.png; path = "BMLT-MN/AppIcon.png"; sourceTree = "<group>"; };
-		7773865714DEF970003D1E23 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon@2x.png"; path = "BMLT-MN/AppIcon@2x.png"; sourceTree = "<group>"; };
-		7773865814DEF970003D1E23 /* AppIcon@iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon@iPad.png"; path = "BMLT-MN/AppIcon@iPad.png"; sourceTree = "<group>"; };
-		7773865C14DEF981003D1E23 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "BMLT-MN/Default@2x.png"; sourceTree = "<group>"; };
 		7773EA8D1462A9CB00A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		7773EA8E1462A9D600A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		7773EA8F1462A9DE00A9209F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -2528,10 +2520,6 @@
 		77B070E014177A6000549DA8 = {
 			isa = PBXGroup;
 			children = (
-				7773865C14DEF981003D1E23 /* Default@2x.png */,
-				7773865614DEF970003D1E23 /* AppIcon.png */,
-				7773865714DEF970003D1E23 /* AppIcon@2x.png */,
-				7773865814DEF970003D1E23 /* AppIcon@iPad.png */,
 				77B070F514177A6100549DA8 /* BMLT */,
 				775EEE941447C7E0000027B9 /* Variants */,
 				77B070EC14177A6000549DA8 /* Products */,
@@ -3799,10 +3787,6 @@
 				777205D314AB9EED00372C21 /* Default-Landscape~ipad.png in Resources */,
 				777205D414AB9EED00372C21 /* Default-Portrait~ipad.png in Resources */,
 				777205D514AB9EED00372C21 /* Default.png in Resources */,
-				7773865D14DEF981003D1E23 /* Default@2x.png in Resources */,
-				7773865914DEF970003D1E23 /* AppIcon.png in Resources */,
-				7773865A14DEF970003D1E23 /* AppIcon@2x.png in Resources */,
-				7773865B14DEF970003D1E23 /* AppIcon@iPad.png in Resources */,
 				7793F71914DA2AF000DE5E0C /* BeanieBack.png in Resources */,
 				7793F71A14DA2AF000DE5E0C /* BeanieBadge.png in Resources */,
 				7793F71E14DA2AF000DE5E0C /* BlueBeanie.png in Resources */,
