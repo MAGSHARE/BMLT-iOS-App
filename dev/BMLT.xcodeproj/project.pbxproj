@@ -1097,7 +1097,6 @@
 		777205C414AB9EED00372C21 /* MeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C40FFB142385D300973011 /* MeetingDetailViewController.xib */; };
 		777205C514AB9EED00372C21 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1514278E8900FC4545 /* MapMarkerBlue.png */; };
 		777205C614AB9EED00372C21 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D04E1714278E8900FC4545 /* MapMarkerRed.png */; };
-		777205C714AB9EED00372C21 /* BeanieLogoHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */; };
 		777205C814AB9EED00372C21 /* SpecifyNewSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77791D611434EFEF0046A138 /* SpecifyNewSearchViewController.xib */; };
 		777205CB14AB9EED00372C21 /* GreenCheckConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 771D91B6143628B8008A016A /* GreenCheckConcave.png */; };
 		777205CC14AB9EED00372C21 /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 771D91B7143628B8008A016A /* RedXConcave.png */; };
@@ -3771,7 +3770,6 @@
 				777205C214AB9EED00372C21 /* FormatCircleWC@2x.png in Resources */,
 				777205C514AB9EED00372C21 /* MapMarkerBlue.png in Resources */,
 				777205C614AB9EED00372C21 /* MapMarkerRed.png in Resources */,
-				777205C714AB9EED00372C21 /* BeanieLogoHighlight.png in Resources */,
 				777205CB14AB9EED00372C21 /* GreenCheckConcave.png in Resources */,
 				777205CC14AB9EED00372C21 /* RedXConcave.png in Resources */,
 				777205CD14AB9EED00372C21 /* Shadow.png in Resources */,
