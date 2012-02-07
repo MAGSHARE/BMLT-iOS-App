@@ -1687,6 +1687,7 @@
 		77985FC114210DAE004AE7AA /* FormatCircleRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleRed@2x.png"; sourceTree = "<group>"; };
 		77985FC314210DAE004AE7AA /* FormatCircleYellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleYellow@2x.png"; sourceTree = "<group>"; };
 		77985FCC14210E9F004AE7AA /* FormatCircleWC@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleWC@2x.png"; sourceTree = "<group>"; };
+		779BC3A814E17CBF00880BEF /* MNNA.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MNNA.entitlements; sourceTree = "<group>"; };
 		77A279C3142A1E790006C4D3 /* BeanieLogoHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeanieLogoHighlight.png; sourceTree = "<group>"; };
 		77AE085C147D873C004DF90F /* BMLT-MDC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMLT-MDC-Info.plist"; sourceTree = SOURCE_ROOT; };
 		77AE085D147D8996004DF90F /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon.png; path = "BMLT-MDC/AppIcon.png"; sourceTree = SOURCE_ROOT; };
@@ -1972,6 +1973,7 @@
 		7738B8961441F3A4004E7DC2 /* MNNA */ = {
 			isa = PBXGroup;
 			children = (
+				779BC3A814E17CBF00880BEF /* MNNA.entitlements */,
 				7793F71114DA2AD700DE5E0C /* Images */,
 				77E720311477E64700AD1299 /* AppIcon.png */,
 				77E720321477E64700AD1299 /* AppIcon@2x.png */,
@@ -4887,6 +4889,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				CODE_SIGN_ENTITLEMENTS = MNNA.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Monte Jarvis (6P3Y6YW3P3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -4894,7 +4897,7 @@
 				INFOPLIST_FILE = "BMLT-MN-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = MNNA;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D817863B-BBFB-4F11-BB6C-B041567BF0EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "28A51611-4305-4AF8-B7BB-63882A3B0420";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4906,6 +4909,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				CODE_SIGN_ENTITLEMENTS = MNNA.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Monte Jarvis";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -4925,6 +4929,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				CODE_SIGN_ENTITLEMENTS = MNNA.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Monte Jarvis (6P3Y6YW3P3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -4932,7 +4937,7 @@
 				INFOPLIST_FILE = "BMLT-MN-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = MNNA;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D817863B-BBFB-4F11-BB6C-B041567BF0EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "28A51611-4305-4AF8-B7BB-63882A3B0420";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Debug Lite";
