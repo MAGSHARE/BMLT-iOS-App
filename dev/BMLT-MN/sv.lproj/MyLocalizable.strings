@@ -19,3 +19,6 @@
 
 /* Distance Units (either "KM" or "MI" */
 "DISTANCE-UNITS" = "MI";
+
+/* The MAGSHARE URI (For Settings/Info) */
+"SETTINGS-BEANIE-BUTTON-URI" = "http://naminnesota.org";
