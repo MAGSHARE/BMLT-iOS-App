@@ -158,8 +158,5 @@
 "SETTINGS-URI-BLURB" = "Complete GPL Source Is Available Here:";
 "SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
 
-/* The MAGSHARE URI (For Settings/Info) */
-"SETTINGS-BEANIE-BUTTON-URI" = "http://magshare.org";
-
 /******************* APPENDED AT BUILD TIME *******************/
 
