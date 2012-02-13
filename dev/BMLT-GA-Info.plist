@@ -17,7 +17,7 @@
 		<string>AppIcon@iPad.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>org.magshare.BMLTOAHU</string>
+	<string>org.magshare.BMLTGA</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleLocalizations</key>
@@ -30,11 +30,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1.2</string>
+	<string>1.2</string>
 	<key>CFBundleSignature</key>
-	<string>BMNY</string>
+	<string>BMGA</string>
 	<key>CFBundleVersion</key>
-	<string>1.1.2</string>
+	<string>1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
@@ -42,8 +42,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
