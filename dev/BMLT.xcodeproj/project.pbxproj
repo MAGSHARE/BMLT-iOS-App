@@ -1668,6 +1668,7 @@
 		77791D5F1434EFEF0046A138 /* SpecifyNewSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecifyNewSearchViewController.h; sourceTree = "<group>"; };
 		77791D601434EFEF0046A138 /* SpecifyNewSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecifyNewSearchViewController.m; sourceTree = "<group>"; };
 		77791D611434EFEF0046A138 /* SpecifyNewSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecifyNewSearchViewController.xib; sourceTree = "<group>"; };
+		778D625D14E94326003FDCD2 /* BanningMills.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = BanningMills.gpx; path = "BMLT-GA/BanningMills.gpx"; sourceTree = "<group>"; };
 		7793F71314DA2AF000DE5E0C /* BeanieBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeanieBack.png; path = images/BeanieBack.png; sourceTree = "<group>"; };
 		7793F71414DA2AF000DE5E0C /* BeanieBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeanieBadge.png; path = images/BeanieBadge.png; sourceTree = "<group>"; };
 		7793F71514DA2AF000DE5E0C /* BeanieLogoHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeanieLogoHighlight.png; path = images/BeanieLogoHighlight.png; sourceTree = "<group>"; };
@@ -2380,6 +2381,7 @@
 		77B8C71D14E89B3F007FE970 /* BMLT-GA */ = {
 			isa = PBXGroup;
 			children = (
+				778D625D14E94326003FDCD2 /* BanningMills.gpx */,
 				77B8C72C14E89B6A007FE970 /* BMLT-GA-Info.plist */,
 				77B8C71E14E89B60007FE970 /* AppIcon.png */,
 				77B8C71F14E89B60007FE970 /* AppIcon@2x.png */,
