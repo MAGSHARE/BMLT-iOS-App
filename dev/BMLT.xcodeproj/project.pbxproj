@@ -4576,12 +4576,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-FL-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-FL";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4593,14 +4595,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-FL-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-FL";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A911A781-2484-41FE-9B4F-0B2BDCB6C58F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -4612,12 +4614,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-FL-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-FL";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Debug Lite";
@@ -4629,12 +4633,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-SV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-SV";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4646,14 +4652,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-SV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-SV";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A911A781-2484-41FE-9B4F-0B2BDCB6C58F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -4665,12 +4671,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-SV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-SV";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Debug Lite";
@@ -4682,12 +4690,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-MDC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-MDC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4699,14 +4709,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-MDC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-MDC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A911A781-2484-41FE-9B4F-0B2BDCB6C58F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -4718,12 +4728,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-MDC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-MDC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Debug Lite";
@@ -4735,12 +4747,15 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-UK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-UK";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				PUBLIC_HEADERS_FOLDER_PATH = "BMLT-UK.app/Headers";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4753,14 +4768,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-UK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-UK";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A911A781-2484-41FE-9B4F-0B2BDCB6C58F";
 				PUBLIC_HEADERS_FOLDER_PATH = "BMLT-UK.app/Headers";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4773,12 +4788,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-UK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-UK";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				PUBLIC_HEADERS_FOLDER_PATH = "BMLT-UK.app/Headers";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4819,12 +4836,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-NY-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-NY";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Debug Lite";
@@ -4844,7 +4863,7 @@
 				INFOPLIST_FILE = "BMLT-MN-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = MNNA;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "02931DDB-6D45-4DD4-AD0E-221F3133EE00";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D7396CA0-B6E5-4895-AD8D-E8464E396D8C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4884,7 +4903,7 @@
 				INFOPLIST_FILE = "BMLT-MN-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = MNNA;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "02931DDB-6D45-4DD4-AD0E-221F3133EE00";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D7396CA0-B6E5-4895-AD8D-E8464E396D8C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Debug Lite";
@@ -5010,12 +5029,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-TXOK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-TXOK";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -5027,14 +5048,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-TXOK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-TXOK";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A911A781-2484-41FE-9B4F-0B2BDCB6C58F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -5046,12 +5067,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-TXOK-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-TXOK";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Debug Lite";
@@ -5063,12 +5086,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-NY-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-NY";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -5080,14 +5105,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-NY-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-NY";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A911A781-2484-41FE-9B4F-0B2BDCB6C58F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -5099,12 +5124,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-CT-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-CT";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -5116,14 +5143,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-CT-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-CT";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A911A781-2484-41FE-9B4F-0B2BDCB6C58F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -5135,12 +5162,14 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "BMLT-CT-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-CT";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C9C222B-0C4D-406D-9CE6-9D130302E0CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Debug Lite";
