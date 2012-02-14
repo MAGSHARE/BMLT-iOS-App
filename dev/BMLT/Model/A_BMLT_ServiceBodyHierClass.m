@@ -18,6 +18,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
+/***************************************************************\**
+ \file  A_BMLT_ServiceBodyHierClass.m
+ \brief This file implements the class that holds instances of NA
+        Service bodies.
+ *****************************************************************/
 
 #import "A_BMLT_ServiceBodyHierClass.h"
 
@@ -26,8 +31,8 @@
 #pragma mark - Override Functions -
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     initializer
+ \returns   self
  *****************************************************************/
 - (id)init
 {
@@ -35,7 +40,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief un-initializer
  *****************************************************************/
 - (void)dealloc
 {
@@ -49,13 +54,13 @@
 #pragma mark - Class-Specific Functions -
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Initializer with basic parameters
+ \returns   self
  *****************************************************************/
-- (id)initWithURI:(NSString *)inURI
-        andParent:(NSObject *)inParentObject
-          andName:(NSString *)inName
-   andDescription:(NSString *)inDescription
+- (id)initWithURI:(NSString *)inURI             ///< The URI of the Service body
+        andParent:(NSObject *)inParentObject    ///< The parent object for this instance
+          andName:(NSString *)inName            ///< The name of the Service body
+   andDescription:(NSString *)inDescription     ///< A textual description of the Service body.
 {
     self = [super initWithParent:inParentObject];
     
@@ -70,9 +75,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the Service body URI
  *****************************************************************/
-- (void)setURI:(NSString *)inURI
+- (void)setURI:(NSString *)inURI    ///< The URI of the Service body
 {
     [inURI  retain];
     [uri release];
@@ -86,8 +91,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Get the Service body URI
+ \returns   A string. The Service body URI.
  *****************************************************************/
 - (NSString *)getURI
 {
@@ -97,8 +102,8 @@
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_ParentProtocol
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Returns an array of other Service bodies
+ \returns   An array of objects.
  *****************************************************************/
 - (NSArray *)getChildObjects
 {
@@ -107,9 +112,9 @@
 
 #pragma mark - BMLT_NameDescProtocol
 /***************************************************************\**
- \brief 
+ \brief Set the name of this Service body
  *****************************************************************/
-- (void)setBMLTName:(NSString *)inName
+- (void)setBMLTName:(NSString *)inName  ///< The name, as a string
 {
     [inName retain];
     [bmlt_name release];
@@ -123,9 +128,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the description of the Service body.
  *****************************************************************/
-- (void)setBMLTDescription:(NSString *)inDescription
+- (void)setBMLTDescription:(NSString *)inDescription    ///< The description
 {
     [inDescription retain];
     [bmlt_description release];
@@ -140,8 +145,8 @@
 
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Get the Service body name.
+ \returns   A string. The name
  *****************************************************************/
 - (NSString *)getBMLTName
 {
@@ -149,8 +154,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Get the Service body description
+ \returns   The description
  *****************************************************************/
 - (NSString *)getBMLTDescription
 {

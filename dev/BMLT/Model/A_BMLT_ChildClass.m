@@ -18,6 +18,12 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
+/***************************************************************\**
+ \file      A_BMLT_ChildClass.m
+ \brief     This file implements a class meant as a superclass for
+            classes that can instances contained within other instances
+            that implmenent the BMLT_ParentProtocol protocol.
+ *****************************************************************/
 
 #import "A_BMLT_ChildClass.h"
 
