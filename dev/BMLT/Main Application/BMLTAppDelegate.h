@@ -31,7 +31,7 @@
 #define kGoogleReverseLooupURI_Format @"http://maps.google.com/maps/geo?q=%@&output=xml&sensor=false"
 #define kAddressLookupTimeoutPeriod_in_seconds  10
 
-@interface BMLTAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate, NSXMLParserDelegate>
+@interface BMLTAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate, NSXMLParserDelegate, BMLT_DriverDelegateProtocol>
 {
     BMLT_Driver                         *bmlt_driver;
     BMLT_Meeting_Search                 *mySearch;
@@ -55,6 +55,7 @@
     BOOL                                visitingMAGSHARE;
     BOOL                                openSearch;
     BOOL                                openAdvanced;
+    BOOL                                imSick;
 }
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
@@ -72,6 +73,7 @@
 - (BOOL)mapNeedsRefresh;
 - (BOOL)isLookupValid;
 - (BOOL)getOpenAdvanced;
+- (BOOL)amISick;
 - (CLLocationCoordinate2D)lastLookup;
 - (void)clearLastLookup;
 - (void)clearListNeedsRefresh;

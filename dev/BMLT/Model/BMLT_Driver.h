@@ -20,15 +20,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BMLT_Model_Protocols.h"
 
 @class A_BMLT_Search;
 @class BMLT_Server;
 
 @interface BMLT_Driver : NSObject <BMLT_ParentProtocol, BMLT_NameDescProtocol, BMLT_ServerDelegateProtocol>
 {
-    NSMutableArray  *serverObjects;
-    NSString        *bmlt_name;
-    NSString        *bmlt_description;
+    NSMutableArray                          *serverObjects;
+    NSString                                *bmlt_name;
+    NSString                                *bmlt_description;
+    NSObject<BMLT_DriverDelegateProtocol>   *myDelegate;
 }
 + (BMLT_Driver *)getBMLT_Driver;
 + (BMLT_Server *)getServerByURI:(NSString *)inURI;
@@ -39,5 +41,7 @@
 - (void)setServerObjects:(NSArray *)inServerObjects;
 - (void)addServerObject:(BMLT_Server *)inServerObject;
 - (void)removeServerObject:(BMLT_Server *)inServer;
+- (void)setDelegate:(NSObject<BMLT_DriverDelegateProtocol> *)inDelegate;
+- (NSObject<BMLT_DriverDelegateProtocol> *)getDelegate;
 - (void)addServerObjectByURI:(NSString *)inServerURI withName:(NSString *)inName withDescription:(NSString *)inDescription;
 @end

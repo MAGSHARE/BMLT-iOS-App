@@ -228,6 +228,15 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 
 /***************************************************************\**
  \brief 
+ \returns   
+ *****************************************************************/
+- (BOOL)amISick
+{
+    return imSick;
+}
+
+/***************************************************************\**
+ \brief 
  *****************************************************************/
 - (void)clearListNeedsRefresh
 {
@@ -274,6 +283,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
 #endif
     
+    [bmlt_driver setDelegate:self];
     tabBarController = [[UITabBarController alloc] init];
     
     if ( tabBarController )
@@ -672,20 +682,23 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate findLocation Where the hell am I?");
 #endif
-    if ( !locationManager )
+    if ( ![self amISick] )
         {
-        locationManager = [[CLLocationManager alloc] init];
+        if ( !locationManager )
+            {
+            locationManager = [[CLLocationManager alloc] init];
+            }
+        
+        if ( locationManager )
+            {
+            [locationManager setDelegate:nil];
+            [locationManager setDistanceFilter:kCLDistanceFilterNone];
+            [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+            }
+        
+        [locationManager setDelegate:self];
+        [locationManager startUpdatingLocation];
         }
-    
-    if ( locationManager )
-        {
-        [locationManager setDelegate:nil];
-        [locationManager setDistanceFilter:kCLDistanceFilterNone];
-        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        }
-    
-    [locationManager setDelegate:self];
-    [locationManager startUpdatingLocation];
 }
 
 /***************************************************************\**
@@ -726,7 +739,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [newLocation retain];
     [whereImAt release];
     whereImAt = newLocation;
-    if ( openSearch )
+    if ( openSearch && ![self amISick] )
         {
         openSearch = NO;
         [self engageNewSearch:[[BMLT_Prefs getBMLT_Prefs] startWithMap]];
@@ -912,5 +925,25 @@ parseErrorOccurred:(NSError *)parseError
 - (UITabBarController *)tabBarController
 {
     return tabBarController;
+}
+
+#pragma mark - BMLT_DriverDelegate code
+/***************************************************************\**
+ \brief Calledwhen the driver load experiences a failure.
+ *****************************************************************/
+- (void)driverFAIL:(BMLT_Driver *)inDriver  ///< The driver that is having a cow.
+{
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate driverFAIL Called");
+#endif
+    if ( ![self amISick] )
+        {
+        UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"ERROR-CANT-LOAD-DRIVER",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+        
+        [myAlert show];
+        [myAlert release];
+        }
+    
+    imSick = YES;
 }
 @end

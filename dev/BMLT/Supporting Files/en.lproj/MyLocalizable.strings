@@ -132,6 +132,7 @@
 "COMM-ERROR" = "Search Error";
 "PARSER-TIMEOUT-SEARCH" = "The Search Took Too Long, So It Was Stopped.";
 "SERVER-TIMEOUT-ERROR" = "The Connection to the Server Took Too Long, So It Was Stopped.";
+"ERROR-CANT-LOAD-DRIVER" = "The app cannot connect to the server, and will not operate properly.";
 "OK-BUTTON" = "OK";
 
 /* Day Names */

@@ -132,6 +132,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
     [bmlt_name release];
     [bmlt_description release];
     [serverObjects release];
+    [myDelegate release];
     [super dealloc];
 }
 
@@ -213,6 +214,25 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
         [myServer setDelegate:self];
         [myServer verifyServerAndAddToParent];
         }
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)setDelegate:(NSObject<BMLT_DriverDelegateProtocol> *)inDelegate
+{
+    [myDelegate release];
+    myDelegate = inDelegate;
+    [myDelegate retain];
+}
+
+/***************************************************************\**
+ \brief 
+ \returns 
+ *****************************************************************/
+- (NSObject<BMLT_DriverDelegateProtocol> *)getDelegate
+{
+    return myDelegate;
 }
 
 #pragma mark - Protocol Functions
@@ -298,6 +318,10 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 #ifdef DEBUG
     NSLog(@"BMLT_Driver serverFAIL Called");
 #endif
+    if ( [self getDelegate] )
+        {
+        [[self getDelegate] driverFAIL:self];
+        }
 }
 
 @end

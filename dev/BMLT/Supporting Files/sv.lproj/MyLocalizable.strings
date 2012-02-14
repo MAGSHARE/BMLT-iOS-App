@@ -137,6 +137,7 @@
 "COMM-ERROR" = "Fel vid sökning";
 "PARSER-TIMEOUT-SEARCH" = "Sökningen tog för lång tid. Sökningen avbröts.";
 "SERVER-TIMEOUT-ERROR" = "Anslutningen mot servern tog för lång tid.anslutningen avbröts.";
+"ERROR-CANT-LOAD-DRIVER" = "The app cannot connect to the server, and will not operate properly.";
 "OK-BUTTON" = "OK";
 
 /* Day Names */
@@ -162,9 +163,6 @@
 /* Used in the Prefs window */
 "SETTINGS-URI-BLURB" = "Komplett källkod GPL kan laddas ner här:";
 "SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
-
-/* The MAGSHARE URI (For Settings/Info) */
-"SETTINGS-BEANIE-BUTTON-URI" = "http://magshare.org";
 
 /******************* APPENDED AT BUILD TIME *******************/
 

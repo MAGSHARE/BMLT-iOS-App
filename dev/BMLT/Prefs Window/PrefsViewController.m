@@ -92,6 +92,9 @@
     [super viewDidLoad];
 }
 
+/***************************************************************\**
+ \brief Called just before the view will appear.
+ *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

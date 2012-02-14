@@ -52,6 +52,15 @@ KNOWN ISSUES
 
 CHANGELIST
 ----------
+= Version 1.2.1 =
+* TBD
+* Added an error handler for being unable to find the server.
+* Added a version for Georgia that is not meant for release. It is an internal testing-only version.
+
+= Version 1.2 =
+* February 8, 2012
+* Added a version for Minnesota that carries their branding, and is released through their account.
+
 = Version 1.1.2 =
 * November 23, 2011
 * Turned on the option to parse the comments field for phone numbers.

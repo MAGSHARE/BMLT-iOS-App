@@ -21,7 +21,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class BMLT_Server;
+@class BMLT_Server, BMLT_Driver;
 
 @protocol BMLT_ParentProtocol
 - (NSArray *)getChildObjects;
@@ -37,4 +37,8 @@
 @protocol BMLT_ServerDelegateProtocol
 - (void)serverLockedAndLoaded:(BMLT_Server *)inServer;
 - (void)serverFAIL:(BMLT_Server *)inServer;
+@end
+
+@protocol BMLT_DriverDelegateProtocol
+- (void)driverFAIL:(BMLT_Driver *)inDriver;
 @end
