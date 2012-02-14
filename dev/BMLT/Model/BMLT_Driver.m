@@ -19,8 +19,12 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 /***************************************************************\**
- \file   
- \brief 
+ \file  BMLT_Driver.m
+ \brief This is the main "driver" implementation file for connecting
+        to the BMLT root server. It gathers up the preliminary info,
+        then channels connections for searches.
+        It is a SINGLETON pattern, with only one instance.
+        Each connection is managed through a server object.
  *****************************************************************/
 
 #import "BMLT_Driver.h"
@@ -31,8 +35,8 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 @implementation BMLT_Driver
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief   SINGLETON fetcher
+ \returns a BMLT_Driver instance. It allocates it, if not already done.
  *****************************************************************/
 + (BMLT_Driver *)getBMLT_Driver
 {
@@ -45,10 +49,11 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief     Given a URI string, the driver returns the BMLT_Server
+            instance that connects to that URI.
+ \returns   A BMLT_Server instance
  *****************************************************************/
-+ (BMLT_Server *)getServerByURI:(NSString *)inURI
++ (BMLT_Server *)getServerByURI:(NSString *)inURI   ///< The URI to the root server for the desired server object
 {
     BMLT_Server *ret = nil;
     
