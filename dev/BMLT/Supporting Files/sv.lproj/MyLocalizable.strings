@@ -137,7 +137,7 @@
 "COMM-ERROR" = "Fel vid sökning";
 "PARSER-TIMEOUT-SEARCH" = "Sökningen tog för lång tid. Sökningen avbröts.";
 "SERVER-TIMEOUT-ERROR" = "Anslutningen mot servern tog för lång tid.anslutningen avbröts.";
-"ERROR-CANT-LOAD-DRIVER" = "The app cannot connect to the server, and will not operate properly.";
+"ERROR-CANT-LOAD-DRIVER" = "Mottagning för data saknas. Utan mottagning fungerar inte appen som tänkt.";
 "OK-BUTTON" = "OK";
 
 /* Day Names */
