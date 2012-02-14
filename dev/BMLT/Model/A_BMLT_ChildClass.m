@@ -26,8 +26,8 @@
 #pragma mark - Override Functions -
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Initializer
+ \returns   self
  *****************************************************************/
 - (id)init
 {
@@ -35,7 +35,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief de-initializer
  *****************************************************************/
 -(void)dealloc
 {
@@ -46,8 +46,8 @@
 #pragma mark - Class-Specific Functions -
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Initializer with a parent object
+ \returns   self
  *****************************************************************/
 - (id)initWithParent:(id)inParent
 {
@@ -62,7 +62,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Accessor - set the parent object
  *****************************************************************/
 - (void)setParentObject:(id)inParentObject
 {
@@ -73,8 +73,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Accessor - get the parent object
+ \returns   the parent object
  *****************************************************************/
 - (NSObject *)getParentObject
 {
