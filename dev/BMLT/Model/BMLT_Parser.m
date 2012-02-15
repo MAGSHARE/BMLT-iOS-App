@@ -19,8 +19,12 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "BMLT_Parser.h"
+/***************************************************************\**
+ \file BMLT_Parser.m
+ \brief This file instantiates a special asynch parser class.
+ *****************************************************************/
 
+#import "BMLT_Parser.h"
 
 /***************************************************************\**
  \class BMLT_Parser
@@ -63,7 +67,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Abort all parsing, and return us to a static condition.
  *****************************************************************/
 - (void)abortParsing
 {
@@ -73,7 +77,7 @@
 
 #pragma mark - Custom Functions -
 /***************************************************************\**
- \brief 
+ \brief Cancels the timeout, and deletes everything. Reset to zero.
  *****************************************************************/
 - (void)cancelTimeout
 {
@@ -90,13 +94,13 @@
 }
 
 /***************************************************************\**
- \brief This is our custom funtion for setting the delegate. The
+ \brief This is our custom function for setting the delegate. The
  delegate must be an NSObject, and the first delegate is retained.
  All delegates are retained, then released when a new delegate is
  presented, with the exception of the first delegate, which is
  retained twice, and the second retain is released in dealloc.
  *****************************************************************/
-- (void)setBMLTDelegate:(NSObject<NSXMLParserDelegate> *)inDelegate
+- (void)setBMLTDelegate:(NSObject<NSXMLParserDelegate> *)inDelegate ///< The parser delegate. It will be retained.
 {
     [inDelegate retain];
     [myCurrentDelegate release];

@@ -232,9 +232,9 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
  *****************************************************************/
 - (void)setDelegate:(NSObject<BMLT_DriverDelegateProtocol> *)inDelegate
 {
+    [inDelegate retain];
     [myDelegate release];
     myDelegate = inDelegate;
-    [myDelegate retain];
 }
 
 /***************************************************************\**
