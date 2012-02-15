@@ -34,7 +34,7 @@
 }
 + (BMLT_Driver *)getBMLT_Driver;
 + (BMLT_Server *)getServerByURI:(NSString *)inURI;
-+ (NSInteger)setUpServers;
++ (void)setUpServers;
 + (NSArray *)getValidServers;
 
 - (id)initWithServerObjects:(NSArray *)inServerObjects andName:(NSString *)inName andDescription:(NSString *)inDescription;

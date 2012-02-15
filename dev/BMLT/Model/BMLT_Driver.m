@@ -82,16 +82,16 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Initializes and instantiates the servers.
+        This works by triggering the server setup. The server is
+        "added" when it gets back with a valid connection.
+        An "added" server is in the child objects for the driver.
  *****************************************************************/
-+ (NSInteger)setUpServers
++ (void)setUpServers
 {
-    NSInteger   ret = 0;
-    
     BMLT_Driver *myDriver = [BMLT_Driver getBMLT_Driver];
     
-    NSArray *servers = [[BMLT_Prefs getBMLT_Prefs] servers];
+    NSArray *servers = [[BMLT_Prefs getBMLT_Prefs] servers];    // The servers ar in the prefs.
     
     if ( [servers count] )
         {
@@ -108,12 +108,11 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
         NSLog(@"No Servers!");
 #endif
         }
-    return ret;
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief     Get the validated server objects.
+ \returns   An array of BMLT_Server objects
  *****************************************************************/
 + (NSArray *)getValidServers
 {
@@ -125,8 +124,8 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 #pragma mark - Override Functions -
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief   initializer
+ \returns self
  *****************************************************************/
 - (id)init
 {
@@ -134,7 +133,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
+ \brief un-initializer
  *****************************************************************/
 - (void)dealloc
 {
@@ -148,12 +147,12 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 #pragma mark - Class-Specific Functions -
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief     Initializer with server objects.
+ \returns   self
  *****************************************************************/
-- (id)initWithServerObjects:(NSArray *)inServerObjects
-                    andName:(NSString *)inName
-             andDescription:(NSString *)inDescription
+- (id)initWithServerObjects:(NSArray *)inServerObjects  ///< The list of server objects as an array
+                    andName:(NSString *)inName          ///< The name of this driver
+             andDescription:(NSString *)inDescription   ///< The description for this driver
 {
     self = [super init];
     if (self)
@@ -166,9 +165,9 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
+ \brief Sets the server objects from an array
  *****************************************************************/
-- (void)setServerObjects:(NSArray *)inServerObjects
+- (void)setServerObjects:(NSArray *)inServerObjects ///< An array of BMLT_Server objects to be directly added
 {
     [serverObjects release];
     
@@ -181,9 +180,9 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
+ \brief Adds a single server object to the internal array
  *****************************************************************/
-- (void)addServerObject:(BMLT_Server *)inServerObject
+- (void)addServerObject:(BMLT_Server *)inServerObject   ///< A BMLT_Server object to be directly added
 {
     if ( inServerObject )
         {
@@ -200,25 +199,28 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
+ \brief Remove the referenced server object
  *****************************************************************/
-- (void)removeServerObject:(BMLT_Server *)inServer
+- (void)removeServerObject:(BMLT_Server *)inServer  ///< The BMLT_Server instance to be removed
 {
     [serverObjects removeObject:inServer];
 }
 
 /***************************************************************\**
- \brief 
+ \brief Asynchronous add server
+        This works by telling the server object to initialize itself,
+        and call back when it's done. At that time, it will be added.
  *****************************************************************/
-- (void)addServerObjectByURI:(NSString *)inServerURI
-                    withName:(NSString *)inName
-             withDescription:(NSString *)inDescription
+- (void)addServerObjectByURI:(NSString *)inServerURI    ///< The URI of the root server
+                    withName:(NSString *)inName         ///< The name for the new BMLT_Server object
+             withDescription:(NSString *)inDescription  ///< The description for the new BMLT_Server object
 {
+        // Create the server object with the given parameters.
     BMLT_Server *myServer = [[[BMLT_Server alloc] initWithURI:inServerURI
                                                     andParent:self
                                                       andName:inName
                                                andDescription:inDescription] autorelease];
-    if ( myServer )
+    if ( myServer ) // If successful, we tell it who we are, and to go forth and be fruitful
         {
         [myServer setDelegate:self];
         [myServer verifyServerAndAddToParent];
@@ -226,7 +228,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
+ \brief Tell the driver about our delegate. Drivers retain delegates.
  *****************************************************************/
 - (void)setDelegate:(NSObject<BMLT_DriverDelegateProtocol> *)inDelegate
 {
@@ -236,8 +238,8 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief     Get the driver's delegate object
+ \returns   A delegate object, cast to an NSObject
  *****************************************************************/
 - (NSObject<BMLT_DriverDelegateProtocol> *)getDelegate
 {
@@ -247,8 +249,8 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_ParentProtocol
 /***************************************************************\**
- \brief 
- \returns 
+ \brief     Return the servers
+ \returns   An array of BMLT_Server objects
  *****************************************************************/
 - (NSArray *)getChildObjects
 {
@@ -257,9 +259,9 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 
 #pragma mark - BMLT_NameDescProtocol
 /***************************************************************\**
- \brief 
+ \brief Set the driver's name.
  *****************************************************************/
-- (void)setBMLTName:(NSString *)inName
+- (void)setBMLTName:(NSString *)inName  ///< A string. The name of the driver.
 {
     [inName retain];
     [bmlt_name release];
@@ -273,9 +275,9 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the driver's description.
  *****************************************************************/
-- (void)setBMLTDescription:(NSString *)inDescription
+- (void)setBMLTDescription:(NSString *)inDescription    ///< A string. The driver's description.
 {
     [inDescription retain];
     [bmlt_description release];
@@ -290,8 +292,8 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Get the driver's name.
+ \returns   A string. The name of the driver.
  *****************************************************************/
 - (NSString *)getBMLTName
 {
@@ -299,8 +301,8 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief     Get the driver's description.
+ \returns   a string. The description for the driver.
  *****************************************************************/
 - (NSString *)getBMLTDescription
 {
@@ -309,9 +311,9 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 
 #pragma mark - BMLT_ServerDelegateProtocol
 /***************************************************************\**
- \brief 
+ \brief This is called when the server object is initialized and valid.
  *****************************************************************/
-- (void)serverLockedAndLoaded:(BMLT_Server *)inServer
+- (void)serverLockedAndLoaded:(BMLT_Server *)inServer   ///< The server object
 {
 #ifdef DEBUG
     NSLog(@"BMLT_Driver serverLockedAndLoaded Called");
@@ -320,9 +322,9 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 /***************************************************************\**
- \brief 
+ \brief This is called when the server screws the pooch.
  *****************************************************************/
-- (void)serverFAIL:(BMLT_Server *)inServer
+- (void)serverFAIL:(BMLT_Server *)inServer  ///< The pooched server object.
 {
 #ifdef DEBUG
     NSLog(@"BMLT_Driver serverFAIL Called");
