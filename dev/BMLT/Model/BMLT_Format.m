@@ -18,6 +18,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
+/***************************************************************\**
+ \file  BMLT_Format.m
+ \brief This class describes a format code (used to display meeting
+        formats). It is "owned" by a BMLT_Server instance.
+ *****************************************************************/
 
 #import "BMLT_Format.h"
 #import "BMLT_Server.h"
@@ -28,31 +33,37 @@
 #pragma mark - Static Functions -
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Static function to return the indicator color and image for the format.
+ \returns a FormatUIElements object, containing the display options
+ for the format.
+    - imageName2x This is the image to display
+    - textColor This is the color of the key text, displayed over the image.
+    - title This is the string to be displayed
  *****************************************************************/
-+ (FormatUIElements)getFormatColor:(BMLT_Format *)inFormat
++ (FormatUIElements)getFormatColor:(BMLT_Format *)inFormat  ///< The format object
 {
     FormatUIElements    ret;
     
+        // Default is yellow, with black text.
     ret.imageName2x = @"FormatCircleYellow@2x.png";
     ret.textColor = [UIColor blackColor];
     ret.title = [inFormat getKey];
     
+        // Open meetings get a green circle with white text.
     if ( [ret.title isEqualToString:NSLocalizedString(@"FORMAT-KEY-OPEN", nil)] )
         {
         ret.imageName2x = @"FormatCircleGreen@2x.png";
         ret.textColor = [UIColor whiteColor];
         }
     else
-        {
+        {   // Closed meetings get a red circle with white text.
         if ( [ret.title isEqualToString:NSLocalizedString(@"FORMAT-KEY-CLOSED", nil)] )
             {
             ret.imageName2x = @"FormatCircleRed@2x.png";
             ret.textColor = [UIColor whiteColor];
             }
         else
-            {
+            {   // WC accessible meetings get the handicapped logo with no text.
             if ( [ret.title isEqualToString:NSLocalizedString(@"FORMAT-KEY-WHEELCHAIR", nil)] )
                 {
                 ret.imageName2x = @"FormatCircleWC@2x.png";
@@ -67,8 +78,8 @@
 #pragma mark - Override Functions -
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Initializer
+ \returns self
  *****************************************************************/
 - (id)init
 {
@@ -76,7 +87,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief un-initializer
  *****************************************************************/
 - (void)dealloc
 {
@@ -90,13 +101,13 @@
 #pragma mark - Class-Specific Functions -
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Initializes with various initial setup data
+ \returns self
  *****************************************************************/
-- (id)initWithParent:(NSObject *)inParentObject
-              andKey:(NSString *)inKey
-              andName:(NSString *)inName
-      andDescription:(NSString *)inDescription
+- (id)initWithParent:(NSObject *)inParentObject ///< The BMLT_Server object that "owns" this format.
+              andKey:(NSString *)inKey          ///< The format "key" string.
+             andName:(NSString *)inName         ///< The short name of the format.
+      andDescription:(NSString *)inDescription  ///< The longer description for display in the popover.
 {
     self = [super initWithParent:inParentObject];
     if (self)
@@ -110,9 +121,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Sets the format key string.
  *****************************************************************/
-- (void)setKey:(NSString *)inKey
+- (void)setKey:(NSString *)inKey    ///< The format key string
 {
     [inKey retain];
     [key release];
@@ -126,8 +137,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Accessor -get the key string
+ \returns a string, containing the key.
  *****************************************************************/
 - (NSString *)getKey
 {
@@ -135,9 +146,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the language code for this format
  *****************************************************************/
-- (void)setLang:(NSString *)inLang
+- (void)setLang:(NSString *)inLang  ///< The format language
 {
     [inLang retain];
     [lang release];
@@ -145,8 +156,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Accessor -get the format language
+ \returns a string, containing the format language code
  *****************************************************************/
 - (NSString *)getLang
 {
@@ -154,9 +165,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the format ID
  *****************************************************************/
-- (void)setFormatID:(NSString *)inID
+- (void)setFormatID:(NSString *)inID    ///< The format ID string.
 {
     [inID retain];
     [formatID release];
@@ -164,8 +175,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Accessor -get the format ID string
+ \returns a string, containing the format ID
  *****************************************************************/
 - (NSString *)getFormatID
 {
@@ -175,9 +186,9 @@
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_NameDescProtocol
 /***************************************************************\**
- \brief 
+ \brief Set the format short name
  *****************************************************************/
-- (void)setBMLTName:(NSString *)inName
+- (void)setBMLTName:(NSString *)inName  ///< A string, containing the format name
 {
     [inName retain];
     [bmlt_name release];
@@ -185,9 +196,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the format longer description
  *****************************************************************/
-- (void)setBMLTDescription:(NSString *)inDescription
+- (void)setBMLTDescription:(NSString *)inDescription    ///< A string, containing the format longer description
 {
     [inDescription retain];
     [bmlt_description release];
@@ -196,8 +207,8 @@
 
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief Accessor -get the short format name.
+ \returns a string with the short format name.
  *****************************************************************/
 - (NSString *)getBMLTName
 {
@@ -205,8 +216,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief Accessor -get the longer format description
+ \returns a string, with the longer format description.
  *****************************************************************/
 - (NSString *)getBMLTDescription
 {
@@ -215,13 +226,14 @@
 
 #pragma mark - NSXMLParserDelegate
 /***************************************************************\**
- \brief 
+ \brief Called when the parser starts on one of the format element's
+ eclosed data elements.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-didStartElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName
-    attributes:(NSDictionary *)attributeDict
+- (void)parser:(NSXMLParser *)parser            ///< The parser object
+didStartElement:(NSString *)elementName         ///< The name of the element
+  namespaceURI:(NSString *)namespaceURI         ///< The XML namespace
+ qualifiedName:(NSString *)qName                ///< The XML qName
+    attributes:(NSDictionary *)attributeDict    ///< The attributes
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"\tBMLT_Format Parser Start %@ element", elementName );
@@ -232,10 +244,10 @@ didStartElement:(NSString *)elementName
 }
 
 /***************************************************************\**
- \brief 
+ \brief Called when the XML parser is reading element characters.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-foundCharacters:(NSString *)string
+- (void)parser:(NSXMLParser *)parser    ///< The parser object
+foundCharacters:(NSString *)string      ///< The characters
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"\t\tCharacters \"%@\" Received for the Element: \"%@\"", string, currentElement);
@@ -281,12 +293,12 @@ foundCharacters:(NSString *)string
 }
 
 /***************************************************************\**
- \brief 
+ \brief Called when the XML parser is done with the element.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
- didEndElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName
+- (void)parser:(NSXMLParser *)parser    ///< The parser object
+ didEndElement:(NSString *)elementName  ///< The name of the element being ended
+  namespaceURI:(NSString *)namespaceURI ///< The XML namespace
+ qualifiedName:(NSString *)qName        ///< The XML qName
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"\tBMLT_Format Parser Stop %@ element", elementName );
@@ -309,20 +321,21 @@ foundCharacters:(NSString *)string
     currentElement = nil;
 }
 
+    // We only use these for debug. Otherwise, we ignore errors and premature endings.
 #ifdef _CONNECTION_PARSE_TRACE_
 /***************************************************************\**
- \brief 
+ \brief Called when the parser receives an error.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-parseErrorOccurred:(NSError *)parseError
+- (void)parser:(NSXMLParser *)parser        ///< The parser object
+parseErrorOccurred:(NSError *)parseError    ///< The error object
 {
     NSLog(@"\tERROR: BMLT_Meeting Parser Error:%@", [parseError localizedDescription] );
 }
 
 /***************************************************************\**
- \brief 
+ \brief Called when the parser ends the document (should never happen).
  *****************************************************************/
-- (void)parserDidEndDocument:(NSXMLParser *)parser
+- (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser object
 {
     NSLog(@"\tERROR: Parser Complete, But Too Early!" );
 }
