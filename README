@@ -53,7 +53,7 @@ KNOWN ISSUES
 CHANGELIST
 ----------
 = Version 1.2.1 =
-* TBD
+* February 17, 2012
 * Added an error handler for being unable to find the server.
 * Added a version for Georgia that is not meant for release. It is an internal testing-only version.
 
