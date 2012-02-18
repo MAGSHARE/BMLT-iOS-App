@@ -18,6 +18,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
+/***************************************************************\**
+ \file  BMLT_Prefs.m
+ \brief This file implements two preferences classes for the BMLT
+        app. One, is a preference for a single server connection,
+        and the other is a global SINGLETON instance with all of the
+        prefs.
+ *****************************************************************/
 
 #import "BMLT_Prefs.h"
 #import <CoreLocation/CoreLocation.h>
@@ -27,8 +34,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 @implementation BMLT_ServerPref
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief     Initialize an instance of BMLT_ServerPref
+ \returns   self
  *****************************************************************/
 - (id)init
 {
@@ -36,12 +43,13 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief     Initialize an instance of BMLT_ServerPref with some initial data.
+            The URI is saved as a string.
+ \returns   self
  *****************************************************************/
-- (id)initWithURI:(NSString *)inURI
-          andName:(NSString *)inName
-   andDescription:(NSString *)inDescription
+- (id)initWithURI:(NSString *)inURI             ///< The URI to the root server
+          andName:(NSString *)inName            ///< The name of the server
+   andDescription:(NSString *)inDescription     ///< A longer description of the server
 {
     self = [super init];
     
@@ -56,10 +64,10 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief     Initialize an instance of BMLT_ServerPref from an NSCoder
+ \returns   self
  *****************************************************************/
--(id)initWithCoder:(NSCoder *)decoder
+-(id)initWithCoder:(NSCoder *)decoder   ///< The decoder with the stored data.
 {
     self = [super init];
     
@@ -74,7 +82,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
+ \brief Un-initializer
  *****************************************************************/
 - (void)dealloc
 {
@@ -85,9 +93,9 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
+ \brief Saves the state to an NSCoder
  *****************************************************************/
--(void)encodeWithCoder:(NSCoder *)encoder
+-(void)encodeWithCoder:(NSCoder *)encoder   ///< The coder that will receive the data
 {
     [encoder encodeObject:serverName forKey:@"serverName"];
     [encoder encodeObject:serverDescription forKey:@"serverDescription"];
@@ -95,9 +103,9 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
+ \brief Sets the root server URI
  *****************************************************************/
-- (void)setServerURI:(NSString *)inURI
+- (void)setServerURI:(NSString *)inURI  ///< The URI, as a string
 {
     [inURI retain];
     
@@ -107,9 +115,9 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the server name.
  *****************************************************************/
-- (void)setServerName:(NSString *)inName
+- (void)setServerName:(NSString *)inName    ///< The name of the server
 {
     [inName retain];
     
@@ -119,9 +127,9 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the server description
  *****************************************************************/
-- (void)setServerDescription:(NSString *)inDescription
+- (void)setServerDescription:(NSString *)inDescription  ///< The server description
 {
     [inDescription retain];
     
@@ -131,8 +139,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns the URI as a string
+ \returns a string, containing the textual URI.
  *****************************************************************/
 - (NSString *)getServerURI
 {
@@ -140,8 +148,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Get the server name
+ \returns a string, containing the server name.
  *****************************************************************/
 - (NSString *)getServerName
 {
@@ -149,8 +157,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Get the server description
+ \returns a string, containing the server description.
  *****************************************************************/
 - (NSString *)getServerDescription
 {
