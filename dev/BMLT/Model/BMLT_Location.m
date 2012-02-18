@@ -18,11 +18,21 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
+/***************************************************************\**
+ \file  BMLT_Location.m
+ \brief A simple class that holds locations for use by the app.
+        This extends NSCoding, and allows location data to be stored
+        as KVP values (DICTIONARY pattern).
+ *****************************************************************/
 
 #import "BMLT_Location.h"
 
 @implementation BMLT_Location
 
+
+/***************************************************************\**
+ \brief un-initializer. Just make sure we get rid of everything.
+ *****************************************************************/
 - (void)dealloc
 {
     [location_position release];
@@ -32,10 +42,10 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Set a location item as a string, using a key.
  *****************************************************************/
-- (void)setLocationElementValue:(id)inValue forKey:(NSString *)inKey
+- (void)setLocationElementValue:(id)inValue         ///< The value to set
+                         forKey:(NSString *)inKey   ///< The key, at which the vlue is stored.
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"\t\t\tBMLT_Location Setting Value: \"%@\" for Key: \"%@\"", (NSString *)inValue, inKey );
@@ -99,16 +109,17 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Get the string for a given key.
+ \returns a string, containing the value.
  *****************************************************************/
-- (id)getLocationElement:(NSString *)inKey
+- (id)getLocationElement:(NSString *)inKey  ///< The key, to get the value
 {
     return [location_strings objectForKey:inKey];
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Get the location long/lat coordinates, as a CLLocation
+ \returns a CLLocation object, with the coordinates
  *****************************************************************/
 - (CLLocation *)getLocationCoords
 {
@@ -116,8 +127,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Get all the string items for the location.
+ \returns an NSDictionary instance that has all the strings.
  *****************************************************************/
 - (NSDictionary *)getLocationStrings
 {
@@ -127,10 +138,10 @@
 #pragma mark - NSCoder Protocol Implementation -
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Initializer -uses the NSCoder interface
+ \returns self
  *****************************************************************/
--(id)initWithCoder:(NSCoder *)decoder
+-(id)initWithCoder:(NSCoder *)decoder   ///< The decoder, to get the initial values.
 {
     self = [super init];
     
@@ -155,9 +166,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the values into a coder.
  *****************************************************************/
--(void)encodeWithCoder:(NSCoder *)encoder
+-(void)encodeWithCoder:(NSCoder *)encoder   ///< The coder, to place the current values.
 {
     [encoder encodeObject:location_strings forKey:@"bmlt_location_strings"];
     [encoder encodeObject:location_position forKey:@"bmlt_location_position"];
