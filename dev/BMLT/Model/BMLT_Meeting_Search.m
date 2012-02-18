@@ -28,13 +28,14 @@
 
 #pragma mark - NSXMLParserDelegate
 /***************************************************************\**
- \brief 
+ \brief Called when the parser starts on one of the search's
+ eclosed data elements.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-didStartElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName
-    attributes:(NSDictionary *)attributeDict
+- (void)parser:(NSXMLParser *)parser            ///< The parser object
+didStartElement:(NSString *)elementName         ///< The name of the element
+  namespaceURI:(NSString *)namespaceURI         ///< The XML namespace
+ qualifiedName:(NSString *)qName                ///< The XML qName
+    attributes:(NSDictionary *)attributeDict    ///< The attributes
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"BMLT_Meeting_Search Parser Start %@ element", elementName );

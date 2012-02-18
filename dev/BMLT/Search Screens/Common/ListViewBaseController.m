@@ -33,6 +33,7 @@
 - (void)dealloc
 {
     [displayedSearchResults release];
+    [super dealloc];
 }
 
 /***************************************************************\**

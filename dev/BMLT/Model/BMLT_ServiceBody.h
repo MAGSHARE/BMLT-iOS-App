@@ -22,5 +22,5 @@
 #import "A_BMLT_ServiceBodyHierClass.h"
 
 @interface BMLT_ServiceBody : A_BMLT_ServiceBodyHierClass
-
+    // Nothing to see here, folks...
 @end
