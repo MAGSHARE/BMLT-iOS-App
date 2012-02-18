@@ -143,8 +143,12 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Get the "prime delegate" for this parser.
+        The "prime delegate" is the one that should have the final
+        say, in matters such as timeouts. This is to avoid a "delegate
+        chain" from being broken. The delegate gets its message
+        directly from the parser.
+ \returns The delegate object.
  *****************************************************************/
 - (NSObject<NSXMLParserDelegate> *)getMyFirstDelegate
 {
@@ -152,9 +156,10 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Starts the parser, with optional async and timeout.
  *****************************************************************/
-- (void)parseAsync:(BOOL)isAsync WithTimeout:(int)inSeconds
+- (void)parseAsync:(BOOL)isAsync    ///< YES, if the parsing is to be done in another thread.
+       WithTimeout:(int)inSeconds   ///< How many seconds before a timout is thrown.
 {
     if ( inSeconds )
         {
@@ -172,6 +177,7 @@
 }
 
 #pragma mark - NSXMParserDelegate Functions
+    /// These funtions are overrides of the standard NSXMLParser functions. They simply let the first delegate sit around, and call the topmost delegate. It tests the delegate before calling, to make sure it can respond to the selector.
 /***************************************************************\**
  \brief 
  *****************************************************************/
