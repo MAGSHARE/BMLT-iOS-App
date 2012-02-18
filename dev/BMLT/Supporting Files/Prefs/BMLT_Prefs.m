@@ -280,6 +280,15 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  \brief 
  \returns 
  *****************************************************************/
++ (NSArray *)getServers
+{
+    return [s_thePrefs servers];
+}
+
+/***************************************************************\**
+ \brief 
+ \returns 
+ *****************************************************************/
 - (id)init
 {
     self = [self initWithCoder:nil];
@@ -361,15 +370,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 {
     [servers release];
     [super dealloc];
-}
-
-/***************************************************************\**
- \brief 
- \returns 
- *****************************************************************/
-+ (NSArray *)getServers
-{
-    return [s_thePrefs servers];
 }
 
 /***************************************************************\**
