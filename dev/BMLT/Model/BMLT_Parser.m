@@ -18,7 +18,6 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-
 /***************************************************************\**
  \file BMLT_Parser.m
  \brief This file instantiates a special asynch parser class.
@@ -114,9 +113,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Sets the current parsing element
  *****************************************************************/
-- (void)setCurrentElement:(NSObject *)inObject
+- (void)setCurrentElement:(NSObject *)inObject  ///< The object for the parsing element.
 {
     [inObject retain];
     [currentElement release];
@@ -135,8 +134,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Get the parser's BMLT server
+ \returns an instance of BMLT_Server, containing the parser's current server.
  *****************************************************************/
 - (BMLT_Server *)getMyServer
 {

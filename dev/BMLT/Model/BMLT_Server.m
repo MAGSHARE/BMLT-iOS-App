@@ -18,6 +18,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
+/***************************************************************\**
+ \file  BMLT_Server.m
+ \brief This is a class that maintains information about a BMLT
+        root server.
+ *****************************************************************/
 
 #import "BMLT_Server.h"
 #import "BMLT_Driver.h"
@@ -30,7 +35,6 @@
         main initializer.
  \returns the initialized instance of the class.
  *****************************************************************/
-
 - (id)init
 {
     self = [self initWithURI:nil andParent:nil andName:nil andDescription:nil andDelegate:nil];
@@ -66,11 +70,11 @@
  \brief This is the main initializer for this class.
  \returns the initialized instance of the class.
  *****************************************************************/
-- (id)initWithURI:(NSString *)inURI
-        andParent:(NSObject *)inParentObject
-          andName:(NSString *)inName
-   andDescription:(NSString *)inDescription
-      andDelegate:(NSObject *)inDelegate
+- (id)initWithURI:(NSString *)inURI             ///< The URI of the root server
+        andParent:(NSObject *)inParentObject    ///< The BMLT_Driver object that "owns" this server
+          andName:(NSString *)inName            ///< The short name of the server.
+   andDescription:(NSString *)inDescription     ///< The longer description of the server.
+      andDelegate:(NSObject *)inDelegate        ///< Next of kin
 {
     self = [super initWithURI:inURI andParent:inParentObject andName:inName andDescription:inDescription];
     
@@ -93,7 +97,7 @@
 /***************************************************************\**
  \brief Sets the server delegate for this object.
  *****************************************************************/
-- (void)setDelegate:(NSObject *)inDelegate
+- (void)setDelegate:(NSObject *)inDelegate  ///< The delegate object.
 {
     [inDelegate retain];
     [delegate release];
@@ -169,7 +173,7 @@
  \brief Queries the server for its version. If the server returns
  a good version, then we consider it a valid BMLT server.
  *****************************************************************/
-- (void)loadFormatsAndForce:(BOOL)inForce
+- (void)loadFormatsAndForce:(BOOL)inForce   ///< This is YES, to force a refresh.
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"BMLT_Server loadFormatsAndForce");
@@ -216,7 +220,7 @@
  \returns YES, if the format was added. NO if the format was already
           in the array.
  *****************************************************************/
-- (BOOL)addFormat:(BMLT_Format *)inFormat
+- (BOOL)addFormat:(BMLT_Format *)inFormat   ///< The format object to add.
 {
     BOOL    ret = NO;
     if ( !cachedFormats )
@@ -237,13 +241,14 @@
 
 #pragma mark - NSXMLParserDelegate
 /***************************************************************\**
- \brief Callback
+ \brief Called when the parser starts on one of the XML element's
+ eclosed data elements.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-didStartElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName
-    attributes:(NSDictionary *)attributeDict
+- (void)parser:(NSXMLParser *)parser            ///< The parser object
+didStartElement:(NSString *)elementName         ///< The name of the element
+  namespaceURI:(NSString *)namespaceURI         ///< The XML namespace
+ qualifiedName:(NSString *)qName                ///< The XML qName
+    attributes:(NSDictionary *)attributeDict    ///< The attributes
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"BMLT_Server Parser Start %@ element", elementName );
@@ -289,10 +294,10 @@ didStartElement:(NSString *)elementName
 }
 
 /***************************************************************\**
- \brief Callback
+ \brief Callback    -The XML parser has some string data for us.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-foundCharacters:(NSString *)string
+- (void)parser:(NSXMLParser *)parser    ///< The parser object
+foundCharacters:(NSString *)string      ///< The string data
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"BMLT_Server Parser foundCharacters: \"%@\"", string );
@@ -313,12 +318,12 @@ foundCharacters:(NSString *)string
 }
 
 /***************************************************************\**
- \brief Callback
+ \brief Called when the XML parser is done with the element.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
- didEndElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName
+- (void)parser:(NSXMLParser *)parser    ///< The parser object
+ didEndElement:(NSString *)elementName  ///< The name of the element being ended
+  namespaceURI:(NSString *)namespaceURI ///< The XML namespace
+ qualifiedName:(NSString *)qName        ///< The XML qName
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"BMLT_Server Parser Stop %@ element", elementName );
@@ -354,10 +359,10 @@ foundCharacters:(NSString *)string
 }
 
 /***************************************************************\**
- \brief 
+ \brief Callback -Called when the parser encounters an error.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-parseErrorOccurred:(NSError *)parseError
+- (void)parser:(NSXMLParser *)parser        ///< The parser object
+parseErrorOccurred:(NSError *)parseError    ///< The error that the parser wants to tell us about.
 {
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"\tERROR: BMLT_Server Parser Error:%@", [parseError localizedDescription] );
@@ -372,9 +377,9 @@ parseErrorOccurred:(NSError *)parseError
 }
 
 /***************************************************************\**
- \brief 
+ \brief Callback -The document is done.
  *****************************************************************/
-- (void)parserDidEndDocument:(NSXMLParser *)parser
+- (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser object
 {
     [(BMLT_Parser *)parser cancelTimeout];
 #ifdef _CONNECTION_PARSE_TRACE_
@@ -384,7 +389,7 @@ parseErrorOccurred:(NSError *)parseError
 
 #pragma mark - Timeout Handler -
 /***************************************************************\**
- \brief 
+ \brief Callback -Handles a timeout error.
  *****************************************************************/
 - (void)timeoutHandler
 {
@@ -395,7 +400,7 @@ parseErrorOccurred:(NSError *)parseError
 }
 
 /***************************************************************\**
- \brief 
+ \brief Shows the timeout error alert.
  *****************************************************************/
 - (void)showTimeoutAlert
 {
