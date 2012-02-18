@@ -985,7 +985,6 @@
 		77B8C72A14E89B60007FE970 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B8C72314E89B60007FE970 /* Default.png */; };
 		77B8C72B14E89B60007FE970 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B8C72414E89B60007FE970 /* Default@2x.png */; };
 		77B8C73214E89B88007FE970 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77B8C72E14E89B88007FE970 /* InfoPlist.strings */; };
-		77C384CF14F0058B000C4A36 /* Baltimore.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 77C384CE14F0058B000C4A36 /* Baltimore.gpx */; };
 		77C93C55143CEBE1005A3287 /* MapMarkerBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C93C54143CEBE1005A3287 /* MapMarkerBlack.png */; };
 		77CF56B6143D4194002E5A5B /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243814177EBC00E32A6F /* BMLTAppDelegate.m */; };
 		77CF56B7143D4194002E5A5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7763243914177EBC00E32A6F /* main.m */; };
@@ -1648,6 +1647,12 @@
 		7763256D14177ED100E32A6F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7763256F14177EDE00E32A6F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7769A7BD14210900008A0FC3 /* FormatCircleBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleBlue@2x.png"; sourceTree = "<group>"; };
+		776E900E14F007ED000DB5B8 /* Hartford.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Hartford.gpx; sourceTree = "<group>"; };
+		776E901114F00804000DB5B8 /* Orlando.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Orlando.gpx; sourceTree = "<group>"; };
+		776E901314F00818000DB5B8 /* Baltimore.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Baltimore.gpx; path = "BMLT-MDC/Baltimore.gpx"; sourceTree = SOURCE_ROOT; };
+		776E901514F0082D000DB5B8 /* StPaulMN.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StPaulMN.gpx; sourceTree = "<group>"; };
+		776E901714F00845000DB5B8 /* Stockholm.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Stockholm.gpx; sourceTree = "<group>"; };
+		776E901914F00859000DB5B8 /* Houston.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Houston.gpx; sourceTree = "<group>"; };
 		77715FFE14424BF5002D4552 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		77715FFF14424BF5002D4552 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		7771600014424BF5002D4552 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -1717,12 +1722,6 @@
 		77B8C72C14E89B6A007FE970 /* BMLT-GA-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BMLT-GA-Info.plist"; sourceTree = "<group>"; };
 		77B8C72F14E89B88007FE970 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "BMLT-GA/en.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		77BE9AFC1430B33800B3EE8D /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = ../../../README; sourceTree = "<group>"; };
-		77C384C614F00341000C4A36 /* Hartford.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Hartford.gpx; path = ../Hartford.gpx; sourceTree = "<group>"; };
-		77C384C814F00362000C4A36 /* Orlando.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Orlando.gpx; path = ../Orlando.gpx; sourceTree = "<group>"; };
-		77C384CA14F00492000C4A36 /* StPaulMN.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = StPaulMN.gpx; path = ../StPaulMN.gpx; sourceTree = "<group>"; };
-		77C384CB14F004B9000C4A36 /* Stockholm.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Stockholm.gpx; path = ../Stockholm.gpx; sourceTree = "<group>"; };
-		77C384CC14F004D3000C4A36 /* Houston.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Houston.gpx; path = ../Houston.gpx; sourceTree = "<group>"; };
-		77C384CE14F0058B000C4A36 /* Baltimore.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Baltimore.gpx; sourceTree = SOURCE_ROOT; };
 		77C40FE91423851200973011 /* A_SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_SearchController.h; sourceTree = "<group>"; };
 		77C40FEA1423851200973011 /* A_SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_SearchController.m; sourceTree = "<group>"; };
 		77C40FEB1423851200973011 /* Animated_BMLT_Logo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animated_BMLT_Logo.h; sourceTree = "<group>"; };
@@ -1909,7 +1908,7 @@
 		77111D48145AE2970048448D /* BMLT-SV */ = {
 			isa = PBXGroup;
 			children = (
-				77C384CB14F004B9000C4A36 /* Stockholm.gpx */,
+				776E901714F00845000DB5B8 /* Stockholm.gpx */,
 				77E720491477E6A300AD1299 /* AppIcon.png */,
 				77E7204A1477E6A300AD1299 /* AppIcon@2x.png */,
 				77E7204B1477E6A300AD1299 /* AppIcon@iPad.png */,
@@ -1944,7 +1943,7 @@
 		772631FC144A71DE008C8112 /* BMLT-MDC */ = {
 			isa = PBXGroup;
 			children = (
-				77C384CE14F0058B000C4A36 /* Baltimore.gpx */,
+				776E901314F00818000DB5B8 /* Baltimore.gpx */,
 				77AE085C147D873C004DF90F /* BMLT-MDC-Info.plist */,
 				77AE085D147D8996004DF90F /* AppIcon.png */,
 				77AE085E147D8996004DF90F /* AppIcon@2x.png */,
@@ -1982,7 +1981,7 @@
 		7738B8961441F3A4004E7DC2 /* MNNA */ = {
 			isa = PBXGroup;
 			children = (
-				77C384CA14F00492000C4A36 /* StPaulMN.gpx */,
+				776E901514F0082D000DB5B8 /* StPaulMN.gpx */,
 				775C453D14E18963004BE37D /* AppIcon.png */,
 				775C453E14E18963004BE37D /* AppIcon@2x.png */,
 				775C453F14E18963004BE37D /* AppIcon@iPad.png */,
@@ -2288,7 +2287,7 @@
 		77715FFD14424BF5002D4552 /* BMLT-FL */ = {
 			isa = PBXGroup;
 			children = (
-				77C384C814F00362000C4A36 /* Orlando.gpx */,
+				776E901114F00804000DB5B8 /* Orlando.gpx */,
 				77E720251477E61900AD1299 /* AppIcon.png */,
 				77E720261477E61900AD1299 /* AppIcon@2x.png */,
 				77E720271477E61900AD1299 /* AppIcon@iPad.png */,
@@ -2450,7 +2449,7 @@
 		77CF5779143D41FB002E5A5B /* BMLT-TXOK */ = {
 			isa = PBXGroup;
 			children = (
-				77C384CC14F004D3000C4A36 /* Houston.gpx */,
+				776E901914F00859000DB5B8 /* Houston.gpx */,
 				77E7203D1477E67600AD1299 /* AppIcon.png */,
 				77E7203E1477E67600AD1299 /* AppIcon@2x.png */,
 				77E7203F1477E67600AD1299 /* AppIcon@iPad.png */,
@@ -2469,7 +2468,7 @@
 		77F5E378146358DC00B0C770 /* BMLT-CT */ = {
 			isa = PBXGroup;
 			children = (
-				77C384C614F00341000C4A36 /* Hartford.gpx */,
+				776E900E14F007ED000DB5B8 /* Hartford.gpx */,
 				77E7201F1477E5F200AD1299 /* AppIcon.png */,
 				77E720201477E5F200AD1299 /* AppIcon@2x.png */,
 				77E720211477E5F200AD1299 /* AppIcon@iPad.png */,
@@ -3084,7 +3083,6 @@
 				77AE0869147D8996004DF90F /* Default.png in Resources */,
 				77AE086A147D8996004DF90F /* Default@2x.png in Resources */,
 				77AE0872147D89FA004DF90F /* Localizable.strings in Resources */,
-				77C384CF14F0058B000C4A36 /* Baltimore.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
