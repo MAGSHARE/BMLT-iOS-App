@@ -167,11 +167,12 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 
 @end
 
+    /// These are the static SINGLETON global prefs.
 @implementation BMLT_Prefs
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief This gets the SINGLETON instance, and creates one, if necessary.
+ \returns a reference to a BMLT_Prefs object, whic is the SINGLETON.
  *****************************************************************/
 + (BMLT_Prefs *)getBMLT_Prefs
 {
@@ -205,8 +206,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns the path to the prefs storage locker in the app sandbox.
+ \returns a string, containing the doc path with the file name.
  *****************************************************************/
 + (NSString *)docPath
 {
@@ -216,8 +217,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns the number of servers available (usually 1).
+ \returns an integer. The number of server objects.
  *****************************************************************/
 + (NSInteger)getServerCount
 {
@@ -225,17 +226,26 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Get the instance of a server object at the given index.
+ \returns a reference to an instance of BMLT_ServerPref.
  *****************************************************************/
-+ (BMLT_ServerPref *)getServerAt:(NSInteger)inIndex
++ (BMLT_ServerPref *)getServerAt:(NSInteger)inIndex ///< The 0-based index of the server pref.
 {
     return (BMLT_ServerPref *)[[BMLT_Prefs getServers] objectAtIndex:inIndex];
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief returns an array of all the available BMLT_ServerPref objects.
+ \returns an array of all the available BMLT_ServerPref objects.
+ *****************************************************************/
++ (NSArray *)getServers
+{
+    return [s_thePrefs servers];
+}
+
+/***************************************************************\**
+ \brief Returns YES, if the pref for starting with map search is on.
+ \returns a boolean, with the state of the pref. YES means start with map search.
  *****************************************************************/
 + (BOOL)getStartWithMap
 {
@@ -243,8 +253,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns YES, if the user prefers distance sorting for list searches.
+ \returns a boolean with YES meaning sort by distance to start.
  *****************************************************************/
 + (BOOL)getPreferDistanceSort
 {
@@ -252,8 +262,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns YES, if the user wants to look up their location upon startup.
+ \returns a boolean. YES means look up on start up.
  *****************************************************************/
 + (BOOL)getLookupMyLocation
 {
@@ -261,8 +271,28 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns YES, if the user wants to start a search upon startup.
+ \returns a boolean. YES means start up with a search.
+ *****************************************************************/
++ (BOOL)getStartWithSearch
+{
+    return [s_thePrefs startWithSearch];
+}
+
+/***************************************************************\**
+ \brief Returns YES, if the user wants to start new searches as advanced.
+ \returns a boolean. YES means start new searches as advanced.
+ *****************************************************************/
++ (BOOL)getPreferAdvancedSearch
+{
+    return [s_thePrefs preferAdvancedSearch];
+}
+
+/***************************************************************\**
+ \brief returns the "meeting missed" grace period. This is how many
+        minutes must pass before the meeting is not listed in the
+        "find nearby meetings now" search.
+ \returns an integer, with the number of minutes allowed.
  *****************************************************************/
 + (int)getGracePeriod
 {
@@ -270,8 +300,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Save the changes into the prefs persistent storage.
  *****************************************************************/
 + (void)saveChanges
 {
@@ -285,17 +314,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
- *****************************************************************/
-+ (NSArray *)getServers
-{
-    return [s_thePrefs servers];
-}
-
-/***************************************************************\**
- \brief 
- \returns 
+ \brief Initializer
+ \returns self
  *****************************************************************/
 - (id)init
 {
@@ -306,7 +326,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 
 #ifdef DEBUG
 /***************************************************************\**
- \brief 
+ \brief Un-initializer (only called for debug).
  *****************************************************************/
 - (oneway void)release
 {
@@ -316,8 +336,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 #endif
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns the Start with Map pref.
+ \returns a boolean, with YES meaning start with map search.
  *****************************************************************/
 - (BOOL)startWithMap
 {
@@ -325,8 +345,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns the Prefer Distance Sort Pref
+ \returns a boolean. YES means start list results sorted by distance.
  *****************************************************************/
 - (BOOL)preferDistanceSort
 {
@@ -334,8 +354,9 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns the "lookup on startup" pref. Also checks to see if
+        location services are available, and returns NO if they are not.
+ \returns a boolean. YES means lookup on startup.
  *****************************************************************/
 - (BOOL)lookupMyLocation
 {
@@ -345,8 +366,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns the start with a search pref.
+ \returns a boolean. YES means startup with a search.
  *****************************************************************/
 - (BOOL)startWithSearch
 {
@@ -354,8 +375,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief returns the pref for preferring advanced searches.
+ \returns a boolean. YES means start new searches as advanced.
  *****************************************************************/
 - (BOOL)preferAdvancedSearch
 {
@@ -363,8 +384,10 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Returns the "meeting missed" grace period.
+        A meeting can be underway for this many minutes before it
+        is considered "too late" for the meeting.
+ \returns an integer, with how many minutes can pass.
  *****************************************************************/
 - (int)gracePeriod
 {
@@ -372,7 +395,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
+ \brief Un-initializer.
  *****************************************************************/
 - (void)dealloc
 {
@@ -381,8 +404,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Accessor -get the server list.
+ \returns the array of instantiated servers as BMLT_ServerPref objects.
  *****************************************************************/
 - (NSArray *)servers
 {
@@ -390,12 +413,12 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Creates a new server, with the given root URI and name.
+ \returns an integer. The index of the new server object.
  *****************************************************************/
-- (NSInteger)addServerWithURI:(NSString *)inURI
-                 andName:(NSString *)inName
-          andDescription:(NSString *)inDescription;
+- (NSInteger)addServerWithURI:(NSString *)inURI             ///< The URI of the root server
+                      andName:(NSString *)inName            ///< The name of the server
+               andDescription:(NSString *)inDescription;    ///< A textual description of the server
 {
     NSInteger   ret = -1;
     
@@ -433,10 +456,10 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Deletes the server at the given root URI.
+ \returns a boolean. YES if successful.
  *****************************************************************/
-- (BOOL)removeServerWithURI:(NSString *)inURI
+- (BOOL)removeServerWithURI:(NSString *)inURI   ///< The URI of the server to delete.
 {
     BOOL    ret = NO;
     
@@ -462,10 +485,10 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Initializer from a coder.
+ \returns self
  *****************************************************************/
--(id)initWithCoder:(NSCoder *)decoder
+-(id)initWithCoder:(NSCoder *)decoder   ///< The decoder with the stored state.
 {
     self = [super init];
     
@@ -546,9 +569,9 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
+ \brief Store into an encoder
  *****************************************************************/
--(void)encodeWithCoder:(NSCoder *)encoder
+-(void)encodeWithCoder:(NSCoder *)encoder   ///< The encoder that will receive the stored state.
 {
     [encoder encodeObject:servers forKey:@"servers"];
     [encoder encodeBool:startWithMap forKey:@"startWithMap"];
@@ -560,49 +583,49 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief 
+ \brief Accessor -Set the start with map pref
  *****************************************************************/
-- (void)setStartWithMap:(BOOL)inValue
+- (void)setStartWithMap:(BOOL)inValue   ///< YES, if the user wants to start with a map search.
 {
     startWithMap = inValue;
 }
 
 /***************************************************************\**
- \brief 
+ \brief Accessor -set the distance sort pref
  *****************************************************************/
-- (void)setPreferDistanceSort:(BOOL)inValue
+- (void)setPreferDistanceSort:(BOOL)inValue ///< YES, if the user wants to sort list search results by distance.
 {
     preferDistanceSort = inValue;
 }
 
 /***************************************************************\**
- \brief 
+ \brief Accessor -set the location lookup on startup pref.
  *****************************************************************/
-- (void)setLookupMyLocation:(BOOL)inValue
+- (void)setLookupMyLocation:(BOOL)inValue   ///< YES, if you want to look up your location upon startup.
 {
     lookupMyLocation = inValue;
 }
 
 /***************************************************************\**
- \brief 
+ \brief Accessor -set the "meeting missed" grace period.
  *****************************************************************/
-- (void)setGracePeriod:(int)inValue
+- (void)setGracePeriod:(int)inValue ///< The number of minutes that are allowed to pass before a meeting is considered "missed."
 {
     gracePeriod = inValue;
 }
 
 /***************************************************************\**
- \brief 
+ \brief Accessor -set the "start with a search" pref.
  *****************************************************************/
-- (void)setStartWithSearch:(BOOL)inValue
+- (void)setStartWithSearch:(BOOL)inValue    ///< YES, if you want to start up with a search.
 {
     startWithSearch = inValue;
 }
 
 /***************************************************************\**
- \brief 
+ \brief Accessor -set the prefer advanced search pref.
  *****************************************************************/
-- (void)setPreferAdvancedSearch:(BOOL)inValue
+- (void)setPreferAdvancedSearch:(BOOL)inValue   ///< YES, if you want to start your searches as advanced.
 {
     preferAdvancedSearch = inValue;
 }

@@ -56,6 +56,12 @@
 + (NSInteger)getServerCount;
 + (BMLT_ServerPref *)getServerAt:(NSInteger)inIndex;
 + (NSArray *)getServers;
++ (BOOL)getStartWithMap;
++ (BOOL)getPreferDistanceSort;
++ (BOOL)getLookupMyLocation;
++ (BOOL)getStartWithSearch;
++ (BOOL)getPreferAdvancedSearch;
++ (int)getGracePeriod;
 + (void)saveChanges;
 
 - (NSArray *)servers;
