@@ -18,6 +18,12 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
+/***************************************************************\**
+ \file  BMLTAppDelegate.m
+ \brief The main application delegate for the BMLT app. This is the
+        "hub" of the app. It manages most of the views and transitions,
+        as well as a lot of the global hanky-panky that goes on.
+ *****************************************************************/
 
 #import "BMLTAppDelegate.h"
 #import "BMLT_Driver.h"
@@ -29,17 +35,12 @@
 @implementation UITabBarController (MyOverload)
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Overload of the orientation responder.
+ \returns YES if portrait (iPhone) or any (iPad).
  *****************************************************************/
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)io
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)io   ///< The orientation to test.
 {
-    BOOL    ret = ((io == UIInterfaceOrientationPortrait) || (io == UIInterfaceOrientationLandscapeLeft) || (io == UIInterfaceOrientationLandscapeRight));
-    
-    if ( 2 == [[[BMLTAppDelegate getBMLTAppDelegate] tabBarController] selectedIndex] )
-        {
-        ret = io == UIInterfaceOrientationPortrait;
-        }
+    BOOL    ret = io == UIInterfaceOrientationPortrait; // iPhone is portrait-only.
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
         {
@@ -54,17 +55,12 @@
 @implementation UINavigationController (MyOverload)
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Overload of the orientation responder.
+ \returns YES if portrait (iPhone) or any (iPad).
  *****************************************************************/
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)io
 {
-    BOOL    ret = ((io == UIInterfaceOrientationPortrait) || (io == UIInterfaceOrientationLandscapeLeft) || (io == UIInterfaceOrientationLandscapeRight));
-    
-    if ( 2 == [[[BMLTAppDelegate getBMLTAppDelegate] tabBarController] selectedIndex] )
-        {
-        ret = io == UIInterfaceOrientationPortrait;
-        }
+    BOOL    ret = io == UIInterfaceOrientationPortrait; // iPhone is portrait-only.
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
         {
@@ -84,8 +80,8 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 @synthesize window = _window;
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief returns the SINGLETON instance of the app delegate.
+ \returns a reference to an instance of BMLTAppDelegate.
  *****************************************************************/
 + (BMLTAppDelegate *)getBMLTAppDelegate
 {
@@ -93,9 +89,9 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 }
 
 /***************************************************************\**
- \brief 
+ \brief Starts an asynchronous geocode from a given address string.
  *****************************************************************/
-+ (void)lookupLocationFromAddressString:(NSString *)inLocationString
++ (void)lookupLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
 {
     [bmlt_app_delegate clearLastLookup];
 
@@ -118,8 +114,8 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 }
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief returns the results of the last completed lookup.
+ \returns the long/lat of the last lookup.
  *****************************************************************/
 + (CLLocationCoordinate2D)getLastLookup
 {
@@ -127,7 +123,9 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 }
 
 /***************************************************************\**
- \brief 
+ \brief Returns YES, if the prefs window was up, and the user clicked
+        on one of the external site links. This prevents the app
+        from switching to the startup selection.
  *****************************************************************/
 + (void)imVisitingMAGSHARE
 {
@@ -135,10 +133,10 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief returns the date/time of the "too late" meeting start time.
+ \returns an NSDate, set to the time (either now, or with the grace period)
  *****************************************************************/
-+ (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod
++ (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod ///< YES, if the grace period is to be included.
 {
     NSTimeInterval  interval = useGracePeriod ? [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60 : 0;
     
@@ -771,8 +769,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
- \brief 
- \returns
+ \brief C function that is a sort callback for sorting by start time/day
+ \returns the result of a comparison between the two meetings.
  *****************************************************************/
 NSInteger timeSort (id meeting1, id meeting2, void *context)
 {
@@ -792,8 +790,8 @@ NSInteger timeSort (id meeting1, id meeting2, void *context)
 }
 
 /***************************************************************\**
- \brief 
- \returns
+ \brief C function that is a sort callback for sorting by distance
+ \returns the result of a comparison between the two meetings.
  *****************************************************************/
 NSInteger distanceSort (id meeting1, id meeting2, void *context)
 {
@@ -868,16 +866,16 @@ foundCharacters:(NSString *)string
     currentElement = nil;
 }
 
+#ifdef _CONNECTION_PARSE_TRACE_
 /***************************************************************\**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
 parseErrorOccurred:(NSError *)parseError
 {
-#ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"BMLTAppDelegate Parser Error: %@", [parseError localizedDescription] );
-#endif
 }
+#endif
 
 /***************************************************************\**
  \brief 
