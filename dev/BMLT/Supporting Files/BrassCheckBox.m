@@ -18,21 +18,30 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
+/***************************************************************\**
+ \file BrassCheckBox.m
+ \brief This class extends the standard UIButton class, to implement
+        a boolean checkbox that displays an image that simulates a
+        "steampunk"-style "brass" button that displays on/off states
+        and implements a "toggle" behavior. It can also display a clear
+        "disabled" state, in which it is unresponsive to user input.
+ *****************************************************************/
 
 #import "BrassCheckBox.h"
 
 @implementation BrassCheckBox
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Overload of the inherited initWith Frame, to read in the image.
+ \returns self
  *****************************************************************/
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame   ///< The display frame.
 {
     self = [super initWithFrame:frame];
     if (self)
         {
         [self setIsOn:NO];
+            // We need to catch this selector, so we can toggle the state.
         [self addTarget:self action:@selector(buttonClickedInside:) forControlEvents:UIControlEventTouchUpInside];
         UIImage *logoImage = [UIImage imageNamed:@"Convex.png"];
         CGSize  imageSize = [logoImage size]; 
@@ -43,15 +52,16 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Overload of the initWithCoder, so that the selector can be caught.
+ \returns self
  *****************************************************************/
-- (id)initWithCoder:(NSCoder *)decoder
+- (id)initWithCoder:(NSCoder *)decoder  ///< The decoder that contains the button state.
 {
     self = [super initWithCoder:decoder];
     if (self)
         {
         [self setIsOn:NO];
+            // We need to catch this selector, so we can toggle the state.
         [self addTarget:self action:@selector(buttonClickedInside:) forControlEvents:UIControlEventTouchUpInside];
         }
     
@@ -59,8 +69,8 @@
 }
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Accessor -Is Dis Ting ON?
+ \returns YES, if the state is ON. NO, if OFF.
  *****************************************************************/
 - (BOOL)isOn
 {
@@ -68,34 +78,36 @@
 }
     
 /***************************************************************\**
- \brief 
+ \brief Set the state.
  *****************************************************************/
-- (void)setIsOn:(BOOL)inIsOn
+- (void)setIsOn:(BOOL)inIsOn    ///< YES, if the state is to be ON.
 {
     BOOL    oldIsOn = isOn;
     isOn = inIsOn;
     
+        // Green check means ON
     if ( [self isOn] )
         {
         [self setBackgroundImage:[UIImage imageNamed:@"GreenCheck.png"] forState:UIControlStateNormal];
         [self setBackgroundImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateHighlighted];
         }
-    else
+    else    // Blank "brass" means OFF
         {
         [self setBackgroundImage:[UIImage imageNamed:@"Convex.png"] forState:UIControlStateNormal];
         [self setBackgroundImage:[UIImage imageNamed:@"Concave.png"] forState:UIControlStateHighlighted];
         }
     
+        // Red X means disabled.
     [self setBackgroundImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
 
-    if ( oldIsOn != isOn )
+    if ( oldIsOn != isOn )  // Spread the word.
         {
         [self sendActionsForControlEvents:UIControlEventValueChanged];
         }
 }
 
 /***************************************************************\**
- \brief 
+ \brief Toggles the state.
  *****************************************************************/
 - (BOOL)toggleState
 {
@@ -105,9 +117,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief This is a responder. It toggles if the user clicked inside.
  *****************************************************************/
-- (void)buttonClickedInside:(id)sender
+- (void)buttonClickedInside:(id)sender  ///< The Control event sender.
 {
     [self toggleState];
 }

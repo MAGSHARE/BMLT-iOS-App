@@ -2,6 +2,9 @@
 
 #########################################################################################
 # BUILD LOCALIZABLE STRING
+#
+# This file implements a simple script that concatenates the global file with whichever
+# variant and language local file is to be used. It will create the standard localizable.strings
 #########################################################################################
 
 use strict;         # I'm anal. What can I say?
