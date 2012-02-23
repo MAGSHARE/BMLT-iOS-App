@@ -454,7 +454,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
- \brief 
+ \brief Delete the search.
  *****************************************************************/
 - (void)deleteMeetingSearch
 {
@@ -463,7 +463,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
- \brief 
+ \brief Reset the Nav controllers to their root.
  *****************************************************************/
 - (void)resetNavigationControllers
 {
@@ -485,7 +485,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
- \brief 
+ \brief Gesture Callback -Swipes from the Map View to the List View
  *****************************************************************/
 - (IBAction)swipeFromMapToList:(UIGestureRecognizer *)sender
 {
@@ -498,7 +498,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
- \brief 
+ \brief Gesture Callback -Swipes from the Map View to the Prefs View
  *****************************************************************/
 - (IBAction)swipeFromMapToPrefs:(UIGestureRecognizer *)sender
 {
@@ -511,7 +511,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
- \brief 
+ \brief Gesture Callback -Swipes from the Prefs View to the Map View
  *****************************************************************/
 - (IBAction)swipeFromPrefs:(UIGestureRecognizer *)sender
 {
@@ -582,13 +582,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     SpecifyNewSearchViewController  *theController = [[SpecifyNewSearchViewController alloc] initWithSearchController:(A_SearchController *)[navController topViewController]];
     
-    if ( ![self isLookupValid] )
+    if ( ![self isLookupValid] ) // If we don't have a valid location, we start with  Advanced search, as Quick search is useless.
         {
         openAdvanced = YES;
         }
     else
         {
-        openAdvanced = [[BMLT_Prefs getBMLT_Prefs] preferAdvancedSearch];
+        openAdvanced = [[BMLT_Prefs getBMLT_Prefs] preferAdvancedSearch];   // Otherwise, follow the user's preference.
         }
     
     if ( theController )
