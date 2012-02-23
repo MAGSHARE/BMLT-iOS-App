@@ -81,6 +81,7 @@
         startTime = nil;
         currentElement = nil;
         location_object = [[BMLT_Location alloc] init];
+        moreFields = [[NSMutableDictionary alloc] init];
         }
     
     return self;
@@ -556,11 +557,6 @@ foundCharacters:(NSString *)string      ///< The characters
                                     }
                                 else
                                     {
-                                    if ( !moreFields )
-                                        {
-                                        moreFields = [[NSMutableDictionary alloc] init];
-                                        }
-                                    
                                     if ( [moreFields objectForKey:currentElement] )
                                         {
                                         [moreFields setObject:[(NSString *)[moreFields objectForKey:currentElement] stringByAppendingString:string] forKey:currentElement];
@@ -606,11 +602,6 @@ foundCharacters:(NSString *)string      ///< The characters
                 if ( meetingLoc )
                     {
                     CLLocationDistance  distance = [meetingLoc distanceFromLocation:[[BMLTAppDelegate getBMLTAppDelegate] getWhereImAt]] / 1000.0;
-                    
-                    if ( !moreFields )
-                        {
-                        moreFields = [[NSMutableDictionary alloc] init];
-                        }
                     
                     NSString    *string = [NSString stringWithFormat:@"%f", distance];
                     
