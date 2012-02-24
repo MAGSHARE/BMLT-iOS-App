@@ -79,6 +79,7 @@
 - (void)clearListNeedsRefresh;
 - (void)clearMapNeedsRefresh;
 - (void)clearSearch;
+- (void)clearSick;
 - (void)resetNavigationControllers;
 - (void)setSearchResults:(NSArray *)inResults;
 - (NSArray *)getSearchResults;

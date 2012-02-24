@@ -262,6 +262,14 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 }
 
 /***************************************************************\**
+ \brief Clears the driver failure flag.
+ *****************************************************************/
+- (void)clearSick
+{
+    imSick = NO;
+}
+
+/***************************************************************\**
  \brief 
  \returns   
  *****************************************************************/
@@ -351,10 +359,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             }
         }
     
-    mySearch = nil;
-    [self clearLastLookup];
-    [BMLT_Driver setUpServers];
-    [self validateSearches];
     [[self window] makeKeyAndVisible];
     [self applicationWillEnterForeground:nil];
     return YES;
@@ -410,10 +414,26 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 /***************************************************************\**
  \brief 
  *****************************************************************/
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [self clearSick];
+}
+    
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     if ( !visitingMAGSHARE )
         {
+        if ( ![self amISick] )
+            {
+            mySearch = nil;
+            [self clearLastLookup];
+            [BMLT_Driver setUpServers];
+            [self validateSearches];
+            }
+        
         BMLT_Prefs *myPrefs = [BMLT_Prefs getBMLT_Prefs];
         
         if ( [myPrefs lookupMyLocation] )
