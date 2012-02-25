@@ -39,12 +39,22 @@ typedef struct SearchQueueElement_struct
 @class SpecifyNewSearchViewController;
 @class BMLT_Meeting;
 
+/***************************************************************\**
+ \class BeanieButton
+ \brief This class implements the main "search button" UIView.
+ *****************************************************************/
 @interface BeanieButton : UIButton
 {
 }
 - (id)initAsList:(BOOL)inIsList;
 @end
 
+/***************************************************************\**
+ \class A_SearchController
+ \brief This is the main base UIViewController class for the searches.
+        This class is meant to be an abstract class, with concrete
+        and focused implementations.
+ *****************************************************************/
 @interface A_SearchController : UIViewController <SearchDelegate, UIPopoverControllerDelegate>
 {
     NSArray                             *displayedMeetings;

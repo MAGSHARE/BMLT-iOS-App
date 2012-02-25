@@ -23,6 +23,10 @@
 
 #define AnimatedGlobeViewController_image_frame_count 60
 
+/***************************************************************\**
+ \class Animated_BMLT_Logo
+ \brief This UIView implements an animated "steampunk spinning globe."
+ *****************************************************************/
 @interface Animated_BMLT_Logo : UIView
 {
     NSMutableArray      *imageArray;

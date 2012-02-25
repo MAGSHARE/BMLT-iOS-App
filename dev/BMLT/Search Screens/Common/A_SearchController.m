@@ -26,13 +26,17 @@
 #import "BMLTAppDelegate.h"
 #import "MeetingDetailViewController.h"
 
+/***************************************************************\**
+ \class BeanieButton
+ \brief This class implements the main "search button" UIView.
+ *****************************************************************/
 @implementation BeanieButton
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Initializer -Sets up the appropriate button, depending on the view.
+ \returns self
  *****************************************************************/
-- (id)initAsList:(BOOL)inIsList
+- (id)initAsList:(BOOL)inIsList ///< YES, if this is the variant for the list search.
 {
     self = [super init];
     
@@ -51,9 +55,9 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Set the enabled state, which turns display of the button on or off.
  *****************************************************************/
-- (void)setEnabled:(BOOL)enabled
+- (void)setEnabled:(BOOL)enabled    ///< YES, if enabled.
 {
     [self setAlpha:enabled ? 1.0 : 0.0];
     [super setEnabled:enabled];
@@ -61,11 +65,17 @@
 
 @end
 
+/***************************************************************\**
+ \class A_SearchController
+ \brief This is the main base UIViewController class for the searches.
+        This class is meant to be an abstract class, with concrete
+        and focused implementations.
+ *****************************************************************/
 @implementation A_SearchController
 
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Initializer
+ \returns self
  *****************************************************************/
 - (id)init
 {
@@ -81,7 +91,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Initializes the search queue (before the search -not results).
  *****************************************************************/
 - (void)initSearchQueue
 {
@@ -94,7 +104,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Sets the search criteria for the 
  *****************************************************************/
 - (void)setMySearchQueueParams:(NSDictionary *)inParams
 {
