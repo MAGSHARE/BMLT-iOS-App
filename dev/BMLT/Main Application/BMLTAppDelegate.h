@@ -31,6 +31,8 @@
 #define kGoogleReverseLooupURI_Format @"http://maps.google.com/maps/geo?q=%@&output=xml&sensor=false"
 #define kAddressLookupTimeoutPeriod_in_seconds  10
 
+@class Reachability;
+
 @interface BMLTAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate, NSXMLParserDelegate, BMLT_DriverDelegateProtocol>
 {
     BMLT_Driver                         *bmlt_driver;
@@ -56,6 +58,10 @@
     BOOL                                openSearch;
     BOOL                                openAdvanced;
     BOOL                                imSick;
+    Reachability                        *internetReachable;
+    Reachability                        *hostReachable;
+    BOOL                                internetActive;
+    BOOL                                hostActive;
 }
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
@@ -75,11 +81,13 @@
 - (BOOL)getOpenAdvanced;
 - (BOOL)amISick;
 - (CLLocationCoordinate2D)lastLookup;
+- (void)setUpInitialScreen;
 - (void)clearLastLookup;
 - (void)clearListNeedsRefresh;
 - (void)clearMapNeedsRefresh;
 - (void)clearSearch;
 - (void)clearSick;
+- (void)callInSick;
 - (void)resetNavigationControllers;
 - (void)setSearchResults:(NSArray *)inResults;
 - (NSArray *)getSearchResults;
@@ -94,7 +102,8 @@
 - (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView;
 - (void)sortMeetingsByWeekdayAndTime;
 - (void)sortMeetingsByDistance;
-- (UITabBarController *)tabBarController;
+- (void)verifyConnectivity;
+- (void)checkNetworkStatus:(NSNotification *)notice;
 NSInteger timeSort (id meeting1, id meeting2, void *context);
 NSInteger distanceSort (id meeting1, id meeting2, void *context);
 @end

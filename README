@@ -56,6 +56,7 @@ CHANGELIST
 * TBD
 * Fixed a very small temporary memory leak that was caused by some overly complex code. In reality, it wasn't a memory leak, but played one on TV.
 * The error handler for the network issue was too "sticky." I had to change the way the driver was initialized, so using the app subsequent to a failure would"pick it up" again.
+* Changed the way that the app checks the network connectivity. It's much more asynchronous now.
 
 = Version 1.2.1 =
 * February 17, 2012

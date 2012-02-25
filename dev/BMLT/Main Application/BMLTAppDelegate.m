@@ -30,6 +30,7 @@
 #import "BMLT_Server.h"
 #import "BMLT_Meeting_Search.h"
 #import "BMLT_Meeting.h"
+#import "Reachability.h"
 
 #pragma mark - Overload of the UITabBar to allow rotation -
 @implementation UITabBarController (MyOverload)
@@ -271,6 +272,25 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 
 /***************************************************************\**
  \brief 
+ *****************************************************************/
+- (void)callInSick
+{
+#ifdef DEBUG
+    NSLog(@"Calling in sick.");
+#endif
+    if ( ![self amISick] )
+        {
+        UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"ERROR-CANT-LOAD-DRIVER",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+        
+        [myAlert show];
+        [myAlert release];
+        }
+    
+    imSick = YES;
+}
+
+/***************************************************************\**
+ \brief 
  \returns   
  *****************************************************************/
 - (BOOL)application:(UIApplication *)application
@@ -383,6 +403,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [whereImAt release];
     [searchResults release];
     [[BMLT_Prefs getBMLT_Prefs] release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 
@@ -414,11 +435,165 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 /***************************************************************\**
  \brief 
  *****************************************************************/
-- (void)applicationWillResignActive:(UIApplication *)application
+- (void)verifyConnectivity
 {
-    [self clearSick];
+#ifdef DEBUG
+    NSLog(@"Verifying the network status.");
+#endif
+    internetActive = NO;
+    hostActive = NO;
+        // check for internet connection
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+    
+    internetReachable = [[Reachability reachabilityForInternetConnection] retain];
+    [internetReachable startNotifier];
+    
+        // check if a pathway to our root server exists
+    NSString    *root_uri = NSLocalizedString(@"INITIAL-SERVER-URI",nil);
+    hostReachable = [[Reachability reachabilityWithHostName: root_uri] retain];
+    [hostReachable startNotifier];
 }
     
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)checkNetworkStatus:(NSNotification *)notice
+{
+        // called after network status changes
+    NetworkStatus internetStatus = [internetReachable currentReachabilityStatus];
+    switch (internetStatus)
+    {
+        case NotReachable:
+        {
+#ifdef DEBUG
+        NSLog(@"The internet is down.");
+#endif
+        internetActive = NO;
+        
+        break;
+        }
+        case ReachableViaWiFi:
+        {
+#ifdef DEBUG
+        NSLog(@"The internet is working via WIFI.");
+#endif
+        internetActive = YES;
+        
+        break;
+        }
+        case ReachableViaWWAN:
+        {
+#ifdef DEBUG
+        NSLog(@"The internet is working via WWAN.");
+#endif
+        internetActive = YES;
+        
+        break;
+        }
+    }
+    
+    NetworkStatus hostStatus = [hostReachable currentReachabilityStatus];
+    switch (hostStatus)
+    {
+        case NotReachable:
+        {
+#ifdef DEBUG
+        NSLog(@"A gateway to the host server is down.");
+#endif
+        hostActive = NO;
+        
+        break;
+        }
+        case ReachableViaWiFi:
+        {
+#ifdef DEBUG
+        NSLog(@"A gateway to the host server is working via WIFI.");
+#endif
+        hostActive = YES;
+        
+        break;
+        }
+        case ReachableViaWWAN:
+        {
+#ifdef DEBUG
+        NSLog(@"A gateway to the host server is working via WWAN.");
+#endif
+        hostActive = YES;
+        
+        break;
+        }
+    }
+
+    NSArray *validServers = [BMLT_Driver getValidServers];
+    
+    if ( (!validServers || (0 == [validServers count])) && hostActive && internetActive )
+        {
+#ifdef DEBUG
+        NSLog(@"The network connection is fine, and we don't have valid servers, so we'll set up the server.");
+#endif
+        [BMLT_Driver setUpServers];
+        [self validateSearches];
+        }
+    else if ((!hostActive || !internetActive) && validServers && [validServers count])
+        {
+#ifdef DEBUG
+        NSLog(@"The network connection is not usable, so we'll make sure we delete our servers.");
+#endif
+        NSInteger num_servers = [validServers count];
+        
+        for ( NSInteger c = num_servers; 0 < c; c-- )
+            {
+            BMLT_Server *sv = (BMLT_Server*)[validServers objectAtIndex:c - 1];
+            
+            if ( sv )
+                {
+                [[BMLT_Driver getBMLT_Driver] removeServerObject:sv];
+                }
+            }
+        }
+    
+    if (!hostActive || !internetActive)
+        {
+        [self performSelectorOnMainThread:@selector(callInSick) withObject:nil waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(clearSearch) withObject:nil waitUntilDone:NO];
+        }
+    else
+        {
+        [self performSelectorOnMainThread:@selector(setUpInitialScreen) withObject:nil waitUntilDone:NO];
+        }
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)setUpInitialScreen
+{
+    BMLT_Prefs *myPrefs = [BMLT_Prefs getBMLT_Prefs];
+    
+    if ( [myPrefs lookupMyLocation] && ![self amISick] )
+        {
+        openSearch = [myPrefs startWithSearch];
+        [self findLocation];
+        }
+    
+    [tabBarController setSelectedIndex: ([myPrefs startWithMap] && ![self amISick]) ? 1 : 0];
+    
+    [BMLT_Prefs saveChanges];
+    
+    if ( ![myPrefs lookupMyLocation] && [myPrefs startWithSearch] && ![self amISick] )
+        {
+        openAdvanced = YES;
+        [self engageNewSearch:[myPrefs startWithMap]];
+        }
+}
+
 /***************************************************************\**
  \brief 
  *****************************************************************/
@@ -426,33 +601,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     if ( !visitingMAGSHARE )
         {
-        if ( ![self amISick] )
-            {
-            mySearch = nil;
-            [self clearLastLookup];
-            [BMLT_Driver setUpServers];
-            [self validateSearches];
-            }
-        
-        BMLT_Prefs *myPrefs = [BMLT_Prefs getBMLT_Prefs];
-        
-        if ( [myPrefs lookupMyLocation] )
-            {
-            openSearch = [myPrefs startWithSearch];
-            [self findLocation];
-            }
-        
-        [self clearSearch];
-        
-        [tabBarController setSelectedIndex: [myPrefs startWithMap] ? 1 : 0];
-        
-        [BMLT_Prefs saveChanges];
-        
-        if ( ![myPrefs lookupMyLocation] && [myPrefs startWithSearch] )
-            {
-            openAdvanced = YES;
-            [self engageNewSearch:[myPrefs startWithMap]];
-            }
+        [self clearSick];
+        mySearch = nil;
+        [self clearLastLookup];
+        [self verifyConnectivity];
         }
     
     visitingMAGSHARE = NO;
@@ -487,8 +639,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)resetNavigationControllers
 {
-    [mapSearchController popToRootViewControllerAnimated:NO];
     [listSearchController popToRootViewControllerAnimated:NO];
+    [mapSearchController popToRootViewControllerAnimated:NO];
 }
 
 /***************************************************************\**
@@ -946,22 +1098,13 @@ parseErrorOccurred:(NSError *)parseError
 }
 
 #pragma mark - BMLT_DriverDelegate code
+#ifdef DEBUG
 /***************************************************************\**
  \brief Calledwhen the driver load experiences a failure.
  *****************************************************************/
 - (void)driverFAIL:(BMLT_Driver *)inDriver  ///< The driver that is having a cow.
 {
-#ifdef DEBUG
     NSLog(@"BMLTAppDelegate driverFAIL Called");
-#endif
-    if ( ![self amISick] )
-        {
-        UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"ERROR-CANT-LOAD-DRIVER",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
-        
-        [myAlert show];
-        [myAlert release];
-        }
-    
-    imSick = YES;
 }
+#endif
 @end
