@@ -280,13 +280,13 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 #endif
     if ( ![self amISick] )
         {
+        imSick = YES;
         UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"ERROR-CANT-LOAD-DRIVER",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
         
         [myAlert show];
         [myAlert release];
         }
     
-    imSick = YES;
 }
 
 /***************************************************************\**
@@ -602,8 +602,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     if ( !visitingMAGSHARE )
         {
         [self clearSick];
-        mySearch = nil;
-        [self clearLastLookup];
+        [self clearSearch];
         [self verifyConnectivity];
         }
     
