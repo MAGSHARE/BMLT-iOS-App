@@ -18,14 +18,18 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
+/***************************************************************\**
+ \file Animated_BMLT_Logo.m
+ \brief This UIView implements an animated "steampunk spinning globe."
+ *****************************************************************/
 
 #import "Animated_BMLT_Logo.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation Animated_BMLT_Logo
 /***************************************************************\**
- \brief 
- \returns 
+ \brief Initializer -Sets up the image array of the globe contents.
+ \returns self
  *****************************************************************/
 - (id)init
 {
@@ -42,6 +46,9 @@
             [imageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"Globe_%02d.png", --i]]];
             }
         
+            // We use 3 layers. The bottom is the "base" of the "compass," including the blue background and the "brass" ring.
+            // The middle is the spinning globe.
+            // The top layer is the band around the globe, the compass face and the "wooden" rim.
         bottomLayerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BottomLayer.png"]];
         
         topLayerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TopLayer.png"]];
@@ -51,6 +58,7 @@
         [bottomLayerImage setFrame:imageFrame];
         [topLayerImage setFrame:imageFrame];
         
+            // We use the built-in animation handler to show the animation.
         animatedImages = [[UIImageView alloc] initWithFrame:imageFrame];
         [animatedImages setAnimationImages:imageArray];
         
@@ -67,7 +75,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Bye, now.
  *****************************************************************/
 - (void)dealloc
 {
@@ -79,7 +87,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Here is the responder, where we lay out the view layers.
  *****************************************************************/
 - (void)layoutSubviews
 {
@@ -99,7 +107,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Call this to start the world turning.
  *****************************************************************/
 - (void)startTurning
 {
@@ -107,7 +115,7 @@
 }
 
 /***************************************************************\**
- \brief 
+ \brief Call this to stop the world turning.
  *****************************************************************/
 - (void)stopTurning
 {
