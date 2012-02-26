@@ -552,6 +552,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             }
         }
     
+    [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
+   
     if (!hostActive || !internetActive)
         {
         [self performSelectorOnMainThread:@selector(callInSick) withObject:nil waitUntilDone:NO];
@@ -603,6 +605,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
         [self clearSick];
         [self clearSearch];
+        active_controller = [self amISick] ? nil : ((0 == [tabBarController selectedIndex]) ? myListViewController : myMapViewController);
+        
+        [active_controller startAnimation];
         [self verifyConnectivity];
         }
     

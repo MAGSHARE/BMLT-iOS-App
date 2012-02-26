@@ -48,6 +48,7 @@
     CLLocationManager                   *locationManager;
     ListViewController                  *myListViewController;
     MapViewController                   *myMapViewController;
+    A_SearchController                  *active_controller;
     CLLocation                          *whereImAt;
     NSArray                             *searchResults;
     BOOL                                listNeedsRefresh;
