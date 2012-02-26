@@ -574,8 +574,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     else
         {
-        [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
-        active_controller = nil;
         [self performSelectorOnMainThread:@selector(clearSick) withObject:nil waitUntilDone:YES];
         [self performSelectorOnMainThread:@selector(setUpInitialScreen) withObject:nil waitUntilDone:NO];
         }
@@ -593,7 +591,12 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         openSearch = [myPrefs startWithSearch];
         [self findLocation];
         }
-    
+    else
+        {
+        [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
+        active_controller = nil;
+        }
+        
     [tabBarController setSelectedIndex: ([myPrefs startWithMap] && ![self amISick]) ? 1 : 0];
     
     [BMLT_Prefs saveChanges];
@@ -924,6 +927,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     
     [locationManager stopUpdatingLocation];
+    [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
+    active_controller = nil;
     
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f).", newLocation.coordinate.longitude, newLocation.coordinate.latitude);
