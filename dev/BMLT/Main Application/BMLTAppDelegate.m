@@ -1120,13 +1120,13 @@ parseErrorOccurred:(NSError *)parseError
 }
 
 #pragma mark - BMLT_DriverDelegate code
-#ifdef DEBUG
 /***************************************************************\**
  \brief Calledwhen the driver load experiences a failure.
  *****************************************************************/
 - (void)driverFAIL:(BMLT_Driver *)inDriver  ///< The driver that is having a cow.
 {
+#ifdef DEBUG
     NSLog(@"BMLTAppDelegate driverFAIL Called");
-}
 #endif
+}
 @end
