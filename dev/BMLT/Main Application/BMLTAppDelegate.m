@@ -889,10 +889,15 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             [locationManager setDelegate:nil];
             [locationManager setDistanceFilter:kCLDistanceFilterNone];
             [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+            [locationManager setDelegate:self];
+            [locationManager startUpdatingLocation];
             }
-        
-        [locationManager setDelegate:self];
-        [locationManager startUpdatingLocation];
+        else
+            {
+            [locationManager stopUpdatingLocation];
+            [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
+            active_controller = nil;
+            }
         }
 }
 
@@ -941,6 +946,21 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         openSearch = NO;
         [self engageNewSearch:[[BMLT_Prefs getBMLT_Prefs] startWithMap]];
         }
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+    [locationManager stopUpdatingLocation];
+    [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
+    active_controller = nil;
+    
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate didFailWithError: %@.", [error localizedDescription]);
+#endif
 }
 
 /***************************************************************\**
