@@ -64,8 +64,11 @@ typedef struct SearchQueueElement_struct
     UIPopoverController                 *formatPopover;
     UIButton                            *mainButton;
     SearchQueueElement                  myQueue;
+    BOOL                                startupAnimated;
 }
 
+- (void)setstartupAnimated:(BOOL)animateOnStartup;
+- (BOOL)startupAnimated;
 - (void)setSearchResults:(NSArray *)inResults;
 - (NSArray *)getSearchResults;
 - (void)setVisualElementsForSearch;

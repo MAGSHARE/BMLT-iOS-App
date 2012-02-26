@@ -231,6 +231,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if ([self startupAnimated] )
+        {
+        [self setstartupAnimated:NO];
+        [self startAnimation];
+        }
 }
 
 /***************************************************************\**
@@ -360,6 +365,22 @@
 }
 
 #pragma mark - Custom Functions -
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)setstartupAnimated:(BOOL)animateOnStartup
+{
+    startupAnimated = animateOnStartup;
+}
+
+/***************************************************************\**
+ \brief 
+ \returns 
+ *****************************************************************/
+- (BOOL)startupAnimated
+{
+    return startupAnimated;
+}
 
 /***************************************************************\**
  \brief 

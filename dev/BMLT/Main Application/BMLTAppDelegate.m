@@ -298,6 +298,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     bmlt_app_delegate = self;
     bmlt_driver = [BMLT_Driver getBMLT_Driver]; // Same for the BMLT "driver," which manages the connections to the server[s].
+    
 #ifdef DEBUG
     if ( bmlt_driver )
         {
@@ -452,6 +453,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSString    *root_uri = NSLocalizedString(@"INITIAL-SERVER-URI",nil);
     hostReachable = [[Reachability reachabilityWithHostName: root_uri] retain];
     [hostReachable startNotifier];
+    [active_controller setstartupAnimated:YES];
 }
     
 /***************************************************************\**
@@ -553,6 +555,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     
     [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
+    active_controller = nil;
    
     if (!hostActive || !internetActive)
         {
@@ -607,7 +610,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [self clearSearch];
         active_controller = [self amISick] ? nil : ((0 == [tabBarController selectedIndex]) ? myListViewController : myMapViewController);
         
-        [active_controller startAnimation];
         [self verifyConnectivity];
         }
     
