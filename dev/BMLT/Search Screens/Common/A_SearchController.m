@@ -230,12 +230,11 @@
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
     if ([self startupAnimated] )
         {
-        [self setstartupAnimated:NO];
         [self startAnimation];
         }
+    [super viewWillAppear:animated];
 }
 
 /***************************************************************\**
@@ -493,6 +492,7 @@
 {
     if ( !animatedImage )
         {
+        startupAnimated = NO;
 #ifdef DEBUG
         NSLog(@"A_SearchController startAnimation creating animation.");
 #endif
@@ -529,6 +529,7 @@
 {
     if ( animatedImage )
         {
+        startupAnimated = NO;
 #ifdef DEBUG
         NSLog(@"A_SearchController stopAnimation stopping animation.");
 #endif
@@ -715,12 +716,13 @@
 #endif
     displayedMeetings = inResults;
     
+    [self stopAnimation];
+    
     if ( ![inResults count] )
         {
         UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NO-SEARCH-RESULTS",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
         [myAlert show];
         [myAlert release];
-        [self stopAnimation];
         [self enableCenterButton:YES];
         [self clearSearch];
         }
@@ -738,6 +740,7 @@
 {
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:[[inError userInfo]objectForKey:NSLocalizedDescriptionKey] delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
     
+    [self stopAnimation];
     [myAlert show];
     [myAlert release];
     [self abortSearch];

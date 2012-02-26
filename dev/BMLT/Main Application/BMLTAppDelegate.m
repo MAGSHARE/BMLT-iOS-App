@@ -256,7 +256,9 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 - (void)clearSearch
 {
     [myListViewController clearSearchResults];
+    [myListViewController stopAnimation];
     [myMapViewController clearSearchResults];
+    [myMapViewController stopAnimation];
     [self clearLastLookup];
     [self setSearchResults:nil];
     [self resetNavigationControllers];
@@ -453,7 +455,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSString    *root_uri = NSLocalizedString(@"INITIAL-SERVER-URI",nil);
     hostReachable = [[Reachability reachabilityWithHostName: root_uri] retain];
     [hostReachable startNotifier];
-    [active_controller setstartupAnimated:YES];
 }
     
 /***************************************************************\**
@@ -461,6 +462,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)checkNetworkStatus:(NSNotification *)notice
 {
+    [active_controller setstartupAnimated:NO];
         // called after network status changes
     NetworkStatus internetStatus = [internetReachable currentReachabilityStatus];
     switch (internetStatus)
@@ -534,7 +536,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         NSLog(@"The network connection is fine, and we don't have valid servers, so we'll set up the server.");
 #endif
         [BMLT_Driver setUpServers];
-        [self validateSearches];
         }
     else if ((!hostActive || !internetActive) && validServers && [validServers count])
         {
@@ -564,15 +565,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     else
         {
+        [self performSelectorOnMainThread:@selector(clearSick) withObject:nil waitUntilDone:YES];
         [self performSelectorOnMainThread:@selector(setUpInitialScreen) withObject:nil waitUntilDone:NO];
         }
-}
-
-/***************************************************************\**
- \brief 
- *****************************************************************/
-- (void)applicationWillResignActive:(UIApplication *)application
-{
 }
 
 /***************************************************************\**
@@ -602,14 +597,21 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 /***************************************************************\**
  \brief 
  *****************************************************************/
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [self clearSick];
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     if ( !visitingMAGSHARE )
         {
-        [self clearSick];
         [self clearSearch];
-        active_controller = [self amISick] ? nil : ((0 == [tabBarController selectedIndex]) ? myListViewController : myMapViewController);
-        
+        active_controller = ((0 == [tabBarController selectedIndex]) ? myListViewController : myMapViewController);
+        [active_controller setstartupAnimated:YES];
         [self verifyConnectivity];
         }
     
@@ -645,6 +647,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)resetNavigationControllers
 {
+    [myMapViewController stopAnimation];
+    [myListViewController stopAnimation];
     [listSearchController popToRootViewControllerAnimated:NO];
     [mapSearchController popToRootViewControllerAnimated:NO];
 }
