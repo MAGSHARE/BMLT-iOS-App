@@ -71,6 +71,7 @@
 + (BMLTAppDelegate *)getBMLTAppDelegate;
 + (void)imVisitingMAGSHARE;
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod;
+- (void)setActiveController:(A_SearchController*)inController;
 - (void)setVisitingMAGSHARE;
 - (IBAction)swipeFromList:(UIGestureRecognizer *)sender;
 - (IBAction)swipeFromMapToList:(UIGestureRecognizer *)sender;

@@ -195,8 +195,9 @@
  *****************************************************************/
 - (void)dealloc
 {
+    [self closeModal];
     [myQueue.params release];
-    [formatPopover release];
+    [self closeModal];
     [[BMLTAppDelegate getBMLTAppDelegate] deleteMeetingSearch];
     [myModalView release];
     [mainButton release];
@@ -606,6 +607,8 @@
             {
             [self presentModalViewController:myModalView animated:YES];
             }
+        
+        [[BMLTAppDelegate getBMLTAppDelegate] setActiveController:self];
         }
 }
 
@@ -619,6 +622,7 @@
         [formatPopover dismissPopoverAnimated:YES];
         [formatPopover release];
         formatPopover = nil;
+        [[BMLTAppDelegate getBMLTAppDelegate] setActiveController:nil];
         }
     else
         {

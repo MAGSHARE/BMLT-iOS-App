@@ -147,6 +147,14 @@ static  BMLTAppDelegate *bmlt_app_delegate = nil;
 /***************************************************************\**
  \brief 
  *****************************************************************/
+- (void)setActiveController:(A_SearchController*)inController
+{
+    active_controller = inController;
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
 - (void)setVisitingMAGSHARE
 {
     visitingMAGSHARE = YES;
@@ -555,16 +563,19 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             }
         }
     
-    [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
-    active_controller = nil;
-   
     if (!hostActive || !internetActive)
         {
+        [active_controller performSelectorOnMainThread:@selector(closeModal) withObject:nil waitUntilDone:NO];
+        [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
+        active_controller = nil;
+        [self performSelectorOnMainThread:@selector(resetNavigationControllers) withObject:nil waitUntilDone:NO];
         [self performSelectorOnMainThread:@selector(callInSick) withObject:nil waitUntilDone:NO];
         [self performSelectorOnMainThread:@selector(clearSearch) withObject:nil waitUntilDone:NO];
         }
     else
         {
+        [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
+        active_controller = nil;
         [self performSelectorOnMainThread:@selector(clearSick) withObject:nil waitUntilDone:YES];
         [self performSelectorOnMainThread:@selector(setUpInitialScreen) withObject:nil waitUntilDone:NO];
         }
@@ -647,8 +658,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)resetNavigationControllers
 {
-    [myMapViewController stopAnimation];
-    [myListViewController stopAnimation];
+    [active_controller closeModal];
+    [active_controller stopAnimation];
+    active_controller = nil;
     [listSearchController popToRootViewControllerAnimated:NO];
     [mapSearchController popToRootViewControllerAnimated:NO];
 }

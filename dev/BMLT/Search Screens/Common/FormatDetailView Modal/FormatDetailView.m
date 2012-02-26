@@ -61,11 +61,11 @@
  *****************************************************************/
 - (void)dealloc
 {
+    [myModalController closeModal];
     [myFormat release];
     [formatKeyLabel release];
     [formatKeyImage release];
     [formatDescription release];
-    [myModalController release];
     [navBar release];
     [super dealloc];
 }
@@ -168,6 +168,7 @@
 - (IBAction)donePressed:(id)sender
 {
     [myModalController closeModal];
+    myModalController = nil;
 }
 
 /***************************************************************\**
