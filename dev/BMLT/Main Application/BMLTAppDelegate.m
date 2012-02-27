@@ -456,20 +456,18 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         // check for internet connection
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
     
-    if ( !internetReachable )
-        {
-        internetReachable = [[Reachability reachabilityForInternetConnection] retain];
-        [internetReachable startNotifier];
-        }
+    [internetReachable stopNotifier];
+    [internetReachable release];
+    internetReachable = [[Reachability reachabilityForInternetConnection] retain];
+    [internetReachable startNotifier];
     
-    if ( !hostReachable )
-        {
-        // check if a pathway to our root server exists
-        NSURL       *test_uri = [NSURL URLWithString:NSLocalizedString(@"INITIAL-SERVER-URI",nil)];
-        NSString    *root_uri = [test_uri host];
-        hostReachable = [[Reachability reachabilityWithHostName:root_uri] retain];
-        [hostReachable startNotifier];
-        }
+    [hostReachable stopNotifier];
+    [hostReachable release];
+    // check if a pathway to our root server exists
+    NSURL       *test_uri = [NSURL URLWithString:NSLocalizedString(@"INITIAL-SERVER-URI",nil)];
+    NSString    *root_uri = [test_uri host];
+    hostReachable = [[Reachability reachabilityWithHostName:root_uri] retain];
+    [hostReachable startNotifier];
 }
     
 /***************************************************************\**
