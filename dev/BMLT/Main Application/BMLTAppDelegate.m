@@ -456,13 +456,20 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         // check for internet connection
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
     
-    internetReachable = [[Reachability reachabilityForInternetConnection] retain];
-    [internetReachable startNotifier];
+    if ( !internetReachable )
+        {
+        internetReachable = [[Reachability reachabilityForInternetConnection] retain];
+        [internetReachable startNotifier];
+        }
     
+    if ( !hostReachable )
+        {
         // check if a pathway to our root server exists
-    NSString    *root_uri = NSLocalizedString(@"INITIAL-SERVER-URI",nil);
-    hostReachable = [[Reachability reachabilityWithHostName: root_uri] retain];
-    [hostReachable startNotifier];
+        NSURL       *test_uri = [NSURL URLWithString:NSLocalizedString(@"INITIAL-SERVER-URI",nil)];
+        NSString    *root_uri = [test_uri host];
+        hostReachable = [[Reachability reachabilityWithHostName:root_uri] retain];
+        [hostReachable startNotifier];
+        }
 }
     
 /***************************************************************\**
@@ -499,11 +506,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         NSLog(@"The internet is working via WWAN.");
 #endif
         internetActive = YES;
-        
-#ifdef DEBUG
-        NSLog(@"A gateway to the host server is assumed.");
-#endif
-        hostActive = YES;
         
         break;
         }
