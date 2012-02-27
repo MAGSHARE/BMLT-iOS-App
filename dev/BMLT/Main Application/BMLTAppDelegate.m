@@ -500,39 +500,47 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
         internetActive = YES;
         
+#ifdef DEBUG
+        NSLog(@"A gateway to the host server is assumed.");
+#endif
+        hostActive = YES;
+        
         break;
         }
     }
     
-    NetworkStatus hostStatus = [hostReachable currentReachabilityStatus];
-    switch (hostStatus)
-    {
-        case NotReachable:
+    if ( !hostActive )
         {
-#ifdef DEBUG
-        NSLog(@"A gateway to the host server is down.");
-#endif
-        hostActive = NO;
-        
-        break;
-        }
-        case ReachableViaWiFi:
+        NetworkStatus hostStatus = [hostReachable currentReachabilityStatus];
+        switch (hostStatus)
         {
+            case NotReachable:
+            {
 #ifdef DEBUG
-        NSLog(@"A gateway to the host server is working via WIFI.");
+            NSLog(@"A gateway to the host server is down.");
 #endif
-        hostActive = YES;
-        
-        break;
-        }
-        case ReachableViaWWAN:
-        {
+            hostActive = NO;
+            
+            break;
+            }
+            case ReachableViaWiFi:
+            {
 #ifdef DEBUG
-        NSLog(@"A gateway to the host server is working via WWAN.");
+            NSLog(@"A gateway to the host server is working via WIFI.");
 #endif
-        hostActive = YES;
-        
-        break;
+            hostActive = YES;
+            
+            break;
+            }
+            case ReachableViaWWAN:
+            {
+#ifdef DEBUG
+            NSLog(@"A gateway to the host server is working via WWAN.");
+#endif
+            hostActive = YES;
+            
+            break;
+            }
         }
     }
 
