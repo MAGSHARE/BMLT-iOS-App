@@ -308,6 +308,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     bmlt_app_delegate = self;
     bmlt_driver = [BMLT_Driver getBMLT_Driver]; // Same for the BMLT "driver," which manages the connections to the server[s].
+    firstTimeThrough = YES;
     
 #ifdef DEBUG
     if ( bmlt_driver )
@@ -604,16 +605,25 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [active_controller performSelectorOnMainThread:@selector(stopAnimation) withObject:nil waitUntilDone:NO];
         active_controller = nil;
         }
-        
-    [tabBarController setSelectedIndex: ([myPrefs startWithMap] && ![self amISick]) ? 1 : 0];
+    
+    if ( [myPrefs startWithSearch] )
+        {
+        [tabBarController setSelectedIndex: ([myPrefs startWithMap] && ![self amISick]) ? 1 : 0];
+        }
     
     [BMLT_Prefs saveChanges];
     
-    if ( ![myPrefs lookupMyLocation] && [myPrefs startWithSearch] && ![self amISick] )
+    if ( ![myPrefs lookupMyLocation] && ([myPrefs startWithSearch] && firstTimeThrough) && ![self amISick] )
         {
         openAdvanced = YES;
         [self engageNewSearch:[myPrefs startWithMap]];
         }
+    else
+        {
+        [self validateSearches];
+        }
+    
+    firstTimeThrough = NO;
 }
 
 /***************************************************************\**
@@ -629,7 +639,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    if ( !visitingMAGSHARE )
+    if ( !visitingMAGSHARE && (firstTimeThrough || [[BMLT_Prefs getBMLT_Prefs] startWithSearch]) )
         {
         [self clearSearch];
         active_controller = ((0 == [tabBarController selectedIndex]) ? myListViewController : myMapViewController);

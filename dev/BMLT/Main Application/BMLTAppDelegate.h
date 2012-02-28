@@ -63,6 +63,7 @@
     Reachability                        *hostReachable;
     BOOL                                internetActive;
     BOOL                                hostActive;
+    BOOL                                firstTimeThrough;
 }
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
