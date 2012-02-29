@@ -206,8 +206,8 @@
         [[prefsController view] setFrame:frame];
         [settingsScrollView setContentSize:frame.size];
         [settingsScrollView setContentOffset:CGPointZero];
-        [prefsController setSwitches];
         [settingsScrollView addSubview:[prefsController view]];
+        [prefsController setSwitches];
         }
 }
 @end
