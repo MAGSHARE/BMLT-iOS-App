@@ -595,7 +595,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     BMLT_Prefs *myPrefs = [BMLT_Prefs getBMLT_Prefs];
     
-    if ( [myPrefs lookupMyLocation] && ![self amISick] )
+    if ( [BMLT_Prefs locationServicesAvailable] && [myPrefs lookupMyLocation] && ![self amISick] )
         {
         openSearch = [myPrefs startWithSearch];
         [self findLocation];

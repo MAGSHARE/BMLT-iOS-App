@@ -314,6 +314,15 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
+ \brief Check to make sure that Location Services are available
+ \returns YES, if Location Services are available
+ *****************************************************************/
++(BOOL)locationServicesAvailable
+{
+    return [CLLocationManager locationServicesEnabled] != NO && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
+}
+
+/***************************************************************\**
  \brief Initializer
  \returns self
  *****************************************************************/
@@ -360,9 +369,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  *****************************************************************/
 - (BOOL)lookupMyLocation
 {
-    BOOL    llActive = [CLLocationManager locationServicesEnabled] != NO && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
-    
-    return llActive && lookupMyLocation;
+    return [BMLT_Prefs locationServicesAvailable] && lookupMyLocation;
 }
 
 /***************************************************************\**

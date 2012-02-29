@@ -63,6 +63,7 @@
 + (BOOL)getPreferAdvancedSearch;
 + (int)getGracePeriod;
 + (void)saveChanges;
++ (BOOL)locationServicesAvailable;
 
 - (NSArray *)servers;
 - (NSInteger)addServerWithURI:(NSString *)inURI andName:(NSString *)inName andDescription:(NSString *)inDescription;

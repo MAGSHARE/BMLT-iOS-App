@@ -41,7 +41,7 @@
     
     BMLT_Prefs  *prefs = [BMLT_Prefs getBMLT_Prefs];
     
-    if ( ([CLLocationManager locationServicesEnabled] != NO) && ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied) && ![[BMLTAppDelegate getBMLTAppDelegate] amISick] )
+    if ( [BMLT_Prefs locationServicesAvailable] && ![[BMLTAppDelegate getBMLTAppDelegate] amISick] )
         {
         [findLocationNowButton setAlpha:1];
         [findMyLocationLabel setAlpha:1];

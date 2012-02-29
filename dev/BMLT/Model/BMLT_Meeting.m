@@ -590,12 +590,7 @@ foundCharacters:(NSString *)string      ///< The characters
         {
         if ( ![self getValueFromField:@"distance_in_km"] )
             {
-            BOOL    llActive = [CLLocationManager locationServicesEnabled] != NO && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
-            
-#ifdef DEBUG
-            llActive = YES;
-#endif
-            if ( llActive )
+            if ( [BMLT_Prefs locationServicesAvailable] )
                 {
                 CLLocation *meetingLoc = [self getMeetingLocationCoords];
                 
