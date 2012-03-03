@@ -440,7 +440,7 @@
     [self setBarButton:NO];
     if ( [self getMySearchQueueFindLocationFirst] || [self getMySearchQueueStartSearch] )
         {
-        [self startAnimation];
+        [self setstartupAnimated:YES];
         [[BMLTAppDelegate getBMLTAppDelegate] disableMapNewSearch];
         [[BMLTAppDelegate getBMLTAppDelegate] disableListNewSearch];
         [self enableCenterButton:NO];
