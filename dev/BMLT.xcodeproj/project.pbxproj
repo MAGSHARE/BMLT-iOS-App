@@ -5065,7 +5065,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -5073,7 +5073,7 @@
 				INFOPLIST_FILE = "BMLT-GA-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "BMLT-GA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A911A781-2484-41FE-9B4F-0B2BDCB6C58F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "989E6232-2F47-46D5-B518-2CD5517930FB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
