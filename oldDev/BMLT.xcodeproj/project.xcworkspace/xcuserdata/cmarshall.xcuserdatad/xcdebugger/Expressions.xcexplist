@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "distanceSort:BMLTAppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "(BMLT_Meeting*)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[A_BMLT_Search doSearch]:A_BMLT_Search.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "(NSCFString *)uri">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
