@@ -1,5 +1,5 @@
 //
-//  BMLTSecondViewController.h
+//  BMLTMapSearchViewController.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -20,6 +20,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BMLTSecondViewController : UINavigationController
+@interface BMLTMapSearchViewController : UINavigationController
 
 @end

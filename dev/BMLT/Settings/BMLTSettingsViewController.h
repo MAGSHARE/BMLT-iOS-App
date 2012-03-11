@@ -1,5 +1,5 @@
 //
-//  BMLTSecondViewController.h
+//  BMLTSettingsViewController.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -20,6 +20,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BMLTThirdViewController : UIViewController
+@interface BMLTSettingsViewController : UIViewController
 
 @end

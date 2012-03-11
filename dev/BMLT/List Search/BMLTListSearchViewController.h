@@ -1,9 +1,8 @@
 //
-//  SearchDelegate.h
+//  BMLTListSearchViewController.h
 //  BMLT
 //
-//  Created by MAGSHARE
-//
+//  Created by MAGSHARE.
 //  This is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
@@ -16,18 +15,11 @@
 //  
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
+
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@class A_BMLT_Search;
+@interface BMLTListSearchViewController : UINavigationController
 
-@protocol SearchDelegate <NSObject>
-
-- (void)abortSearch;
-- (void)setUpSearch:(NSDictionary *)inSearchParams;
-- (void)executeSearch;
-- (void)executeSearchWithParams:(NSDictionary *)inSearchParams;
-- (void)searchCompleteWithError:(NSError *)inError;
-- (A_BMLT_Search *)getSearch;
 @end

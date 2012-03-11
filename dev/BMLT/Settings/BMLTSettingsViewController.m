@@ -1,5 +1,5 @@
 //
-//  BMLTFirstViewController.m
+//  BMLTSettingsViewController.m
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -18,13 +18,13 @@
 
 //
 
-#import "BMLTFirstViewController.h"
+#import "BMLTSettingsViewController.h"
 
-@interface BMLTFirstViewController ()
+@interface BMLTSettingsViewController ()
 
 @end
 
-@implementation BMLTFirstViewController
+@implementation BMLTSettingsViewController
 
 - (void)viewDidLoad
 {

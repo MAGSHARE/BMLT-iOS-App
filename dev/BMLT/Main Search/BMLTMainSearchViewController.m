@@ -1,5 +1,5 @@
 //
-//  BMLTSecondViewController.m
+//  BMLTMainSearchViewController.m
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -18,13 +18,13 @@
 
 //
 
-#import "BMLTThirdViewController.h"
+#import "BMLTMainSearchViewController.h"
 
-@interface BMLTThirdViewController ()
+@interface BMLTMainSearchViewController ()
 
 @end
 
-@implementation BMLTThirdViewController
+@implementation BMLTMainSearchViewController
 
 - (void)viewDidLoad
 {

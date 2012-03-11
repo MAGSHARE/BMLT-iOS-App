@@ -2,8 +2,7 @@
 //  A_BMLT_Search.h
 //  BMLT
 //
-//  Created by MAGSHARE on 8/13/11.
-//  Copyright 2011 MAGSHARE. All rights reserved.
+//  Created by MAGSHARE
 //
 //  This is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by

@@ -1,5 +1,5 @@
 //
-//  BMLTFirstViewController.h
+//  BMLTMainSearchViewController.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -20,6 +20,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BMLTFirstViewController : UINavigationController
+@interface BMLTMainSearchViewController : UINavigationController
 
 @end
