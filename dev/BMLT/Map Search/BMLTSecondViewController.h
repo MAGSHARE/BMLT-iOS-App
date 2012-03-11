@@ -20,6 +20,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BMLTSecondViewController : UIViewController
+@interface BMLTSecondViewController : UINavigationController
 
 @end
