@@ -20,6 +20,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BMLT_Server.h"
 
 @interface BMLT_Parser : NSXMLParser <NSXMLParserDelegate>
 {

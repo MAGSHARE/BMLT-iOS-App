@@ -136,14 +136,6 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 /***************************************************************\**
  \brief un-initializer
  *****************************************************************/
-- (void)dealloc
-{
-    [bmlt_name release];
-    [bmlt_description release];
-    [serverObjects release];
-    [myDelegate release];
-    [super dealloc];
-}
 
 #pragma mark - Class-Specific Functions -
 
@@ -170,7 +162,6 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
  *****************************************************************/
 - (void)setServerObjects:(NSArray *)inServerObjects ///< An array of BMLT_Server objects to be directly added
 {
-    [serverObjects release];
     
     serverObjects = nil;
     
@@ -217,10 +208,10 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
              withDescription:(NSString *)inDescription  ///< The description for the new BMLT_Server object
 {
         // Create the server object with the given parameters.
-    BMLT_Server *myServer = [[[BMLT_Server alloc] initWithURI:inServerURI
+    BMLT_Server *myServer = [[BMLT_Server alloc] initWithURI:inServerURI
                                                     andParent:self
                                                       andName:inName
-                                               andDescription:inDescription] autorelease];
+                                               andDescription:inDescription];
     if ( myServer ) // If successful, we tell it who we are, and to go forth and be fruitful
         {
         [myServer setDelegate:self];
@@ -233,8 +224,6 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
  *****************************************************************/
 - (void)setDelegate:(NSObject<BMLT_DriverDelegateProtocol> *)inDelegate
 {
-    [inDelegate retain];
-    [myDelegate release];
     myDelegate = inDelegate;
 }
 
@@ -264,8 +253,6 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
  *****************************************************************/
 - (void)setBMLTName:(NSString *)inName  ///< A string. The name of the driver.
 {
-    [inName retain];
-    [bmlt_name release];
     
     bmlt_name = nil;
     
@@ -280,8 +267,6 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
  *****************************************************************/
 - (void)setBMLTDescription:(NSString *)inDescription    ///< A string. The driver's description.
 {
-    [inDescription retain];
-    [bmlt_description release];
     
     bmlt_description = nil;
     

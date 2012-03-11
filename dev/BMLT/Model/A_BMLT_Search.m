@@ -51,7 +51,6 @@
 - (void)dealloc
 {
     [self clearSearch];
-    [super dealloc];
 }
 
 #pragma mark - Class-Specific Functions -
@@ -202,7 +201,6 @@
                 
                 [myParser parseAsync:NO
                          WithTimeout:meeting_search_timeout_period_in_seconds];
-                [myParser release];
 #ifdef DEBUG
                 NSLog(@"A_BMLT_Search doSearch Back from Kicking Off Search");
 #endif
@@ -241,8 +239,6 @@
  *****************************************************************/
 - (void)setBMLTName:(NSString *)inName  ///< The name string
 {
-    [inName retain];
-    [bmlt_name release];
     bmlt_name = inName;
 }
 
@@ -251,8 +247,6 @@
  *****************************************************************/
 - (void)setBMLTDescription:(NSString *)inDescription    ///< The textual description
 {
-    [inDescription retain];
-    [bmlt_description release];
     bmlt_description = inDescription;
 }
 
@@ -280,8 +274,6 @@
  *****************************************************************/
 - (void)setDelegate:(NSObject<SearchDelegate> *)inDelegate  ///< The search caller
 {
-    [inDelegate retain];
-    [myDelegate release];
     myDelegate = inDelegate;
 }
 
@@ -321,15 +313,10 @@
 #ifdef DEBUG
     NSLog(@"A_BMLT_Search clearSearch");
 #endif
-    [bmlt_name release];
     bmlt_name = nil;
-    [bmlt_description release];
     bmlt_description = nil;
-    [searchCriteria release];
     searchCriteria = nil;
-    [searchResults release];
     searchResults = nil;
-    [myDelegate release];
     myDelegate = nil;
     searchInProgress = NO;
 }

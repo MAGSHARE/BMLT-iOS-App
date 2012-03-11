@@ -19,9 +19,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface BMLTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
++ (BMLTAppDelegate *)getBMLTAppDelegate;
+
+- (CLLocation *)getWhereImAt;
 
 @end

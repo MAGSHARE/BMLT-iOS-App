@@ -73,9 +73,9 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
     
     if ( self && decoder )
         {
-        serverName = [[decoder decodeObjectForKey:@"serverName"] retain];
-        serverDescription = [[decoder decodeObjectForKey:@"serverDescription"] retain];
-        serverURI = [[decoder decodeObjectForKey:@"serverURI"] retain];
+        serverName = [decoder decodeObjectForKey:@"serverName"];
+        serverDescription = [decoder decodeObjectForKey:@"serverDescription"];
+        serverURI = [decoder decodeObjectForKey:@"serverURI"];
         }
     
     return self;
@@ -84,13 +84,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 /***************************************************************\**
  \brief Un-initializer
  *****************************************************************/
-- (void)dealloc
-{
-    [serverName release];
-    [serverDescription release];
-    [serverURI release];
-    [super dealloc];
-}
 
 /***************************************************************\**
  \brief Saves the state to an NSCoder
@@ -107,9 +100,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  *****************************************************************/
 - (void)setServerURI:(NSString *)inURI  ///< The URI, as a string
 {
-    [inURI retain];
     
-    [serverURI release];
     
     serverURI = inURI;
 }
@@ -119,9 +110,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  *****************************************************************/
 - (void)setServerName:(NSString *)inName    ///< The name of the server
 {
-    [inName retain];
     
-    [serverName release];
     
     serverName = inName;
 }
@@ -131,9 +120,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  *****************************************************************/
 - (void)setServerDescription:(NSString *)inDescription  ///< The server description
 {
-    [inDescription retain];
     
-    [serverDescription release];
     
     serverDescription = inDescription;
 }
@@ -181,7 +168,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 #ifdef DEBUG
         NSLog(@"BMLT_Prefs getBMLT_Prefs Trying unarchiving");
 #endif
-        s_thePrefs = [[NSKeyedUnarchiver unarchiveObjectWithFile:[BMLT_Prefs docPath]] retain];
+        s_thePrefs = [NSKeyedUnarchiver unarchiveObjectWithFile:[BMLT_Prefs docPath]];
         }
     
     if ( !s_thePrefs )
@@ -189,7 +176,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 #ifdef DEBUG
         NSLog(@"BMLT_Prefs getBMLT_Prefs Unarchiving didn't work. Allocating anew");
 #endif
-        s_thePrefs = [[[BMLT_Prefs alloc] initWithCoder:nil] retain];
+        s_thePrefs = [[BMLT_Prefs alloc] initWithCoder:nil];
         NSString    *serverName = NSLocalizedString(@"INITIAL-SERVER-NAME", nil);
         NSString    *serverDescription = NSLocalizedString(@"INITIAL-SERVER-DESCRIPTION", nil);
         NSString    *serverURI = NSLocalizedString(@"INITIAL-SERVER-URI", nil);
@@ -393,11 +380,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 /***************************************************************\**
  \brief Un-initializer.
  *****************************************************************/
-- (void)dealloc
-{
-    [servers release];
-    [super dealloc];
-}
 
 /***************************************************************\**
  \brief Accessor -get the server list.
@@ -445,7 +427,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
         [server_pref setServerDescription:inDescription];
         
         [servers addObject:server_pref];
-        [server_pref release];
         }
     
     return ret;
@@ -494,7 +475,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
         
         if ( decoder )
             {
-            servers = [[decoder decodeObjectForKey:@"servers"] retain];
+            servers = [decoder decodeObjectForKey:@"servers"];
             
             if ( [decoder containsValueForKey:@"startWithMap"] )
                 {

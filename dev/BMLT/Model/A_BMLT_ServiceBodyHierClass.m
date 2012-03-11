@@ -42,14 +42,6 @@
 /***************************************************************\**
  \brief un-initializer
  *****************************************************************/
-- (void)dealloc
-{
-    [uri release];
-    [bmlt_name release];
-    [bmlt_description release];
-    [cachedServiceBodies release];
-    [super dealloc];
-}
 
 #pragma mark - Class-Specific Functions -
 
@@ -79,8 +71,6 @@
  *****************************************************************/
 - (void)setURI:(NSString *)inURI    ///< The URI of the Service body
 {
-    [inURI  retain];
-    [uri release];
     
     uri = nil;
     
@@ -116,8 +106,6 @@
  *****************************************************************/
 - (void)setBMLTName:(NSString *)inName  ///< The name, as a string
 {
-    [inName retain];
-    [bmlt_name release];
     
     bmlt_name = nil;
     
@@ -132,8 +120,6 @@
  *****************************************************************/
 - (void)setBMLTDescription:(NSString *)inDescription    ///< The description
 {
-    [inDescription retain];
-    [bmlt_description release];
     
     bmlt_description = nil;
     

@@ -40,10 +40,6 @@
 {
     NSString    *bmlt_name;
     NSString    *bmlt_description;
-    NSString    *formatID;
-    NSString    *key;
-    NSString    *lang;
-    NSString    *currentElement;
 }
 
 @property (atomic, strong) NSString    *formatID;

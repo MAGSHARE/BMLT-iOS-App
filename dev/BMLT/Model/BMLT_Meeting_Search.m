@@ -67,7 +67,6 @@ didStartElement:(NSString *)elementName         ///< The name of the element
                     
                     NSError *myError = [NSError errorWithDomain:@"Read Error" code:NSFileReadTooLargeError userInfo:[NSDictionary dictionaryWithObject:error_Text forKey:NSLocalizedDescriptionKey]];
                     [myDelegate searchCompleteWithError:myError];
-                    [myDelegate release];
                     myDelegate = nil;
                     }
                 }
@@ -80,7 +79,6 @@ didStartElement:(NSString *)elementName         ///< The name of the element
                     [newMeeting setMyServer:[(BMLT_Parser *)parser getMyServer]];
                     [parser setDelegate:newMeeting];
                     [(BMLT_Parser *)parser setCurrentElement:newMeeting];
-                    [newMeeting release];
                     }
                 }
             }

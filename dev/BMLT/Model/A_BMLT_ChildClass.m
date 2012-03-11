@@ -43,11 +43,6 @@
 /***************************************************************\**
  \brief de-initializer
  *****************************************************************/
--(void)dealloc
-{
-    [parentObject release];
-    [super dealloc];
-}
 
 #pragma mark - Class-Specific Functions -
 
@@ -72,8 +67,6 @@
  *****************************************************************/
 - (void)setParentObject:(id)inParentObject
 {
-    [inParentObject retain];
-    [parentObject release];
     
     parentObject = inParentObject;
 }

@@ -33,6 +33,8 @@
 		7720FACD150C2B860038BFE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FACA150C2B860038BFE5 /* main.m */; };
 		7720FAD2150C2BA40038BFE5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD1150C2BA40038BFE5 /* Reachability.m */; };
 		7720FAD6150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */; };
+		772B05FE150C501C00E20C7B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772B05FD150C501C00E20C7B /* CoreLocation.framework */; };
+		772B0604150C506900E20C7B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772B0603150C506900E20C7B /* SystemConfiguration.framework */; };
 		77EF73B0150C07900058C714 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73AF150C07900058C714 /* UIKit.framework */; };
 		77EF73B2150C07900058C714 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B1150C07900058C714 /* Foundation.framework */; };
 		77EF73B4150C07900058C714 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B3150C07900058C714 /* CoreGraphics.framework */; };
@@ -88,6 +90,8 @@
 		7720FAD1150C2BA40038BFE5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Miscellaneous/Reachability.m; sourceTree = "<group>"; };
 		7720FAD4150C2BBF0038BFE5 /* BMLT_Prefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLT_Prefs.h; path = Miscellaneous/BMLT_Prefs.h; sourceTree = "<group>"; };
 		7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLT_Prefs.m; path = Miscellaneous/BMLT_Prefs.m; sourceTree = "<group>"; };
+		772B05FD150C501C00E20C7B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		772B0603150C506900E20C7B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		77EF73AB150C07900058C714 /* BMLT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMLT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EF73AF150C07900058C714 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77EF73B1150C07900058C714 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,6 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				772B0604150C506900E20C7B /* SystemConfiguration.framework in Frameworks */,
+				772B05FE150C501C00E20C7B /* CoreLocation.framework in Frameworks */,
 				77EF73B0150C07900058C714 /* UIKit.framework in Frameworks */,
 				77EF73B2150C07900058C714 /* Foundation.framework in Frameworks */,
 				77EF73B4150C07900058C714 /* CoreGraphics.framework in Frameworks */,
@@ -220,6 +226,8 @@
 		77EF73AE150C07900058C714 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				772B0603150C506900E20C7B /* SystemConfiguration.framework */,
+				772B05FD150C501C00E20C7B /* CoreLocation.framework */,
 				77EF73AF150C07900058C714 /* UIKit.framework */,
 				77EF73B1150C07900058C714 /* Foundation.framework */,
 				77EF73B3150C07900058C714 /* CoreGraphics.framework */,
@@ -428,8 +436,20 @@
 		77EF73ED150C07910058C714 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/Miscellaneous/BMLT-Prefix.pch";
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "BMLT/BMLT-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,8 +460,20 @@
 		77EF73EE150C07910058C714 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/Miscellaneous/BMLT-Prefix.pch";
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = "BMLT/BMLT-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

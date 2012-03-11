@@ -54,15 +54,6 @@
 /***************************************************************\**
  \brief Bye now.
  *****************************************************************/
-- (void)dealloc
-{
-    [current_element release];
-    [cachedFormats release];
-    [languages release];
-    [version release];
-    [delegate release];
-    [super dealloc];
-}
 
 #pragma mark - Class-Specific Functions -
 
@@ -99,8 +90,6 @@
  *****************************************************************/
 - (void)setDelegate:(NSObject *)inDelegate  ///< The delegate object.
 {
-    [inDelegate retain];
-    [delegate release];
     delegate = inDelegate;
 }
 
@@ -160,7 +149,6 @@
         BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithContentsOfURL:[NSURL URLWithString:serverURI]];
         [myParser setDelegate:self];
         [myParser parseAsync:NO WithTimeout:initial_query_timeout_in_seconds];
-        [myParser release];
 
         if ( loadFormats )
             {
@@ -189,12 +177,10 @@
         versionCheck = NO;
         versionSuccess = NO;
         loading_formats = YES;
-        [current_element release];
         current_element = nil;
         
         [myParser setDelegate:self];
         [myParser parseAsync:NO WithTimeout:format_query_timeout_in_seconds];
-        [myParser release];
         }
 }
 
@@ -253,8 +239,6 @@ didStartElement:(NSString *)elementName         ///< The name of the element
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"BMLT_Server Parser Start %@ element", elementName );
 #endif
-    [elementName retain];
-    [current_element release];
     current_element = elementName;
     
     if ( [elementName isEqual:@"serverVersion"] )
@@ -285,7 +269,6 @@ didStartElement:(NSString *)elementName         ///< The name of the element
                     if ( newFormat )
                         {
                         [parser setDelegate:newFormat];
-                        [newFormat release];
                         }
                     }
                 }
@@ -304,10 +287,6 @@ foundCharacters:(NSString *)string      ///< The string data
 #endif
     if ( 2 == parsingVersion )
         {
-        if ( version )
-            {
-            [version release];
-            }
         
         version = [string copy];
         versionSuccess = YES;
@@ -407,6 +386,5 @@ parseErrorOccurred:(NSError *)parseError    ///< The error that the parser wants
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"SERVER-TIMEOUT-ERROR",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
     
     [myAlert show];
-    [myAlert release];
 }
 @end

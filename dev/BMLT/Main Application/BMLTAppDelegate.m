@@ -20,9 +20,28 @@
 
 #import "BMLTAppDelegate.h"
 
+static BMLTAppDelegate *g_AppDelegate = nil;
+
 @implementation BMLTAppDelegate
 
 @synthesize window = _window;
+
++ (BMLTAppDelegate *)getBMLTAppDelegate
+{
+    return g_AppDelegate;
+}
+
+- (id) init
+{
+    self = [super init];
+    
+    if ( self )
+        {
+        g_AppDelegate = self;
+        }
+    
+    return self;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -57,4 +76,10 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (CLLocation *)getWhereImAt
+{
+    CLLocation  *whereImAt = nil;
+    
+    return  whereImAt;
+}
 @end

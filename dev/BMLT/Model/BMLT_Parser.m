@@ -52,7 +52,6 @@
 - (void)dealloc
 {
     [self cancelTimeout];
-    [super dealloc];
 }
 
 /***************************************************************\**
@@ -80,13 +79,9 @@
  *****************************************************************/
 - (void)cancelTimeout
 {
-    [currentElement release];
     currentElement = nil;
-    [myServer release];
     myServer = nil;
-    [myFirstDelegate release];
     myFirstDelegate = nil;
-    [myCurrentDelegate release];
     myCurrentDelegate = nil;
     [super setDelegate:nil];
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
@@ -101,13 +96,11 @@
  *****************************************************************/
 - (void)setBMLTDelegate:(NSObject<NSXMLParserDelegate> *)inDelegate ///< The parser delegate. It will be retained.
 {
-    [inDelegate retain];
-    [myCurrentDelegate release];
     myCurrentDelegate = inDelegate;
         // We keep track of our first delegate, as that is who we squeal to when a timeout happens.
     if ( !myFirstDelegate && inDelegate )
         {
-        myFirstDelegate = [myCurrentDelegate retain];
+        myFirstDelegate = myCurrentDelegate;
         }
     [super setDelegate:inDelegate ? self : nil];
 }
@@ -117,8 +110,6 @@
  *****************************************************************/
 - (void)setCurrentElement:(NSObject *)inObject  ///< The object for the parsing element.
 {
-    [inObject retain];
-    [currentElement release];
     currentElement = inObject;
 }
 
@@ -128,8 +119,6 @@
  *****************************************************************/
 - (void)setMyServer:(BMLT_Server *)inServerObject   ///< The server object. It is retained for the lifetime of the object.
 {
-    [inServerObject retain];
-    [myServer release];
     myServer = inServerObject;
 }
 

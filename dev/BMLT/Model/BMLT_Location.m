@@ -33,13 +33,6 @@
 /***************************************************************\**
  \brief un-initializer. Just make sure we get rid of everything.
  *****************************************************************/
-- (void)dealloc
-{
-    [location_position release];
-    [location_strings release];
-    
-    [super dealloc];
-}
 
 /***************************************************************\**
  \brief Set a location item as a string, using a key.
@@ -57,7 +50,6 @@
         if ( location_position )
             {
             lat = [location_position coordinate].latitude;
-            [location_position release];
             }
         
 #ifdef _CONNECTION_PARSE_TRACE_
@@ -75,7 +67,6 @@
             if ( location_position )
                 {
                 lng = [location_position coordinate].longitude;
-                [location_position release];
                 }
             
 #ifdef _CONNECTION_PARSE_TRACE_

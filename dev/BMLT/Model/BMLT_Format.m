@@ -37,6 +37,7 @@
 @end
 
 @implementation BMLT_Format
+
 @synthesize formatID = _formatID;
 @synthesize key = _key;
 @synthesize lang = _lang;
@@ -59,7 +60,7 @@
         // Default is yellow, with black text.
     ret.imageName2x = @"FormatCircleYellow@2x.png";
     ret.textColor = [UIColor blackColor];
-    ret.title = [inFormat getKey];
+    ret.title = [inFormat key];
     
         // Open meetings get a green circle with white text.
     if ( [ret.title isEqualToString:NSLocalizedString(@"FORMAT-KEY-OPEN", nil)] )
@@ -120,72 +121,6 @@
     return self;
 }
 
-/***************************************************************\**
- \brief Sets the format key string.
- *****************************************************************/
-- (void)setKey:(NSString *)inKey    ///< The format key string
-{
-    key = nil;
-    
-    if ( inKey )
-        {
-        key = inKey;
-        }
-}
-
-/***************************************************************\**
- \brief Accessor -get the key string
- \returns a string, containing the key.
- *****************************************************************/
-- (NSString *)getKey
-{
-    return key;
-}
-
-/***************************************************************\**
- \brief Set the language code for this format
- *****************************************************************/
-- (void)setLang:(NSString *)inLang  ///< The format language
-{
-    lang = nil;
-    
-    if ( inLang )
-        {
-        lang = inLang;
-        }
-}
-
-/***************************************************************\**
- \brief Accessor -get the format language
- \returns a string, containing the format language code
- *****************************************************************/
-- (NSString *)getLang
-{
-    return lang;
-}
-
-/***************************************************************\**
- \brief Set the format ID
- *****************************************************************/
-- (void)setFormatID:(NSString *)inID    ///< The format ID string.
-{
-    formatID = nil;
-    
-    if ( inID )
-        {
-        formatID = inID;
-        }
-}
-
-/***************************************************************\**
- \brief Accessor -get the format ID string
- \returns a string, containing the format ID
- *****************************************************************/
-- (NSString *)getFormatID
-{
-    return formatID;
-}
-
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_NameDescProtocol
 /***************************************************************\**
@@ -193,8 +128,6 @@
  *****************************************************************/
 - (void)setBMLTName:(NSString *)inName  ///< The name of the meeting.
 {
-    [inName retain];
-    [bmlt_name release];
     bmlt_name = inName;
 }
 
@@ -203,8 +136,6 @@
  *****************************************************************/
 - (void)setBMLTDescription:(NSString *)inDescription    ///< The meeting description.
 {
-    [inDescription retain];
-    [bmlt_description release];
     bmlt_description = inDescription;
 }
 
@@ -241,7 +172,7 @@ didStartElement:(NSString *)elementName         ///< The name of the element
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"\tBMLT_Format Parser Start %@ element", elementName );
 #endif
-    currentElement = elementName;
+    [self setCurrentElement:elementName];
 }
 
 /***************************************************************\**
@@ -253,38 +184,38 @@ foundCharacters:(NSString *)string      ///< The characters
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"\t\tCharacters \"%@\" Received for the Element: \"%@\"", string, currentElement);
 #endif
-    if ( [currentElement isEqual:@"id"] )
+    if ( [[self currentElement] isEqual:@"id"] )
         {
         [self setFormatID:string];
         }
     else
         {
-        if ( [currentElement isEqual:@"name_string"] )
+        if ( [[self currentElement] isEqual:@"name_string"] )
             {
             [self setBMLTName:string];
             }
         else
             {
-            if ( [currentElement isEqual:@"description_string"] )
+            if ( [[self currentElement] isEqual:@"description_string"] )
                 {
                 [self setBMLTDescription:string];
                 }
             else
                 {
-                if ( [currentElement isEqual:@"key_string"] )
+                if ( [[self currentElement] isEqual:@"key_string"] )
                     {
                     [self setKey:string];
                     }
                 else
                     {
-                    if ( [currentElement isEqual:@"lang"] )
+                    if ( [[self currentElement] isEqual:@"lang"] )
                         {
                         [self setLang:string];
                         }
 #ifdef DEBUG
                     else
                         {
-                        NSLog(@"\t\tERROR: Characters \"%@\" Received for Unknown Element: \"%@\"", string, currentElement);
+                        NSLog(@"\t\tERROR: Characters \"%@\" Received for Unknown Element: \"%@\"", string, [self currentElement]);
                         }
 #endif
                     }
@@ -319,7 +250,7 @@ foundCharacters:(NSString *)string      ///< The characters
 #endif
         }
 
-    currentElement = nil;
+    [self setCurrentElement:nil];
 }
 
     // We only use these for debug. Otherwise, we ignore errors and premature endings.

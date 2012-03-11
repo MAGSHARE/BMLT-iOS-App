@@ -27,6 +27,7 @@
 #import "BMLT_Meeting.h"
 #import "BMLT_Meeting_Search.h"
 #import "BMLT_Location.h"
+#import "BMLT_Prefs.h"
 #import "BMLT_Server.h"
 #import "A_BMLT_Search.h"
 #import "BMLTAppDelegate.h"
@@ -48,17 +49,6 @@
 /***************************************************************\**
  \brief Un-initializer
  *****************************************************************/
--(void)dealloc
-{
-    [location_object release];
-    [startTime release];
-    [currentElement release];
-    [formats release];
-    [moreFields release];
-    [bmlt_name release];
-    [bmlt_description release];
-    [super dealloc];
-}
 
 #pragma mark - Class-Specific Functions -
 
@@ -100,8 +90,6 @@
  *****************************************************************/
 - (void)setStartTime:(NSDate *)inStartTime  ///< The start time (only the time is used in the date).
 {
-    [inStartTime retain];
-    [startTime release];
     startTime = inStartTime;
 }
 
@@ -298,7 +286,7 @@
  *****************************************************************/
 - (NSArray *)getAvailableFields
 {
-    NSMutableArray  *ret = [[[NSMutableArray alloc] initWithObjects:@"id_bigint", @"location_coords", @"weekday_tinyint", @"start_time", nil] autorelease];
+    NSMutableArray  *ret = [[NSMutableArray alloc] initWithObjects:@"id_bigint", @"location_coords", @"weekday_tinyint", @"start_time", nil];
     
     if ( bmlt_name )
         {
@@ -354,8 +342,6 @@
  *****************************************************************/
 - (void)setBMLTName:(NSString *)inName  ///< The name of the meeting.
 {
-    [inName retain];
-    [bmlt_name release];
     bmlt_name = inName;
 }
 
@@ -364,8 +350,6 @@
  *****************************************************************/
 - (void)setBMLTDescription:(NSString *)inDescription    ///< The meeting description.
 {
-    [inDescription retain];
-    [bmlt_description release];
     bmlt_description = inDescription;
 }
 
@@ -402,8 +386,6 @@ didStartElement:(NSString *)elementName         ///< The name of the element
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"\tBMLT_Meeting Parser Start %@ element", elementName );
 #endif
-    [elementName retain];
-    [currentElement release];
     currentElement = elementName;
 }
 
@@ -483,7 +465,6 @@ foundCharacters:(NSString *)string      ///< The characters
                                 NSCalendar  *curCal = [NSCalendar currentCalendar];
                                 NSDate      *startT = [curCal dateFromComponents:comps];
                                 [self setStartTime:startT];
-                                [comps release];
 #ifdef _CONNECTION_PARSE_TRACE_
                                 NSLog(@"\t\tBMLT_Meeting Parser Setting Start Time To: \"%@\"", [self getStartTime]);
 #endif
@@ -529,7 +510,7 @@ foundCharacters:(NSString *)string      ///< The characters
                                                             {
                                                             BMLT_Format *the_format = [format_choices objectAtIndex:j];
                                                             
-                                                            if ( the_format && [[the_format getKey] isEqual:theKey] )
+                                                            if ( the_format && [[the_format key] isEqual:theKey] )
                                                                 {
                                                                 [formats addObject:the_format];
 #ifdef _CONNECTION_PARSE_TRACE_
@@ -614,7 +595,6 @@ foundCharacters:(NSString *)string      ///< The characters
 #endif
         [parser setDelegate:myParent];
         }
-    [currentElement release];
     currentElement = nil;
 }
 
