@@ -7,20 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7720FA65150C111E0038BFE5 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7720FA63150C111E0038BFE5 /* LICENSE.txt */; };
+		7720FA66150C111E0038BFE5 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 7720FA64150C111E0038BFE5 /* README */; };
+		7720FA81150C112C0038BFE5 /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6A150C112C0038BFE5 /* A_BMLT_ChildClass.m */; };
+		7720FA82150C112C0038BFE5 /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6A150C112C0038BFE5 /* A_BMLT_ChildClass.m */; };
+		7720FA83150C112C0038BFE5 /* A_BMLT_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6C150C112C0038BFE5 /* A_BMLT_Search.m */; };
+		7720FA84150C112C0038BFE5 /* A_BMLT_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6C150C112C0038BFE5 /* A_BMLT_Search.m */; };
+		7720FA85150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6E150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m */; };
+		7720FA86150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6E150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m */; };
+		7720FA87150C112C0038BFE5 /* BMLT_Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA70150C112C0038BFE5 /* BMLT_Driver.m */; };
+		7720FA88150C112C0038BFE5 /* BMLT_Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA70150C112C0038BFE5 /* BMLT_Driver.m */; };
+		7720FA89150C112C0038BFE5 /* BMLT_Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA72150C112C0038BFE5 /* BMLT_Format.m */; };
+		7720FA8A150C112C0038BFE5 /* BMLT_Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA72150C112C0038BFE5 /* BMLT_Format.m */; };
+		7720FA8B150C112C0038BFE5 /* BMLT_Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA74150C112C0038BFE5 /* BMLT_Location.m */; };
+		7720FA8C150C112C0038BFE5 /* BMLT_Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA74150C112C0038BFE5 /* BMLT_Location.m */; };
+		7720FA8D150C112C0038BFE5 /* BMLT_Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA76150C112C0038BFE5 /* BMLT_Meeting.m */; };
+		7720FA8E150C112C0038BFE5 /* BMLT_Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA76150C112C0038BFE5 /* BMLT_Meeting.m */; };
+		7720FA8F150C112C0038BFE5 /* BMLT_Meeting_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA78150C112C0038BFE5 /* BMLT_Meeting_Search.m */; };
+		7720FA90150C112C0038BFE5 /* BMLT_Meeting_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA78150C112C0038BFE5 /* BMLT_Meeting_Search.m */; };
+		7720FA91150C112C0038BFE5 /* BMLT_Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7B150C112C0038BFE5 /* BMLT_Parser.m */; };
+		7720FA92150C112C0038BFE5 /* BMLT_Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7B150C112C0038BFE5 /* BMLT_Parser.m */; };
+		7720FA93150C112C0038BFE5 /* BMLT_Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7D150C112C0038BFE5 /* BMLT_Server.m */; };
+		7720FA94150C112C0038BFE5 /* BMLT_Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7D150C112C0038BFE5 /* BMLT_Server.m */; };
+		7720FA95150C112C0038BFE5 /* BMLT_ServiceBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7F150C112C0038BFE5 /* BMLT_ServiceBody.m */; };
+		7720FA96150C112C0038BFE5 /* BMLT_ServiceBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7F150C112C0038BFE5 /* BMLT_ServiceBody.m */; };
+		7720FAAE150C2B4A0038BFE5 /* BMLTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAAB150C2B4A0038BFE5 /* BMLTFirstViewController.m */; };
+		7720FAAF150C2B4A0038BFE5 /* BMLTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAAB150C2B4A0038BFE5 /* BMLTFirstViewController.m */; };
+		7720FAB0150C2B4A0038BFE5 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAAC150C2B4A0038BFE5 /* first.png */; };
+		7720FAB1150C2B4A0038BFE5 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAAC150C2B4A0038BFE5 /* first.png */; };
+		7720FAB2150C2B4A0038BFE5 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAAD150C2B4A0038BFE5 /* first@2x.png */; };
+		7720FAB3150C2B4A0038BFE5 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAAD150C2B4A0038BFE5 /* first@2x.png */; };
+		7720FAB8150C2B600038BFE5 /* BMLTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAB5150C2B600038BFE5 /* BMLTSecondViewController.m */; };
+		7720FAB9150C2B600038BFE5 /* BMLTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAB5150C2B600038BFE5 /* BMLTSecondViewController.m */; };
+		7720FABA150C2B600038BFE5 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAB6150C2B600038BFE5 /* second.png */; };
+		7720FABB150C2B600038BFE5 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAB6150C2B600038BFE5 /* second.png */; };
+		7720FABC150C2B600038BFE5 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAB7150C2B600038BFE5 /* second@2x.png */; };
+		7720FABD150C2B600038BFE5 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAB7150C2B600038BFE5 /* second@2x.png */; };
+		7720FAC2150C2B730038BFE5 /* BMLTThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FABF150C2B730038BFE5 /* BMLTThirdViewController.m */; };
+		7720FAC3150C2B730038BFE5 /* BMLTThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FABF150C2B730038BFE5 /* BMLTThirdViewController.m */; };
+		7720FAC4150C2B730038BFE5 /* third.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAC0150C2B730038BFE5 /* third.png */; };
+		7720FAC5150C2B730038BFE5 /* third.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAC0150C2B730038BFE5 /* third.png */; };
+		7720FAC6150C2B730038BFE5 /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAC1150C2B730038BFE5 /* third@2x.png */; };
+		7720FAC7150C2B730038BFE5 /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAC1150C2B730038BFE5 /* third@2x.png */; };
+		7720FACB150C2B860038BFE5 /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAC9150C2B860038BFE5 /* BMLTAppDelegate.m */; };
+		7720FACC150C2B860038BFE5 /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAC9150C2B860038BFE5 /* BMLTAppDelegate.m */; };
+		7720FACD150C2B860038BFE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FACA150C2B860038BFE5 /* main.m */; };
+		7720FACE150C2B860038BFE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FACA150C2B860038BFE5 /* main.m */; };
+		7720FAD2150C2BA40038BFE5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD1150C2BA40038BFE5 /* Reachability.m */; };
+		7720FAD3150C2BA40038BFE5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD1150C2BA40038BFE5 /* Reachability.m */; };
+		7720FAD6150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */; };
+		7720FAD7150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */; };
 		77EF73B0150C07900058C714 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73AF150C07900058C714 /* UIKit.framework */; };
 		77EF73B2150C07900058C714 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B1150C07900058C714 /* Foundation.framework */; };
 		77EF73B4150C07900058C714 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B3150C07900058C714 /* CoreGraphics.framework */; };
 		77EF73BA150C07900058C714 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73B8150C07900058C714 /* InfoPlist.strings */; };
-		77EF73BC150C07900058C714 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EF73BB150C07900058C714 /* main.m */; };
-		77EF73C0150C07900058C714 /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EF73BF150C07900058C714 /* BMLTAppDelegate.m */; };
 		77EF73C3150C07900058C714 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73C1150C07900058C714 /* MainStoryboard_iPhone.storyboard */; };
 		77EF73C6150C07900058C714 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73C4150C07900058C714 /* MainStoryboard_iPad.storyboard */; };
-		77EF73C9150C07900058C714 /* BMLTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EF73C8150C07900058C714 /* BMLTFirstViewController.m */; };
-		77EF73CB150C07910058C714 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73CA150C07910058C714 /* first.png */; };
-		77EF73CD150C07910058C714 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73CC150C07910058C714 /* first@2x.png */; };
-		77EF73D0150C07910058C714 /* BMLTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EF73CF150C07910058C714 /* BMLTSecondViewController.m */; };
-		77EF73D2150C07910058C714 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73D1150C07910058C714 /* second.png */; };
-		77EF73D4150C07910058C714 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73D3150C07910058C714 /* second@2x.png */; };
 		77EF73DC150C07910058C714 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73DB150C07910058C714 /* SenTestingKit.framework */; };
 		77EF73DD150C07910058C714 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73AF150C07900058C714 /* UIKit.framework */; };
 		77EF73DE150C07910058C714 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B1150C07900058C714 /* Foundation.framework */; };
@@ -39,26 +81,60 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7720FA63150C111E0038BFE5 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
+		7720FA64150C111E0038BFE5 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
+		7720FA69150C112C0038BFE5 /* A_BMLT_ChildClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLT_ChildClass.h; sourceTree = "<group>"; };
+		7720FA6A150C112C0038BFE5 /* A_BMLT_ChildClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLT_ChildClass.m; sourceTree = "<group>"; };
+		7720FA6B150C112C0038BFE5 /* A_BMLT_Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLT_Search.h; sourceTree = "<group>"; };
+		7720FA6C150C112C0038BFE5 /* A_BMLT_Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLT_Search.m; sourceTree = "<group>"; };
+		7720FA6D150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLT_ServiceBodyHierClass.h; sourceTree = "<group>"; };
+		7720FA6E150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLT_ServiceBodyHierClass.m; sourceTree = "<group>"; };
+		7720FA6F150C112C0038BFE5 /* BMLT_Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Driver.h; sourceTree = "<group>"; };
+		7720FA70150C112C0038BFE5 /* BMLT_Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Driver.m; sourceTree = "<group>"; };
+		7720FA71150C112C0038BFE5 /* BMLT_Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Format.h; sourceTree = "<group>"; };
+		7720FA72150C112C0038BFE5 /* BMLT_Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Format.m; sourceTree = "<group>"; };
+		7720FA73150C112C0038BFE5 /* BMLT_Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Location.h; sourceTree = "<group>"; };
+		7720FA74150C112C0038BFE5 /* BMLT_Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Location.m; sourceTree = "<group>"; };
+		7720FA75150C112C0038BFE5 /* BMLT_Meeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Meeting.h; sourceTree = "<group>"; };
+		7720FA76150C112C0038BFE5 /* BMLT_Meeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Meeting.m; sourceTree = "<group>"; };
+		7720FA77150C112C0038BFE5 /* BMLT_Meeting_Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Meeting_Search.h; sourceTree = "<group>"; };
+		7720FA78150C112C0038BFE5 /* BMLT_Meeting_Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Meeting_Search.m; sourceTree = "<group>"; };
+		7720FA79150C112C0038BFE5 /* BMLT_Model_Protocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Model_Protocols.h; sourceTree = "<group>"; };
+		7720FA7A150C112C0038BFE5 /* BMLT_Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Parser.h; sourceTree = "<group>"; };
+		7720FA7B150C112C0038BFE5 /* BMLT_Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Parser.m; sourceTree = "<group>"; };
+		7720FA7C150C112C0038BFE5 /* BMLT_Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Server.h; sourceTree = "<group>"; };
+		7720FA7D150C112C0038BFE5 /* BMLT_Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Server.m; sourceTree = "<group>"; };
+		7720FA7E150C112C0038BFE5 /* BMLT_ServiceBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_ServiceBody.h; sourceTree = "<group>"; };
+		7720FA7F150C112C0038BFE5 /* BMLT_ServiceBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_ServiceBody.m; sourceTree = "<group>"; };
+		7720FA80150C112C0038BFE5 /* SearchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDelegate.h; sourceTree = "<group>"; };
+		7720FAAA150C2B4A0038BFE5 /* BMLTFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLTFirstViewController.h; path = "List Search/BMLTFirstViewController.h"; sourceTree = "<group>"; };
+		7720FAAB150C2B4A0038BFE5 /* BMLTFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLTFirstViewController.m; path = "List Search/BMLTFirstViewController.m"; sourceTree = "<group>"; };
+		7720FAAC150C2B4A0038BFE5 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = "List Search/first.png"; sourceTree = "<group>"; };
+		7720FAAD150C2B4A0038BFE5 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "List Search/first@2x.png"; sourceTree = "<group>"; };
+		7720FAB4150C2B600038BFE5 /* BMLTSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLTSecondViewController.h; path = "Map Search/BMLTSecondViewController.h"; sourceTree = "<group>"; };
+		7720FAB5150C2B600038BFE5 /* BMLTSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLTSecondViewController.m; path = "Map Search/BMLTSecondViewController.m"; sourceTree = "<group>"; };
+		7720FAB6150C2B600038BFE5 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = "Map Search/second.png"; sourceTree = "<group>"; };
+		7720FAB7150C2B600038BFE5 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Map Search/second@2x.png"; sourceTree = "<group>"; };
+		7720FABE150C2B730038BFE5 /* BMLTThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLTThirdViewController.h; path = Settings/BMLTThirdViewController.h; sourceTree = "<group>"; };
+		7720FABF150C2B730038BFE5 /* BMLTThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLTThirdViewController.m; path = Settings/BMLTThirdViewController.m; sourceTree = "<group>"; };
+		7720FAC0150C2B730038BFE5 /* third.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = third.png; path = Settings/third.png; sourceTree = "<group>"; };
+		7720FAC1150C2B730038BFE5 /* third@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "third@2x.png"; path = "Settings/third@2x.png"; sourceTree = "<group>"; };
+		7720FAC8150C2B860038BFE5 /* BMLTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLTAppDelegate.h; path = "Main Application/BMLTAppDelegate.h"; sourceTree = "<group>"; };
+		7720FAC9150C2B860038BFE5 /* BMLTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLTAppDelegate.m; path = "Main Application/BMLTAppDelegate.m"; sourceTree = "<group>"; };
+		7720FACA150C2B860038BFE5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Main Application/main.m"; sourceTree = "<group>"; };
+		7720FACF150C2BA40038BFE5 /* BMLT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BMLT-Prefix.pch"; path = "Miscellaneous/BMLT-Prefix.pch"; sourceTree = "<group>"; };
+		7720FAD0150C2BA40038BFE5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Miscellaneous/Reachability.h; sourceTree = "<group>"; };
+		7720FAD1150C2BA40038BFE5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Miscellaneous/Reachability.m; sourceTree = "<group>"; };
+		7720FAD4150C2BBF0038BFE5 /* BMLT_Prefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLT_Prefs.h; path = Miscellaneous/BMLT_Prefs.h; sourceTree = "<group>"; };
+		7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLT_Prefs.m; path = Miscellaneous/BMLT_Prefs.m; sourceTree = "<group>"; };
 		77EF73AB150C07900058C714 /* BMLT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMLT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EF73AF150C07900058C714 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77EF73B1150C07900058C714 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77EF73B3150C07900058C714 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		77EF73B7150C07900058C714 /* BMLT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMLT-Info.plist"; sourceTree = "<group>"; };
 		77EF73B9150C07900058C714 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		77EF73BB150C07900058C714 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		77EF73BD150C07900058C714 /* BMLT-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
-		77EF73BE150C07900058C714 /* BMLTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMLTAppDelegate.h; sourceTree = "<group>"; };
-		77EF73BF150C07900058C714 /* BMLTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMLTAppDelegate.m; sourceTree = "<group>"; };
 		77EF73C2150C07900058C714 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		77EF73C5150C07900058C714 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		77EF73C7150C07900058C714 /* BMLTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMLTFirstViewController.h; sourceTree = "<group>"; };
-		77EF73C8150C07900058C714 /* BMLTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMLTFirstViewController.m; sourceTree = "<group>"; };
-		77EF73CA150C07910058C714 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		77EF73CC150C07910058C714 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		77EF73CE150C07910058C714 /* BMLTSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMLTSecondViewController.h; sourceTree = "<group>"; };
-		77EF73CF150C07910058C714 /* BMLTSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMLTSecondViewController.m; sourceTree = "<group>"; };
-		77EF73D1150C07910058C714 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		77EF73D3150C07910058C714 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		77EF73DA150C07910058C714 /* BMLTTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMLTTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EF73DB150C07910058C714 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		77EF73E3150C07910058C714 /* BMLTTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMLTTests-Info.plist"; sourceTree = "<group>"; };
@@ -91,6 +167,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7720FA68150C112C0038BFE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7720FA79150C112C0038BFE5 /* BMLT_Model_Protocols.h */,
+				7720FA69150C112C0038BFE5 /* A_BMLT_ChildClass.h */,
+				7720FA6A150C112C0038BFE5 /* A_BMLT_ChildClass.m */,
+				7720FA6B150C112C0038BFE5 /* A_BMLT_Search.h */,
+				7720FA6C150C112C0038BFE5 /* A_BMLT_Search.m */,
+				7720FA6D150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.h */,
+				7720FA6E150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m */,
+				7720FA6F150C112C0038BFE5 /* BMLT_Driver.h */,
+				7720FA70150C112C0038BFE5 /* BMLT_Driver.m */,
+				7720FA71150C112C0038BFE5 /* BMLT_Format.h */,
+				7720FA72150C112C0038BFE5 /* BMLT_Format.m */,
+				7720FA73150C112C0038BFE5 /* BMLT_Location.h */,
+				7720FA74150C112C0038BFE5 /* BMLT_Location.m */,
+				7720FA75150C112C0038BFE5 /* BMLT_Meeting.h */,
+				7720FA76150C112C0038BFE5 /* BMLT_Meeting.m */,
+				7720FA77150C112C0038BFE5 /* BMLT_Meeting_Search.h */,
+				7720FA78150C112C0038BFE5 /* BMLT_Meeting_Search.m */,
+				7720FA7A150C112C0038BFE5 /* BMLT_Parser.h */,
+				7720FA7B150C112C0038BFE5 /* BMLT_Parser.m */,
+				7720FA7C150C112C0038BFE5 /* BMLT_Server.h */,
+				7720FA7D150C112C0038BFE5 /* BMLT_Server.m */,
+				7720FA7E150C112C0038BFE5 /* BMLT_ServiceBody.h */,
+				7720FA7F150C112C0038BFE5 /* BMLT_ServiceBody.m */,
+				7720FA80150C112C0038BFE5 /* SearchDelegate.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7720FA97150C113D0038BFE5 /* Main Application */ = {
+			isa = PBXGroup;
+			children = (
+				77EF73C1150C07900058C714 /* MainStoryboard_iPhone.storyboard */,
+				77EF73C4150C07900058C714 /* MainStoryboard_iPad.storyboard */,
+				7720FAC8150C2B860038BFE5 /* BMLTAppDelegate.h */,
+				7720FAC9150C2B860038BFE5 /* BMLTAppDelegate.m */,
+				7720FACA150C2B860038BFE5 /* main.m */,
+			);
+			name = "Main Application";
+			sourceTree = "<group>";
+		};
+		7720FA9C150C12630038BFE5 /* List Search */ = {
+			isa = PBXGroup;
+			children = (
+				7720FAAA150C2B4A0038BFE5 /* BMLTFirstViewController.h */,
+				7720FAAB150C2B4A0038BFE5 /* BMLTFirstViewController.m */,
+				7720FAAC150C2B4A0038BFE5 /* first.png */,
+				7720FAAD150C2B4A0038BFE5 /* first@2x.png */,
+			);
+			name = "List Search";
+			sourceTree = "<group>";
+		};
+		7720FA9E150C12710038BFE5 /* Map Search */ = {
+			isa = PBXGroup;
+			children = (
+				7720FAB4150C2B600038BFE5 /* BMLTSecondViewController.h */,
+				7720FAB5150C2B600038BFE5 /* BMLTSecondViewController.m */,
+				7720FAB6150C2B600038BFE5 /* second.png */,
+				7720FAB7150C2B600038BFE5 /* second@2x.png */,
+			);
+			name = "Map Search";
+			sourceTree = "<group>";
+		};
+		7720FAA9150C12D30038BFE5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7720FABE150C2B730038BFE5 /* BMLTThirdViewController.h */,
+				7720FABF150C2B730038BFE5 /* BMLTThirdViewController.m */,
+				7720FAC0150C2B730038BFE5 /* third.png */,
+				7720FAC1150C2B730038BFE5 /* third@2x.png */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		7720FAD8150C2BC80038BFE5 /* Prefs */ = {
+			isa = PBXGroup;
+			children = (
+				7720FAD4150C2BBF0038BFE5 /* BMLT_Prefs.h */,
+				7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */,
+			);
+			name = Prefs;
+			sourceTree = "<group>";
+		};
 		77EF73A0150C07900058C714 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +259,8 @@
 				77EF73E1150C07910058C714 /* BMLTTests */,
 				77EF73AE150C07900058C714 /* Frameworks */,
 				77EF73AC150C07900058C714 /* Products */,
+				7720FA63150C111E0038BFE5 /* LICENSE.txt */,
+				7720FA64150C111E0038BFE5 /* README */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,18 +287,12 @@
 		77EF73B5150C07900058C714 /* BMLT */ = {
 			isa = PBXGroup;
 			children = (
-				77EF73BE150C07900058C714 /* BMLTAppDelegate.h */,
-				77EF73BF150C07900058C714 /* BMLTAppDelegate.m */,
-				77EF73C1150C07900058C714 /* MainStoryboard_iPhone.storyboard */,
-				77EF73C4150C07900058C714 /* MainStoryboard_iPad.storyboard */,
-				77EF73C7150C07900058C714 /* BMLTFirstViewController.h */,
-				77EF73C8150C07900058C714 /* BMLTFirstViewController.m */,
-				77EF73CA150C07910058C714 /* first.png */,
-				77EF73CC150C07910058C714 /* first@2x.png */,
-				77EF73CE150C07910058C714 /* BMLTSecondViewController.h */,
-				77EF73CF150C07910058C714 /* BMLTSecondViewController.m */,
-				77EF73D1150C07910058C714 /* second.png */,
-				77EF73D3150C07910058C714 /* second@2x.png */,
+				7720FA97150C113D0038BFE5 /* Main Application */,
+				7720FAD8150C2BC80038BFE5 /* Prefs */,
+				7720FA9C150C12630038BFE5 /* List Search */,
+				7720FA9E150C12710038BFE5 /* Map Search */,
+				7720FAA9150C12D30038BFE5 /* Settings */,
+				7720FA68150C112C0038BFE5 /* Model */,
 				77EF73B6150C07900058C714 /* Supporting Files */,
 			);
 			path = BMLT;
@@ -144,10 +301,11 @@
 		77EF73B6150C07900058C714 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7720FACF150C2BA40038BFE5 /* BMLT-Prefix.pch */,
+				7720FAD0150C2BA40038BFE5 /* Reachability.h */,
+				7720FAD1150C2BA40038BFE5 /* Reachability.m */,
 				77EF73B7150C07900058C714 /* BMLT-Info.plist */,
 				77EF73B8150C07900058C714 /* InfoPlist.strings */,
-				77EF73BB150C07900058C714 /* main.m */,
-				77EF73BD150C07900058C714 /* BMLT-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,10 +404,14 @@
 				77EF73BA150C07900058C714 /* InfoPlist.strings in Resources */,
 				77EF73C3150C07900058C714 /* MainStoryboard_iPhone.storyboard in Resources */,
 				77EF73C6150C07900058C714 /* MainStoryboard_iPad.storyboard in Resources */,
-				77EF73CB150C07910058C714 /* first.png in Resources */,
-				77EF73CD150C07910058C714 /* first@2x.png in Resources */,
-				77EF73D2150C07910058C714 /* second.png in Resources */,
-				77EF73D4150C07910058C714 /* second@2x.png in Resources */,
+				7720FA65150C111E0038BFE5 /* LICENSE.txt in Resources */,
+				7720FA66150C111E0038BFE5 /* README in Resources */,
+				7720FAB0150C2B4A0038BFE5 /* first.png in Resources */,
+				7720FAB2150C2B4A0038BFE5 /* first@2x.png in Resources */,
+				7720FABA150C2B600038BFE5 /* second.png in Resources */,
+				7720FABC150C2B600038BFE5 /* second@2x.png in Resources */,
+				7720FAC4150C2B730038BFE5 /* third.png in Resources */,
+				7720FAC6150C2B730038BFE5 /* third@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +420,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EF73E6150C07910058C714 /* InfoPlist.strings in Resources */,
+				7720FAB1150C2B4A0038BFE5 /* first.png in Resources */,
+				7720FAB3150C2B4A0038BFE5 /* first@2x.png in Resources */,
+				7720FABB150C2B600038BFE5 /* second.png in Resources */,
+				7720FABD150C2B600038BFE5 /* second@2x.png in Resources */,
+				7720FAC5150C2B730038BFE5 /* third.png in Resources */,
+				7720FAC7150C2B730038BFE5 /* third@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,10 +452,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77EF73BC150C07900058C714 /* main.m in Sources */,
-				77EF73C0150C07900058C714 /* BMLTAppDelegate.m in Sources */,
-				77EF73C9150C07900058C714 /* BMLTFirstViewController.m in Sources */,
-				77EF73D0150C07910058C714 /* BMLTSecondViewController.m in Sources */,
+				7720FA81150C112C0038BFE5 /* A_BMLT_ChildClass.m in Sources */,
+				7720FA83150C112C0038BFE5 /* A_BMLT_Search.m in Sources */,
+				7720FA85150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m in Sources */,
+				7720FA87150C112C0038BFE5 /* BMLT_Driver.m in Sources */,
+				7720FA89150C112C0038BFE5 /* BMLT_Format.m in Sources */,
+				7720FA8B150C112C0038BFE5 /* BMLT_Location.m in Sources */,
+				7720FA8D150C112C0038BFE5 /* BMLT_Meeting.m in Sources */,
+				7720FA8F150C112C0038BFE5 /* BMLT_Meeting_Search.m in Sources */,
+				7720FA91150C112C0038BFE5 /* BMLT_Parser.m in Sources */,
+				7720FA93150C112C0038BFE5 /* BMLT_Server.m in Sources */,
+				7720FA95150C112C0038BFE5 /* BMLT_ServiceBody.m in Sources */,
+				7720FAAE150C2B4A0038BFE5 /* BMLTFirstViewController.m in Sources */,
+				7720FAB8150C2B600038BFE5 /* BMLTSecondViewController.m in Sources */,
+				7720FAC2150C2B730038BFE5 /* BMLTThirdViewController.m in Sources */,
+				7720FACB150C2B860038BFE5 /* BMLTAppDelegate.m in Sources */,
+				7720FACD150C2B860038BFE5 /* main.m in Sources */,
+				7720FAD2150C2BA40038BFE5 /* Reachability.m in Sources */,
+				7720FAD6150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +478,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EF73E9150C07910058C714 /* BMLTTests.m in Sources */,
+				7720FA82150C112C0038BFE5 /* A_BMLT_ChildClass.m in Sources */,
+				7720FA84150C112C0038BFE5 /* A_BMLT_Search.m in Sources */,
+				7720FA86150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m in Sources */,
+				7720FA88150C112C0038BFE5 /* BMLT_Driver.m in Sources */,
+				7720FA8A150C112C0038BFE5 /* BMLT_Format.m in Sources */,
+				7720FA8C150C112C0038BFE5 /* BMLT_Location.m in Sources */,
+				7720FA8E150C112C0038BFE5 /* BMLT_Meeting.m in Sources */,
+				7720FA90150C112C0038BFE5 /* BMLT_Meeting_Search.m in Sources */,
+				7720FA92150C112C0038BFE5 /* BMLT_Parser.m in Sources */,
+				7720FA94150C112C0038BFE5 /* BMLT_Server.m in Sources */,
+				7720FA96150C112C0038BFE5 /* BMLT_ServiceBody.m in Sources */,
+				7720FAAF150C2B4A0038BFE5 /* BMLTFirstViewController.m in Sources */,
+				7720FAB9150C2B600038BFE5 /* BMLTSecondViewController.m in Sources */,
+				7720FAC3150C2B730038BFE5 /* BMLTThirdViewController.m in Sources */,
+				7720FACC150C2B860038BFE5 /* BMLTAppDelegate.m in Sources */,
+				7720FACE150C2B860038BFE5 /* main.m in Sources */,
+				7720FAD3150C2BA40038BFE5 /* Reachability.m in Sources */,
+				7720FAD7150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +669,7 @@
 				77EF73EE150C07910058C714 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		77EF73EF150C07910058C714 /* Build configuration list for PBXNativeTarget "BMLTTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +678,7 @@
 				77EF73F1150C07910058C714 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
