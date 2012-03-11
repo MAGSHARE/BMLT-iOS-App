@@ -10,75 +10,36 @@
 		7720FA65150C111E0038BFE5 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7720FA63150C111E0038BFE5 /* LICENSE.txt */; };
 		7720FA66150C111E0038BFE5 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 7720FA64150C111E0038BFE5 /* README */; };
 		7720FA81150C112C0038BFE5 /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6A150C112C0038BFE5 /* A_BMLT_ChildClass.m */; };
-		7720FA82150C112C0038BFE5 /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6A150C112C0038BFE5 /* A_BMLT_ChildClass.m */; };
 		7720FA83150C112C0038BFE5 /* A_BMLT_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6C150C112C0038BFE5 /* A_BMLT_Search.m */; };
-		7720FA84150C112C0038BFE5 /* A_BMLT_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6C150C112C0038BFE5 /* A_BMLT_Search.m */; };
 		7720FA85150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6E150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m */; };
-		7720FA86150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA6E150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m */; };
 		7720FA87150C112C0038BFE5 /* BMLT_Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA70150C112C0038BFE5 /* BMLT_Driver.m */; };
-		7720FA88150C112C0038BFE5 /* BMLT_Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA70150C112C0038BFE5 /* BMLT_Driver.m */; };
 		7720FA89150C112C0038BFE5 /* BMLT_Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA72150C112C0038BFE5 /* BMLT_Format.m */; };
-		7720FA8A150C112C0038BFE5 /* BMLT_Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA72150C112C0038BFE5 /* BMLT_Format.m */; };
 		7720FA8B150C112C0038BFE5 /* BMLT_Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA74150C112C0038BFE5 /* BMLT_Location.m */; };
-		7720FA8C150C112C0038BFE5 /* BMLT_Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA74150C112C0038BFE5 /* BMLT_Location.m */; };
 		7720FA8D150C112C0038BFE5 /* BMLT_Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA76150C112C0038BFE5 /* BMLT_Meeting.m */; };
-		7720FA8E150C112C0038BFE5 /* BMLT_Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA76150C112C0038BFE5 /* BMLT_Meeting.m */; };
 		7720FA8F150C112C0038BFE5 /* BMLT_Meeting_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA78150C112C0038BFE5 /* BMLT_Meeting_Search.m */; };
-		7720FA90150C112C0038BFE5 /* BMLT_Meeting_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA78150C112C0038BFE5 /* BMLT_Meeting_Search.m */; };
 		7720FA91150C112C0038BFE5 /* BMLT_Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7B150C112C0038BFE5 /* BMLT_Parser.m */; };
-		7720FA92150C112C0038BFE5 /* BMLT_Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7B150C112C0038BFE5 /* BMLT_Parser.m */; };
 		7720FA93150C112C0038BFE5 /* BMLT_Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7D150C112C0038BFE5 /* BMLT_Server.m */; };
-		7720FA94150C112C0038BFE5 /* BMLT_Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7D150C112C0038BFE5 /* BMLT_Server.m */; };
 		7720FA95150C112C0038BFE5 /* BMLT_ServiceBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7F150C112C0038BFE5 /* BMLT_ServiceBody.m */; };
-		7720FA96150C112C0038BFE5 /* BMLT_ServiceBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FA7F150C112C0038BFE5 /* BMLT_ServiceBody.m */; };
 		7720FAAE150C2B4A0038BFE5 /* BMLTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAAB150C2B4A0038BFE5 /* BMLTFirstViewController.m */; };
-		7720FAAF150C2B4A0038BFE5 /* BMLTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAAB150C2B4A0038BFE5 /* BMLTFirstViewController.m */; };
 		7720FAB0150C2B4A0038BFE5 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAAC150C2B4A0038BFE5 /* first.png */; };
-		7720FAB1150C2B4A0038BFE5 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAAC150C2B4A0038BFE5 /* first.png */; };
 		7720FAB2150C2B4A0038BFE5 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAAD150C2B4A0038BFE5 /* first@2x.png */; };
-		7720FAB3150C2B4A0038BFE5 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAAD150C2B4A0038BFE5 /* first@2x.png */; };
 		7720FAB8150C2B600038BFE5 /* BMLTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAB5150C2B600038BFE5 /* BMLTSecondViewController.m */; };
-		7720FAB9150C2B600038BFE5 /* BMLTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAB5150C2B600038BFE5 /* BMLTSecondViewController.m */; };
 		7720FABA150C2B600038BFE5 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAB6150C2B600038BFE5 /* second.png */; };
-		7720FABB150C2B600038BFE5 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAB6150C2B600038BFE5 /* second.png */; };
 		7720FABC150C2B600038BFE5 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAB7150C2B600038BFE5 /* second@2x.png */; };
-		7720FABD150C2B600038BFE5 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAB7150C2B600038BFE5 /* second@2x.png */; };
 		7720FAC2150C2B730038BFE5 /* BMLTThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FABF150C2B730038BFE5 /* BMLTThirdViewController.m */; };
-		7720FAC3150C2B730038BFE5 /* BMLTThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FABF150C2B730038BFE5 /* BMLTThirdViewController.m */; };
 		7720FAC4150C2B730038BFE5 /* third.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAC0150C2B730038BFE5 /* third.png */; };
-		7720FAC5150C2B730038BFE5 /* third.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAC0150C2B730038BFE5 /* third.png */; };
 		7720FAC6150C2B730038BFE5 /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAC1150C2B730038BFE5 /* third@2x.png */; };
-		7720FAC7150C2B730038BFE5 /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7720FAC1150C2B730038BFE5 /* third@2x.png */; };
 		7720FACB150C2B860038BFE5 /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAC9150C2B860038BFE5 /* BMLTAppDelegate.m */; };
-		7720FACC150C2B860038BFE5 /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAC9150C2B860038BFE5 /* BMLTAppDelegate.m */; };
 		7720FACD150C2B860038BFE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FACA150C2B860038BFE5 /* main.m */; };
-		7720FACE150C2B860038BFE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FACA150C2B860038BFE5 /* main.m */; };
 		7720FAD2150C2BA40038BFE5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD1150C2BA40038BFE5 /* Reachability.m */; };
-		7720FAD3150C2BA40038BFE5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD1150C2BA40038BFE5 /* Reachability.m */; };
 		7720FAD6150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */; };
-		7720FAD7150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */; };
 		77EF73B0150C07900058C714 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73AF150C07900058C714 /* UIKit.framework */; };
 		77EF73B2150C07900058C714 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B1150C07900058C714 /* Foundation.framework */; };
 		77EF73B4150C07900058C714 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B3150C07900058C714 /* CoreGraphics.framework */; };
 		77EF73BA150C07900058C714 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73B8150C07900058C714 /* InfoPlist.strings */; };
 		77EF73C3150C07900058C714 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73C1150C07900058C714 /* MainStoryboard_iPhone.storyboard */; };
 		77EF73C6150C07900058C714 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73C4150C07900058C714 /* MainStoryboard_iPad.storyboard */; };
-		77EF73DC150C07910058C714 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73DB150C07910058C714 /* SenTestingKit.framework */; };
-		77EF73DD150C07910058C714 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73AF150C07900058C714 /* UIKit.framework */; };
-		77EF73DE150C07910058C714 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B1150C07900058C714 /* Foundation.framework */; };
-		77EF73E6150C07910058C714 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77EF73E4150C07910058C714 /* InfoPlist.strings */; };
-		77EF73E9150C07910058C714 /* BMLTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EF73E8150C07910058C714 /* BMLTTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		77EF73DF150C07910058C714 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77EF73A2150C07900058C714 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 77EF73AA150C07900058C714;
-			remoteInfo = BMLT;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7720FA63150C111E0038BFE5 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
@@ -135,12 +96,7 @@
 		77EF73B9150C07900058C714 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		77EF73C2150C07900058C714 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		77EF73C5150C07900058C714 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		77EF73DA150C07910058C714 /* BMLTTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMLTTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EF73DB150C07910058C714 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		77EF73E3150C07910058C714 /* BMLTTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMLTTests-Info.plist"; sourceTree = "<group>"; };
-		77EF73E5150C07910058C714 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		77EF73E7150C07910058C714 /* BMLTTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMLTTests.h; sourceTree = "<group>"; };
-		77EF73E8150C07910058C714 /* BMLTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMLTTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,16 +107,6 @@
 				77EF73B0150C07900058C714 /* UIKit.framework in Frameworks */,
 				77EF73B2150C07900058C714 /* Foundation.framework in Frameworks */,
 				77EF73B4150C07900058C714 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		77EF73D6150C07910058C714 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				77EF73DC150C07910058C714 /* SenTestingKit.framework in Frameworks */,
-				77EF73DD150C07910058C714 /* UIKit.framework in Frameworks */,
-				77EF73DE150C07910058C714 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				77EF73B5150C07900058C714 /* BMLT */,
-				77EF73E1150C07910058C714 /* BMLTTests */,
 				77EF73AE150C07900058C714 /* Frameworks */,
 				77EF73AC150C07900058C714 /* Products */,
 				7720FA63150C111E0038BFE5 /* LICENSE.txt */,
@@ -268,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				77EF73AB150C07900058C714 /* BMLT.app */,
-				77EF73DA150C07910058C714 /* BMLTTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -310,25 +254,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		77EF73E1150C07910058C714 /* BMLTTests */ = {
-			isa = PBXGroup;
-			children = (
-				77EF73E7150C07910058C714 /* BMLTTests.h */,
-				77EF73E8150C07910058C714 /* BMLTTests.m */,
-				77EF73E2150C07910058C714 /* Supporting Files */,
-			);
-			path = BMLTTests;
-			sourceTree = "<group>";
-		};
-		77EF73E2150C07910058C714 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				77EF73E3150C07910058C714 /* BMLTTests-Info.plist */,
-				77EF73E4150C07910058C714 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -348,25 +273,6 @@
 			productName = BMLT;
 			productReference = 77EF73AB150C07900058C714 /* BMLT.app */;
 			productType = "com.apple.product-type.application";
-		};
-		77EF73D9150C07910058C714 /* BMLTTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 77EF73EF150C07910058C714 /* Build configuration list for PBXNativeTarget "BMLTTests" */;
-			buildPhases = (
-				77EF73D5150C07910058C714 /* Sources */,
-				77EF73D6150C07910058C714 /* Frameworks */,
-				77EF73D7150C07910058C714 /* Resources */,
-				77EF73D8150C07910058C714 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				77EF73E0150C07910058C714 /* PBXTargetDependency */,
-			);
-			name = BMLTTests;
-			productName = BMLTTests;
-			productReference = 77EF73DA150C07910058C714 /* BMLTTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -391,7 +297,6 @@
 			projectRoot = "";
 			targets = (
 				77EF73AA150C07900058C714 /* BMLT */,
-				77EF73D9150C07910058C714 /* BMLTTests */,
 			);
 		};
 /* End PBXProject section */
@@ -415,37 +320,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77EF73D7150C07910058C714 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				77EF73E6150C07910058C714 /* InfoPlist.strings in Resources */,
-				7720FAB1150C2B4A0038BFE5 /* first.png in Resources */,
-				7720FAB3150C2B4A0038BFE5 /* first@2x.png in Resources */,
-				7720FABB150C2B600038BFE5 /* second.png in Resources */,
-				7720FABD150C2B600038BFE5 /* second@2x.png in Resources */,
-				7720FAC5150C2B730038BFE5 /* third.png in Resources */,
-				7720FAC7150C2B730038BFE5 /* third@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		77EF73D8150C07910058C714 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77EF73A7150C07900058C714 /* Sources */ = {
@@ -473,41 +348,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77EF73D5150C07910058C714 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				77EF73E9150C07910058C714 /* BMLTTests.m in Sources */,
-				7720FA82150C112C0038BFE5 /* A_BMLT_ChildClass.m in Sources */,
-				7720FA84150C112C0038BFE5 /* A_BMLT_Search.m in Sources */,
-				7720FA86150C112C0038BFE5 /* A_BMLT_ServiceBodyHierClass.m in Sources */,
-				7720FA88150C112C0038BFE5 /* BMLT_Driver.m in Sources */,
-				7720FA8A150C112C0038BFE5 /* BMLT_Format.m in Sources */,
-				7720FA8C150C112C0038BFE5 /* BMLT_Location.m in Sources */,
-				7720FA8E150C112C0038BFE5 /* BMLT_Meeting.m in Sources */,
-				7720FA90150C112C0038BFE5 /* BMLT_Meeting_Search.m in Sources */,
-				7720FA92150C112C0038BFE5 /* BMLT_Parser.m in Sources */,
-				7720FA94150C112C0038BFE5 /* BMLT_Server.m in Sources */,
-				7720FA96150C112C0038BFE5 /* BMLT_ServiceBody.m in Sources */,
-				7720FAAF150C2B4A0038BFE5 /* BMLTFirstViewController.m in Sources */,
-				7720FAB9150C2B600038BFE5 /* BMLTSecondViewController.m in Sources */,
-				7720FAC3150C2B730038BFE5 /* BMLTThirdViewController.m in Sources */,
-				7720FACC150C2B860038BFE5 /* BMLTAppDelegate.m in Sources */,
-				7720FACE150C2B860038BFE5 /* main.m in Sources */,
-				7720FAD3150C2BA40038BFE5 /* Reachability.m in Sources */,
-				7720FAD7150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		77EF73E0150C07910058C714 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 77EF73AA150C07900058C714 /* BMLT */;
-			targetProxy = 77EF73DF150C07910058C714 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		77EF73B8150C07900058C714 /* InfoPlist.strings */ = {
@@ -532,14 +373,6 @@
 				77EF73C5150C07900058C714 /* en */,
 			);
 			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		77EF73E4150C07910058C714 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				77EF73E5150C07910058C714 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -596,7 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
+				GCC_PREFIX_HEADER = "BMLT/Miscellaneous/BMLT-Prefix.pch";
 				INFOPLIST_FILE = "BMLT/BMLT-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -608,45 +441,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
+				GCC_PREFIX_HEADER = "BMLT/Miscellaneous/BMLT-Prefix.pch";
 				INFOPLIST_FILE = "BMLT/BMLT-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		77EF73F0150C07910058C714 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BMLT.app/BMLT";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
-				INFOPLIST_FILE = "BMLTTests/BMLTTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		77EF73F1150C07910058C714 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BMLT.app/BMLT";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
-				INFOPLIST_FILE = "BMLTTests/BMLTTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -667,15 +466,6 @@
 			buildConfigurations = (
 				77EF73ED150C07910058C714 /* Debug */,
 				77EF73EE150C07910058C714 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		77EF73EF150C07910058C714 /* Build configuration list for PBXNativeTarget "BMLTTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				77EF73F0150C07910058C714 /* Debug */,
-				77EF73F1150C07910058C714 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

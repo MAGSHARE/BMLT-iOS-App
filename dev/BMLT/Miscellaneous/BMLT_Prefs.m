@@ -333,17 +333,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
     return self;
 }
 
-#ifdef DEBUG
-/***************************************************************\**
- \brief Un-initializer (only called for debug).
- *****************************************************************/
-- (oneway void)release
-{
-    NSLog(@"BMLT_Prefs release called.");
-    [super release];
-}
-#endif
-
 /***************************************************************\**
  \brief Returns the Start with Map pref.
  \returns a boolean, with YES meaning start with map search.
