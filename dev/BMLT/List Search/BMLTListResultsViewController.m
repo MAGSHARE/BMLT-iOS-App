@@ -1,5 +1,5 @@
 //
-//  BMLTMainSearchViewController.m
+//  BMLTListResultsViewController.m
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -18,13 +18,13 @@
 
 //
 
-#import "BMLTMainSearchViewController.h"
+#import "BMLTListResultsViewController.h"
 
-@interface BMLTMainSearchViewController ()
+@interface BMLTListResultsViewController ()
 
 @end
 
-@implementation BMLTMainSearchViewController
+@implementation BMLTListResultsViewController
 
 - (void)viewDidLoad
 {

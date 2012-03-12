@@ -45,7 +45,9 @@ static BMLTAppDelegate *g_AppDelegate = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
+    [tabController setSelectedIndex:0];
+    tabController.delegate = self;
     return YES;
 }
 							

@@ -20,6 +20,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BMLTSettingsViewController : UINavigationController
+@interface BMLTSettingsViewController : UIViewController
 
 @end

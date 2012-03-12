@@ -21,7 +21,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface BMLTAppDelegate : UIResponder <UIApplicationDelegate>
+@interface BMLTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
