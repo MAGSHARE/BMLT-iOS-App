@@ -33,9 +33,13 @@
 		7720FAD6150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */; };
 		772B05FE150C501C00E20C7B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772B05FD150C501C00E20C7B /* CoreLocation.framework */; };
 		772B0604150C506900E20C7B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772B0603150C506900E20C7B /* SystemConfiguration.framework */; };
+		7744C4A0150D790B00753332 /* BMLTSimpleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7744C49E150D790B00753332 /* BMLTSimpleSearchViewController.m */; };
 		776A5F4E150D089C00734A15 /* BMLTMainSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776A5F4B150D089C00734A15 /* BMLTMainSearchViewController.m */; };
 		776A5F4F150D089C00734A15 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 776A5F4C150D089C00734A15 /* search.png */; };
 		776A5F50150D089C00734A15 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 776A5F4D150D089C00734A15 /* search@2x.png */; };
+		777FC8E6150E6E4E0005ACF0 /* BMLTMapSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777FC8E5150E6E4E0005ACF0 /* BMLTMapSearchViewController.m */; };
+		777FC8E9150E6F720005ACF0 /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777FC8E8150E6F720005ACF0 /* BMLTAdvancedSearchViewController.m */; };
+		777FC8EC150E73580005ACF0 /* BMLTAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777FC8EB150E73580005ACF0 /* BMLTAboutViewController.m */; };
 		77EF73B0150C07900058C714 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73AF150C07900058C714 /* UIKit.framework */; };
 		77EF73B2150C07900058C714 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B1150C07900058C714 /* Foundation.framework */; };
 		77EF73B4150C07900058C714 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EF73B3150C07900058C714 /* CoreGraphics.framework */; };
@@ -90,6 +94,8 @@
 		7720FAD5150C2BC00038BFE5 /* BMLT_Prefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLT_Prefs.m; path = Miscellaneous/BMLT_Prefs.m; sourceTree = "<group>"; };
 		772B05FD150C501C00E20C7B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		772B0603150C506900E20C7B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7744C49D150D790B00753332 /* BMLTSimpleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSimpleSearchViewController.h; sourceTree = "<group>"; };
+		7744C49E150D790B00753332 /* BMLTSimpleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSimpleSearchViewController.m; sourceTree = "<group>"; };
 		776A5F41150CF89400734A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Variants/BMLT-NY/Info.plist"; sourceTree = "<group>"; };
 		776A5F43150D00EA00734A15 /* BMLTListSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BMLTListSearchViewController.h; path = "List Search/BMLTListSearchViewController.h"; sourceTree = "<group>"; };
 		776A5F44150D00EA00734A15 /* BMLTMapSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BMLTMapSearchViewController.h; path = "Map Search/BMLTMapSearchViewController.h"; sourceTree = "<group>"; };
@@ -98,6 +104,12 @@
 		776A5F4B150D089C00734A15 /* BMLTMainSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMainSearchViewController.m; sourceTree = "<group>"; };
 		776A5F4C150D089C00734A15 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		776A5F4D150D089C00734A15 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
+		777FC8E4150E6E4E0005ACF0 /* BMLTMapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMapSearchViewController.h; sourceTree = "<group>"; };
+		777FC8E5150E6E4E0005ACF0 /* BMLTMapSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMapSearchViewController.m; sourceTree = "<group>"; };
+		777FC8E7150E6F720005ACF0 /* BMLTAdvancedSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAdvancedSearchViewController.h; sourceTree = "<group>"; };
+		777FC8E8150E6F720005ACF0 /* BMLTAdvancedSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAdvancedSearchViewController.m; sourceTree = "<group>"; };
+		777FC8EA150E73580005ACF0 /* BMLTAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLTAboutViewController.h; path = Settings/BMLTAboutViewController.h; sourceTree = "<group>"; };
+		777FC8EB150E73580005ACF0 /* BMLTAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLTAboutViewController.m; path = Settings/BMLTAboutViewController.m; sourceTree = "<group>"; };
 		77EF73AB150C07900058C714 /* BMLT-NY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-NY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EF73AF150C07900058C714 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77EF73B1150C07900058C714 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -194,6 +206,8 @@
 			children = (
 				776A5F45150D00EA00734A15 /* BMLTSettingsViewController.h */,
 				7720FABF150C2B730038BFE5 /* BMLTSettingsViewController.m */,
+				777FC8EA150E73580005ACF0 /* BMLTAboutViewController.h */,
+				777FC8EB150E73580005ACF0 /* BMLTAboutViewController.m */,
 				7720FAC0150C2B730038BFE5 /* settings.png */,
 				7720FAC1150C2B730038BFE5 /* settings@2x.png */,
 			);
@@ -230,6 +244,12 @@
 			children = (
 				776A5F4A150D089C00734A15 /* BMLTMainSearchViewController.h */,
 				776A5F4B150D089C00734A15 /* BMLTMainSearchViewController.m */,
+				7744C49D150D790B00753332 /* BMLTSimpleSearchViewController.h */,
+				7744C49E150D790B00753332 /* BMLTSimpleSearchViewController.m */,
+				777FC8E4150E6E4E0005ACF0 /* BMLTMapSearchViewController.h */,
+				777FC8E5150E6E4E0005ACF0 /* BMLTMapSearchViewController.m */,
+				777FC8E7150E6F720005ACF0 /* BMLTAdvancedSearchViewController.h */,
+				777FC8E8150E6F720005ACF0 /* BMLTAdvancedSearchViewController.m */,
 				776A5F4C150D089C00734A15 /* search.png */,
 				776A5F4D150D089C00734A15 /* search@2x.png */,
 			);
@@ -387,6 +407,10 @@
 				7720FAD2150C2BA40038BFE5 /* Reachability.m in Sources */,
 				7720FAD6150C2BC00038BFE5 /* BMLT_Prefs.m in Sources */,
 				776A5F4E150D089C00734A15 /* BMLTMainSearchViewController.m in Sources */,
+				7744C4A0150D790B00753332 /* BMLTSimpleSearchViewController.m in Sources */,
+				777FC8E6150E6E4E0005ACF0 /* BMLTMapSearchViewController.m in Sources */,
+				777FC8E9150E6F720005ACF0 /* BMLTAdvancedSearchViewController.m in Sources */,
+				777FC8EC150E73580005ACF0 /* BMLTAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

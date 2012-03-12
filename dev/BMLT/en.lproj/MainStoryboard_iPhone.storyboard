@@ -20,23 +20,62 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="432" y="647"/>
+            <point key="canvasLocation" x="-131" y="673"/>
+        </scene>
+        <!--Simple Search View Controller-->
+        <scene sceneID="K5P-ON-gUp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggj-Ty-D21" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="1ej-mT-cW2" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jso-hj-sh5">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="21Q-Zz-Mek"/>
+                    <connections>
+                        <segue destination="fYl-cf-cFm" kind="push" id="7FW-hs-oMu"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="285" y="64"/>
+        </scene>
+        <!--Map Search View Controller-->
+        <scene sceneID="73l-0h-xiU">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s8r-pz-Qye" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="fYl-cf-cFm" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rQg-Zb-7H4">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hrO-wj-405"/>
+                    <connections>
+                        <segue destination="eMe-9F-zBx" kind="push" id="pVr-FU-3GJ"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="699" y="64"/>
         </scene>
         <!--Main Search View Controller - Search-->
         <scene sceneID="ZwU-ra-QnZ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofx-tQ-fE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="WBd-sX-7Ul" customClass="BMLTMainSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cEn-Xx-LpJ">
+                    <view key="view" contentMode="scaleToFill" id="cEn-Xx-LpJ" userLabel="Simple Search View">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="search.png" id="TiB-kW-4cm"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <segue destination="1ej-mT-cW2" kind="push" id="nxG-Vn-cwo"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="39" y="647"/>
+            <point key="canvasLocation" x="-131" y="64"/>
         </scene>
         <!--Map Search View Controller - Map Search-->
         <scene sceneID="13">
@@ -52,7 +91,22 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="827" y="647"/>
+            <point key="canvasLocation" x="-131" y="1279"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="Utw-MF-7y3">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X92-tD-epd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="fFZ-gF-vrb" customClass="BMLTAboutViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IHx-Y9-nFx">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hjk-U2-sOA"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="285" y="1901"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="Fn8-Gm-HYe">
@@ -66,9 +120,27 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="i1V-nW-BWU"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <segue destination="fFZ-gF-vrb" kind="push" id="ZNW-Ju-eOK"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1210" y="647"/>
+            <point key="canvasLocation" x="-131" y="1901"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jkN-2c-hcG">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VqF-3b-vjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="eMe-9F-zBx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lQM-JY-HPx"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1108" y="64"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -89,7 +161,7 @@
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="-499" y="48"/>
+            <point key="canvasLocation" x="-675" y="64"/>
         </scene>
     </scenes>
     <resources>
@@ -99,6 +171,9 @@
         <image name="settings.png" width="26" height="26"/>
     </resources>
     <classes>
+        <class className="BMLTAboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
+        </class>
         <class className="BMLTListSearchViewController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTListSearchViewController.h"/>
         </class>
@@ -110,6 +185,9 @@
         </class>
         <class className="BMLTSettingsViewController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
+        </class>
+        <class className="BMLTSimpleSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
