@@ -200,7 +200,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="1" title="Simple" id="RLc-62-zMi">
                             <connections>
-                                <segue destination="SFh-VH-MDA" kind="push" id="lVO-zf-T5N"/>
+                                <segue destination="SFh-VH-MDA" kind="push" id="Sas-fh-sdC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
