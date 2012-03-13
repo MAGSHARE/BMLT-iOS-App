@@ -33,12 +33,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Simple" id="21Q-Zz-Mek">
-                        <barButtonItem key="leftBarButtonItem" title="Advanced" id="X1l-p4-aKF">
+                        <barButtonItem key="leftBarButtonItem" title="Advanced" id="X1l-p4-aKF" userLabel="advanced-from-simple">
                             <connections>
                                 <segue destination="eMe-9F-zBx" kind="push" id="0ve-rt-x1j"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Map" id="5m0-ou-woc">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Map" id="5m0-ou-woc">
                             <connections>
                                 <segue destination="fYl-cf-cFm" kind="push" id="nmG-Cy-bOO"/>
                             </connections>
@@ -64,7 +64,7 @@
                                 <segue destination="1ej-mT-cW2" kind="push" id="9Pm-PX-TL2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Advanced" id="Sm0-EJ-fDm">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Advanced" id="Sm0-EJ-fDm">
                             <connections>
                                 <segue destination="eMe-9F-zBx" kind="push" id="cvo-Zo-06o"/>
                             </connections>
@@ -179,7 +179,7 @@
                                 <segue destination="fYl-cf-cFm" kind="push" id="rjP-py-ERH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Simple" id="wZr-of-dPO">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Simple" id="wZr-of-dPO">
                             <connections>
                                 <segue destination="1ej-mT-cW2" kind="push" id="mvo-O6-ZRm"/>
                             </connections>
@@ -219,32 +219,14 @@
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="BMLTAboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
-        </class>
-        <class className="BMLTAdvancedSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
-        </class>
-        <class className="BMLTListResultsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTListResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapResultsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
-        </class>
-        <class className="BMLTSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
-        </class>
-        <class className="BMLTSimpleSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="PqN-or-VVj"/>
+        <segue reference="0ve-rt-x1j"/>
+        <segue reference="nmG-Cy-bOO"/>
+    </inferredMetricsTieBreakers>
 </document>
