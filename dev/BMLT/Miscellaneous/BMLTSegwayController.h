@@ -1,5 +1,5 @@
 //
-//  BMLTAdvancedSearchViewController.h
+//  BMLTSegwayController.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -21,9 +21,9 @@
 
 /**********************************************************************************/
 /**
- *  \class  BMLTAdvancedSearchViewController
- *  \brief  This class will present the user with a powerful search specification interface.
+ *  \class  BMLTSegwayController
+ *  \brief  This class will control the segues between the various search specification dialogs.
  */
-@interface BMLTAdvancedSearchViewController : UIViewController
+@interface BMLTSegwayController : UIStoryboardSegue
 
 @end

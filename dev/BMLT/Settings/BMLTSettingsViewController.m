@@ -20,31 +20,62 @@
 
 #import "BMLTSettingsViewController.h"
 
+/**********************************************************************************/
+/**
+ *  \class  BMLTSettingsViewController  -Private Interface
+ *  \brief  Allows the user to change the settings/preferences.
+ */
 @interface BMLTSettingsViewController ()
 
 @end
 
+/**********************************************************************************/
+/**
+ *  \class  BMLTSettingsViewController  -Implementation
+ *  \brief  Allows the user to change the settings/preferences.
+ */
 @implementation BMLTSettingsViewController
 
+/**********************************************************************************/
+/**
+ *  \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
+ *  \returns    self
+ */
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+        {
+        }
+    return self;
+}
+
+/**********************************************************************************/
+/**
+ *  \brief  Called after the controller's view object has loaded.
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
+/**********************************************************************************/
+/**
+ *  \brief  Called after the controller's view object has unloaded.
+ */
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
+/**********************************************************************************/
+/**
+ *  \brief  Called to validate the autorotation.
+ *  \returns    a BOOL. YES if the rotation is approved.
+ */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+	return YES;
 }
-
 @end

@@ -19,6 +19,11 @@
 
 #import <UIKit/UIKit.h>
 
+/**********************************************************************************/
+/**
+ *  \class  BMLTAboutViewController
+ *  \brief  Simply displays information about the app.
+ */
 @interface BMLTAboutViewController : UIViewController
 
 @end

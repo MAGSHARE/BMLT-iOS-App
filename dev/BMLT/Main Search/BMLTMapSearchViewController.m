@@ -19,41 +19,62 @@
 
 #import "BMLTMapSearchViewController.h"
 
+/**********************************************************************************/
+/**
+ *  \class  BMLTMapSearchViewController  -Private Interface
+ *  \brief  This class will present the user with a simple map interface.
+ */
 @interface BMLTMapSearchViewController ()
 
 @end
 
+/**********************************************************************************/
+/**
+ *  \class  BMLTMapSearchViewController  -Implementation
+ *  \brief  This class will present the user with a simple map interface.
+ */
 @implementation BMLTMapSearchViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+/**********************************************************************************/
+/**
+ *  \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
+ *  \returns    self
+ */
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
+    if (self)
+        {
+        }
     return self;
 }
 
+/**********************************************************************************/
+/**
+ *  \brief  Called after the controller's view object has loaded.
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
+/**********************************************************************************/
+/**
+ *  \brief  Called after the controller's view object has unloaded.
+ */
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
+/**********************************************************************************/
+/**
+ *  \brief  Called to validate the autorotation.
+ *  \returns    a BOOL. YES if the rotation is approved.
+ */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue
-                 sender:(id)sender
-{
-}
-
 @end

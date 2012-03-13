@@ -47,6 +47,7 @@
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		77977D1A150E882B00485C8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77977D18150E882B00485C8D /* InfoPlist.strings */; };
+		77F927A715100C4700ACEE4F /* BMLTSegwayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F927A615100C4700ACEE4F /* BMLTSegwayController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,8 @@
 		77977D17150E882B00485C8D /* BMLT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMLT-Info.plist"; sourceTree = "<group>"; };
 		77977D19150E882B00485C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		77977D1D150E882B00485C8D /* BMLT-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
+		77F927A515100C4700ACEE4F /* BMLTSegwayController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = BMLTSegwayController.h; path = ../Miscellaneous/BMLTSegwayController.h; sourceTree = "<group>"; };
+		77F927A615100C4700ACEE4F /* BMLTSegwayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLTSegwayController.m; path = ../Miscellaneous/BMLTSegwayController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 		771D0C3C150E892A005A707A /* Main Search */ = {
 			isa = PBXGroup;
 			children = (
+				77F927A515100C4700ACEE4F /* BMLTSegwayController.h */,
+				77F927A615100C4700ACEE4F /* BMLTSegwayController.m */,
 				771D0C43150E892A005A707A /* BMLTSimpleSearchViewController.h */,
 				771D0C44150E892A005A707A /* BMLTSimpleSearchViewController.m */,
 				771D0C41150E892A005A707A /* BMLTMapSearchViewController.h */,
@@ -397,6 +402,7 @@
 				771D0C8B150E893C005A707A /* BMLTAboutViewController.m in Sources */,
 				771D0C8C150E893C005A707A /* BMLTSettingsViewController.m in Sources */,
 				771D0CD4150E8B73005A707A /* BMLTListResultsViewController.m in Sources */,
+				77F927A715100C4700ACEE4F /* BMLTSegwayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

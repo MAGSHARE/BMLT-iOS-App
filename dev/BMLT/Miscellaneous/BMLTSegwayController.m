@@ -1,5 +1,5 @@
 //
-//  BMLTAdvancedSearchViewController.h
+//  BMLTSegwayViewController.m
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -17,13 +17,20 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <UIKit/UIKit.h>
+#import "BMLTSegwayController.h"
 
 /**********************************************************************************/
 /**
- *  \class  BMLTAdvancedSearchViewController
- *  \brief  This class will present the user with a powerful search specification interface.
+ *  \class  BMLTSegwayController -Private interface
+ *  \brief  This class will control the segues between the various search specification dialogs.
  */
-@interface BMLTAdvancedSearchViewController : UIViewController
+@interface BMLTSegwayController ()
+@end
 
+/**********************************************************************************/
+/**
+ *  \class  BMLTSegwayController -Implementation
+ *  \brief  This class will control the segues between the various search specification dialogs.
+*/
+@implementation BMLTSegwayController
 @end

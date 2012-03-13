@@ -19,41 +19,62 @@
 
 #import "BMLTSimpleSearchViewController.h"
 
+/**********************************************************************************/
+/**
+ *  \class  BMLTSimpleSearchViewController  -Private Interface
+ *  \brief  This class will present the user with a simple "one-button" interface.
+ */
 @interface BMLTSimpleSearchViewController ()
 
 @end
 
+/**********************************************************************************/
+/**
+ *  \class  BMLTSimpleSearchViewController  -Public Implementation
+ *  \brief  This class will present the user with a simple "one-button" interface.
+ */
 @implementation BMLTSimpleSearchViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+/**********************************************************************************/
+/**
+ *  \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
+ *  \returns    self
+ */
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
+    if (self)
+        {
+        }
     return self;
 }
 
+/**********************************************************************************/
+/**
+ *  \brief  Called after the controller's view object has loaded.
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
+/**********************************************************************************/
+/**
+ *  \brief  Called after the controller's view object has unloaded.
+ */
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
+/**********************************************************************************/
+/**
+ *  \brief  Called to validate the autorotation.
+ *  \returns    a BOOL. YES if the rotation is approved.
+ */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue
-                 sender:(id)sender
-{
 }
 @end

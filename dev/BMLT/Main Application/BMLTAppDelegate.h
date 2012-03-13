@@ -21,12 +21,18 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+/**********************************************************************************/
+/**
+ *  \class BMLTAppDelegate
+ *  \brief This is the main application delegate class for the BMLT application
+ */
 @interface BMLTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow      *window;        ///< This is the main window object (SINGLETON)
+@property (strong, nonatomic) CLLocation    *myLocation;    ///< This will contain our location.
 
-+ (BMLTAppDelegate *)getBMLTAppDelegate;
++ (BMLTAppDelegate *)getBMLTAppDelegate;    ///< This class method allows access to the application delegate object (SINGLETON)
 
-- (CLLocation *)getWhereImAt;
+- (CLLocation *)getWhereImAt;               ///< Returns the location as last set (Does not trigger a new location lookup).
 
 @end

@@ -22,15 +22,33 @@
 
 static BMLTAppDelegate *g_AppDelegate = nil;
 
+/**********************************************************************************/
+/**
+ *  \class  BMLTAppDelegate
+ *  \brief  This is the main application delegate class for the BMLT application
+ */
 @implementation BMLTAppDelegate
 
-@synthesize window = _window;
+#pragma mark - Synthesize Class Properties
+@synthesize window      = _window;      ///< This will hold the window associated with this application instance.
+@synthesize myLocation  = _myLocation;  ///< This will hold the location set by the last location lookup.
 
+#pragma mark - Class Methods
+/**********************************************************************************/
+/**
+ *  \brief  This class method allows access to the application delegate object (SINGLETON)
+ */
 + (BMLTAppDelegate *)getBMLTAppDelegate
 {
     return g_AppDelegate;
 }
 
+#pragma mark - Standard Instance Methods
+/**********************************************************************************/
+/**
+ *  \brief  Initialize the object
+ *  \returns    self
+ */
 - (id) init
 {
     self = [super init];
@@ -43,41 +61,34 @@ static BMLTAppDelegate *g_AppDelegate = nil;
     return self;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+/**********************************************************************************/
+/**
+ *  \brief  Called when the app has finished its launch setup.
+ *  \returns    a BOOL. The app is go for launch.
+ */
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
     [tabController setSelectedIndex:0];
     tabController.delegate = self;
     return YES;
 }
-							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
+/**********************************************************************************/
+/**
+ *  \brief  Called when the app is about to show up.
+ */
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
+#pragma mark - Custom Instance Methods
+/**********************************************************************************/
+/**
+ *  \brief  Returns the location as last set (Does not trigger a new location lookup).
+ *  \returns    a pointer to a CLLocation object, containing the stored location.
+ */
 - (CLLocation *)getWhereImAt
 {
     CLLocation  *whereImAt = nil;

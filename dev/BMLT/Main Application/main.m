@@ -22,9 +22,15 @@
 
 #import "BMLTAppDelegate.h"
 
+/**********************************************************************************/
+/**
+ *  \brief The main context.
+ *  \returns 0 if the application launched and ran successfully.
+ */
 int main(int argc, char *argv[])
 {
-    @autoreleasepool {
+    @autoreleasepool
+        {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([BMLTAppDelegate class]));
-    }
+        }
 }
