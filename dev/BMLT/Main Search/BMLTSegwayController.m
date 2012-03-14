@@ -43,5 +43,19 @@
 #if DEBUG
     NSLog(@"BMLTSegwayController:perform, going %@, from %@, to %@.", [self identifier], [self sourceViewController], [self destinationViewController]);
 #endif
+    UIViewController        *src = (UIViewController *)[self sourceViewController];
+    UIViewController        *dest = (UIViewController *)[self destinationViewController];
+    UINavigationController  *navCtl = [src navigationController];
+    UIViewAnimationOptions  options = UIViewAnimationOptionCurveEaseInOut | [[self identifier] isEqualToString:@"left"] ? UIViewAnimationOptionTransitionFlipFromLeft : UIViewAnimationOptionTransitionFlipFromRight;
+    
+    // What we do here, is ensure that we don't overstack the nav controller. We pop to root, then stack the new view controller.
+    [navCtl popToRootViewControllerAnimated:NO];
+    [navCtl pushViewController:dest animated:NO];
+    
+    [UIView transitionFromView:[src view]
+                        toView:[dest view]
+                      duration:0.25
+                       options: options
+                    completion:nil];
 }
 @end
