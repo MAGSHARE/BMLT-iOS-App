@@ -33,4 +33,15 @@
  *  \brief  This class will control the segues between the various search specification dialogs.
 */
 @implementation BMLTSegwayController
+
+/**********************************************************************************/
+/**
+ *  \brief  Actually do the dirty deed.
+ */
+- (void)perform
+{
+#if DEBUG
+    NSLog(@"BMLTSegwayController:perform, going %@, from %@, to %@.", [self identifier], [self sourceViewController], [self destinationViewController]);
+#endif
+}
 @end
