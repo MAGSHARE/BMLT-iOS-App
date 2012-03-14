@@ -52,7 +52,7 @@
     UIViewController        *src = (UIViewController *)[self sourceViewController];
     UIViewController        *dest = (UIViewController *)[self destinationViewController];
     UINavigationController  *navCtl = [src navigationController];
-    UIViewAnimationOptions  options = UIViewAnimationOptionCurveEaseInOut | [[self identifier] isEqualToString:@"left"] ? UIViewAnimationOptionTransitionFlipFromLeft : UIViewAnimationOptionTransitionFlipFromRight;
+    UIViewAnimationOptions  options = [[self identifier] isEqualToString:@"left"] ? UIViewAnimationOptionTransitionFlipFromLeft : UIViewAnimationOptionTransitionFlipFromRight;
     
     // What we do here, is ensure that we don't overstack the nav controller. We pop to root, then stack the new view controller.
     [navCtl popToRootViewControllerAnimated:NO];
