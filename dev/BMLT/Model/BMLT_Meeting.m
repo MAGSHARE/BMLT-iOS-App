@@ -32,6 +32,10 @@
 #import "BMLTAppDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 
+/***************************************************************\**
+ \class BMLT_Meeting
+ \brief This class holds information about a meeting.
+ *****************************************************************/
 @implementation BMLT_Meeting
 
 #pragma mark - Override Functions -
@@ -44,10 +48,6 @@
 {
     return [self initWithParent:nil andName:nil andDescription:nil];
 }
-
-/***************************************************************\**
- \brief Un-initializer
- *****************************************************************/
 
 #pragma mark - Class-Specific Functions -
 

@@ -24,20 +24,24 @@
 @class BMLT_Location;
 @class BMLT_Server;
 
+/***************************************************************\**
+ \class BMLT_Meeting
+ \brief This class holds information about a meeting.
+ *****************************************************************/
 @interface BMLT_Meeting : A_BMLT_ChildClass <BMLT_NameDescProtocol, NSXMLParserDelegate>
 {
-    BMLT_Location           *location_object;
-    NSInteger               meeting_id;
-    NSDate                  *startTime;
-    NSTimeInterval          duration;
-    NSMutableArray          *formats;
-    NSString                *bmlt_name;
-    NSString                *bmlt_description;
-    NSMutableDictionary     *moreFields;
-    int                     weekday;
-    int                     ordinalStartTime;
-    NSString                *currentElement;
-    BMLT_Server             *myServer;
+    BMLT_Location           *location_object;   ///< The location of the meeting.
+    NSInteger               meeting_id;         ///< The BMLT server ID for the meeting.
+    NSDate                  *startTime;         ///< The meeting start time.
+    NSTimeInterval          duration;           ///< How long the meeting lasts.
+    NSMutableArray          *formats;           ///< The format codes for the meeting.
+    NSString                *bmlt_name;         ///< The meeting name.
+    NSString                *bmlt_description;  ///< Comments or description of the meeting.
+    NSMutableDictionary     *moreFields;        ///< Additional meeting data fields (remember that meeting data is kept in an extensible KVP database).
+    int                     weekday;            ///< The day of the week the meeting starts (0 = Sunday).
+    int                     ordinalStartTime;   ///< The start time, as a UNIX epoch time.
+    NSString                *currentElement;    ///< Used while parsing the meeting.
+    BMLT_Server             *myServer;          ///< The server that "owns" this meeting.
 }
 
 - (id)initWithParent:(NSObject *)inParent andName:(NSString *)inName andDescription:(NSString *)inDescription;

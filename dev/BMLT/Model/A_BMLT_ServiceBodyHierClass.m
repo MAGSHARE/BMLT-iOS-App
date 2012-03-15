@@ -25,6 +25,11 @@
 
 #import "A_BMLT_ServiceBodyHierClass.h"
 
+/***************************************************************\**
+ \class  A_BMLT_ServiceBodyHierClass
+ \brief  An abstract class that is used to describe anobject that contains
+ information about an NA Service Body.
+ *****************************************************************/
 @implementation A_BMLT_ServiceBodyHierClass
 
 #pragma mark - Override Functions -
@@ -37,10 +42,6 @@
 {
     return [self initWithURI:nil andParent:nil andName:nil andDescription:nil];
 }
-
-/***************************************************************\**
- \brief un-initializer
- *****************************************************************/
 
 #pragma mark - Class-Specific Functions -
 

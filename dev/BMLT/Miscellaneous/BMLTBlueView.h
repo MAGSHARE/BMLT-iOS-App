@@ -19,10 +19,9 @@
 
 #import <UIKit/UIKit.h>
 
-/**********************************************************************************/
-/**
- *  \class  BMLTBlueView    -Interface
- *  \brief  This class will simply apply a blue textured background to a view.
- */
+/***************************************************************\**
+ \class  BMLTBlueView    -Interface
+ \brief  This class will simply apply a blue textured background to a view.
+ *****************************************************************/
 @interface BMLTBlueView : UIView
 @end

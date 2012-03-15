@@ -25,18 +25,22 @@
 #define initial_query_timeout_in_seconds    10
 #define format_query_timeout_in_seconds     20
 
+/***************************************************************\**
+ \class BMLT_Server
+ \brief This class models a BMLT root server.
+ *****************************************************************/
 @interface BMLT_Server : A_BMLT_ServiceBodyHierClass <NSXMLParserDelegate>
 {
-    NSMutableArray      *cachedFormats;
-    NSMutableArray      *languages;
-    NSString            *version;
-    int                 parsingVersion;
-    BOOL                versionCheck;
-    BOOL                versionSuccess;
-    BOOL                loading_formats;
-    BOOL                loadFormats;
-    NSString            *current_element;
-    NSObject            *delegate;
+    NSMutableArray      *cachedFormats;     ///< Any formats read from the server. These are the format descriptions, for extended format dialogs.
+    NSMutableArray      *languages;         ///< The number and types of languages supported by the server.
+    NSString            *version;           ///< The server version.
+    int                 parsingVersion;     ///< Used during parsing.
+    BOOL                versionCheck;       ///< YES, if we are doing a version check.
+    BOOL                versionSuccess;     ///< YES, if we successfully read the version from the server.
+    BOOL                loading_formats;    ///< YES, if we are currently loading the format data from the server.
+    BOOL                loadFormats;        ///< YES, if we need to load the formats.
+    NSString            *current_element;   ///< The current XML element being parsed.
+    NSObject            *delegate;          ///< The delegate for this server.
 }
 - (id)initWithURI:(NSString *)inURI andParent:(NSObject *)inParentObject andName:(NSString *)inName andDescription:(NSString *)inDescription andDelegate:(NSObject *)inDelegate;
 - (void)setDelegate:(NSObject *)inDelegate;

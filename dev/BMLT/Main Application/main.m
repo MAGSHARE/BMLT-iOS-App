@@ -22,11 +22,10 @@
 
 #import "BMLTAppDelegate.h"
 
-/**********************************************************************************/
-/**
- *  \brief The main context.
- *  \returns 0 if the application launched and ran successfully.
- */
+/***************************************************************\**
+ \brief The main context.
+ \returns 0 if the application launched and ran successfully.
+ *****************************************************************/
 int main(int argc, char *argv[])
 {
     @autoreleasepool

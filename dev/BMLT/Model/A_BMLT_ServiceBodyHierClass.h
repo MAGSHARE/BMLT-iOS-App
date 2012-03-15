@@ -20,12 +20,17 @@
 
 #import "A_BMLT_ChildClass.h"
 
+/***************************************************************\**
+ \class  A_BMLT_ServiceBodyHierClass
+ \brief  An abstract class that is used to describe anobject that contains
+         information about an NA Service Body.
+ *****************************************************************/
 @interface A_BMLT_ServiceBodyHierClass : A_BMLT_ChildClass <BMLT_ParentProtocol, BMLT_NameDescProtocol>
 {
-    NSString        *uri;
-    NSString        *bmlt_name;
-    NSString        *bmlt_description;
-    NSMutableArray  *cachedServiceBodies;
+    NSString        *uri;                   ///< If the Service body has a Web site, its URI is here (as a string).
+    NSString        *bmlt_name;             ///< The name of the Service body
+    NSString        *bmlt_description;      ///< Any descriptive string.
+    NSMutableArray  *cachedServiceBodies;   ///< If it "contains" other Service bodies.
 }
 
 - (id)initWithURI:(NSString *)inURI andParent:(NSObject *)inParentObject andName:(NSString *)inName andDescription:(NSString *)inDescription;

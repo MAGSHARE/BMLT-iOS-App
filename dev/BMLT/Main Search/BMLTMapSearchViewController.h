@@ -19,11 +19,10 @@
 
 #import <UIKit/UIKit.h>
 
-/**********************************************************************************/
-/**
- *  \class  BMLTMapSearchViewController
- *  \brief  This class will present the user with a simple map interface.
- */
+/***************************************************************\**
+ \class  BMLTMapSearchViewController
+ \brief  This class will present the user with a simple map interface.
+ *****************************************************************/
 @interface BMLTMapSearchViewController : UIViewController
 
 @end

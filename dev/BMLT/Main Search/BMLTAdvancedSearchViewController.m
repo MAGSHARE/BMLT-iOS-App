@@ -19,27 +19,24 @@
 
 #import "BMLTAdvancedSearchViewController.h"
 
-/**********************************************************************************/
-/**
- *  \class  BMLTAdvancedSearchViewController    -Private Interface
- *  \brief  This class will present the user with a powerful search specification interface.
- */
+/***************************************************************\**
+ \class  BMLTAdvancedSearchViewController    -Private Interface
+ \brief  This class will present the user with a powerful search specification interface.
+ *****************************************************************/
 @interface BMLTAdvancedSearchViewController ()
 
 @end
 
-/**********************************************************************************/
-/**
- *  \class  BMLTAdvancedSearchViewController    -Implementation
- *  \brief  This class will present the user with a powerful search specification interface.
- */
+/***************************************************************\**
+ \class  BMLTAdvancedSearchViewController    -Implementation
+ \brief  This class will present the user with a powerful search specification interface.
+ *****************************************************************/
 @implementation BMLTAdvancedSearchViewController
 
-/**********************************************************************************/
-/**
- *  \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
- *  \returns    self
- */
+/***************************************************************\**
+ \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
+ \returns    self
+ *****************************************************************/
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,29 +47,26 @@
     return self;
 }
 
-/**********************************************************************************/
-/**
- *  \brief  Called after the controller's view object has loaded.
- */
+/***************************************************************\**
+ \brief  Called after the controller's view object has loaded.
+ *****************************************************************/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
 
-/**********************************************************************************/
-/**
- *  \brief  Called after the controller's view object has unloaded.
- */
+/***************************************************************\**
+ \brief  Called after the controller's view object has unloaded.
+ *****************************************************************/
 - (void)viewDidUnload
 {
     [super viewDidUnload];
 }
 
-/**********************************************************************************/
-/**
- *  \brief  Called to validate the autorotation.
- *  \returns    a BOOL. YES if the rotation is approved.
- */
+/***************************************************************\**
+ \brief  Called to validate the autorotation.
+ \returns    a BOOL. YES if the rotation is approved.
+ *****************************************************************/
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;

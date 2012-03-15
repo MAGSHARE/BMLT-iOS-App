@@ -26,12 +26,11 @@
 
 #import "BMLT_Location.h"
 
-@implementation BMLT_Location
-
-
 /***************************************************************\**
- \brief un-initializer. Just make sure we get rid of everything.
+ \class BMLT_Location
+ \brief This class holds information about a meeting location.
  *****************************************************************/
+@implementation BMLT_Location
 
 /***************************************************************\**
  \brief Set a location item as a string, using a key.

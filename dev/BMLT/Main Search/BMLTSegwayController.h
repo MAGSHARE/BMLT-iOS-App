@@ -19,11 +19,10 @@
 
 #import <UIKit/UIKit.h>
 
-/**********************************************************************************/
-/**
- *  \class  BMLTSegwayController
- *  \brief  This class will control the segues between the various search specification dialogs.
- */
+/***************************************************************\**
+ \class  BMLTSegwayController
+ \brief  This class will control the segues between the various search specification dialogs.
+ *****************************************************************/
 @interface BMLTSegwayController : UIStoryboardSegue
 
 @end

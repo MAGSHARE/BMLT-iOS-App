@@ -21,11 +21,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-/**********************************************************************************/
-/**
- *  \class BMLTAppDelegate
- *  \brief This is the main application delegate class for the BMLT application
- */
+/***************************************************************\**
+ \class BMLTAppDelegate
+ \brief This is the main application delegate class for the BMLT application
+ *****************************************************************/
 @interface BMLTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow      *window;        ///< This is the main window object (SINGLETON)

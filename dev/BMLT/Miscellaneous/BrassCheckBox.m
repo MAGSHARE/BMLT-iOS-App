@@ -29,6 +29,10 @@
 
 #import "BrassCheckBox.h"
 
+/***************************************************************\**
+ \class BrassCheckBox
+ \brief This implements a special "checkbox" interface element.
+ *****************************************************************/
 @implementation BrassCheckBox
 
 /***************************************************************\**

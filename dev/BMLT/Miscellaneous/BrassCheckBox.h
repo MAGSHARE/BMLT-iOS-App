@@ -21,9 +21,13 @@
 
 #import <UIKit/UIKit.h>
 
+/***************************************************************\**
+ \class BrassCheckBox
+ \brief This implements a special "checkbox" interface element.
+ *****************************************************************/
 @interface BrassCheckBox : UIButton
 {
-    BOOL    isOn;
+    BOOL    isOn;   ///< YES, if checked.
 }
 - (BOOL)isOn;
 - (void)setIsOn:(BOOL)inIsOn;

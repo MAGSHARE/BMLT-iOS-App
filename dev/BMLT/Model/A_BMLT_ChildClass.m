@@ -26,6 +26,11 @@
 
 #import "A_BMLT_ChildClass.h"
 
+/***************************************************************\**
+ \class A_BMLT_ChildClass
+ \brief This class simply gives subclasses the ability to have a
+        single "owner" or "parent" object. It is designed to be an abstract class.
+ *****************************************************************/
 @implementation A_BMLT_ChildClass
 
 #pragma mark - Override Functions -

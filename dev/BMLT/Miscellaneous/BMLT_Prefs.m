@@ -81,10 +81,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief Un-initializer
- *****************************************************************/
-
-/***************************************************************\**
  \brief Saves the state to an NSCoder
  *****************************************************************/
 -(void)encodeWithCoder:(NSCoder *)encoder   ///< The coder that will receive the data

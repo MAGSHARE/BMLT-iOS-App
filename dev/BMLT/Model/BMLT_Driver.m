@@ -32,6 +32,11 @@
 
 static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 
+/***************************************************************\**
+ \class  BMLT_Driver
+ \brief  This is a class that describes a "driver," that manages one or
+ more connetions to BMLT root servers, and handles searches.
+ *****************************************************************/
 @implementation BMLT_Driver
 
 /***************************************************************\**
@@ -131,10 +136,6 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 {
     return [self initWithServerObjects:nil andName:nil andDescription:nil];
 }
-
-/***************************************************************\**
- \brief un-initializer
- *****************************************************************/
 
 #pragma mark - Class-Specific Functions -
 

@@ -20,6 +20,10 @@
 
 #import "A_BMLT_ServiceBodyHierClass.h"
 
+/***************************************************************\**
+ \class BMLT_Server
+ \brief This class models a BMLT Service Body.
+ *****************************************************************/
 @interface BMLT_ServiceBody : A_BMLT_ServiceBodyHierClass
     // Nothing to see here, folks...
 @end

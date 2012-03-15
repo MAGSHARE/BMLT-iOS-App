@@ -24,12 +24,17 @@
 @class A_BMLT_Search;
 @class BMLT_Server;
 
+/***************************************************************\**
+ \class  BMLT_Driver
+ \brief  This is a class that describes a "driver," that manages one or
+         more connetions to BMLT root servers, and handles searches.
+ *****************************************************************/
 @interface BMLT_Driver : NSObject <BMLT_ParentProtocol, BMLT_NameDescProtocol, BMLT_ServerDelegateProtocol>
 {
-    NSMutableArray                          *serverObjects;
-    NSString                                *bmlt_name;
-    NSString                                *bmlt_description;
-    NSObject<BMLT_DriverDelegateProtocol>   *myDelegate;
+    NSMutableArray                          *serverObjects;     ///< An array of server objects managed by this driver.
+    NSString                                *bmlt_name;         ///< The name of the driver.
+    NSString                                *bmlt_description;  ///< A description of the driver.
+    NSObject<BMLT_DriverDelegateProtocol>   *myDelegate;        ///< The driver delegate, which will receve notifications from the driver.
 }
 + (BMLT_Driver *)getBMLT_Driver;
 + (BMLT_Server *)getServerByURI:(NSString *)inURI;

@@ -19,11 +19,10 @@
 
 #import <UIKit/UIKit.h>
 
-/**********************************************************************************/
-/**
- *  \class  BMLTAdvancedSearchViewController
- *  \brief  This class will present the user with a powerful search specification interface.
- */
+/***************************************************************\**
+ \class  BMLTAdvancedSearchViewController
+ \brief  This class will present the user with a powerful search specification interface.
+ *****************************************************************/
 @interface BMLTAdvancedSearchViewController : UIViewController
 
 @end

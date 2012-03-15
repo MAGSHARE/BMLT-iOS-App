@@ -26,6 +26,10 @@
 #import "BMLT_Server.h"
 #import "BMLT_Driver.h"
 
+/***************************************************************\**
+ \class BMLT_Server
+ \brief This class models a BMLT root server.
+ *****************************************************************/
 @implementation BMLT_Server
 
 #pragma mark - Override Functions -

@@ -21,8 +21,11 @@
 #import <Foundation/Foundation.h>
 #import "BMLT_Model_Protocols.h"
 
-// \brief   This class simply gives subclasses the ability to have a single "owner" or "parent" object.
-//          It is designed to be an abstract class.
+/***************************************************************\**
+ \class A_BMLT_ChildClass
+ \brief This class simply gives subclasses the ability to have a
+        single "owner" or "parent" object. It is designed to be an abstract class.
+ *****************************************************************/
 @interface A_BMLT_ChildClass : NSObject
 {
     NSObject  *parentObject;   ///< This will hold a reference to the parent. It will be retained.

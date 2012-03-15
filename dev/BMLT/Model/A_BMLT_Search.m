@@ -31,6 +31,11 @@
 #import "BMLT_Server.h"
 #import "BMLTAppDelegate.h"
 
+/***************************************************************\**
+ \class  A_BMLT_Search
+ \brief  This class contains a search instance, with criteria and
+ results. The search will run an XML parse.
+ *****************************************************************/
 @implementation A_BMLT_Search
 
 #pragma mark - Override Functions -

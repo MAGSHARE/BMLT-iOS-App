@@ -19,27 +19,24 @@
 
 #import "BMLTAboutViewController.h"
 
-/**********************************************************************************/
-/**
- *  \class  BMLTAboutViewController -Private Interface
- *  \brief  Simply displays information about the app.
- */
+/***************************************************************\**
+ \class  BMLTAboutViewController -Private Interface
+ \brief  Simply displays information about the app.
+ *****************************************************************/
 @interface BMLTAboutViewController ()
 
 @end
 
-/**********************************************************************************/
-/**
- *  \class  BMLTAboutViewController -Implementation
- *  \brief  Simply displays information about the app.
- */
+/***************************************************************\**
+ \class  BMLTAboutViewController -Implementation
+ \brief  Simply displays information about the app.
+ *****************************************************************/
 @implementation BMLTAboutViewController
 
-/**********************************************************************************/
-/**
- *  \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
- *  \returns    self
- */
+/***************************************************************\**
+ \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
+ \returns    self
+ *****************************************************************/
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,29 +47,26 @@
     return self;
 }
 
-/**********************************************************************************/
-/**
- *  \brief  Called after the controller's view object has loaded.
- */
+/***************************************************************\**
+ \brief  Called after the controller's view object has loaded.
+ *****************************************************************/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
 
-/**********************************************************************************/
-/**
- *  \brief  Called after the controller's view object has unloaded.
- */
+/***************************************************************\**
+ \brief  Called after the controller's view object has unloaded.
+ *****************************************************************/
 - (void)viewDidUnload
 {
     [super viewDidUnload];
 }
 
-/**********************************************************************************/
-/**
- *  \brief  Called to validate the autorotation.
- *  \returns    a BOOL. YES if the rotation is approved.
- */
+/***************************************************************\**
+ \brief  Called to validate the autorotation.
+ \returns    a BOOL. YES if the rotation is approved.
+ *****************************************************************/
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;

@@ -21,10 +21,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+/***************************************************************\**
+ \class BMLT_Location
+ \brief This class holds information about a meeting location.
+ *****************************************************************/
 @interface BMLT_Location : NSObject <NSCoding>
 {
-    NSMutableDictionary *location_strings;
-    CLLocation          *location_position;
+    NSMutableDictionary *location_strings;  ///< There can be a number of strings used to describe the location. They are held as key/value pairs.
+    CLLocation          *location_position; ///< The long/lat position of the location.
 }
 
 - (void)setLocationElementValue:(id)inValue forKey:(NSString *)inKey;

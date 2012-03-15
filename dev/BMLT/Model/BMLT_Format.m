@@ -27,6 +27,10 @@
 #import "BMLT_Server.h"
 #import <UIKit/UIKit.h>
 
+/***************************************************************\**
+ \class FormatUIElements
+ \brief This class contains elements used to display a format.
+ *****************************************************************/
 @implementation FormatUIElements
 
 @synthesize textColor = _textColor;
@@ -35,6 +39,10 @@
 
 @end
 
+/***************************************************************\**
+ \class BMLT_Format
+ \brief This class contains information about BMLT formats.
+ *****************************************************************/
 @implementation BMLT_Format
 
 @synthesize formatID = _formatID;

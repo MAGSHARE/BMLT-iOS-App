@@ -20,11 +20,10 @@
 
 #import <UIKit/UIKit.h>
 
-/**********************************************************************************/
-/**
- *  \class  BMLTSettingsViewController
- *  \brief  Allows the user to change the settings/preferences.
- */
+/***************************************************************\**
+ \class  BMLTSettingsViewController
+ \brief  Allows the user to change the settings/preferences.
+ *****************************************************************/
 @interface BMLTSettingsViewController : UIViewController
 
 @end

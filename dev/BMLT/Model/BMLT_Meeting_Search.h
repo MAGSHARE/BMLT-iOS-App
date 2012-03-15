@@ -22,8 +22,12 @@
 
 #define kBMLT_Max_Number_Of_Meetings_In_Response    500
 
+/***************************************************************\**
+ \class BMLT_Meeting_Search
+ \brief A concrete implementation of the search, based on meetings.
+ *****************************************************************/
 @interface BMLT_Meeting_Search : A_BMLT_Search
 {
-    BOOL    firstElement;
+    BOOL    firstElement;   ///< Used during parsing.
 }
 @end

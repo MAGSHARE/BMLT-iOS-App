@@ -22,11 +22,10 @@
 
 static BMLTAppDelegate *g_AppDelegate = nil;
 
-/**********************************************************************************/
-/**
- *  \class  BMLTAppDelegate
- *  \brief  This is the main application delegate class for the BMLT application
- */
+/***************************************************************\**
+ \class  BMLTAppDelegate
+ \brief  This is the main application delegate class for the BMLT application
+ *****************************************************************/
 @implementation BMLTAppDelegate
 
 #pragma mark - Synthesize Class Properties
@@ -34,21 +33,19 @@ static BMLTAppDelegate *g_AppDelegate = nil;
 @synthesize myLocation  = _myLocation;  ///< This will hold the location set by the last location lookup.
 
 #pragma mark - Class Methods
-/**********************************************************************************/
-/**
- *  \brief  This class method allows access to the application delegate object (SINGLETON)
- */
+/***************************************************************\**
+ \brief  This class method allows access to the application delegate object (SINGLETON)
+ *****************************************************************/
 + (BMLTAppDelegate *)getBMLTAppDelegate
 {
     return g_AppDelegate;
 }
 
 #pragma mark - Standard Instance Methods
-/**********************************************************************************/
-/**
- *  \brief  Initialize the object
- *  \returns    self
- */
+/***************************************************************\**
+ \brief  Initialize the object
+ \returns    self
+ *****************************************************************/
 - (id) init
 {
     self = [super init];
@@ -61,11 +58,9 @@ static BMLTAppDelegate *g_AppDelegate = nil;
     return self;
 }
 
-/**********************************************************************************/
-/**
- *  \brief  Called when the app has finished its launch setup.
- *  \returns    a BOOL. The app is go for launch.
- */
+/***************************************************************\**\brief  Called when the app has finished its launch setup.
+ \returns    a BOOL. The app is go for launch.
+ *****************************************************************/
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -75,20 +70,18 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     return YES;
 }
 
-/**********************************************************************************/
-/**
- *  \brief  Called when the app is about to show up.
- */
+/***************************************************************\**
+ \brief  Called when the app is about to show up.
+ *****************************************************************/
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
 }
 
 #pragma mark - Custom Instance Methods
-/**********************************************************************************/
-/**
- *  \brief  Returns the location as last set (Does not trigger a new location lookup).
- *  \returns    a pointer to a CLLocation object, containing the stored location.
- */
+/***************************************************************\**
+ \brief  Returns the location as last set (Does not trigger a new location lookup).
+ \returns    a pointer to a CLLocation object, containing the stored location.
+ *****************************************************************/
 - (CLLocation *)getWhereImAt
 {
     CLLocation  *whereImAt = nil;

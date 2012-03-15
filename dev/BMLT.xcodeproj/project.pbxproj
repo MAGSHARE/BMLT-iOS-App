@@ -203,6 +203,8 @@
 		771D0C5A150E893C005A707A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				771D0C6B150E893C005A707A /* BMLT_Model_Protocols.h */,
+				771D0C72150E893C005A707A /* SearchDelegate.h */,
 				771D0C5B150E893C005A707A /* A_BMLT_ChildClass.h */,
 				771D0C5C150E893C005A707A /* A_BMLT_ChildClass.m */,
 				771D0C5D150E893C005A707A /* A_BMLT_Search.h */,
@@ -219,14 +221,12 @@
 				771D0C68150E893C005A707A /* BMLT_Meeting.m */,
 				771D0C69150E893C005A707A /* BMLT_Meeting_Search.h */,
 				771D0C6A150E893C005A707A /* BMLT_Meeting_Search.m */,
-				771D0C6B150E893C005A707A /* BMLT_Model_Protocols.h */,
 				771D0C6C150E893C005A707A /* BMLT_Parser.h */,
 				771D0C6D150E893C005A707A /* BMLT_Parser.m */,
 				771D0C6E150E893C005A707A /* BMLT_Server.h */,
 				771D0C6F150E893C005A707A /* BMLT_Server.m */,
 				771D0C70150E893C005A707A /* BMLT_ServiceBody.h */,
 				771D0C71150E893C005A707A /* BMLT_ServiceBody.m */,
-				771D0C72150E893C005A707A /* SearchDelegate.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";

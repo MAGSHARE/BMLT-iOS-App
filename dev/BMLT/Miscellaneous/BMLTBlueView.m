@@ -20,17 +20,15 @@
 #import "BMLTBlueView.h"
 #import <QuartzCore/QuartzCore.h>
 
-/**********************************************************************************/
-/**
- *  \class  BMLTBlueView    -Implementation
- *  \brief  This class will simply apply a blue textured background to a view.
- */
+/***************************************************************\**
+ \class  BMLTBlueView    -Implementation
+ \brief  This class will simply apply a blue textured background to a view.
+ *****************************************************************/
 @implementation BMLTBlueView
 
-/**********************************************************************************/
-/**
- *  \brief  We override the drawRect, and apply the background.
- */
+/***************************************************************\**
+ \brief  We override the drawRect, and apply the background.
+ *****************************************************************/
 - (void)drawRect:(CGRect)rect
 {
     CGImageRef      pImage = [[UIImage imageNamed:@"BlueBackgroundPat.gif"] CGImage];

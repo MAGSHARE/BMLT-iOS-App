@@ -22,11 +22,15 @@
 
 @class UIColor;
 
+/***************************************************************\**
+ \class FormatUIElements
+ \brief This class contains elements used to display a format.
+ *****************************************************************/
 @interface FormatUIElements : NSObject
 {
-    UIColor     *textColor;
-    NSString    *imageName2x;
-    NSString    *title;
+    UIColor     *textColor;     ///< The color displayed behind the format.
+    NSString    *imageName2x;   ///< Any image displayed behind the format.
+    NSString    *title;         ///< The title of the format.
 }
 
 @property (atomic, strong) UIColor     *textColor;
@@ -35,16 +39,20 @@
 
 @end
 
+/***************************************************************\**
+ \class BMLT_Format
+ \brief This class contains information about BMLT formats.
+ *****************************************************************/
 @interface BMLT_Format : A_BMLT_ChildClass <BMLT_NameDescProtocol, NSXMLParserDelegate>
 {
-    NSString    *bmlt_name;
-    NSString    *bmlt_description;
+    NSString    *bmlt_name;         ///< The name of the format.
+    NSString    *bmlt_description;  ///< An extended textual description of the format.
 }
 
-@property (atomic, strong) NSString    *formatID;
-@property (atomic, strong) NSString    *key;
-@property (atomic, strong) NSString    *lang;
-@property (atomic, strong) NSString    *currentElement;
+@property (atomic, strong) NSString    *formatID;       ///< The shared ID of the format.
+@property (atomic, strong) NSString    *key;            ///< The textual format key.
+@property (atomic, strong) NSString    *lang;           ///< The language for the format display.
+@property (atomic, strong) NSString    *currentElement; ///< Used during parsing.
 
 + (FormatUIElements *)getFormatColor:(BMLT_Format *)inFormat;
 

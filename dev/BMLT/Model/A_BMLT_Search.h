@@ -24,13 +24,18 @@
 
 #define meeting_search_timeout_period_in_seconds 30
 
+/***************************************************************\**
+ \class  A_BMLT_Search
+ \brief  This class contains a search instance, with criteria and
+         results. The search will run an XML parse.
+ *****************************************************************/
 @interface A_BMLT_Search : A_BMLT_ChildClass <BMLT_ParentProtocol, BMLT_NameDescProtocol, NSXMLParserDelegate>
 {
-    NSString                    *bmlt_name;
-    NSString                    *bmlt_description;
-    NSMutableDictionary         *searchCriteria;
-    NSMutableArray              *searchResults;
-    NSObject<SearchDelegate>    *myDelegate;
+    NSString                    *bmlt_name;         ///< The name assigned to the search.
+    NSString                    *bmlt_description;  ///< A textual description.
+    NSMutableDictionary         *searchCriteria;    ///< A dictionary of search criteria.
+    NSMutableArray              *searchResults;     ///< Once a search has been run, the results are stored here.
+    NSObject<SearchDelegate>    *myDelegate;        ///< The search delegate, that receives status updates from the search.
     BOOL                        searchInProgress;
 }
 
