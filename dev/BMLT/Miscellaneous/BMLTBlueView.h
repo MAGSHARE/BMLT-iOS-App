@@ -1,5 +1,5 @@
 //
-//  BMLTSimpleSearchViewController.h
+//  BMLTBlueView.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -21,8 +21,8 @@
 
 /**********************************************************************************/
 /**
- *  \class  BMLTSimpleSearchViewController
- *  \brief  This class will present the user with a simple "one-button" interface.
+ *  \class  BMLTBlueView    -Interface
+ *  \brief  This class will simply apply a blue textured background to a view.
  */
-@interface BMLTSimpleSearchViewController : UIViewController
+@interface BMLTBlueView : UIView
 @end

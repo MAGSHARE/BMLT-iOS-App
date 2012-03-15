@@ -11,7 +11,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="BMLTListResultsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="17">
+                    <view key="view" contentMode="scaleToFill" id="17" customClass="BMLTBlueView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -81,7 +81,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
                 <viewController id="3" customClass="BMLTMapResultsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="16">
+                    <view key="view" contentMode="scaleToFill" id="16" customClass="BMLTBlueView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -134,7 +134,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLr-ZD-pUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SFh-VH-MDA" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5W2-lU-ExM">
+                    <view key="view" contentMode="scaleToFill" id="5W2-lU-ExM" customClass="BMLTBlueView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -161,7 +161,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVk-nh-b6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Qeh-pQ-hgv" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NbW-k5-fl0">
+                    <view key="view" contentMode="scaleToFill" id="NbW-k5-fl0" customClass="BMLTBlueView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -189,7 +189,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoG-rK-fy0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="crR-vv-v9x" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QJv-Je-6DP">
+                    <view key="view" contentMode="scaleToFill" id="QJv-Je-6DP" customClass="BMLTBlueView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -226,6 +226,9 @@
         <class className="BMLTAdvancedSearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
         </class>
+        <class className="BMLTBlueView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTBlueView.h"/>
+        </class>
         <class className="BMLTListResultsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTListResultsViewController.h"/>
         </class>
@@ -247,4 +250,9 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="qWZ-Qh-gAM"/>
+        <segue reference="3XO-Er-raH"/>
+        <segue reference="W7X-rc-hrY"/>
+    </inferredMetricsTieBreakers>
 </document>

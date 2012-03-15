@@ -1,5 +1,5 @@
 //
-//  BMLTSimpleSearchViewController.h
+//  BMLTBlueView.m
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -17,12 +17,27 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <UIKit/UIKit.h>
+#import "BMLTBlueView.h"
+#import <QuartzCore/QuartzCore.h>
 
 /**********************************************************************************/
 /**
- *  \class  BMLTSimpleSearchViewController
- *  \brief  This class will present the user with a simple "one-button" interface.
+ *  \class  BMLTBlueView    -Implementation
+ *  \brief  This class will simply apply a blue textured background to a view.
  */
-@interface BMLTSimpleSearchViewController : UIViewController
+@implementation BMLTBlueView
+
+/**********************************************************************************/
+/**
+ *  \brief  We override the drawRect, and apply the background.
+ */
+- (void)drawRect:(CGRect)rect
+{
+    CGImageRef      pImage = [[UIImage imageNamed:@"BlueBackgroundPat.gif"] CGImage];
+    CGContextRef    ctx = UIGraphicsGetCurrentContext();
+    CGRect          patRect = CGRectMake(0, 0, CGImageGetWidth(pImage), CGImageGetHeight(pImage));
+    
+    CGContextDrawTiledImage(ctx, patRect, pImage);
+    [super drawRect:rect];
+}
 @end

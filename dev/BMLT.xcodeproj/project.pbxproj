@@ -48,6 +48,8 @@
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		77977D1A150E882B00485C8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77977D18150E882B00485C8D /* InfoPlist.strings */; };
 		77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A10D47151022C200279AAC /* BMLTSegwayController.m */; };
+		77A7FD7515122DF200FD6300 /* BlueBackgroundPat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77A7FD7415122DF200FD6300 /* BlueBackgroundPat.gif */; };
+		77A7FD7915122F9900FD6300 /* BMLTBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A7FD7815122F9900FD6300 /* BMLTBlueView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +70,6 @@
 		771D0C4F150E893C005A707A /* BMLTMapResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMapResultsViewController.m; sourceTree = "<group>"; };
 		771D0C50150E893C005A707A /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		771D0C51150E893C005A707A /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
-		771D0C53150E893C005A707A /* BMLT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
 		771D0C54150E893C005A707A /* BMLT_Prefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Prefs.h; sourceTree = "<group>"; };
 		771D0C55150E893C005A707A /* BMLT_Prefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Prefs.m; sourceTree = "<group>"; };
 		771D0C56150E893C005A707A /* BrassCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrassCheckBox.h; sourceTree = "<group>"; };
@@ -118,9 +119,11 @@
 		77977D13150E882B00485C8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		77977D17150E882B00485C8D /* BMLT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMLT-Info.plist"; sourceTree = "<group>"; };
 		77977D19150E882B00485C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		77977D1D150E882B00485C8D /* BMLT-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
 		77A10D46151022C200279AAC /* BMLTSegwayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSegwayController.h; sourceTree = "<group>"; };
 		77A10D47151022C200279AAC /* BMLTSegwayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSegwayController.m; sourceTree = "<group>"; };
+		77A7FD7415122DF200FD6300 /* BlueBackgroundPat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BlueBackgroundPat.gif; sourceTree = "<group>"; };
+		77A7FD7715122F9900FD6300 /* BMLTBlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTBlueView.h; sourceTree = "<group>"; };
+		77A7FD7815122F9900FD6300 /* BMLTBlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTBlueView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,13 +187,15 @@
 		771D0C52150E893C005A707A /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
-				771D0C53150E893C005A707A /* BMLT-Prefix.pch */,
+				77A7FD7315122DF200FD6300 /* images */,
 				771D0C54150E893C005A707A /* BMLT_Prefs.h */,
 				771D0C55150E893C005A707A /* BMLT_Prefs.m */,
 				771D0C56150E893C005A707A /* BrassCheckBox.h */,
 				771D0C57150E893C005A707A /* BrassCheckBox.m */,
 				771D0C58150E893C005A707A /* Reachability.h */,
 				771D0C59150E893C005A707A /* Reachability.m */,
+				77A7FD7715122F9900FD6300 /* BMLTBlueView.h */,
+				77A7FD7815122F9900FD6300 /* BMLTBlueView.m */,
 			);
 			path = Miscellaneous;
 			sourceTree = "<group>";
@@ -301,9 +306,16 @@
 			children = (
 				77977D17150E882B00485C8D /* BMLT-Info.plist */,
 				77977D18150E882B00485C8D /* InfoPlist.strings */,
-				77977D1D150E882B00485C8D /* BMLT-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		77A7FD7315122DF200FD6300 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				77A7FD7415122DF200FD6300 /* BlueBackgroundPat.gif */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +381,7 @@
 				771D0C8E150E893C005A707A /* settings@2x.png in Resources */,
 				771D0CD5150E8B73005A707A /* list.png in Resources */,
 				771D0CD6150E8B73005A707A /* list@2x.png in Resources */,
+				77A7FD7515122DF200FD6300 /* BlueBackgroundPat.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +416,7 @@
 				771D0C8C150E893C005A707A /* BMLTSettingsViewController.m in Sources */,
 				771D0CD4150E8B73005A707A /* BMLTListResultsViewController.m in Sources */,
 				77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */,
+				77A7FD7915122F9900FD6300 /* BMLTBlueView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
