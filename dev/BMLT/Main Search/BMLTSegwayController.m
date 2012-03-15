@@ -54,18 +54,19 @@
     UIViewController        *dest = (UIViewController *)[self destinationViewController];
     UINavigationController  *navCtl = [src navigationController];
     
+    // What we do here, is ensure that we don't overstack the nav controller. We pop to root, then stack the new view controller.
     [navCtl popToRootViewControllerAnimated:NO];
     [navCtl pushViewController:dest animated:NO];
     
-    [UIView transitionFromView:[src view] toView:[dest view] duration:0 options:(UIViewAnimationOptions)0 completion:nil];
+    // Do a view transition
+    [UIView transitionFromView:[src view] toView:[dest view] duration:0.25 options:(UIViewAnimationOptions)0 completion:nil];
 
-    // What we do here, is ensure that we don't overstack the nav controller. We pop to root, then stack the new view controller.
 	// set up an animation for the transition between the views
 	CATransition *animation = [CATransition animation];
-	[animation setDuration:0.25];
 	[animation setType:kCATransitionPush];
+    [animation setDuration:0.25];
 	[animation setSubtype:[[self identifier] isEqualToString:@"left"] ? kCATransitionFromLeft : kCATransitionFromRight];
 	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
-	[[[[dest view] window] layer] addAnimation:animation forKey:nil];
+	[[[[dest view] superview] layer] addAnimation:animation forKey:nil];
 }
 @end

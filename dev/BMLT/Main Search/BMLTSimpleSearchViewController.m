@@ -30,7 +30,7 @@
 
 /**********************************************************************************/
 /**
- *  \class  BMLTSimpleSearchViewController  -Public Implementation
+ *  \class  BMLTSimpleSearchViewController  -Implementation
  *  \brief  This class will present the user with a simple "one-button" interface.
  */
 @implementation BMLTSimpleSearchViewController
