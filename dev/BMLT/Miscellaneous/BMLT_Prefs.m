@@ -685,6 +685,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
                                                 */
 {
     searchTypePref = inSearchTypePref;
+    
+    [self setPreferAdvancedSearch:searchTypePref == _PREFER_ADVANCED_SEARCH];
 }
 
 /***************************************************************\**
@@ -693,6 +695,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 - (void)setPreferSearchResultsAsMap:(BOOL)inPreferSearchResultsAsMap    ///< YES, if the user wants to start with a map.
 {
     preferSearchResultsAsMap = inPreferSearchResultsAsMap;
+
+    [self setStartWithMap:preferSearchResultsAsMap];
 }
 
 /***************************************************************\**
@@ -701,6 +705,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 - (void)setPreserveAppStateOnSuspend:(BOOL)inPreserveAppStateOnSuspend  ///< YES, to preserve the app state.
 {
     preserveAppStateOnSuspend = inPreserveAppStateOnSuspend;
+    
+    [self setStartWithSearch:!preserveAppStateOnSuspend];
 }
 
 @end
