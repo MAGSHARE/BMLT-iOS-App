@@ -324,6 +324,120 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
+ \brief Initializer from a coder.
+ \returns self
+ *****************************************************************/
+-(id)initWithCoder:(NSCoder *)decoder   ///< The decoder with the stored state.
+{
+    self = [super init];
+    
+    if ( self )
+        {
+        servers = nil;
+        
+        if ( decoder )
+            {
+            servers = [decoder decodeObjectForKey:@"servers"];
+            
+            if ( [decoder containsValueForKey:@"startWithMap"] )
+                {
+                startWithMap = [decoder decodeBoolForKey:@"startWithMap"];
+                }
+            else
+                {
+                [self setStartWithMap:NO];
+                }
+            
+            if ( [decoder containsValueForKey:@"preferDistanceSort"] )
+                {
+                preferDistanceSort = [decoder decodeBoolForKey:@"preferDistanceSort"];
+                }
+            else
+                {
+                [self setPreferDistanceSort:NO];
+                }
+            
+            if ( [decoder containsValueForKey:@"lookupMyLocation"] )
+                {
+                lookupMyLocation = [decoder decodeBoolForKey:@"lookupMyLocation"];
+                }
+            else
+                {
+                [self setLookupMyLocation:YES];
+                }
+            
+            if ( [decoder containsValueForKey:@"gracePeriod"] )
+                {
+                gracePeriod = [decoder decodeIntForKey:@"gracePeriod"];
+                }
+            else
+                {
+                [self setGracePeriod:BMLT_Pref_Default_Value_Grace_Period];
+                }
+            
+            if ( [decoder containsValueForKey:@"startWithSearch"] )
+                {
+                startWithSearch = [decoder decodeBoolForKey:@"startWithSearch"];
+                }
+            else
+                {
+                [self setStartWithSearch:YES];
+                }
+            
+            if ( [decoder containsValueForKey:@"preferAdvancedSearch"] )
+                {
+                preferAdvancedSearch = [decoder decodeBoolForKey:@"preferAdvancedSearch"];
+                }
+            else
+                {
+                [self setPreferAdvancedSearch:NO];
+                }
+            
+            if ( [decoder containsValueForKey:@"searchTypePref"] )
+                {
+                searchTypePref = [decoder decodeIntForKey:@"searchTypePref"];
+                }
+            else
+                {
+                [self setSearchTypePref:([self preferAdvancedSearch] ? _PREFER_ADVANCED_SEARCH : ([self startWithMap] ? _PREFER_MAP_SEARCH : _PREFER_SIMPLE_SEARCH))];
+                }
+            
+            if ( [decoder containsValueForKey:@"preferSearchResultsAsMap"] )
+                {
+                preferSearchResultsAsMap = [decoder decodeBoolForKey:@"preferSearchResultsAsMap"];
+                }
+            else
+                {
+                [self setPreferSearchResultsAsMap:[self startWithMap]];
+                }
+            
+            if ( [decoder containsValueForKey:@"preserveAppStateOnSuspend"] )
+                {
+                preserveAppStateOnSuspend = [decoder decodeBoolForKey:@"preserveAppStateOnSuspend"];
+                }
+            else
+                {
+                [self setPreserveAppStateOnSuspend:![self startWithSearch]];
+                }
+            }
+        else
+            {
+            [self setStartWithMap:NO];
+            [self setPreferDistanceSort:NO];
+            [self setLookupMyLocation:YES];
+            [self setGracePeriod:BMLT_Pref_Default_Value_Grace_Period];
+            [self setStartWithSearch:YES];
+            [self setPreferAdvancedSearch:NO];
+            [self setSearchTypePref:([self preferAdvancedSearch] ? _PREFER_ADVANCED_SEARCH : ([self startWithMap] ? _PREFER_MAP_SEARCH : _PREFER_SIMPLE_SEARCH))];
+            [self setPreferSearchResultsAsMap:[self startWithMap]];
+            [self setPreserveAppStateOnSuspend:![self startWithSearch]];
+            }
+        }
+    
+    return self;
+}
+
+/***************************************************************\**
  \brief Returns the Start with Map pref.
  \returns a boolean, with YES meaning start with map search.
  *****************************************************************/
@@ -381,16 +495,48 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief Un-initializer.
- *****************************************************************/
-
-/***************************************************************\**
  \brief Accessor -get the server list.
  \returns the array of instantiated servers as BMLT_ServerPref objects.
  *****************************************************************/
 - (NSArray *)servers
 {
     return servers;
+}
+
+/***************************************************************\**
+ \brief     Accessor -return the initial search type.
+ \returns   an int. One of these values:
+ - _PREFER_SIMPLE_SEARCH
+ - _PREFER_MAP_SEARCH
+ - _PREFER_ADVANCED_SEARCH
+ *****************************************************************/
+- (int)searchTypePref
+{
+    return searchTypePref;
+}
+
+/***************************************************************\**
+ \brief     Accessor -return the preference to have search results
+ initially displayed in map mode.
+ \returns   a BOOL. YES, if the user wants to start search results
+ in the map results tab.
+ *****************************************************************/
+- (BOOL)preferSearchResultsAsMap
+{
+    return preferSearchResultsAsMap;
+}
+
+/***************************************************************\**
+ \brief     Accessor -return the preference to have the app suspend
+ its state when sent to the background. If this is NO,
+ then the app will reset to the initial state when coming
+ back from being sent to the background.
+ \returns   a BOOL. YES, if the user wants the app to suspend its
+ state.
+ *****************************************************************/
+- (BOOL)preserveAppStateOnSuspend
+{
+    return preserveAppStateOnSuspend;
 }
 
 /***************************************************************\**
@@ -465,90 +611,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
- \brief Initializer from a coder.
- \returns self
- *****************************************************************/
--(id)initWithCoder:(NSCoder *)decoder   ///< The decoder with the stored state.
-{
-    self = [super init];
-    
-    if ( self )
-        {
-        servers = nil;
-        
-        if ( decoder )
-            {
-            servers = [decoder decodeObjectForKey:@"servers"];
-            
-            if ( [decoder containsValueForKey:@"startWithMap"] )
-                {
-                startWithMap = [decoder decodeBoolForKey:@"startWithMap"];
-                }
-            else
-                {
-                [self setStartWithMap:NO];
-                }
-            
-            if ( [decoder containsValueForKey:@"preferDistanceSort"] )
-                {
-                preferDistanceSort = [decoder decodeBoolForKey:@"preferDistanceSort"];
-                }
-            else
-                {
-                [self setPreferDistanceSort:NO];
-                }
-            
-            if ( [decoder containsValueForKey:@"lookupMyLocation"] )
-                {
-                lookupMyLocation = [decoder decodeBoolForKey:@"lookupMyLocation"];
-                }
-            else
-                {
-                [self setLookupMyLocation:YES];
-                }
-
-            if ( [decoder containsValueForKey:@"gracePeriod"] )
-                {
-                gracePeriod = [decoder decodeIntForKey:@"gracePeriod"];
-                }
-            else
-                {
-                [self setGracePeriod:BMLT_Pref_Default_Value_Grace_Period];
-                }
-            
-            if ( [decoder containsValueForKey:@"startWithSearch"] )
-                {
-                startWithSearch = [decoder decodeBoolForKey:@"startWithSearch"];
-                }
-            else
-                {
-                [self setStartWithSearch:YES];
-                }
-            
-            if ( [decoder containsValueForKey:@"preferAdvancedSearch"] )
-                {
-                preferAdvancedSearch = [decoder decodeBoolForKey:@"preferAdvancedSearch"];
-                }
-            else
-                {
-                [self setPreferAdvancedSearch:NO];
-                }
-            }
-        else
-            {
-            [self setStartWithMap:NO];
-            [self setPreferDistanceSort:NO];
-            [self setLookupMyLocation:YES];
-            [self setGracePeriod:BMLT_Pref_Default_Value_Grace_Period];
-            [self setStartWithSearch:YES];
-            [self setPreferAdvancedSearch:NO];
-            }
-        }
-    
-    return self;
-}
-
-/***************************************************************\**
  \brief Store into an encoder
  *****************************************************************/
 -(void)encodeWithCoder:(NSCoder *)encoder   ///< The encoder that will receive the stored state.
@@ -560,6 +622,9 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
     [encoder encodeInt:gracePeriod forKey:@"gracePeriod"];
     [encoder encodeBool:startWithSearch forKey:@"startWithSearch"];
     [encoder encodeBool:preferAdvancedSearch forKey:@"preferAdvancedSearch"];
+    [encoder encodeInt:searchTypePref forKey:@"searchTypePref"];
+    [encoder encodeBool:preferSearchResultsAsMap forKey:@"preferSearchResultsAsMap"];
+    [encoder encodeBool:preserveAppStateOnSuspend forKey:@"preserveAppStateOnSuspend"];
 }
 
 /***************************************************************\**
@@ -608,6 +673,34 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 - (void)setPreferAdvancedSearch:(BOOL)inValue   ///< YES, if you want to start your searches as advanced.
 {
     preferAdvancedSearch = inValue;
+}
+
+/***************************************************************\**
+ \brief Accessor -set the Search type.
+ *****************************************************************/
+- (void)setSearchTypePref:(int)inSearchTypePref /**< One of these values:
+                                                        - _PREFER_SIMPLE_SEARCH
+                                                        - _PREFER_MAP_SEARCH
+                                                        - _PREFER_ADVANCED_SEARCH
+                                                */
+{
+    searchTypePref = inSearchTypePref;
+}
+
+/***************************************************************\**
+ \brief Accessor -set the preference for initial results as a map.
+ *****************************************************************/
+- (void)setPreferSearchResultsAsMap:(BOOL)inPreferSearchResultsAsMap    ///< YES, if the user wants to start with a map.
+{
+    preferSearchResultsAsMap = inPreferSearchResultsAsMap;
+}
+
+/***************************************************************\**
+ \brief Accessor -set the preference to preserve the app state on suspend.
+ *****************************************************************/
+- (void)setPreserveAppStateOnSuspend:(BOOL)inPreserveAppStateOnSuspend  ///< YES, to preserve the app state.
+{
+    preserveAppStateOnSuspend = inPreserveAppStateOnSuspend;
 }
 
 @end
