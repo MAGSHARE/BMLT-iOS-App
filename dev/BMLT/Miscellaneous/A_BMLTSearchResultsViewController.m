@@ -1,5 +1,5 @@
 //
-//  BMLTSimpleSearchViewController.m
+//  A_BMLTSearchResultsViewController.m
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -15,24 +15,25 @@
 //  
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
+
 //
 
-#import "BMLTSimpleSearchViewController.h"
-#import "BMLTAppDelegate.h"
+#import "A_BMLTSearchResultsViewController.h"
+#import "BMLTBlueView.h"
 
 /***************************************************************\**
- \class  BMLTSimpleSearchViewController  -Private Interface
- \brief  This class will present the user with a simple "one-button" interface.
+ \class  A_BMLTSearchResultsViewController -Private Interface
+ \brief  This class will control display of listed results.
  *****************************************************************/
-@interface BMLTSimpleSearchViewController ()
+@interface A_BMLTSearchResultsViewController ()
 
 @end
 
 /***************************************************************\**
- \class  BMLTSimpleSearchViewController  -Implementation
- \brief  This class will present the user with a simple "one-button" interface.
+ \class  A_BMLTSearchResultsViewController
+ \brief  This class will control display of listed results.
  *****************************************************************/
-@implementation BMLTSimpleSearchViewController
+@implementation A_BMLTSearchResultsViewController
 
 /***************************************************************\**
  \brief  Called after the controller's view object has loaded.
@@ -56,23 +57,26 @@
  *****************************************************************/
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
 }
 
-#pragma mark IB Actions
-/***************************************************************\**
- \brief  Do a simple meeting lookup.
- *****************************************************************/
-- (IBAction)findAllMeetingsNearMe:(id)sender
+- (void)startMeetingSearch
 {
-    BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
-    
-    if ( myAppDelegate && [BMLTAppDelegate locationServicesAvailable] )
-        {
-#ifdef DEBUG
-        NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMe.");
-#endif
-        [myAppDelegate findLocationAndMeetings:YES];
-        }
+    [(BMLTBlueView*)[self view] startAnimation];
 }
+
+- (void)stopMeetingSearch
+{
+    [(BMLTBlueView*)[self view] stopAnimation];
+}
+
+- (void)displayMeetingSearch
+{
+    [(BMLTBlueView*)[self view] stopAnimation];
+}
+
 @end

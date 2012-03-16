@@ -576,7 +576,7 @@ foundCharacters:(NSString *)string      ///< The characters
                 
                 if ( meetingLoc )
                     {
-                    CLLocationDistance  distance = [meetingLoc distanceFromLocation:[[BMLTAppDelegate getBMLTAppDelegate] getWhereImAt]] / 1000.0;
+                    CLLocationDistance  distance = [meetingLoc distanceFromLocation:[[BMLTAppDelegate getBMLTAppDelegate] myLocation]] / 1000.0;
                     
                     NSString    *string = [NSString stringWithFormat:@"%f", distance];
                     

@@ -20,11 +20,68 @@
 #import "BMLTBlueView.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface BMLTBlueView ()
+{
+    Animated_BMLT_Logo  *animatedImage;
+}
+@end
+
 /***************************************************************\**
  \class  BMLTBlueView    -Implementation
  \brief  This class will simply apply a blue textured background to a view.
  *****************************************************************/
 @implementation BMLTBlueView
+
+/***************************************************************\**
+ \brief This routine covers the beanie with an animation.
+ *****************************************************************/
+- (void)startAnimation
+{
+    if ( !animatedImage )
+        {
+#ifdef DEBUG
+        NSLog(@"BMLTBlueView startAnimation creating animation.");
+#endif
+        animatedImage = [[Animated_BMLT_Logo alloc] init];
+        CGRect  myBounds = [self bounds];
+        CGRect  animFrame = CGRectZero;
+        
+        animFrame.size.width = animFrame.size.height = 200;
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+            {
+            animFrame.size.width = animFrame.size.height = 300;
+            }
+        
+        double  newX = (myBounds.size.width - animFrame.size.width) / 2.0;
+        double  newY = (myBounds.size.height - animFrame.size.height) / 2.0;
+        
+        animFrame.origin.x = newX;
+        animFrame.origin.y = newY;
+        
+        animFrame = CGRectOffset ( animFrame, (animFrame.size.width / 36), (animFrame.size.width / 18) );
+        
+        [animatedImage setFrame:animFrame];
+        
+        [self addSubview:animatedImage];
+        [animatedImage startTurning];
+        }
+}
+
+/***************************************************************\**
+ \brief This routine stops the animation.
+ *****************************************************************/
+- (void)stopAnimation
+{
+    if ( animatedImage )
+        {
+#ifdef DEBUG
+        NSLog(@"BMLTBlueView stopAnimation stopping animation.");
+#endif
+        [animatedImage removeFromSuperview];
+        animatedImage = nil;
+        }
+}
 
 /***************************************************************\**
  \brief  We override the drawRect, and apply the background.

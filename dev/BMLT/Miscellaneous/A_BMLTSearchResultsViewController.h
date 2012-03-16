@@ -1,5 +1,5 @@
 //
-//  BMLTSimpleSearchViewController.h
+//  A_BMLTSearchResultsViewController.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -15,14 +15,19 @@
 //  
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
+
 //
 
 #import <UIKit/UIKit.h>
 
 /***************************************************************\**
- \class  BMLTSimpleSearchViewController
- \brief  This class will present the user with a simple "one-button" interface.
+ \class  BMLTSearchResultsViewController
+ \brief  This abstract base class will control display of listed results.
  *****************************************************************/
-@interface BMLTSimpleSearchViewController : UIViewController
-    - (IBAction)findAllMeetingsNearMe:(id)sender;
+@interface A_BMLTSearchResultsViewController : UIViewController
+
+- (void)startMeetingSearch;
+- (void)stopMeetingSearch;
+- (void)displayMeetingSearch;
+
 @end

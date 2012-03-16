@@ -25,13 +25,16 @@
  \class BMLTAppDelegate
  \brief This is the main application delegate class for the BMLT application
  *****************************************************************/
-@interface BMLTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
+@interface BMLTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate>
+{
+}
 
-@property (strong, nonatomic) UIWindow      *window;        ///< This is the main window object (SINGLETON)
-@property (strong, nonatomic) CLLocation    *myLocation;    ///< This will contain our location.
+@property (strong, nonatomic) UIWindow          *window;            ///< This is the main window object (SINGLETON)
+@property (strong, nonatomic) CLLocation        *myLocation;        ///< This will contain our location.
+@property (strong, nonatomic) CLLocationManager *locationManager;   ///< This will hold our location manager.
 
 + (BMLTAppDelegate *)getBMLTAppDelegate;    ///< This class method allows access to the application delegate object (SINGLETON)
-
-- (CLLocation *)getWhereImAt;               ///< Returns the location as last set (Does not trigger a new location lookup).
-
++ (BOOL)locationServicesAvailable;          ///< Used to check to see if location services are available.
+- (BOOL)isLookupValid;                      ///< Returns YES, if the last location lookup is kosher.
+- (void)findLocationAndMeetings:(BOOL)findMeetings;  ///< Starts an asynchronous GPS location lookup.
 @end

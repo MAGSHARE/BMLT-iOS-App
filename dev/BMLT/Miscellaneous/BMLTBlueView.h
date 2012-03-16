@@ -18,10 +18,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Animated_BMLT_Logo.h"
 
 /***************************************************************\**
  \class  BMLTBlueView    -Interface
  \brief  This class will simply apply a blue textured background to a view.
  *****************************************************************/
 @interface BMLTBlueView : UIView
+- (void)startAnimation;
+- (void)stopAnimation;
 @end

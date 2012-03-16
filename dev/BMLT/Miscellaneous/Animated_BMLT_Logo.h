@@ -1,5 +1,5 @@
 //
-//  BMLTSimpleSearchViewController.h
+//  Animated_BMLT_Logo.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -19,10 +19,21 @@
 
 #import <UIKit/UIKit.h>
 
+#define AnimatedGlobeViewController_image_frame_count 60
+
 /***************************************************************\**
- \class  BMLTSimpleSearchViewController
- \brief  This class will present the user with a simple "one-button" interface.
+ \class Animated_BMLT_Logo
+ \brief This UIView implements an animated "steampunk spinning globe."
  *****************************************************************/
-@interface BMLTSimpleSearchViewController : UIViewController
-    - (IBAction)findAllMeetingsNearMe:(id)sender;
+@interface Animated_BMLT_Logo : UIView
+{
+    NSMutableArray      *imageArray;
+    UIImageView         *bottomLayerImage;
+    UIImageView         *topLayerImage;
+    UIImageView         *animatedImages;
+}
+
+- (void)startTurning;
+- (void)stopTurning;
+
 @end
