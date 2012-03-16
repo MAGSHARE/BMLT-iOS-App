@@ -37,4 +37,5 @@
 + (BOOL)locationServicesAvailable;          ///< Used to check to see if location services are available.
 - (BOOL)isLookupValid;                      ///< Returns YES, if the last location lookup is kosher.
 - (void)findLocationAndMeetings:(BOOL)findMeetings;  ///< Starts an asynchronous GPS location lookup.
+- (void)searchForMeetingsNearMeAllWeek;     ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
 @end

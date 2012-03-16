@@ -37,6 +37,7 @@
 /***************************************************************\**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
+@synthesize findMeetingsNearMeButton;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -47,6 +48,7 @@
  *****************************************************************/
 - (void)viewDidUnload
 {
+    [self setFindMeetingsNearMeButton:nil];
     [super viewDidUnload];
 }
 
@@ -72,7 +74,7 @@
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMe.");
 #endif
-        [myAppDelegate findLocationAndMeetings:YES];
+        [myAppDelegate searchForMeetingsNearMeAllWeek];
         }
 }
 @end

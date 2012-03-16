@@ -93,6 +93,15 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 }
 
+/***************************************************************\**
+ \brief Begins a lookup search, in which a location is found first,
+        then all meetings near there are returned.
+ *****************************************************************/
+- (void)searchForMeetingsNearMeAllWeek
+{
+    [self findLocationAndMeetings:YES];
+}
+
 #pragma mark - Custom Instance Methods
 /***************************************************************\**
  \brief Starts an asynchronous Location Manager update process.

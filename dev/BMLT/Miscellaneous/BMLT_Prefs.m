@@ -30,6 +30,10 @@
 
 static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 
+/***************************************************************\**
+ \class BMLT_Prefs
+ \brief This class is a preference for a single server connection.
+ *****************************************************************/
 @implementation BMLT_ServerPref
 
 /***************************************************************\**
@@ -149,7 +153,11 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 
 @end
 
-    /// These are the static SINGLETON global prefs.
+/***************************************************************\**
+ \class BMLT_Prefs
+ \brief This class is a global SINGLETON instance with all of the
+        prefs.
+ *****************************************************************/
 @implementation BMLT_Prefs
 
 /***************************************************************\**
