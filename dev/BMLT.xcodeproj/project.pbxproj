@@ -173,11 +173,12 @@
 		773FF2E31514C38700540E30 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		775E0B441514C3EE00C716D9 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		775E0B451514C3EE00C716D9 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		7765AE711514C72F008E4ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7765AE731514C7EA008E4ACF /* buildLocalizationFile.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = buildLocalizationFile.pl; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* BMLT-NY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-NY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77977D13150E882B00485C8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		77977D17150E882B00485C8D /* BMLT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMLT-Info.plist"; sourceTree = "<group>"; };
 		77977D19150E882B00485C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		77A10D46151022C200279AAC /* BMLTSegwayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSegwayController.h; sourceTree = "<group>"; };
 		77A10D47151022C200279AAC /* BMLTSegwayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSegwayController.m; sourceTree = "<group>"; };
@@ -440,10 +441,10 @@
 		77977D16150E882B00485C8D /* Project Files */ = {
 			isa = PBXGroup;
 			children = (
+				7765AE731514C7EA008E4ACF /* buildLocalizationFile.pl */,
 				77D90B031514C5340059EF41 /* BMLT-Prefix.pch */,
 				773FF2E21514C38200540E30 /* Localizable.strings */,
 				77B59D121514BA1B00C07D18 /* MyLocalizable.strings */,
-				77977D17150E882B00485C8D /* BMLT-Info.plist */,
 				77977D18150E882B00485C8D /* InfoPlist.strings */,
 			);
 			name = "Project Files";
@@ -554,6 +555,7 @@
 		77D90B961514C6A60059EF41 /* BMLT-NY */ = {
 			isa = PBXGroup;
 			children = (
+				7765AE711514C72F008E4ACF /* Info.plist */,
 				77D90B971514C6A60059EF41 /* MyLocalizable.strings */,
 			);
 			path = "BMLT-NY";
@@ -822,7 +824,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
-				INFOPLIST_FILE = "BMLT/Variants/BMLT-NY/Info.plist";
+				INFOPLIST_FILE = "Variants/BMLT-NY/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -834,7 +836,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
-				INFOPLIST_FILE = "BMLT/Variants/BMLT-NY/Info.plist";
+				INFOPLIST_FILE = "Variants/BMLT-NY/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
