@@ -12,12 +12,14 @@ use Cwd;            # We'll be operating on the working directory.
 use File::Path;
 
 my $lang = "en";
+my $variant = "NY";
 
+$variant = $ARGV[0] if exists $ARGV[0];
 $lang = $ARGV[1] if exists $ARGV[1];
 
-my $input1File = cwd()."/BMLT/Supporting\ Files/".$lang.".lproj/MyLocalizable.strings";
-my $input2File = cwd()."/".$ARGV[0]."/".$lang.".lproj/MyLocalizable.strings";
-my $outputFile = cwd()."/".$ARGV[0]."/".$lang.".lproj/Localizable.strings";
+my $input1File = cwd()."/BMLT/".$lang.".lproj/MyLocalizable.strings";
+my $input2File = cwd()."/Variants/BMLT-".$variant."/".$lang.".lproj/MyLocalizable.strings";
+my $input1File = cwd()."/BMLT/".$lang.".lproj/Localizable.strings";
 
 open ( MAIN_FILE, $input1File ) || die ( "Could not open main file!" );
 
@@ -25,7 +27,7 @@ my @file_data = <MAIN_FILE>;
 
 close ( MAIN_FILE );
 
-open ( PRODUCT_FILE, $input2File ) || die ( "Could not open product file!" );
+open ( PRODUCT_FILE, $input2File ) || die ( "Could not open variant file!" );
 
 push ( @file_data, <PRODUCT_FILE> );
 
