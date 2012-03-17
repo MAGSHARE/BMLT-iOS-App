@@ -41,10 +41,10 @@
 		771D0CD4150E8B73005A707A /* BMLTListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0CD1150E8B73005A707A /* BMLTListResultsViewController.m */; };
 		771D0CD5150E8B73005A707A /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 771D0CD2150E8B73005A707A /* list.png */; };
 		771D0CD6150E8B73005A707A /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 771D0CD3150E8B73005A707A /* list@2x.png */; };
+		773FF2E01514C38200540E30 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 773FF2E21514C38200540E30 /* Localizable.strings */; };
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
-		77977D1A150E882B00485C8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77977D18150E882B00485C8D /* InfoPlist.strings */; };
 		77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A10D47151022C200279AAC /* BMLTSegwayController.m */; };
 		77A7FD7515122DF200FD6300 /* BlueBackgroundPat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77A7FD7415122DF200FD6300 /* BlueBackgroundPat.gif */; };
 		77A7FD7915122F9900FD6300 /* BMLTBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A7FD7815122F9900FD6300 /* BMLTBlueView.m */; };
@@ -175,6 +175,9 @@
 		771D0CD1150E8B73005A707A /* BMLTListResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTListResultsViewController.m; sourceTree = "<group>"; };
 		771D0CD2150E8B73005A707A /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		771D0CD3150E8B73005A707A /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
+		773FF2DC1514C2A200540E30 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		773FF2E11514C38200540E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		773FF2E31514C38700540E30 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* BMLT-NY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-NY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -443,6 +446,7 @@
 		77977D16150E882B00485C8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				773FF2E21514C38200540E30 /* Localizable.strings */,
 				77B59D121514BA1B00C07D18 /* MyLocalizable.strings */,
 				77977D17150E882B00485C8D /* BMLT-Info.plist */,
 				77977D18150E882B00485C8D /* InfoPlist.strings */,
@@ -462,17 +466,17 @@
 		77B59D151514BAAA00C07D18 /* Variants */ = {
 			isa = PBXGroup;
 			children = (
-				77B59D161514BAB400C07D18 /* NY */,
+				77B59D161514BAB400C07D18 /* BMLT-NY */,
 			);
 			name = Variants;
 			sourceTree = "<group>";
 		};
-		77B59D161514BAB400C07D18 /* NY */ = {
+		77B59D161514BAB400C07D18 /* BMLT-NY */ = {
 			isa = PBXGroup;
 			children = (
 				77B59D191514BACE00C07D18 /* MyLocalizable.strings */,
 			);
-			name = NY;
+			name = "BMLT-NY";
 			sourceTree = "<group>";
 		};
 		77BC71141512BB43000BEFC0 /* BMLT_Animated_Logo */ = {
@@ -606,7 +610,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77977D1A150E882B00485C8D /* InfoPlist.strings in Resources */,
 				77B59D1D1514BB9A00C07D18 /* iPad.storyboard in Resources */,
 				77B59D1B1514BB9300C07D18 /* iPhone.storyboard in Resources */,
 				771D0C4B150E892A005A707A /* search.png in Resources */,
@@ -680,6 +683,7 @@
 				77BC718F1512BB43000BEFC0 /* Globe_58.png in Resources */,
 				77BC71901512BB43000BEFC0 /* Globe_59.png in Resources */,
 				77BC71911512BB43000BEFC0 /* TopLayer.png in Resources */,
+				773FF2E01514C38200540E30 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,10 +727,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		773FF2E21514C38200540E30 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				773FF2E11514C38200540E30 /* en */,
+				773FF2E31514C38700540E30 /* sv */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		77977D18150E882B00485C8D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				77977D19150E882B00485C8D /* en */,
+				773FF2DC1514C2A200540E30 /* sv */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
