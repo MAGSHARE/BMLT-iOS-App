@@ -19,6 +19,7 @@
 //
 
 #import "BMLTAppDelegate.h"
+#import "Reachability.h"
 
 static BMLTAppDelegate *g_AppDelegate = nil;
 
@@ -190,6 +191,139 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f, and the time interval is %d.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy, t);
 #endif
     [self setMyLocation:newLocation];
+}
+
+/***************************************************************\**
+ \brief This method starts an asynchronous test of the network,
+        ensuring that 
+ *****************************************************************/
+- (void)verifyConnectivity
+{
+#ifdef DEBUG
+    NSLog(@"Verifying the network status.");
+#endif
+    internetActive = NO;
+    hostActive = NO;
+    // check for internet connection
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+    
+    [internetReachable stopNotifier];
+    internetReachable = [Reachability reachabilityForInternetConnection];
+    [internetReachable startNotifier];
+    
+    [hostReachable stopNotifier];
+    // check if a pathway to our root server exists
+    NSURL       *test_uri = [NSURL URLWithString:NSLocalizedString(@"INITIAL-SERVER-URI",nil)];
+    NSString    *root_uri = [test_uri host];
+    hostReachable = [Reachability reachabilityWithHostName:root_uri];
+    [hostReachable startNotifier];
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)checkNetworkStatus:(NSNotification *)notice
+{
+    // called after network status changes
+    switch ([internetReachable currentReachabilityStatus])
+        {
+        case NotReachable:
+            {
+#ifdef DEBUG
+            NSLog(@"The internet is down.");
+#endif
+            internetActive = NO;
+        
+            break;
+            }
+        
+        case ReachableViaWiFi:
+            {
+#ifdef DEBUG
+            NSLog(@"The internet is working via WIFI.");
+#endif
+            internetActive = YES;
+        
+            break;
+            }
+        
+        case ReachableViaWWAN:
+            {
+#ifdef DEBUG
+            NSLog(@"The internet is working via WWAN.");
+#endif
+            internetActive = YES;
+            
+            break;
+            }
+        }
+    
+    switch ([hostReachable currentReachabilityStatus])
+        {
+        case NotReachable:
+            {
+#ifdef DEBUG
+            NSLog(@"A gateway to the host server is down.");
+#endif
+            hostActive = NO;
+            
+            break;
+            }
+        
+        case ReachableViaWiFi:
+            {
+#ifdef DEBUG
+            NSLog(@"A gateway to the host server is working via WIFI.");
+#endif
+            hostActive = YES;
+            
+            break;
+            }
+        
+        case ReachableViaWWAN:
+            {
+#ifdef DEBUG
+            NSLog(@"A gateway to the host server is working via WWAN.");
+#endif
+            hostActive = YES;
+            
+            break;
+            }
+        }
+    
+    NSArray *validServers = [BMLT_Driver getValidServers];
+    
+    if ( (!validServers || (0 == [validServers count])) && hostActive && internetActive )
+        {
+#ifdef DEBUG
+        NSLog(@"The network connection is fine, and we don't have valid servers, so we'll set up the server.");
+#endif
+        [BMLT_Driver setUpServers];
+        }
+    else if ((!hostActive || !internetActive) && validServers && [validServers count])
+        {
+#ifdef DEBUG
+        NSLog(@"The network connection is not usable, so we'll make sure we delete our servers.");
+#endif
+        NSInteger num_servers = [validServers count];
+        
+        for ( NSInteger c = num_servers; 0 < c; c-- )
+            {
+            BMLT_Server *sv = (BMLT_Server*)[validServers objectAtIndex:c - 1];
+            
+            if ( sv )
+                {
+                [[BMLT_Driver getBMLT_Driver] removeServerObject:sv];
+                }
+            }
+        }
+    
+    if (!hostActive || !internetActive)
+        {
+        }
+    else
+        {
+        }
 }
 
 @end

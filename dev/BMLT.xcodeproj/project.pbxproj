@@ -10,8 +10,6 @@
 		7711417215125CD100BCCE00 /* BMLTSimpleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */; };
 		771D0C34150E88E5005A707A /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C32150E88E5005A707A /* BMLTAppDelegate.m */; };
 		771D0C35150E88E5005A707A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C33150E88E5005A707A /* main.m */; };
-		771D0C3A150E890E005A707A /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771D0C36150E890E005A707A /* iPad.storyboard */; };
-		771D0C3B150E890E005A707A /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771D0C38150E890E005A707A /* iPhone.storyboard */; };
 		771D0C47150E892A005A707A /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
 		771D0C49150E892A005A707A /* BMLTMapSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C42150E892A005A707A /* BMLTMapSearchViewController.m */; };
 		771D0C4B150E892A005A707A /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 771D0C45150E892A005A707A /* search.png */; };
@@ -50,6 +48,8 @@
 		77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A10D47151022C200279AAC /* BMLTSegwayController.m */; };
 		77A7FD7515122DF200FD6300 /* BlueBackgroundPat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77A7FD7415122DF200FD6300 /* BlueBackgroundPat.gif */; };
 		77A7FD7915122F9900FD6300 /* BMLTBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A7FD7815122F9900FD6300 /* BMLTBlueView.m */; };
+		77B59D1B1514BB9300C07D18 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B59D1C1514BB9300C07D18 /* iPhone.storyboard */; };
+		77B59D1D1514BB9A00C07D18 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B59D1E1514BB9A00C07D18 /* iPad.storyboard */; };
 		77BC71541512BB43000BEFC0 /* BottomLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BC71151512BB43000BEFC0 /* BottomLayer.png */; };
 		77BC71551512BB43000BEFC0 /* Globe_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BC71171512BB43000BEFC0 /* Globe_00.png */; };
 		77BC71561512BB43000BEFC0 /* Globe_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BC71181512BB43000BEFC0 /* Globe_01.png */; };
@@ -122,8 +122,6 @@
 		771D0C31150E88E5005A707A /* BMLTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAppDelegate.h; sourceTree = "<group>"; };
 		771D0C32150E88E5005A707A /* BMLTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAppDelegate.m; sourceTree = "<group>"; };
 		771D0C33150E88E5005A707A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		771D0C37150E890E005A707A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
-		771D0C39150E890E005A707A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		771D0C3D150E892A005A707A /* BMLTAdvancedSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAdvancedSearchViewController.h; sourceTree = "<group>"; };
 		771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAdvancedSearchViewController.m; sourceTree = "<group>"; };
 		771D0C41150E892A005A707A /* BMLTMapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMapSearchViewController.h; sourceTree = "<group>"; };
@@ -188,6 +186,12 @@
 		77A7FD7415122DF200FD6300 /* BlueBackgroundPat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BlueBackgroundPat.gif; sourceTree = "<group>"; };
 		77A7FD7715122F9900FD6300 /* BMLTBlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTBlueView.h; sourceTree = "<group>"; };
 		77A7FD7815122F9900FD6300 /* BMLTBlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTBlueView.m; sourceTree = "<group>"; };
+		77B59D111514BA1B00C07D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		77B59D141514BA6A00C07D18 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		77B59D181514BACE00C07D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		77B59D1A1514BAD600C07D18 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
+		77B59D1C1514BB9300C07D18 /* iPhone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = iPhone.storyboard; path = ../iPhone.storyboard; sourceTree = "<group>"; };
+		77B59D1E1514BB9A00C07D18 /* iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = ../iPad.storyboard; sourceTree = "<group>"; };
 		77BC71151512BB43000BEFC0 /* BottomLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BottomLayer.png; sourceTree = "<group>"; };
 		77BC71171512BB43000BEFC0 /* Globe_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_00.png; sourceTree = "<group>"; };
 		77BC71181512BB43000BEFC0 /* Globe_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_01.png; sourceTree = "<group>"; };
@@ -252,7 +256,7 @@
 		77BC71531512BB43000BEFC0 /* TopLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopLayer.png; sourceTree = "<group>"; };
 		77BC71931512BB6A000BEFC0 /* Animated_BMLT_Logo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animated_BMLT_Logo.h; sourceTree = "<group>"; };
 		77BC71941512BB6A000BEFC0 /* Animated_BMLT_Logo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animated_BMLT_Logo.m; sourceTree = "<group>"; };
-		77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = A_BMLTSearchResultsViewController.h; sourceTree = "<group>"; };
+		77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTSearchResultsViewController.h; sourceTree = "<group>"; };
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,8 +280,8 @@
 		771D0C30150E88E5005A707A /* Main Application */ = {
 			isa = PBXGroup;
 			children = (
-				771D0C38150E890E005A707A /* iPhone.storyboard */,
-				771D0C36150E890E005A707A /* iPad.storyboard */,
+				77B59D1C1514BB9300C07D18 /* iPhone.storyboard */,
+				77B59D1E1514BB9A00C07D18 /* iPad.storyboard */,
 				771D0C31150E88E5005A707A /* BMLTAppDelegate.h */,
 				771D0C32150E88E5005A707A /* BMLTAppDelegate.m */,
 				771D0C33150E88E5005A707A /* main.m */,
@@ -431,6 +435,7 @@
 				77977D16150E882B00485C8D /* Supporting Files */,
 				771D0C52150E893C005A707A /* Miscellaneous */,
 				771D0C5A150E893C005A707A /* Model */,
+				77B59D151514BAAA00C07D18 /* Variants */,
 			);
 			path = BMLT;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 		77977D16150E882B00485C8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				77B59D121514BA1B00C07D18 /* MyLocalizable.strings */,
 				77977D17150E882B00485C8D /* BMLT-Info.plist */,
 				77977D18150E882B00485C8D /* InfoPlist.strings */,
 			);
@@ -451,6 +457,22 @@
 				77A7FD7415122DF200FD6300 /* BlueBackgroundPat.gif */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		77B59D151514BAAA00C07D18 /* Variants */ = {
+			isa = PBXGroup;
+			children = (
+				77B59D161514BAB400C07D18 /* NY */,
+			);
+			name = Variants;
+			sourceTree = "<group>";
+		};
+		77B59D161514BAB400C07D18 /* NY */ = {
+			isa = PBXGroup;
+			children = (
+				77B59D191514BACE00C07D18 /* MyLocalizable.strings */,
+			);
+			name = NY;
 			sourceTree = "<group>";
 		};
 		77BC71141512BB43000BEFC0 /* BMLT_Animated_Logo */ = {
@@ -566,6 +588,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"sv-SE",
+				sv,
 			);
 			mainGroup = 77977D00150E882B00485C8D;
 			productRefGroup = 77977D0C150E882B00485C8D /* Products */;
@@ -583,8 +607,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				77977D1A150E882B00485C8D /* InfoPlist.strings in Resources */,
-				771D0C3A150E890E005A707A /* iPad.storyboard in Resources */,
-				771D0C3B150E890E005A707A /* iPhone.storyboard in Resources */,
+				77B59D1D1514BB9A00C07D18 /* iPad.storyboard in Resources */,
+				77B59D1B1514BB9300C07D18 /* iPhone.storyboard in Resources */,
 				771D0C4B150E892A005A707A /* search.png in Resources */,
 				771D0C4C150E892A005A707A /* search@2x.png in Resources */,
 				771D0C7B150E893C005A707A /* map.png in Resources */,
@@ -699,30 +723,31 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		771D0C36150E890E005A707A /* iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				771D0C37150E890E005A707A /* en */,
-			);
-			name = iPad.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		771D0C38150E890E005A707A /* iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				771D0C39150E890E005A707A /* en */,
-			);
-			name = iPhone.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		77977D18150E882B00485C8D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				77977D19150E882B00485C8D /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		77B59D121514BA1B00C07D18 /* MyLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				77B59D111514BA1B00C07D18 /* en */,
+				77B59D141514BA6A00C07D18 /* sv */,
+			);
+			name = MyLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		77B59D191514BACE00C07D18 /* MyLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				77B59D181514BACE00C07D18 /* en */,
+				77B59D1A1514BAD600C07D18 /* sv */,
+			);
+			name = MyLocalizable.strings;
+			path = "Variants/BMLT-NY";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

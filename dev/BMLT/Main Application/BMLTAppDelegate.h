@@ -20,6 +20,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "Reachability.h"
+#import "BMLT_Driver.h"
 
 /***************************************************************\**
  \class BMLTAppDelegate
@@ -27,6 +29,10 @@
  *****************************************************************/
 @interface BMLTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate>
 {
+    BOOL            internetActive;     ///< Set to YES, if the network test says that the Internet is available.
+    BOOL            hostActive;         ///< Set to YES, if the 
+    Reachability    *internetReachable; ///< This handles tests of the network
+    Reachability    *hostReachable;     ///< This handles testing for the root server.
 }
 
 @property (strong, nonatomic) UIWindow          *window;            ///< This is the main window object (SINGLETON)
@@ -38,4 +44,6 @@
 - (BOOL)isLookupValid;                      ///< Returns YES, if the last location lookup is kosher.
 - (void)findLocationAndMeetings:(BOOL)findMeetings;  ///< Starts an asynchronous GPS location lookup.
 - (void)searchForMeetingsNearMeAllWeek;     ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
+- (void)verifyConnectivity;                 ///< Start a network test.
+- (void)checkNetworkStatus:(NSNotification *)notice;    ///< Gets the results of the network test.
 @end
