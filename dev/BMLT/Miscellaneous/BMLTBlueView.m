@@ -52,7 +52,7 @@
 }
 
 /***************************************************************\**
- \brief This routine covers the beanie with an animation.
+ \brief This routine covers the center of the view with an animation.
  *****************************************************************/
 - (void)startAnimation
 {
