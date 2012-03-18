@@ -124,7 +124,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
     [tabController setSelectedIndex:0];
-    tabController.delegate = self;
+    [tabController setDelegate:self];
+    [_window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueBackgroundPat.gif"]]];
     return YES;
 }
 
@@ -253,6 +254,75 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f, and the time interval is %d.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy, t);
 #endif
     [self setMyLocation:newLocation];
+}
+
+#pragma mark - UITabBarControllerDelegate code
+/***************************************************************\**
+ \brief This animates the view transitions, and also sets up anything
+ that needs doing between views. It stops the tab bar controller
+ from managing the transition, and does it manually.
+ \returns a BOOL. Always NO.
+ *****************************************************************/
+- (BOOL)tabBarController:(UITabBarController *)inTabBarController
+shouldSelectViewController:(UIViewController *)inViewController
+{
+    int newIndex = [[inTabBarController viewControllers] indexOfObject:inViewController];
+    int oldIndex = [inTabBarController selectedIndex];
+    
+    int dir = (newIndex == ([[inTabBarController viewControllers] count] - 1)) ? 2 : ((oldIndex == ([[inTabBarController viewControllers] count] - 1)) ? -2 : ((newIndex < oldIndex) ? -1 : ((newIndex == oldIndex) ? 0 : 1)));
+    
+    [self transitionBetweenThisView:[[inTabBarController selectedViewController] view] andThisView:[inViewController view] direction:dir];
+    
+    int index = [[inTabBarController viewControllers] indexOfObject:inViewController];
+    [inTabBarController setSelectedIndex:index];
+    return NO;
+}
+
+/***************************************************************\**
+ \brief Manages the transition from one view to another. Just like
+ it says on the tin.
+ *****************************************************************/
+- (void)transitionBetweenThisView:(UIView *)srcView
+                      andThisView:(UIView *)dstView
+                        direction:(int)dir
+{
+    if ( srcView != dstView )
+        {
+        switch ( dir )
+            {
+                case -2:
+                [UIView transitionFromView:srcView
+                                    toView:dstView
+                                  duration:0.25
+                                   options:UIViewAnimationOptionTransitionCurlDown
+                                completion:nil];
+                break;
+                
+                case 2:
+                [UIView transitionFromView:srcView
+                                    toView:dstView
+                                  duration:0.25
+                                   options:UIViewAnimationOptionTransitionCurlUp
+                                completion:nil];
+                break;
+                
+                case -1:
+                [UIView transitionFromView:srcView
+                                    toView:dstView
+                                  duration:0.25
+                                   options:UIViewAnimationOptionTransitionFlipFromLeft
+                                completion:nil];
+                break;
+                
+                case 1:
+                [UIView transitionFromView:srcView
+                                    toView:dstView
+                                  duration:0.25
+                                   options:UIViewAnimationOptionTransitionFlipFromRight
+                                completion:nil];
+                break;
+            }
+        }
 }
 
 #pragma mark - Network Monitor Methods -

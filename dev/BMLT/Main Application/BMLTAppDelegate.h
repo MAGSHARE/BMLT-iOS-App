@@ -53,4 +53,5 @@
 - (void)startNetworkMonitor;                            ///< Start a network test.
 - (void)networkStatusCallback:(NSNotification *)notice; ///< Gets the results of the network test.
 - (void)callInSick;                                     ///< Displays an alert, telling the user that there is no network connection.
+- (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;
 @end

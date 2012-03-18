@@ -11,7 +11,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <viewController title="List Search" id="2" customClass="BMLTListResultsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="16" customClass="BMLTBlueView">
+                    <view key="view" contentMode="scaleToFill" id="16" userLabel="results-list" customClass="BMLTBlueView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -27,8 +27,8 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggj-Ty-D21" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="simple-search" id="1ej-mT-cW2" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Jso-hj-sh5" customClass="BMLTBlueView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                    <view key="view" contentMode="scaleToFill" id="Jso-hj-sh5" userLabel="search-simple" customClass="BMLTBlueView">
+                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4sw-z7-Qal">
@@ -75,8 +75,8 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8r-pz-Qye" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="map-search" id="fYl-cf-cFm" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rQg-Zb-7H4" customClass="BMLTBlueView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                    <view key="view" contentMode="scaleToFill" id="rQg-Zb-7H4" userLabel="search-map" customClass="BMLTBlueView">
+                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -123,7 +123,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
                 <viewController title="Map Search" id="3" customClass="BMLTMapResultsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="17" customClass="BMLTBlueView">
+                    <view key="view" contentMode="scaleToFill" id="17" userLabel="results-map" customClass="BMLTBlueView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -156,10 +156,10 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X92-tD-epd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="fFZ-gF-vrb" customClass="BMLTAboutViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IHx-Y9-nFx" customClass="BMLTLightGreyView">
+                    <view key="view" contentMode="scaleToFill" id="IHx-Y9-nFx" userLabel="settings-about" customClass="BMLTLightGreyView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="Hjk-U2-sOA"/>
                 </viewController>
@@ -171,10 +171,10 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7V-2I-eIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Nxo-gu-wB5" customClass="BMLTSettingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HCP-8L-4u0" customClass="BMLTLightGreyView">
+                    <view key="view" contentMode="scaleToFill" id="HCP-8L-4u0" userLabel="settings-prefs" customClass="BMLTLightGreyView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="dUA-ga-v9u">
                         <barButtonItem key="rightBarButtonItem" title="About" id="VE4-yb-tz2">
@@ -192,8 +192,8 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VqF-3b-vjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="advanced-search" id="eMe-9F-zBx" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF" customClass="BMLTBlueView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                    <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF" userLabel="search-advanced" customClass="BMLTBlueView">
+                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -286,9 +286,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="PqN-or-VVj"/>
-        <segue reference="onn-Vj-m9R"/>
-        <segue reference="6dy-0C-PXT"/>
-    </inferredMetricsTieBreakers>
 </document>
