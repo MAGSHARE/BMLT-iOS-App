@@ -422,6 +422,12 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         
         [self callInSick];
         }
+    else
+        {
+#ifdef DEBUG
+        NSLog(@"The network connection is fine, and we already have valid servers. This should not happen.");
+#endif
+        }
 }
 
 /***************************************************************\**
