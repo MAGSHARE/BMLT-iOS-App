@@ -733,7 +733,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 /***************************************************************\**
  \brief Accessor -set the preference to keep updating the location.
  *****************************************************************/
-- (void)setinKeepUpdatingLocation:(BOOL)inKeepUpdatingLocation  ///< YES, to keep updating.
+- (void)setKeepUpdatingLocation:(BOOL)inKeepUpdatingLocation  ///< YES, to keep updating.
 {
     keepUpdatingLocation = inKeepUpdatingLocation;
 }
