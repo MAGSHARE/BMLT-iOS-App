@@ -40,7 +40,7 @@
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A10D47151022C200279AAC /* BMLTSegwayController.m */; };
-		77A7FD7915122F9900FD6300 /* BMLTBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A7FD7815122F9900FD6300 /* BMLTBlueView.m */; };
+		77A7FD7915122F9900FD6300 /* BMLTAnimatedGlobeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A7FD7815122F9900FD6300 /* BMLTAnimatedGlobeView.m */; };
 		77BC71951512BB6A000BEFC0 /* Animated_BMLT_Logo.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71941512BB6A000BEFC0 /* Animated_BMLT_Logo.m */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77CE3F091516252300C93BC6 /* BMLTLightGreyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* BMLTLightGreyView.m */; };
@@ -183,8 +183,8 @@
 		77977D19150E882B00485C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		77A10D46151022C200279AAC /* BMLTSegwayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSegwayController.h; sourceTree = "<group>"; };
 		77A10D47151022C200279AAC /* BMLTSegwayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSegwayController.m; sourceTree = "<group>"; };
-		77A7FD7715122F9900FD6300 /* BMLTBlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTBlueView.h; sourceTree = "<group>"; };
-		77A7FD7815122F9900FD6300 /* BMLTBlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTBlueView.m; sourceTree = "<group>"; };
+		77A7FD7715122F9900FD6300 /* BMLTAnimatedGlobeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAnimatedGlobeView.h; sourceTree = "<group>"; };
+		77A7FD7815122F9900FD6300 /* BMLTAnimatedGlobeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAnimatedGlobeView.m; sourceTree = "<group>"; };
 		77B59D111514BA1B00C07D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		77B59D141514BA6A00C07D18 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		77BC71931512BB6A000BEFC0 /* Animated_BMLT_Logo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animated_BMLT_Logo.h; sourceTree = "<group>"; };
@@ -332,8 +332,8 @@
 				771D0C57150E893C005A707A /* BrassCheckBox.m */,
 				771D0C58150E893C005A707A /* Reachability.h */,
 				771D0C59150E893C005A707A /* Reachability.m */,
-				77A7FD7715122F9900FD6300 /* BMLTBlueView.h */,
-				77A7FD7815122F9900FD6300 /* BMLTBlueView.m */,
+				77A7FD7715122F9900FD6300 /* BMLTAnimatedGlobeView.h */,
+				77A7FD7815122F9900FD6300 /* BMLTAnimatedGlobeView.m */,
 				77CE3F071516252300C93BC6 /* BMLTLightGreyView.h */,
 				77CE3F081516252300C93BC6 /* BMLTLightGreyView.m */,
 				77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */,
@@ -728,7 +728,7 @@
 				771D0C8C150E893C005A707A /* BMLTSettingsViewController.m in Sources */,
 				771D0CD4150E8B73005A707A /* BMLTListResultsViewController.m in Sources */,
 				77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */,
-				77A7FD7915122F9900FD6300 /* BMLTBlueView.m in Sources */,
+				77A7FD7915122F9900FD6300 /* BMLTAnimatedGlobeView.m in Sources */,
 				7711417215125CD100BCCE00 /* BMLTSimpleSearchViewController.m in Sources */,
 				77BC71951512BB6A000BEFC0 /* Animated_BMLT_Logo.m in Sources */,
 				77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */,

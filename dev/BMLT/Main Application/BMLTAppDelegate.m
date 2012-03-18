@@ -30,8 +30,9 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
  *****************************************************************/
 @interface BMLTAppDelegate ()
 {
-    BOOL    _findMeetings;  ///< If this is YES, then a meeting search will be done.
-    BOOL    _amISick;       ///< If true, it indicates that the alert for connectivity problems should not be shown.
+    BOOL                _findMeetings;  ///< If this is YES, then a meeting search will be done.
+    BOOL                _amISick;       ///< If true, it indicates that the alert for connectivity problems should not be shown.
+    BMLT_Meeting_Search *mySearch;      ///< The current meeting search in progress.
 }
 @end
 
@@ -111,6 +112,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
  *****************************************************************/
 - (void)dealloc
 {
+    [mySearch clearSearch];
     [self stopNetworkMonitor];
     [locationManager stopUpdatingLocation];
 }
@@ -125,6 +127,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
     [tabController setSelectedIndex:0];
     [tabController setDelegate:self];
+    // We're going to have a blue "leather" background for most screens.
     [_window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueBackgroundPat.gif"]]];
     return YES;
 }
@@ -136,6 +139,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 *****************************************************************/
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    [mySearch clearSearch]; // No searches in the background.
+    mySearch = nil;
     [self stopNetworkMonitor];
     [locationManager stopUpdatingLocation];
     _amISick = NO;  // Make sure the user is informed of network outages when they come back.
@@ -269,59 +274,61 @@ shouldSelectViewController:(UIViewController *)inViewController
     int newIndex = [[inTabBarController viewControllers] indexOfObject:inViewController];
     int oldIndex = [inTabBarController selectedIndex];
     
+    // This is how we tell the transition routine what effect to use when switching between views.
+    // An ascending index means that we are going left to right, and vice-versa.
+    // However, we use a different transition when going into the and away from the settings (the last item), so we indicate that.
     int dir = (newIndex == ([[inTabBarController viewControllers] count] - 1)) ? 2 : ((oldIndex == ([[inTabBarController viewControllers] count] - 1)) ? -2 : ((newIndex < oldIndex) ? -1 : ((newIndex == oldIndex) ? 0 : 1)));
     
-    [self transitionBetweenThisView:[[inTabBarController selectedViewController] view] andThisView:[inViewController view] direction:dir];
+    if ( dir )  // Don't bother if there's no change.
+        {
+        [self transitionBetweenThisView:[[inTabBarController selectedViewController] view] andThisView:[inViewController view] direction:dir];
+        [inTabBarController setSelectedIndex:newIndex];
+        }
     
-    int index = [[inTabBarController viewControllers] indexOfObject:inViewController];
-    [inTabBarController setSelectedIndex:index];
-    return NO;
+    return NO;  // Let the controller know that we handled it.
 }
 
 /***************************************************************\**
  \brief Manages the transition from one view to another. Just like
  it says on the tin.
  *****************************************************************/
-- (void)transitionBetweenThisView:(UIView *)srcView
-                      andThisView:(UIView *)dstView
-                        direction:(int)dir
+- (void)transitionBetweenThisView:(UIView *)srcView ///< The view object we're transitioning away from
+                      andThisView:(UIView *)dstView ///< The view object we're going to
+                        direction:(int)dir          /**< The direction. One of these:
+                                                            - -2 Going out of the settings pages.
+                                                            - -1 Going from right to left
+                                                            - 1 Going from left to right
+                                                            - 2 Going into the settings pages
+                                                    */
 {
-    if ( srcView != dstView )
+    if ( dir && (srcView != dstView) )
         {
+        UIViewAnimationOptions  option = 0;
+        
         switch ( dir )
             {
-                case -2:
-                [UIView transitionFromView:srcView
-                                    toView:dstView
-                                  duration:0.25
-                                   options:UIViewAnimationOptionTransitionCurlDown
-                                completion:nil];
+                case -2:    // Going from the settings to another tab.
+                option = UIViewAnimationOptionTransitionCurlDown;
                 break;
                 
-                case 2:
-                [UIView transitionFromView:srcView
-                                    toView:dstView
-                                  duration:0.25
-                                   options:UIViewAnimationOptionTransitionCurlUp
-                                completion:nil];
+                case -1:    // Going from a right tab to a left tab.
+                option = UIViewAnimationOptionTransitionFlipFromLeft;
                 break;
                 
-                case -1:
-                [UIView transitionFromView:srcView
-                                    toView:dstView
-                                  duration:0.25
-                                   options:UIViewAnimationOptionTransitionFlipFromLeft
-                                completion:nil];
+                case 1:     // Going from a left tab to a right tab.
+                option = UIViewAnimationOptionTransitionFlipFromRight;
                 break;
                 
-                case 1:
-                [UIView transitionFromView:srcView
-                                    toView:dstView
-                                  duration:0.25
-                                   options:UIViewAnimationOptionTransitionFlipFromRight
-                                completion:nil];
+                case 2:     // Going into the settings pages.
+                option = UIViewAnimationOptionTransitionCurlUp;
                 break;
             }
+        
+        [UIView transitionFromView:srcView
+                            toView:dstView
+                          duration:0.25
+                           options:option
+                        completion:nil];
         }
 }
 
@@ -517,6 +524,21 @@ shouldSelectViewController:(UIViewController *)inViewController
         [myAlert show];
         }
     
+}
+
+/***************************************************************\**
+ \brief 
+ \returns   
+ *****************************************************************/
+- (BMLT_Meeting_Search *)getMeetingSearch:(BOOL)createIfNotAlreadyThere
+                               withParams:(NSDictionary *)inSearchParams
+{
+    if ( !mySearch && createIfNotAlreadyThere )
+        {
+        mySearch = [[BMLT_Meeting_Search alloc] initWithCriteria:inSearchParams andName:nil andDescription:nil];
+        }
+    
+    return mySearch;
 }
 
 @end

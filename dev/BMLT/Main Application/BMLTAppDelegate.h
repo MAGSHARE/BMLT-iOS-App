@@ -22,6 +22,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Reachability.h"
 #import "BMLT_Driver.h"
+#import "BMLT_Meeting_Search.h"
 
 @class BMLT_Prefs;  ///< Foward decl for the prefs property.
 
@@ -54,4 +55,5 @@
 - (void)networkStatusCallback:(NSNotification *)notice; ///< Gets the results of the network test.
 - (void)callInSick;                                     ///< Displays an alert, telling the user that there is no network connection.
 - (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;
+- (BMLT_Meeting_Search *)getMeetingSearch:(BOOL)createIfNotAlreadyThere withParams:(NSDictionary *)inSearchParams;
 @end
