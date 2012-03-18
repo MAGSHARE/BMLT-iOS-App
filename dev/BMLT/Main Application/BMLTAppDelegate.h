@@ -38,8 +38,8 @@
 @property (strong, nonatomic) UIWindow          *window;            ///< This is the main window object (SINGLETON)
 @property (strong, nonatomic) CLLocation        *myLocation;        ///< This will contain our location.
 @property (strong, nonatomic) CLLocationManager *locationManager;   ///< This will hold our location manager.
-@property BOOL                                  internetActive;     ///< Set to YES, if the network test says that the Internet is available.
-@property BOOL                                  hostActive;         ///< Set to YES, if the network test says that the root server is available.
+@property (atomic) BOOL                         internetActive;     ///< Set to YES, if the network test says that the Internet is available.
+@property (atomic) BOOL                         hostActive;         ///< Set to YES, if the network test says that the root server is available.
 @property (weak, atomic) BMLT_Prefs             *myPrefs;           ///< This will have a reference to the global prefs object.
 
 + (BMLTAppDelegate *)getBMLTAppDelegate;                ///< This class method allows access to the application delegate object (SINGLETON)
@@ -52,4 +52,5 @@
 - (void)stopNetworkMonitor;                             ///< Stop observing the network connectivity status.
 - (void)startNetworkMonitor;                            ///< Start a network test.
 - (void)networkStatusCallback:(NSNotification *)notice; ///< Gets the results of the network test.
+- (void)callInSick;                                     ///< Displays an alert, telling the user that there is no network connection.
 @end

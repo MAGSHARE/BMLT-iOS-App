@@ -30,7 +30,8 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
  *****************************************************************/
 @interface BMLTAppDelegate ()
 {
-    BOOL    _findMeetings;   ///< If this is YES, then a meeting search will be done.
+    BOOL    _findMeetings;  ///< If this is YES, then a meeting search will be done.
+    BOOL    _amISick;       ///< If true, it indicates that the alert for connectivity problems should not be shown.
 }
 @end
 
@@ -262,7 +263,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)startNetworkMonitor
 {
-    [self stopNetworkMonitor];
+    [self stopNetworkMonitor];  // We stop first, in order to establish a "clean slate."
     
 #ifdef DEBUG
     NSLog(@"Starting the network status check.");
@@ -316,6 +317,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     // called after network status changes
     switch ([internetReachable currentReachabilityStatus])
         {
+        default:
+#ifdef DEBUG
+            NSLog(@"The internet connection is in an unknown state.");
+#endif
         case NotReachable:
             {
 #ifdef DEBUG
@@ -395,23 +400,46 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
         [BMLT_Driver setUpServers];
         }
-    else if ((!hostActive || !internetActive) && validServers && [validServers count])
+    else if (!hostActive || !internetActive)
         {
 #ifdef DEBUG
         NSLog(@"The network connection is not usable, so we'll make sure we delete our servers.");
 #endif
-        NSInteger num_servers = [validServers count];
-        
-        for ( NSInteger c = num_servers; 0 < c; c-- )
+        if ( validServers && [validServers count] )
             {
-            BMLT_Server *server = (BMLT_Server*)[validServers objectAtIndex:c - 1];
+            NSInteger num_servers = [validServers count];
             
-            if ( server )
+            for ( NSInteger c = num_servers; 0 < c; c-- )
                 {
-                [[BMLT_Driver getBMLT_Driver] removeServerObject:server];
+                BMLT_Server *server = (BMLT_Server*)[validServers objectAtIndex:c - 1];
+                
+                if ( server )
+                    {
+                    [[BMLT_Driver getBMLT_Driver] removeServerObject:server];
+                    }
                 }
             }
+        
+        [self callInSick];
         }
+}
+
+/***************************************************************\**
+ \brief Displays an alert, mentioning that there is no valid connection.
+ *****************************************************************/
+- (void)callInSick
+{
+#ifdef DEBUG
+    NSLog(@"Calling in sick.");
+#endif
+    if ( !_amISick )    // This makes sure we only call it once.
+        {
+        _amISick = YES;
+        UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"ERROR-CANT-LOAD-DRIVER",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+        
+        [myAlert show];
+        }
+    
 }
 
 @end
