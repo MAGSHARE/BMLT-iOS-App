@@ -137,6 +137,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self stopNetworkMonitor];
     [locationManager stopUpdatingLocation];
+    _amISick = NO;  // Make sure the user is informed of network outages when they come back.
 }
 
 /***************************************************************\**
@@ -420,7 +421,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 }
             }
         
-        [self callInSick];
+        [self callInSick];  // Put up an alert, if one has not already been shown.
         }
     else
         {

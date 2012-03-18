@@ -21,8 +21,9 @@
 #import "Animated_BMLT_Logo.h"
 
 /***************************************************************\**
- \class  BMLTBlueView    -Interface
- \brief  This class will simply apply a blue textured background to a view.
+ \class BMLTBlueView    -Interface
+ \brief This class will simply apply a blue textured background to a view.
+        It will also allow display of an animated spinning globe.
  *****************************************************************/
 @interface BMLTBlueView : UIView
 - (void)startAnimation;

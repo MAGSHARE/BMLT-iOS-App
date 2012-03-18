@@ -47,7 +47,7 @@
                     <view key="view" contentMode="scaleToFill" id="GAe-wM-uW3">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="HQQ-TY-8NO">
                         <barButtonItem key="rightBarButtonItem" title="About BMLT" id="Cx7-gc-axl">
@@ -69,7 +69,7 @@
                     <view key="view" contentMode="scaleToFill" id="bun-XG-smb">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="About BMLT" id="GLf-fg-bLF"/>
                 </viewController>

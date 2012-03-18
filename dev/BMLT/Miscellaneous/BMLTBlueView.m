@@ -20,6 +20,11 @@
 #import "BMLTBlueView.h"
 #import <QuartzCore/QuartzCore.h>
 
+/***************************************************************\**
+ \class BMLTBlueView    -Private Interface
+ \brief This class will simply apply a blue textured background to a view.
+ It will also allow display of an animated spinning globe.
+ *****************************************************************/
 @interface BMLTBlueView ()
 {
     Animated_BMLT_Logo  *animatedImage;
@@ -27,8 +32,9 @@
 @end
 
 /***************************************************************\**
- \class  BMLTBlueView    -Implementation
- \brief  This class will simply apply a blue textured background to a view.
+ \class BMLTBlueView    -Implementation
+ \brief This class will simply apply a blue textured background to a view.
+        It will also allow display of an animated spinning globe.
  *****************************************************************/
 @implementation BMLTBlueView
 
@@ -93,6 +99,7 @@
     CGRect          patRect = CGRectMake(0, 0, CGImageGetWidth(pImage), CGImageGetHeight(pImage));
     
     CGContextDrawTiledImage(ctx, patRect, pImage);
+
     [super drawRect:rect];
 }
 @end

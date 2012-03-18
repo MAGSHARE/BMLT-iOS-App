@@ -286,8 +286,8 @@
 		771D0C30150E88E5005A707A /* Main Application */ = {
 			isa = PBXGroup;
 			children = (
-				775E0B441514C3EE00C716D9 /* iPad.storyboard */,
 				775E0B451514C3EE00C716D9 /* iPhone.storyboard */,
+				775E0B441514C3EE00C716D9 /* iPad.storyboard */,
 				771D0C31150E88E5005A707A /* BMLTAppDelegate.h */,
 				771D0C32150E88E5005A707A /* BMLTAppDelegate.m */,
 				771D0C33150E88E5005A707A /* main.m */,
