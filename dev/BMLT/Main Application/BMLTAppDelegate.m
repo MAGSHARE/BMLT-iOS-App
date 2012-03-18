@@ -425,14 +425,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     else
         {
 #ifdef DEBUG
-        // The reason that this shouldn't happen, is because this callback is made upon a *change* in network status.
-        // Whenever the network status changes, we either create or delete our drivers. We should not have an instance
-        // where this is called with no change enough to cause us to create our servers when they are already active.
-        // There are instances where changes may be reported where we have already deleted the servers, but none should
-        // occur where we have already created them.
-        // Because of the way we've written this method, it's not harmful to end up here. We should just note that an
-        // unexpected state has manifested.
-        NSLog(@"The network connection is fine, and we already have valid servers. This should not happen.");
+        NSLog(@"The network connection is fine, and we already have valid servers.");
 #endif
         }
 }
