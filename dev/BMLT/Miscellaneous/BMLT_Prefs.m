@@ -419,6 +419,15 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
                 {
                 [self setPreserveAppStateOnSuspend:![self startWithSearch]];
                 }
+            
+            if ( [decoder containsValueForKey:@"preserveAppStateOnSuspend"] )
+                {
+                keepUpdatingLocation = [decoder decodeBoolForKey:@"keepUpdatingLocation"];
+                }
+            else
+                {
+                [self setKeepUpdatingLocation:NO];
+                }
             }
         else
             {
@@ -431,6 +440,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
             [self setSearchTypePref:([self preferAdvancedSearch] ? _PREFER_ADVANCED_SEARCH : ([self startWithMap] ? _PREFER_MAP_SEARCH : _PREFER_SIMPLE_SEARCH))];
             [self setPreferSearchResultsAsMap:[self startWithMap]];
             [self setPreserveAppStateOnSuspend:![self startWithSearch]];
+            [self setKeepUpdatingLocation:NO];
             }
         }
     
@@ -540,6 +550,16 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /***************************************************************\**
+ \brief     Accessor -return the preference to have the app continuously
+            update the location (while in the foreground).
+ \returns   a BOOL. YES, if the user wants to keep the app updated.
+ *****************************************************************/
+- (BOOL)keepUpdatingLocation
+{
+    return keepUpdatingLocation;
+}
+
+/***************************************************************\**
  \brief Creates a new server, with the given root URI and name.
  \returns an integer. The index of the new server object.
  *****************************************************************/
@@ -625,6 +645,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
     [encoder encodeInt:searchTypePref forKey:@"searchTypePref"];
     [encoder encodeBool:preferSearchResultsAsMap forKey:@"preferSearchResultsAsMap"];
     [encoder encodeBool:preserveAppStateOnSuspend forKey:@"preserveAppStateOnSuspend"];
+    [encoder encodeBool:keepUpdatingLocation forKey:@"keepUpdatingLocation"];
 }
 
 /***************************************************************\**
@@ -707,6 +728,14 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
     preserveAppStateOnSuspend = inPreserveAppStateOnSuspend;
     
     [self setStartWithSearch:!preserveAppStateOnSuspend];
+}
+
+/***************************************************************\**
+ \brief Accessor -set the preference to keep updating the location.
+ *****************************************************************/
+- (void)setinKeepUpdatingLocation:(BOOL)inKeepUpdatingLocation  ///< YES, to keep updating.
+{
+    keepUpdatingLocation = inKeepUpdatingLocation;
 }
 
 @end

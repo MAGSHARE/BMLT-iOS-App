@@ -65,6 +65,7 @@
     int             searchTypePref;             ///< Version 2.0 new: Determine the type of search the user prefers (see defines, above).
     BOOL            preferSearchResultsAsMap;   ///< Version 2.0 new: YES, if the user prefers the search results displayed initially as map results.
     BOOL            preserveAppStateOnSuspend;  ///< Version 2.0 new: YES, if the user wants the app to remember where it was when being recalled.
+    BOOL            keepUpdatingLocation;       ///< Version 2.0 new: YES, if we want to keep our location updated.
 }
 
 + (BMLT_Prefs *)getBMLT_Prefs;
@@ -93,6 +94,7 @@
 - (int)searchTypePref;
 - (BOOL)preferSearchResultsAsMap;
 - (BOOL)preserveAppStateOnSuspend;
+- (BOOL)keepUpdatingLocation;
 - (void)setStartWithMap:(BOOL)inValue;
 - (void)setPreferDistanceSort:(BOOL)inValue;
 - (void)setLookupMyLocation:(BOOL)inValue;
@@ -102,5 +104,6 @@
 - (void)setSearchTypePref:(int)inSearchTypePref;
 - (void)setPreferSearchResultsAsMap:(BOOL)inPreferSearchResultsAsMap;
 - (void)setPreserveAppStateOnSuspend:(BOOL)inPreserveAppStateOnSuspend;
+- (void)setKeepUpdatingLocation:(BOOL)inKeepUpdatingLocation;
 
 @end

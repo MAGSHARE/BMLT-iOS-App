@@ -23,14 +23,14 @@
 #import "Reachability.h"
 #import "BMLT_Driver.h"
 
+@class BMLT_Prefs;  ///< Foward decl for the prefs property.
+
 /***************************************************************\**
  \class BMLTAppDelegate
  \brief This is the main application delegate class for the BMLT application
  *****************************************************************/
 @interface BMLTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate>
 {
-    BOOL            internetActive;     ///< Set to YES, if the network test says that the Internet is available.
-    BOOL            hostActive;         ///< Set to YES, if the 
     Reachability    *internetReachable; ///< This handles tests of the network
     Reachability    *hostReachable;     ///< This handles testing for the root server.
 }
@@ -38,12 +38,18 @@
 @property (strong, nonatomic) UIWindow          *window;            ///< This is the main window object (SINGLETON)
 @property (strong, nonatomic) CLLocation        *myLocation;        ///< This will contain our location.
 @property (strong, nonatomic) CLLocationManager *locationManager;   ///< This will hold our location manager.
+@property BOOL                                  internetActive;     ///< Set to YES, if the network test says that the Internet is available.
+@property BOOL                                  hostActive;         ///< Set to YES, if the network test says that the root server is available.
+@property (weak, atomic) BMLT_Prefs             *myPrefs;           ///< This will have a reference to the global prefs object.
 
-+ (BMLTAppDelegate *)getBMLTAppDelegate;    ///< This class method allows access to the application delegate object (SINGLETON)
-+ (BOOL)locationServicesAvailable;          ///< Used to check to see if location services are available.
-- (BOOL)isLookupValid;                      ///< Returns YES, if the last location lookup is kosher.
-- (void)findLocationAndMeetings:(BOOL)findMeetings;  ///< Starts an asynchronous GPS location lookup.
-- (void)searchForMeetingsNearMeAllWeek;     ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
-- (void)verifyConnectivity;                 ///< Start a network test.
-- (void)checkNetworkStatus:(NSNotification *)notice;    ///< Gets the results of the network test.
++ (BMLTAppDelegate *)getBMLTAppDelegate;                ///< This class method allows access to the application delegate object (SINGLETON)
++ (BOOL)locationServicesAvailable;                      ///< Used to check to see if location services are available.
++ (BOOL)canReachRootServer;                             ///< Returns YES, if the root server can be reached via network.
++ (BOOL)validLocation;                                  ///< Returns YES if the app has a valid location.
+- (BOOL)isLookupValid;                                  ///< Returns YES, if the last location lookup is kosher.
+- (BOOL)findLocationAndMeetings:(BOOL)findMeetings;     ///< Starts an asynchronous GPS location lookup.
+- (void)searchForMeetingsNearMeAllWeek;                 ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
+- (void)stopNetworkMonitor;                             ///< Stop observing the network connectivity status.
+- (void)startNetworkMonitor;                            ///< Start a network test.
+- (void)networkStatusCallback:(NSNotification *)notice; ///< Gets the results of the network test.
 @end

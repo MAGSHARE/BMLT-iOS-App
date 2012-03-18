@@ -20,9 +20,14 @@
 
 #import "BMLTAppDelegate.h"
 #import "Reachability.h"
+#import "BMLT_Prefs.h"
 
-static BMLTAppDelegate *g_AppDelegate = nil;
+static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
+/***************************************************************\**
+ \class  BMLTAppDelegate -Private Interface
+ \brief  This is the main application delegate class for the BMLT application
+ *****************************************************************/
 @interface BMLTAppDelegate ()
 {
     BOOL    _findMeetings;   ///< If this is YES, then a meeting search will be done.
@@ -39,6 +44,9 @@ static BMLTAppDelegate *g_AppDelegate = nil;
 @synthesize window      = _window;      ///< This will hold the window associated with this application instance.
 @synthesize myLocation  = _myLocation;  ///< This will hold the location set by the last location lookup.
 @synthesize locationManager;            ///< This holds the location manager instance.
+@synthesize internetActive;             ///< Set to YES, if the network test says that the Internet is available.
+@synthesize hostActive;                 ///< Set to YES, if the network test says that the root server is available.
+@synthesize myPrefs;                    ///< This will have a reference to the global prefs object.
 
 #pragma mark - Class Methods
 /***************************************************************\**
@@ -53,29 +61,61 @@ static BMLTAppDelegate *g_AppDelegate = nil;
  \brief Check to make sure that Location Services are available
  \returns YES, if Location Services are available
  *****************************************************************/
-+(BOOL)locationServicesAvailable
++ (BOOL)locationServicesAvailable
 {
-    return [CLLocationManager locationServicesEnabled] != NO && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
+    return [CLLocationManager locationServicesEnabled] != NO
+            && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
 }
 
-#pragma mark - Standard Instance Methods
+/***************************************************************\**
+ \brief Check to make sure that we can reach the root server.
+ \returns YES, if the server is available.
+ *****************************************************************/
++ (BOOL)canReachRootServer
+{
+    return [g_AppDelegate hostActive] && [g_AppDelegate internetActive];
+}
+
+/***************************************************************\**
+ \brief Check to make sure that we have a valid location.
+ \returns YES, if the location is valid.
+ *****************************************************************/
++ (BOOL)validLocation
+{
+    return [g_AppDelegate isLookupValid];
+}
+
+#pragma mark - Standard Instance Methods -
 /***************************************************************\**
  \brief  Initialize the object
  \returns    self
  *****************************************************************/
-- (id) init
+- (id)init
 {
     self = [super init];
     
     if ( self )
         {
         g_AppDelegate = self;
+        myPrefs = [BMLT_Prefs getBMLT_Prefs];
+        [self startNetworkMonitor];
         }
     
     return self;
 }
 
-/***************************************************************\**\brief  Called when the app has finished its launch setup.
+/***************************************************************\**
+ \brief Just make sure that we stop the netmon service and the
+        location lookup.
+ *****************************************************************/
+- (void)dealloc
+{
+    [self stopNetworkMonitor];
+    [locationManager stopUpdatingLocation];
+}
+
+/***************************************************************\**
+ \brief  Called when the app has finished its launch setup.
  \returns    a BOOL. The app is go for launch.
  *****************************************************************/
 - (BOOL)application:(UIApplication *)application
@@ -88,12 +128,31 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
+ \brief  Called when the app is about to go into the background.
+        We suspend the location and network availability updates
+        while the app is in the background.
+*****************************************************************/
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [self stopNetworkMonitor];
+    [locationManager stopUpdatingLocation];
+}
+
+/***************************************************************\**
  \brief  Called when the app is about to show up.
+        We renew the updates (check if we have keep location up to
+        date pref on before doing that one).
  *****************************************************************/
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [self startNetworkMonitor];
+    if ( [myPrefs keepUpdatingLocation] )
+        {
+        [locationManager startUpdatingLocation];
+        }
 }
 
+#pragma mark - Custom Instance Methods -
 /***************************************************************\**
  \brief Begins a lookup search, in which a location is found first,
         then all meetings near there are returned.
@@ -103,38 +162,36 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self findLocationAndMeetings:YES];
 }
 
-#pragma mark - Custom Instance Methods
 /***************************************************************\**
  \brief Starts an asynchronous Location Manager update process.
         If the findMeetings flag is YES, then a locale-based meeting
         search will take place after the location lookup.
+ \returns   a BOOL. YES, if the call resulted in a new location lookup.
  *****************************************************************/
-- (void)findLocationAndMeetings:(BOOL)findMeetings
+- (BOOL)findLocationAndMeetings:(BOOL)findMeetings
 {
+    BOOL    ret = NO;
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate findLocation Where the hell am I?");
+    NSLog(@"BMLTAppDelegate findLocationAndMeetings.%@", findMeetings ? @" Set to search for meetings after the location is found." : @" Just update the location." );
 #endif
     [self setMyLocation:nil];
-    _findMeetings = NO;
     
+    // If we are already looking for a location, then we just let it keep going, and we ignore the call. If not, we start a new lookup.
     if ( !locationManager )
         {
         locationManager = [[CLLocationManager alloc] init];
-        }
-    
-    if ( locationManager )
-        {
         [locationManager setDelegate:nil];
         [locationManager setDistanceFilter:kCLDistanceFilterNone];
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
         [locationManager setDelegate:self];
-        [locationManager startUpdatingLocation];
-        _findMeetings = findMeetings;
+        [locationManager setPurpose:NSLocalizedString(@"LOCATION-PURPOSE", nil)];
+        ret = YES;
         }
-    else
-        {
-        [locationManager stopUpdatingLocation];
-        }
+    
+    _findMeetings = findMeetings;
+    [locationManager startUpdatingLocation];
+    
+    return ret;
 }
 
 /***************************************************************\**
@@ -154,10 +211,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     return ret;
 }
 
-#pragma mark - Core Location Delegate Functions -
+#pragma mark - Core Location Delegate Methods -
 /***************************************************************\**
  \brief Called when the location manager updates. Makes sure that
- the update is fresh.
+        the update is fresh.
  *****************************************************************/
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
@@ -185,7 +242,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         return;
         }    
     
-    [locationManager stopUpdatingLocation];
+    if ( ![myPrefs keepUpdatingLocation] )
+        {
+        [locationManager stopUpdatingLocation];
+        }
     
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f, and the time interval is %d.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy, t);
@@ -193,25 +253,29 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self setMyLocation:newLocation];
 }
 
+#pragma mark - Network Monitor Methods -
 /***************************************************************\**
  \brief This method starts an asynchronous test of the network,
-        ensuring that 
+        ensuring that we can reach the root server. This is running
+        continuously, so we will get callbacks to keep us apprised
+        of our connectivity status.
  *****************************************************************/
-- (void)verifyConnectivity
+- (void)startNetworkMonitor
 {
 #ifdef DEBUG
-    NSLog(@"Verifying the network status.");
+    NSLog(@"Starting the network status check.");
 #endif
-    internetActive = NO;
-    hostActive = NO;
-    // check for internet connection
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+
+    [self stopNetworkMonitor];
     
-    [internetReachable stopNotifier];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+    
+    // check for internet connection
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusCallback:) name:kReachabilityChangedNotification object:nil];
+    
     internetReachable = [Reachability reachabilityForInternetConnection];
     [internetReachable startNotifier];
     
-    [hostReachable stopNotifier];
     // check if a pathway to our root server exists
     NSURL       *test_uri = [NSURL URLWithString:NSLocalizedString(@"INITIAL-SERVER-URI",nil)];
     NSString    *root_uri = [test_uri host];
@@ -220,10 +284,35 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
- \brief 
+ \brief This stops the network monitoring service.
  *****************************************************************/
-- (void)checkNetworkStatus:(NSNotification *)notice
+- (void)stopNetworkMonitor
 {
+#ifdef DEBUG
+    NSLog(@"Stopping the network status check.");
+#endif
+    internetActive = NO;
+    hostActive = NO;
+    
+    [internetReachable stopNotifier];
+    internetReachable = nil;
+    [hostReachable stopNotifier];
+    hostReachable = nil;
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+}
+
+/***************************************************************\**
+ \brief This is the connectivity test callback.
+        The BMLT servers will only be instantiated if the network is OK.
+        If the network becomes disconnected, the servers will be uninstantiated.
+ *****************************************************************/
+- (void)networkStatusCallback:(NSNotification *)notice
+{
+#ifdef DEBUG
+    NSLog(@"Network status check callback.");
+#endif
+
     // called after network status changes
     switch ([internetReachable currentReachabilityStatus])
         {
@@ -260,10 +349,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     switch ([hostReachable currentReachabilityStatus])
         {
+        default:
+#ifdef DEBUG
+            NSLog(@"The gateway to the root server is in an unknown state.");
+#endif
         case NotReachable:
             {
 #ifdef DEBUG
-            NSLog(@"A gateway to the host server is down.");
+            NSLog(@"The gateway to the root server is down.");
 #endif
             hostActive = NO;
             
@@ -273,7 +366,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         case ReachableViaWiFi:
             {
 #ifdef DEBUG
-            NSLog(@"A gateway to the host server is working via WIFI.");
+            NSLog(@"A gateway to the root server is working via WIFI.");
 #endif
             hostActive = YES;
             
@@ -283,13 +376,15 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         case ReachableViaWWAN:
             {
 #ifdef DEBUG
-            NSLog(@"A gateway to the host server is working via WWAN.");
+            NSLog(@"A gateway to the root server is working via WWAN.");
 #endif
             hostActive = YES;
             
             break;
             }
         }
+    
+    // The driver sets up the servers when we have a connection, and takes them down, when we don't.
     
     NSArray *validServers = [BMLT_Driver getValidServers];
     
@@ -309,20 +404,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         
         for ( NSInteger c = num_servers; 0 < c; c-- )
             {
-            BMLT_Server *sv = (BMLT_Server*)[validServers objectAtIndex:c - 1];
+            BMLT_Server *server = (BMLT_Server*)[validServers objectAtIndex:c - 1];
             
-            if ( sv )
+            if ( server )
                 {
-                [[BMLT_Driver getBMLT_Driver] removeServerObject:sv];
+                [[BMLT_Driver getBMLT_Driver] removeServerObject:server];
                 }
             }
-        }
-    
-    if (!hostActive || !internetActive)
-        {
-        }
-    else
-        {
         }
 }
 

@@ -159,5 +159,8 @@
 "SETTINGS-URI-BLURB" = "Complete GPL Source Is Available Here:";
 "SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
 
+/* This tells the user why the app needs their location. */
+"LOCATION-PURPOSE" = "The app needs to know your location, in order to tell you where the nearest meetings are.";
+
 /******************* APPENDED AT BUILD TIME *******************/
 
