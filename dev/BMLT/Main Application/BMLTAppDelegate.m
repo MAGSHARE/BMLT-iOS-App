@@ -262,11 +262,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)startNetworkMonitor
 {
+    [self stopNetworkMonitor];
+    
 #ifdef DEBUG
     NSLog(@"Starting the network status check.");
 #endif
-
-    [self stopNetworkMonitor];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
     
