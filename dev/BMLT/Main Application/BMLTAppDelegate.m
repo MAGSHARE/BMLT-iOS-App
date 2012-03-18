@@ -427,7 +427,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
         // The reason that this shouldn't happen, is because this callback is made upon a *change* in network status.
         // Whenever the network status changes, we either create or delete our drivers. We should not have an instance
-        // where this is called with no change enough to cuase us to either create or delete our servers.
+        // where this is called with no change enough to cuase us to create our servers.
         // There are instances where changes may be reported where we have already deleted the servers, but none should
         // occur where we have already created them.
         // Because of the way we've written this method, it's not harmful to end up here. We should just note that an
