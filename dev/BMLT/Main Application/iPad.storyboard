@@ -44,10 +44,10 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AcC-ql-TnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="cUO-18-5Fj" customClass="BMLTSettingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GAe-wM-uW3">
+                    <view key="view" contentMode="scaleToFill" id="GAe-wM-uW3" customClass="BMLTLightGreyView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="HQQ-TY-8NO">
                         <barButtonItem key="rightBarButtonItem" title="About BMLT" id="Cx7-gc-axl">
@@ -69,7 +69,7 @@
                     <view key="view" contentMode="scaleToFill" id="bun-XG-smb">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="About BMLT" id="GLf-fg-bLF"/>
                 </viewController>
@@ -239,39 +239,6 @@
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="A_BMLTSearchResultsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
-        </class>
-        <class className="BMLTAboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
-        </class>
-        <class className="BMLTAdvancedSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
-        </class>
-        <class className="BMLTBlueView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTBlueView.h"/>
-        </class>
-        <class className="BMLTListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTListResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
-        </class>
-        <class className="BMLTSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
-        </class>
-        <class className="BMLTSimpleSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="findAllMeetingsNearMe:"/>
-                <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

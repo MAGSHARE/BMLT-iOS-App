@@ -18,7 +18,6 @@
 //
 
 #import "BMLTBlueView.h"
-#import <QuartzCore/QuartzCore.h>
 
 /***************************************************************\**
  \class BMLTBlueView    -Private Interface
@@ -37,6 +36,20 @@
         It will also allow display of an animated spinning globe.
  *****************************************************************/
 @implementation BMLTBlueView
+
+/***************************************************************\**
+ \brief  Set the view backgound to the blue leather pattern color.
+ \returns   self
+ *****************************************************************/
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self)
+        {
+        [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueBackgroundPat.gif"]]];
+        }
+    return self;
+}
 
 /***************************************************************\**
  \brief This routine covers the beanie with an animation.
@@ -87,19 +100,5 @@
         [animatedImage removeFromSuperview];
         animatedImage = nil;
         }
-}
-
-/***************************************************************\**
- \brief  We override the drawRect, and apply the background.
- *****************************************************************/
-- (void)drawRect:(CGRect)rect
-{
-    CGImageRef      pImage = [[UIImage imageNamed:@"BlueBackgroundPat.gif"] CGImage];
-    CGContextRef    ctx = UIGraphicsGetCurrentContext();
-    CGRect          patRect = CGRectMake(0, 0, CGImageGetWidth(pImage), CGImageGetHeight(pImage));
-    
-    CGContextDrawTiledImage(ctx, patRect, pImage);
-
-    [super drawRect:rect];
 }
 @end
