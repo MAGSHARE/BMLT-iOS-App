@@ -670,7 +670,7 @@ shouldSelectViewController:(UIViewController *)inViewController
         // We copy the parameters that were used for the last search, so they can be accessed later, then clear the search parameters.
         lastSearchParams = nil;
         lastSearchParams = [[NSDictionary alloc] initWithDictionary:searchParams];
-        searchParams = nil;
+        [searchParams removeAllObjects];
         // Since it is possible we are in another thread, make sure that we call the UI routine in the main thread.
         [self performSelectorOnMainThread:@selector(displaySearchResults) withObject:nil waitUntilDone:NO];
         }
