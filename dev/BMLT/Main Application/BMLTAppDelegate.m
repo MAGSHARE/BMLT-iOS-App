@@ -16,8 +16,6 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
-//
-
 #import "BMLTAppDelegate.h"
 #import "Reachability.h"
 #import "BMLT_Prefs.h"
@@ -109,7 +107,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 #pragma mark - Private methods -
 /***************************************************************\**
  \brief Manages the transition from one view to another. Just like
- it says on the tin.
+        it says on the tin.
  *****************************************************************/
 - (void)transitionBetweenThisView:(UIView *)srcView ///< The view object we're transitioning away from
                       andThisView:(UIView *)dstView ///< The view object we're going to
@@ -235,7 +233,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
- \brief  Called when the app is about to go into the background.
+ \brief Called when the app is about to go into the background.
         We suspend the location and network availability updates
         while the app is in the background.
 *****************************************************************/
@@ -249,7 +247,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /***************************************************************\**
- \brief  Called when the app is about to show up.
+ \brief Called when the app is about to show up.
         We renew the updates (check if we have keep location up to
         date pref on before doing that one).
  *****************************************************************/
@@ -265,7 +263,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #pragma mark - Custom Instance Methods -
 /***************************************************************\**
  \brief Begins a lookup search, in which a location is found first,
- then all meetings near there are returned.
+        then all meetings near there are returned.
  *****************************************************************/
 - (void)searchForMeetingsNearMe
 {
@@ -416,8 +414,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #pragma mark - UITabBarControllerDelegate code -
 /***************************************************************\**
  \brief This animates the view transitions, and also sets up anything
- that needs doing between views. It stops the tab bar controller
- from managing the transition, and does it manually.
+        that needs doing between views. It stops the tab bar controller
+        from managing the transition, and does it manually.
  \returns a BOOL. Always NO.
  *****************************************************************/
 - (BOOL)tabBarController:(UITabBarController *)inTabBarController
