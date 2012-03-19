@@ -16,11 +16,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-1" image="list.png" id="7"/>
+                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="ePg-su-wqx"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-1193" y="862"/>
+            <point key="canvasLocation" x="-312" y="842"/>
         </scene>
         <!--Navigation Controller - TAB-BAR-3-->
         <scene sceneID="BYG-PZ-iyN">
@@ -76,6 +76,22 @@
             </objects>
             <point key="canvasLocation" x="593" y="3334"/>
         </scene>
+        <!--Navigation Controller - TAB-BAR-2-->
+        <scene sceneID="gNu-3k-JI8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eA5-Ki-zuc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="9F6-UP-Ey5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-2" image="map.png" id="BnC-y3-coN"/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="xY4-8X-sQN">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3" kind="relationship" relationship="rootViewController" id="kf2-48-ooV"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1193" y="2088"/>
+        </scene>
         <!--Map Results View Controller - TAB-BAR-2-->
         <scene sceneID="13">
             <objects>
@@ -86,11 +102,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-2" image="map.png" id="6"/>
+                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="MGE-X7-pmn"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-1193" y="2090"/>
+            <point key="canvasLocation" x="-312" y="2088"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -105,8 +121,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="HzD-Tf-hmR" kind="relationship" relationship="viewControllers" id="6IV-ee-6Yi"/>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="UlN-GQ-zTz"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="8nV-n0-afG"/>
+                        <segue destination="LnK-TI-v0U" kind="relationship" relationship="viewControllers" id="uxR-2t-d0S"/>
+                        <segue destination="9F6-UP-Ey5" kind="relationship" relationship="viewControllers" id="Ph9-ZK-IDq"/>
                         <segue destination="P5u-b0-Bqd" kind="relationship" relationship="viewControllers" id="lLb-q8-nU1"/>
                     </connections>
                 </tabBarController>
@@ -135,7 +151,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLr-ZD-pUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SFh-VH-MDA" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5W2-lU-ExM">
-                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C3s-sr-oSN">
@@ -214,7 +230,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVk-nh-b6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Qeh-pQ-hgv" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NbW-k5-fl0">
-                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <rect key="frame" x="0.0" y="44" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -236,13 +252,29 @@
             </objects>
             <point key="canvasLocation" x="575" y="-395"/>
         </scene>
+        <!--Navigation Controller - TAB-BAR-1-->
+        <scene sceneID="8hX-Nl-Aop">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A5z-hw-vBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="LnK-TI-v0U" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-1" image="list.png" id="uWc-Wt-4Jd"/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mu1-4r-zvZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="TWn-7e-pNv"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1193" y="842"/>
+        </scene>
         <!--Advanced Search View Controller - SEARCH-SPEC-ADVANCED-TITLE-->
         <scene sceneID="y5F-XP-cY6">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoG-rK-fy0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="crR-vv-v9x" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QJv-Je-6DP" customClass="BMLTAnimatedGlobeView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <rect key="frame" x="0.0" y="44" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>

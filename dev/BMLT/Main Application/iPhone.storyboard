@@ -16,11 +16,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-1" image="list.png" id="7"/>
+                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="6ge-bd-Vnf"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-131" y="673"/>
+            <point key="canvasLocation" x="285" y="639"/>
+        </scene>
+        <!--Navigation Controller - TAB-BAR-1-->
+        <scene sceneID="4wJ-FN-bgN">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dSi-ww-VRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="Jap-Bq-Kl8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-1" image="list.png" id="nYr-uW-5jL"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ceG-gp-niF">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="12o-U4-WxT"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-131" y="639"/>
         </scene>
         <!--Simple Search View Controller - SEARCH-SPEC-SIMPLE-TITLE-->
         <scene sceneID="K5P-ON-gUp">
@@ -28,7 +44,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggj-Ty-D21" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="simple-search" id="1ej-mT-cW2" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jso-hj-sh5" userLabel="search-simple">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4sw-z7-Qal">
@@ -108,7 +124,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8r-pz-Qye" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="map-search" id="fYl-cf-cFm" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rQg-Zb-7H4" userLabel="search-map" customClass="BMLTAnimatedGlobeView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -150,6 +166,22 @@
             </objects>
             <point key="canvasLocation" x="-131" y="64"/>
         </scene>
+        <!--Navigation Controller - TAB-BAR-2-->
+        <scene sceneID="NOj-fv-fOv">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5WG-aL-KtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="1KN-7l-hqT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-2" image="map.png" id="YIH-bg-V8I"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="F2j-RF-LUq">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3" kind="relationship" relationship="rootViewController" id="ASp-Yj-NJt"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-131" y="1287"/>
+        </scene>
         <!--Map Results View Controller - Map Search-->
         <scene sceneID="13">
             <objects>
@@ -160,11 +192,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-2" image="map.png" id="6"/>
+                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="tMp-9S-1Bs"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-131" y="1279"/>
+            <point key="canvasLocation" x="285" y="1287"/>
         </scene>
         <!--Navigation Controller - TAB-BAR-3-->
         <scene sceneID="T8R-Nn-gKQ">
@@ -225,7 +257,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VqF-3b-vjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="advanced-search" id="eMe-9F-zBx" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF" userLabel="search-advanced">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -262,8 +294,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="H43-2F-faT" kind="relationship" relationship="viewControllers" id="KHO-Fz-kLz"/>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="OcW-bd-SPM"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="Gne-nw-NpB"/>
+                        <segue destination="Jap-Bq-Kl8" kind="relationship" relationship="viewControllers" id="3al-EQ-vPa"/>
+                        <segue destination="1KN-7l-hqT" kind="relationship" relationship="viewControllers" id="5SS-cq-Z1e"/>
                         <segue destination="GM8-GN-pfE" kind="relationship" relationship="viewControllers" id="o0d-7S-7lm"/>
                     </connections>
                 </tabBarController>
@@ -284,7 +316,7 @@
         <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
         </class>
-        <class className="BMLTAboutViewController" superclassName="UIViewController">
+        <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
         </class>
         <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLTNavBarViewController">
@@ -305,7 +337,7 @@
         <class className="BMLTMapSearchViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
         </class>
-        <class className="BMLTSettingsViewController" superclassName="UIViewController">
+        <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
         </class>
         <class className="BMLTSimpleSearchViewController" superclassName="A_BMLTNavBarViewController">
