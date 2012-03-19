@@ -223,12 +223,12 @@
                     <view key="view" contentMode="scaleToFill" id="IHx-Y9-nFx" userLabel="settings-about" customClass="BMLTLightGreyView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="ABOUT-TITLE" id="Hjk-U2-sOA"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="721" y="1887"/>
+            <point key="canvasLocation" x="695" y="1887"/>
         </scene>
         <!--Settings View Controller - SETTINGS-TITLE-->
         <scene sceneID="Fn8-Gm-HYe">
@@ -238,7 +238,7 @@
                     <view key="view" contentMode="scaleToFill" id="HCP-8L-4u0" userLabel="settings-prefs" customClass="BMLTLightGreyView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="SETTINGS-TITLE" id="dUA-ga-v9u">
                         <barButtonItem key="rightBarButtonItem" title="ABOUT-TITLE" id="VE4-yb-tz2">
@@ -249,7 +249,7 @@
                     </navigationItem>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="305" y="1887"/>
+            <point key="canvasLocation" x="285" y="1887"/>
         </scene>
         <!--Advanced Search View Controller - SEARCH-SPEC-ADVANCED-TITLE-->
         <scene sceneID="jkN-2c-hcG">
