@@ -22,7 +22,7 @@
 /***************************************************************\**
  \class A_BMLTNavBarViewController - Private Interface
  \brief This class acts as a base class for the nav controllers.
- Its purpose is to assign the correct strings to everything.
+        Its purpose is to assign the correct strings to everything.
  *****************************************************************/
 @interface A_BMLTNavBarViewController ()
 
@@ -31,8 +31,44 @@
 /***************************************************************\**
  \class A_BMLTNavBarViewController
  \brief This class acts as a base class for the nav controllers.
- Its purpose is to assign the correct strings to everything.
+        Its purpose is to assign the correct strings to everything.
  *****************************************************************/
 @implementation A_BMLTNavBarViewController
+
+/***************************************************************\**
+ \brief We read in the current string, and do a localized lookup on
+        it. We do this for the nav title, as well as the button on
+        each side. If the string has already been changed, no prob.
+ *****************************************************************/
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    UINavigationItem *myItem = [self navigationItem];
+    
+    NSString    *itemTitle = [myItem title];
+    
+    [myItem setTitle:NSLocalizedString(itemTitle, nil)];
+    
+    NSArray *leftBarButtonItems = [myItem leftBarButtonItems];
+    NSArray *rightBarButtonItems = [myItem rightBarButtonItems];
+    
+    if ( [leftBarButtonItems count] )
+        {
+        for ( NSInteger i = 0; i < [leftBarButtonItems count]; i++ )
+            {
+            UIBarButtonItem *item = (UIBarButtonItem*)[leftBarButtonItems objectAtIndex:i];
+            [item setTitle:NSLocalizedString([item title], nil)];
+            }
+        }
+    
+    if ( [rightBarButtonItems count] )
+        {
+        for ( NSInteger i = 0; i < [rightBarButtonItems count]; i++ )
+            {
+            UIBarButtonItem *item = (UIBarButtonItem*)[rightBarButtonItems objectAtIndex:i];
+            [item setTitle:NSLocalizedString([item title], nil)];
+            }
+        }
+}
 
 @end

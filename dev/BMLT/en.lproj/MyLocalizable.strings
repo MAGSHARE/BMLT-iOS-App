@@ -163,5 +163,13 @@
 /* This tells the user why the app needs their location. */
 "LOCATION-PURPOSE" = "The app needs to know your location, in order to tell you where the nearest meetings are.";
 
+/* These define the buttons and titles in the search spec navbar. */
+"SEARCH-SPEC-SIMPLE-TITLE" = "Simple";
+"SEARCH-SPEC-MAP-TITLE" = "Map";
+"SEARCH-SPEC-ADVANCED-TITLE" = "Advanced";
+
+"SETTINGS-TITLE" = "Settings";
+"ABOUT-TITLE" = "About BMLT";
+
 /******************* APPENDED AT BUILD TIME *******************/
 

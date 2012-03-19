@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="-1193" y="3334"/>
         </scene>
-        <!--Settings View Controller - Settings-->
+        <!--Settings View Controller - SETTINGS-TITLE-->
         <scene sceneID="4mT-z9-5eV">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AcC-ql-TnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,8 +49,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="HQQ-TY-8NO">
-                        <barButtonItem key="rightBarButtonItem" title="About BMLT" id="Cx7-gc-axl">
+                    <navigationItem key="navigationItem" title="SETTINGS-TITLE" id="HQQ-TY-8NO">
+                        <barButtonItem key="rightBarButtonItem" title="ABOUT-TITLE" id="Cx7-gc-axl">
                             <connections>
                                 <segue destination="58l-LR-p80" kind="push" id="aQQ-nI-eMj"/>
                             </connections>
@@ -61,7 +61,7 @@
             </objects>
             <point key="canvasLocation" x="-310" y="3334"/>
         </scene>
-        <!--About View Controller - About BMLT-->
+        <!--About View Controller - ABOUT-TITLE-->
         <scene sceneID="Ths-9W-28s">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BdF-P8-mPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -71,7 +71,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About BMLT" id="GLf-fg-bLF"/>
+                    <navigationItem key="navigationItem" title="ABOUT-TITLE" id="GLf-fg-bLF"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="593" y="3334"/>
@@ -129,7 +129,7 @@
             </objects>
             <point key="canvasLocation" x="-1193" y="-395"/>
         </scene>
-        <!--Simple Search View Controller - Simple-->
+        <!--Simple Search View Controller - SEARCH-SPEC-SIMPLE-TITLE-->
         <scene sceneID="ydj-HN-IMZ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLr-ZD-pUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -187,13 +187,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="search.png" id="w6g-t7-6BJ"/>
-                    <navigationItem key="navigationItem" title="Simple" id="cTL-sJ-nIb">
-                        <barButtonItem key="leftBarButtonItem" title="Advanced" id="8PK-ZF-Wq2">
+                    <navigationItem key="navigationItem" title="SEARCH-SPEC-SIMPLE-TITLE" id="cTL-sJ-nIb">
+                        <barButtonItem key="leftBarButtonItem" title="SEARCH-SPEC-ADVANCED-TITLE" id="8PK-ZF-Wq2">
                             <connections>
                                 <segue destination="crR-vv-v9x" kind="custom" identifier="left" customClass="BMLTSegwayController" id="W7X-rc-hrY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="Map" id="AaL-zO-8SC">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-MAP-TITLE" id="AaL-zO-8SC">
                             <connections>
                                 <segue destination="Qeh-pQ-hgv" kind="custom" identifier="right" customClass="BMLTSegwayController" id="3XO-Er-raH"/>
                             </connections>
@@ -208,23 +208,23 @@
             </objects>
             <point key="canvasLocation" x="-312" y="-395"/>
         </scene>
-        <!--Map Search View Controller - Map-->
+        <!--Map Search View Controller - SEARCH-SPEC-MAP-TITLE-->
         <scene sceneID="SDc-i6-PxY">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVk-nh-b6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Qeh-pQ-hgv" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NbW-k5-fl0">
-                        <rect key="frame" x="0.0" y="44" width="768" height="911"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="ANV-z3-bjK">
-                        <barButtonItem key="leftBarButtonItem" title="Simple" id="qXf-xg-44n">
+                    <navigationItem key="navigationItem" title="SEARCH-SPEC-MAP-TITLE" id="ANV-z3-bjK">
+                        <barButtonItem key="leftBarButtonItem" title="SEARCH-SPEC-SIMPLE-TITLE" id="qXf-xg-44n">
                             <connections>
                                 <segue destination="SFh-VH-MDA" kind="custom" identifier="left" customClass="BMLTSegwayController" id="Ydx-2z-WgH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="Advanced" id="sc7-d7-3v2">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-ADVANCED-TITLE" id="sc7-d7-3v2">
                             <connections>
                                 <segue destination="crR-vv-v9x" kind="custom" identifier="right" customClass="BMLTSegwayController" id="lpz-5c-1Jv"/>
                             </connections>
@@ -236,23 +236,23 @@
             </objects>
             <point key="canvasLocation" x="575" y="-395"/>
         </scene>
-        <!--Advanced Search View Controller - Advanced-->
+        <!--Advanced Search View Controller - SEARCH-SPEC-ADVANCED-TITLE-->
         <scene sceneID="y5F-XP-cY6">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoG-rK-fy0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="crR-vv-v9x" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QJv-Je-6DP" customClass="BMLTAnimatedGlobeView">
-                        <rect key="frame" x="0.0" y="44" width="768" height="911"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Advanced" id="O1O-8R-puI">
-                        <barButtonItem key="leftBarButtonItem" title="Map" id="HPh-YV-UeO">
+                    <navigationItem key="navigationItem" title="SEARCH-SPEC-ADVANCED-TITLE" id="O1O-8R-puI">
+                        <barButtonItem key="leftBarButtonItem" title="SEARCH-SPEC-MAP-TITLE" id="HPh-YV-UeO">
                             <connections>
                                 <segue destination="Qeh-pQ-hgv" kind="custom" identifier="left" customClass="BMLTSegwayController" id="k2e-gQ-0ju"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="Simple" id="RLc-62-zMi">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-SIMPLE-TITLE" id="RLc-62-zMi">
                             <connections>
                                 <segue destination="SFh-VH-MDA" kind="custom" identifier="right" customClass="BMLTSegwayController" id="xLs-3k-Xux"/>
                             </connections>
@@ -271,52 +271,9 @@
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="A_BMLTSearchResultsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
-        </class>
-        <class className="BMLTAboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
-        </class>
-        <class className="BMLTAdvancedSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
-        </class>
-        <class className="BMLTAnimatedGlobeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimatedGlobeView.h"/>
-        </class>
-        <class className="BMLTLightGreyView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTLightGreyView.h"/>
-        </class>
-        <class className="BMLTListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTListResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
-        </class>
-        <class className="BMLTSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
-        </class>
-        <class className="BMLTSimpleSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="findAllMeetingsNearMe:"/>
-                <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
-                <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
-                <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="qWZ-Qh-gAM"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -18,11 +18,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "A_BMLTNavBarViewController.h"
 
 /***************************************************************\**
  \class  BMLTAboutViewController
  \brief  Simply displays information about the app.
  *****************************************************************/
-@interface BMLTAboutViewController : UIViewController
+@interface BMLTAboutViewController : A_BMLTNavBarViewController
 
 @end

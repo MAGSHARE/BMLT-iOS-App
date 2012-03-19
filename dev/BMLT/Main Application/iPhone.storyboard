@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-131" y="673"/>
         </scene>
-        <!--Simple Search View Controller - Simple-->
+        <!--Simple Search View Controller - SEARCH-SPEC-SIMPLE-TITLE-->
         <scene sceneID="K5P-ON-gUp">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggj-Ty-D21" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -79,13 +79,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Simple" id="21Q-Zz-Mek">
-                        <barButtonItem key="leftBarButtonItem" title="Advanced" id="X1l-p4-aKF" userLabel="advanced-from-simple">
+                    <navigationItem key="navigationItem" title="SEARCH-SPEC-SIMPLE-TITLE" id="21Q-Zz-Mek">
+                        <barButtonItem key="leftBarButtonItem" title="SEARCH-SPEC-ADVANCED-TITLE" id="X1l-p4-aKF" userLabel="advanced-from-simple">
                             <connections>
                                 <segue destination="eMe-9F-zBx" kind="custom" identifier="left" customClass="BMLTSegwayController" id="6dy-0C-PXT"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="Map" id="5m0-ou-woc">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-MAP-TITLE" id="5m0-ou-woc">
                             <connections>
                                 <segue destination="fYl-cf-cFm" kind="custom" identifier="right" customClass="BMLTSegwayController" id="onn-Vj-m9R"/>
                             </connections>
@@ -102,7 +102,7 @@
             </objects>
             <point key="canvasLocation" x="285" y="64"/>
         </scene>
-        <!--Map Search View Controller - Map-->
+        <!--Map Search View Controller - SEARCH-SPEC-MAP-TITLE-->
         <scene sceneID="73l-0h-xiU">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8r-pz-Qye" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,13 +112,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="hrO-wj-405">
-                        <barButtonItem key="leftBarButtonItem" title="Simple" id="Tj9-Z4-oLV">
+                    <navigationItem key="navigationItem" title="SEARCH-SPEC-MAP-TITLE" id="hrO-wj-405">
+                        <barButtonItem key="leftBarButtonItem" title="SEARCH-SPEC-SIMPLE-TITLE" id="Tj9-Z4-oLV">
                             <connections>
                                 <segue destination="1ej-mT-cW2" kind="custom" identifier="left" customClass="BMLTSegwayController" id="f8u-Wg-vPM"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="Advanced" id="Sm0-EJ-fDm">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-ADVANCED-TITLE" id="Sm0-EJ-fDm">
                             <connections>
                                 <segue destination="eMe-9F-zBx" kind="custom" identifier="right" customClass="BMLTSegwayController" id="FsX-u7-DkM"/>
                             </connections>
@@ -183,7 +183,7 @@
             </objects>
             <point key="canvasLocation" x="-131" y="1887"/>
         </scene>
-        <!--About View Controller - About-->
+        <!--About View Controller - ABOUT-TITLE-->
         <scene sceneID="Utw-MF-7y3">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X92-tD-epd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,12 +193,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="Hjk-U2-sOA"/>
+                    <navigationItem key="navigationItem" title="ABOUT-TITLE" id="Hjk-U2-sOA"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="721" y="1887"/>
         </scene>
-        <!--Settings View Controller - Settings-->
+        <!--Settings View Controller - SETTINGS-TITLE-->
         <scene sceneID="Fn8-Gm-HYe">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7V-2I-eIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,8 +208,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="dUA-ga-v9u">
-                        <barButtonItem key="rightBarButtonItem" title="About" id="VE4-yb-tz2">
+                    <navigationItem key="navigationItem" title="SETTINGS-TITLE" id="dUA-ga-v9u">
+                        <barButtonItem key="rightBarButtonItem" title="ABOUT-TITLE" id="VE4-yb-tz2">
                             <connections>
                                 <segue destination="fFZ-gF-vrb" kind="push" id="TRZ-dn-tHI"/>
                             </connections>
@@ -219,7 +219,7 @@
             </objects>
             <point key="canvasLocation" x="305" y="1887"/>
         </scene>
-        <!--Advanced Search View Controller - Advanced-->
+        <!--Advanced Search View Controller - SEARCH-SPEC-ADVANCED-TITLE-->
         <scene sceneID="jkN-2c-hcG">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VqF-3b-vjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,13 +229,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Advanced" id="lQM-JY-HPx">
-                        <barButtonItem key="leftBarButtonItem" title="Map" id="eIQ-Bk-TuK">
+                    <navigationItem key="navigationItem" title="SEARCH-SPEC-ADVANCED-TITLE" id="lQM-JY-HPx">
+                        <barButtonItem key="leftBarButtonItem" title="SEARCH-SPEC-MAP-TITLE" id="eIQ-Bk-TuK">
                             <connections>
                                 <segue destination="fYl-cf-cFm" kind="custom" identifier="left" customClass="BMLTSegwayController" id="O0D-LD-ylN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="Simple" id="wZr-of-dPO">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-SIMPLE-TITLE" id="wZr-of-dPO">
                             <connections>
                                 <segue destination="1ej-mT-cW2" kind="custom" identifier="right" customClass="BMLTSegwayController" id="4A7-l2-8LH"/>
                             </connections>
@@ -278,13 +278,16 @@
         <image name="settings.png" width="26" height="26"/>
     </resources>
     <classes>
-        <class className="A_BMLTSearchResultsViewController" superclassName="UIViewController">
+        <class className="A_BMLTNavBarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTNavBarViewController.h"/>
+        </class>
+        <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
         </class>
         <class className="BMLTAboutViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
         </class>
-        <class className="BMLTAdvancedSearchViewController" superclassName="UIViewController">
+        <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
         </class>
         <class className="BMLTAnimatedGlobeView" superclassName="UIView">
@@ -299,13 +302,13 @@
         <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
         </class>
-        <class className="BMLTMapSearchViewController" superclassName="UIViewController">
+        <class className="BMLTMapSearchViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
         </class>
         <class className="BMLTSettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
         </class>
-        <class className="BMLTSimpleSearchViewController" superclassName="UIViewController">
+        <class className="BMLTSimpleSearchViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
             <relationships>
                 <relationship kind="action" name="findAllMeetingsNearMe:"/>
@@ -322,9 +325,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="PqN-or-VVj"/>
-        <segue reference="6dy-0C-PXT"/>
-        <segue reference="onn-Vj-m9R"/>
-    </inferredMetricsTieBreakers>
 </document>
