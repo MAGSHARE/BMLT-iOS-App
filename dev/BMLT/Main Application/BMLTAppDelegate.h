@@ -55,8 +55,8 @@
 /// Instance methods
 - (BOOL)isLookupValid;                                  ///< Returns YES, if the last location lookup is kosher.
 - (void)searchForMeetingsNearMe;                        ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
-- (void)searchForMeetingsNearMeLaterToday;              ///< Sam as above, but only meetings later today.
-- (void)searchForMeetingsNearMeTomorrow;                ///< Sam as above, but only meetings tomorrow.
+- (void)searchForMeetingsNearMeLaterToday;              ///< Same as above, but only meetings later today.
+- (void)searchForMeetingsNearMeTomorrow;                ///< Same as above, but only meetings tomorrow.
 - (void)stopNetworkMonitor;                             ///< Stop observing the network connectivity status.
 - (void)startNetworkMonitor;                            ///< Start a network test.
 - (void)networkStatusCallback:(NSNotification *)notice; ///< Gets the results of the network test.

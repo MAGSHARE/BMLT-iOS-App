@@ -55,7 +55,7 @@
  \brief  Called to validate the autorotation.
  \returns    a BOOL. YES if the rotation is approved.
  *****************************************************************/
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation ///< The desired input orientation.
 {
 	return YES;
 }
@@ -64,7 +64,7 @@
 /***************************************************************\**
  \brief  Do a simple meeting lookup.
  *****************************************************************/
-- (IBAction)findAllMeetingsNearMe:(id)sender
+- (IBAction)findAllMeetingsNearMe:(id)sender    ///< The object that called this.
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     
@@ -80,7 +80,7 @@
 /***************************************************************\**
  \brief  Do a simple meeting lookup, for meetings later today.
  *****************************************************************/
-- (IBAction)findAllMeetingsNearMeLaterToday:(id)sender
+- (IBAction)findAllMeetingsNearMeLaterToday:(id)sender    ///< The object that called this.
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     
@@ -96,7 +96,7 @@
 /***************************************************************\**
  \brief  Do a simple meeting lookup, for meetings tomorrow.
  *****************************************************************/
-- (IBAction)findAllMeetingsNearMeTomorrow:(id)sender
+- (IBAction)findAllMeetingsNearMeTomorrow:(id)sender    ///< The object that called this.
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     

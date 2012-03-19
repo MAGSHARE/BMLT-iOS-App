@@ -18,11 +18,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "A_BMLTNavBarViewController.h"
 
 /***************************************************************\**
  \class  BMLTMapSearchViewController
  \brief  This class will present the user with a simple map interface.
  *****************************************************************/
-@interface BMLTMapSearchViewController : UIViewController
+@interface BMLTMapSearchViewController : A_BMLTNavBarViewController
 
 @end

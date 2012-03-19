@@ -24,5 +24,13 @@
  \brief  This class will control the segues between the various search specification dialogs.
  *****************************************************************/
 @interface BMLTSegwayController : UIStoryboardSegue
-
+/**
+ *          What this segue does, is manage a transition between two navigation views,
+ *          so that the direction of the switch approximates the navbar button that was hit.
+ *          Additionally, it make sure that we don't keep "piling" views on the nav controller.
+ *          since we're using two buttons on the navbar for each view, and are expressing a linked
+ *          affordance, we need to reset the nav controller each time, as we would otherwise
+ *          just keep piling views on top of each other.
+ */
+- (void)perform;
 @end

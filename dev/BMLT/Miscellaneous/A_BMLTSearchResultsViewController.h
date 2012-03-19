@@ -19,12 +19,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "A_BMLTNavBarViewController.h"
 
 /***************************************************************\**
  \class  BMLTSearchResultsViewController
  \brief  This abstract base class will control display of listed results.
  *****************************************************************/
-@interface A_BMLTSearchResultsViewController : UIViewController
+@interface A_BMLTSearchResultsViewController : A_BMLTNavBarViewController
 
 - (void)startMeetingSearch;
 - (void)stopMeetingSearch;

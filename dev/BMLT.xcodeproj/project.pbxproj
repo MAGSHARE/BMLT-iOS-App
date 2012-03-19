@@ -44,6 +44,7 @@
 		77BC71951512BB6A000BEFC0 /* Animated_BMLT_Logo.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71941512BB6A000BEFC0 /* Animated_BMLT_Logo.m */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77CE3F091516252300C93BC6 /* BMLTLightGreyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* BMLTLightGreyView.m */; };
+		77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */; };
 		77D90B4E1514C6460059EF41 /* BlueBackgroundPat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77D90B051514C6460059EF41 /* BlueBackgroundPat.gif */; };
 		77D90B4F1514C6460059EF41 /* BottomLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D90B071514C6460059EF41 /* BottomLayer.png */; };
 		77D90B501514C6460059EF41 /* Globe_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D90B091514C6460059EF41 /* Globe_00.png */; };
@@ -193,6 +194,8 @@
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
 		77CE3F071516252300C93BC6 /* BMLTLightGreyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTLightGreyView.h; sourceTree = "<group>"; };
 		77CE3F081516252300C93BC6 /* BMLTLightGreyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTLightGreyView.m; sourceTree = "<group>"; };
+		77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTNavBarViewController.h; sourceTree = "<group>"; };
+		77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTNavBarViewController.m; sourceTree = "<group>"; };
 		77D90B031514C5340059EF41 /* BMLT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
 		77D90B051514C6460059EF41 /* BlueBackgroundPat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BlueBackgroundPat.gif; sourceTree = "<group>"; };
 		77D90B071514C6460059EF41 /* BottomLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BottomLayer.png; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */,
 				77BC71931512BB6A000BEFC0 /* Animated_BMLT_Logo.h */,
 				77BC71941512BB6A000BEFC0 /* Animated_BMLT_Logo.m */,
+				77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */,
+				77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */,
 			);
 			path = Miscellaneous;
 			sourceTree = "<group>";
@@ -733,6 +738,7 @@
 				77BC71951512BB6A000BEFC0 /* Animated_BMLT_Logo.m in Sources */,
 				77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */,
 				77CE3F091516252300C93BC6 /* BMLTLightGreyView.m in Sources */,
+				77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

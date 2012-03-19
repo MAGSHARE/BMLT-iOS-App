@@ -1,5 +1,5 @@
 //
-//  BMLTAdvancedSearchViewController.h
+//  A_BMLTNavBarViewController.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -18,12 +18,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "A_BMLTNavBarViewController.h"
 
 /***************************************************************\**
- \class  BMLTAdvancedSearchViewController
- \brief  This class will present the user with a powerful search specification interface.
+ \class A_BMLTNavBarViewController
+ \brief This class acts as a base class for the nav controllers.
+        Its purpose is to assign the correct strings to everything.
  *****************************************************************/
-@interface BMLTAdvancedSearchViewController : A_BMLTNavBarViewController
+@interface A_BMLTNavBarViewController : UIViewController
 
 @end
