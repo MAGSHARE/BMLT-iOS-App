@@ -66,6 +66,7 @@
     BOOL            preferSearchResultsAsMap;   ///< Version 2.0 new: YES, if the user prefers the search results displayed initially as map results.
     BOOL            preserveAppStateOnSuspend;  ///< Version 2.0 new: YES, if the user wants the app to remember where it was when being recalled.
     BOOL            keepUpdatingLocation;       ///< Version 2.0 new: YES, if we want to keep our location updated.
+    int             resultCount;                ///< Version 2.0 new: This is the desired "ballpark" for the number of meetings returned automatically. It affects the number of meetings returned by locality searches.
 }
 
 + (BMLT_Prefs *)getBMLT_Prefs;
@@ -95,6 +96,7 @@
 - (BOOL)preferSearchResultsAsMap;
 - (BOOL)preserveAppStateOnSuspend;
 - (BOOL)keepUpdatingLocation;
+- (int)resultCount;
 - (void)setStartWithMap:(BOOL)inValue;
 - (void)setPreferDistanceSort:(BOOL)inValue;
 - (void)setLookupMyLocation:(BOOL)inValue;
@@ -105,5 +107,6 @@
 - (void)setPreferSearchResultsAsMap:(BOOL)inPreferSearchResultsAsMap;
 - (void)setPreserveAppStateOnSuspend:(BOOL)inPreserveAppStateOnSuspend;
 - (void)setKeepUpdatingLocation:(BOOL)inKeepUpdatingLocation;
+- (void)setResultCount:(int)inResultCount;
 
 @end

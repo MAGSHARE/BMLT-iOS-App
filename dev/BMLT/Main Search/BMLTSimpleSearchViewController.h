@@ -24,6 +24,10 @@
  \brief  This class will present the user with a simple "one-button" interface.
  *****************************************************************/
 @interface BMLTSimpleSearchViewController : UIViewController
-    @property (weak, nonatomic) IBOutlet UIButton *findMeetingsNearMeButton;
+    @property (weak, nonatomic) IBOutlet UIButton *findMeetingsNearMeButton;        ///< This is the "find meetings near me" button.
+    @property (weak, nonatomic) IBOutlet UIButton *findMeetingsLaterTodayButton;    ///< This is the "find meetings near me later today" button.
+    @property (weak, nonatomic) IBOutlet UIButton *findMeetingsTomorrowButton;      ///< This is the "find meetings near me tomorrow" button.
     - (IBAction)findAllMeetingsNearMe:(id)sender;
+    - (IBAction)findAllMeetingsNearMeLaterToday:(id)sender;
+    - (IBAction)findAllMeetingsNearMeTomorrow:(id)sender;
 @end

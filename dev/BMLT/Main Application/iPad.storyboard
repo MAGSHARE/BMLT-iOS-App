@@ -6,7 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
-        <!--List Results View Controller - List Search-->
+        <!--List Results View Controller - TAB-BAR-1-->
         <scene sceneID="11">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -14,20 +14,20 @@
                     <view key="view" contentMode="scaleToFill" id="17" customClass="BMLTAnimatedGlobeView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="List Search" image="list.png" id="7"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-1" image="list.png" id="7"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-1193" y="862"/>
         </scene>
-        <!--Navigation Controller - Settings-->
+        <!--Navigation Controller - TAB-BAR-3-->
         <scene sceneID="BYG-PZ-iyN">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfC-Ww-QTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="P5u-b0-Bqd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="OK7-vg-OJO"/>
+                    <tabBarItem key="tabBarItem" title="TAB-BAR-3" image="settings.png" id="OK7-vg-OJO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Wne-p4-K29">
                         <autoresizingMask key="autoresizingMask"/>
@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="593" y="3334"/>
         </scene>
-        <!--Map Results View Controller - Map Search-->
+        <!--Map Results View Controller - TAB-BAR-2-->
         <scene sceneID="13">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
@@ -84,9 +84,9 @@
                     <view key="view" contentMode="scaleToFill" id="16" customClass="BMLTAnimatedGlobeView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Map Search" image="map.png" id="6"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="TAB-BAR-2" image="map.png" id="6"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
@@ -113,12 +113,12 @@
             </objects>
             <point key="canvasLocation" x="-2184" y="-395"/>
         </scene>
-        <!--Navigation Controller - Search-->
+        <!--Navigation Controller - TAB-BAR-0-->
         <scene sceneID="1dl-ag-F8C">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJZ-xY-Dyl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="HzD-Tf-hmR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="ccO-RN-9zZ"/>
+                    <tabBarItem key="tabBarItem" title="TAB-BAR-0" image="search.png" id="ccO-RN-9zZ"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Qou-c6-GMp">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -134,15 +134,15 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLr-ZD-pUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SFh-VH-MDA" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5W2-lU-ExM" customClass="BMLTAnimatedGlobeView">
+                    <view key="view" contentMode="scaleToFill" id="5W2-lU-ExM">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WgX-7l-SFV">
-                                <rect key="frame" x="249" y="74" width="271" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C3s-sr-oSN">
+                                <rect key="frame" x="259" y="84" width="295" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Find Meetings Near Me">
+                                <state key="normal" title="SEARCH-SPEC-NEARBY-TITLE">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -150,11 +150,41 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="findAllMeetingsNearMe:" destination="SFh-VH-MDA" eventType="touchUpInside" id="MWX-Od-VGd"/>
+                                    <action selector="findAllMeetingsNearMe:" destination="SFh-VH-MDA" eventType="touchUpInside" id="oOf-tq-a6u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oHM-sY-V2t">
+                                <rect key="frame" x="259" y="129" width="295" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SEARCH-SPEC-LATER-TODAY-TITLE">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findAllMeetingsNearMeLaterToday:" destination="SFh-VH-MDA" eventType="touchUpInside" id="vFd-4q-Xh1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NNa-Bu-ist">
+                                <rect key="frame" x="259" y="174" width="295" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SEARCH-SPEC-TOMORROW-TITLE">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findAllMeetingsNearMeTomorrow:" destination="SFh-VH-MDA" eventType="touchUpInside" id="n70-NS-EUd"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="search.png" id="w6g-t7-6BJ"/>
                     <navigationItem key="navigationItem" title="Simple" id="cTL-sJ-nIb">
@@ -170,7 +200,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="findMeetingsNearMeButton" destination="WgX-7l-SFV" id="eTc-XX-9dT"/>
+                        <outlet property="findMeetingsLaterTodayButton" destination="oHM-sY-V2t" id="R2s-Zt-gGA"/>
+                        <outlet property="findMeetingsNearMeButton" destination="C3s-sr-oSN" id="Xk1-b5-NFa"/>
+                        <outlet property="findMeetingsTomorrowButton" destination="NNa-Bu-ist" id="fys-Vy-zsx"/>
                     </connections>
                 </viewController>
             </objects>
@@ -181,10 +213,10 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVk-nh-b6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Qeh-pQ-hgv" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NbW-k5-fl0" customClass="BMLTAnimatedGlobeView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                    <view key="view" contentMode="scaleToFill" id="NbW-k5-fl0">
+                        <rect key="frame" x="0.0" y="44" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="ANV-z3-bjK">
                         <barButtonItem key="leftBarButtonItem" title="Simple" id="qXf-xg-44n">
@@ -210,9 +242,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoG-rK-fy0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="crR-vv-v9x" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QJv-Je-6DP" customClass="BMLTAnimatedGlobeView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <rect key="frame" x="0.0" y="44" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Advanced" id="O1O-8R-puI">
                         <barButtonItem key="leftBarButtonItem" title="Map" id="HPh-YV-UeO">
@@ -239,6 +271,46 @@
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
     </resources>
+    <classes>
+        <class className="A_BMLTSearchResultsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
+        </class>
+        <class className="BMLTAboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
+        </class>
+        <class className="BMLTAdvancedSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
+        </class>
+        <class className="BMLTAnimatedGlobeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimatedGlobeView.h"/>
+        </class>
+        <class className="BMLTLightGreyView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTLightGreyView.h"/>
+        </class>
+        <class className="BMLTListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTListResultsViewController.h"/>
+        </class>
+        <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
+        </class>
+        <class className="BMLTMapSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
+        </class>
+        <class className="BMLTSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
+        </class>
+        <class className="BMLTSimpleSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="findAllMeetingsNearMe:"/>
+                <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
+                <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
+                <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -246,7 +318,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="qWZ-Qh-gAM"/>
-        <segue reference="3XO-Er-raH"/>
-        <segue reference="W7X-rc-hrY"/>
     </inferredMetricsTieBreakers>
 </document>

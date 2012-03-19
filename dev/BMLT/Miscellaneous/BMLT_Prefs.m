@@ -428,6 +428,15 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
                 {
                 [self setKeepUpdatingLocation:NO];
                 }
+            
+            if ( [decoder containsValueForKey:@"resultCount"] )
+                {
+                resultCount = [decoder decodeIntForKey:@"resultCount"];
+                }
+            else
+                {
+                [self setResultCount:10];
+                }
             }
         else
             {
@@ -441,6 +450,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
             [self setPreferSearchResultsAsMap:[self startWithMap]];
             [self setPreserveAppStateOnSuspend:![self startWithSearch]];
             [self setKeepUpdatingLocation:NO];
+            [self setResultCount:10];
             }
         }
     
@@ -516,9 +526,9 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 /***************************************************************\**
  \brief     Accessor -return the initial search type.
  \returns   an int. One of these values:
- - _PREFER_SIMPLE_SEARCH
- - _PREFER_MAP_SEARCH
- - _PREFER_ADVANCED_SEARCH
+                 - _PREFER_SIMPLE_SEARCH
+                 - _PREFER_MAP_SEARCH
+                 - _PREFER_ADVANCED_SEARCH
  *****************************************************************/
 - (int)searchTypePref
 {
@@ -557,6 +567,16 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 - (BOOL)keepUpdatingLocation
 {
     return keepUpdatingLocation;
+}
+
+/***************************************************************\**
+ \brief This returns the preference as to how many meetings should
+        be returned by locality searches. It is a "rough" count.
+ \returns an integer, with the target accuracy.
+ *****************************************************************/
+- (int)resultCount
+{
+    return resultCount;
 }
 
 /***************************************************************\**
@@ -646,6 +666,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
     [encoder encodeBool:preferSearchResultsAsMap forKey:@"preferSearchResultsAsMap"];
     [encoder encodeBool:preserveAppStateOnSuspend forKey:@"preserveAppStateOnSuspend"];
     [encoder encodeBool:keepUpdatingLocation forKey:@"keepUpdatingLocation"];
+    [encoder encodeInt:resultCount forKey:@"resultCount"];
 }
 
 /***************************************************************\**
@@ -738,4 +759,11 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
     keepUpdatingLocation = inKeepUpdatingLocation;
 }
 
+/***************************************************************\**
+ \brief Accessor -set the number of meetings to target in local searches.
+ *****************************************************************/
+- (void)setResultCount:(int)inResultCount
+{
+    resultCount = inResultCount;
+}
 @end

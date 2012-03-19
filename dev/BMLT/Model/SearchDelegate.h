@@ -29,8 +29,6 @@
 @protocol SearchDelegate <NSObject>
 
 - (void)abortSearch;
-- (void)setUpSearch:(NSDictionary *)inSearchParams;
-- (void)executeSearch;
 - (void)executeSearchWithParams:(NSDictionary *)inSearchParams;
 - (void)searchCompleteWithError:(NSError *)inError;
 - (A_BMLT_Search *)getSearch;

@@ -34,6 +34,11 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     BOOL                _amISick;       ///< If true, it indicates that the alert for connectivity problems should not be shown.
     BMLT_Meeting_Search *mySearch;      ///< The current meeting search in progress.
 }
++ (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod; ///< This is used to calculate the time for "later today" meetings.
+
+- (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;
+- (void)callInSick;
+- (void)displaySearchResults;
 @end
 
 /***************************************************************\**
@@ -42,15 +47,18 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
  *****************************************************************/
 @implementation BMLTAppDelegate
 
-#pragma mark - Synthesize Class Properties
+#pragma mark - Synthesize Class Properties -
 @synthesize window      = _window;      ///< This will hold the window associated with this application instance.
 @synthesize myLocation  = _myLocation;  ///< This will hold the location set by the last location lookup.
 @synthesize locationManager;            ///< This holds the location manager instance.
 @synthesize internetActive;             ///< Set to YES, if the network test says that the Internet is available.
 @synthesize hostActive;                 ///< Set to YES, if the network test says that the root server is available.
 @synthesize myPrefs;                    ///< This will have a reference to the global prefs object.
+@synthesize searchResults;              ///< This will hold the latest search results.
+@synthesize searchParams;               ///< This will hold the parameters to be used for the next search.
+@synthesize lastSearchParams;           ///< This will hold the parameters that were used for the last search.
 
-#pragma mark - Class Methods
+#pragma mark - Class Methods -
 /***************************************************************\**
  \brief  This class method allows access to the application delegate object (SINGLETON)
  *****************************************************************/
@@ -87,6 +95,88 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     return [g_AppDelegate isLookupValid];
 }
 
+/***************************************************************\**
+ \brief returns the date/time of the "too late" meeting start time.
+ \returns an NSDate, set to the time (either now, or with the grace period)
+ *****************************************************************/
++ (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod ///< YES, if the grace period is to be included.
+{
+    NSTimeInterval  interval = useGracePeriod ? [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60 : 0;
+    
+    return [NSDate dateWithTimeIntervalSinceNow:-interval];
+}
+
+#pragma mark - Private methods -
+/***************************************************************\**
+ \brief Manages the transition from one view to another. Just like
+ it says on the tin.
+ *****************************************************************/
+- (void)transitionBetweenThisView:(UIView *)srcView ///< The view object we're transitioning away from
+                      andThisView:(UIView *)dstView ///< The view object we're going to
+                        direction:(int)dir          /**< The direction. One of these:
+                                                        - -2 Going out of the settings pages.
+                                                        - -1 Going from right to left
+                                                        - 1 Going from left to right
+                                                        - 2 Going into the settings pages
+                                                    */
+{
+    if ( dir && (srcView != dstView) )
+        {
+        UIViewAnimationOptions  option = 0;
+        
+        switch ( dir )
+            {
+                case -2:    // Going from the settings to another tab.
+                option = UIViewAnimationOptionTransitionCurlDown;
+                break;
+                
+                case -1:    // Going from a right tab to a left tab.
+                option = UIViewAnimationOptionTransitionFlipFromLeft;
+                break;
+                
+                case 1:     // Going from a left tab to a right tab.
+                option = UIViewAnimationOptionTransitionFlipFromRight;
+                break;
+                
+                case 2:     // Going into the settings pages.
+                option = UIViewAnimationOptionTransitionCurlUp;
+                break;
+            }
+        
+        [UIView transitionFromView:srcView
+                            toView:dstView
+                          duration:0.25
+                           options:option
+                        completion:nil];
+        }
+}
+
+/***************************************************************\**
+ \brief Displays an alert, mentioning that there is no valid connection.
+ *****************************************************************/
+- (void)callInSick
+{
+#ifdef DEBUG
+    NSLog(@"Calling in sick.");
+#endif
+    if ( !_amISick )    // This makes sure we only call it once.
+        {
+        _amISick = YES;
+        UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"ERROR-CANT-LOAD-DRIVER",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+        
+        [myAlert show];
+        }
+    
+}
+
+/***************************************************************\**
+ \brief This is called to tell the app to display the search results.
+ *****************************************************************/
+- (void)displaySearchResults
+{
+    
+}
+
 #pragma mark - Standard Instance Methods -
 /***************************************************************\**
  \brief  Initialize the object
@@ -101,6 +191,12 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
         g_AppDelegate = self;
         myPrefs = [BMLT_Prefs getBMLT_Prefs];
         [self startNetworkMonitor];
+        locationManager = [[CLLocationManager alloc] init];
+        [locationManager setPurpose:NSLocalizedString(@"LOCATION-PURPOSE", nil)];
+        [locationManager setDistanceFilter:kCLDistanceFilterNone];
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        [locationManager setDelegate:self];
+        searchParams = [[NSMutableDictionary alloc] init];
         }
     
     return self;
@@ -113,6 +209,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 - (void)dealloc
 {
     [mySearch clearSearch];
+    [searchParams removeAllObjects];
     [self stopNetworkMonitor];
     [locationManager stopUpdatingLocation];
 }
@@ -129,6 +226,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [tabController setDelegate:self];
     // We're going to have a blue "leather" background for most screens.
     [_window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueBackgroundPat.gif"]]];
+    for ( NSInteger i = 0; i < [[tabController viewControllers] count]; i++ )
+        {
+        UITabBarItem    *theItem = [[[tabController viewControllers] objectAtIndex:i] tabBarItem];
+        [theItem setTitle:NSLocalizedString([theItem title], nil)];
+        }
     return YES;
 }
 
@@ -163,43 +265,66 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #pragma mark - Custom Instance Methods -
 /***************************************************************\**
  \brief Begins a lookup search, in which a location is found first,
-        then all meetings near there are returned.
+ then all meetings near there are returned.
  *****************************************************************/
-- (void)searchForMeetingsNearMeAllWeek
+- (void)searchForMeetingsNearMe
 {
-    [self findLocationAndMeetings:YES];
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate searchForMeetingsNearMe called.");
+#endif
+    // Remember that we have a pref for result count.
+    [searchParams setObject:[NSString stringWithFormat:@"%d", -[myPrefs resultCount]] forKey:@"geo_width"];
+    [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
+    
+    _findMeetings = YES;   // This is a semaphore, that tells the app to do a search, once it has settled on a location.
+    [locationManager startUpdatingLocation];
 }
 
 /***************************************************************\**
- \brief Starts an asynchronous Location Manager update process.
-        If the findMeetings flag is YES, then a locale-based meeting
-        search will take place after the location lookup.
- \returns   a BOOL. YES, if the call resulted in a new location lookup.
+ \brief Same as above, except we only look for meetings later today.
  *****************************************************************/
-- (BOOL)findLocationAndMeetings:(BOOL)findMeetings
+- (void)searchForMeetingsNearMeLaterToday
 {
-    BOOL    ret = NO;
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate findLocationAndMeetings.%@", findMeetings ? @" Set to search for meetings after the location is found." : @" Just update the location." );
+    NSLog(@"BMLTAppDelegate searchForMeetingsNearMeLaterToday called.");
 #endif
-    [self setMyLocation:nil];
+    NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
+    NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
+    NSInteger           wd = [weekdayComponents weekday];
+    weekdayComponents = [gregorian components:(NSHourCalendarUnit) fromDate:date];
+    NSInteger           hr = [weekdayComponents hour];
+    weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
+    NSInteger           mn = [weekdayComponents minute];
     
-    // If we are already looking for a location, then we just let it keep going, and we ignore the call. If not, we start a new lookup.
-    if ( !locationManager )
+    [searchParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
+    [searchParams setObject:[NSString stringWithFormat:@"%d",hr] forKey:@"StartsAfterH"];
+    [searchParams setObject:[NSString stringWithFormat:@"%d",mn] forKey:@"StartsAfterM"];
+    
+    [self searchForMeetingsNearMe];
+}
+
+/***************************************************************\**
+ \brief Same as above, except we only look for meetings tomorrow.
+ *****************************************************************/
+- (void)searchForMeetingsNearMeTomorrow
+{
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate searchForMeetingsNearMeTomorrow called.");
+#endif
+    NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:[BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:NO]];
+    NSInteger           wd = [weekdayComponents weekday] + 1;
+    
+    if ( wd > 7 )
         {
-        locationManager = [[CLLocationManager alloc] init];
-        [locationManager setDelegate:nil];
-        [locationManager setDistanceFilter:kCLDistanceFilterNone];
-        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        [locationManager setDelegate:self];
-        [locationManager setPurpose:NSLocalizedString(@"LOCATION-PURPOSE", nil)];
-        ret = YES;
+        wd = 1;
         }
     
-    _findMeetings = findMeetings;
-    [locationManager startUpdatingLocation];
+    [searchParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
+    [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
-    return ret;
+    [self searchForMeetingsNearMe];
 }
 
 /***************************************************************\**
@@ -221,6 +346,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 #pragma mark - Core Location Delegate Methods -
 /***************************************************************\**
+ \brief Called when the location manager has a failure.
+ *****************************************************************/
+- (void)locationManager:(CLLocationManager *)manager    ///< The location manager in troubkle.
+       didFailWithError:(NSError *)error                ///< Oh, Lord, the trouble I'm in...
+{
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate didFailWithError: %@", [error localizedDescription]);
+#endif
+}
+
+/***************************************************************\**
  \brief Called when the location manager updates. Makes sure that
         the update is fresh.
  *****************************************************************/
@@ -228,11 +364,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
+    [locationManager stopUpdatingLocation]; // Stop updating for now.
+    
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate didUpdateToLocation Location Found: (%@)", newLocation);
 #endif
     
-    // This makes sure that we spend at least 15 seconds looking up the location, and that we have good horizontal accuracy (reduces the incidence of cached location data).
+    // This makes sure that we spend at least 10 seconds looking up the location, and that we have good horizontal accuracy (reduces the incidence of cached location data).
     if( newLocation.horizontalAccuracy > 100 )
         {
 #ifdef DEBUG
@@ -242,26 +380,40 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     
     NSInteger  t = abs((NSInteger)[[newLocation timestamp] timeIntervalSinceNow]);
-    if ( t > 15.0 )
+    if ( t > 10.0 )
         {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate didUpdateToLocation ignoring GPS location more than 15 seconds old (cached) :%d", t);
+        NSLog(@"BMLTAppDelegate didUpdateToLocation ignoring GPS location more than 10 seconds old (cached) :%d", t);
 #endif
         return;
         }    
-    
-    if ( ![myPrefs keepUpdatingLocation] )
-        {
-        [locationManager stopUpdatingLocation];
-        }
     
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f, and the time interval is %d.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy, t);
 #endif
     [self setMyLocation:newLocation];
+    
+    // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).
+    if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
+        {
+        // We give the new search our location.
+        [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.longitude] forKey:@"long_val"];
+        [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.latitude] forKey:@"lat_val"];
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate didUpdateToLocation: Starting a new location-based search.");
+#endif
+        [self executeSearchWithParams:searchParams];    // Start the search.
+        }
+    
+    _findMeetings = NO; // Clear the semaphore.
+    
+    if ( [myPrefs keepUpdatingLocation] )   // If they want us to keep updating, we will.
+        {
+        [locationManager startUpdatingLocation];
+        }
 }
 
-#pragma mark - UITabBarControllerDelegate code
+#pragma mark - UITabBarControllerDelegate code -
 /***************************************************************\**
  \brief This animates the view transitions, and also sets up anything
  that needs doing between views. It stops the tab bar controller
@@ -286,50 +438,6 @@ shouldSelectViewController:(UIViewController *)inViewController
         }
     
     return NO;  // Let the controller know that we handled it.
-}
-
-/***************************************************************\**
- \brief Manages the transition from one view to another. Just like
- it says on the tin.
- *****************************************************************/
-- (void)transitionBetweenThisView:(UIView *)srcView ///< The view object we're transitioning away from
-                      andThisView:(UIView *)dstView ///< The view object we're going to
-                        direction:(int)dir          /**< The direction. One of these:
-                                                            - -2 Going out of the settings pages.
-                                                            - -1 Going from right to left
-                                                            - 1 Going from left to right
-                                                            - 2 Going into the settings pages
-                                                    */
-{
-    if ( dir && (srcView != dstView) )
-        {
-        UIViewAnimationOptions  option = 0;
-        
-        switch ( dir )
-            {
-                case -2:    // Going from the settings to another tab.
-                option = UIViewAnimationOptionTransitionCurlDown;
-                break;
-                
-                case -1:    // Going from a right tab to a left tab.
-                option = UIViewAnimationOptionTransitionFlipFromLeft;
-                break;
-                
-                case 1:     // Going from a left tab to a right tab.
-                option = UIViewAnimationOptionTransitionFlipFromRight;
-                break;
-                
-                case 2:     // Going into the settings pages.
-                option = UIViewAnimationOptionTransitionCurlUp;
-                break;
-            }
-        
-        [UIView transitionFromView:srcView
-                            toView:dstView
-                          duration:0.25
-                           options:option
-                        completion:nil];
-        }
 }
 
 #pragma mark - Network Monitor Methods -
@@ -508,36 +616,72 @@ shouldSelectViewController:(UIViewController *)inViewController
         }
 }
 
+#pragma mark - SearchDelegate Functions -
 /***************************************************************\**
- \brief Displays an alert, mentioning that there is no valid connection.
+ \brief If there is an extrenal search abort, it is sent here.
  *****************************************************************/
-- (void)callInSick
+- (void)abortSearch
 {
 #ifdef DEBUG
-    NSLog(@"Calling in sick.");
+    NSLog(@"BMLTAppDelegate abortSearch called.");
 #endif
-    if ( !_amISick )    // This makes sure we only call it once.
-        {
-        _amISick = YES;
-        UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"ERROR-CANT-LOAD-DRIVER",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
-        
-        [myAlert show];
-        }
-    
 }
 
 /***************************************************************\**
- \brief 
- \returns   
+ \brief This starts the search going, which is an XML parser
+        transaction with the root server. We are the search delegate,
+        and will be called upon completion or error.
  *****************************************************************/
-- (BMLT_Meeting_Search *)getMeetingSearch:(BOOL)createIfNotAlreadyThere
-                               withParams:(NSDictionary *)inSearchParams
+- (void)executeSearchWithParams:(NSDictionary *)inSearchParams  ///< These are the search criteria to be sent to the server.
 {
-    if ( !mySearch && createIfNotAlreadyThere )
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate executeSearchWithParams called.");
+#endif
+    [locationManager stopUpdatingLocation];
+    [searchResults removeAllObjects];
+    [mySearch clearSearch];
+    mySearch = nil;
+    mySearch = [[BMLT_Meeting_Search alloc] initWithCriteria:inSearchParams andName:nil andDescription:nil];
+    [mySearch setDelegate:self];
+    [mySearch doSearch];
+}
+
+/***************************************************************\**
+ \brief When the XML parse is complete, we get this call, with the
+        complete search results.
+        We transfer the search results to our internal property, then
+        delete the search, and call the routine that displays the
+        search results. On the off chance that we are in another
+        thread, we use the main thread call.
+ *****************************************************************/
+- (void)searchCompleteWithError:(NSError *)inError  ///< If there was an error, it is indicated in this parameter.
+{
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate searchCompleteWithError Search Complete With %@", (inError ? [inError description] : @"No Errors"));
+#endif
+    if ( inError )
         {
-        mySearch = [[BMLT_Meeting_Search alloc] initWithCriteria:inSearchParams andName:nil andDescription:nil];
         }
-    
+    else
+        {
+        searchResults = [NSMutableArray arrayWithArray:[mySearch getSearchResults]];
+        [mySearch clearSearch];
+        mySearch = nil;
+        // We copy the parameters that were used for the last search, so they can be accessed later, then clear the search parameters.
+        lastSearchParams = nil;
+        lastSearchParams = [[NSDictionary alloc] initWithDictionary:searchParams];
+        searchParams = nil;
+        // Since it is possible we are in another thread, make sure that we call the UI routine in the main thread.
+        [self performSelectorOnMainThread:@selector(displaySearchResults) withObject:nil waitUntilDone:NO];
+        }
+}
+
+/***************************************************************\**
+ \brief Simply return the search results.
+ \returns a A_BMLT_Search reference, with our internal search results.
+ *****************************************************************/
+- (A_BMLT_Search *)getSearch
+{
     return mySearch;
 }
 

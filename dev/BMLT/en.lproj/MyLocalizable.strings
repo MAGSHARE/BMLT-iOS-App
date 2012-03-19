@@ -50,6 +50,7 @@
 "SETTINGS-PREFER-ADVANCED" = "Start With Advanced Search";
 
 /* The names of the tab bar items, and the views they produce. */
+"TAB-BAR-0" = "Search";
 "TAB-BAR-1" = "Map";
 "TAB-BAR-2" = "List";
 "TAB-BAR-3" = "Settings";
