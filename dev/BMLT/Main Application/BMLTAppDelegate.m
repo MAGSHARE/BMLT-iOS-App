@@ -368,20 +368,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"BMLTAppDelegate didUpdateToLocation Location Found: (%@)", newLocation);
 #endif
     
-    // This makes sure that we spend at least 10 seconds looking up the location, and that we have good horizontal accuracy (reduces the incidence of cached location data).
-    if( newLocation.horizontalAccuracy > 100 )
-        {
-#ifdef DEBUG
-        NSLog(@"BMLTAppDelegate didUpdateToLocation ignoring GPS location more than 100 meters inaccurate :%f", newLocation.horizontalAccuracy);
-#endif
-        return;
-        }
-    
     NSInteger  t = abs((NSInteger)[[newLocation timestamp] timeIntervalSinceNow]);
-    if ( t > 10.0 )
+    if ( t < -10 )  // Ten seconds old is too old.
         {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate didUpdateToLocation ignoring GPS location more than 10 seconds old (cached) :%d", t);
+        NSLog(@"BMLTAppDelegate didUpdateToLocation ignoring old GPS info :%d", t);
 #endif
         return;
         }    
@@ -389,7 +380,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f, and the time interval is %d.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy, t);
 #endif
-    [self setMyLocation:newLocation];
     
     // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).
     if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
@@ -401,10 +391,12 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         NSLog(@"BMLTAppDelegate didUpdateToLocation: Starting a new location-based search.");
 #endif
         [self executeSearchWithParams:searchParams];    // Start the search.
+        
+        _findMeetings = NO; // Clear the semaphore.
         }
     
-    _findMeetings = NO; // Clear the semaphore.
-    
+    [self setMyLocation:newLocation];
+
     if ( [myPrefs keepUpdatingLocation] )   // If they want us to keep updating, we will.
         {
         [locationManager startUpdatingLocation];

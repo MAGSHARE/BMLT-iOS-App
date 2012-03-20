@@ -221,6 +221,6 @@
 - (IBAction)numMeetingsChanged:(id)sender   ///< The meeting count slider
 {
     UISlider  *myControl = (UISlider *)sender;  // Get the sender as a slider control
-    [[BMLT_Prefs getBMLT_Prefs] setResultCount:ceilf(powf(10, [myControl value]))];
+    [[BMLT_Prefs getBMLT_Prefs] setResultCount:floorf(powf(10, [myControl value]))];
 }
 @end
