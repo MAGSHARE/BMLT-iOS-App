@@ -126,7 +126,7 @@
                                     <action selector="preferredSearchChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="yFT-5E-bnq"/>
                                 </connections>
                             </segmentedControl>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="nCk-fh-Rkh">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="nCk-fh-Rkh" customClass="BMLTSnappySlider">
                                 <rect key="frame" x="253" y="179" width="284" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
@@ -343,68 +343,6 @@
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="A_BMLTNavBarViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTNavBarViewController.h"/>
-        </class>
-        <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
-        </class>
-        <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
-        </class>
-        <class className="BMLTAnimatedGlobeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimatedGlobeView.h"/>
-        </class>
-        <class className="BMLTLightGreyView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTLightGreyView.h"/>
-        </class>
-        <class className="BMLTListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTListResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
-        </class>
-        <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="distanceSearchChanged:"/>
-                <relationship kind="action" name="keepUpdatingChanged:"/>
-                <relationship kind="action" name="lookupLocationChanged:"/>
-                <relationship kind="action" name="mapResultsChanged:"/>
-                <relationship kind="action" name="numMeetingsChanged:"/>
-                <relationship kind="action" name="preferredSearchChanged:"/>
-                <relationship kind="action" name="retainStateChanged:"/>
-                <relationship kind="outlet" name="distanceSortLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="distanceSortSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="keepUpdatingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="keepUpdatingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="lookUpLocationSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="lookupLocationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapResultsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapResultsSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="maxLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="minLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numMeetingsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numMeetingsSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="preferredSearchTypeControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="preferredSearchTypeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="retainStateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="retainStateSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="BMLTSimpleSearchViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="findAllMeetingsNearMe:"/>
-                <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
-                <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
-                <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

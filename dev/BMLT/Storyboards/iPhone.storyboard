@@ -346,7 +346,7 @@
                                     <action selector="preferredSearchChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="d9L-Xc-olJ"/>
                                 </connections>
                             </segmentedControl>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="aiz-ga-Xae">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="aiz-ga-Xae" customClass="BMLTSnappySlider">
                                 <rect key="frame" x="18" y="303" width="284" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -509,6 +509,9 @@
                 <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
             </relationships>
+        </class>
+        <class className="BMLTSnappySlider" superclassName="UISlider">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSnappySlider.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

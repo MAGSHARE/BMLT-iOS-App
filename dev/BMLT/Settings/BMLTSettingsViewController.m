@@ -25,6 +25,46 @@
 #define _LOG_MAX    20      /**< The number of meetings for the Max level of the slider. */
 
 /***************************************************************\**
+ \class  BMLTSnappySlider
+ \brief  This is a very simple overload of UISlider to make "detents."
+ *****************************************************************/
+@implementation BMLTSnappySlider
+
+/***************************************************************\**
+ \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
+ \returns    self
+ *****************************************************************/
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+        {
+        // The slider is a logarithmic scale between 5 and 20. Nominal is 10.
+        float   min_val = log10f(_LOG_MIN);
+        float   max_val = log10f(_LOG_MAX);
+        
+        [self setMinimumValue:min_val];
+        [self setMaximumValue:max_val];
+        }
+    return self;
+}
+
+/***************************************************************\**
+ \brief This looks for the nearest integer value (after the log),
+        and "snaps" the slider to it.
+ \returns    self
+ *****************************************************************/
+- (void)setValue:(float)value animated:(BOOL)animated
+{
+    float   powVal = powf(10, value);
+    float   distance_up = ceilf ( powVal ) - powVal;
+    float   distance_down = powVal - floorf(powVal);
+    
+    [super setValue:log10f ( distance_up < distance_down ? ceilf (powVal) : floorf(powVal) ) animated:animated];
+}
+@end
+
+/***************************************************************\**
  \class  BMLTSettingsViewController  -Implementation
  \brief  Allows the user to change the settings/preferences.
  *****************************************************************/
@@ -46,20 +86,6 @@
 @synthesize numMeetingsSlider;
 @synthesize minLabel;
 @synthesize maxLabel;
-
-/***************************************************************\**
- \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
- \returns    self
- *****************************************************************/
-- (id)initWithNibName:(NSString *)nibNameOrNil
-               bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-        {
-        }
-    return self;
-}
 
 /***************************************************************\**
  \brief  Called after the controller's view object has loaded.
@@ -92,14 +118,7 @@
         break;
     }
     
-    // The slider is a logarithmic scale between 5 and 20. Nominal is 10.
-    float   min_val = log10f(_LOG_MIN);
-    float   max_val = log10f(_LOG_MAX);
-    float   act_val = log10f([[NSNumber numberWithInt:[myPrefs resultCount]] floatValue]);
-    
-    [numMeetingsSlider setMinimumValue:min_val];
-    [numMeetingsSlider setMaximumValue:max_val];
-    [numMeetingsSlider setValue:act_val];
+    [numMeetingsSlider setValue:log10f([[NSNumber numberWithInt:[myPrefs resultCount]] floatValue])];
     
     // We make sure that the displayed strings reflect the localized values.
     [lookupLocationLabel setText:NSLocalizedString([lookupLocationLabel text], nil)];
