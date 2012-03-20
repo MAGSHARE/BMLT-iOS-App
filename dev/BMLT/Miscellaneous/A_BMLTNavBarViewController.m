@@ -36,6 +36,22 @@
 @implementation A_BMLTNavBarViewController
 
 /***************************************************************\**
+ \brief  Called to validate the autorotation.
+ \returns    a BOOL. YES if the rotation is approved.
+ *****************************************************************/
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    BOOL    ret = interfaceOrientation == UIInterfaceOrientationPortrait;
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+        ret = YES;
+        }
+    
+    return ret;
+}
+
+/***************************************************************\**
  \brief We read in the current string, and do a localized lookup on
         it. We do this for the nav title, as well as the button on
         each side. If the string has already been changed, no prob.

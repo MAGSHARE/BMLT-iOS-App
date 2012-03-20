@@ -102,15 +102,6 @@
 }
 
 /***************************************************************\**
- \brief  Called to validate the autorotation.
- \returns    a BOOL. YES if the rotation is approved.
- *****************************************************************/
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	return YES;
-}
-
-/***************************************************************\**
  \brief  
  *****************************************************************/
 - (IBAction)lookupLocationChanged:(id)sender

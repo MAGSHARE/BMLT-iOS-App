@@ -51,15 +51,6 @@
     [super viewDidUnload];
 }
 
-/***************************************************************\**
- \brief  Called to validate the autorotation.
- \returns    a BOOL. YES if the rotation is approved.
- *****************************************************************/
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation ///< The desired input orientation.
-{
-	return YES;
-}
-
 #pragma mark IB Actions
 /***************************************************************\**
  \brief  Do a simple meeting lookup.
