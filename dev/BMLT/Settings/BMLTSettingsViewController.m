@@ -19,14 +19,7 @@
 //
 
 #import "BMLTSettingsViewController.h"
-
-/***************************************************************\**
- \class  BMLTSettingsViewController  -Private Interface
- \brief  Allows the user to change the settings/preferences.
- *****************************************************************/
-@interface BMLTSettingsViewController ()
-
-@end
+#import "BMLT_Prefs.h"
 
 /***************************************************************\**
  \class  BMLTSettingsViewController  -Implementation
@@ -34,10 +27,6 @@
  *****************************************************************/
 @implementation BMLTSettingsViewController
 
-/***************************************************************\**
- \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
- \returns    self
- *****************************************************************/
 @synthesize lookupLocationLabel;
 @synthesize lookUpLocationSwitch;
 @synthesize keepUpdatingLabel;
@@ -48,16 +37,16 @@
 @synthesize mapResultsSwitch;
 @synthesize distanceSortLabel;
 @synthesize distanceSortSwitch;
-@synthesize preferredSortTypeLabel;
-@synthesize preferredSortTypeControl;
+@synthesize preferredSearchTypeLabel;
+@synthesize preferredSearchTypeControl;
 @synthesize numMeetingsLabel;
 @synthesize numMeetingsSlider;
 @synthesize minLabel;
 @synthesize maxLabel;
 
 /***************************************************************\**
- \brief     Initializer.
- \returns   self
+ \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
+ \returns    self
  *****************************************************************/
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
@@ -75,6 +64,47 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // We set the values of the various controls to reflect the current settings.
+    BMLT_Prefs  *myPrefs = [BMLT_Prefs getBMLT_Prefs];
+    [lookUpLocationSwitch setOn:[myPrefs lookupMyLocation]];
+    [keepUpdatingSwitch setOn:[myPrefs keepUpdatingLocation]];
+    [retainStateSwitch setOn:[myPrefs preserveAppStateOnSuspend]];
+    [mapResultsSwitch setOn:[myPrefs preferSearchResultsAsMap]];
+    [distanceSortSwitch setOn:[myPrefs preferDistanceSort]];
+    
+    switch ( [myPrefs searchTypePref] )
+    {
+        default:
+        case _PREFER_SIMPLE_SEARCH:
+        [preferredSearchTypeControl setSelectedSegmentIndex:_PREFER_SIMPLE_SEARCH];
+        break;
+        
+        case _PREFER_MAP_SEARCH:
+        [preferredSearchTypeControl setSelectedSegmentIndex:_PREFER_MAP_SEARCH];
+        break;
+        
+        case _PREFER_ADVANCED_SEARCH:
+        [preferredSearchTypeControl setSelectedSegmentIndex:_PREFER_ADVANCED_SEARCH];
+        break;
+    }
+    
+    // We make sure that the displayed strings reflect the localized values.
+    [numMeetingsSlider setValue:[[NSNumber numberWithInt:[myPrefs resultCount]] floatValue]];
+
+    [lookupLocationLabel setText:NSLocalizedString([lookupLocationLabel text], nil)];
+    [keepUpdatingLabel setText:NSLocalizedString([keepUpdatingLabel text], nil)];
+    [retainStateLabel setText:NSLocalizedString([retainStateLabel text], nil)];
+    [mapResultsLabel setText:NSLocalizedString([mapResultsLabel text], nil)];
+    [distanceSortLabel setText:NSLocalizedString([distanceSortLabel text], nil)];
+    [preferredSearchTypeLabel setText:NSLocalizedString([preferredSearchTypeLabel text], nil)];
+    [minLabel setText:NSLocalizedString([minLabel text], nil)];
+    [maxLabel setText:NSLocalizedString([maxLabel text], nil)];
+    
+    for ( NSUInteger i = 0; i < [preferredSearchTypeControl numberOfSegments]; i++ )
+        {
+        [preferredSearchTypeControl setTitle:NSLocalizedString([preferredSearchTypeControl titleForSegmentAtIndex:i], nil) forSegmentAtIndex:i];
+        }
 }
 
 /***************************************************************\**
@@ -92,8 +122,8 @@
     [self setMapResultsSwitch:nil];
     [self setDistanceSortLabel:nil];
     [self setDistanceSortSwitch:nil];
-    [self setPreferredSortTypeLabel:nil];
-    [self setPreferredSortTypeControl:nil];
+    [self setPreferredSearchTypeLabel:nil];
+    [self setPreferredSearchTypeControl:nil];
     [self setNumMeetingsLabel:nil];
     [self setNumMeetingsSlider:nil];
     [self setMinLabel:nil];
@@ -132,14 +162,14 @@
 /***************************************************************\**
  \brief  
  *****************************************************************/
-- (IBAction)distanceSortChanged:(id)sender
+- (IBAction)distanceSearchChanged:(id)sender
 {
 }
 
 /***************************************************************\**
  \brief  
  *****************************************************************/
-- (IBAction)preferredSortChanged:(id)sender
+- (IBAction)preferredSearchChanged:(id)sender
 {
 }
 

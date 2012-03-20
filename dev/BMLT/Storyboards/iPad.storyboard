@@ -122,6 +122,9 @@
                                     <segment title="SEARCH-SPEC-MAP-TITLE"/>
                                     <segment title="SEARCH-SPEC-ADVANCED-TITLE"/>
                                 </segments>
+                                <connections>
+                                    <action selector="preferredSearchChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="yFT-5E-bnq"/>
+                                </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="nCk-fh-Rkh">
                                 <rect key="frame" x="253" y="179" width="284" height="23"/>
@@ -148,8 +151,8 @@
                         <outlet property="minLabel" destination="VxZ-kE-fLB" id="tqg-lN-U8A"/>
                         <outlet property="numMeetingsLabel" destination="vMm-dp-ieI" id="2Ps-AR-Gex"/>
                         <outlet property="numMeetingsSlider" destination="nCk-fh-Rkh" id="dUp-OD-DDA"/>
-                        <outlet property="preferredSortTypeControl" destination="Bwo-Fj-FRQ" id="SZl-O9-vNa"/>
-                        <outlet property="preferredSortTypeLabel" destination="vXO-QL-xlZ" id="HNU-cS-VyJ"/>
+                        <outlet property="preferredSearchTypeControl" destination="Bwo-Fj-FRQ" id="eBj-rR-Vgf"/>
+                        <outlet property="preferredSearchTypeLabel" destination="vXO-QL-xlZ" id="bOo-h9-kSG"/>
                         <outlet property="retainStateLabel" destination="dzB-bV-ZLs" id="hrL-Xu-R8G"/>
                         <outlet property="retainStateSwitch" destination="mYX-gy-1Yx" id="FG4-bf-QOc"/>
                     </connections>
@@ -236,9 +239,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C3s-sr-oSN">
-                                <rect key="frame" x="259" y="84" width="295" height="37"/>
+                                <rect key="frame" x="10" y="20" width="244" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-NEARBY-TITLE">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -251,9 +254,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oHM-sY-V2t">
-                                <rect key="frame" x="259" y="129" width="295" height="37"/>
+                                <rect key="frame" x="262" y="20" width="244" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-LATER-TODAY-TITLE">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -266,9 +269,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NNa-Bu-ist">
-                                <rect key="frame" x="259" y="174" width="295" height="37"/>
+                                <rect key="frame" x="514" y="20" width="244" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-TOMORROW-TITLE">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -365,12 +368,12 @@
         <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="distanceSortChanged:"/>
+                <relationship kind="action" name="distanceSearchChanged:"/>
                 <relationship kind="action" name="keepUpdatingChanged:"/>
                 <relationship kind="action" name="lookupLocationChanged:"/>
                 <relationship kind="action" name="mapResultsChanged:"/>
                 <relationship kind="action" name="numMeetingsChanged:"/>
-                <relationship kind="action" name="preferredSortChanged:"/>
+                <relationship kind="action" name="preferredSearchChanged:"/>
                 <relationship kind="action" name="retainStateChanged:"/>
                 <relationship kind="outlet" name="distanceSortLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="distanceSortSwitch" candidateClass="UISwitch"/>
@@ -384,8 +387,8 @@
                 <relationship kind="outlet" name="minLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numMeetingsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numMeetingsSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="preferredSortTypeControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="preferredSortTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="preferredSearchTypeControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="preferredSearchTypeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="retainStateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="retainStateSwitch" candidateClass="UISwitch"/>
             </relationships>

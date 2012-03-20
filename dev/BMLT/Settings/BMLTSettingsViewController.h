@@ -36,8 +36,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *mapResultsSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *distanceSortLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *distanceSortSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *preferredSortTypeLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *preferredSortTypeControl;
+@property (weak, nonatomic) IBOutlet UILabel *preferredSearchTypeLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *preferredSearchTypeControl;
 @property (weak, nonatomic) IBOutlet UILabel *numMeetingsLabel;
 @property (weak, nonatomic) IBOutlet UISlider *numMeetingsSlider;
 @property (weak, nonatomic) IBOutlet UILabel *minLabel;
@@ -46,7 +46,7 @@
 - (IBAction)keepUpdatingChanged:(id)sender;
 - (IBAction)retainStateChanged:(id)sender;
 - (IBAction)mapResultsChanged:(id)sender;
-- (IBAction)distanceSortChanged:(id)sender;
-- (IBAction)preferredSortChanged:(id)sender;
+- (IBAction)distanceSearchChanged:(id)sender;
+- (IBAction)preferredSearchChanged:(id)sender;
 - (IBAction)numMeetingsChanged:(id)sender;
 @end
