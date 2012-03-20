@@ -21,6 +21,9 @@
 #import "BMLTSettingsViewController.h"
 #import "BMLT_Prefs.h"
 
+#define _LOG_MIN    5       /**< The number of meetings in a search test for the Min level of the slider. */
+#define _LOG_MAX    20      /**< The number of meetings for the Max level of the slider. */
+
 /***************************************************************\**
  \class  BMLTSettingsViewController  -Implementation
  \brief  Allows the user to change the settings/preferences.
@@ -89,9 +92,16 @@
         break;
     }
     
+    // The slider is a logarithmic scale between 5 and 20. Nominal is 10.
+    float   min_val = log10f(_LOG_MIN);
+    float   max_val = log10f(_LOG_MAX);
+    float   act_val = log10f([[NSNumber numberWithInt:[myPrefs resultCount]] floatValue]);
+    
+    [numMeetingsSlider setMinimumValue:min_val];
+    [numMeetingsSlider setMaximumValue:max_val];
+    [numMeetingsSlider setValue:act_val];
+    
     // We make sure that the displayed strings reflect the localized values.
-    [numMeetingsSlider setValue:[[NSNumber numberWithInt:[myPrefs resultCount]] floatValue]];
-
     [lookupLocationLabel setText:NSLocalizedString([lookupLocationLabel text], nil)];
     [keepUpdatingLabel setText:NSLocalizedString([keepUpdatingLabel text], nil)];
     [retainStateLabel setText:NSLocalizedString([retainStateLabel text], nil)];
@@ -133,51 +143,65 @@
 }
 
 /***************************************************************\**
- \brief  
+ \brief  Called when the user flicks the lookup on startup switch.
  *****************************************************************/
-- (IBAction)lookupLocationChanged:(id)sender
+- (IBAction)lookupLocationChanged:(id)sender    ///< The switch in question
 {
+    UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
+    [[BMLT_Prefs getBMLT_Prefs] setLookupMyLocation:[myControl isOn]];
 }
 
 /***************************************************************\**
- \brief  
+ \brief  Called when the user flicks the keep updating location switch.
  *****************************************************************/
-- (IBAction)keepUpdatingChanged:(id)sender
+- (IBAction)keepUpdatingChanged:(id)sender  ///< The switch in question
 {
+    UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
+    [[BMLT_Prefs getBMLT_Prefs] setKeepUpdatingLocation:[myControl isOn]];
 }
 
 /***************************************************************\**
- \brief  
+ \brief  Called when the user flicks the saved state switch.
  *****************************************************************/
-- (IBAction)retainStateChanged:(id)sender
+- (IBAction)retainStateChanged:(id)sender   ///< The switch in question
 {
+    UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
+    [[BMLT_Prefs getBMLT_Prefs] setPreserveAppStateOnSuspend:[myControl isOn]];
 }
 
 /***************************************************************\**
- \brief  
+ \brief  Called when the user flicks the return results as a map switch.
  *****************************************************************/
-- (IBAction)mapResultsChanged:(id)sender
+- (IBAction)mapResultsChanged:(id)sender    ///< The switch in question
 {
+    UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
+    [[BMLT_Prefs getBMLT_Prefs] setPreferSearchResultsAsMap:[myControl isOn]];
 }
 
 /***************************************************************\**
- \brief  
+ \brief  Called when the user flicks the prefer distance sort switch.
  *****************************************************************/
-- (IBAction)distanceSearchChanged:(id)sender
+- (IBAction)distanceSearchChanged:(id)sender    ///< The switch in question
 {
+    UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
+    [[BMLT_Prefs getBMLT_Prefs] setPreferDistanceSort:[myControl isOn]];
 }
 
 /***************************************************************\**
- \brief  
+ \brief  Called when the user selects a preffered search type.
  *****************************************************************/
-- (IBAction)preferredSearchChanged:(id)sender
+- (IBAction)preferredSearchChanged:(id)sender   ///< The search type segmented control
 {
+    UISegmentedControl  *myControl = (UISegmentedControl *)sender;  // Get the sender as a segmented control
+    [[BMLT_Prefs getBMLT_Prefs] setSearchTypePref:[myControl selectedSegmentIndex]];
 }
 
 /***************************************************************\**
- \brief  
+ \brief  Called when the user selects a new meeting count.
  *****************************************************************/
-- (IBAction)numMeetingsChanged:(id)sender
+- (IBAction)numMeetingsChanged:(id)sender   ///< The meeting count slider
 {
+    UISlider  *myControl = (UISlider *)sender;  // Get the sender as a slider control
+    [[BMLT_Prefs getBMLT_Prefs] setResultCount:ceilf(powf(10, [myControl value]))];
 }
 @end
