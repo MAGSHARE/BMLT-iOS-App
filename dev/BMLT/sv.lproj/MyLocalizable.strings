@@ -175,5 +175,15 @@
 "SETTINGS-TITLE" = "Settings";
 "ABOUT-TITLE" = "About BMLT";
 
+"SETTINGS-INITIAL-LOCATION" = "Look Up My Location at Start:";
+"SETTINGS-CONTINOUS-UPDATE-LOCATION" = "Keep Updating My Location:";
+"SETTINGS-RETAIN-STATE" = "Don't Forget My Current State:";
+"SETTINGS-PREFER-MAP-RESULTS" = "Prefer Search Results As Map:";
+"SETTINGS-PREFER-DISTANCE-SORT" = "Sort List Resuls By Distance:";
+"SETTINGS-PREFERRED-SEARCH-TYPE" = "Preferred Search Type:";
+"SETTINGS-NUM-MEETINGS" = "Number Of Meetings In Search Results:";
+"SETTINGS-MIN" = "Min";
+"SETTINGS-MAX" = "Max";
+
 /******************* APPENDED AT BUILD TIME *******************/
 
