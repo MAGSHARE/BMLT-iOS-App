@@ -98,6 +98,7 @@
     [mapResultsLabel setText:NSLocalizedString([mapResultsLabel text], nil)];
     [distanceSortLabel setText:NSLocalizedString([distanceSortLabel text], nil)];
     [preferredSearchTypeLabel setText:NSLocalizedString([preferredSearchTypeLabel text], nil)];
+    [numMeetingsLabel setText:NSLocalizedString([numMeetingsLabel text], nil)];
     [minLabel setText:NSLocalizedString([minLabel text], nil)];
     [maxLabel setText:NSLocalizedString([maxLabel text], nil)];
     
