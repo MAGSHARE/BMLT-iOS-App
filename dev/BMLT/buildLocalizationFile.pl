@@ -18,8 +18,8 @@ $variant = $ARGV[0] if exists $ARGV[0];
 $lang = $ARGV[1] if exists $ARGV[1];
 
 my $input1File = cwd()."/BMLT/".$lang.".lproj/MyLocalizable.strings";
-my $input2File = cwd()."/Variants/BMLT-".$variant."/".$lang.".lproj/MyLocalizable.strings";
-my $input1File = cwd()."/BMLT/".$lang.".lproj/Localizable.strings";
+my $input2File = cwd()."/Variants/".$variant."/".$lang.".lproj/MyLocalizable.strings";
+my $outputFile = cwd()."/BMLT/".$lang.".lproj/Localizable.strings";
 
 open ( MAIN_FILE, $input1File ) || die ( "Could not open main file!" );
 

@@ -125,7 +125,7 @@
 		7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSimpleSearchViewController.m; sourceTree = "<group>"; };
 		77167D4A1517D0BA006E50E8 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = Storyboards/iPad.storyboard; sourceTree = "<group>"; };
 		77167D4B1517D0BA006E50E8 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone.storyboard; path = Storyboards/iPhone.storyboard; sourceTree = "<group>"; };
-		77167D4E1517D205006E50E8 /* README */ = {isa = PBXFileReference; name = README; path = ../README; sourceTree = "<group>"; };
+		77167D4E1517D205006E50E8 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
 		77167D4F1517D21F006E50E8 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
 		771D0C31150E88E5005A707A /* BMLTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAppDelegate.h; sourceTree = "<group>"; };
 		771D0C32150E88E5005A707A /* BMLTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAppDelegate.m; sourceTree = "<group>"; };
@@ -292,6 +292,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		770819011517DF3000319F10 /* Localization Files */ = {
+			isa = PBXGroup;
+			children = (
+				77977D18150E882B00485C8D /* InfoPlist.strings */,
+				773FF2E21514C38200540E30 /* Localizable.strings */,
+				77B59D121514BA1B00C07D18 /* MyLocalizable.strings */,
+				7765AE731514C7EA008E4ACF /* buildLocalizationFile.pl */,
+			);
+			name = "Localization Files";
+			sourceTree = "<group>";
+		};
 		771D0C30150E88E5005A707A /* Main Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,10 +395,10 @@
 		771D0C73150E893C005A707A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				771D0C74150E893C005A707A /* BMLTAboutViewController.h */,
-				771D0C75150E893C005A707A /* BMLTAboutViewController.m */,
 				771D0C76150E893C005A707A /* BMLTSettingsViewController.h */,
 				771D0C77150E893C005A707A /* BMLTSettingsViewController.m */,
+				771D0C74150E893C005A707A /* BMLTAboutViewController.h */,
+				771D0C75150E893C005A707A /* BMLTAboutViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -438,16 +449,15 @@
 		77977D15150E882B00485C8D /* BMLT */ = {
 			isa = PBXGroup;
 			children = (
-				77977D16150E882B00485C8D /* Project Files */,
-				771D0C52150E893C005A707A /* Miscellaneous */,
-				77D96F851517D06B0093399F /* Storyboards */,
 				771D0C30150E88E5005A707A /* Main Application */,
 				771D0C3C150E892A005A707A /* Main Search */,
 				771D0CCF150E8B73005A707A /* List Results */,
 				771D0C4D150E893C005A707A /* Map Results */,
 				771D0C73150E893C005A707A /* Settings */,
 				771D0C5A150E893C005A707A /* Model */,
+				771D0C52150E893C005A707A /* Miscellaneous */,
 				77D90B041514C6460059EF41 /* images */,
+				77977D16150E882B00485C8D /* Project Files */,
 			);
 			path = BMLT;
 			sourceTree = "<group>";
@@ -455,11 +465,9 @@
 		77977D16150E882B00485C8D /* Project Files */ = {
 			isa = PBXGroup;
 			children = (
-				7765AE731514C7EA008E4ACF /* buildLocalizationFile.pl */,
 				77D90B031514C5340059EF41 /* BMLT-Prefix.pch */,
-				773FF2E21514C38200540E30 /* Localizable.strings */,
-				77B59D121514BA1B00C07D18 /* MyLocalizable.strings */,
-				77977D18150E882B00485C8D /* InfoPlist.strings */,
+				770819011517DF3000319F10 /* Localization Files */,
+				77D96F851517D06B0093399F /* Storyboards */,
 			);
 			name = "Project Files";
 			sourceTree = "<group>";
@@ -593,6 +601,7 @@
 			buildPhases = (
 				77977D07150E882B00485C8D /* Sources */,
 				77977D08150E882B00485C8D /* Frameworks */,
+				77D0144B151892D80089C34F /* ShellScript */,
 				77977D09150E882B00485C8D /* Resources */,
 			);
 			buildRules = (
@@ -718,6 +727,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77D0144B151892D80089C34F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/BMLT/buildLocalizationFile.pl ${PRODUCT_NAME}\n${PROJECT_DIR}/BMLT/buildLocalizationFile.pl ${PRODUCT_NAME} \"sv\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77977D07150E882B00485C8D /* Sources */ = {

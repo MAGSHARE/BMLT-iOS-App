@@ -38,6 +38,27 @@
  \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
  \returns    self
  *****************************************************************/
+@synthesize lookupLocationLabel;
+@synthesize lookUpLocationSwitch;
+@synthesize keepUpdatingLabel;
+@synthesize keepUpdatingSwitch;
+@synthesize retainStateLabel;
+@synthesize retainStateSwitch;
+@synthesize mapResultsLabel;
+@synthesize mapResultsSwitch;
+@synthesize distanceSortLabel;
+@synthesize distanceSortSwitch;
+@synthesize preferredSortTypeLabel;
+@synthesize preferredSortTypeControl;
+@synthesize numMeetingsLabel;
+@synthesize numMeetingsSlider;
+@synthesize minLabel;
+@synthesize maxLabel;
+
+/***************************************************************\**
+ \brief     Initializer.
+ \returns   self
+ *****************************************************************/
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,6 +82,22 @@
  *****************************************************************/
 - (void)viewDidUnload
 {
+    [self setLookupLocationLabel:nil];
+    [self setLookUpLocationSwitch:nil];
+    [self setKeepUpdatingLabel:nil];
+    [self setKeepUpdatingSwitch:nil];
+    [self setRetainStateLabel:nil];
+    [self setRetainStateSwitch:nil];
+    [self setMapResultsLabel:nil];
+    [self setMapResultsSwitch:nil];
+    [self setDistanceSortLabel:nil];
+    [self setDistanceSortSwitch:nil];
+    [self setPreferredSortTypeLabel:nil];
+    [self setPreferredSortTypeControl:nil];
+    [self setNumMeetingsLabel:nil];
+    [self setNumMeetingsSlider:nil];
+    [self setMinLabel:nil];
+    [self setMaxLabel:nil];
     [super viewDidUnload];
 }
 
@@ -71,5 +108,54 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+/***************************************************************\**
+ \brief  
+ *****************************************************************/
+- (IBAction)lookupLocationChanged:(id)sender
+{
+}
+
+/***************************************************************\**
+ \brief  
+ *****************************************************************/
+- (IBAction)keepUpdatingChanged:(id)sender
+{
+}
+
+/***************************************************************\**
+ \brief  
+ *****************************************************************/
+- (IBAction)retainStateChanged:(id)sender
+{
+}
+
+/***************************************************************\**
+ \brief  
+ *****************************************************************/
+- (IBAction)mapResultsChanged:(id)sender
+{
+}
+
+/***************************************************************\**
+ \brief  
+ *****************************************************************/
+- (IBAction)distanceSortChanged:(id)sender
+{
+}
+
+/***************************************************************\**
+ \brief  
+ *****************************************************************/
+- (IBAction)preferredSortChanged:(id)sender
+{
+}
+
+/***************************************************************\**
+ \brief  
+ *****************************************************************/
+- (IBAction)numMeetingsChanged:(id)sender
+{
 }
 @end

@@ -44,7 +44,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggj-Ty-D21" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="simple-search" id="1ej-mT-cW2" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jso-hj-sh5" userLabel="search-simple">
-                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4sw-z7-Qal">
@@ -124,7 +124,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8r-pz-Qye" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="map-search" id="fYl-cf-cFm" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rQg-Zb-7H4" userLabel="search-map" customClass="BMLTAnimatedGlobeView">
-                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -238,6 +238,122 @@
                     <view key="view" contentMode="scaleToFill" id="HCP-8L-4u0" userLabel="settings-prefs" customClass="BMLTLightGreyView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="lwl-k3-B1U">
+                                <rect key="frame" x="229" y="10" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="lookupLocationChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="1ef-Dk-LYD"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Look Up My Location at Start:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3UZ-z3-M67">
+                                <rect key="frame" x="7" y="13" width="218" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Ffd-MS-gMU">
+                                <rect key="frame" x="229" y="53" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Keep Updating My Location:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="QgV-EQ-X9t">
+                                <rect key="frame" x="7" y="56" width="218" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="5I5-tm-Io6">
+                                <rect key="frame" x="229" y="95" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="retainStateChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="ze8-S1-3aq"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Don't Forget My Current State:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6O9-0z-dzw">
+                                <rect key="frame" x="7" y="98" width="218" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="HAI-1z-Rmb">
+                                <rect key="frame" x="229" y="138" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="mapResultsChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="rTX-CO-qeq"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Prefer Search Results As  Map:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="TCP-7G-etX">
+                                <rect key="frame" x="7" y="141" width="218" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="d1R-Bw-4lt">
+                                <rect key="frame" x="229" y="179" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="distanceSortChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="epI-a1-Lln"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sort List Results By Distance:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3Q4-Xa-pMg">
+                                <rect key="frame" x="7" y="182" width="218" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Preferred Search Type:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zyR-Zg-A3x">
+                                <rect key="frame" x="20" y="214" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number Of Meetings In Search Results:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Zh0-z9-isd">
+                                <rect key="frame" x="20" y="279" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bJw-es-cas">
+                                <rect key="frame" x="7" y="326" width="100" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Max" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xJW-SY-JOl">
+                                <rect key="frame" x="186" y="326" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="FbI-hR-hfI">
+                                <rect key="frame" x="20" y="237" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="SEARCH-SPEC-SIMPLE-TITLE"/>
+                                    <segment title="SEARCH-SPEC-MAP-TITLE"/>
+                                    <segment title="SEARCH-SPEC-ADVANCED-TITLE"/>
+                                </segments>
+                                <connections>
+                                    <action selector="preferredSortChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="1zf-mW-Wlu"/>
+                                </connections>
+                            </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="aiz-ga-Xae">
+                                <rect key="frame" x="18" y="303" width="284" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="numMeetingsChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="nd6-nU-xT0"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="SETTINGS-TITLE" id="dUA-ga-v9u">
@@ -247,6 +363,24 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="distanceSortLabel" destination="3Q4-Xa-pMg" id="H4W-qG-TW8"/>
+                        <outlet property="distanceSortSwitch" destination="d1R-Bw-4lt" id="dSn-lg-Knl"/>
+                        <outlet property="keepUpdatingLabel" destination="QgV-EQ-X9t" id="cys-aN-CFd"/>
+                        <outlet property="keepUpdatingSwitch" destination="Ffd-MS-gMU" id="Wca-yj-dgX"/>
+                        <outlet property="lookUpLocationSwitch" destination="lwl-k3-B1U" id="BVv-Sg-Vnq"/>
+                        <outlet property="lookupLocationLabel" destination="3UZ-z3-M67" id="tb5-JH-8De"/>
+                        <outlet property="mapResultsLabel" destination="TCP-7G-etX" id="eJ4-mg-ibW"/>
+                        <outlet property="mapResultsSwitch" destination="HAI-1z-Rmb" id="loK-SH-PT5"/>
+                        <outlet property="maxLabel" destination="xJW-SY-JOl" id="8Qi-jv-1hr"/>
+                        <outlet property="minLabel" destination="bJw-es-cas" id="IUd-oN-EsU"/>
+                        <outlet property="numMeetingsLabel" destination="Zh0-z9-isd" id="Smr-XG-AsK"/>
+                        <outlet property="numMeetingsSlider" destination="aiz-ga-Xae" id="iga-q1-xcF"/>
+                        <outlet property="preferredSortTypeControl" destination="FbI-hR-hfI" id="ye6-xS-bkm"/>
+                        <outlet property="preferredSortTypeLabel" destination="zyR-Zg-A3x" id="YDC-8d-fjc"/>
+                        <outlet property="retainStateLabel" destination="6O9-0z-dzw" id="fSE-oU-lad"/>
+                        <outlet property="retainStateSwitch" destination="5I5-tm-Io6" id="zLa-hD-IbR"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="285" y="1887"/>
@@ -257,7 +391,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VqF-3b-vjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="advanced-search" id="eMe-9F-zBx" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF" userLabel="search-advanced">
-                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -309,52 +443,14 @@
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="A_BMLTNavBarViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTNavBarViewController.h"/>
-        </class>
-        <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
-        </class>
-        <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
-        </class>
-        <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
-        </class>
-        <class className="BMLTAnimatedGlobeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimatedGlobeView.h"/>
-        </class>
-        <class className="BMLTLightGreyView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTLightGreyView.h"/>
-        </class>
-        <class className="BMLTListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTListResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapSearchViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
-        </class>
-        <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
-        </class>
-        <class className="BMLTSimpleSearchViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="findAllMeetingsNearMe:"/>
-                <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
-                <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
-                <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="PqN-or-VVj"/>
+        <segue reference="onn-Vj-m9R"/>
+        <segue reference="6dy-0C-PXT"/>
+    </inferredMetricsTieBreakers>
 </document>
