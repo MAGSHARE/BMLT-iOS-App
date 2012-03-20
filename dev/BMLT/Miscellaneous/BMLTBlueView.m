@@ -1,5 +1,5 @@
 //
-//  BMLTBlueView.h
+//  BMLTLightGreyView.m
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -17,16 +17,25 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <UIKit/UIKit.h>
-#import "Animated_BMLT_Logo.h"
 #import "BMLTBlueView.h"
 
 /***************************************************************\**
- \class BMLTBlueView    -Interface
- \brief This class will simply apply a blue textured background to a view.
-        It will also allow display of an animated spinning globe.
+ \class  BMLTLightGreyView    -Implementation
+ \brief  This class will simply apply a gray textured background to a view.
  *****************************************************************/
-@interface BMLTAnimatedGlobeView : BMLTBlueView
-- (void)startAnimation;
-- (void)stopAnimation;
+@implementation BMLTBlueView
+
+/***************************************************************\**
+ \brief  Set the view backgound to the standard light linen color.
+ \returns   self
+ *****************************************************************/
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self)
+        {
+        [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueBackgroundPat.gif"]]];
+        }
+    return self;
+}
 @end

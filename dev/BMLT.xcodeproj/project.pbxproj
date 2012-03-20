@@ -37,6 +37,7 @@
 		771D0C94150E89BC005A707A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771D0C93150E89BC005A707A /* SystemConfiguration.framework */; };
 		771D0CD4150E8B73005A707A /* BMLTListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0CD1150E8B73005A707A /* BMLTListResultsViewController.m */; };
 		773FF2E01514C38200540E30 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 773FF2E21514C38200540E30 /* Localizable.strings */; };
+		777B520F15192409002EDC83 /* BMLTBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* BMLTBlueView.m */; };
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
@@ -180,6 +181,8 @@
 		773FF2E31514C38700540E30 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7765AE711514C72F008E4ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7765AE731514C7EA008E4ACF /* buildLocalizationFile.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = buildLocalizationFile.pl; sourceTree = "<group>"; };
+		777B520D15192409002EDC83 /* BMLTBlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTBlueView.h; sourceTree = "<group>"; };
+		777B520E15192409002EDC83 /* BMLTBlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTBlueView.m; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* BMLT-NY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-NY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -349,6 +352,8 @@
 				771D0C59150E893C005A707A /* Reachability.m */,
 				77A7FD7715122F9900FD6300 /* BMLTAnimatedGlobeView.h */,
 				77A7FD7815122F9900FD6300 /* BMLTAnimatedGlobeView.m */,
+				777B520D15192409002EDC83 /* BMLTBlueView.h */,
+				777B520E15192409002EDC83 /* BMLTBlueView.m */,
 				77CE3F071516252300C93BC6 /* BMLTLightGreyView.h */,
 				77CE3F081516252300C93BC6 /* BMLTLightGreyView.m */,
 				77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */,
@@ -778,6 +783,7 @@
 				77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */,
 				77CE3F091516252300C93BC6 /* BMLTLightGreyView.m in Sources */,
 				77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */,
+				777B520F15192409002EDC83 /* BMLTBlueView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

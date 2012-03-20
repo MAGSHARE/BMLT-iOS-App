@@ -234,7 +234,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLr-ZD-pUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SFh-VH-MDA" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5W2-lU-ExM">
+                    <view key="view" contentMode="scaleToFill" id="5W2-lU-ExM" customClass="BMLTBlueView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -324,7 +324,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoG-rK-fy0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="crR-vv-v9x" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QJv-Je-6DP" customClass="BMLTAnimatedGlobeView">
+                    <view key="view" contentMode="scaleToFill" id="QJv-Je-6DP" customClass="BMLTBlueView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
