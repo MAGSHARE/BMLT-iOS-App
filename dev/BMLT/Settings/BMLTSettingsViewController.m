@@ -200,7 +200,7 @@
 /**************************************************************//**
  \brief  Called when the user flicks the prefer distance sort switch.
  *****************************************************************/
-- (IBAction)distanceSearchChanged:(id)sender    ///< The switch in question
+- (IBAction)distanceSortChanged:(id)sender    ///< The switch in question
 {
     UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
     [[BMLT_Prefs getBMLT_Prefs] setPreferDistanceSort:[myControl isOn]];

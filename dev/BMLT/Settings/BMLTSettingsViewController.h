@@ -54,7 +54,7 @@
 - (IBAction)keepUpdatingChanged:(id)sender;
 - (IBAction)retainStateChanged:(id)sender;
 - (IBAction)mapResultsChanged:(id)sender;
-- (IBAction)distanceSearchChanged:(id)sender;
+- (IBAction)distanceSortChanged:(id)sender;
 - (IBAction)preferredSearchChanged:(id)sender;
 - (IBAction)numMeetingsChanged:(id)sender;
 @end
