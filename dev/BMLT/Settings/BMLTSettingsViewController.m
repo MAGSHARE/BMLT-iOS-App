@@ -34,15 +34,19 @@
 /**************************************************************//**
  \brief This looks for the nearest integer value (after the log),
         and "snaps" the slider to it.
- \returns    self
+        This works by intercepting the floating-point input, then
+        seeing whether the nearest integer value is closer above or
+        below it, then returns a value to the superclass for that
+        integer value.
+        Since this is a logarithmic slider, with integer "detents,"
+        we use base-10 pow to expand the value.
  *****************************************************************/
-- (void)setValue:(float)value animated:(BOOL)animated
+- (void)setValue:(float)value       ///< The value to set to the slider.
+        animated:(BOOL)animated     ///< Whether or not to animate the value setting.
 {
     float   powVal = powf(10, value);
-    float   distance_up = ceilf ( powVal ) - powVal;
-    float   distance_down = powVal - floorf(powVal);
     
-    [super setValue:log10f ( distance_up < distance_down ? ceilf (powVal) : floorf(powVal) ) animated:animated];
+    [super setValue:log10f((ceilf(powVal) - powVal) < (powVal - floorf(powVal)) ? ceilf (powVal) : floorf(powVal)) animated:animated];
 }
 @end
 
