@@ -21,7 +21,7 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTNavBarViewController.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTSnappySlider
  \brief  This is a very simple overload of UISlider to make "detents."
  *****************************************************************/
@@ -29,7 +29,7 @@
 
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTSettingsViewController
  \brief  Allows the user to change the settings/preferences.
  *****************************************************************/

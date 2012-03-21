@@ -21,7 +21,7 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTSearchResultsViewController.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTListResultsViewController
  \brief  This class will control display of listed results.
  *****************************************************************/

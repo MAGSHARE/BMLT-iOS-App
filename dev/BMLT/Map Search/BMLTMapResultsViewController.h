@@ -21,7 +21,7 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTSearchResultsViewController.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTMapResultsViewController
  \brief  This class will control display of mapped results.
  *****************************************************************/

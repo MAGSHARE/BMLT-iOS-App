@@ -20,7 +20,7 @@
 
 #import "BMLTListResultsViewController.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTListResultsViewController -Private Interface
  \brief  This class will control display of listed results.
  *****************************************************************/
@@ -28,7 +28,7 @@
 
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTListResultsViewController -Private Interface
  \brief  This class will control display of listed results.
  *****************************************************************/

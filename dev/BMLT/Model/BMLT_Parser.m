@@ -17,14 +17,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/***************************************************************\**
+/**************************************************************//**
  \file BMLT_Parser.m
  \brief This file instantiates a special asynch parser class.
  *****************************************************************/
 
 #import "BMLT_Parser.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLT_Parser
  \brief This is a special overload of the NSXMLParser class that is
  designed specifically for use as a background thread parser.
@@ -45,7 +45,7 @@
 @implementation BMLT_Parser
 
 #pragma mark - Overload Functions -
-/***************************************************************\**
+/**************************************************************//**
  \brief Releases all retains, and also kills the timeout process.
  *****************************************************************/
 - (void)dealloc
@@ -53,7 +53,7 @@
     [self cancelTimeout];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief We intercept the delegate setting, so we can retain the
  first delegate, which is informed of the timeout. This allows us
  to do the "delegate tree" walk, yet send timeouts to the root.
@@ -63,7 +63,7 @@
     [self setBMLTDelegate:(NSObject<NSXMLParserDelegate> *)delegate];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Abort all parsing, and return us to a static condition.
  *****************************************************************/
 - (void)abortParsing
@@ -73,7 +73,7 @@
 }
 
 #pragma mark - Custom Functions -
-/***************************************************************\**
+/**************************************************************//**
  \brief Cancels the timeout, and deletes everything. Reset to zero.
  *****************************************************************/
 - (void)cancelTimeout
@@ -86,7 +86,7 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This is our custom function for setting the delegate. The
  delegate must be an NSObject, and the first delegate is retained.
  All delegates are retained, then released when a new delegate is
@@ -104,7 +104,7 @@
     [super setDelegate:inDelegate ? self : nil];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Sets the current parsing element
  *****************************************************************/
 - (void)setCurrentElement:(NSObject *)inObject  ///< The object for the parsing element.
@@ -112,7 +112,7 @@
     currentElement = inObject;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief We allow the parser to retain a server, to be accessible
  by delegate callbacks.
  *****************************************************************/
@@ -121,7 +121,7 @@
     myServer = inServerObject;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Get the parser's BMLT server
  \returns an instance of BMLT_Server, containing the parser's current server.
  *****************************************************************/
@@ -130,7 +130,7 @@
     return myServer;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Get the "prime delegate" for this parser.
         The "prime delegate" is the one that should have the final
         say, in matters such as timeouts. This is to avoid a "delegate
@@ -143,7 +143,7 @@
     return myFirstDelegate;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Starts the parser, with optional async and timeout.
  *****************************************************************/
 - (void)parseAsync:(BOOL)isAsync    ///< YES, if the parsing is to be done in another thread.
@@ -166,7 +166,7 @@
 
 #pragma mark - NSXMParserDelegate Functions
     /// These funtions are overrides of the standard NSXMLParser functions. They simply let the first delegate sit around, and call the topmost delegate. It tests the delegate before calling, to make sure it can respond to the selector.
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parserDidStartDocument:(NSXMLParser *)parser
@@ -177,7 +177,7 @@
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parserDidEndDocument:(NSXMLParser *)parser
@@ -190,7 +190,7 @@
     [self cancelTimeout];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -204,7 +204,7 @@ foundNotationDeclarationWithName:(NSString *)name
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -219,7 +219,7 @@ foundUnparsedEntityDeclarationWithName:(NSString *)name
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -234,7 +234,7 @@ foundAttributeDeclarationWithName:(NSString *)attributeName
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -247,7 +247,7 @@ foundElementDeclarationWithName:(NSString *)elementName
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -260,7 +260,7 @@ foundInternalEntityDeclarationWithName:(NSString *)name
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -274,7 +274,7 @@ foundExternalEntityDeclarationWithName:(NSString *)name
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -289,7 +289,7 @@ didStartElement:(NSString *)elementName
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -303,7 +303,7 @@ didStartElement:(NSString *)elementName
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -316,7 +316,7 @@ didStartMappingPrefix:(NSString *)prefix
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -328,7 +328,7 @@ didEndMappingPrefix:(NSString *)prefix
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -340,7 +340,7 @@ foundCharacters:(NSString *)string
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -352,7 +352,7 @@ foundIgnorableWhitespace:(NSString *)whitespaceString
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -365,7 +365,7 @@ foundProcessingInstructionWithTarget:(NSString *)target
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -377,7 +377,7 @@ foundProcessingInstructionWithTarget:(NSString *)target
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -389,7 +389,7 @@ foundProcessingInstructionWithTarget:(NSString *)target
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  \returns 
  *****************************************************************/
@@ -405,7 +405,7 @@ resolveExternalEntityName:(NSString *)name
     return nil;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -424,7 +424,7 @@ parseErrorOccurred:(NSError *)parseError
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -439,7 +439,7 @@ validationErrorOccurred:(NSError *)validationError
 }
 
 #pragma mark - Timeout Handler -
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)timeoutHandler

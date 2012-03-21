@@ -23,14 +23,14 @@
 #import "BMLT_Server.h"
 #import <UIKit/UIKit.h>
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLT_Meeting_Search
  \brief A concrete implementation of the search, based on meetings.
  *****************************************************************/
 @implementation BMLT_Meeting_Search
 
 #pragma mark - NSXMLParserDelegate
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the parser starts on one of the search's
  eclosed data elements.
  *****************************************************************/

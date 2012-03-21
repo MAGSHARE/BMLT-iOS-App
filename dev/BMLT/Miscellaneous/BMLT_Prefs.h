@@ -22,7 +22,7 @@
 
 #define BMLT_Pref_Default_Value_Grace_Period    15
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLT_Prefs
  \brief This class is a preference for a single server connection.
  *****************************************************************/
@@ -48,7 +48,7 @@
 #define _PREFER_MAP_SEARCH      1   ///< Start on the Map Search.
 #define _PREFER_ADVANCED_SEARCH 2   ///< Start on the Advanced Search.
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLT_Prefs
  \brief This class is a global SINGLETON instance with all of the
         prefs.

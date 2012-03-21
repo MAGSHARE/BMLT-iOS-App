@@ -24,7 +24,7 @@
 
 #define meeting_search_timeout_period_in_seconds 30
 
-/***************************************************************\**
+/**************************************************************//**
  \class  A_BMLT_Search
  \brief  This class contains a search instance, with criteria and
          results. The search will run an XML parse.

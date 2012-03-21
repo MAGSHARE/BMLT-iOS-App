@@ -26,7 +26,7 @@
 
 @class BMLT_Prefs;  ///< Foward decl for the prefs property.
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLTAppDelegate
  \brief This is the main application delegate class for the BMLT application
  *****************************************************************/
@@ -60,4 +60,8 @@
 - (void)stopNetworkMonitor;                             ///< Stop observing the network connectivity status.
 - (void)startNetworkMonitor;                            ///< Start a network test.
 - (void)networkStatusCallback:(NSNotification *)notice; ///< Gets the results of the network test.
+- (void)setUpTabBarItems;                               ///< Enables and Disables the UITabBar items in accordance with the current state.
+- (void)clearAllSearchResults;                          ///< Clears all the search results, and the results views.
+- (void)startAnimations;                                ///< Starts the animations in the two results screens.
+- (void)stopAnimations;                                 ///< Stops the animations in the two results screens.
 @end

@@ -20,7 +20,7 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTNavBarViewController.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTAdvancedSearchViewController
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/

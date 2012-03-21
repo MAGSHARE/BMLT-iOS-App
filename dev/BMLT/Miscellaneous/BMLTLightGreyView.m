@@ -19,13 +19,13 @@
 
 #import "BMLTLightGreyView.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTLightGreyView    -Implementation
  \brief  This class will simply apply a gray textured background to a view.
  *****************************************************************/
 @implementation BMLTLightGreyView
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Set the view backgound to the standard light linen color.
  \returns   self
  *****************************************************************/

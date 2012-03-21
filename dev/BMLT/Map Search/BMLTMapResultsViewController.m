@@ -20,7 +20,7 @@
 
 #import "BMLTMapResultsViewController.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTMapResultsViewController -Private Interface
  \brief  This class will control display of mapped results.
  *****************************************************************/
@@ -28,7 +28,7 @@
 
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTMapResultsViewController -Private Interface
  \brief  This class will control display of mapped results.
  *****************************************************************/

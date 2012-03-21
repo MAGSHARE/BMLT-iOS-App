@@ -19,7 +19,7 @@
 
 #import <UIKit/UIKit.h>
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTLightGreyView    -Interface
  \brief  This class will simply apply a gray weave textured background to a view.
  *****************************************************************/

@@ -17,7 +17,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/***************************************************************\**
+/**************************************************************//**
  \file  BMLT_Location.m
  \brief A simple class that holds locations for use by the app.
         This extends NSCoding, and allows location data to be stored
@@ -26,13 +26,13 @@
 
 #import "BMLT_Location.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLT_Location
  \brief This class holds information about a meeting location.
  *****************************************************************/
 @implementation BMLT_Location
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Set a location item as a string, using a key.
  *****************************************************************/
 - (void)setLocationElementValue:(id)inValue         ///< The value to set
@@ -97,7 +97,7 @@
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Get the string for a given key.
  \returns a string, containing the value.
  *****************************************************************/
@@ -106,7 +106,7 @@
     return [location_strings objectForKey:inKey];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Get the location long/lat coordinates, as a CLLocation
  \returns a CLLocation object, with the coordinates
  *****************************************************************/
@@ -115,7 +115,7 @@
     return location_position;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Get all the string items for the location.
  \returns an NSDictionary instance that has all the strings.
  *****************************************************************/
@@ -126,7 +126,7 @@
 
 #pragma mark - NSCoder Protocol Implementation -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Initializer -uses the NSCoder interface
  \returns self
  *****************************************************************/
@@ -154,7 +154,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the values into a coder.
  *****************************************************************/
 -(void)encodeWithCoder:(NSCoder *)encoder   ///< The coder, to place the current values.

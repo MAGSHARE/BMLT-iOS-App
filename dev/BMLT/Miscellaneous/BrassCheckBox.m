@@ -18,7 +18,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/***************************************************************\**
+/**************************************************************//**
  \file BrassCheckBox.m
  \brief This class extends the standard UIButton class, to implement
         a boolean checkbox that displays an image that simulates a
@@ -29,13 +29,13 @@
 
 #import "BrassCheckBox.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class BrassCheckBox
  \brief This implements a special "checkbox" interface element.
  *****************************************************************/
 @implementation BrassCheckBox
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Overload of the inherited initWith Frame, to read in the image.
  \returns self
  *****************************************************************/
@@ -55,7 +55,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Overload of the initWithCoder, so that the selector can be caught.
  \returns self
  *****************************************************************/
@@ -72,7 +72,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Accessor -Is Dis Ting ON?
  \returns YES, if the state is ON. NO, if OFF.
  *****************************************************************/
@@ -81,7 +81,7 @@
     return isOn;
 }
     
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the state.
  *****************************************************************/
 - (void)setIsOn:(BOOL)inIsOn    ///< YES, if the state is to be ON.
@@ -110,7 +110,7 @@
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Toggles the state.
  *****************************************************************/
 - (BOOL)toggleState
@@ -120,7 +120,7 @@
     return isOn;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This is a responder. It toggles if the user clicked inside.
  *****************************************************************/
 - (void)buttonClickedInside:(id)sender  ///< The Control event sender.

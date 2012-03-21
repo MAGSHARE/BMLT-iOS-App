@@ -17,7 +17,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/***************************************************************\**
+/**************************************************************//**
  \file  BMLT_Server.m
  \brief This is a class that maintains information about a BMLT
         root server.
@@ -26,14 +26,14 @@
 #import "BMLT_Server.h"
 #import "BMLT_Driver.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLT_Server
  \brief This class models a BMLT root server.
  *****************************************************************/
 @implementation BMLT_Server
 
 #pragma mark - Override Functions -
-/***************************************************************\**
+/**************************************************************//**
  \brief This is the default initializer for this class. It calls the
         main initializer.
  \returns the initialized instance of the class.
@@ -54,13 +54,13 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Bye now.
  *****************************************************************/
 
 #pragma mark - Class-Specific Functions -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This is the main initializer for this class.
  \returns the initialized instance of the class.
  *****************************************************************/
@@ -88,7 +88,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Sets the server delegate for this object.
  *****************************************************************/
 - (void)setDelegate:(NSObject *)inDelegate  ///< The delegate object.
@@ -96,7 +96,7 @@
     delegate = inDelegate;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Accessor - Get the object delegate.
  \returns the delegate for this onject.
  *****************************************************************/
@@ -105,7 +105,7 @@
     return delegate;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Accessor - Get the cached server formats.
  \returns an NSArray of BMLT_format objects.
  *****************************************************************/
@@ -114,7 +114,7 @@
     return cachedFormats;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Accessor - Get the cached Server languages.
  \returns an NSArray of NSString, with the language enumerators.
  *****************************************************************/
@@ -123,7 +123,7 @@
     return languages;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Accessor - Get the server version.
  \returns an NSString, with the server version.
  *****************************************************************/
@@ -132,7 +132,7 @@
     return version;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Queries the server for its version. If the server returns
  a good version, then we consider it a valid BMLT server.
  *****************************************************************/
@@ -160,7 +160,7 @@
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Queries the server for its version. If the server returns
  a good version, then we consider it a valid BMLT server.
  *****************************************************************/
@@ -187,7 +187,7 @@
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Queries the server. If it is valid, we add it to the driver.
  *****************************************************************/
 - (void)verifyServerAndAddToParent
@@ -195,7 +195,7 @@
     [self verifyServer];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Is the server a valid BMLT root server?
  \returns YES, if so.
  *****************************************************************/
@@ -204,7 +204,7 @@
     return nil != version;  // If we have a version, we are a valid server.
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Adds the given format object to the cached array.
  \returns YES, if the format was added. NO if the format was already
           in the array.
@@ -229,7 +229,7 @@
 #pragma mark - Protocol Functions
 
 #pragma mark - NSXMLParserDelegate
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the parser starts on one of the XML element's
  eclosed data elements.
  *****************************************************************/
@@ -279,7 +279,7 @@ didStartElement:(NSString *)elementName         ///< The name of the element
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Callback    -The XML parser has some string data for us.
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser    ///< The parser object
@@ -299,7 +299,7 @@ foundCharacters:(NSString *)string      ///< The string data
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the XML parser is done with the element.
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser    ///< The parser object
@@ -340,7 +340,7 @@ foundCharacters:(NSString *)string      ///< The string data
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Callback -Called when the parser encounters an error.
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser        ///< The parser object
@@ -358,7 +358,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error that the parser wants
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Callback -The document is done.
  *****************************************************************/
 - (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser object
@@ -370,7 +370,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error that the parser wants
 }
 
 #pragma mark - Timeout Handler -
-/***************************************************************\**
+/**************************************************************//**
  \brief Callback -Handles a timeout error.
  *****************************************************************/
 - (void)timeoutHandler
@@ -381,7 +381,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error that the parser wants
     [self performSelectorOnMainThread:@selector(showTimeoutAlert) withObject:nil waitUntilDone:YES];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Shows the timeout error alert.
  *****************************************************************/
 - (void)showTimeoutAlert

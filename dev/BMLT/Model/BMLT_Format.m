@@ -17,7 +17,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/***************************************************************\**
+/**************************************************************//**
  \file  BMLT_Format.m
  \brief This class describes a format code (used to display meeting
         formats). It is "owned" by a BMLT_Server instance.
@@ -27,7 +27,7 @@
 #import "BMLT_Server.h"
 #import <UIKit/UIKit.h>
 
-/***************************************************************\**
+/**************************************************************//**
  \class FormatUIElements
  \brief This class contains elements used to display a format.
  *****************************************************************/
@@ -39,7 +39,7 @@
 
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLT_Format
  \brief This class contains information about BMLT formats.
  *****************************************************************/
@@ -52,7 +52,7 @@
 
 #pragma mark - Static Functions -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Static function to return the indicator color and image for the format.
  \returns a FormatUIElements object, containing the display options
  for the format.
@@ -97,7 +97,7 @@
 
 #pragma mark - Override Functions -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Initializer
  \returns self
  *****************************************************************/
@@ -108,7 +108,7 @@
 
 #pragma mark - Class-Specific Functions -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Initializes with various initial setup data
  \returns self
  *****************************************************************/
@@ -130,7 +130,7 @@
 
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_NameDescProtocol
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the meeting name.
  *****************************************************************/
 - (void)setBMLTName:(NSString *)inName  ///< The name of the meeting.
@@ -138,7 +138,7 @@
     bmlt_name = inName;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the meeting description
  *****************************************************************/
 - (void)setBMLTDescription:(NSString *)inDescription    ///< The meeting description.
@@ -147,7 +147,7 @@
 }
 
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Get the meeting name.
  \returns a string, containing the meeting name.
  *****************************************************************/
@@ -156,7 +156,7 @@
     return bmlt_name;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Get the meeting description.
  \returns a string, containing the meeting description.
  *****************************************************************/
@@ -166,7 +166,7 @@
 }
 
 #pragma mark - NSXMLParserDelegate
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the parser starts on one of the format element's
  eclosed data elements.
  *****************************************************************/
@@ -182,7 +182,7 @@ didStartElement:(NSString *)elementName         ///< The name of the element
     [self setCurrentElement:elementName];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the XML parser is reading element characters.
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser    ///< The parser object
@@ -231,7 +231,7 @@ foundCharacters:(NSString *)string      ///< The characters
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the XML parser is done with the element.
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser    ///< The parser object
@@ -262,7 +262,7 @@ foundCharacters:(NSString *)string      ///< The characters
 
     // We only use these for debug. Otherwise, we ignore errors and premature endings.
 #ifdef _CONNECTION_PARSE_TRACE_
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the parser receives an error.
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser        ///< The parser object
@@ -271,7 +271,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error object
     NSLog(@"\tERROR: BMLT_Meeting Parser Error:%@", [parseError localizedDescription] );
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the parser ends the document (should never happen).
  *****************************************************************/
 - (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser object

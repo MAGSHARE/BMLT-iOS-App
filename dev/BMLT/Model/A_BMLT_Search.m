@@ -17,7 +17,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/***************************************************************\**
+/**************************************************************//**
  \file      A_BMLT_Search.m
  \brief     This file implements the main search object of the app.
             The search is done asynchronously, and a delegate system
@@ -31,7 +31,7 @@
 #import "BMLT_Server.h"
 #import "BMLTAppDelegate.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  A_BMLT_Search
  \brief  This class contains a search instance, with criteria and
  results. The search will run an XML parse.
@@ -40,7 +40,7 @@
 
 #pragma mark - Override Functions -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Initializer
  \returns   self
  *****************************************************************/
@@ -49,7 +49,7 @@
     return [self initWithCriteria:nil andName:nil andDescription:nil];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief un-initializer
  *****************************************************************/
 - (void)dealloc
@@ -59,7 +59,7 @@
 
 #pragma mark - Class-Specific Functions -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Initializer with search criteria
  \returns   self
  *****************************************************************/
@@ -86,7 +86,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Add a single search criteria to the search object
  *****************************************************************/
 - (void)addSearchCriteriaData:(NSString *)inValue   ///< The value of the KVP
@@ -111,7 +111,7 @@
     [searchCriteria setObject:inValue forKey:inKey];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief See if there is a search under way (async)
  \returns YES if there is a search going on.
  *****************************************************************/
@@ -120,7 +120,7 @@
     return searchInProgress;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Get the search criteria dictionary
  \returns   A dictionary, with all the search criteria
  *****************************************************************/
@@ -129,7 +129,7 @@
     return searchCriteria;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Executes the search asynchronously
  *****************************************************************/
 - (void)doSearch
@@ -228,7 +228,7 @@
 
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_ParentProtocol
-/***************************************************************\**
+/**************************************************************//**
  \brief     Gets all the child objects of the search (the results)
  \returns   An array of meeting objects
  *****************************************************************/
@@ -238,7 +238,7 @@
 }
 
 #pragma mark - BMLT_NameDescProtocol
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the name of this search
  *****************************************************************/
 - (void)setBMLTName:(NSString *)inName  ///< The name string
@@ -246,7 +246,7 @@
     bmlt_name = inName;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the description of the search
  *****************************************************************/
 - (void)setBMLTDescription:(NSString *)inDescription    ///< The textual description
@@ -255,7 +255,7 @@
 }
 
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Get the name of the search
  \returns   a string -the search name
  *****************************************************************/
@@ -264,7 +264,7 @@
     return bmlt_name;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Get the search description
  \returns   a string -the description
  *****************************************************************/
@@ -273,7 +273,7 @@
     return bmlt_description;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the delegate to receive search notifications
  *****************************************************************/
 - (void)setDelegate:(NSObject<SearchDelegate> *)inDelegate  ///< The search caller
@@ -281,7 +281,7 @@
     myDelegate = inDelegate;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Add a single result to the search results array
  *****************************************************************/
 - (void)addSearchResult:(NSObject<BMLT_NameDescProtocol> *)inResult ///< The search result (will be a meeting object)
@@ -300,7 +300,7 @@
 #endif
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Get the search delegate
  \returns   The search "owner."
  *****************************************************************/
@@ -309,7 +309,7 @@
     return myDelegate;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Clears all the search results, and the criteria
  *****************************************************************/
 - (void)clearSearch
@@ -325,7 +325,7 @@
     searchInProgress = NO;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Get the search results
  \returns   an array of meeting objects
  *****************************************************************/
@@ -335,7 +335,7 @@
 }
 
 #pragma mark - NSXMLParserDelegate
-/***************************************************************\**
+/**************************************************************//**
  \brief The parse of one element in the XML response is beginning
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser            ///< The parser object
@@ -350,7 +350,7 @@ didStartElement:(NSString *)elementName         ///< The name of the element
 #endif
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Character data have been found in the elemnt
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser    ///< The parser object
@@ -361,7 +361,7 @@ foundCharacters:(NSString *)string      ///< The character data
 #endif
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief The element being parsed is closing
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser    ///< The parser object
@@ -374,7 +374,7 @@ foundCharacters:(NSString *)string      ///< The character data
 #endif
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Called if there was an error in parsing the XML
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser        ///< The parser object
@@ -388,7 +388,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error object
     searchInProgress = NO;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when parsing is complete.
  *****************************************************************/
 - (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser in question

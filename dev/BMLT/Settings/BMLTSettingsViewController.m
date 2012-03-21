@@ -24,13 +24,13 @@
 #define _LOG_MIN    5       /**< The number of meetings in a search test for the Min level of the slider. */
 #define _LOG_MAX    20      /**< The number of meetings for the Max level of the slider. */
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTSnappySlider
  \brief  This is a very simple overload of UISlider to make "detents."
  *****************************************************************/
 @implementation BMLTSnappySlider
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
  \returns    self
  *****************************************************************/
@@ -49,7 +49,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This looks for the nearest integer value (after the log),
         and "snaps" the slider to it.
  \returns    self
@@ -64,7 +64,7 @@
 }
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTSettingsViewController  -Implementation
  \brief  Allows the user to change the settings/preferences.
  *****************************************************************/
@@ -87,7 +87,7 @@
 @synthesize minLabel;
 @synthesize maxLabel;
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
 - (void)viewDidLoad
@@ -137,7 +137,7 @@
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called after the controller's view object has unloaded.
  *****************************************************************/
 - (void)viewDidUnload
@@ -161,7 +161,7 @@
     [super viewDidUnload];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called when the user flicks the lookup on startup switch.
  *****************************************************************/
 - (IBAction)lookupLocationChanged:(id)sender    ///< The switch in question
@@ -170,7 +170,7 @@
     [[BMLT_Prefs getBMLT_Prefs] setLookupMyLocation:[myControl isOn]];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called when the user flicks the keep updating location switch.
  *****************************************************************/
 - (IBAction)keepUpdatingChanged:(id)sender  ///< The switch in question
@@ -179,7 +179,7 @@
     [[BMLT_Prefs getBMLT_Prefs] setKeepUpdatingLocation:[myControl isOn]];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called when the user flicks the saved state switch.
  *****************************************************************/
 - (IBAction)retainStateChanged:(id)sender   ///< The switch in question
@@ -188,7 +188,7 @@
     [[BMLT_Prefs getBMLT_Prefs] setPreserveAppStateOnSuspend:[myControl isOn]];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called when the user flicks the return results as a map switch.
  *****************************************************************/
 - (IBAction)mapResultsChanged:(id)sender    ///< The switch in question
@@ -197,7 +197,7 @@
     [[BMLT_Prefs getBMLT_Prefs] setPreferSearchResultsAsMap:[myControl isOn]];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called when the user flicks the prefer distance sort switch.
  *****************************************************************/
 - (IBAction)distanceSearchChanged:(id)sender    ///< The switch in question
@@ -206,7 +206,7 @@
     [[BMLT_Prefs getBMLT_Prefs] setPreferDistanceSort:[myControl isOn]];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called when the user selects a preffered search type.
  *****************************************************************/
 - (IBAction)preferredSearchChanged:(id)sender   ///< The search type segmented control
@@ -215,7 +215,7 @@
     [[BMLT_Prefs getBMLT_Prefs] setSearchTypePref:[myControl selectedSegmentIndex]];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called when the user selects a new meeting count.
  *****************************************************************/
 - (IBAction)numMeetingsChanged:(id)sender   ///< The meeting count slider

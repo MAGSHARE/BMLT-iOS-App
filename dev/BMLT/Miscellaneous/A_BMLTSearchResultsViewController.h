@@ -21,7 +21,7 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTNavBarViewController.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTSearchResultsViewController
  \brief  This abstract base class will control display of listed results.
  *****************************************************************/

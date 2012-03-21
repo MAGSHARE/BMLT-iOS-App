@@ -20,20 +20,20 @@
 #import "BMLTSegwayController.h"
 #import <QuartzCore/QuartzCore.h>
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTSegwayController -Private interface
  \brief  This class will control the segues between the various search specification dialogs.
  *****************************************************************/
 @interface BMLTSegwayController ()
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTSegwayController -Implementation
  \brief  This class will control the segues between the various search specification dialogs.
 */
 @implementation BMLTSegwayController
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Actually do the dirty deed.
  *          What this segue does, is manage a transition between two navigation views,
  *          so that the direction of the switch approximates the navbar button that was hit.

@@ -22,7 +22,7 @@
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTAppDelegate -Private Interface
  \brief  This is the main application delegate class for the BMLT application
  *****************************************************************/
@@ -39,7 +39,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 - (void)displaySearchResults;
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTAppDelegate
  \brief  This is the main application delegate class for the BMLT application
  *****************************************************************/
@@ -57,7 +57,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 @synthesize lastSearchParams;           ///< This will hold the parameters that were used for the last search.
 
 #pragma mark - Class Methods -
-/***************************************************************\**
+/**************************************************************//**
  \brief  This class method allows access to the application delegate object (SINGLETON)
  *****************************************************************/
 + (BMLTAppDelegate *)getBMLTAppDelegate
@@ -65,7 +65,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     return g_AppDelegate;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Check to make sure that Location Services are available
  \returns YES, if Location Services are available
  *****************************************************************/
@@ -75,7 +75,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
             && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Check to make sure that we can reach the root server.
  \returns YES, if the server is available.
  *****************************************************************/
@@ -84,7 +84,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     return [g_AppDelegate hostActive] && [g_AppDelegate internetActive];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Check to make sure that we have a valid location.
  \returns YES, if the location is valid.
  *****************************************************************/
@@ -93,7 +93,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     return [g_AppDelegate isLookupValid];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief returns the date/time of the "too late" meeting start time.
  \returns an NSDate, set to the time (either now, or with the grace period)
  *****************************************************************/
@@ -105,7 +105,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 }
 
 #pragma mark - Private methods -
-/***************************************************************\**
+/**************************************************************//**
  \brief Manages the transition from one view to another. Just like
         it says on the tin.
  *****************************************************************/
@@ -149,7 +149,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Displays an alert, mentioning that there is no valid connection.
  *****************************************************************/
 - (void)callInSick
@@ -167,16 +167,16 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This is called to tell the app to display the search results.
  *****************************************************************/
 - (void)displaySearchResults
 {
-    
+    [self setUpTabBarItems];
 }
 
 #pragma mark - Standard Instance Methods -
-/***************************************************************\**
+/**************************************************************//**
  \brief  Initialize the object
  \returns    self
  *****************************************************************/
@@ -200,7 +200,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Just make sure that we stop the netmon service and the
         location lookup.
  *****************************************************************/
@@ -212,7 +212,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     [locationManager stopUpdatingLocation];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called when the app has finished its launch setup.
  \returns    a BOOL. The app is go for launch.
  *****************************************************************/
@@ -232,7 +232,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     return YES;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the app is about to go into the background.
         We suspend the location and network availability updates
         while the app is in the background.
@@ -246,7 +246,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     _amISick = NO;  // Make sure the user is informed of network outages when they come back.
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the app is about to show up.
         We renew the updates (check if we have keep location up to
         date pref on before doing that one).
@@ -258,10 +258,12 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
         [locationManager startUpdatingLocation];
         }
+    
+    [self setUpTabBarItems];
 }
 
 #pragma mark - Custom Instance Methods -
-/***************************************************************\**
+/**************************************************************//**
  \brief Begins a lookup search, in which a location is found first,
         then all meetings near there are returned.
  *****************************************************************/
@@ -278,7 +280,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [locationManager startUpdatingLocation];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Same as above, except we only look for meetings later today.
  *****************************************************************/
 - (void)searchForMeetingsNearMeLaterToday
@@ -302,7 +304,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self searchForMeetingsNearMe];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Same as above, except we only look for meetings tomorrow.
  *****************************************************************/
 - (void)searchForMeetingsNearMeTomorrow
@@ -325,7 +327,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self searchForMeetingsNearMe];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Lets you know if we have a valid location lookup.
  \returns   YES, if the last lookup is valid.
  *****************************************************************/
@@ -342,8 +344,60 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     return ret;
 }
 
+/**************************************************************//**
+ \brief Enables and Disables the UITabBar items in accordance with the current state.
+ *****************************************************************/
+- (void)setUpTabBarItems
+{
+    UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
+    UITabBarItem        *listResultsItem = [[[tabController viewControllers] objectAtIndex:1] tabBarItem];
+    UITabBarItem        *mapResultsItem = [[[tabController viewControllers] objectAtIndex:2] tabBarItem];
+    
+    // If we have valid search results, or there's a search under way, we enable both results tabs.
+    if ((searchResults && [searchResults count]) || (mySearch && [mySearch searchInProgress]))
+        {
+        [listResultsItem setEnabled:YES];
+        [mapResultsItem setEnabled:YES];
+        }
+    else
+        {
+        [listResultsItem setEnabled:NO];
+        [mapResultsItem setEnabled:NO];
+        }
+}
+
+/**************************************************************//**
+ \brief Clears all the search results, and the results views.
+ *****************************************************************/
+- (void)clearAllSearchResults
+{
+    if (searchResults && [searchResults count])
+        {
+        [searchResults removeAllObjects];
+        searchResults = nil;
+        }
+    
+    [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
+}
+
+/**************************************************************//**
+ \brief    Starts the animations in the two results screens.
+ *****************************************************************/
+- (void)startAnimations
+{
+    
+}
+
+/**************************************************************//**
+ \brief    Stops the animations in the two results screens.
+ *****************************************************************/
+- (void)stopAnimations
+{
+    
+}
+
 #pragma mark - Core Location Delegate Methods -
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the location manager has a failure.
  *****************************************************************/
 - (void)locationManager:(CLLocationManager *)manager    ///< The location manager in troubkle.
@@ -354,7 +408,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Called when the location manager updates. Makes sure that
         the update is fresh.
  *****************************************************************/
@@ -393,6 +447,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [self executeSearchWithParams:searchParams];    // Start the search.
         
         _findMeetings = NO; // Clear the semaphore.
+        [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
         }
     
     [self setMyLocation:newLocation];
@@ -404,7 +459,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 #pragma mark - UITabBarControllerDelegate code -
-/***************************************************************\**
+/**************************************************************//**
  \brief This animates the view transitions, and also sets up anything
         that needs doing between views. It stops the tab bar controller
         from managing the transition, and does it manually.
@@ -431,7 +486,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 }
 
 #pragma mark - Network Monitor Methods -
-/***************************************************************\**
+/**************************************************************//**
  \brief This method starts an asynchronous test of the network,
         ensuring that we can reach the root server. This is running
         continuously, so we will get callbacks to keep us apprised
@@ -460,7 +515,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     [hostReachable startNotifier];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This stops the network monitoring service.
  *****************************************************************/
 - (void)stopNetworkMonitor
@@ -479,7 +534,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This is the connectivity test callback.
         The BMLT servers will only be instantiated if the network is OK.
         If the network becomes disconnected, the servers will be uninstantiated.
@@ -607,7 +662,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 }
 
 #pragma mark - SearchDelegate Functions -
-/***************************************************************\**
+/**************************************************************//**
  \brief If there is an extrenal search abort, it is sent here.
  *****************************************************************/
 - (void)abortSearch
@@ -617,7 +672,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 #endif
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This starts the search going, which is an XML parser
         transaction with the root server. We are the search delegate,
         and will be called upon completion or error.
@@ -628,7 +683,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     NSLog(@"BMLTAppDelegate executeSearchWithParams called.");
 #endif
     [locationManager stopUpdatingLocation];
-    [searchResults removeAllObjects];
+    [self clearAllSearchResults];
     [mySearch clearSearch];
     mySearch = nil;
     mySearch = [[BMLT_Meeting_Search alloc] initWithCriteria:inSearchParams andName:nil andDescription:nil];
@@ -636,7 +691,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     [mySearch doSearch];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief When the XML parse is complete, we get this call, with the
         complete search results.
         We transfer the search results to our internal property, then
@@ -651,9 +706,11 @@ shouldSelectViewController:(UIViewController *)inViewController
 #endif
     if ( inError )
         {
+        [self clearAllSearchResults];
         }
     else
         {
+        [searchResults removeAllObjects];
         searchResults = [NSMutableArray arrayWithArray:[mySearch getSearchResults]];
         [mySearch clearSearch];
         mySearch = nil;
@@ -666,7 +723,7 @@ shouldSelectViewController:(UIViewController *)inViewController
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Simply return the search results.
  \returns a A_BMLT_Search reference, with our internal search results.
  *****************************************************************/

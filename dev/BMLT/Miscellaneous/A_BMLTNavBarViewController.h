@@ -19,7 +19,7 @@
 
 #import <UIKit/UIKit.h>
 
-/***************************************************************\**
+/**************************************************************//**
  \class A_BMLTNavBarViewController
  \brief This class acts as a base class for the nav controllers.
         Its purpose is to assign the correct strings to everything.

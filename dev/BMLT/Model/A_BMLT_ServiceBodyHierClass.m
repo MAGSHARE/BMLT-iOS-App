@@ -17,7 +17,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/***************************************************************\**
+/**************************************************************//**
  \file  A_BMLT_ServiceBodyHierClass.m
  \brief This file implements the class that holds instances of NA
         Service bodies.
@@ -25,7 +25,7 @@
 
 #import "A_BMLT_ServiceBodyHierClass.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  A_BMLT_ServiceBodyHierClass
  \brief  An abstract class that is used to describe anobject that contains
  information about an NA Service Body.
@@ -34,7 +34,7 @@
 
 #pragma mark - Override Functions -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     initializer
  \returns   self
  *****************************************************************/
@@ -45,7 +45,7 @@
 
 #pragma mark - Class-Specific Functions -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Initializer with basic parameters
  \returns   self
  *****************************************************************/
@@ -66,7 +66,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the Service body URI
  *****************************************************************/
 - (void)setURI:(NSString *)inURI    ///< The URI of the Service body
@@ -80,7 +80,7 @@
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Get the Service body URI
  \returns   A string. The Service body URI.
  *****************************************************************/
@@ -91,7 +91,7 @@
 
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_ParentProtocol
-/***************************************************************\**
+/**************************************************************//**
  \brief     Returns an array of other Service bodies
  \returns   An array of objects.
  *****************************************************************/
@@ -101,7 +101,7 @@
 }
 
 #pragma mark - BMLT_NameDescProtocol
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the name of this Service body
  *****************************************************************/
 - (void)setBMLTName:(NSString *)inName  ///< The name, as a string
@@ -115,7 +115,7 @@
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Set the description of the Service body.
  *****************************************************************/
 - (void)setBMLTDescription:(NSString *)inDescription    ///< The description
@@ -130,7 +130,7 @@
 }
 
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Get the Service body name.
  \returns   A string. The name
  *****************************************************************/
@@ -139,7 +139,7 @@
     return bmlt_name;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief     Get the Service body description
  \returns   The description
  *****************************************************************/

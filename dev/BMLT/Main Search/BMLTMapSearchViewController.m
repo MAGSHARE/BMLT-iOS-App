@@ -19,7 +19,7 @@
 
 #import "BMLTMapSearchViewController.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTMapSearchViewController  -Private Interface
  \brief  This class will present the user with a simple map interface.
  *****************************************************************/
@@ -27,13 +27,13 @@
 
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class  BMLTMapSearchViewController  -Implementation
  \brief  This class will present the user with a simple map interface.
  *****************************************************************/
 @implementation BMLTMapSearchViewController
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
  \returns    self
  *****************************************************************/
@@ -47,7 +47,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
 - (void)viewDidLoad
@@ -55,7 +55,7 @@
     [super viewDidLoad];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called after the controller's view object has unloaded.
  *****************************************************************/
 - (void)viewDidUnload

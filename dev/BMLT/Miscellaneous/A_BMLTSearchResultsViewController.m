@@ -21,7 +21,7 @@
 #import "A_BMLTSearchResultsViewController.h"
 #import "BMLTAnimatedGlobeView.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class  A_BMLTSearchResultsViewController -Private Interface
  \brief  This class will control display of listed results.
  *****************************************************************/
@@ -29,13 +29,13 @@
 
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class  A_BMLTSearchResultsViewController
  \brief  This class will control display of listed results.
  *****************************************************************/
 @implementation A_BMLTSearchResultsViewController
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
 - (void)viewDidLoad
@@ -43,7 +43,7 @@
     [super viewDidLoad];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called after the controller's view object has unloaded.
  *****************************************************************/
 - (void)viewDidUnload
@@ -51,7 +51,7 @@
     [super viewDidUnload];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Called to validate the autorotation.
  \returns    a BOOL. YES if the rotation is approved.
  *****************************************************************/

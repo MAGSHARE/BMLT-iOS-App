@@ -16,7 +16,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/***************************************************************\**
+/**************************************************************//**
  \file Animated_BMLT_Logo.m
  \brief This UIView implements an animated "steampunk spinning globe."
  *****************************************************************/
@@ -24,12 +24,12 @@
 #import "Animated_BMLT_Logo.h"
 #import <QuartzCore/QuartzCore.h>
 
-/***************************************************************\**
+/**************************************************************//**
  \class Animated_BMLT_Logo
  \brief This UIView implements an animated "steampunk spinning globe."
  *****************************************************************/
 @implementation Animated_BMLT_Logo
-/***************************************************************\**
+/**************************************************************//**
  \brief Initializer -Sets up the image array of the globe contents.
  \returns self
  *****************************************************************/
@@ -76,7 +76,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Here is the responder, where we lay out the view layers.
  *****************************************************************/
 - (void)layoutSubviews
@@ -96,7 +96,7 @@
     [animatedImages setFrame:globeBounds];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Call this to start the world turning.
  *****************************************************************/
 - (void)startTurning
@@ -104,7 +104,7 @@
     [animatedImages startAnimating];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief Call this to stop the world turning.
  *****************************************************************/
 - (void)stopTurning

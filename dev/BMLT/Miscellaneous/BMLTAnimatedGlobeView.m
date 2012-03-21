@@ -19,7 +19,7 @@
 
 #import "BMLTAnimatedGlobeView.h"
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLTBlueView    -Private Interface
  \brief This class will simply apply a blue textured background to a view.
  It will also allow display of an animated spinning globe.
@@ -30,14 +30,14 @@
 }
 @end
 
-/***************************************************************\**
+/**************************************************************//**
  \class BMLTBlueView    -Implementation
  \brief This class will simply apply a blue textured background to a view.
         It will also allow display of an animated spinning globe.
  *****************************************************************/
 @implementation BMLTAnimatedGlobeView
 
-/***************************************************************\**
+/**************************************************************//**
  \brief  Set the view backgound to the blue leather pattern color.
  \returns   self
  *****************************************************************/
@@ -51,7 +51,7 @@
     return self;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This routine covers the center of the view with an animation.
  *****************************************************************/
 - (void)startAnimation
@@ -87,7 +87,7 @@
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief This routine stops the animation.
  *****************************************************************/
 - (void)stopAnimation
