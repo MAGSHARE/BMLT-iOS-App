@@ -25,29 +25,11 @@
 #define _LOG_MAX    20      /**< The number of meetings for the Max level of the slider. */
 
 /**************************************************************//**
- \class  BMLTSnappySlider
+ \class  BMLTSnappyLogSlider
  \brief  This is a very simple overload of UISlider to make "detents."
+         It also assumes the slider is base-10 logarithmic.
  *****************************************************************/
-@implementation BMLTSnappySlider
-
-/**************************************************************//**
- \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
- \returns    self
- *****************************************************************/
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self)
-        {
-        // The slider is a logarithmic scale between 5 and 20. Nominal is 10.
-        float   min_val = log10f(_LOG_MIN);
-        float   max_val = log10f(_LOG_MAX);
-        
-        [self setMinimumValue:min_val];
-        [self setMaximumValue:max_val];
-        }
-    return self;
-}
+@implementation BMLTSnappyLogSlider
 
 /**************************************************************//**
  \brief This looks for the nearest integer value (after the log),
@@ -117,6 +99,12 @@
         [preferredSearchTypeControl setSelectedSegmentIndex:_PREFER_ADVANCED_SEARCH];
         break;
     }
+    // The slider is a logarithmic scale between 5 and 20. Nominal is 10.
+    float   min_val = log10f(_LOG_MIN);
+    float   max_val = log10f(_LOG_MAX);
+    
+    [numMeetingsSlider setMinimumValue:min_val];
+    [numMeetingsSlider setMaximumValue:max_val];
     
     [numMeetingsSlider setValue:log10f([[NSNumber numberWithInt:[myPrefs resultCount]] floatValue])];
     

@@ -126,7 +126,7 @@
                                     <action selector="preferredSearchChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="yFT-5E-bnq"/>
                                 </connections>
                             </segmentedControl>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="nCk-fh-Rkh" customClass="BMLTSnappySlider">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="nCk-fh-Rkh" customClass="BMLTSnappyLogSlider">
                                 <rect key="frame" x="253" y="179" width="284" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>

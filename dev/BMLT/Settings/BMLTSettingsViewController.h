@@ -22,10 +22,11 @@
 #import "A_BMLTNavBarViewController.h"
 
 /**************************************************************//**
- \class  BMLTSnappySlider
+ \class  BMLTSnappyLogSlider
  \brief  This is a very simple overload of UISlider to make "detents."
+         It also assumes the slider is base-10 logarithmic.
  *****************************************************************/
-@interface BMLTSnappySlider : UISlider
+@interface BMLTSnappyLogSlider : UISlider
 
 @end
 
