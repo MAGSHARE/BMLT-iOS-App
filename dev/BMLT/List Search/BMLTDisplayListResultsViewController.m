@@ -18,6 +18,7 @@
 //
 
 #import "BMLTDisplayListResultsViewController.h"
+#import "BMLTMeetingDisplayCellView.h"
 
 /**************************************************************//**
  \class  BMLTDisplayListResultsViewController
@@ -55,6 +56,17 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath ///< The index path for the cell.
 {
     UITableViewCell *ret = nil;
+    BMLT_Meeting    *theMeeting = (BMLT_Meeting *)[_dataArray objectAtIndex:[indexPath row]];
+    
+    if ( theMeeting )
+        {
+        NSString    *reuseID = [NSString stringWithFormat: @"BMLT_Search_Results_Row_%d", [theMeeting getMeetingID]];
+#ifdef DEBUG
+        NSLog(@"Creating A Row For Meeting ID %d, named \"%@\"", [theMeeting getMeetingID], [theMeeting getBMLTName]);
+#endif
+        ret = [[BMLTMeetingDisplayCellView alloc] initWithMeeting:theMeeting andFrame:[tableView bounds] andReuseID:reuseID andIndex:[indexPath row]];
+        [(BMLTMeetingDisplayCellView *)ret setMyModalController:self];
+        }
     
     return ret;
 }
