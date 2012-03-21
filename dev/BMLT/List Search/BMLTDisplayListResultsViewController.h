@@ -25,5 +25,6 @@
  \brief  This class handles display of listed search results.
  *****************************************************************/
 @interface BMLTDisplayListResultsViewController : A_BMLTNavBarViewController <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) NSMutableArray    *dataArray;
+@property (strong, nonatomic) NSMutableArray    *dataArray; ///< This will hold the data for the table to display.
+- (void)setDataArrayFromData:(NSArray *)dataArray;          ///< Set the data array to the contents of the given array.
 @end

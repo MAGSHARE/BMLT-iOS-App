@@ -20,31 +20,12 @@
 #import "BMLTDisplayListResultsViewController.h"
 
 /**************************************************************//**
- \class  BMLTDisplayListResultsViewController - Private Interface
- \brief  This class handles display of listed search results.
- *****************************************************************/
-@interface BMLTDisplayListResultsViewController ()
-
-@end
-
-/**************************************************************//**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.
  *****************************************************************/
 @implementation BMLTDisplayListResultsViewController
 
-/**************************************************************//**
- \brief Initializes the instance from its xib file.
- \returns self
- *****************************************************************/
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-        {
-        }
-    return self;
-}
+@synthesize dataArray = _dataArray;
 
 /**************************************************************//**
  \brief Called after the view has loaded.
@@ -52,14 +33,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [(UITableView *)[self view] reloadData];
 }
 
 /**************************************************************//**
- \brief Called after the view has unloaded.
+ \brief Overload the implicit call, because we trigger a redraw, and
+        we want to be able to use a regular array, not a mutable one.
  *****************************************************************/
-- (void)viewDidUnload
+- (void)setDataArrayFromData:(NSArray *)dataArray   ///< The array of data to be used for this view.
 {
-    [super viewDidUnload];
+    [_dataArray setArray:dataArray];
+    [(UITableView *)[self view] reloadData];
+}
+
+#pragma mark - UITableViewDataSource Delegate Required Methods -
+/**************************************************************//**
+ \brief Called to provide a single cell contents.
+ \returns a table cell view, with all the data and primed for action.
+ *****************************************************************/
+- (UITableViewCell *)tableView:(UITableView *)tableView ///< The table view in question.
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath ///< The index path for the cell.
+{
+    UITableViewCell *ret = nil;
+    
+    return ret;
+}
+
+/**************************************************************//**
+ \brief Called to indicate the number of active rows in the display.
+ \returns an integer. The number of active rows.
+ *****************************************************************/
+- (NSInteger)tableView:(UITableView *)tableView ///< The table view in question.
+ numberOfRowsInSection:(NSInteger)section       ///< The section index.
+{
+    return [[self dataArray] count];
 }
 
 @end
