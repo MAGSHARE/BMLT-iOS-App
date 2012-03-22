@@ -19,13 +19,17 @@
 //
 
 #import "BMLTListResultsViewController.h"
+#import "BMLTDisplayListResultsViewController.h"
+#import "BMLTAppDelegate.h"
 
 /**************************************************************//**
  \class  BMLTListResultsViewController -Private Interface
  \brief  This class will control display of listed results.
  *****************************************************************/
 @interface BMLTListResultsViewController ()
-
+{
+    BMLTDisplayListResultsViewController    *myController;
+}
 @end
 
 /**************************************************************//**
@@ -33,4 +37,16 @@
  \brief  This class will control display of listed results.
  *****************************************************************/
 @implementation BMLTListResultsViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ( !myController )
+        {
+        myController = [[BMLTDisplayListResultsViewController alloc] initWithNibName:nil bundle:nil];
+        }
+    
+    [myController setDataArrayFromData:[[BMLTAppDelegate getBMLTAppDelegate] searchResults]];
+}
 @end

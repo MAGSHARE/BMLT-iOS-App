@@ -49,11 +49,6 @@
 "SETTINGS-START-WITH-SEARCH" = "Sökning vid uppstart";
 "SETTINGS-PREFER-ADVANCED" = "Avancerad sökning vid uppstart";
 
-/* The names of the tab bar items, and the views they produce. */
-"TAB-BAR-1" = "Karta";
-"TAB-BAR-2" = "Lista";
-"TAB-BAR-3" = "Inställningar";
-
 /* Used in the map and list searches to specify a new search. */
 "NEW-SEARCH" = "Ny sökning";
 "NEW-MAP-SEARCH" = "Ny sökning";
@@ -163,6 +158,12 @@
 /* Used in the Prefs window */
 "SETTINGS-URI-BLURB" = "Komplett källkod GPL kan laddas ner här:";
 "SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
+
+/* The names of the tab bar items, and the views they produce. */
+"TAB-BAR-0" = "Sökning";
+"TAB-BAR-1" = "Lista";
+"TAB-BAR-2" = "Karta";
+"TAB-BAR-3" = "Inställningar";
 
 /* This tells the user why the app needs their location. */
 "LOCATION-PURPOSE" = "The app needs to know your location, in order to tell you where the nearest meetings are.";

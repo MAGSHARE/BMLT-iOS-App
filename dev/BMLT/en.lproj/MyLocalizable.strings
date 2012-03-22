@@ -48,12 +48,6 @@
 "SETTINGS-START-WITH-SEARCH" = "Open Search On Startup";
 "SETTINGS-PREFER-ADVANCED" = "Start With Advanced Search";
 
-/* The names of the tab bar items, and the views they produce. */
-"TAB-BAR-0" = "Search";
-"TAB-BAR-1" = "Map";
-"TAB-BAR-2" = "List";
-"TAB-BAR-3" = "Settings";
-
 /* Used in the map and list searches to specify a new search. */
 "NEW-SEARCH" = "New Search";
 "NEW-MAP-SEARCH" = "New Search";
@@ -158,6 +152,12 @@
 /* Used in the Prefs window */
 "SETTINGS-URI-BLURB" = "Complete GPL Source Is Available Here:";
 "SETTINGS-URI" = "https://github.com/MAGSHARE/BMLT-iOS-App";
+
+/* The names of the tab bar items, and the views they produce. */
+"TAB-BAR-0" = "Search";
+"TAB-BAR-1" = "List";
+"TAB-BAR-2" = "Map";
+"TAB-BAR-3" = "Settings";
 
 /* This tells the user why the app needs their location. */
 "LOCATION-PURPOSE" = "The app needs to know your location, in order to tell you where the nearest meetings are.";
