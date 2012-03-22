@@ -3,7 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - TAB-BAR-1-->
@@ -27,7 +27,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggj-Ty-D21" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="simple-search" id="1ej-mT-cW2" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Jso-hj-sh5" userLabel="search-simple" customClass="BMLTBlueView">
+                    <view key="view" contentMode="scaleToFill" id="Jso-hj-sh5" userLabel="search-simple" customClass="A_BMLTMainBackgroundView">
                         <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -107,7 +107,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8r-pz-Qye" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="map-search" id="fYl-cf-cFm" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rQg-Zb-7H4" userLabel="search-map" customClass="BMLTBlueView">
+                    <view key="view" contentMode="scaleToFill" id="rQg-Zb-7H4" userLabel="search-map" customClass="A_BMLTMainBackgroundView">
                         <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -204,10 +204,10 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X92-tD-epd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="fFZ-gF-vrb" customClass="BMLTAboutViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IHx-Y9-nFx" userLabel="settings-about" customClass="BMLTLightGreyView">
+                    <view key="view" contentMode="scaleToFill" id="IHx-Y9-nFx" userLabel="settings-about" customClass="A_BMLTSettingsBackgroundView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="ABOUT-TITLE" id="Hjk-U2-sOA"/>
                 </viewController>
@@ -219,7 +219,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7V-2I-eIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Nxo-gu-wB5" customClass="BMLTSettingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HCP-8L-4u0" userLabel="settings-prefs" customClass="BMLTLightGreyView">
+                    <view key="view" contentMode="scaleToFill" id="HCP-8L-4u0" userLabel="settings-prefs" customClass="A_BMLTSettingsBackgroundView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -338,7 +338,7 @@
                                 </connections>
                             </slider>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="SETTINGS-TITLE" id="dUA-ga-v9u">
                         <barButtonItem key="rightBarButtonItem" title="ABOUT-TITLE" id="VE4-yb-tz2">
@@ -374,7 +374,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VqF-3b-vjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="advanced-search" id="eMe-9F-zBx" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF" userLabel="search-advanced" customClass="BMLTBlueView">
+                    <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF" userLabel="search-advanced" customClass="A_BMLTMainBackgroundView">
                         <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -458,23 +458,17 @@
         <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
         </class>
+        <class className="A_BMLTSettingsBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSettingsBackgroundView.h"/>
+        </class>
         <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
         </class>
         <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
         </class>
-        <class className="BMLTAnimatedGlobeView" superclassName="BMLTBlueView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimatedGlobeView.h"/>
-        </class>
-        <class className="BMLTBlueView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTBlueView.h"/>
-        </class>
         <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTDisplayListResultsViewController.h"/>
-        </class>
-        <class className="BMLTLightGreyView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTLightGreyView.h"/>
         </class>
         <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
@@ -521,7 +515,7 @@
                 <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
             </relationships>
         </class>
-        <class className="BMLTSnappyLogSlider" superclassName="UISlider">
+        <class className="BMLTSnappyLogSlider" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSnappyLogSlider.h"/>
         </class>
     </classes>

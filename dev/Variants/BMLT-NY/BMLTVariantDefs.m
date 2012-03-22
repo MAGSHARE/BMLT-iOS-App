@@ -63,9 +63,7 @@
  *****************************************************************/
 + (UIColor *)settingsBackgroundColor
 {
-    UIColor *ret;
-    
-    return ret;
+    return [UIColor underPageBackgroundColor];
 }
 
 @end

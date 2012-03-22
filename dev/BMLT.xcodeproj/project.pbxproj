@@ -53,13 +53,13 @@
 		773FF2E01514C38200540E30 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 773FF2E21514C38200540E30 /* Localizable.strings */; };
 		77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */; };
 		776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */; };
-		777B520F15192409002EDC83 /* BMLTBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* BMLTBlueView.m */; };
+		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A10D47151022C200279AAC /* BMLTSegwayController.m */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
-		77CE3F091516252300C93BC6 /* BMLTLightGreyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* BMLTLightGreyView.m */; };
+		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
 		77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */; };
 		77D90B9A1514C6A60059EF41 /* MyLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77D90B971514C6A60059EF41 /* MyLocalizable.strings */; };
 /* End PBXBuildFile section */
@@ -142,8 +142,8 @@
 		7765AE731514C7EA008E4ACF /* buildLocalizationFile.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = buildLocalizationFile.pl; sourceTree = "<group>"; };
 		776BAD951519F90A008C608C /* BMLTDisplayListResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTDisplayListResultsViewController.h; sourceTree = "<group>"; };
 		776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTDisplayListResultsViewController.m; sourceTree = "<group>"; };
-		777B520D15192409002EDC83 /* BMLTBlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTBlueView.h; sourceTree = "<group>"; };
-		777B520E15192409002EDC83 /* BMLTBlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTBlueView.m; sourceTree = "<group>"; };
+		777B520D15192409002EDC83 /* A_BMLTMainBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTMainBackgroundView.h; sourceTree = "<group>"; };
+		777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTMainBackgroundView.m; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* BMLT-NY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-NY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -155,8 +155,8 @@
 		77B59D141514BA6A00C07D18 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTSearchResultsViewController.h; sourceTree = "<group>"; };
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
-		77CE3F071516252300C93BC6 /* BMLTLightGreyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTLightGreyView.h; sourceTree = "<group>"; };
-		77CE3F081516252300C93BC6 /* BMLTLightGreyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTLightGreyView.m; sourceTree = "<group>"; };
+		77CE3F071516252300C93BC6 /* A_BMLTSettingsBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTSettingsBackgroundView.h; sourceTree = "<group>"; };
+		77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTSettingsBackgroundView.m; sourceTree = "<group>"; };
 		77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTNavBarViewController.h; sourceTree = "<group>"; };
 		77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTNavBarViewController.m; sourceTree = "<group>"; };
 		77D90B031514C5340059EF41 /* BMLT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
@@ -236,10 +236,10 @@
 				771D0C57150E893C005A707A /* BrassCheckBox.m */,
 				771D0C58150E893C005A707A /* Reachability.h */,
 				771D0C59150E893C005A707A /* Reachability.m */,
-				777B520D15192409002EDC83 /* BMLTBlueView.h */,
-				777B520E15192409002EDC83 /* BMLTBlueView.m */,
-				77CE3F071516252300C93BC6 /* BMLTLightGreyView.h */,
-				77CE3F081516252300C93BC6 /* BMLTLightGreyView.m */,
+				777B520D15192409002EDC83 /* A_BMLTMainBackgroundView.h */,
+				777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */,
+				77CE3F071516252300C93BC6 /* A_BMLTSettingsBackgroundView.h */,
+				77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */,
 				77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */,
 				77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */,
 				77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */,
@@ -534,9 +534,9 @@
 				77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */,
 				7711417215125CD100BCCE00 /* BMLTSimpleSearchViewController.m in Sources */,
 				77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */,
-				77CE3F091516252300C93BC6 /* BMLTLightGreyView.m in Sources */,
+				77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */,
 				77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */,
-				777B520F15192409002EDC83 /* BMLTBlueView.m in Sources */,
+				777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */,
 				776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */,
 				77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */,
 				7722BF8E151B3E02001E8029 /* BMLTVariantDefs.m in Sources */,
