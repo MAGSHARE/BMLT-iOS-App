@@ -21,4 +21,51 @@
 
 @implementation BMLTVariantDefs
 
+/**************************************************************//**
+ \brief     
+ \returns   
+ *****************************************************************/
++ (UIColor *)windowBackgroundColor
+{
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueBackgroundPat.gif"]];
+}
+
+/**************************************************************//**
+ \brief     
+ \returns   
+ *****************************************************************/
++ (UIColor *)searchBackgroundColor
+{
+    return [BMLTVariantDefs windowBackgroundColor];
+}
+
+/**************************************************************//**
+ \brief     
+ \returns   
+ *****************************************************************/
++ (UIColor *)listResultsBackgroundColor
+{
+    return [BMLTVariantDefs windowBackgroundColor];
+}
+
+/**************************************************************//**
+ \brief     
+ \returns   
+ *****************************************************************/
++ (UIColor *)mapResultsBackgroundColor
+{
+    return [BMLTVariantDefs windowBackgroundColor];
+}
+
+/**************************************************************//**
+ \brief     
+ \returns   
+ *****************************************************************/
++ (UIColor *)settingsBackgroundColor
+{
+    UIColor *ret;
+    
+    return ret;
+}
+
 @end

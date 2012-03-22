@@ -232,7 +232,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [tabController setSelectedIndex:0];
     [tabController setDelegate:self];
     // We're going to have a blue "leather" background for most screens.
-    [_window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueBackgroundPat.gif"]]];
+    [_window setBackgroundColor:[BMLTVariantDefs windowBackgroundColor]];
     for ( NSInteger i = 0; i < [[tabController viewControllers] count]; i++ )
         {
         UITabBarItem    *theItem = [[[tabController viewControllers] objectAtIndex:i] tabBarItem];

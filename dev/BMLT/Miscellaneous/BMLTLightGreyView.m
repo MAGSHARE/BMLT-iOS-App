@@ -34,7 +34,7 @@
     self = [super initWithCoder:coder];
     if (self)
         {
-        [self setBackgroundColor:[UIColor underPageBackgroundColor]];
+        [self setBackgroundColor:[BMLTVariantDefs settingsBackgroundColor]];
         }
     return self;
 }

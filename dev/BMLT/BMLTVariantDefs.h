@@ -17,8 +17,17 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
+/**************************************************************//**
+ \class  BMLTVariantDefs
+ \brief  This class will be a static class that provides various
+         definitions and macros for use by each variant.
+ *****************************************************************/
 @interface BMLTVariantDefs : NSObject
-
++ (UIColor *)windowBackgroundColor;
++ (UIColor *)searchBackgroundColor;
++ (UIColor *)listResultsBackgroundColor;
++ (UIColor *)mapResultsBackgroundColor;
++ (UIColor *)settingsBackgroundColor;
 @end

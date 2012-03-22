@@ -34,7 +34,7 @@
     self = [super initWithCoder:coder];
     if (self)
         {
-        [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueBackgroundPat.gif"]]];
+        [self setBackgroundColor:[BMLTVariantDefs windowBackgroundColor]];
         }
     return self;
 }
