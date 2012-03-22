@@ -20,6 +20,25 @@
 
 #import "A_BMLT_ChildClass.h"
 
+#define format_Name_Text_Size                 16    ///< This defines the text size of the format name string.
+
+@class BMLT_Format; ///< We'll define this class in just a bit.
+
+/**************************************************************//**
+ \class BMLT_FormatButton
+ \brief This class describes a format button to be displayed (I know,
+        I know. It breaks MVC, but I wanted to bring over as much code
+        as possible from the hurriedly-designed first version).
+ *****************************************************************/
+@interface BMLT_FormatButton : UIButton
+{
+    BMLT_Format         *myFormat;
+}
+- (id)initWithFrame:(CGRect)frame andFormat:(BMLT_Format *)theFormat;
+- (void)setMyFormat:(BMLT_Format *)inFormat;
+- (BMLT_Format *)getMyFormat;
+@end
+
 @class UIColor;
 
 /**************************************************************//**

@@ -36,16 +36,6 @@
 #define List_Meeting_Format_Time_Width              60
 #define List_Meeting_Format_Town_Width              160
 
-@interface BMLT_FormatButton : UIButton
-{
-    BMLT_Format         *myFormat;
-}
-- (id)initWithFrame:(CGRect)frame andFormat:(BMLT_Format *)theFormat;
-- (void)setMyFormat:(BMLT_Format *)inFormat;
-- (BMLT_Format *)getMyFormat;
-
-@end
-
 @interface BMLTMeetingDisplayCellView : UITableViewCell
 {
     BMLT_Meeting                          *myMeeting;

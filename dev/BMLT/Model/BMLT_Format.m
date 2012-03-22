@@ -28,6 +28,73 @@
 #import <UIKit/UIKit.h>
 
 /**************************************************************//**
+ \class BMLT_FormatButton -Implementation
+ \brief This class describes a format button to be displayed (I know,
+ I know. It breaks MVC, but I wanted to bring over as much code
+ as possible from the hurriedly-designed first version).
+ *****************************************************************/
+@implementation BMLT_FormatButton
+
+/***************************************************************\**
+ \brief 
+ \returns 
+ *****************************************************************/
+- (id)initWithFrame:(CGRect)frame
+          andFormat:(BMLT_Format *)theFormat
+{
+    self = [super initWithFrame:frame];
+    
+    if ( self )
+        {
+        myFormat = nil;
+        [self setMyFormat:theFormat];
+        }
+    
+    return self;
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)setMyFormat:(BMLT_Format *)inFormat
+{
+    myFormat = inFormat;
+    if ( myFormat )
+        {
+        for ( UIView *sub in [self subviews] )
+            {
+            [sub removeFromSuperview];
+            }
+        
+        FormatUIElements    *fmtEl = [BMLT_Format getFormatColor:myFormat];
+        [self setBackgroundImage:[UIImage imageNamed:fmtEl.imageName2x] forState:UIControlStateNormal];
+        
+        UILabel *theTitleView = [[UILabel alloc]initWithFrame:[self bounds]];
+        
+        if ( theTitleView )
+            {
+            [theTitleView setFont:[UIFont boldSystemFontOfSize:format_Name_Text_Size]];
+            [theTitleView setText:fmtEl.title];
+            [theTitleView setTextColor:fmtEl.textColor];
+            [theTitleView setBackgroundColor:[UIColor clearColor]];
+            [theTitleView setTextAlignment:UITextAlignmentCenter];
+            [self addSubview:theTitleView];
+            }
+        }
+}
+
+/***************************************************************\**
+ \brief 
+ \returns 
+ *****************************************************************/
+- (BMLT_Format *)getMyFormat
+{
+    return myFormat;
+}
+
+@end
+
+/**************************************************************//**
  \class FormatUIElements
  \brief This class contains elements used to display a format.
  *****************************************************************/

@@ -19,6 +19,8 @@
 //
 
 #import "A_BMLTSearchResultsViewController.h"
+#import "FormatDetailView.h"
+#import "BMLT_Format.h"
 
 /**************************************************************//**
  \class  A_BMLTSearchResultsViewController -Private Interface
@@ -73,6 +75,59 @@
 
 - (void)displayMeetingSearch
 {
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)displayFormatDetail:(id)inSender
+{
+    BMLT_FormatButton   *myButton = (BMLT_FormatButton *)inSender;
+    BMLT_Format         *myFormat = [myButton getMyFormat];
+    CGRect              selectRect = [myButton frame];
+#ifdef DEBUG
+    NSLog(@"Format Button Pressed for %@", [myFormat key]);
+#endif
+    
+    myModalView = [[FormatDetailView alloc] initWithFormat:myFormat andController:self];
+    
+    if ( myModalView )
+        {
+        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
+            {
+            UIView  *myContext = [myButton superview];
+            formatPopover = [[UIPopoverController alloc] initWithContentViewController:myModalView];
+            
+            [formatPopover setDelegate:self];
+            
+            [formatPopover presentPopoverFromRect:selectRect
+                                           inView:myContext
+                         permittedArrowDirections:UIPopoverArrowDirectionAny
+                                         animated:YES];
+            }
+        else
+            {
+            [self presentModalViewController:myModalView animated:YES];
+            }
+        }
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)closeModal
+{
+    if (formatPopover)
+        {
+        [formatPopover dismissPopoverAnimated:YES];
+        formatPopover = nil;
+        }
+    else
+        {
+        [self dismissModalViewControllerAnimated:YES];
+        }
+    
+    myModalView = nil;
 }
 
 @end
