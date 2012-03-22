@@ -35,6 +35,7 @@
 		771D0C90150E8986005A707A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771D0C8F150E8986005A707A /* CoreLocation.framework */; };
 		771D0C92150E899B005A707A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771D0C91150E899B005A707A /* QuartzCore.framework */; };
 		771D0C94150E89BC005A707A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771D0C93150E89BC005A707A /* SystemConfiguration.framework */; };
+		7722BF8E151B3E02001E8029 /* BMLTVariantDefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7722BF8D151B3E02001E8029 /* BMLTVariantDefs.m */; };
 		773FF2E01514C38200540E30 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 773FF2E21514C38200540E30 /* Localizable.strings */; };
 		77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */; };
 		776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */; };
@@ -111,6 +112,8 @@
 		771D0C8F150E8986005A707A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		771D0C91150E899B005A707A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		771D0C93150E89BC005A707A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7722BF8C151B3E02001E8029 /* BMLTVariantDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTVariantDefs.h; sourceTree = "<group>"; };
+		7722BF8D151B3E02001E8029 /* BMLTVariantDefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTVariantDefs.m; sourceTree = "<group>"; };
 		773FF2DC1514C2A200540E30 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		773FF2E11514C38200540E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		773FF2E31514C38700540E30 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -375,6 +378,8 @@
 		77D90B961514C6A60059EF41 /* BMLT-NY */ = {
 			isa = PBXGroup;
 			children = (
+				7722BF8C151B3E02001E8029 /* BMLTVariantDefs.h */,
+				7722BF8D151B3E02001E8029 /* BMLTVariantDefs.m */,
 				7765AE711514C72F008E4ACF /* Info.plist */,
 				77D90B971514C6A60059EF41 /* MyLocalizable.strings */,
 			);
@@ -514,6 +519,7 @@
 				777B520F15192409002EDC83 /* BMLTBlueView.m in Sources */,
 				776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */,
 				77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */,
+				7722BF8E151B3E02001E8029 /* BMLTVariantDefs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
