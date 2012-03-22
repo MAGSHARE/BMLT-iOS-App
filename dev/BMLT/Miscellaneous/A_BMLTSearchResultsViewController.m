@@ -19,7 +19,6 @@
 //
 
 #import "A_BMLTSearchResultsViewController.h"
-#import "BMLTAnimatedGlobeView.h"
 
 /**************************************************************//**
  \class  A_BMLTSearchResultsViewController -Private Interface
@@ -66,17 +65,14 @@
 
 - (void)startMeetingSearch
 {
-    [(BMLTAnimatedGlobeView*)[self view] startAnimation];
 }
 
 - (void)stopMeetingSearch
 {
-    [(BMLTAnimatedGlobeView*)[self view] stopAnimation];
 }
 
 - (void)displayMeetingSearch
 {
-    [(BMLTAnimatedGlobeView*)[self view] stopAnimation];
 }
 
 @end

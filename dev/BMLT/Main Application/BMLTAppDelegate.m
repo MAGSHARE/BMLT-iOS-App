@@ -19,6 +19,8 @@
 #import "BMLTAppDelegate.h"
 #import "Reachability.h"
 #import "BMLT_Prefs.h"
+#import "BMLTDisplayListResultsViewController.h"
+#import "BMLTMapResultsViewController.h"
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
@@ -31,6 +33,8 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     BOOL                _findMeetings;  ///< If this is YES, then a meeting search will be done.
     BOOL                _amISick;       ///< If true, it indicates that the alert for connectivity problems should not be shown.
     BMLT_Meeting_Search *mySearch;      ///< The current meeting search in progress.
+    BMLTDisplayListResultsViewController    *listResultsViewController; ///< This will point to our list results main controller.
+    BMLTMapResultsViewController            *mapResultsViewController;  ///< This will point to our map results main controller.
 }
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod; ///< This is used to calculate the time for "later today" meetings.
 
@@ -173,6 +177,11 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 - (void)displaySearchResults
 {
     [self setUpTabBarItems];
+    UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
+    
+    [listResultsViewController setDataArrayFromData:[self searchResults]];
+    
+    [tabController setSelectedIndex:([[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap] ? 2 : 1)];
 }
 
 #pragma mark - Standard Instance Methods -
@@ -229,6 +238,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         UITabBarItem    *theItem = [[[tabController viewControllers] objectAtIndex:i] tabBarItem];
         [theItem setTitle:NSLocalizedString([theItem title], nil)];
         }
+    
+    // We keep track of these in private data members for convenience.
+    listResultsViewController = (BMLTDisplayListResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:1] topViewController];
+    mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:2] topViewController];
+    
     return YES;
 }
 

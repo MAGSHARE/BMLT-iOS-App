@@ -20,6 +20,8 @@
 #import "BMLTDisplayListResultsViewController.h"
 #import "BMLTMeetingDisplayCellView.h"
 
+#define kSortOptionsRowHeight        32
+
 /**************************************************************//**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.
@@ -27,6 +29,15 @@
 @implementation BMLTDisplayListResultsViewController
 
 @synthesize dataArray = _dataArray;
+
+/**************************************************************//**
+ \brief G'night...
+ *****************************************************************/
+- (void)dealloc
+{
+    [_dataArray removeAllObjects];
+    _dataArray = nil;
+}
 
 /**************************************************************//**
  \brief Called after the view has loaded.
@@ -43,6 +54,12 @@
  *****************************************************************/
 - (void)setDataArrayFromData:(NSArray *)dataArray   ///< The array of data to be used for this view.
 {
+    if ( !_dataArray )
+        {
+        _dataArray = [[NSMutableArray alloc] init];
+        }
+    
+    [_dataArray removeAllObjects];
     [_dataArray setArray:dataArray];
     [(UITableView *)[self view] reloadData];
 }
@@ -79,6 +96,18 @@
  numberOfRowsInSection:(NSInteger)section       ///< The section index.
 {
     return [[self dataArray] count];
+}
+
+/***************************************************************\**
+ \brief 
+ \returns 
+ *****************************************************************/
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat ret = List_Meeting_Display_CellHeight;
+    
+    return ret;
 }
 
 @end
