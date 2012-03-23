@@ -149,7 +149,7 @@
 		77803C3C151C011D00A8ADC3 /* FormatDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatDetailView.h; sourceTree = "<group>"; };
 		77803C3D151C011D00A8ADC3 /* FormatDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatDetailView.m; sourceTree = "<group>"; };
 		77803C3E151C011D00A8ADC3 /* FormatDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormatDetailView.xib; sourceTree = "<group>"; };
-		77977D0B150E882B00485C8D /* BMLT-NY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-NY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77977D0B150E882B00485C8D /* New York NA Meeting Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "New York NA Meeting Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77977D13150E882B00485C8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -346,7 +346,7 @@
 		77977D0C150E882B00485C8D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				77977D0B150E882B00485C8D /* BMLT-NY.app */,
+				77977D0B150E882B00485C8D /* New York NA Meeting Search.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -436,7 +436,7 @@
 			);
 			name = "New York NA Meeting Search";
 			productName = BMLT;
-			productReference = 77977D0B150E882B00485C8D /* BMLT-NY.app */;
+			productReference = 77977D0B150E882B00485C8D /* New York NA Meeting Search.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
