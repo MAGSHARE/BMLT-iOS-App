@@ -510,7 +510,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/BMLT/buildLocalizationFile.pl ${PRODUCT_NAME}\n${PROJECT_DIR}/BMLT/buildLocalizationFile.pl ${PRODUCT_NAME} \"sv\"\n";
+			shellScript = "${PROJECT_DIR}/BMLT/buildLocalizationFile.pl \"BMLT-NY\"\n${PROJECT_DIR}/BMLT/buildLocalizationFile.pl \"BMLT-NY\" \"sv\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

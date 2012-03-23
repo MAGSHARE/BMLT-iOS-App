@@ -21,19 +21,19 @@ my $input1File = cwd()."/BMLT/".$lang.".lproj/MyLocalizable.strings";
 my $input2File = cwd()."/Variants/".$variant."/".$lang.".lproj/MyLocalizable.strings";
 my $outputFile = cwd()."/BMLT/".$lang.".lproj/Localizable.strings";
 
-open ( MAIN_FILE, $input1File ) || die ( "Could not open main file!" );
+open ( MAIN_FILE, $input1File ) || die ( "Could not open main file! ($input1File)" );
 
 my @file_data = <MAIN_FILE>;
 
 close ( MAIN_FILE );
 
-open ( PRODUCT_FILE, $input2File ) || die ( "Could not open variant file!" );
+open ( PRODUCT_FILE, $input2File ) || die ( "Could not open variant file! ($input2File)" );
 
 push ( @file_data, <PRODUCT_FILE> );
 
 close ( PRODUCT_FILE );
 
-open ( FINAL_FILE, ">$outputFile" ) || die ( "Could not open destination file!" );
+open ( FINAL_FILE, ">$outputFile" ) || die ( "Could not open destination file! ($outputFile)" );
 
 foreach ( @file_data )
     {
