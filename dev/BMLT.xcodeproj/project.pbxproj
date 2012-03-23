@@ -421,9 +421,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		77977D0A150E882B00485C8D /* New York NA Meeting Search */ = {
+		77977D0A150E882B00485C8D /* NY NA Meetings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 77977D37150E882B00485C8D /* Build configuration list for PBXNativeTarget "New York NA Meeting Search" */;
+			buildConfigurationList = 77977D37150E882B00485C8D /* Build configuration list for PBXNativeTarget "NY NA Meetings" */;
 			buildPhases = (
 				77977D07150E882B00485C8D /* Sources */,
 				77977D08150E882B00485C8D /* Frameworks */,
@@ -434,7 +434,7 @@
 			);
 			dependencies = (
 			);
-			name = "New York NA Meeting Search";
+			name = "NY NA Meetings";
 			productName = BMLT;
 			productReference = 77977D0B150E882B00485C8D /* New York NA Meeting Search.app */;
 			productType = "com.apple.product-type.application";
@@ -463,7 +463,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				77977D0A150E882B00485C8D /* New York NA Meeting Search */,
+				77977D0A150E882B00485C8D /* NY NA Meetings */,
 			);
 		};
 /* End PBXProject section */
@@ -698,7 +698,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		77977D37150E882B00485C8D /* Build configuration list for PBXNativeTarget "New York NA Meeting Search" */ = {
+		77977D37150E882B00485C8D /* Build configuration list for PBXNativeTarget "NY NA Meetings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77977D38150E882B00485C8D /* Debug */,
