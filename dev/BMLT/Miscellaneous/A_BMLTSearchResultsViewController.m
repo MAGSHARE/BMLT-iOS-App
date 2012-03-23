@@ -120,13 +120,13 @@
     if (formatPopover)
         {
         [formatPopover dismissPopoverAnimated:YES];
-        formatPopover = nil;
         }
     else
         {
         [self dismissModalViewControllerAnimated:YES];
         }
     
+    formatPopover = nil;
     myModalView = nil;
 }
 

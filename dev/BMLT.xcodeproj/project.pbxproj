@@ -54,13 +54,13 @@
 		77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */; };
 		776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */; };
 		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
+		77803C3F151C011D00A8ADC3 /* FormatDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77803C3D151C011D00A8ADC3 /* FormatDetailView.m */; };
+		77803C40151C011D00A8ADC3 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77803C3E151C011D00A8ADC3 /* FormatDetailView.xib */; };
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A10D47151022C200279AAC /* BMLTSegwayController.m */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
-		77C1A712151B84C100CA7586 /* FormatDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A710151B84C100CA7586 /* FormatDetailView.m */; };
-		77C1A713151B84C100CA7586 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C1A711151B84C100CA7586 /* FormatDetailView.xib */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
 		77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */; };
 		77D90B9A1514C6A60059EF41 /* MyLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77D90B971514C6A60059EF41 /* MyLocalizable.strings */; };
@@ -146,6 +146,9 @@
 		776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTDisplayListResultsViewController.m; sourceTree = "<group>"; };
 		777B520D15192409002EDC83 /* A_BMLTMainBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTMainBackgroundView.h; sourceTree = "<group>"; };
 		777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTMainBackgroundView.m; sourceTree = "<group>"; };
+		77803C3C151C011D00A8ADC3 /* FormatDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatDetailView.h; sourceTree = "<group>"; };
+		77803C3D151C011D00A8ADC3 /* FormatDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatDetailView.m; sourceTree = "<group>"; };
+		77803C3E151C011D00A8ADC3 /* FormatDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormatDetailView.xib; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* BMLT-NY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMLT-NY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -157,9 +160,6 @@
 		77B59D141514BA6A00C07D18 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTSearchResultsViewController.h; sourceTree = "<group>"; };
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
-		77C1A70F151B84C100CA7586 /* FormatDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatDetailView.h; sourceTree = "<group>"; };
-		77C1A710151B84C100CA7586 /* FormatDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatDetailView.m; sourceTree = "<group>"; };
-		77C1A711151B84C100CA7586 /* FormatDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormatDetailView.xib; sourceTree = "<group>"; };
 		77CE3F071516252300C93BC6 /* A_BMLTSettingsBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTSettingsBackgroundView.h; sourceTree = "<group>"; };
 		77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLTSettingsBackgroundView.m; sourceTree = "<group>"; };
 		77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLTNavBarViewController.h; sourceTree = "<group>"; };
@@ -249,7 +249,9 @@
 				77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */,
 				77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */,
 				77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */,
-				77C1A70E151B84C100CA7586 /* FormatDetailView Modal */,
+				77803C3C151C011D00A8ADC3 /* FormatDetailView.h */,
+				77803C3D151C011D00A8ADC3 /* FormatDetailView.m */,
+				77803C3E151C011D00A8ADC3 /* FormatDetailView.xib */,
 			);
 			path = Miscellaneous;
 			sourceTree = "<group>";
@@ -388,16 +390,6 @@
 			name = "Project Files";
 			sourceTree = "<group>";
 		};
-		77C1A70E151B84C100CA7586 /* FormatDetailView Modal */ = {
-			isa = PBXGroup;
-			children = (
-				77C1A70F151B84C100CA7586 /* FormatDetailView.h */,
-				77C1A710151B84C100CA7586 /* FormatDetailView.m */,
-				77C1A711151B84C100CA7586 /* FormatDetailView.xib */,
-			);
-			path = "FormatDetailView Modal";
-			sourceTree = "<group>";
-		};
 		77D90B951514C6A60059EF41 /* Variants */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,7 +492,7 @@
 				772C1641151B49E300830596 /* search@2x.png in Resources */,
 				772C1642151B49E300830596 /* settings.png in Resources */,
 				772C1643151B49E300830596 /* settings@2x.png in Resources */,
-				77C1A713151B84C100CA7586 /* FormatDetailView.xib in Resources */,
+				77803C40151C011D00A8ADC3 /* FormatDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,7 +549,7 @@
 				776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */,
 				77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */,
 				7722BF8E151B3E02001E8029 /* BMLTVariantDefs.m in Sources */,
-				77C1A712151B84C100CA7586 /* FormatDetailView.m in Sources */,
+				77803C3F151C011D00A8ADC3 /* FormatDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +665,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "Variants/BMLT-NY/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -685,6 +678,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "Variants/BMLT-NY/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

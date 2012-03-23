@@ -50,15 +50,7 @@
     return self;
 }
 
-/***************************************************************\**
- \brief 
- *****************************************************************/
-- (void)dealloc
-{
-    [(A_BMLTSearchResultsViewController *)myModalController closeModal];
-}
-
-#pragma mark - View lifecycle
+#pragma mark - View lifecycle -
 
 /***************************************************************\**
  \brief 
@@ -68,8 +60,28 @@
     [self setTitle];
     [self setDescription];
     [self setUpKey];
+    // With a popover, we don't need the "Done" button.
+    if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
+        {
+        [(UINavigationItem *)[navBar topItem] setRightBarButtonItem:nil animated:NO];
+        }
     [super viewDidLoad];
 }
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)viewDidUnload
+{
+    [(A_BMLTSearchResultsViewController *)myModalController closeModal];
+    navBar = nil;
+    formatKeyLabel = nil;
+    formatKeyImage = nil;
+    formatDescription = nil;
+    [super viewDidUnload];
+}
+
+#pragma mark - Custom Functions -
 
 /***************************************************************\**
  \brief 
@@ -112,18 +124,6 @@
         ret = YES;
         }
     return ret;
-}
-
-/***************************************************************\**
- \brief 
- *****************************************************************/
-- (void)viewDidUnload
-{
-    navBar = nil;
-    formatKeyLabel = nil;
-    formatKeyImage = nil;
-    formatDescription = nil;
-    [super viewDidUnload];
 }
 
 /***************************************************************\**

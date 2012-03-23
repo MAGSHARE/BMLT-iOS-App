@@ -18,13 +18,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "A_BMLTNavBarViewController.h"
+#import "A_BMLTSearchResultsViewController.h"
 
 /**************************************************************//**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.
  *****************************************************************/
-@interface BMLTDisplayListResultsViewController : A_BMLTNavBarViewController <UITableViewDataSource, UITableViewDelegate>
+@interface BMLTDisplayListResultsViewController : A_BMLTSearchResultsViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSMutableArray    *dataArray; ///< This will hold the data for the table to display.
 - (void)setDataArrayFromData:(NSArray *)dataArray;          ///< Set the data array to the contents of the given array.
 @end
