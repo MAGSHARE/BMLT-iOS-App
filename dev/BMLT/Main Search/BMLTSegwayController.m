@@ -49,21 +49,24 @@
 #endif
     UIViewController        *src = (UIViewController *)[self sourceViewController];
     UIViewController        *dest = (UIViewController *)[self destinationViewController];
-    UINavigationController  *navCtl = [src navigationController];
     
-    // What we do here, is ensure that we don't overstack the nav controller. We pop to root, then stack the new view controller.
-    [navCtl popToRootViewControllerAnimated:NO];
-    [navCtl pushViewController:dest animated:NO];
-    
-    // Do a view transition
-    [UIView transitionFromView:[src view] toView:[dest view] duration:0.25 options:(UIViewAnimationOptions)0 completion:nil];
+    if ( src != dest )
+        {
+        UINavigationController  *navCtl = [src navigationController];
+        // What we do here, is ensure that we don't overstack the nav controller. We pop to root, then stack the new view controller.
+        [navCtl popToRootViewControllerAnimated:NO];
+        [navCtl pushViewController:dest animated:NO];
+        
+        // Do a view transition
+        [UIView transitionFromView:[src view] toView:[dest view] duration:0.25 options:(UIViewAnimationOptions)0 completion:nil];
 
-	// set up an animation for the transition between the views
-	CATransition *animation = [CATransition animation];
-	[animation setType:kCATransitionPush];
-    [animation setDuration:0.25];
-	[animation setSubtype:[[self identifier] isEqualToString:@"left"] ? kCATransitionFromLeft : kCATransitionFromRight];
-	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
-	[[[[dest view] superview] layer] addAnimation:animation forKey:nil];
+        // set up an animation for the transition between the views
+        CATransition *animation = [CATransition animation];
+        [animation setType:kCATransitionPush];
+        [animation setDuration:0.25];
+        [animation setSubtype:[[self identifier] isEqualToString:@"left"] ? kCATransitionFromLeft : kCATransitionFromRight];
+        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+        [[[[dest view] superview] layer] addAnimation:animation forKey:nil];
+        }
 }
 @end

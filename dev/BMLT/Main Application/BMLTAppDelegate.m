@@ -21,6 +21,9 @@
 #import "BMLT_Prefs.h"
 #import "BMLTDisplayListResultsViewController.h"
 #import "BMLTMapResultsViewController.h"
+#import "BMLTSimpleSearchViewController.h"
+#import "BMLTMapSearchViewController.h"
+#import "BMLTAdvancedSearchViewController.h"
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
@@ -33,14 +36,19 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     BOOL                _findMeetings;  ///< If this is YES, then a meeting search will be done.
     BOOL                _amISick;       ///< If true, it indicates that the alert for connectivity problems should not be shown.
     BMLT_Meeting_Search *mySearch;      ///< The current meeting search in progress.
+    UIViewController                        *searchNavController;       ///< This is the tab controller for all the searches.
     BMLTDisplayListResultsViewController    *listResultsViewController; ///< This will point to our list results main controller.
     BMLTMapResultsViewController            *mapResultsViewController;  ///< This will point to our map results main controller.
 }
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod; ///< This is used to calculate the time for "later today" meetings.
 
-- (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;
-- (void)callInSick;
-- (void)displaySearchResults;
+- (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;   ///< Do a nice transition between tab views.
+- (void)callInSick;                                     ///< Display an alert, informing the user that network connectivity is unavailable.
+- (void)displaySearchResults;                           ///< Display the results of a search, according to the user preferences.
+- (void)startAnimations;                                ///< Starts the animations in the two results screens.
+- (void)stopAnimations;                                 ///< Stops the animations in the two results screens.
+- (void)selectInitialSearchAndForce:(BOOL)force;        ///< Selects the initial search screen, depending on the user's choice.
+- (void)simpleClearSearch;                              ///< Just clears the search results with no frou-frou.
 @end
 
 /**************************************************************//**
@@ -184,6 +192,53 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     [tabController setSelectedIndex:([[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap] ? 2 : 1)];
 }
 
+/**************************************************************//**
+ \brief Selects the initial search screen, depending on the user's choice.
+ *****************************************************************/
+- (void)selectInitialSearchAndForce:(BOOL)force         ///< If YES, then the screen will be set to the default, even if we were already set to one.
+{
+    UIStoryboard    *st = [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"] bundle:[NSBundle mainBundle]];
+    
+    UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
+    
+    [tabController setSelectedIndex:0]; // Set the tab bar to the search screens.
+    
+    if ( force )
+        {
+        [[searchNavController navigationController] popToRootViewControllerAnimated:NO];
+        
+        UIViewController    *newSearch = nil;
+        
+        switch ( [[BMLT_Prefs getBMLT_Prefs] searchTypePref] )
+            {
+            case _PREFER_MAP_SEARCH:
+            newSearch = [st instantiateViewControllerWithIdentifier:@"map-search"];
+            break;
+            
+            case _PREFER_ADVANCED_SEARCH:
+            newSearch = [st instantiateViewControllerWithIdentifier:@"advanced-search"];
+            break;
+            }
+        
+        if ( newSearch )    // We push the controller, as opposed to changing the root, because it's easier, and doesn't violate any of our ground rules.
+            {
+            [[searchNavController navigationController] pushViewController:newSearch animated:NO];
+            }
+        }
+}
+
+/**************************************************************//**
+ \brief This clears the search without resetting the view.
+ *****************************************************************/
+- (void)simpleClearSearch
+{
+    if (searchResults && [searchResults count])
+        {
+        [searchResults removeAllObjects];
+        searchResults = nil;
+        }
+}
+
 #pragma mark - Standard Instance Methods -
 /**************************************************************//**
  \brief  Initialize the object
@@ -240,9 +295,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     
     // We keep track of these in private data members for convenience.
+    searchNavController = (UINavigationController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:0] topViewController];
     listResultsViewController = (BMLTDisplayListResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:1] topViewController];
     mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:2] topViewController];
     
+    [self clearAllSearchResults];
     return YES;
 }
 
@@ -286,6 +343,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate searchForMeetingsNearMe called.");
 #endif
+    [self startAnimations];
     // Remember that we have a pref for result count.
     [searchParams setObject:[NSString stringWithFormat:@"%d", -[myPrefs resultCount]] forKey:@"geo_width"];
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
@@ -377,6 +435,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
         [listResultsItem setEnabled:NO];
         [mapResultsItem setEnabled:NO];
+        [tabController setSelectedIndex:0];
         }
 }
 
@@ -385,13 +444,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)clearAllSearchResults
 {
-    if (searchResults && [searchResults count])
-        {
-        [searchResults removeAllObjects];
-        searchResults = nil;
-        }
-    
+    [self simpleClearSearch];
+    [self stopAnimations];
     [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
+    [self selectInitialSearchAndForce:YES];
 }
 
 /**************************************************************//**
@@ -462,6 +518,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         
         _findMeetings = NO; // Clear the semaphore.
         [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
+        }
+    else
+        {
+        [self stopAnimations];
         }
     
     [self setMyLocation:newLocation];
@@ -696,8 +756,9 @@ shouldSelectViewController:(UIViewController *)inViewController
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate executeSearchWithParams called.");
 #endif
+    [self startAnimations];
     [locationManager stopUpdatingLocation];
-    [self clearAllSearchResults];
+    [self simpleClearSearch];
     [mySearch clearSearch];
     mySearch = nil;
     mySearch = [[BMLT_Meeting_Search alloc] initWithCriteria:inSearchParams andName:nil andDescription:nil];

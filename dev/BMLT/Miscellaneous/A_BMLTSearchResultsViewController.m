@@ -21,6 +21,7 @@
 #import "A_BMLTSearchResultsViewController.h"
 #import "FormatDetailView.h"
 #import "BMLT_Format.h"
+#import "BMLTAppDelegate.h"
 
 /**************************************************************//**
  \class  A_BMLTSearchResultsViewController -Private Interface
@@ -77,8 +78,8 @@
 {
 }
 
-/***************************************************************\**
- \brief 
+/**************************************************************//**
+ \brief This is called when someone clicks on a format button.
  *****************************************************************/
 - (void)displayFormatDetail:(id)inSender
 {
@@ -112,8 +113,8 @@
         }
 }
 
-/***************************************************************\**
- \brief 
+/**************************************************************//**
+ \brief This is called to dismiss the modal dialog or popover.
  *****************************************************************/
 - (void)closeModal
 {
@@ -128,6 +129,14 @@
     
     formatPopover = nil;
     myModalView = nil;
+}
+
+/**************************************************************//**
+ \brief This is called when the "Clear Search" button is pressed.
+ *****************************************************************/
+- (IBAction)clearSearch:(id)sender
+{
+    [[BMLTAppDelegate getBMLTAppDelegate] clearAllSearchResults];
 }
 
 @end

@@ -28,7 +28,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggj-Ty-D21" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="simple-search" id="1ej-mT-cW2" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jso-hj-sh5" userLabel="search-simple" customClass="A_BMLTMainBackgroundView">
-                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4sw-z7-Qal">
@@ -108,7 +108,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8r-pz-Qye" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="map-search" id="fYl-cf-cFm" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rQg-Zb-7H4" userLabel="search-map" customClass="A_BMLTMainBackgroundView">
-                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -375,7 +375,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VqF-3b-vjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="advanced-search" id="eMe-9F-zBx" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF" userLabel="search-advanced" customClass="A_BMLTMainBackgroundView">
-                        <rect key="frame" x="0.0" y="44" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -434,7 +434,13 @@
                             <outlet property="delegate" destination="toC-1w-pMV" id="bih-Jg-JkE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="j0m-Qo-Uu7"/>
+                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="j0m-Qo-Uu7">
+                        <barButtonItem key="leftBarButtonItem" title="CLEAR-SEARCH-BUTTON" id="p0b-YK-q2a">
+                            <connections>
+                                <action selector="clearSearch:" destination="toC-1w-pMV" id="ez0-Zz-EOK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -451,77 +457,14 @@
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="A_BMLTNavBarViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTNavBarViewController.h"/>
-        </class>
-        <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
-        </class>
-        <class className="A_BMLTSettingsBackgroundView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSettingsBackgroundView.h"/>
-        </class>
-        <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
-        </class>
-        <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
-        </class>
-        <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTDisplayListResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
-        </class>
-        <class className="BMLTMapSearchViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
-        </class>
-        <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="distanceSortChanged:"/>
-                <relationship kind="action" name="keepUpdatingChanged:"/>
-                <relationship kind="action" name="lookupLocationChanged:"/>
-                <relationship kind="action" name="mapResultsChanged:"/>
-                <relationship kind="action" name="numMeetingsChanged:"/>
-                <relationship kind="action" name="preferredSearchChanged:"/>
-                <relationship kind="action" name="retainStateChanged:"/>
-                <relationship kind="outlet" name="distanceSortLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="distanceSortSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="keepUpdatingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="keepUpdatingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="lookUpLocationSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="lookupLocationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapResultsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapResultsSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="maxLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="minLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numMeetingsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numMeetingsSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="preferredSearchTypeControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="preferredSearchTypeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="retainStateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="retainStateSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="BMLTSimpleSearchViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="findAllMeetingsNearMe:"/>
-                <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
-                <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
-                <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="BMLTSnappyLogSlider" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSnappyLogSlider.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="PqN-or-VVj"/>
+        <segue reference="onn-Vj-m9R"/>
+        <segue reference="6dy-0C-PXT"/>
+    </inferredMetricsTieBreakers>
 </document>
