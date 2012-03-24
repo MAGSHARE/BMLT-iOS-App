@@ -33,9 +33,9 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
  *****************************************************************/
 @interface BMLTAppDelegate ()
 {
-    BOOL                _findMeetings;  ///< If this is YES, then a meeting search will be done.
-    BOOL                _amISick;       ///< If true, it indicates that the alert for connectivity problems should not be shown.
-    BMLT_Meeting_Search *mySearch;      ///< The current meeting search in progress.
+    BOOL                                    _findMeetings;              ///< If this is YES, then a meeting search will be done.
+    BOOL                                    _amISick;                   ///< If true, it indicates that the alert for connectivity problems should not be shown.
+    BMLT_Meeting_Search                     *mySearch;                  ///< The current meeting search in progress.
     UIViewController                        *searchNavController;       ///< This is the tab controller for all the searches.
     BMLTDisplayListResultsViewController    *listResultsViewController; ///< This will point to our list results main controller.
     BMLTMapResultsViewController            *mapResultsViewController;  ///< This will point to our map results main controller.
