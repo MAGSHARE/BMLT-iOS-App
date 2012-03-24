@@ -160,6 +160,7 @@
 {
     UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
     [[BMLT_Prefs getBMLT_Prefs] setLookupMyLocation:[myControl isOn]];
+    [BMLT_Prefs saveChanges];
 }
 
 /**************************************************************//**
@@ -169,6 +170,7 @@
 {
     UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
     [[BMLT_Prefs getBMLT_Prefs] setKeepUpdatingLocation:[myControl isOn]];
+    [BMLT_Prefs saveChanges];
 }
 
 /**************************************************************//**
@@ -178,6 +180,7 @@
 {
     UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
     [[BMLT_Prefs getBMLT_Prefs] setPreserveAppStateOnSuspend:[myControl isOn]];
+    [BMLT_Prefs saveChanges];
 }
 
 /**************************************************************//**
@@ -187,6 +190,7 @@
 {
     UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
     [[BMLT_Prefs getBMLT_Prefs] setPreferSearchResultsAsMap:[myControl isOn]];
+    [BMLT_Prefs saveChanges];
 }
 
 /**************************************************************//**
@@ -196,6 +200,7 @@
 {
     UISwitch  *myControl = (UISwitch *)sender;  // Get the sender as a switch
     [[BMLT_Prefs getBMLT_Prefs] setPreferDistanceSort:[myControl isOn]];
+    [BMLT_Prefs saveChanges];
 }
 
 /**************************************************************//**
@@ -205,6 +210,7 @@
 {
     UISegmentedControl  *myControl = (UISegmentedControl *)sender;  // Get the sender as a segmented control
     [[BMLT_Prefs getBMLT_Prefs] setSearchTypePref:[myControl selectedSegmentIndex]];
+    [BMLT_Prefs saveChanges];
 }
 
 /**************************************************************//**
@@ -214,5 +220,6 @@
 {
     UISlider  *myControl = (UISlider *)sender;  // Get the sender as a slider control
     [[BMLT_Prefs getBMLT_Prefs] setResultCount:floorf(powf(10, [myControl value]))];
+    [BMLT_Prefs saveChanges];
 }
 @end

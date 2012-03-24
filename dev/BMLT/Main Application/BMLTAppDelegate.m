@@ -300,6 +300,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:2] topViewController];
     
     [self clearAllSearchResults];
+    if ( [myPrefs lookupMyLocation] )
+        {
+        [locationManager startUpdatingLocation];
+        }
     return YES;
 }
 
@@ -325,12 +329,20 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [self startNetworkMonitor];
+    
     if ( [myPrefs keepUpdatingLocation] )
         {
         [locationManager startUpdatingLocation];
         }
     
-    [self setUpTabBarItems];
+    if ( ![myPrefs preserveAppStateOnSuspend] )
+        {
+        [self clearAllSearchResults];
+        }
+    else
+        {
+        [self setUpTabBarItems];
+        }
 }
 
 #pragma mark - Custom Instance Methods -
