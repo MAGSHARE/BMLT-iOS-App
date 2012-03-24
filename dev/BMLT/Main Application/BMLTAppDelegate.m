@@ -212,17 +212,30 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
         switch ( [[BMLT_Prefs getBMLT_Prefs] searchTypePref] )
             {
             case _PREFER_MAP_SEARCH:
-            newSearch = [st instantiateViewControllerWithIdentifier:@"map-search"];
+            if ([[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPad)   // The map and simple searches are combined, on the iPad.
+                {
+                newSearch = [st instantiateViewControllerWithIdentifier:@"map-search"];
+                }
             break;
             
             case _PREFER_ADVANCED_SEARCH:
             newSearch = [st instantiateViewControllerWithIdentifier:@"advanced-search"];
-            break;
+           break;
             }
         
         if ( newSearch )    // We push the controller, as opposed to changing the root, because it's easier, and doesn't violate any of our ground rules.
             {
             [[searchNavController navigationController] pushViewController:newSearch animated:NO];
+            // In the case of the iPad, we use a standard navbar push, so we need to prime the simple view to properly populate the Advanced view back button.
+            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+                {
+                UIViewController    *simpleViewController = [[[searchNavController navigationController] viewControllers] objectAtIndex:0];
+                
+                simpleViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString([[simpleViewController navigationItem] title], nil)
+                                                                                                         style:UIBarButtonItemStyleBordered
+                                                                                                        target:nil
+                                                                                                        action:nil];
+                }
             }
         }
 }

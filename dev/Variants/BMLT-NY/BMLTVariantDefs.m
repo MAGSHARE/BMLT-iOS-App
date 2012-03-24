@@ -27,7 +27,7 @@
  *****************************************************************/
 + (UIColor *)windowBackgroundColor
 {
-    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueBackgroundPat.gif"]];
+    return [UIColor blueColor];
 }
 
 /**************************************************************//**
@@ -36,7 +36,7 @@
  *****************************************************************/
 + (UIColor *)searchBackgroundColor
 {
-    return [BMLTVariantDefs windowBackgroundColor];
+    return [UIColor blueColor];
 }
 
 /**************************************************************//**
@@ -45,7 +45,7 @@
  *****************************************************************/
 + (UIColor *)listResultsBackgroundColor
 {
-    return [BMLTVariantDefs windowBackgroundColor];
+    return [UIColor blueColor];
 }
 
 /**************************************************************//**
@@ -54,7 +54,25 @@
  *****************************************************************/
 + (UIColor *)mapResultsBackgroundColor
 {
-    return [BMLTVariantDefs windowBackgroundColor];
+    return [UIColor blueColor];
+}
+
+/**************************************************************//**
+ \brief     
+ \returns   
+ *****************************************************************/
++ (UIColor *)modalBackgroundColor
+{
+    return [UIColor blackColor];
+}
+
+/**************************************************************//**
+ \brief     
+ \returns   
+ *****************************************************************/
++ (UIColor *)popoverBackgroundColor
+{
+    return [UIColor scrollViewTexturedBackgroundColor];
 }
 
 /**************************************************************//**

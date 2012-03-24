@@ -29,5 +29,7 @@
 + (UIColor *)searchBackgroundColor;
 + (UIColor *)listResultsBackgroundColor;
 + (UIColor *)mapResultsBackgroundColor;
++ (UIColor *)modalBackgroundColor;
++ (UIColor *)popoverBackgroundColor;
 + (UIColor *)settingsBackgroundColor;
 @end

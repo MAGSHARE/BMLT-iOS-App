@@ -63,7 +63,12 @@
     // With a popover, we don't need the "Done" button.
     if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
         {
+        [[self view] setBackgroundColor:[BMLTVariantDefs popoverBackgroundColor]];
         [(UINavigationItem *)[navBar topItem] setRightBarButtonItem:nil animated:NO];
+        }
+    else
+        {
+        [[self view] setBackgroundColor:[BMLTVariantDefs modalBackgroundColor]];
         }
     [super viewDidLoad];
 }

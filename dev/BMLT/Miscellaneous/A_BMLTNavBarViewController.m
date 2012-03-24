@@ -41,9 +41,9 @@
  *****************************************************************/
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    BOOL    ret = interfaceOrientation == UIInterfaceOrientationPortrait;
+    BOOL    ret = interfaceOrientation == UIInterfaceOrientationPortrait;   // iPhone is portrait-only.
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)   // iPad is any which way.
         {
         ret = YES;
         }
