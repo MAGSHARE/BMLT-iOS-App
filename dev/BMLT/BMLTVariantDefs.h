@@ -19,17 +19,59 @@
 
 #import <UIKit/UIKit.h>
 
+#ifndef _VARIANT_DEFS_  // This kludge just keeps the compiler from yelling at us for duplicating the class definition (because this is in the precompiled header).
+#define _VARIANT_DEFS_ 1
 /**************************************************************//**
  \class  BMLTVariantDefs
  \brief  This class will be a static class that provides various
          definitions and macros for use by each variant.
  *****************************************************************/
 @interface BMLTVariantDefs : NSObject
+{
+
+}
+
+/**************************************************************//**
+ \brief     This returns the color (or texture) to use for the main window background.
+ \returns   The color to be used.
+ *****************************************************************/
 + (UIColor *)windowBackgroundColor;
+
+/**************************************************************//**
+ \brief     This returns the color to be used as the background for the search windows.
+ \returns   The color to be used.
+ *****************************************************************/
 + (UIColor *)searchBackgroundColor;
+
+/**************************************************************//**
+ \brief     This returns the color to be used as the main view background for the list results (seldom seen).
+ \returns   The color to be used.
+ *****************************************************************/
 + (UIColor *)listResultsBackgroundColor;
+
+/**************************************************************//**
+ \brief     This returns the color to be used as the main view background for the map results (seldom seen).
+ \returns   The color to be used.
+ *****************************************************************/
 + (UIColor *)mapResultsBackgroundColor;
+
+/**************************************************************//**
+ \brief     This is the background to be used for iPhone modal dialogs.
+ \returns   The color to be used.
+ *****************************************************************/
 + (UIColor *)modalBackgroundColor;
+
+/**************************************************************//**
+ \brief    This is the background for popover windows on the iPad
+ \returns  The color to be used. 
+ *****************************************************************/
 + (UIColor *)popoverBackgroundColor;
+
+/**************************************************************//**
+ \brief     This is the background for the Settings screen.
+ \returns   The color to be used.
+ *****************************************************************/
 + (UIColor *)settingsBackgroundColor;
+
 @end
+#endif
