@@ -73,5 +73,11 @@
  *****************************************************************/
 + (UIColor *)settingsBackgroundColor;
 
+/**************************************************************//**
+ \brief     Returns the root server URI for this variant.
+ \returns   The URI of the Root Server.
+ *****************************************************************/
++ (NSURL *)rootServerURI;
+
 @end
 #endif

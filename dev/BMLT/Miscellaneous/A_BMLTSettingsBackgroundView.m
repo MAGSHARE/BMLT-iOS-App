@@ -34,7 +34,10 @@
     self = [super initWithCoder:coder];
     if (self)
         {
-        [self setBackgroundColor:[BMLTVariantDefs settingsBackgroundColor]];
+        if ( [BMLTVariantDefs settingsBackgroundColor] )
+            {
+            [self setBackgroundColor:[BMLTVariantDefs settingsBackgroundColor]];
+            }
         }
     return self;
 }

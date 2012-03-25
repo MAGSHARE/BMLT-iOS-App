@@ -182,7 +182,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
         s_thePrefs = [[BMLT_Prefs alloc] initWithCoder:nil];
         NSString    *serverName = NSLocalizedString(@"INITIAL-SERVER-NAME", nil);
         NSString    *serverDescription = NSLocalizedString(@"INITIAL-SERVER-DESCRIPTION", nil);
-        NSString    *serverURI = NSLocalizedString(@"INITIAL-SERVER-URI", nil);
+        NSString    *serverURI = [[BMLTVariantDefs rootServerURI] absoluteString];
         
 #ifdef DEBUG
         NSLog(@"BMLT_Prefs getBMLT_Prefs Adding the default server.");

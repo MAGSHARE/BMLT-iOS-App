@@ -197,14 +197,14 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
  *****************************************************************/
 - (void)selectInitialSearchAndForce:(BOOL)force         ///< If YES, then the screen will be set to the default, even if we were already set to one.
 {
-    UIStoryboard    *st = [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"] bundle:[NSBundle mainBundle]];
-    
     UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
     
     [tabController setSelectedIndex:0]; // Set the tab bar to the search screens.
     
     if ( force )
         {
+        UIStoryboard    *st = [tabController storyboard];
+        
         [[searchNavController navigationController] popToRootViewControllerAnimated:NO];
         
         UIViewController    *newSearch = nil;
@@ -300,7 +300,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [tabController setSelectedIndex:0];
     [tabController setDelegate:self];
     // We're going to have a blue "leather" background for most screens.
-    [_window setBackgroundColor:[BMLTVariantDefs windowBackgroundColor]];
+    if ( [BMLTVariantDefs windowBackgroundColor] )
+        {
+        [_window setBackgroundColor:[BMLTVariantDefs windowBackgroundColor]];
+        }
     for ( NSInteger i = 0; i < [[tabController viewControllers] count]; i++ )
         {
         UITabBarItem    *theItem = [[[tabController viewControllers] objectAtIndex:i] tabBarItem];
@@ -608,7 +611,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     [internetReachable startNotifier];
     
     // check if a pathway to our root server exists
-    NSURL       *test_uri = [NSURL URLWithString:NSLocalizedString(@"INITIAL-SERVER-URI",nil)];
+    NSURL       *test_uri = [BMLTVariantDefs rootServerURI];
     NSString    *root_uri = [test_uri host];
     hostReachable = [Reachability reachabilityWithHostName:root_uri];
     [hostReachable startNotifier];

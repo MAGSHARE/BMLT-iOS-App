@@ -72,5 +72,11 @@
 {
     return [UIColor underPageBackgroundColor];
 }
+/**************************************************************//**
+ *****************************************************************/
++ (NSURL *)rootServerURI
+{
+    return [NSURL URLWithString:NSLocalizedString(@"INITIAL-SERVER-URI",nil)];
+}
 
 @end
