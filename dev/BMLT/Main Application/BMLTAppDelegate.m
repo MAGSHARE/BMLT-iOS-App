@@ -19,6 +19,7 @@
 #import "BMLTAppDelegate.h"
 #import "Reachability.h"
 #import "BMLT_Prefs.h"
+#import "BMLT_Meeting.h"
 #import "BMLTDisplayListResultsViewController.h"
 #import "BMLTMapResultsViewController.h"
 #import "BMLTSimpleSearchViewController.h"
@@ -49,6 +50,8 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 - (void)stopAnimations;                                 ///< Stops the animations in the two results screens.
 - (void)selectInitialSearchAndForce:(BOOL)force;        ///< Selects the initial search screen, depending on the user's choice.
 - (void)simpleClearSearch;                              ///< Just clears the search results with no frou-frou.
+NSInteger timeSort (id meeting1, id meeting2, void *context);       ///< Callback for the time sort.
+NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callback for the distance sort.
 @end
 
 /**************************************************************//**
@@ -833,6 +836,69 @@ shouldSelectViewController:(UIViewController *)inViewController
 - (A_BMLT_Search *)getSearch
 {
     return mySearch;
+}
+
+#pragma mark - Special Meeting Sort Sauce -
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)sortMeetingsByWeekdayAndTime
+{
+    NSArray *sortedArray = [searchResults sortedArrayUsingFunction:timeSort context:NULL];
+    
+    searchResults = [[NSMutableArray alloc] initWithArray:sortedArray];
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)sortMeetingsByDistance
+{
+    NSArray *sortedArray = [searchResults sortedArrayUsingFunction:distanceSort context:NULL];
+    
+    searchResults = [[NSMutableArray alloc] initWithArray:sortedArray];
+}
+
+/***************************************************************\**
+ \brief C function that is a sort callback for sorting by start time/day
+ \returns the result of a comparison between the two meetings.
+ *****************************************************************/
+NSInteger timeSort (id meeting1, id meeting2, void *context)
+{
+    BMLT_Meeting    *meeting_A = (BMLT_Meeting *)meeting1;
+    BMLT_Meeting    *meeting_B = (BMLT_Meeting *)meeting2;
+    
+    if ( [meeting_A getWeekdayOrdinal] < [meeting_B getWeekdayOrdinal] )
+        return NSOrderedAscending;
+    else if ([meeting_A getWeekdayOrdinal] > [meeting_B getWeekdayOrdinal])
+        return NSOrderedDescending;
+    else if ( [meeting_A getStartTimeOrdinal] < [meeting_B getStartTimeOrdinal] )
+        return NSOrderedAscending;
+    else if ( [meeting_A getStartTimeOrdinal] > [meeting_B getStartTimeOrdinal] )
+        return NSOrderedDescending;
+    else
+        return NSOrderedSame;
+}
+
+/***************************************************************\**
+ \brief C function that is a sort callback for sorting by distance
+ \returns the result of a comparison between the two meetings.
+ *****************************************************************/
+NSInteger distanceSort (id meeting1, id meeting2, void *context)
+{
+    BMLT_Meeting    *meeting_A = (BMLT_Meeting *)meeting1;
+    BMLT_Meeting    *meeting_B = (BMLT_Meeting *)meeting2;
+    
+    double   distance1 = [(NSString *)[meeting_A getValueFromField:@"distance_in_km"] doubleValue];
+    double   distance2 = [(NSString *)[meeting_B getValueFromField:@"distance_in_km"] doubleValue];
+    
+    if (distance1 < distance2)
+        return NSOrderedAscending;
+    else if (distance1 > distance2)
+        return NSOrderedDescending;
+    else
+        return NSOrderedSame;
 }
 
 @end

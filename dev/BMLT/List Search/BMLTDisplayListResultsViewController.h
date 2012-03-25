@@ -20,8 +20,6 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTSearchResultsViewController.h"
 
-#define kSortHeaderHeight   20  ///< The height of the "Sort By" header for lists of more than one result.
-
 /**************************************************************//**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.
@@ -29,4 +27,5 @@
 @interface BMLTDisplayListResultsViewController : A_BMLTSearchResultsViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSMutableArray    *dataArray; ///< This will hold the data for the table to display.
 - (void)setDataArrayFromData:(NSArray *)dataArray;          ///< Set the data array to the contents of the given array.
+- (IBAction)sortMeetings:(id)sender;                        ///< Sorts the meeting search results.
 @end

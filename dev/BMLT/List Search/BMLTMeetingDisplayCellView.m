@@ -45,7 +45,11 @@
         
         if ( index - (floor(index / 2) * 2) )
             {
-            [wrapperView setBackgroundColor:[UIColor colorWithRed:.8 green:.9 blue:1 alpha:1]];
+            [wrapperView setBackgroundColor:[BMLTVariantDefs getSortOddColor]];
+            }
+        else
+            {
+            [wrapperView setBackgroundColor:[BMLTVariantDefs getSortEvenColor]];
             }
         
         [self addSubview:wrapperView];

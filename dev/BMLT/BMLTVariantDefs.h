@@ -74,6 +74,18 @@
 + (UIColor *)settingsBackgroundColor;
 
 /**************************************************************//**
+ \brief     This is the background for odd rows in the list results.
+ \returns   The color to be used.
+ *****************************************************************/
++ (UIColor *)getSortOddColor;
+
+/**************************************************************//**
+ \brief     This is the background for even rows in the list results.
+ \returns   The color to be used.
+ *****************************************************************/
++ (UIColor *)getSortEvenColor;
+
+/**************************************************************//**
  \brief     Returns the root server URI for this variant.
  \returns   The URI of the Root Server.
  *****************************************************************/

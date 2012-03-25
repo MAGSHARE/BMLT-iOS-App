@@ -62,4 +62,6 @@
 - (void)networkStatusCallback:(NSNotification *)notice; ///< Gets the results of the network test.
 - (void)setUpTabBarItems;                               ///< Enables and Disables the UITabBar items in accordance with the current state.
 - (void)clearAllSearchResults;                          ///< Clears all the search results, and the results views.
+- (void)sortMeetingsByWeekdayAndTime;                   ///< Sorts the meeting search results by weekday and time.
+- (void)sortMeetingsByDistance;                         ///< Sorts the meeting search results by distance from your location.
 @end

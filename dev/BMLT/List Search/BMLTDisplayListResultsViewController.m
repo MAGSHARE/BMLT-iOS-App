@@ -19,8 +19,10 @@
 
 #import "BMLTDisplayListResultsViewController.h"
 #import "BMLTMeetingDisplayCellView.h"
+#import "BMLTAppDelegate.h"
+#import "BMLT_Prefs.h"
 
-#define kSortOptionsRowHeight        32
+#define kSortHeaderHeight           30  ///< The height of the "Sort By" header for lists of more than one result.
 
 /**************************************************************//**
  \class  BMLTDisplayListResultsViewController
@@ -61,6 +63,32 @@
     
     [_dataArray removeAllObjects];
     [_dataArray setArray:dataArray];
+    [(UITableView *)[self view] reloadData];
+}
+
+#pragma mark - Sort Functions -
+
+/**************************************************************//**
+ \brief Sorts the meeting search results.
+ *****************************************************************/
+- (IBAction)sortMeetings:(id)sender        ///< The Segmented Control
+{
+    if ( [(UISegmentedControl *)sender selectedSegmentIndex] )
+        {
+#ifdef DEBUG
+        NSLog(@"BMLTDisplayListResultsViewController::sortMeetings Sorting Meetings By Weekday and Time.");
+#endif
+        [[BMLTAppDelegate getBMLTAppDelegate] sortMeetingsByWeekdayAndTime];
+        }
+    else
+        {
+#ifdef DEBUG
+        NSLog(@"BMLTDisplayListResultsViewController::sortMeetings Sorting Meetings By Distance.");
+#endif
+        [[BMLTAppDelegate getBMLTAppDelegate] sortMeetingsByDistance];
+        }
+    
+    [self setDataArrayFromData:[[BMLTAppDelegate getBMLTAppDelegate] searchResults]];
     [(UITableView *)[self view] reloadData];
 }
 
@@ -108,6 +136,8 @@ titleForHeaderInSection:(NSInteger)section
             bounds.origin = CGPointZero;
             bounds.size.height = kSortHeaderHeight;
             [sortControl setFrame:bounds];
+            [sortControl setSelectedSegmentIndex:[BMLT_Prefs getPreferDistanceSort] ? 0 : 1];
+            [sortControl addTarget:self action:@selector(sortMeetings:) forControlEvents:UIControlEventValueChanged];
             ret = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LIST-SORT-HEADER"];
             [ret addSubview:sortControl];
 #ifdef DEBUG
@@ -127,15 +157,17 @@ titleForHeaderInSection:(NSInteger)section
         
         if ( theMeeting )
             {
+            // We deliberately don't reuse, because we need to update the "striping" of meeting cells when we re-sort.
             NSString    *reuseID = [NSString stringWithFormat: @"BMLT_Search_Results_Row_%d", [theMeeting getMeetingID]];
-            ret = [tableView dequeueReusableCellWithIdentifier:reuseID];
             if ( !ret )
                 {
 #ifdef DEBUG
                 NSLog(@"Creating A Row For Meeting ID %d, named \"%@\"", [theMeeting getMeetingID], [theMeeting getBMLTName]);
 #endif
-                ret = [[BMLTMeetingDisplayCellView alloc] initWithMeeting:theMeeting andFrame:[tableView bounds] andReuseID:reuseID andIndex:[indexPath row]];
-                [(BMLTMeetingDisplayCellView *)ret setMyModalController:self];
+                BMLTMeetingDisplayCellView *ret_cast = [[BMLTMeetingDisplayCellView alloc] initWithMeeting:theMeeting andFrame:[tableView bounds] andReuseID:reuseID andIndex:[indexPath row]];
+                [ret_cast setMyModalController:self];
+                
+                ret = ret_cast;
                 }
 #ifdef DEBUG
             else
