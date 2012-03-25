@@ -840,7 +840,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 
 #pragma mark - Special Meeting Sort Sauce -
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)sortMeetingsByWeekdayAndTime
@@ -850,7 +850,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     searchResults = [[NSMutableArray alloc] initWithArray:sortedArray];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)sortMeetingsByDistance
@@ -860,7 +860,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     searchResults = [[NSMutableArray alloc] initWithArray:sortedArray];
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief C function that is a sort callback for sorting by start time/day
  \returns the result of a comparison between the two meetings.
  *****************************************************************/
@@ -881,7 +881,7 @@ NSInteger timeSort (id meeting1, id meeting2, void *context)
         return NSOrderedSame;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief C function that is a sort callback for sorting by distance
  \returns the result of a comparison between the two meetings.
  *****************************************************************/

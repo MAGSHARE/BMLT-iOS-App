@@ -58,6 +58,13 @@
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
+		7799D29B151FA633007FE822 /* BMLTMeetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */; };
+		7799D29C151FA633007FE822 /* BMLTMeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7799D29A151FA633007FE822 /* BMLTMeetingDetailViewController.xib */; };
+		7799D2A0151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799D29F151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m */; };
+		7799D2A2151FACD5007FE822 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799D2A1151FACD4007FE822 /* MapKit.framework */; };
+		7799D2A6151FAD30007FE822 /* MapMarkerBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */; };
+		7799D2A7151FAD30007FE822 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */; };
+		7799D2A8151FAD30007FE822 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A5151FAD30007FE822 /* MapMarkerRed.png */; };
 		77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A10D47151022C200279AAC /* BMLTSegwayController.m */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
@@ -152,6 +159,15 @@
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77977D13150E882B00485C8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		77977D19150E882B00485C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMeetingDetailViewController.h; sourceTree = "<group>"; };
+		7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMeetingDetailViewController.m; sourceTree = "<group>"; };
+		7799D29A151FA633007FE822 /* BMLTMeetingDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMLTMeetingDetailViewController.xib; sourceTree = "<group>"; };
+		7799D29E151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLT_Results_MapPointAnnotationView.h; path = "../../../oldDev/BMLT/Search Screens/Common/BMLT_Results_MapPointAnnotationView.h"; sourceTree = "<group>"; };
+		7799D29F151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLT_Results_MapPointAnnotationView.m; path = "../../../oldDev/BMLT/Search Screens/Common/BMLT_Results_MapPointAnnotationView.m"; sourceTree = "<group>"; };
+		7799D2A1151FACD4007FE822 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlack.png; sourceTree = "<group>"; };
+		7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlue.png; sourceTree = "<group>"; };
+		7799D2A5151FAD30007FE822 /* MapMarkerRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerRed.png; sourceTree = "<group>"; };
 		77A10D46151022C200279AAC /* BMLTSegwayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSegwayController.h; sourceTree = "<group>"; };
 		77A10D47151022C200279AAC /* BMLTSegwayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSegwayController.m; sourceTree = "<group>"; };
 		77B59D111514BA1B00C07D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
@@ -172,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7799D2A2151FACD5007FE822 /* MapKit.framework in Frameworks */,
 				771D0C94150E89BC005A707A /* SystemConfiguration.framework in Frameworks */,
 				771D0C92150E899B005A707A /* QuartzCore.framework in Frameworks */,
 				771D0C90150E8986005A707A /* CoreLocation.framework in Frameworks */,
@@ -233,6 +250,11 @@
 		771D0C52150E893C005A707A /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
+				7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */,
+				7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */,
+				7799D29A151FA633007FE822 /* BMLTMeetingDetailViewController.xib */,
+				7799D29E151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.h */,
+				7799D29F151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m */,
 				771D0C54150E893C005A707A /* BMLT_Prefs.h */,
 				771D0C55150E893C005A707A /* BMLT_Prefs.m */,
 				771D0C56150E893C005A707A /* BrassCheckBox.h */,
@@ -324,6 +346,9 @@
 				772C1633151B49E300830596 /* search@2x.png */,
 				772C1634151B49E300830596 /* settings.png */,
 				772C1635151B49E300830596 /* settings@2x.png */,
+				7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */,
+				7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */,
+				7799D2A5151FAD30007FE822 /* MapMarkerRed.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -351,6 +376,7 @@
 		77977D0E150E882B00485C8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7799D2A1151FACD4007FE822 /* MapKit.framework */,
 				771D0C93150E89BC005A707A /* SystemConfiguration.framework */,
 				771D0C91150E899B005A707A /* QuartzCore.framework */,
 				771D0C8F150E8986005A707A /* CoreLocation.framework */,
@@ -489,6 +515,10 @@
 				772C1642151B49E300830596 /* settings.png in Resources */,
 				772C1643151B49E300830596 /* settings@2x.png in Resources */,
 				77803C40151C011D00A8ADC3 /* FormatDetailView.xib in Resources */,
+				7799D29C151FA633007FE822 /* BMLTMeetingDetailViewController.xib in Resources */,
+				7799D2A6151FAD30007FE822 /* MapMarkerBlack.png in Resources */,
+				7799D2A7151FAD30007FE822 /* MapMarkerBlue.png in Resources */,
+				7799D2A8151FAD30007FE822 /* MapMarkerRed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +576,8 @@
 				77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */,
 				7722BF8E151B3E02001E8029 /* BMLTVariantDefs.m in Sources */,
 				77803C3F151C011D00A8ADC3 /* FormatDetailView.m in Sources */,
+				7799D29B151FA633007FE822 /* BMLTMeetingDetailViewController.m in Sources */,
+				7799D2A0151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
