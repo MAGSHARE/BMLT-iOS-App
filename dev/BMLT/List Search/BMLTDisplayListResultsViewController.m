@@ -64,6 +64,27 @@
     [(UITableView *)[self view] reloadData];
 }
 
+#pragma mark - Table Data Source Functions -
+
+/***************************************************************\**
+ \brief We have two sections in this table. This returns 2.
+ \returns 2
+ *****************************************************************/
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return ([[self dataArray] count] > 1) ? 2 : 1;
+}
+
+/***************************************************************\**
+ \brief Returns the appropriate title for each section header.
+ \returns a string, with the appropriate title.
+ *****************************************************************/
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
+
 #pragma mark - UITableViewDataSource Delegate Required Methods -
 /**************************************************************//**
  \brief Called to provide a single cell contents.
@@ -73,16 +94,62 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath ///< The index path for the cell.
 {
     UITableViewCell *ret = nil;
-    BMLT_Meeting    *theMeeting = (BMLT_Meeting *)[_dataArray objectAtIndex:[indexPath row]];
     
-    if ( theMeeting )
+    // If we are populating the header, then we simply generate a new 
+    if ( ([self numberOfSectionsInTableView:tableView] > 1) && ([indexPath section] == 0) )
         {
-        NSString    *reuseID = [NSString stringWithFormat: @"BMLT_Search_Results_Row_%d", [theMeeting getMeetingID]];
+        ret = [tableView dequeueReusableCellWithIdentifier:@"LIST-SORT-HEADER"];
+        if ( !ret )
+            {
+            NSArray *sortChoices = [NSArray arrayWithObjects:NSLocalizedString(@"SEARCH-RESULTS-SORT-DISTANCE", nil), NSLocalizedString(@"SEARCH-RESULTS-SORT-TIME", nil), nil];
+            UISegmentedControl  *sortControl = [[UISegmentedControl alloc] initWithItems:sortChoices];
+            [sortControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+            CGRect  bounds = [tableView bounds];
+            bounds.origin = CGPointZero;
+            bounds.size.height = kSortHeaderHeight;
+            [sortControl setFrame:bounds];
+            ret = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LIST-SORT-HEADER"];
+            [ret addSubview:sortControl];
 #ifdef DEBUG
-        NSLog(@"Creating A Row For Meeting ID %d, named \"%@\"", [theMeeting getMeetingID], [theMeeting getBMLTName]);
+            NSLog(@"Creating A Row For the sort header.");
 #endif
-        ret = [[BMLTMeetingDisplayCellView alloc] initWithMeeting:theMeeting andFrame:[tableView bounds] andReuseID:reuseID andIndex:[indexPath row]];
-        [(BMLTMeetingDisplayCellView *)ret setMyModalController:self];
+            }
+#ifdef DEBUG
+        else
+            {
+            NSLog(@"Reusing the sort header row,");
+            }
+#endif
+        }
+    else
+        {
+        BMLT_Meeting    *theMeeting = (BMLT_Meeting *)[_dataArray objectAtIndex:[indexPath row]];
+        
+        if ( theMeeting )
+            {
+            NSString    *reuseID = [NSString stringWithFormat: @"BMLT_Search_Results_Row_%d", [theMeeting getMeetingID]];
+            ret = [tableView dequeueReusableCellWithIdentifier:reuseID];
+            if ( !ret )
+                {
+#ifdef DEBUG
+                NSLog(@"Creating A Row For Meeting ID %d, named \"%@\"", [theMeeting getMeetingID], [theMeeting getBMLTName]);
+#endif
+                ret = [[BMLTMeetingDisplayCellView alloc] initWithMeeting:theMeeting andFrame:[tableView bounds] andReuseID:reuseID andIndex:[indexPath row]];
+                [(BMLTMeetingDisplayCellView *)ret setMyModalController:self];
+                }
+#ifdef DEBUG
+            else
+                {
+                NSLog(@"Reusing A Row For Meeting ID %d, named \"%@\"", [theMeeting getMeetingID], [theMeeting getBMLTName]);
+                }
+#endif
+            }
+#ifdef DEBUG
+        else
+            {
+            NSLog(@"ERROR: Cannot get a reliable meeting object for index %d!", [indexPath row]);
+            }
+#endif
         }
     
     return ret;
@@ -95,7 +162,7 @@
 - (NSInteger)tableView:(UITableView *)tableView ///< The table view in question.
  numberOfRowsInSection:(NSInteger)section       ///< The section index.
 {
-    return [[self dataArray] count];
+    return ((section == 0) && ([[self dataArray] count] > 1)) ? 1 : [[self dataArray] count];
 }
 
 /**************************************************************//**
@@ -105,9 +172,7 @@
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat ret = List_Meeting_Display_CellHeight;
-    
-    return ret;
+    return (([self numberOfSectionsInTableView:tableView] > 1) && ([indexPath section] == 0)) ? kSortHeaderHeight : List_Meeting_Display_CellHeight;
 }
 
 @end
