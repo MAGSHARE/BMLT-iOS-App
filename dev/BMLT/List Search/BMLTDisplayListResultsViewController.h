@@ -28,4 +28,5 @@
 @property (strong, nonatomic) NSMutableArray    *dataArray; ///< This will hold the data for the table to display.
 - (void)setDataArrayFromData:(NSArray *)dataArray;          ///< Set the data array to the contents of the given array.
 - (IBAction)sortMeetings:(id)sender;                        ///< Sorts the meeting search results.
+- (IBAction)meetingSelected:(id)sender;                     ///< Responds to a meeting row being selected.
 @end

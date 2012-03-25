@@ -24,7 +24,8 @@
 #import "BMLT_Driver.h"
 #import "BMLT_Meeting_Search.h"
 
-@class BMLT_Prefs;  ///< Foward decl for the prefs property.
+@class BMLT_Prefs;      ///< Foward decl for the prefs property.
+@class BMLT_Meeting;    ///< Forward decl for a meeting.
 
 /**************************************************************//**
  \class BMLTAppDelegate
@@ -51,6 +52,7 @@
 + (BOOL)locationServicesAvailable;                      ///< Used to check to see if location services are available.
 + (BOOL)canReachRootServer;                             ///< Returns YES, if the root server can be reached via network.
 + (BOOL)validLocation;                                  ///< Returns YES if the app has a valid location.
++ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting withController:(UIViewController *)theController;
 
 /// Instance methods
 - (BOOL)isLookupValid;                                  ///< Returns YES, if the last location lookup is kosher.

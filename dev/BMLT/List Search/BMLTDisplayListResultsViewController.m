@@ -21,6 +21,7 @@
 #import "BMLTMeetingDisplayCellView.h"
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
+#import "BMLT_Meeting.h"
 
 #define kSortHeaderHeight           30  ///< The height of the "Sort By" header for lists of more than one result.
 
@@ -66,7 +67,7 @@
     [(UITableView *)[self view] reloadData];
 }
 
-#pragma mark - Sort Functions -
+#pragma mark - IBAction Functions -
 
 /**************************************************************//**
  \brief Sorts the meeting search results.
@@ -92,6 +93,14 @@
     [(UITableView *)[self view] reloadData];
 }
 
+/**************************************************************//**
+ \brief Responds to a meeting row being selected.
+ *****************************************************************/
+- (IBAction)meetingSelected:(id)sender  ///< The meeting cell.
+{
+    
+}
+
 #pragma mark - Table Data Source Functions -
 
 /**************************************************************//**
@@ -101,16 +110,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return ([[self dataArray] count] > 1) ? 2 : 1;
-}
-
-/**************************************************************//**
- \brief Returns the appropriate title for each section header.
- \returns a string, with the appropriate title.
- *****************************************************************/
-- (NSString *)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section
-{
-    return nil;
 }
 
 #pragma mark - UITableViewDataSource Delegate Required Methods -
@@ -198,13 +197,23 @@ titleForHeaderInSection:(NSInteger)section
 }
 
 /**************************************************************//**
- \brief 
- \returns 
+ \brief Get the proper height for the table cell.
+ \returns a floating-point number that specifies how many pixels high to make the table row.
  *****************************************************************/
-- (CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView       ///< The table view
+heightForRowAtIndexPath:(NSIndexPath *)indexPath    ///< The index.
 {
     return (([self numberOfSectionsInTableView:tableView] > 1) && ([indexPath section] == 0)) ? kSortHeaderHeight : List_Meeting_Display_CellHeight;
 }
 
+/**************************************************************//**
+ \brief Called when the user selects a table row.
+ *****************************************************************/
+- (NSIndexPath *)tableView:(UITableView *)tableView
+  willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [BMLTAppDelegate viewMeetingDetails:(BMLT_Meeting *)[_dataArray objectAtIndex:[indexPath row]] withController:self];
+    
+    return nil;
+}
 @end

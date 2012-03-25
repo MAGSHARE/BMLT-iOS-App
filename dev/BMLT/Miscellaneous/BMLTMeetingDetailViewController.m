@@ -20,8 +20,6 @@
 //
 
 #import "BMLTMeetingDetailViewController.h"
-#import <QuartzCore/QuartzCore.h>
-#import <CoreLocation/CoreLocation.h>
 #import "BMLT_Results_MapPointAnnotationView.h"
 #import "BMLT_Meeting.h"
 #import "BMLT_Format.h"
@@ -48,7 +46,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setBeanieBackground];
     [self setFormats];
     [self setMeetingFrequencyText];
     [self setMeetingCommentsText];
@@ -109,7 +106,7 @@
 /**************************************************************//**
  \brief 
  *****************************************************************/
-- (void)setMyModalController:(BMLTDisplayListResultsViewController *)inController
+- (void)setMyModalController:(UIViewController *)inController
 {
     myModalController = inController;
 }
@@ -118,7 +115,7 @@
  \brief 
  \returns 
  *****************************************************************/
-- (BMLTDisplayListResultsViewController *)getMyModalController
+- (UIViewController *)getMyModalController
 {
     return myModalController;
 }
@@ -249,16 +246,6 @@
     [meetingMapView setMapType:MKMapTypeHybrid];
     [selectMapButton setAlpha:1.0];
     [selectSatelliteButton setAlpha:0.0];
-}
-
-/**************************************************************//**
- \brief This applies the "Beanie Background" to the results view.
- *****************************************************************/
-- (void)setBeanieBackground
-{
-    [[[self view] layer] setContentsGravity:kCAGravityResizeAspectFill];
-    [[[self view] layer] setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0] CGColor]];
-    [[[self view] layer] setContents:(id)[[UIImage imageNamed:@"BeanieBack.png"] CGImage]];
 }
 
 #pragma mark - MkMapAnnotationDelegate Functions -

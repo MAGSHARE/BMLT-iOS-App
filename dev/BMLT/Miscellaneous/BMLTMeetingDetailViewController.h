@@ -24,7 +24,6 @@
 #import "BMLT_Results_MapPointAnnotationView.h"
 
 @class BMLT_Meeting;
-@class BMLTDisplayListResultsViewController;
 
 #define List_Meeting_Format_Circle_Size_Big 30
 
@@ -38,15 +37,14 @@
     IBOutlet UITextView             *frequencyTextView;
     IBOutlet UIButton               *selectMapButton;
     IBOutlet UIButton               *selectSatelliteButton;
-    BMLTDisplayListResultsViewController    *myModalController;
-    BMLT_Results_MapPointAnnotation         *myMarker;
+    UIViewController                *myModalController;
+    BMLT_Results_MapPointAnnotation *myMarker;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *meetingMapView;
 
-- (void)setBeanieBackground;
-- (void)setMyModalController:(BMLTDisplayListResultsViewController *)inController;
-- (BMLTDisplayListResultsViewController *)getMyModalController;
+- (void)setMyModalController:(UIViewController *)inController;
+- (UIViewController *)getMyModalController;
 - (void)setMyMeeting:(BMLT_Meeting *)inMeeting;
 - (BMLT_Meeting *)getMyMeeting;
 - (void)setFormats;

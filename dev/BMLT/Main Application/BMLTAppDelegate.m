@@ -25,6 +25,7 @@
 #import "BMLTSimpleSearchViewController.h"
 #import "BMLTMapSearchViewController.h"
 #import "BMLTAdvancedSearchViewController.h"
+#import "BMLTMeetingDetailViewController.h"
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
@@ -117,6 +118,20 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
     NSTimeInterval  interval = useGracePeriod ? [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60 : 0;
     
     return [NSDate dateWithTimeIntervalSinceNow:-interval];
+}
+
+/**************************************************************//**
+ \brief 
+ *****************************************************************/
++ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting
+            withController:(UIViewController *)theController
+{
+    BMLTMeetingDetailViewController *meetingDetails = [[BMLTMeetingDetailViewController alloc] init];
+    [meetingDetails setMyMeeting:inMeeting];
+    [meetingDetails setMyModalController:theController];
+    [[meetingDetails navigationItem] setTitle:[inMeeting getBMLTName]];
+    [[[meetingDetails navigationItem] titleView] sizeToFit];
+    [[theController navigationController] pushViewController:meetingDetails animated:YES];
 }
 
 #pragma mark - Private methods -
@@ -900,5 +915,6 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context)
     else
         return NSOrderedSame;
 }
+
 
 @end
