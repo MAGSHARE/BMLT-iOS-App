@@ -20,7 +20,9 @@
 
 #import "A_BMLT_ChildClass.h"
 
-#define format_Name_Text_Size                 16    ///< This defines the text size of the format name string.
+#define format_Name_Text_Size                       12    ///< This defines the text size of the format name string.
+#define List_Meeting_Format_Circle_Size             24
+#define List_Meeting_Format_Line_Padding            2
 
 @class BMLT_Format; ///< We'll define this class in just a bit.
 

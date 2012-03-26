@@ -20,6 +20,8 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTSearchResultsViewController.h"
 
+#define kSortHeaderHeight           30  ///< The height of the "Sort By" header for lists of more than one result.
+
 /**************************************************************//**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.

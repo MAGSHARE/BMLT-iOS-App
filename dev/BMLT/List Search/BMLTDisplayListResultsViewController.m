@@ -23,8 +23,6 @@
 #import "BMLT_Prefs.h"
 #import "BMLT_Meeting.h"
 
-#define kSortHeaderHeight           30  ///< The height of the "Sort By" header for lists of more than one result.
-
 /**************************************************************//**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.

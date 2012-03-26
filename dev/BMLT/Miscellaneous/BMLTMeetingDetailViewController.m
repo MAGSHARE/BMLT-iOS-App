@@ -24,24 +24,13 @@
 #import "BMLT_Meeting.h"
 #import "BMLT_Format.h"
 
-#define List_Meeting_Format_Circle_Size             24
-#define List_Meeting_Format_Line_Padding            2
-
 @implementation BMLTMeetingDetailViewController
 @synthesize meetingMapView;
-
-/**************************************************************//**
- \brief 
- *****************************************************************/
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
 
 #pragma mark - View lifecycle
 
 /**************************************************************//**
- \brief 
+ \brief Sets up the view, with all its parts.
  *****************************************************************/
 - (void)viewDidLoad
 {
@@ -54,7 +43,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Scram the reactor.
  *****************************************************************/
 - (void)viewDidUnload
 {
@@ -70,33 +59,34 @@
 }
 
 /**************************************************************//**
- \brief 
- \returns 
+ \brief Called when the device is rotated.
+ \returns NO, unless portrait (iPhone), or YES for everything (iPad).
  *****************************************************************/
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)io
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)io   ///< The desired interface orientation.
 {
-    BOOL    ret = ((io == UIInterfaceOrientationPortrait) || (io == UIInterfaceOrientationLandscapeLeft) || (io == UIInterfaceOrientationLandscapeRight));
+    BOOL    ret = (io == UIInterfaceOrientationPortrait);
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
         {
         ret = YES;
         }
+    
     return ret;
 }
 
 #pragma mark - Custom Functions -
 
 /**************************************************************//**
- \brief 
+ \brief Accessor - set the meeting object.
  *****************************************************************/
-- (void)setMyMeeting:(BMLT_Meeting *)inMeeting
+- (void)setMyMeeting:(BMLT_Meeting *)inMeeting  ///< The meeting object for this instance.
 {
     myMeeting = inMeeting;
 }
 
 /**************************************************************//**
- \brief 
- \returns   
+ \brief Accessor -Get the meeting object.
+ \returns   a reference to an instance of BMLT_Meeting.
  *****************************************************************/
 - (BMLT_Meeting *)getMyMeeting
 {
@@ -104,16 +94,19 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Accessor -sets the modal controller for this modal display.
+        We do this whacky stuff, because we let the main list/map/app
+        view handle modal dialogs, as opposed to ourselves. It helps
+        to reduce code coverage.
  *****************************************************************/
-- (void)setMyModalController:(UIViewController *)inController
+- (void)setMyModalController:(UIViewController *)inController   ///< The view controller that is in charge of this instance.
 {
     myModalController = inController;
 }
 
 /**************************************************************//**
- \brief 
- \returns 
+ \brief Accessor -Get the modal controller for this display.
+ \returns a reference to an instance of UIViewController
  *****************************************************************/
 - (UIViewController *)getMyModalController
 {
@@ -121,7 +114,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Set up the display of the format circles.
  *****************************************************************/
 - (void)setFormats
 {
@@ -160,7 +153,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Set up the display of the text as to when and how long the meeting meets.
  *****************************************************************/
 - (void)setMeetingFrequencyText
 {
@@ -189,7 +182,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Display the comments for the meeting.
  *****************************************************************/
 - (void)setMeetingCommentsText
 {
@@ -197,7 +190,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Creates and displays a location string, based on the location coordinates of the meeting.
  *****************************************************************/
 - (void)setMeetingLocationText
 {
@@ -218,7 +211,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Sets up the location of the meeting on the map view.
  *****************************************************************/
 - (void)setMapLocation
 {
@@ -229,7 +222,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief The map will be displayed as a map.
  *****************************************************************/
 - (IBAction)selectMapView:(id)sender
 {
@@ -239,7 +232,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief The map will be displayed as a satellite view.
  *****************************************************************/
 - (IBAction)selectSatelliteView:(id)sender
 {
@@ -251,8 +244,8 @@
 #pragma mark - MkMapAnnotationDelegate Functions -
 
 /**************************************************************//**
- \brief 
- \returns 
+ \brief Returns the view for the marker in the center of the map.
+ \returns an annotation view, representing the marker.
  *****************************************************************/
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id < MKAnnotation >)annotation
