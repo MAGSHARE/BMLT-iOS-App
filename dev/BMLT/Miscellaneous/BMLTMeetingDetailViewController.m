@@ -23,6 +23,7 @@
 #import "BMLT_Results_MapPointAnnotationView.h"
 #import "BMLT_Meeting.h"
 #import "BMLT_Format.h"
+#import "BMLTAppDelegate.h"
 
 @implementation BMLTMeetingDetailViewController
 @synthesize meetingMapView;
@@ -66,12 +67,12 @@
 {
     [self setMeetingMapView:nil];
     formatsContainerView = nil;
-    addressText = nil;
     commentsTextView = nil;
     frequencyTextView = nil;
     selectMapButton = nil;
     selectSatelliteButton = nil;
     myMarker = nil;
+    addressButton = nil;
     [super viewDidUnload];
 }
 
@@ -215,7 +216,7 @@
     NSString    *meetingLocationString = [NSString stringWithFormat:@"%@%@", (([myMeeting getValueFromField:@"location_text"]) ? [NSString stringWithFormat:@"%@, ", (NSString *)[myMeeting getValueFromField:@"location_text"]] : @""), [myMeeting getValueFromField:@"location_street"]];
     
     NSString    *theAddress = [NSString stringWithFormat:@"%@, %@", meetingLocationString, townAndState];
-    [addressText setText:theAddress];
+    [addressButton setTitle:theAddress forState:UIControlStateNormal];
     
     CLLocation  *loc = [myMeeting getMeetingLocationCoords];
     NSArray *meetings = [[NSArray alloc] initWithObjects:myMeeting, nil];
@@ -283,8 +284,9 @@
  \brief This will use the Web browser to get directions to the
         meeting from the user's current location.
  *****************************************************************/
-- (void)callForDirections
+- (IBAction)callForDirections:(id)sender
 {
-    
+    [[BMLTAppDelegate getBMLTAppDelegate] imVisitingRelatives];
+    [[UIApplication sharedApplication] openURL:[BMLTVariantDefs directionsURITo:[myMeeting getMeetingLocationCoords] from:[[BMLTAppDelegate getBMLTAppDelegate] myLocation]]];
 }
 @end

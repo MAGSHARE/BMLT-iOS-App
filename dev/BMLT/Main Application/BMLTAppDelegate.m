@@ -37,6 +37,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 {
     BOOL                                    _findMeetings;              ///< If this is YES, then a meeting search will be done.
     BOOL                                    _amISick;                   ///< If true, it indicates that the alert for connectivity problems should not be shown.
+    BOOL                                    _visitingRelatives;         ///< If true, then we will retain the app state, despite the flag that says we shouldn't.
     BMLT_Meeting_Search                     *mySearch;                  ///< The current meeting search in progress.
     UIViewController                        *searchNavController;       ///< This is the tab controller for all the searches.
     BMLTDisplayListResultsViewController    *listResultsViewController; ///< This will point to our list results main controller.
@@ -362,21 +363,23 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [self startNetworkMonitor];
+    if ( ![myPrefs preserveAppStateOnSuspend] && !_visitingRelatives )
+        {
+        [self clearAllSearchResults];
+        }
+    else if ( !_visitingRelatives )
+        {
+        [self setUpTabBarItems];
+        }
+    
+    _visitingRelatives = NO;
     
     if ( [myPrefs keepUpdatingLocation] )
         {
         [locationManager startUpdatingLocation];
         }
     
-    if ( ![myPrefs preserveAppStateOnSuspend] )
-        {
-        [self clearAllSearchResults];
-        }
-    else
-        {
-        [self setUpTabBarItems];
-        }
+    [self startNetworkMonitor];
 }
 
 #pragma mark - Custom Instance Methods -
@@ -510,6 +513,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)stopAnimations
 {
     
+}
+
+/**************************************************************//**
+ \brief This is called by other instances to prevent the app from
+        having its state changed between calls.
+        It is a "One-shot" operation that loses persistency between calls.
+ *****************************************************************/
+- (void)imVisitingRelatives
+{
+    _visitingRelatives = YES;
 }
 
 #pragma mark - Core Location Delegate Methods -

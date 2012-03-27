@@ -32,7 +32,7 @@
     BMLT_Meeting                    *myMeeting;
     MKMapView                       *meetingMapView;
     IBOutlet UIView                 *formatsContainerView;
-    IBOutlet UITextView             *addressText;
+    IBOutlet UIButton               *addressButton;
     IBOutlet UITextView             *commentsTextView;
     IBOutlet UITextView             *frequencyTextView;
     IBOutlet UIButton               *selectMapButton;
@@ -52,6 +52,6 @@
 - (void)setMeetingCommentsText;
 - (void)setMeetingLocationText;
 - (void)setMapLocation;
-- (void)callForDirections;
+- (IBAction)callForDirections:(id)sender;
 
 @end
