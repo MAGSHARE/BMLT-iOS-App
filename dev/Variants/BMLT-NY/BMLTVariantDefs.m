@@ -54,6 +54,13 @@
 
 /**************************************************************//**
  *****************************************************************/
++ (UIColor *)meetingDetailBackgroundColor
+{
+    return [UIColor blackColor];
+}
+
+/**************************************************************//**
+ *****************************************************************/
 + (UIColor *)modalBackgroundColor
 {
     return [UIColor blackColor];
@@ -63,7 +70,7 @@
  *****************************************************************/
 + (UIColor *)popoverBackgroundColor
 {
-    return [UIColor scrollViewTexturedBackgroundColor];
+    return [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:@"DarkWeave.png"]];
 }
 
 /**************************************************************//**

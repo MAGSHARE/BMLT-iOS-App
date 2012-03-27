@@ -30,6 +30,23 @@
 #pragma mark - View lifecycle
 
 /**************************************************************//**
+ \brief  Set the view backgound to the appropriate color.
+ \returns   self
+ *****************************************************************/
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self)
+        {
+        if ( [BMLTVariantDefs windowBackgroundColor] )
+            {
+            [[self view] setBackgroundColor:[BMLTVariantDefs meetingDetailBackgroundColor]];
+            }
+        }
+    return self;
+}
+
+/**************************************************************//**
  \brief Sets up the view, with all its parts.
  *****************************************************************/
 - (void)viewDidLoad

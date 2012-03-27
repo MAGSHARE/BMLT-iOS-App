@@ -56,6 +56,12 @@
 + (UIColor *)mapResultsBackgroundColor;
 
 /**************************************************************//**
+ \brief     This returns the color to be used as the view background for the single meeting details page.
+ \returns   The color to be used.
+ *****************************************************************/
++ (UIColor *)meetingDetailBackgroundColor;
+
+/**************************************************************//**
  \brief     This is the background to be used for iPhone modal dialogs.
  \returns   The color to be used.
  *****************************************************************/
