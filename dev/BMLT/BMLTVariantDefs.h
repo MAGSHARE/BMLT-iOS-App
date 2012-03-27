@@ -21,6 +21,9 @@
 
 #ifndef _VARIANT_DEFS_  // This kludge just keeps the compiler from yelling at us for duplicating the class definition (because this is in the precompiled header).
 #define _VARIANT_DEFS_ 1
+
+@class CLLocation;
+
 /**************************************************************//**
  \class  BMLTVariantDefs
  \brief  This class will be a static class that provides various
@@ -96,6 +99,13 @@
  \returns   The URI of the Root Server.
  *****************************************************************/
 + (NSURL *)rootServerURI;
+
+/**************************************************************//**
+ \brief     Returns the URI for Web-based directions to the given
+            location (long/lat) from the given location.
+ \returns   The URI of the directins call.
+ *****************************************************************/
++ (NSURL *)directionsURITo:(CLLocation *)inTo from:(CLLocation *)inFrom;
 
 @end
 #endif

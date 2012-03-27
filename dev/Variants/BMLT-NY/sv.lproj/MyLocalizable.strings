@@ -22,3 +22,6 @@
 
 /* The MAGSHARE URI (For Settings/Info) */
 "SETTINGS-BEANIE-BUTTON-URI" = "http://magshare.org";
+
+/* The URL as a printf format, for getting directions via the Web. */
+"DIRECTIONS-URI-FORMAT" = "http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f";

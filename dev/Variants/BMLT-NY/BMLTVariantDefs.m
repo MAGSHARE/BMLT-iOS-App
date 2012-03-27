@@ -18,6 +18,7 @@
 //
 
 #import "BMLTVariantDefs.h"
+#import <CoreLocation/CoreLocation.h>
 
 /**************************************************************//**
  \brief  See the "BMLTVariantDefs.h" file for details.
@@ -99,6 +100,14 @@
 + (NSURL *)rootServerURI
 {
     return [NSURL URLWithString:NSLocalizedString(@"INITIAL-SERVER-URI",nil)];
+}
+
+/**************************************************************//**
+ *****************************************************************/
++ (NSURL *)directionsURITo:(CLLocation *)inTo   ///< The long/lat of wehere we are going
+                      from:(CLLocation *)inFrom ///< The long/lat of our starting point.
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:NSLocalizedString(@"DIRECTIONS-URI-FORMAT",nil),inTo.coordinate.latitude, inTo.coordinate.longitude, inFrom.coordinate.latitude, inFrom.coordinate.longitude]];
 }
 
 @end
