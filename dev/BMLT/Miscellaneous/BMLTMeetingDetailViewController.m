@@ -278,4 +278,13 @@
     
     return ret;
 }
+
+/**************************************************************//**
+ \brief This will use the Web browser to get directions to the
+        meeting from the user's current location.
+ *****************************************************************/
+- (void)callForDirections
+{
+    
+}
 @end
