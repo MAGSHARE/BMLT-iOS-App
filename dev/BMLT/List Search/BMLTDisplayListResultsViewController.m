@@ -24,6 +24,26 @@
 #import "BMLT_Meeting.h"
 
 /**************************************************************//**
+ \class  BMLTMeetingDisplaySortCellView
+ \brief  This class handles display of the sort by header.
+ *****************************************************************/
+@implementation BMLTMeetingDisplaySortCellView
+
+/**************************************************************//**
+ \brief sets up the control with its various initial states.
+ *****************************************************************/
+- (void)setTheSortControl:(UISegmentedControl *)inControl   ///< The control to use as the sort header.
+{
+    [inControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+    [inControl setFrame:[self bounds]];
+    [inControl setSelectedSegmentIndex:[BMLT_Prefs getPreferDistanceSort] ? 0 : 1];
+    [inControl setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [self addSubview:inControl];
+}
+
+@end
+
+/**************************************************************//**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.
  *****************************************************************/
@@ -91,14 +111,6 @@
     [(UITableView *)[self view] reloadData];
 }
 
-/**************************************************************//**
- \brief Responds to a meeting row being selected.
- *****************************************************************/
-- (IBAction)meetingSelected:(id)sender  ///< The meeting cell.
-{
-    
-}
-
 #pragma mark - Table Data Source Functions -
 
 /**************************************************************//**
@@ -126,17 +138,16 @@
         ret = [tableView dequeueReusableCellWithIdentifier:@"LIST-SORT-HEADER"];
         if ( !ret )
             {
-            NSArray *sortChoices = [NSArray arrayWithObjects:NSLocalizedString(@"SEARCH-RESULTS-SORT-DISTANCE", nil), NSLocalizedString(@"SEARCH-RESULTS-SORT-TIME", nil), nil];
-            UISegmentedControl  *sortControl = [[UISegmentedControl alloc] initWithItems:sortChoices];
-            [sortControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+            BMLTMeetingDisplaySortCellView  *ret_cast = [[BMLTMeetingDisplaySortCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LIST-SORT-HEADER"];
             CGRect  bounds = [tableView bounds];
-            bounds.origin = CGPointZero;
             bounds.size.height = kSortHeaderHeight;
-            [sortControl setFrame:bounds];
-            [sortControl setSelectedSegmentIndex:[BMLT_Prefs getPreferDistanceSort] ? 0 : 1];
-            [sortControl addTarget:self action:@selector(sortMeetings:) forControlEvents:UIControlEventValueChanged];
-            ret = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LIST-SORT-HEADER"];
-            [ret addSubview:sortControl];
+            [ret_cast setFrame:bounds];
+            [ret_cast setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+            NSArray *sortChoices = [NSArray arrayWithObjects:NSLocalizedString(@"SEARCH-RESULTS-SORT-DISTANCE", nil), NSLocalizedString(@"SEARCH-RESULTS-SORT-TIME", nil), nil];
+            UISegmentedControl *theSortControl = [[UISegmentedControl alloc] initWithItems:sortChoices];
+            [theSortControl addTarget:self action:@selector(sortMeetings:) forControlEvents:UIControlEventValueChanged];
+            [ret_cast setTheSortControl:theSortControl];
+            ret = ret_cast;
 #ifdef DEBUG
             NSLog(@"Creating A Row For the sort header.");
 #endif
