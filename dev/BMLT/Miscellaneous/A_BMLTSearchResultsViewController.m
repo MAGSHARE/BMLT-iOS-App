@@ -66,18 +66,6 @@
     }
 }
 
-- (void)startMeetingSearch
-{
-}
-
-- (void)stopMeetingSearch
-{
-}
-
-- (void)displayMeetingSearch
-{
-}
-
 /**************************************************************//**
  \brief This is called when someone clicks on a format button.
  *****************************************************************/

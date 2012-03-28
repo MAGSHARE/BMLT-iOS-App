@@ -165,13 +165,26 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
                 <viewController id="3" customClass="BMLTMapResultsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="16" customClass="BMLTAnimatedGlobeView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="kdU-hf-XEn">
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="MGE-X7-pmn"/>
+                        <connections>
+                            <outlet property="delegate" destination="3" id="QY4-Wm-Sgt"/>
+                        </connections>
+                    </mapView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="MGE-X7-pmn">
+                        <barButtonItem key="leftBarButtonItem" title="CLEAR-SEARCH-BUTTON" id="Svr-R5-yFb">
+                            <connections>
+                                <action selector="clearSearch:" destination="3" id="MdZ-6z-bD1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="view" destination="kdU-hf-XEn" id="frN-ac-AVj"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-312" y="2088"/>
@@ -382,9 +395,15 @@
         </class>
         <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTDisplayListResultsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sortMeetings:"/>
+            </relationships>
         </class>
         <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
+            </relationships>
         </class>
         <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>

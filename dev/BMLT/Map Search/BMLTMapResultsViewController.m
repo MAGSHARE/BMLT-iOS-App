@@ -27,31 +27,33 @@
  \class  BMLTMapResultsViewController -Private Interface
  \brief  This class will control display of mapped results.
  *****************************************************************/
-@interface BMLTMapResultsViewController ()
-
-@end
-
-/**************************************************************//**
- \class  BMLTMapResultsViewController -Private Interface
- \brief  This class will control display of mapped results.
- *****************************************************************/
 @implementation BMLTMapResultsViewController
+
 #pragma mark - View Lifecycle -
+/**************************************************************//**
+ \brief 
+ *****************************************************************/
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self)
+        {
+        [self clearLastRegion];
+        }
+    return self;
+}
 
 /**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
 {
-    if ( lastRegion.center.longitude == 0.0 && lastRegion.center.latitude == 0.0 )
-        {
-        float   longitude = [NSLocalizedString(@"INITIAL-MAP-LONG", nil) floatValue];
-        float   latitude = [NSLocalizedString(@"INITIAL-MAP-LAT", nil) floatValue];
-        CLLocation  *loc = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-        [meetingMapView setRegion:MKCoordinateRegionMakeWithDistance([loc coordinate], 1000, 1000) animated:YES];
-        }
-    
     [super viewWillAppear:animated];
+    if ( ![self isMapInitialized] )
+        {
+        [self determineMapSize:[[BMLTAppDelegate getBMLTAppDelegate] searchResults]];
+        [self setMapInit:YES];
+        }
 }
 
 /**************************************************************//**
@@ -59,18 +61,33 @@
  *****************************************************************/
 - (void)viewDidUnload
 {
-    meetingMapView = nil;
     [super viewDidUnload];
 }
 
 #pragma mark - Custom Functions -
+/**************************************************************//**
+ \brief Accessor -Set the initialization state of the map;
+ *****************************************************************/
+- (void)setMapInit:(BOOL)isInit
+{
+    _map_initialized = isInit;
+}
+
+/**************************************************************//**
+ \brief Accessor -Is the map initialized?
+ \returns YES, if the map is new, and needs an initial setup.
+ *****************************************************************/
+- (BOOL)isMapInitialized
+{
+    return _map_initialized;
+}
 
 /**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)displayMapAnnotations:(NSArray *)inResults
 {
-    [meetingMapView removeAnnotations:[meetingMapView annotations]];
+    [(MKMapView *)[self view] removeAnnotations:[(MKMapView *)[self view] annotations]];
     
     NSArray *annotations = [self mapMeetingAnnotations:inResults];
     
@@ -79,7 +96,7 @@
 #ifdef DEBUG
         NSLog(@"BMLTMapResultsViewController displayMapAnnotations -Adding %d annotations", [inResults count]);
 #endif
-        [meetingMapView addAnnotations:annotations];
+        [(MKMapView *)[self view] addAnnotations:annotations];
         }
 }
 
@@ -91,6 +108,20 @@
     lastRegion.center.longitude = lastRegion.center.latitude = 0.0;
     lastRegion.span.latitudeDelta = 0.0;
     lastRegion.span.longitudeDelta = 0.0;
+    [self setMapInit:NO];
+}
+
+/**************************************************************//**
+ \brief 
+ *****************************************************************/
+- (void)clearMapCompletely
+{
+    [self clearLastRegion];
+    if ( [[(MKMapView *)[self view] annotations] count] )
+        {
+        [(MKMapView *)[self view] removeAnnotations:[(MKMapView *)[self view] annotations]];
+        }
+    [self setMapInit:NO];
 }
 
 /**************************************************************//**
@@ -129,7 +160,7 @@
     MKCoordinateSpan    mapSpan = MKCoordinateSpanMake(latSpan * 1.2, longSpan * 1.2);  // Slight expansion to give us "padding."
     MKCoordinateRegion  mapMap = MKCoordinateRegionMake ( center, mapSpan );
     
-    [meetingMapView setRegion:mapMap animated:NO];
+    [(MKMapView *)[self view] setRegion:mapMap animated:NO];
     [self displayMapAnnotations:inResults];
 }
 
@@ -153,7 +184,7 @@
             NSLog(@"MapViewController mapMeetingAnnotations - Checking Meeting \"%@\".", [meeting getBMLTName]);
 #endif
             CLLocationCoordinate2D  meetingLocation = [meeting getMeetingLocationCoords].coordinate;
-            CGPoint meetingPoint = [meetingMapView convertCoordinate:meetingLocation toPointToView:nil];
+            CGPoint meetingPoint = [(MKMapView *)[self view] convertCoordinate:meetingLocation toPointToView:nil];
             CGRect  hitTestRect = CGRectMake(meetingPoint.x - BMLT_Meeting_Distance_Threshold_In_Pixels,
                                              meetingPoint.y - BMLT_Meeting_Distance_Threshold_In_Pixels,
                                              BMLT_Meeting_Distance_Threshold_In_Pixels * 2,
@@ -166,7 +197,7 @@
             
             for ( BMLT_Results_MapPointAnnotation *annotationTemp in points )
                 {
-                CGPoint annotationPoint = [meetingMapView convertCoordinate:annotationTemp.coordinate toPointToView:nil];
+                CGPoint annotationPoint = [(MKMapView *)[self view] convertCoordinate:annotationTemp.coordinate toPointToView:nil];
 #ifdef DEBUG
                 NSLog(@"MapViewController mapMeetingAnnotations - Comparing the Following Annotation Point: (%f, %f).", annotationPoint.x, annotationPoint.y);
 #endif
@@ -236,20 +267,35 @@
  *****************************************************************/
 - (void)displayAllMarkersIfNeeded
 {
-    if ( (ABS(lastRegion.span.latitudeDelta - [meetingMapView region].span.latitudeDelta) > (ABS(lastRegion.span.latitudeDelta) * 0.01)) || (ABS(lastRegion.span.longitudeDelta - [meetingMapView region].span.longitudeDelta) > (ABS(lastRegion.span.longitudeDelta) * 0.01)) )
+    if ( (ABS(lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta) > (ABS(lastRegion.span.latitudeDelta) * 0.01))
+        || (ABS(lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta) > (ABS(lastRegion.span.longitudeDelta) * 0.01)) )
         {
 #ifdef DEBUG
-        NSLog(@"MapViewController mapView:displayAllMarkersIfNeeded -Redrawing Markers, Based on a Delta of (%f, %f).", lastRegion.span.latitudeDelta - [meetingMapView region].span.latitudeDelta, lastRegion.span.longitudeDelta - [meetingMapView region].span.longitudeDelta);
+        NSLog(@"MapViewController mapView:displayAllMarkersIfNeeded -Redrawing Markers, Based on a Delta of (%f, %f).", lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta, lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta);
 #endif
-//        [self displayMapAnnotations:displayedMeetings];
+        [self displayMapAnnotations:[[BMLTAppDelegate getBMLTAppDelegate] searchResults]];
         }
 #ifdef DEBUG
     else
         {
-        NSLog(@"MapViewController mapView:displayAllMarkersIfNeeded -Not Redrawing Markers, Delta of (%f, %f) is too small.", lastRegion.span.latitudeDelta - [meetingMapView region].span.latitudeDelta, lastRegion.span.longitudeDelta - [meetingMapView region].span.longitudeDelta);
+        NSLog(@"MapViewController mapView:displayAllMarkersIfNeeded -Not Redrawing Markers, Delta of (%f, %f) is too small.", lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta, lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta);
         }
 #endif
-    lastRegion = [meetingMapView region];
+    lastRegion = [(MKMapView *)[self view] region];
+}
+
+/**************************************************************//**
+ \brief 
+ *****************************************************************/
+- (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting
+{
+}
+
+/**************************************************************//**
+ \brief 
+ *****************************************************************/
+- (void)viewMeetingList:(NSArray *)inList
+{
 }
 
 #pragma mark - MKMapViewDelegate Functions -
@@ -286,41 +332,6 @@
             }
         }
     return ret;
-}
-
-/**************************************************************//**
- \brief 
- *****************************************************************/
-- (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting
-{
-//    MeetingDetailViewController *meetingDetails = [[MeetingDetailViewController alloc] init];
-//    [meetingDetails setMyMeeting:inMeeting];
-//    [meetingDetails setMyModalController:self];
-//    [[meetingDetails navigationItem] setTitle:[inMeeting getBMLTName]];
-//    [[[meetingDetails navigationItem] titleView] sizeToFit];
-//    [[self navigationController] pushViewController:meetingDetails animated:YES];
-//    [meetingDetails release];
-}
-
-/**************************************************************//**
- \brief 
- *****************************************************************/
-- (void)viewMeetingList:(NSArray *)inList
-{
-//    ListViewBaseController  *listController = [[ListViewBaseController alloc] init];
-//    if ( listController )
-//        {
-//        [listController displayListOfMeetings:inList];
-//        if ( [self isKindOfClass:[MapViewController class]] )
-//            {
-//            UISwipeGestureRecognizer    *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeBack:)];
-//            [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-//            [[listController view] addGestureRecognizer:gestureRecognizer];
-//            [gestureRecognizer release];
-//            }
-//        [[self navigationController] pushViewController:listController animated:YES];
-//        [listController release];
-//        }
 }
 
 /**************************************************************//**

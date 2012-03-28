@@ -32,9 +32,6 @@
     FormatDetailView    *myModalView;
     UIPopoverController *formatPopover;
 }
-- (void)startMeetingSearch;
-- (void)stopMeetingSearch;
-- (void)displayMeetingSearch;
 - (void)displayFormatDetail:(id)inSender;
 - (void)closeModal;
 - (IBAction)clearSearch:(id)sender;

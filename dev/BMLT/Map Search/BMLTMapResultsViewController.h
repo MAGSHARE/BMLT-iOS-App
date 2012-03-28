@@ -32,12 +32,17 @@
  *****************************************************************/
 @interface BMLTMapResultsViewController : A_BMLTSearchResultsViewController <MKMapViewDelegate>
 {
+    BOOL                _map_initialized;
     IBOutlet MKMapView  *meetingMapView;
     MKCoordinateRegion  lastRegion;
 }
+
+- (void)setMapInit:(BOOL)isInit;
+- (BOOL)isMapInitialized;
 - (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting;
 - (void)viewMeetingList:(NSArray *)inList;
 - (void)clearLastRegion;
+- (void)clearMapCompletely;
 - (void)displayMapAnnotations:(NSArray *)inResults;
 - (NSArray *)mapMeetingAnnotations:(NSArray *)inResults;
 - (void)determineMapSize:(NSArray *)inResults;

@@ -496,6 +496,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self simpleClearSearch];
     [self stopAnimations];
     [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
+    [mapResultsViewController clearMapCompletely];
     [self selectInitialSearchAndForce:YES];
 }
 
