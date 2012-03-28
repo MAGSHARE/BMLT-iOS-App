@@ -139,7 +139,7 @@
     for ( BMLT_Meeting *meeting in inResults )
         {
 #ifdef DEBUG
-        NSLog(@"MapViewController determineMapSize -Calculating the container, working on meeting \"%@\".", [meeting getBMLTName]);
+        NSLog(@"BMLTMapResultsViewController determineMapSize -Calculating the container, working on meeting \"%@\".", [meeting getBMLTName]);
 #endif
         CLLocationCoordinate2D  meetingLocation = [meeting getMeetingLocationCoords].coordinate;
         northWestCorner.longitude = fmin(northWestCorner.longitude, meetingLocation.longitude);
@@ -148,7 +148,7 @@
         southEastCorner.latitude = fmin(southEastCorner.latitude, meetingLocation.latitude);
         }
 #ifdef DEBUG
-    NSLog(@"MapViewController determineMapSize -The current map area is NW: (%f, %f), SE: (%f, %f)", northWestCorner.longitude, northWestCorner.latitude, southEastCorner.longitude, southEastCorner.latitude );
+    NSLog(@"BMLTMapResultsViewController determineMapSize -The current map area is NW: (%f, %f), SE: (%f, %f)", northWestCorner.longitude, northWestCorner.latitude, southEastCorner.longitude, southEastCorner.latitude );
 #endif
     
     // OK. We now know how much room we need. Let's make sure that the map can accommodate all the points.
@@ -171,7 +171,7 @@
 - (NSArray *)mapMeetingAnnotations:(NSArray *)inResults
 {
 #ifdef DEBUG
-    NSLog(@"MapViewController mapMeetingAnnotations - Checking %d Meetings.", [inResults count]);
+    NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Checking %d Meetings.", [inResults count]);
 #endif
     NSMutableArray  *ret = nil;
     
@@ -181,7 +181,7 @@
         for ( BMLT_Meeting *meeting in inResults )
             {
 #ifdef DEBUG
-            NSLog(@"MapViewController mapMeetingAnnotations - Checking Meeting \"%@\".", [meeting getBMLTName]);
+            NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Checking Meeting \"%@\".", [meeting getBMLTName]);
 #endif
             CLLocationCoordinate2D  meetingLocation = [meeting getMeetingLocationCoords].coordinate;
             CGPoint meetingPoint = [(MKMapView *)[self view] convertCoordinate:meetingLocation toPointToView:nil];
@@ -192,14 +192,14 @@
             
             BMLT_Results_MapPointAnnotation *annotation = nil;
 #ifdef DEBUG
-            NSLog(@"MapViewController mapMeetingAnnotations - Meeting \"%@\" Has the Following Hit Test Rect: (%f, %f), (%f, %f).", [meeting getBMLTName], hitTestRect.origin.x, hitTestRect.origin.y, hitTestRect.size.width, hitTestRect.size.height);
+            NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Meeting \"%@\" Has the Following Hit Test Rect: (%f, %f), (%f, %f).", [meeting getBMLTName], hitTestRect.origin.x, hitTestRect.origin.y, hitTestRect.size.width, hitTestRect.size.height);
 #endif
             
             for ( BMLT_Results_MapPointAnnotation *annotationTemp in points )
                 {
                 CGPoint annotationPoint = [(MKMapView *)[self view] convertCoordinate:annotationTemp.coordinate toPointToView:nil];
 #ifdef DEBUG
-                NSLog(@"MapViewController mapMeetingAnnotations - Comparing the Following Annotation Point: (%f, %f).", annotationPoint.x, annotationPoint.y);
+                NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Comparing the Following Annotation Point: (%f, %f).", annotationPoint.x, annotationPoint.y);
 #endif
                 
                 if ( !([[annotationTemp getMyMeetings] containsObject:meeting]) && CGRectContainsPoint(hitTestRect, annotationPoint) )
@@ -207,7 +207,7 @@
 #ifdef DEBUG
                     for ( BMLT_Meeting *t_meeting in [annotationTemp getMyMeetings] )
                         {
-                        NSLog(@"MapViewController mapMeetingAnnotations - Meeting \"%@\" Is Close to \"%@\".", [meeting getBMLTName], [t_meeting getBMLTName]);
+                        NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Meeting \"%@\" Is Close to \"%@\".", [meeting getBMLTName], [t_meeting getBMLTName]);
                         }
 #endif
                     annotation = annotationTemp;
@@ -217,7 +217,7 @@
             if ( !annotation )
                 {
 #ifdef DEBUG
-                NSLog(@"MapViewController mapMeetingAnnotations -This meeting gets its own annotation.");
+                NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations -This meeting gets its own annotation.");
 #endif
                 NSArray *meetingsAr = [[NSArray alloc] initWithObjects:meeting, nil];  
                 annotation = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[meeting getMeetingLocationCoords].coordinate andMeetings:meetingsAr];
@@ -226,7 +226,7 @@
             else
                 {
 #ifdef DEBUG
-                NSLog(@"MapViewController mapMeetingAnnotations -This meeting gets lumped in with others.");
+                NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations -This meeting gets lumped in with others.");
 #endif
                 [annotation addMeeting:meeting];
                 }
@@ -271,14 +271,14 @@
         || (ABS(lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta) > (ABS(lastRegion.span.longitudeDelta) * 0.01)) )
         {
 #ifdef DEBUG
-        NSLog(@"MapViewController mapView:displayAllMarkersIfNeeded -Redrawing Markers, Based on a Delta of (%f, %f).", lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta, lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta);
+        NSLog(@"BMLTMapResultsViewController mapView:displayAllMarkersIfNeeded -Redrawing Markers, Based on a Delta of (%f, %f).", lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta, lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta);
 #endif
         [self displayMapAnnotations:[[BMLTAppDelegate getBMLTAppDelegate] searchResults]];
         }
 #ifdef DEBUG
     else
         {
-        NSLog(@"MapViewController mapView:displayAllMarkersIfNeeded -Not Redrawing Markers, Delta of (%f, %f) is too small.", lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta, lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta);
+        NSLog(@"BMLTMapResultsViewController mapView:displayAllMarkersIfNeeded -Not Redrawing Markers, Delta of (%f, %f) is too small.", lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta, lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta);
         }
 #endif
     lastRegion = [(MKMapView *)[self view] region];
@@ -316,14 +316,14 @@
             if ( [(BMLT_Results_MapPointAnnotation *)annotation getNumberOfMeetings] )
                 {
 #ifdef DEBUG
-                NSLog(@"MapViewController mapView:viewForAnnotation -Annotation Selected. This annotation contains %d meetings.", [(BMLT_Results_MapPointAnnotation *)annotation getNumberOfMeetings]);
+                NSLog(@"BMLTMapResultsViewController mapView:viewForAnnotation -Annotation Selected. This annotation contains %d meetings.", [(BMLT_Results_MapPointAnnotation *)annotation getNumberOfMeetings]);
 #endif
                 ret = [[BMLT_Results_MapPointAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Map_Annot"];
                 }
             else
                 {
 #ifdef DEBUG
-                NSLog(@"MapViewController mapView:viewForAnnotation -Black Center Annotation.");
+                NSLog(@"BMLTMapResultsViewController mapView:viewForAnnotation -Black Center Annotation.");
 #endif
                 ret = [[BMLT_Results_BlackAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Center_Annot"];
                 
@@ -360,15 +360,15 @@ didSelectAnnotationView:(MKAnnotationView *)view
             {
             BMLT_Results_MapPointAnnotation *theAnnotation = (BMLT_Results_MapPointAnnotation *)annotation;
 #ifdef DEBUG
-            NSLog(@"MapViewController mapView:didSelectAnnotationView -Annotation Selected. This annotation contains %d meetings.", [theAnnotation getNumberOfMeetings]);
+            NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Annotation Selected. This annotation contains %d meetings.", [theAnnotation getNumberOfMeetings]);
             if ( [theAnnotation getNumberOfMeetings] == 1 )
                 {
                 BMLT_Meeting    *firstMeeting = [theAnnotation getMeetingAtIndex:0];
-                NSLog(@"MapViewController mapView:didSelectAnnotationView -Displaying details for \"%@\".", [firstMeeting getBMLTName]);
+                NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Displaying details for \"%@\".", [firstMeeting getBMLTName]);
                 }
             else
                 {
-                NSLog(@"MapViewController mapView:didSelectAnnotationView -Displaying a list of %d meetings.", [theAnnotation getNumberOfMeetings]);
+                NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Displaying a list of %d meetings.", [theAnnotation getNumberOfMeetings]);
                 }
 #endif
             NSArray *theMeetings = [theAnnotation getMyMeetings];

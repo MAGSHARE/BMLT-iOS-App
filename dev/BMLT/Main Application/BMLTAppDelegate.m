@@ -393,6 +393,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"BMLTAppDelegate searchForMeetingsNearMe called.");
 #endif
     [self startAnimations];
+    [self clearAllSearchResults];
     // Remember that we have a pref for result count.
     [searchParams setObject:[NSString stringWithFormat:@"%d", -[myPrefs resultCount]] forKey:@"geo_width"];
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
