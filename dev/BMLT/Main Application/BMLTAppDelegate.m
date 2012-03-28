@@ -497,6 +497,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self stopAnimations];
     [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
     [mapResultsViewController clearMapCompletely];
+    [listResultsViewController setDataArrayFromData:nil];
     [self selectInitialSearchAndForce:YES];
 }
 
