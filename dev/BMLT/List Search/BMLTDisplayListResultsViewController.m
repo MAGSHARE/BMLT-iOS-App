@@ -49,16 +49,7 @@
  *****************************************************************/
 @implementation BMLTDisplayListResultsViewController
 
-@synthesize dataArray = _dataArray;
-
-/**************************************************************//**
- \brief G'night...
- *****************************************************************/
-- (void)dealloc
-{
-    [_dataArray removeAllObjects];
-    _dataArray = nil;
-}
+@synthesize includeSortRow;
 
 /**************************************************************//**
  \brief Called after the view has loaded.
@@ -70,18 +61,12 @@
 }
 
 /**************************************************************//**
- \brief Overload the implicit call, because we trigger a redraw, and
-        we want to be able to use a regular array, not a mutable one.
+ \brief Specialize the implicit call, because we trigger a redraw, and
+ we want to be able to use a regular array, not a mutable one.
  *****************************************************************/
 - (void)setDataArrayFromData:(NSArray *)dataArray   ///< The array of data to be used for this view.
 {
-    if ( !_dataArray )
-        {
-        _dataArray = [[NSMutableArray alloc] init];
-        }
-    
-    [_dataArray removeAllObjects];
-    [_dataArray setArray:dataArray];
+    [super setDataArrayFromData:dataArray];
     [(UITableView *)[self view] reloadData];
 }
 
@@ -144,9 +129,26 @@
             [ret_cast setFrame:bounds];
             [ret_cast setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
             NSArray *sortChoices = [NSArray arrayWithObjects:NSLocalizedString(@"SEARCH-RESULTS-SORT-DISTANCE", nil), NSLocalizedString(@"SEARCH-RESULTS-SORT-TIME", nil), nil];
-            UISegmentedControl *theSortControl = [[UISegmentedControl alloc] initWithItems:sortChoices];
-            [theSortControl addTarget:self action:@selector(sortMeetings:) forControlEvents:UIControlEventValueChanged];
-            [ret_cast setTheSortControl:theSortControl];
+            if ( includeSortRow )
+                {
+#ifdef DEBUG
+                NSLog(@"Sort Control");
+#endif
+                UISegmentedControl *theSortControl = [[UISegmentedControl alloc] initWithItems:sortChoices];
+                [theSortControl addTarget:self action:@selector(sortMeetings:) forControlEvents:UIControlEventValueChanged];
+                [ret_cast setTheSortControl:theSortControl];
+                }
+            else
+                {
+#ifdef DEBUG
+                NSLog(@"Only A Header");
+#endif
+                UILabel *label = [[UILabel alloc] initWithFrame:bounds];
+                [label setText:NSLocalizedString(@"MAP-LIST-HEADER", nil)];
+                [label setTextAlignment:UITextAlignmentCenter];
+                [ret_cast addSubview:label];
+                }
+            
             ret = ret_cast;
 #ifdef DEBUG
             NSLog(@"Creating A Row For the sort header.");
@@ -161,7 +163,7 @@
         }
     else
         {
-        BMLT_Meeting    *theMeeting = (BMLT_Meeting *)[_dataArray objectAtIndex:[indexPath row]];
+        BMLT_Meeting    *theMeeting = (BMLT_Meeting *)[[self dataArray] objectAtIndex:[indexPath row]];
         
         if ( theMeeting )
             {
@@ -221,7 +223,10 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath    ///< The index.
 - (NSIndexPath *)tableView:(UITableView *)tableView
   willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [BMLTAppDelegate viewMeetingDetails:(BMLT_Meeting *)[_dataArray objectAtIndex:[indexPath row]] withController:self];
+    if ( [indexPath section] > 0 )
+        {
+        [BMLTAppDelegate viewMeetingDetails:(BMLT_Meeting *)[[self dataArray] objectAtIndex:[indexPath row]] withController:self];
+        }
     
     return nil;
 }

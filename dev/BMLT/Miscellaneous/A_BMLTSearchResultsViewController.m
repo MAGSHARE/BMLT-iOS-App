@@ -37,6 +37,31 @@
  *****************************************************************/
 @implementation A_BMLTSearchResultsViewController
 
+@synthesize dataArray = _dataArray;
+
+/**************************************************************//**
+ \brief Specialize the implicit call, because we trigger a redraw, and
+ we want to be able to use a regular array, not a mutable one.
+ *****************************************************************/
+- (void)setDataArrayFromData:(NSArray *)dataArray   ///< The array of data to be used for this view.
+{
+    if ( !_dataArray )
+        {
+        _dataArray = [[NSMutableArray alloc] init];
+        }
+    
+    [_dataArray removeAllObjects];
+    [_dataArray setArray:dataArray];
+}
+
+/**************************************************************//**
+ \brief  If called, a "Clear Search" button will be added to the navbar.
+ *****************************************************************/
+- (void)addClearSearchButton
+{
+    
+}
+
 /**************************************************************//**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
@@ -64,6 +89,15 @@
     } else {
         return YES;
     }
+}
+
+/**************************************************************//**
+ \brief G'night...
+ *****************************************************************/
+- (void)dealloc
+{
+    [_dataArray removeAllObjects];
+    _dataArray = nil;
 }
 
 /**************************************************************//**

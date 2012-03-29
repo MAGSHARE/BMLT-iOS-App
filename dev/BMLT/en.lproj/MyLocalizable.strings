@@ -180,5 +180,8 @@
 "SETTINGS-MIN" = "Min";
 "SETTINGS-MAX" = "Max";
 
+/* Used for the header of the list, when displaying results from red map icons. */
+"MAP-LIST-HEADER" = "Multiple Meetings";
+
 /******************* APPENDED AT BUILD TIME *******************/
 

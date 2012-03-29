@@ -32,8 +32,12 @@
     FormatDetailView    *myModalView;
     UIPopoverController *formatPopover;
 }
+@property (strong, nonatomic) NSMutableArray    *dataArray; ///< This will hold the data for the table to display.
+
 - (void)displayFormatDetail:(id)inSender;
 - (void)closeModal;
 - (IBAction)clearSearch:(id)sender;
+- (void)setDataArrayFromData:(NSArray *)dataArray;          ///< Set the data array to the contents of the given array.
+- (void)addClearSearchButton;
 
 @end

@@ -52,7 +52,7 @@
     [super viewWillAppear:animated];
     if ( ![self isMapInitialized] )
         {
-        [self determineMapSize:[[BMLTAppDelegate getBMLTAppDelegate] searchResults]];
+        [self determineMapSize:[self dataArray]];
         [self setMapInit:YES];
         }
 }
@@ -122,6 +122,7 @@
         {
         [(MKMapView *)[self view] removeAnnotations:[(MKMapView *)[self view] annotations]];
         }
+    [self setDataArrayFromData:nil];
     [self setMapInit:NO];
 }
 
@@ -274,7 +275,7 @@
 #ifdef DEBUG
         NSLog(@"BMLTMapResultsViewController mapView:displayAllMarkersIfNeeded -Redrawing Markers, Based on a Delta of (%f, %f).", lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta, lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta);
 #endif
-        [self displayMapAnnotations:[[BMLTAppDelegate getBMLTAppDelegate] searchResults]];
+        [self displayMapAnnotations: [self dataArray]];
         }
 #ifdef DEBUG
     else

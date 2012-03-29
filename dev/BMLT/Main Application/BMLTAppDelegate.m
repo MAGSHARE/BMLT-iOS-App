@@ -207,6 +207,8 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
     UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
     
     [listResultsViewController setDataArrayFromData:[self searchResults]];
+    [mapResultsViewController setDataArrayFromData:[self searchResults]];
+    [listResultsViewController setIncludeSortRow:YES];
     
     [tabController setSelectedIndex:([[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap] ? 2 : 1)];
 }
