@@ -210,7 +210,10 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
     [mapResultsViewController setDataArrayFromData:[self searchResults]];
     [listResultsViewController setIncludeSortRow:YES];
     
-    [tabController setSelectedIndex:([[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap] ? 2 : 1)];
+    BOOL    mapSearch = [[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap];
+    int selectedIndex = (mapSearch ? 2 : 1);
+    
+    [tabController setSelectedIndex:selectedIndex];
 }
 
 /**************************************************************//**
@@ -500,6 +503,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self stopAnimations];
     [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
     [mapResultsViewController clearMapCompletely];
+    [[mapResultsViewController navigationController] popToRootViewControllerAnimated:NO];
+    [[listResultsViewController navigationController] popToRootViewControllerAnimated:NO];
     [listResultsViewController setDataArrayFromData:nil];
     [self selectInitialSearchAndForce:YES];
 }

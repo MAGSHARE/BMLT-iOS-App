@@ -18,6 +18,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="zhj-Qq-iY4">
                                 <rect key="frame" x="242" y="20" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="lookupLocationChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="B3K-Un-AtS"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-INITIAL-LOCATION" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="NLr-Dc-0cP">
                                 <rect key="frame" x="20" y="23" width="218" height="21"/>
@@ -29,6 +32,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="tii-gb-ndi">
                                 <rect key="frame" x="669" y="20" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="keepUpdatingChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="LOs-LO-Z7M"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-CONTINOUS-UPDATE-LOCATION" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5Bq-SK-d4k">
                                 <rect key="frame" x="341" y="23" width="324" height="21"/>
@@ -40,6 +46,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="mYX-gy-1Yx">
                                 <rect key="frame" x="242" y="90" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="retainStateChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="gOi-vJ-NOf"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-RETAIN-STATE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dzB-bV-ZLs">
                                 <rect key="frame" x="20" y="93" width="218" height="21"/>
@@ -51,6 +60,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="aqM-mx-TED">
                                 <rect key="frame" x="242" y="55" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="mapResultsChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="uNw-rm-2eJ"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-PREFER-MAP-RESULTS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Rmn-0h-Q21">
                                 <rect key="frame" x="-18" y="58" width="256" height="21"/>
@@ -62,6 +74,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="EPE-bp-hrv">
                                 <rect key="frame" x="669" y="58" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="distanceSortChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="jjz-G4-XaM"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-PREFER-DISTANCE-SORT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7Jx-ch-1h1">
                                 <rect key="frame" x="394" y="61" width="271" height="21"/>
@@ -107,12 +122,15 @@
                                     <segment title="SEARCH-SPEC-ADVANCED-TITLE"/>
                                 </segments>
                                 <connections>
-                                    <action selector="preferredSearchChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="yFT-5E-bnq"/>
+                                    <action selector="preferredSearchChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="pxo-I5-dEA"/>
                                 </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="nCk-fh-Rkh" customClass="BMLTSnappyLogSlider">
                                 <rect key="frame" x="253" y="179" width="284" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="numMeetingsChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="Qqq-r6-NLh"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

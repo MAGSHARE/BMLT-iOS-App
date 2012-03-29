@@ -56,18 +56,20 @@
 @interface BMLT_Prefs : NSObject <NSCoding>
 {
     NSMutableArray  *servers;                   ///< An array of server prefs.
-    BOOL            startWithMap;               ///< Version 1.X only: Start with a map search.
-    BOOL            preferDistanceSort;         ///< Prefer that ist responses be sorted by distance.
-    BOOL            lookupMyLocation;           ///< Look up the user's current location upon startup.
-    int             gracePeriod;                ///< This is how many minutes can pass before a meeting is considered "too long underway to be considered."
-    BOOL            startWithSearch;            ///< Version 1.X only: Start up in search tab.
-    BOOL            preferAdvancedSearch;       ///< Version 1.X only: Prefer start in advanced search.
-    int             searchTypePref;             ///< Version 2.0 new: Determine the type of search the user prefers (see defines, above).
-    BOOL            preferSearchResultsAsMap;   ///< Version 2.0 new: YES, if the user prefers the search results displayed initially as map results.
-    BOOL            preserveAppStateOnSuspend;  ///< Version 2.0 new: YES, if the user wants the app to remember where it was when being recalled.
-    BOOL            keepUpdatingLocation;       ///< Version 2.0 new: YES, if we want to keep our location updated.
-    int             resultCount;                ///< Version 2.0 new: This is the desired "ballpark" for the number of meetings returned automatically. It affects the number of meetings returned by locality searches.
 }
+
+@property (atomic)   BOOL   startWithMap;               ///< Version 1.X only: Start with a map search.
+@property (atomic)   BOOL   preferDistanceSort;         ///< Prefer that ist responses be sorted by distance.
+@property (atomic)   BOOL   lookupMyLocation;           ///< Look up the user's current location upon startup.
+@property (atomic)   int    gracePeriod;                ///< This is how many minutes can pass before a meeting is considered "too long underway to be considered."
+@property (atomic)   BOOL   startWithSearch;            ///< Version 1.X only: Start up in search tab.
+@property (atomic)   BOOL   preferAdvancedSearch;       ///< Version 1.X only: Prefer start in advanced search.
+@property (atomic)   int    searchTypePref;             ///< Version 2.0 new: Determine the type of search the user prefers (see defines, above).
+@property (atomic)   BOOL   preferSearchResultsAsMap;   ///< Version 2.0 new: YES, if the user prefers the search results displayed initially as map results.
+@property (atomic)   BOOL   preserveAppStateOnSuspend;  ///< Version 2.0 new: YES, if the user wants the app to remember where it was when being recalled.
+@property (atomic)   BOOL   keepUpdatingLocation;       ///< Version 2.0 new: YES, if we want to keep our location updated.
+@property (atomic)   int    resultCount;                ///< Version 2.0 new: This is the desired "ballpark" for the number of meetings returned automatically. It affects the number of meetings returned by locality searches.
+
 
 + (BMLT_Prefs *)getBMLT_Prefs;
 + (NSString *)docPath;
@@ -85,28 +87,6 @@
 
 - (NSInteger)addServerWithURI:(NSString *)inURI andName:(NSString *)inName andDescription:(NSString *)inDescription;
 - (BOOL)removeServerWithURI:(NSString *)inURI;
-- (BOOL)startWithMap;
-- (BOOL)preferDistanceSort;
-- (BOOL)lookupMyLocation;
-- (BOOL)startWithSearch;
-- (BOOL)preferAdvancedSearch;
-- (int)gracePeriod;
 - (NSArray *)servers;
-- (int)searchTypePref;
-- (BOOL)preferSearchResultsAsMap;
-- (BOOL)preserveAppStateOnSuspend;
-- (BOOL)keepUpdatingLocation;
-- (int)resultCount;
-- (void)setStartWithMap:(BOOL)inValue;
-- (void)setPreferDistanceSort:(BOOL)inValue;
-- (void)setLookupMyLocation:(BOOL)inValue;
-- (void)setGracePeriod:(int)inValue;
-- (void)setStartWithSearch:(BOOL)inValue;
-- (void)setPreferAdvancedSearch:(BOOL)inValue;
-- (void)setSearchTypePref:(int)inSearchTypePref;
-- (void)setPreferSearchResultsAsMap:(BOOL)inPreferSearchResultsAsMap;
-- (void)setPreserveAppStateOnSuspend:(BOOL)inPreserveAppStateOnSuspend;
-- (void)setKeepUpdatingLocation:(BOOL)inKeepUpdatingLocation;
-- (void)setResultCount:(int)inResultCount;
 
 @end

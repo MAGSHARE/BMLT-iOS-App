@@ -160,6 +160,8 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  *****************************************************************/
 @implementation BMLT_Prefs
 
+@synthesize startWithMap, preferDistanceSort, lookupMyLocation, gracePeriod, startWithSearch, preferAdvancedSearch, searchTypePref, preferSearchResultsAsMap, preserveAppStateOnSuspend, keepUpdatingLocation, resultCount;
+
 /**************************************************************//**
  \brief This gets the SINGLETON instance, and creates one, if necessary.
  \returns a reference to a BMLT_Prefs object, whic is the SINGLETON.
@@ -203,7 +205,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    return [documentDirectory stringByAppendingPathComponent:@"BMLT.data"];
+    return [documentDirectory stringByAppendingPathComponent:@"BMLT_Prefs.data"];
 }
 
 /**************************************************************//**
@@ -310,17 +312,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 +(BOOL)locationServicesAvailable
 {
     return [CLLocationManager locationServicesEnabled] != NO && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
-}
-
-/**************************************************************//**
- \brief Initializer
- \returns self
- *****************************************************************/
-- (id)init
-{
-    self = [self initWithCoder:nil];
-    
-    return self;
 }
 
 /**************************************************************//**
@@ -458,125 +449,12 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 }
 
 /**************************************************************//**
- \brief Returns the Start with Map pref.
- \returns a boolean, with YES meaning start with map search.
- *****************************************************************/
-- (BOOL)startWithMap
-{
-    return startWithMap;
-}
-
-/**************************************************************//**
- \brief Returns the Prefer Distance Sort Pref
- \returns a boolean. YES means start list results sorted by distance.
- *****************************************************************/
-- (BOOL)preferDistanceSort
-{
-    return preferDistanceSort;
-}
-
-/**************************************************************//**
- \brief Returns the "lookup on startup" pref. Also checks to see if
-        location services are available, and returns NO if they are not.
- \returns a boolean. YES means lookup on startup.
- *****************************************************************/
-- (BOOL)lookupMyLocation
-{
-    return [BMLT_Prefs locationServicesAvailable] && lookupMyLocation;
-}
-
-/**************************************************************//**
- \brief Returns the start with a search pref.
- \returns a boolean. YES means startup with a search.
- *****************************************************************/
-- (BOOL)startWithSearch
-{
-    return startWithSearch;
-}
-
-/**************************************************************//**
- \brief returns the pref for preferring advanced searches.
- \returns a boolean. YES means start new searches as advanced.
- *****************************************************************/
-- (BOOL)preferAdvancedSearch
-{
-    return preferAdvancedSearch;
-}
-
-/**************************************************************//**
- \brief Returns the "meeting missed" grace period.
-        A meeting can be underway for this many minutes before it
-        is considered "too late" for the meeting.
- \returns an integer, with how many minutes can pass.
- *****************************************************************/
-- (int)gracePeriod
-{
-    return gracePeriod;
-}
-
-/**************************************************************//**
- \brief Accessor -get the server list.
- \returns the array of instantiated servers as BMLT_ServerPref objects.
+ \brief Returns the array of servers from prefs.
+ \returns a array of BMLT_Server objects.
  *****************************************************************/
 - (NSArray *)servers
 {
     return servers;
-}
-
-/**************************************************************//**
- \brief     Accessor -return the initial search type.
- \returns   an int. One of these values:
-                 - _PREFER_SIMPLE_SEARCH
-                 - _PREFER_MAP_SEARCH
-                 - _PREFER_ADVANCED_SEARCH
- *****************************************************************/
-- (int)searchTypePref
-{
-    return searchTypePref;
-}
-
-/**************************************************************//**
- \brief     Accessor -return the preference to have search results
- initially displayed in map mode.
- \returns   a BOOL. YES, if the user wants to start search results
- in the map results tab.
- *****************************************************************/
-- (BOOL)preferSearchResultsAsMap
-{
-    return preferSearchResultsAsMap;
-}
-
-/**************************************************************//**
- \brief     Accessor -return the preference to have the app suspend
- its state when sent to the background. If this is NO,
- then the app will reset to the initial state when coming
- back from being sent to the background.
- \returns   a BOOL. YES, if the user wants the app to suspend its
- state.
- *****************************************************************/
-- (BOOL)preserveAppStateOnSuspend
-{
-    return preserveAppStateOnSuspend;
-}
-
-/**************************************************************//**
- \brief     Accessor -return the preference to have the app continuously
-            update the location (while in the foreground).
- \returns   a BOOL. YES, if the user wants to keep the app updated.
- *****************************************************************/
-- (BOOL)keepUpdatingLocation
-{
-    return keepUpdatingLocation;
-}
-
-/**************************************************************//**
- \brief This returns the preference as to how many meetings should
-        be returned by locality searches. It is a "rough" count.
- \returns an integer, with the target accuracy.
- *****************************************************************/
-- (int)resultCount
-{
-    return resultCount;
 }
 
 /**************************************************************//**
@@ -669,101 +547,4 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
     [encoder encodeInt:resultCount forKey:@"resultCount"];
 }
 
-/**************************************************************//**
- \brief Accessor -Set the start with map pref
- *****************************************************************/
-- (void)setStartWithMap:(BOOL)inValue   ///< YES, if the user wants to start with a map search.
-{
-    startWithMap = inValue;
-}
-
-/**************************************************************//**
- \brief Accessor -set the distance sort pref
- *****************************************************************/
-- (void)setPreferDistanceSort:(BOOL)inValue ///< YES, if the user wants to sort list search results by distance.
-{
-    preferDistanceSort = inValue;
-}
-
-/**************************************************************//**
- \brief Accessor -set the location lookup on startup pref.
- *****************************************************************/
-- (void)setLookupMyLocation:(BOOL)inValue   ///< YES, if you want to look up your location upon startup.
-{
-    lookupMyLocation = inValue;
-}
-
-/**************************************************************//**
- \brief Accessor -set the "meeting missed" grace period.
- *****************************************************************/
-- (void)setGracePeriod:(int)inValue ///< The number of minutes that are allowed to pass before a meeting is considered "missed."
-{
-    gracePeriod = inValue;
-}
-
-/**************************************************************//**
- \brief Accessor -set the "start with a search" pref.
- *****************************************************************/
-- (void)setStartWithSearch:(BOOL)inValue    ///< YES, if you want to start up with a search.
-{
-    startWithSearch = inValue;
-}
-
-/**************************************************************//**
- \brief Accessor -set the prefer advanced search pref.
- *****************************************************************/
-- (void)setPreferAdvancedSearch:(BOOL)inValue   ///< YES, if you want to start your searches as advanced.
-{
-    preferAdvancedSearch = inValue;
-}
-
-/**************************************************************//**
- \brief Accessor -set the Search type.
- *****************************************************************/
-- (void)setSearchTypePref:(int)inSearchTypePref /**< One of these values:
-                                                        - _PREFER_SIMPLE_SEARCH
-                                                        - _PREFER_MAP_SEARCH
-                                                        - _PREFER_ADVANCED_SEARCH
-                                                */
-{
-    searchTypePref = inSearchTypePref;
-    
-    [self setPreferAdvancedSearch:searchTypePref == _PREFER_ADVANCED_SEARCH];
-}
-
-/**************************************************************//**
- \brief Accessor -set the preference for initial results as a map.
- *****************************************************************/
-- (void)setPreferSearchResultsAsMap:(BOOL)inPreferSearchResultsAsMap    ///< YES, if the user wants to start with a map.
-{
-    preferSearchResultsAsMap = inPreferSearchResultsAsMap;
-
-    [self setStartWithMap:preferSearchResultsAsMap];
-}
-
-/**************************************************************//**
- \brief Accessor -set the preference to preserve the app state on suspend.
- *****************************************************************/
-- (void)setPreserveAppStateOnSuspend:(BOOL)inPreserveAppStateOnSuspend  ///< YES, to preserve the app state.
-{
-    preserveAppStateOnSuspend = inPreserveAppStateOnSuspend;
-    
-    [self setStartWithSearch:!preserveAppStateOnSuspend];
-}
-
-/**************************************************************//**
- \brief Accessor -set the preference to keep updating the location.
- *****************************************************************/
-- (void)setKeepUpdatingLocation:(BOOL)inKeepUpdatingLocation  ///< YES, to keep updating.
-{
-    keepUpdatingLocation = inKeepUpdatingLocation;
-}
-
-/**************************************************************//**
- \brief Accessor -set the number of meetings to target in local searches.
- *****************************************************************/
-- (void)setResultCount:(int)inResultCount
-{
-    resultCount = inResultCount;
-}
 @end

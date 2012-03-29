@@ -240,7 +240,7 @@
                                 <rect key="frame" x="229" y="10" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="lookupLocationChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="1ef-Dk-LYD"/>
+                                    <action selector="lookupLocationChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="aV1-Ve-h7z"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-INITIAL-LOCATION" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3UZ-z3-M67">
@@ -253,6 +253,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Ffd-MS-gMU">
                                 <rect key="frame" x="229" y="53" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="keepUpdatingChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="Q3I-hH-DcR"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-CONTINOUS-UPDATE-LOCATION" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="QgV-EQ-X9t">
                                 <rect key="frame" x="-99" y="56" width="324" height="21"/>
@@ -265,7 +268,7 @@
                                 <rect key="frame" x="229" y="95" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="retainStateChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="ze8-S1-3aq"/>
+                                    <action selector="retainStateChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="ORc-ix-hJq"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-RETAIN-STATE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6O9-0z-dzw">
@@ -279,7 +282,7 @@
                                 <rect key="frame" x="229" y="138" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="mapResultsChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="rTX-CO-qeq"/>
+                                    <action selector="mapResultsChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="l7A-Ur-kCa"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-PREFER-MAP-RESULTS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="TCP-7G-etX">
@@ -293,7 +296,7 @@
                                 <rect key="frame" x="229" y="179" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="distanceSortChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="epI-a1-Lln"/>
+                                    <action selector="distanceSortChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="pFB-K2-Hbk"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-PREFER-DISTANCE-SORT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3Q4-Xa-pMg">
@@ -340,14 +343,14 @@
                                     <segment title="SEARCH-SPEC-ADVANCED-TITLE"/>
                                 </segments>
                                 <connections>
-                                    <action selector="preferredSearchChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="d9L-Xc-olJ"/>
+                                    <action selector="preferredSearchChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="JtI-Ri-mHF"/>
                                 </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="aiz-ga-Xae" customClass="BMLTSnappyLogSlider">
                                 <rect key="frame" x="18" y="303" width="284" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="numMeetingsChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="nd6-nU-xT0"/>
+                                    <action selector="numMeetingsChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="QLc-H1-b9D"/>
                                 </connections>
                             </slider>
                         </subviews>
@@ -473,6 +476,86 @@
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
     </resources>
+    <classes>
+        <class className="A_BMLTMainBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTMainBackgroundView.h"/>
+        </class>
+        <class className="A_BMLTNavBarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTNavBarViewController.h"/>
+        </class>
+        <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearSearch:"/>
+            </relationships>
+        </class>
+        <class className="A_BMLTSettingsBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSettingsBackgroundView.h"/>
+        </class>
+        <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
+        </class>
+        <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
+        </class>
+        <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTDisplayListResultsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sortMeetings:"/>
+            </relationships>
+        </class>
+        <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="BMLTMapSearchViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
+        </class>
+        <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="distanceSortChanged:"/>
+                <relationship kind="action" name="keepUpdatingChanged:"/>
+                <relationship kind="action" name="lookupLocationChanged:"/>
+                <relationship kind="action" name="mapResultsChanged:"/>
+                <relationship kind="action" name="numMeetingsChanged:"/>
+                <relationship kind="action" name="preferredSearchChanged:"/>
+                <relationship kind="action" name="retainStateChanged:"/>
+                <relationship kind="outlet" name="distanceSortLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="distanceSortSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="keepUpdatingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="keepUpdatingSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="lookUpLocationSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="lookupLocationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapResultsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapResultsSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="maxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numMeetingsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numMeetingsSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="preferredSearchTypeControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="preferredSearchTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="retainStateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="retainStateSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="BMLTSimpleSearchViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="findAllMeetingsNearMe:"/>
+                <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
+                <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
+                <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BMLTSnappyLogSlider" superclassName="UISlider">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSnappyLogSlider.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
