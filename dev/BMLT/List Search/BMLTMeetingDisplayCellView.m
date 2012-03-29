@@ -71,7 +71,6 @@
     [self setFormats];
 }
 
-
 /**************************************************************//**
  \brief This is the controller for our modal dialogs (We like to use the top).
  *****************************************************************/
