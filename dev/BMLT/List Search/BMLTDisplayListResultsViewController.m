@@ -214,7 +214,7 @@
 - (CGFloat)tableView:(UITableView *)tableView       ///< The table view
 heightForRowAtIndexPath:(NSIndexPath *)indexPath    ///< The index.
 {
-    return (([self numberOfSectionsInTableView:tableView] > 1) && ([indexPath section] == 0)) ? kSortHeaderHeight : List_Meeting_Display_CellHeight;
+    return (([self numberOfSectionsInTableView:tableView] > 1) && ([indexPath section] == 0)) ? kSortHeaderHeight : ([[self dataArray] count] > [indexPath row]) ? List_Meeting_Display_CellHeight : 0;
 }
 
 /**************************************************************//**

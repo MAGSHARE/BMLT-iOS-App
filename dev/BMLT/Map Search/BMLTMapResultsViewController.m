@@ -291,6 +291,7 @@
  *****************************************************************/
 - (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting
 {
+    [BMLTAppDelegate viewMeetingDetails:inMeeting withController:self];
 }
 
 /**************************************************************//**
