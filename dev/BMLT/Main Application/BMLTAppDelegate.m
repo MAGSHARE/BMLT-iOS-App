@@ -544,6 +544,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self simpleClearSearch];
     [self stopAnimations];
     [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
+    [mapResultsViewController closeModal];      ///< Make sure we close any open modals or popovers, first.
+    [listResultsViewController closeModal];
     [mapResultsViewController clearMapCompletely];
     [[mapResultsViewController navigationController] popToRootViewControllerAnimated:NO];
     [[listResultsViewController navigationController] popToRootViewControllerAnimated:NO];
