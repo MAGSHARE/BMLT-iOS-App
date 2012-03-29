@@ -22,6 +22,7 @@
 #import "A_BMLTNavBarViewController.h"
 
 @class FormatDetailView;
+@class BMLT_Meeting;
 
 /**************************************************************//**
  \class  BMLTSearchResultsViewController
