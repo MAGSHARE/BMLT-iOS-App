@@ -99,8 +99,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  *****************************************************************/
 - (void)setServerURI:(NSString *)inURI  ///< The URI, as a string
 {
-    
-    
     serverURI = inURI;
 }
 
@@ -109,8 +107,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  *****************************************************************/
 - (void)setServerName:(NSString *)inName    ///< The name of the server
 {
-    
-    
     serverName = inName;
 }
 
@@ -119,8 +115,6 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
  *****************************************************************/
 - (void)setServerDescription:(NSString *)inDescription  ///< The server description
 {
-    
-    
     serverDescription = inDescription;
 }
 
@@ -205,7 +199,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    return [documentDirectory stringByAppendingPathComponent:@"BMLT_Prefs.data"];
+    return [documentDirectory stringByAppendingPathComponent:@"BMLT.data"];
 }
 
 /**************************************************************//**

@@ -203,6 +203,9 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
  *****************************************************************/
 - (void)displaySearchResults
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::displaySearchResults called.");
+#endif
     [self setUpTabBarItems];
     UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
     
@@ -221,6 +224,9 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
  *****************************************************************/
 - (void)selectInitialSearchAndForce:(BOOL)force         ///< If YES, then the screen will be set to the default, even if we were already set to one.
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::selectInitialSearchAndForce called.");
+#endif
     UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
     
     [tabController setSelectedIndex:0]; // Set the tab bar to the search screens.
@@ -320,6 +326,9 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions called.");
+#endif
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
     [tabController setSelectedIndex:0];
     [tabController setDelegate:self];
@@ -354,6 +363,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 *****************************************************************/
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::applicationWillResignActive called.");
+#endif
     [mySearch clearSearch]; // No searches in the background.
     mySearch = nil;
     [self stopNetworkMonitor];
@@ -368,19 +380,37 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::applicationWillEnterForeground called.");
+#endif
     if ( ![myPrefs preserveAppStateOnSuspend] && !_visitingRelatives )
         {
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be reset to initial.");
+#endif
         [self clearAllSearchResults];
         }
     else if ( !_visitingRelatives )
         {
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be left alone, but we'll make sure the tab bar is enabled/disabled properly.");
+#endif
         [self setUpTabBarItems];
         }
+#ifdef DEBUG
+    else
+        {
+        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be left completely alone.");
+        }
+#endif
     
     _visitingRelatives = NO;
     
     if ( [myPrefs keepUpdatingLocation] )
         {
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground We will coninuously update our location.");
+#endif
         [locationManager startUpdatingLocation];
         }
     
@@ -468,6 +498,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         ret = NO;
         }
     
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::isLookupValid called. The last lookup is %@.", (ret ? @"valid" : @"invalid"));
+#endif
     return ret;
 }
 
@@ -483,11 +516,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     // If we have valid search results, or there's a search under way, we enable both results tabs.
     if ((searchResults && [searchResults count]) || (mySearch && [mySearch searchInProgress]))
         {
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate setUpTabBarItems called. We are enabling the search results tabs.");
+#endif
         [listResultsItem setEnabled:YES];
         [mapResultsItem setEnabled:YES];
         }
     else
         {
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate setUpTabBarItems called. We are disabling the search results tabs, and selecting the search tab.");
+#endif
         [listResultsItem setEnabled:NO];
         [mapResultsItem setEnabled:NO];
         [tabController setSelectedIndex:0];
