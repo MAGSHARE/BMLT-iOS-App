@@ -872,7 +872,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 #pragma mark - Special Meeting Sort Sauce -
 
 /**************************************************************//**
- \brief 
+ \brief Sort the search results by weekday first, then start time.
  *****************************************************************/
 - (void)sortMeetingsByWeekdayAndTime
 {
@@ -882,7 +882,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 }
 
 /**************************************************************//**
- \brief 
+ \brief Sort the meetings by distance first, then weekday, then start time.
  *****************************************************************/
 - (void)sortMeetingsByDistance
 {

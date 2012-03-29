@@ -22,6 +22,7 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Meeting.h"
 #import "BMLT_Results_MapPointAnnotationView.h"
+#import "BMLTDisplayListResultsViewController.h"
 
 /**************************************************************//**
  \class  BMLTMapResultsViewController -Private Interface
@@ -296,6 +297,13 @@
  *****************************************************************/
 - (void)viewMeetingList:(NSArray *)inList
 {
+    UIStoryboard    *st = [self storyboard];
+    
+    UIViewController    *newController = [st instantiateViewControllerWithIdentifier:@"list-view-results"];
+    
+    [(BMLTDisplayListResultsViewController *)newController setDataArrayFromData:inList];
+
+    [[self navigationController] pushViewController:newController animated:YES];
 }
 
 #pragma mark - MKMapViewDelegate Functions -
