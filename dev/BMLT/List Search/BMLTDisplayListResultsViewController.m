@@ -225,7 +225,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath    ///< The index.
 {
     if ( [indexPath section] > 0 )
         {
-        [BMLTAppDelegate viewMeetingDetails:(BMLT_Meeting *)[[self dataArray] objectAtIndex:[indexPath row]] withController:self];
+        [self viewMeetingDetails:(BMLT_Meeting *)[[self dataArray] objectAtIndex:[indexPath row]]];
         }
     
     return nil;

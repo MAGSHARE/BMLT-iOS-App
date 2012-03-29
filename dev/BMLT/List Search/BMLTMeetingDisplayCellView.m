@@ -23,13 +23,13 @@
 @implementation BMLTMeetingDisplayCellView
 
 /**************************************************************//**
- \brief 
- \returns 
+ \brief     This is the initializer with a meeting and other info.
+ \returns   self
  *****************************************************************/
-- (id)initWithMeeting:(BMLT_Meeting *)inMeeting
-             andFrame:(CGRect)frame
-           andReuseID:(NSString *)reuseID
-             andIndex:(int)index
+- (id)initWithMeeting:(BMLT_Meeting *)inMeeting ///< The meeting object for this cell.
+             andFrame:(CGRect)frame             ///< The containing frame.
+           andReuseID:(NSString *)reuseID       ///< The cell's reuse ID (we don't use this, anyway)
+             andIndex:(int)index                ///< The cells, index in the order (so we know what background to use).
 {
     self = [super initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:reuseID];
@@ -59,7 +59,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This is where we fill out all the values.
  *****************************************************************/
 - (void)layoutSubviews
 {
@@ -73,16 +73,16 @@
 
 
 /**************************************************************//**
- \brief 
+ \brief This is the controller for our modal dialogs (We like to use the top).
  *****************************************************************/
-- (void)setMyModalController:(BMLTDisplayListResultsViewController *)inController
+- (void)setMyModalController:(BMLTDisplayListResultsViewController *)inController   ///< The controller in question.
 {
     myModalController = inController;
 }
 
 /**************************************************************//**
- \brief 
- \returns 
+ \brief This is an accessor to get our controller.
+ \returns The reference to our modal controller.
  *****************************************************************/
 - (BMLTDisplayListResultsViewController *)getMyModalController
 {
@@ -90,8 +90,8 @@
 }
 
 /**************************************************************//**
- \brief 
- \returns 
+ \brief Returns the meeting object for this cell.
+ \returns the meeting object in question.
  *****************************************************************/
 - (BMLT_Meeting *)getMyMeeting
 {
@@ -99,7 +99,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This sets up the meeting name header.
  *****************************************************************/
 - (void)setMeetingName
 {
@@ -121,7 +121,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This sets up the weekday and time info.
  *****************************************************************/
 - (void)setWeekdayAndTime
 {
@@ -179,7 +179,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This sets the town and state.
  *****************************************************************/
 - (void)setTownAndState
 {
@@ -214,7 +214,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This sets up the address information.
  *****************************************************************/
 - (void)setLocationAndAddress
 {
@@ -247,7 +247,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This displays the distance, as given by the meeting.
  *****************************************************************/
 - (void)setDistance
 {
@@ -279,7 +279,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This sets up the format clickable circles.
  *****************************************************************/
 - (void)setFormats
 {

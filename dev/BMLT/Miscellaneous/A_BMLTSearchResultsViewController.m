@@ -101,6 +101,15 @@
 }
 
 /**************************************************************//**
+ \brief This pushes a meeting detail screen into view.
+ *****************************************************************/
+- (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting    ///< The meeting being displayed.
+{
+    // The app delegate takes care of pushing the details window onto the stack.
+    [BMLTAppDelegate viewMeetingDetails:inMeeting withController:self];
+}
+
+/**************************************************************//**
  \brief This is called when someone clicks on a format button.
  *****************************************************************/
 - (void)displayFormatDetail:(id)inSender

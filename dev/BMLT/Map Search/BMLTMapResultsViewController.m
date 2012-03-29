@@ -16,8 +16,6 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
-//
-
 #import "BMLTMapResultsViewController.h"
 #import "BMLTAppDelegate.h"
 #import "BMLT_Meeting.h"
@@ -32,7 +30,8 @@
 
 #pragma mark - View Lifecycle -
 /**************************************************************//**
- \brief 
+ \brief Initializer (with coder, because it comes from the storyboard).
+ \returns self
  *****************************************************************/
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -45,9 +44,9 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Called when the view is about to be drawn.
  *****************************************************************/
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated   ///< YES, if the appearance will be animated.
 {
     [super viewWillAppear:animated];
     if ( ![self isMapInitialized] )
@@ -58,7 +57,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Called when the view is about to unload.
  *****************************************************************/
 - (void)viewDidUnload
 {
@@ -84,15 +83,17 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This draws annotations for the meetings passed in.
  *****************************************************************/
-- (void)displayMapAnnotations:(NSArray *)inResults
+- (void)displayMapAnnotations:(NSArray *)inResults  ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
 {
+    // First, clear out all the old annotations (there shouldn't be any).
     [(MKMapView *)[self view] removeAnnotations:[(MKMapView *)[self view] annotations]];
     
+    // This function looks for meetings in close proximity to each other, and collects them into "red markers."
     NSArray *annotations = [self mapMeetingAnnotations:inResults];
     
-    if ( annotations )
+    if ( annotations )  // If we have annotations, we draw them.
         {
 #ifdef DEBUG
         NSLog(@"BMLTMapResultsViewController displayMapAnnotations -Adding %d annotations", [inResults count]);
@@ -102,7 +103,8 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This simply clears our cached position (which we use to
+        calculate the necessity for a redraw).
  *****************************************************************/
 - (void)clearLastRegion
 {
@@ -113,7 +115,7 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This wipes out everything.
  *****************************************************************/
 - (void)clearMapCompletely
 {
@@ -127,9 +129,11 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This scans through the list of meetings, and will produce
+        a region that encompasses them all. It then scales the
+        map to cover that region.
  *****************************************************************/
-- (void)determineMapSize:(NSArray *)inResults
+- (void)determineMapSize:(NSArray *)inResults   ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
 {    
     [self clearLastRegion];
     CLLocationCoordinate2D  northWestCorner;
@@ -167,10 +171,11 @@
 }
 
 /**************************************************************//**
- \brief 
- \returns 
+ \brief This function looks for meetings in close proximity to each
+        other, and collects them into "red markers."
+ \returns an NSArray of BMLT_Results_MapPointAnnotation objects.
  *****************************************************************/
-- (NSArray *)mapMeetingAnnotations:(NSArray *)inResults
+- (NSArray *)mapMeetingAnnotations:(NSArray *)inResults ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
 {
 #ifdef DEBUG
     NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Checking %d Meetings.", [inResults count]);
@@ -265,7 +270,8 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This checks the cached location, to see if we have strayed
+        far enough to warrant a redraw of the annotations.
  *****************************************************************/
 - (void)displayAllMarkersIfNeeded
 {
@@ -287,17 +293,9 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This displays a list of meetings (for a red marker).
  *****************************************************************/
-- (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting
-{
-    [BMLTAppDelegate viewMeetingDetails:inMeeting withController:self];
-}
-
-/**************************************************************//**
- \brief 
- *****************************************************************/
-- (void)viewMeetingList:(NSArray *)inList
+- (void)viewMeetingList:(NSArray *)inList   ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
 {
     UIStoryboard    *st = [self storyboard];
     
@@ -311,11 +309,11 @@
 #pragma mark - MKMapViewDelegate Functions -
 
 /**************************************************************//**
- \brief 
- \returns 
+ \brief Returns the marker/annotation view to be displayed in the map view.
+ \returns the annotation view requested.
  *****************************************************************/
-- (MKAnnotationView *)mapView:(MKMapView *)mapView
-            viewForAnnotation:(id<MKAnnotation>)annotation
+- (MKAnnotationView *)mapView:(MKMapView *)mapView          ///< The map view
+            viewForAnnotation:(id<MKAnnotation>)annotation  ///< The annotation controller that we'll return the view for.
 {
     MKAnnotationView* ret = nil;
     
@@ -345,11 +343,14 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief When the region changes, we check to see if we need to redraw the markers.
  *****************************************************************/
-- (void)mapView:(MKMapView *)mapView
-regionDidChangeAnimated:(BOOL)animated
+- (void)mapView:(MKMapView *)mapView    ///< The map view
+regionDidChangeAnimated:(BOOL)animated  ///< Whether or not to animate the change.
 {
+#ifdef DEBUG
+    NSLog(@"BMLTMapResultsViewController mapView:regionDidChangeAnimated called.");
+#endif
     if ( mapView && ([mapView alpha] == 1) )
         {
         [self displayAllMarkersIfNeeded];
@@ -357,11 +358,14 @@ regionDidChangeAnimated:(BOOL)animated
 }
 
 /**************************************************************//**
- \brief 
+ \brief Called when a marker is selected.
  *****************************************************************/
-- (void)mapView:(MKMapView *)mapView
-didSelectAnnotationView:(MKAnnotationView *)view
+- (void)mapView:(MKMapView *)mapView                ///< The map view.
+didSelectAnnotationView:(MKAnnotationView *)view    ///< The selected annotation view.
 {
+#ifdef DEBUG
+    NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView called.");
+#endif
     if ( mapView && ([mapView alpha] == 1) )
         {
         id<MKAnnotation>    annotation = [view annotation];

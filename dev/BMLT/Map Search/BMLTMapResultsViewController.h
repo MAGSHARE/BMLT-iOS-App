@@ -39,7 +39,6 @@
 
 - (void)setMapInit:(BOOL)isInit;
 - (BOOL)isMapInitialized;
-- (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting;
 - (void)viewMeetingList:(NSArray *)inList;
 - (void)clearLastRegion;
 - (void)clearMapCompletely;
