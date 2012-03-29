@@ -39,7 +39,6 @@
 - (void)closeModal;
 - (IBAction)clearSearch:(id)sender;
 - (void)setDataArrayFromData:(NSArray *)dataArray;          ///< Set the data array to the contents of the given array.
-- (void)addClearSearchButton;
 - (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting;
 
 @end

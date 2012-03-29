@@ -348,11 +348,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     listResultsViewController = (BMLTDisplayListResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:1] topViewController];
     mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:2] topViewController];
     
-    [self clearAllSearchResults];
+    [self clearAllSearchResultsYes];
     if ( [myPrefs lookupMyLocation] )
         {
         [locationManager startUpdatingLocation];
         }
+    
+    [listResultsViewController addClearSearchButton];
+    [mapResultsViewController addClearSearchButton];
     return YES;
 }
 
@@ -388,7 +391,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be reset to initial.");
 #endif
-        [self clearAllSearchResults];
+        [self clearAllSearchResultsYes];
         }
     else if ( !_visitingRelatives )
         {
@@ -428,7 +431,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"BMLTAppDelegate searchForMeetingsNearMe called.");
 #endif
     [self startAnimations];
-    [self clearAllSearchResults];
+    [self clearAllSearchResults:NO];
     // Remember that we have a pref for result count.
     [searchParams setObject:[NSString stringWithFormat:@"%d", -[myPrefs resultCount]] forKey:@"geo_width"];
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
@@ -536,7 +539,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 /**************************************************************//**
  \brief Clears all the search results, and the results views.
  *****************************************************************/
-- (void)clearAllSearchResults
+- (void)clearAllSearchResults:(BOOL)inForce ///< YES, if we will force the search to switch.
 {
     [self simpleClearSearch];
     [self stopAnimations];
@@ -545,7 +548,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [[mapResultsViewController navigationController] popToRootViewControllerAnimated:NO];
     [[listResultsViewController navigationController] popToRootViewControllerAnimated:NO];
     [listResultsViewController setDataArrayFromData:nil];
-    [self selectInitialSearchAndForce:YES];
+    [self selectInitialSearchAndForce:inForce];
+}
+
+/**************************************************************//**
+ \brief Clears all the search results, and the results views.
+        This version assumes YES, and is a shorthand for the button.
+ *****************************************************************/
+- (void)clearAllSearchResultsYes
+{
+    [self clearAllSearchResults:YES];
 }
 
 /**************************************************************//**
@@ -889,7 +901,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 #endif
     if ( inError )
         {
-        [self clearAllSearchResults];
+        [self clearAllSearchResultsYes];
         }
     else
         {

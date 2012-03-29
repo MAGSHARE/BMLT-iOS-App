@@ -55,14 +55,6 @@
 }
 
 /**************************************************************//**
- \brief  If called, a "Clear Search" button will be added to the navbar.
- *****************************************************************/
-- (void)addClearSearchButton
-{
-    
-}
-
-/**************************************************************//**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
 - (void)viewDidLoad
@@ -167,7 +159,7 @@
  *****************************************************************/
 - (IBAction)clearSearch:(id)sender
 {
-    [[BMLTAppDelegate getBMLTAppDelegate] clearAllSearchResults];
+    [[BMLTAppDelegate getBMLTAppDelegate] clearAllSearchResultsYes];
 }
 
 @end

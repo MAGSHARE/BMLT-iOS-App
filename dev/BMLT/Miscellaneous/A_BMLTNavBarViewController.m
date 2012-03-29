@@ -18,6 +18,7 @@
 //
 
 #import "A_BMLTNavBarViewController.h"
+#import "BMLTAppDelegate.h"
 
 /**************************************************************//**
  \class A_BMLTNavBarViewController - Private Interface
@@ -34,6 +35,18 @@
         Its purpose is to assign the correct strings to everything.
  *****************************************************************/
 @implementation A_BMLTNavBarViewController
+
+/**************************************************************//**
+ \brief  This adds a "Clear Search" button to the navbar left.
+ *****************************************************************/
+- (void)addClearSearchButton
+{
+    UIBarButtonItem     *clearButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"CLEAR-SEARCH-BUTTON", nil) style:UIBarButtonItemStyleBordered target:[BMLTAppDelegate getBMLTAppDelegate] action:@selector(clearAllSearchResultsYes)];
+    
+    UINavigationItem    *navItem = [self navigationItem];
+    
+    [navItem setLeftBarButtonItem:clearButton animated:NO];
+}
 
 /**************************************************************//**
  \brief  Called to validate the autorotation.

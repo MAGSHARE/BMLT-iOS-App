@@ -25,5 +25,5 @@
         Its purpose is to assign the correct strings to everything.
  *****************************************************************/
 @interface A_BMLTNavBarViewController : UIViewController
-
+- (void)addClearSearchButton;
 @end
