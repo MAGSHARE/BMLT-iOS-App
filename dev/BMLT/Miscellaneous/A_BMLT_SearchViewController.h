@@ -28,10 +28,8 @@
 @interface BMLT_Search_BlackAnnotationView : BMLT_Results_BlackAnnotationView
 
 @property (nonatomic,readwrite,assign) CLLocationCoordinate2D   coordinate;
-@property (nonatomic) BOOL                                      draggable;
 
 - (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier coordinate:(CLLocationCoordinate2D)inCoordinate;
-- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate;
 @end
 
 /**************************************************************//**
