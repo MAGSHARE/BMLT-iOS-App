@@ -229,7 +229,7 @@
 			path = "Main Application";
 			sourceTree = "<group>";
 		};
-		771D0C3C150E892A005A707A /* Main Search */ = {
+		771D0C3C150E892A005A707A /* Main Search Tab */ = {
 			isa = PBXGroup;
 			children = (
 				7711417015125CD100BCCE00 /* BMLTSimpleSearchViewController.h */,
@@ -237,20 +237,21 @@
 				771D0C3D150E892A005A707A /* BMLTAdvancedSearchViewController.h */,
 				771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */,
 			);
+			name = "Main Search Tab";
 			path = "Main Search";
 			sourceTree = "<group>";
 		};
-		771D0C4D150E893C005A707A /* Map Results */ = {
+		771D0C4D150E893C005A707A /* Map Results Tab */ = {
 			isa = PBXGroup;
 			children = (
 				771D0C4E150E893C005A707A /* BMLTMapResultsViewController.h */,
 				771D0C4F150E893C005A707A /* BMLTMapResultsViewController.m */,
 			);
-			name = "Map Results";
+			name = "Map Results Tab";
 			path = "Map Search";
 			sourceTree = "<group>";
 		};
-		771D0C52150E893C005A707A /* Miscellaneous */ = {
+		771D0C52150E893C005A707A /* Miscellaneous View and Controller Classes */ = {
 			isa = PBXGroup;
 			children = (
 				7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */,
@@ -264,10 +265,11 @@
 				771D0C56150E893C005A707A /* BrassCheckBox.h */,
 				771D0C57150E893C005A707A /* BrassCheckBox.m */,
 			);
+			name = "Miscellaneous View and Controller Classes";
 			path = Miscellaneous;
 			sourceTree = "<group>";
 		};
-		771D0C5A150E893C005A707A /* Model */ = {
+		771D0C5A150E893C005A707A /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
 				771D0C6B150E893C005A707A /* BMLT_Model_Protocols.h */,
@@ -295,10 +297,11 @@
 				771D0C70150E893C005A707A /* BMLT_ServiceBody.h */,
 				771D0C71150E893C005A707A /* BMLT_ServiceBody.m */,
 			);
+			name = "Data Model";
 			path = Model;
 			sourceTree = "<group>";
 		};
-		771D0C73150E893C005A707A /* Settings */ = {
+		771D0C73150E893C005A707A /* Settings Tab */ = {
 			isa = PBXGroup;
 			children = (
 				771D0C76150E893C005A707A /* BMLTSettingsViewController.h */,
@@ -306,10 +309,11 @@
 				771D0C74150E893C005A707A /* BMLTAboutViewController.h */,
 				771D0C75150E893C005A707A /* BMLTAboutViewController.m */,
 			);
+			name = "Settings Tab";
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		771D0CCF150E8B73005A707A /* List Results */ = {
+		771D0CCF150E8B73005A707A /* List Results Tab */ = {
 			isa = PBXGroup;
 			children = (
 				776BAD951519F90A008C608C /* BMLTDisplayListResultsViewController.h */,
@@ -317,7 +321,7 @@
 				77640D3F151A67BE00634143 /* BMLTMeetingDisplayCellView.h */,
 				77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */,
 			);
-			name = "List Results";
+			name = "List Results Tab";
 			path = "List Search";
 			sourceTree = "<group>";
 		};
@@ -402,13 +406,13 @@
 			isa = PBXGroup;
 			children = (
 				771D0C30150E88E5005A707A /* Main Application */,
-				771D0C3C150E892A005A707A /* Main Search */,
-				771D0CCF150E8B73005A707A /* List Results */,
-				771D0C4D150E893C005A707A /* Map Results */,
-				771D0C73150E893C005A707A /* Settings */,
-				771D0C52150E893C005A707A /* Miscellaneous */,
+				771D0C3C150E892A005A707A /* Main Search Tab */,
+				771D0CCF150E8B73005A707A /* List Results Tab */,
+				771D0C4D150E893C005A707A /* Map Results Tab */,
+				771D0C73150E893C005A707A /* Settings Tab */,
+				771D0C52150E893C005A707A /* Miscellaneous View and Controller Classes */,
 				77EAA368151FDFE4007DFAAE /* Abstract View and Controller Base Classes */,
-				771D0C5A150E893C005A707A /* Model */,
+				771D0C5A150E893C005A707A /* Data Model */,
 				77977D16150E882B00485C8D /* Project Files */,
 			);
 			path = BMLT;
