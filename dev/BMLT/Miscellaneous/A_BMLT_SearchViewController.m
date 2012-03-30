@@ -25,7 +25,7 @@
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
 @implementation BMLT_Search_BlackAnnotationView
-@synthesize draggable;
+@synthesize draggable, coordinate = _coordinate;
 
 /**************************************************************//**
  \brief We simply switch on the draggable bit, here.
@@ -65,7 +65,7 @@
 #ifdef DEBUG
     NSLog(@"BMLT_Search_BlackAnnotationView setCoordinate called with a drag state of (%f, %f).", newCoordinate.longitude, newCoordinate.latitude);
 #endif
-    coordinate = newCoordinate;
+    _coordinate = newCoordinate;
 }
 
 /**************************************************************//**
@@ -74,7 +74,7 @@
  *****************************************************************/
 - (CLLocationCoordinate2D)coordinate
 {
-    return coordinate;
+    return _coordinate;
 }
 
 @end
@@ -130,6 +130,8 @@
         [mapSearchView setRegion:region animated:NO];
         
         BMLT_Results_MapPointAnnotation *myMarker = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:center andMeetings:nil];
+        
+        [myMarker setTitle:@"Marker"];
         
         [mapSearchView addAnnotation:myMarker];
         
