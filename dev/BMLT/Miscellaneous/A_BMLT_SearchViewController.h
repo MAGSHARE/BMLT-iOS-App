@@ -27,9 +27,15 @@
  *****************************************************************/
 @interface BMLT_Search_BlackAnnotationView : BMLT_Results_BlackAnnotationView
 
-@property (nonatomic,readwrite,assign) CLLocationCoordinate2D   coordinate;
-
+@property (atomic,readwrite,assign) CLLocationCoordinate2D   coordinate;
 - (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier coordinate:(CLLocationCoordinate2D)inCoordinate;
+@end
+
+/**************************************************************//**
+ \class BMLT_Search_MapPointAnnotation
+ \brief Handles annotations in the results map.
+ *****************************************************************/
+@interface BMLT_Search_MapPointAnnotation : BMLT_Results_MapPointAnnotation
 @end
 
 /**************************************************************//**
@@ -39,6 +45,9 @@
  the iPad version of the app.
  *****************************************************************/
 @interface A_BMLT_SearchViewController : A_BMLTNavBarViewController <MKMapViewDelegate>
-@property (weak, nonatomic) IBOutlet MKMapView *mapSearchView;  ///< If this is an iPad, then this will point to the map view. iPhone will be nil. The property is linked in the storyboard.
+@property (strong, atomic, readwrite) BMLT_Search_MapPointAnnotation  *myMarker;
+@property (weak, atomic, readwrite) IBOutlet MKMapView *mapSearchView;  ///< If this is an iPad, then this will point to the map view. iPhone will be nil. The property is linked in the storyboard.
+
+- (CLLocationCoordinate2D)getMapCoordinates;                    ///< This returns whatever coordinates are indicated by the marker in the map.
 - (void)setUpMap;                                               ///< In the case of this being an iPad, set up the search map.
 @end

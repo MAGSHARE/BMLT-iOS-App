@@ -253,7 +253,7 @@
             }
         }
     
-    CLLocationCoordinate2D lastLookup = [[BMLTAppDelegate getBMLTAppDelegate] myLocation].coordinate;
+    CLLocationCoordinate2D lastLookup = [[BMLTAppDelegate getBMLTAppDelegate] lastLookupLoc];
     
     if ( [ret count] && lastLookup.longitude && lastLookup.latitude )
         {

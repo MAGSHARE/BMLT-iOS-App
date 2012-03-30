@@ -63,6 +63,7 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
 @implementation BMLTAppDelegate
 
 #pragma mark - Synthesize Class Properties -
+@synthesize lastLookupLoc;              ///< Contains the last lookup location.
 @synthesize window      = _window;      ///< This will hold the window associated with this application instance.
 @synthesize myLocation  = _myLocation;  ///< This will hold the location set by the last location lookup.
 @synthesize locationManager;            ///< This holds the location manager instance.
@@ -429,7 +430,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  \brief Begins a lookup search, in which a location is found first,
         then all meetings near there are returned.
  *****************************************************************/
-- (void)searchForMeetingsNearMe
+- (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation
 {
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate searchForMeetingsNearMe called.");
@@ -440,14 +441,32 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [searchParams setObject:[NSString stringWithFormat:@"%d", -[myPrefs resultCount]] forKey:@"geo_width"];
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
-    _findMeetings = YES;   // This is a semaphore, that tells the app to do a search, once it has settled on a location.
-    [locationManager startUpdatingLocation];
+    if ( inMyLocation.longitude == 0 && inMyLocation.latitude == 0 )
+        {
+        _findMeetings = YES;   // This is a semaphore, that tells the app to do a search, once it has settled on a location.
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate searchForMeetingsNearMe: Starting a new location-based search after a lookup.");
+#endif
+        [locationManager startUpdatingLocation];
+        }
+    else
+        {
+        _findMeetings = NO;   // Clear the semaphore.
+        // We give the new search our location.
+        [self setLastLookupLoc:inMyLocation];
+        [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.longitude] forKey:@"long_val"];
+        [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.latitude] forKey:@"lat_val"];
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate searchForMeetingsNearMe: Starting a new location-based search immediately.");
+#endif
+        [self executeSearchWithParams:searchParams];    // Start the search.
+        }
 }
 
 /**************************************************************//**
  \brief Same as above, except we only look for meetings later today.
  *****************************************************************/
-- (void)searchForMeetingsNearMeLaterToday
+- (void)searchForMeetingsNearMeLaterToday:(CLLocationCoordinate2D)inMyLocation
 {
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate searchForMeetingsNearMeLaterToday called.");
@@ -465,13 +484,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [searchParams setObject:[NSString stringWithFormat:@"%d",hr] forKey:@"StartsAfterH"];
     [searchParams setObject:[NSString stringWithFormat:@"%d",mn] forKey:@"StartsAfterM"];
     
-    [self searchForMeetingsNearMe];
+    [self searchForMeetingsNearMe:inMyLocation];
 }
 
 /**************************************************************//**
  \brief Same as above, except we only look for meetings tomorrow.
  *****************************************************************/
-- (void)searchForMeetingsNearMeTomorrow
+- (void)searchForMeetingsNearMeTomorrow:(CLLocationCoordinate2D)inMyLocation
 {
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate searchForMeetingsNearMeTomorrow called.");
@@ -488,7 +507,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [searchParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
-    [self searchForMeetingsNearMe];
+    [self searchForMeetingsNearMe:inMyLocation];
 }
 
 /**************************************************************//**
@@ -635,6 +654,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
         {
         // We give the new search our location.
+        [self setLastLookupLoc:newLocation.coordinate];
         [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.longitude] forKey:@"long_val"];
         [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.latitude] forKey:@"lat_val"];
 #ifdef DEBUG

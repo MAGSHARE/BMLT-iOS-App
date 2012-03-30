@@ -25,7 +25,7 @@
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
 @implementation BMLT_Search_BlackAnnotationView
-@synthesize coordinate;
+@synthesize coordinate = _coordinate;
 
 /**************************************************************//**
  \brief We simply switch on the draggable bit, here.
@@ -53,11 +53,28 @@
             animated:(BOOL)animated
 {
 #ifdef DEBUG
-    NSLog(@"BMLT_Search_BlackAnnotationView setDragState called with a drag state of %@.", newDragState);
+    NSLog(@"BMLT_Search_BlackAnnotationView setDragState called.");
 #endif
+    switch ( newDragState )
+    {
+        case MKAnnotationViewDragStateStarting:
+        newDragState = MKAnnotationViewDragStateDragging;
+        break;
+        
+        case MKAnnotationViewDragStateEnding:
+        newDragState = MKAnnotationViewDragStateNone;
+        break;
+    }
+    
     self.dragState = newDragState;
 }
+@end
 
+/**************************************************************//**
+ \class BMLT_Search_MapPointAnnotation
+ \brief Handles annotations in the results map.
+ *****************************************************************/
+@implementation BMLT_Search_MapPointAnnotation
 @end
 
 /**************************************************************//**
@@ -67,7 +84,7 @@
         the iPad version of the app.
  *****************************************************************/
 @implementation A_BMLT_SearchViewController
-@synthesize mapSearchView;
+@synthesize mapSearchView, myMarker;
 
 /**************************************************************//**
  \brief  Called just before the view will appear. We use it to set
@@ -84,7 +101,7 @@
  *****************************************************************/
 - (void)setUpMap
 {
-    if ( mapSearchView )    // This will be set in the storyboard.
+    if ( mapSearchView && !myMarker )    // This will be set in the storyboard.
         {
 #ifdef DEBUG
         NSLog(@"A_BMLT_SearchViewController setUpIpadMap called (We're an iPad, baby!).");
@@ -108,9 +125,9 @@
         
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(center, 25000, 25000);
         
-        [mapSearchView setRegion:region animated:NO];
+        [mapSearchView setRegion:region animated:YES];
         
-        BMLT_Results_MapPointAnnotation *myMarker = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:center andMeetings:nil];
+        myMarker = [[BMLT_Search_MapPointAnnotation alloc] initWithCoordinate:center andMeetings:nil];
         
         [myMarker setTitle:@"Marker"];
         
@@ -125,6 +142,29 @@
             [mapSearchView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
             }
         }
+    else if ( mapSearchView && myMarker )
+        {
+        [mapSearchView setCenterCoordinate:[myMarker coordinate] animated:YES];
+        }
+}
+
+/**************************************************************//**
+ \brief This returns whatever coordinates are indicated by the marker in the map.
+ \returns the long/lat coordinates of the map marker.
+ *****************************************************************/
+- (CLLocationCoordinate2D)getMapCoordinates
+{
+    CLLocationCoordinate2D  ret;
+    
+    ret.longitude = 0;
+    ret.latitude = 0;
+    
+    if ( myMarker )
+        {
+        ret = [myMarker coordinate];
+        }
+    
+    return ret;
 }
 
 #pragma mark - MkMapAnnotationDelegate Functions -

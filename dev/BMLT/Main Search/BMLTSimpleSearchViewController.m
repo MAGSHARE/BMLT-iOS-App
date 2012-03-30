@@ -66,7 +66,7 @@
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMe.");
 #endif
-        [myAppDelegate searchForMeetingsNearMe];
+        [myAppDelegate searchForMeetingsNearMe:[self getMapCoordinates]];
         }
 }
 
@@ -82,7 +82,7 @@
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMeLaterToday.");
 #endif
-        [myAppDelegate searchForMeetingsNearMeLaterToday];
+        [myAppDelegate searchForMeetingsNearMeLaterToday:[self getMapCoordinates]];
         }
 }
 
@@ -98,7 +98,7 @@
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMeTomorrow.");
 #endif
-        [myAppDelegate searchForMeetingsNearMeTomorrow];
+        [myAppDelegate searchForMeetingsNearMeTomorrow:[self getMapCoordinates]];
         }
 }
 @end

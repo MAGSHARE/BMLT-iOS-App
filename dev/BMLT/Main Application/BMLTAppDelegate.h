@@ -37,6 +37,7 @@
     Reachability    *hostReachable;     ///< This handles testing for the root server.
 }
 
+@property (nonatomic, readwrite, assign) CLLocationCoordinate2D lastLookupLoc; ///< This contains the location used for the last search.
 @property (strong, nonatomic) UIWindow              *window;            ///< This is the main window object (SINGLETON)
 @property (strong, nonatomic) CLLocation            *myLocation;        ///< This will contain our location.
 @property (strong, nonatomic) CLLocationManager     *locationManager;   ///< This will hold our location manager.
@@ -56,9 +57,9 @@
 
 /// Instance methods
 - (BOOL)isLookupValid;                                  ///< Returns YES, if the last location lookup is kosher.
-- (void)searchForMeetingsNearMe;                        ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
-- (void)searchForMeetingsNearMeLaterToday;              ///< Same as above, but only meetings later today.
-- (void)searchForMeetingsNearMeTomorrow;                ///< Same as above, but only meetings tomorrow.
+- (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation;                        ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
+- (void)searchForMeetingsNearMeLaterToday:(CLLocationCoordinate2D)inMyLocation;              ///< Same as above, but only meetings later today.
+- (void)searchForMeetingsNearMeTomorrow:(CLLocationCoordinate2D)inMyLocation;                ///< Same as above, but only meetings tomorrow.
 - (void)stopNetworkMonitor;                             ///< Stop observing the network connectivity status.
 - (void)startNetworkMonitor;                            ///< Start a network test.
 - (void)networkStatusCallback:(NSNotification *)notice; ///< Gets the results of the network test.
