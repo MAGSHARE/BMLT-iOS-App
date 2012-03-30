@@ -73,6 +73,7 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
 @synthesize searchResults;              ///< This will hold the latest search results.
 @synthesize searchParams;               ///< This will hold the parameters to be used for the next search.
 @synthesize lastSearchParams;           ///< This will hold the parameters that were used for the last search.
+@synthesize activeSearchController;     ///< This will point to the active search controller. Nil, if none.
 
 #pragma mark - Class Methods -
 /**************************************************************//**
@@ -671,6 +672,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     
     [self setMyLocation:newLocation];
+    [[self activeSearchController] updateMapWithThisLocation:[newLocation coordinate]];
 
     if ( [myPrefs keepUpdatingLocation] )   // If they want us to keep updating, we will.
         {

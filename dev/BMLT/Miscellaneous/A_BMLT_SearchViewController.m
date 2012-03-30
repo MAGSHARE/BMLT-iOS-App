@@ -84,7 +84,7 @@
         the iPad version of the app.
  *****************************************************************/
 @implementation A_BMLT_SearchViewController
-@synthesize mapSearchView, myMarker;
+@synthesize mapSearchView, myMarker, updatedOnce;
 
 /**************************************************************//**
  \brief  Called just before the view will appear. We use it to set
@@ -94,6 +94,7 @@
 {
     [super viewWillAppear:animated];
     [self setUpMap];
+    [[BMLTAppDelegate getBMLTAppDelegate] setActiveSearchController:self];
 }
 
 /**************************************************************//**
@@ -132,19 +133,19 @@
         [myMarker setTitle:@"Marker"];
         
         [mapSearchView addAnnotation:myMarker];
-        
-        if ( [[BMLT_Prefs getBMLT_Prefs] keepUpdatingLocation] )    // If the user wants us to keep track of them, then we'll do so.
-            {
-            [mapSearchView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
-            }
-        else
-            {
-            [mapSearchView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
-            }
         }
-    else if ( mapSearchView && myMarker )
+}
+
+/**************************************************************//**
+ \brief  Updates the map to a new location.
+ *****************************************************************/
+- (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate
+{
+    if ( mapSearchView && myMarker && ![self updatedOnce] )
         {
+        [myMarker setCoordinate:inCoordinate];
         [mapSearchView setCenterCoordinate:[myMarker coordinate] animated:YES];
+        [self setUpdatedOnce:YES];
         }
 }
 

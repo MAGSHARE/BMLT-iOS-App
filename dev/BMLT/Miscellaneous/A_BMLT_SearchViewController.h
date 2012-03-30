@@ -46,8 +46,10 @@
  *****************************************************************/
 @interface A_BMLT_SearchViewController : A_BMLTNavBarViewController <MKMapViewDelegate>
 @property (strong, atomic, readwrite) BMLT_Search_MapPointAnnotation  *myMarker;
+@property (atomic, readwrite, assign) BOOL  updatedOnce;                ///< Set to YES once the first position update has occurred.
 @property (weak, atomic, readwrite) IBOutlet MKMapView *mapSearchView;  ///< If this is an iPad, then this will point to the map view. iPhone will be nil. The property is linked in the storyboard.
 
 - (CLLocationCoordinate2D)getMapCoordinates;                    ///< This returns whatever coordinates are indicated by the marker in the map.
 - (void)setUpMap;                                               ///< In the case of this being an iPad, set up the search map.
+- (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate; ///< Updates the map to a new location.
 @end

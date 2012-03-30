@@ -26,6 +26,7 @@
 
 @class BMLT_Prefs;      ///< Foward decl for the prefs property.
 @class BMLT_Meeting;    ///< Forward decl for a meeting.
+@class A_BMLT_SearchViewController; ///< This will be for the active search controller.
 
 /**************************************************************//**
  \class BMLTAppDelegate
@@ -47,6 +48,7 @@
 @property (strong, nonatomic) NSMutableArray        *searchResults;     ///< This will hold the latest search results.
 @property (strong, nonatomic) NSMutableDictionary   *searchParams;      ///< This will hold the parameters to be used for the next search.
 @property (strong, nonatomic) NSDictionary          *lastSearchParams;  ///< This will hold the parameters that were used for the last search.
+@property (nonatomic, readwrite, assign) A_BMLT_SearchViewController *activeSearchController;    ///< This will point to the active search controller. Nil, if none.
 
 /// Class methods
 + (BMLTAppDelegate *)getBMLTAppDelegate;                ///< This class method allows access to the application delegate object (SINGLETON)
