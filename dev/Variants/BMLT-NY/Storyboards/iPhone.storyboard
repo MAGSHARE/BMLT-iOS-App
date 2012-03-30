@@ -80,14 +80,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="SEARCH-SPEC-SIMPLE-TITLE" id="21Q-Zz-Mek">
-                        <barButtonItem key="leftBarButtonItem" title="SEARCH-SPEC-ADVANCED-TITLE" id="X1l-p4-aKF" userLabel="advanced-from-simple">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-ADVANCED-TITLE" id="5m0-ou-woc">
                             <connections>
-                                <segue destination="eMe-9F-zBx" kind="custom" identifier="left" customClass="BMLTSegwayController" id="6dy-0C-PXT"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-MAP-TITLE" id="5m0-ou-woc">
-                            <connections>
-                                <segue destination="fYl-cf-cFm" kind="custom" identifier="right" customClass="BMLTSegwayController" id="onn-Vj-m9R"/>
+                                <segue destination="eMe-9F-zBx" kind="push" id="Rr8-yr-Lx5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -101,43 +96,6 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="285" y="64"/>
-        </scene>
-        <!--Map Search View Controller - SEARCH-SPEC-MAP-TITLE-->
-        <scene sceneID="73l-0h-xiU">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s8r-pz-Qye" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="map-search" id="fYl-cf-cFm" customClass="BMLTMapSearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rQg-Zb-7H4" userLabel="search-map" customClass="A_BMLTMainBackgroundView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MAP SEARCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="7J9-b1-FWF">
-                                <rect key="frame" x="20" y="173" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="SEARCH-SPEC-MAP-TITLE" id="hrO-wj-405">
-                        <barButtonItem key="leftBarButtonItem" title="SEARCH-SPEC-SIMPLE-TITLE" id="Tj9-Z4-oLV">
-                            <connections>
-                                <segue destination="1ej-mT-cW2" kind="custom" identifier="left" customClass="BMLTSegwayController" id="f8u-Wg-vPM"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-ADVANCED-TITLE" id="Sm0-EJ-fDm">
-                            <connections>
-                                <segue destination="eMe-9F-zBx" kind="custom" identifier="right" customClass="BMLTSegwayController" id="FsX-u7-DkM"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="695" y="64"/>
         </scene>
         <!--Navigation Controller - TAB-BAR-0-->
         <scene sceneID="exh-q4-Hr0">
@@ -339,7 +297,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="SEARCH-SPEC-SIMPLE-TITLE"/>
-                                    <segment title="SEARCH-SPEC-MAP-TITLE"/>
                                     <segment title="SEARCH-SPEC-ADVANCED-TITLE"/>
                                 </segments>
                                 <connections>
@@ -404,23 +361,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="SEARCH-SPEC-ADVANCED-TITLE" id="lQM-JY-HPx">
-                        <barButtonItem key="leftBarButtonItem" title="SEARCH-SPEC-MAP-TITLE" id="eIQ-Bk-TuK">
-                            <connections>
-                                <segue destination="fYl-cf-cFm" kind="custom" identifier="left" customClass="BMLTSegwayController" id="O0D-LD-ylN"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="SEARCH-SPEC-SIMPLE-TITLE" id="wZr-of-dPO">
-                            <connections>
-                                <segue destination="1ej-mT-cW2" kind="custom" identifier="right" customClass="BMLTSegwayController" id="4A7-l2-8LH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="SEARCH-SPEC-ADVANCED-TITLE" id="lQM-JY-HPx"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1125" y="64"/>
+            <point key="canvasLocation" x="728" y="64"/>
         </scene>
         <!--Tab Bar Controller - BMLT-->
         <scene sceneID="15">
@@ -510,9 +456,6 @@
                 <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
-        <class className="BMLTMapSearchViewController" superclassName="A_BMLTNavBarViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapSearchViewController.h"/>
-        </class>
         <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
             <relationships>
@@ -550,6 +493,7 @@
                 <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="BMLTSnappyLogSlider" superclassName="UISlider">
@@ -561,9 +505,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="PqN-or-VVj"/>
-        <segue reference="onn-Vj-m9R"/>
-        <segue reference="FsX-u7-DkM"/>
-    </inferredMetricsTieBreakers>
 </document>

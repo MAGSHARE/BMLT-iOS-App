@@ -248,7 +248,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C3s-sr-oSN">
-                                <rect key="frame" x="10" y="20" width="244" height="37"/>
+                                <rect key="frame" x="10" y="5" width="244" height="37"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-NEARBY-TITLE">
@@ -263,7 +263,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oHM-sY-V2t">
-                                <rect key="frame" x="262" y="20" width="244" height="37"/>
+                                <rect key="frame" x="262" y="5" width="244" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-LATER-TODAY-TITLE">
@@ -278,7 +278,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NNa-Bu-ist">
-                                <rect key="frame" x="514" y="20" width="244" height="37"/>
+                                <rect key="frame" x="514" y="5" width="244" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-TOMORROW-TITLE">
@@ -292,6 +292,13 @@
                                     <action selector="findAllMeetingsNearMeTomorrow:" destination="SFh-VH-MDA" eventType="touchUpInside" id="n70-NS-EUd"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="nLJ-nP-ZR5">
+                                <rect key="frame" x="0.0" y="46" width="768" height="865"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SFh-VH-MDA" id="32t-Xl-5Qm"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -307,6 +314,7 @@
                         <outlet property="findMeetingsLaterTodayButton" destination="oHM-sY-V2t" id="R2s-Zt-gGA"/>
                         <outlet property="findMeetingsNearMeButton" destination="C3s-sr-oSN" id="Xk1-b5-NFa"/>
                         <outlet property="findMeetingsTomorrowButton" destination="NNa-Bu-ist" id="fys-Vy-zsx"/>
+                        <outlet property="mapSearchView" destination="nLJ-nP-ZR5" id="CYK-M2-12B"/>
                     </connections>
                 </viewController>
             </objects>
@@ -448,6 +456,7 @@
                 <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="BMLTSnappyLogSlider" superclassName="UISlider">

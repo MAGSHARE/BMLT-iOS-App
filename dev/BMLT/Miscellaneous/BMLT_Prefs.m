@@ -384,7 +384,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
                 }
             else
                 {
-                [self setSearchTypePref:([self preferAdvancedSearch] ? _PREFER_ADVANCED_SEARCH : ([self startWithMap] ? _PREFER_MAP_SEARCH : _PREFER_SIMPLE_SEARCH))];
+                [self setSearchTypePref:([self preferAdvancedSearch] ? _PREFER_ADVANCED_SEARCH : _PREFER_SIMPLE_SEARCH)];
                 }
             
             if ( [decoder containsValueForKey:@"preferSearchResultsAsMap"] )
@@ -431,7 +431,7 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
             [self setGracePeriod:BMLT_Pref_Default_Value_Grace_Period];
             [self setStartWithSearch:YES];
             [self setPreferAdvancedSearch:NO];
-            [self setSearchTypePref:([self preferAdvancedSearch] ? _PREFER_ADVANCED_SEARCH : ([self startWithMap] ? _PREFER_MAP_SEARCH : _PREFER_SIMPLE_SEARCH))];
+            [self setSearchTypePref:([self preferAdvancedSearch] ? _PREFER_ADVANCED_SEARCH : _PREFER_SIMPLE_SEARCH)];
             [self setPreferSearchResultsAsMap:[self startWithMap]];
             [self setPreserveAppStateOnSuspend:![self startWithSearch]];
             [self setKeepUpdatingLocation:NO];

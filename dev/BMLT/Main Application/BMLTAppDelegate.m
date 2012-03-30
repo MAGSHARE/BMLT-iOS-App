@@ -23,7 +23,6 @@
 #import "BMLTDisplayListResultsViewController.h"
 #import "BMLTMapResultsViewController.h"
 #import "BMLTSimpleSearchViewController.h"
-#import "BMLTMapSearchViewController.h"
 #import "BMLTAdvancedSearchViewController.h"
 #import "BMLTMeetingDetailViewController.h"
 
@@ -47,6 +46,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 
 - (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;   ///< Do a nice transition between tab views.
 - (void)callInSick;                                     ///< Display an alert, informing the user that network connectivity is unavailable.
+- (void)sorryCharlie;                                   ///< Display an alert for no meetings found.
 - (void)displaySearchResults;                           ///< Display the results of a search, according to the user preferences.
 - (void)startAnimations;                                ///< Starts the animations in the two results screens.
 - (void)stopAnimations;                                 ///< Stops the animations in the two results screens.
@@ -192,10 +192,21 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
         {
         _amISick = YES;
         UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"ERROR-CANT-LOAD-DRIVER",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
-        
         [myAlert show];
         }
     
+}
+
+/**************************************************************//**
+ \brief Displays an alert for no meetings found.
+ *****************************************************************/
+- (void)sorryCharlie
+{
+#ifdef DEBUG
+    NSLog(@"No meetings found.");
+#endif
+    UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NO-SEARCH-RESULTS",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+    [myAlert show];    
 }
 
 /**************************************************************//**
@@ -211,12 +222,20 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
     
     [listResultsViewController setDataArrayFromData:[self searchResults]];
     [mapResultsViewController setDataArrayFromData:[self searchResults]];
-    [listResultsViewController setIncludeSortRow:YES];
     
-    BOOL    mapSearch = [[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap];
-    int selectedIndex = (mapSearch ? 2 : 1);
-    
-    [tabController setSelectedIndex:selectedIndex];
+    if ( [[self searchResults] count] )
+        {
+        [listResultsViewController setIncludeSortRow:YES];
+        
+        BOOL    mapSearch = [[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap];
+        int selectedIndex = (mapSearch ? 2 : 1);
+        
+        [tabController setSelectedIndex:selectedIndex];
+        }
+    else
+        {
+        [self sorryCharlie];
+        }
 }
 
 /**************************************************************//**
@@ -241,31 +260,16 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
         
         switch ( [[BMLT_Prefs getBMLT_Prefs] searchTypePref] )
             {
-            case _PREFER_MAP_SEARCH:
-            if ([[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPad)   // The map and simple searches are combined, on the iPad.
-                {
-                newSearch = [st instantiateViewControllerWithIdentifier:@"map-search"];
-                }
-            break;
-            
             case _PREFER_ADVANCED_SEARCH:
             newSearch = [st instantiateViewControllerWithIdentifier:@"advanced-search"];
-           break;
-            }
-        
-        if ( newSearch )    // We push the controller, as opposed to changing the root, because it's easier, and doesn't violate any of our ground rules.
-            {
             [[searchNavController navigationController] pushViewController:newSearch animated:NO];
-            // In the case of the iPad, we use a standard navbar push, so we need to prime the simple view to properly populate the Advanced view back button.
-            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-                {
-                UIViewController    *simpleViewController = [[[searchNavController navigationController] viewControllers] objectAtIndex:0];
-                
-                simpleViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString([[simpleViewController navigationItem] title], nil)
-                                                                                                         style:UIBarButtonItemStyleBordered
-                                                                                                        target:nil
-                                                                                                        action:nil];
-                }
+            UIViewController    *simpleViewController = [[[searchNavController navigationController] viewControllers] objectAtIndex:0];
+            
+            simpleViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString([[simpleViewController navigationItem] title], nil)
+                                                                                                     style:UIBarButtonItemStyleBordered
+                                                                                                    target:nil
+                                                                                                    action:nil];
+            break;
             }
         }
 }
@@ -430,8 +434,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate searchForMeetingsNearMe called.");
 #endif
-    [self startAnimations];
     [self clearAllSearchResults:NO];
+    [self startAnimations];
     // Remember that we have a pref for result count.
     [searchParams setObject:[NSString stringWithFormat:@"%d", -[myPrefs resultCount]] forKey:@"geo_width"];
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.

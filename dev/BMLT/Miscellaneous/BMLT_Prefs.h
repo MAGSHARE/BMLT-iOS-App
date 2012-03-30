@@ -45,8 +45,7 @@
 
 /// These define the state of the searchTypePref datamember.
 #define _PREFER_SIMPLE_SEARCH   0   ///< Start on the Simple Search.
-#define _PREFER_MAP_SEARCH      1   ///< Start on the Map Search.
-#define _PREFER_ADVANCED_SEARCH 2   ///< Start on the Advanced Search.
+#define _PREFER_ADVANCED_SEARCH 1   ///< Start on the Advanced Search.
 
 /**************************************************************//**
  \class BMLT_Prefs

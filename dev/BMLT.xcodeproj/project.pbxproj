@@ -8,13 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		7711417215125CD100BCCE00 /* BMLTSimpleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */; };
-		77167D4C1517D0BA006E50E8 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77167D4A1517D0BA006E50E8 /* iPad.storyboard */; };
-		77167D4D1517D0BA006E50E8 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77167D4B1517D0BA006E50E8 /* iPhone.storyboard */; };
 		77167D501517D21F006E50E8 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 77167D4F1517D21F006E50E8 /* LICENSE.txt */; };
 		771D0C34150E88E5005A707A /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C32150E88E5005A707A /* BMLTAppDelegate.m */; };
 		771D0C35150E88E5005A707A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C33150E88E5005A707A /* main.m */; };
 		771D0C47150E892A005A707A /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
-		771D0C49150E892A005A707A /* BMLTMapSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C42150E892A005A707A /* BMLTMapSearchViewController.m */; };
 		771D0C7A150E893C005A707A /* BMLTMapResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C4F150E893C005A707A /* BMLTMapResultsViewController.m */; };
 		771D0C7D150E893C005A707A /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C55150E893C005A707A /* BMLT_Prefs.m */; };
 		771D0C7E150E893C005A707A /* BrassCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BrassCheckBox.m */; };
@@ -36,6 +33,8 @@
 		771D0C92150E899B005A707A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771D0C91150E899B005A707A /* QuartzCore.framework */; };
 		771D0C94150E89BC005A707A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771D0C93150E89BC005A707A /* SystemConfiguration.framework */; };
 		7722BF8E151B3E02001E8029 /* BMLTVariantDefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 7722BF8D151B3E02001E8029 /* BMLTVariantDefs.m */; };
+		772C06AD152534C200DA7E1C /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772C06AB152534C200DA7E1C /* iPad.storyboard */; };
+		772C06AE152534C200DA7E1C /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772C06AC152534C200DA7E1C /* iPhone.storyboard */; };
 		772C1637151B49E300830596 /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 772C1629151B49E300830596 /* FormatCircleBlue@2x.png */; };
 		772C1638151B49E300830596 /* FormatCircleGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 772C162A151B49E300830596 /* FormatCircleGreen@2x.png */; };
 		772C1639151B49E300830596 /* FormatCircleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 772C162B151B49E300830596 /* FormatCircleRed@2x.png */; };
@@ -65,7 +64,6 @@
 		7799D2A6151FAD30007FE822 /* MapMarkerBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */; };
 		7799D2A7151FAD30007FE822 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */; };
 		7799D2A8151FAD30007FE822 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A5151FAD30007FE822 /* MapMarkerRed.png */; };
-		77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A10D47151022C200279AAC /* BMLTSegwayController.m */; };
 		77AE0B7D152150DE00EF66D5 /* DarkWeave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AE0B7C152150DE00EF66D5 /* DarkWeave.png */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
@@ -79,8 +77,6 @@
 /* Begin PBXFileReference section */
 		7711417015125CD100BCCE00 /* BMLTSimpleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSimpleSearchViewController.h; sourceTree = "<group>"; };
 		7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSimpleSearchViewController.m; sourceTree = "<group>"; };
-		77167D4A1517D0BA006E50E8 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = Storyboards/iPad.storyboard; sourceTree = "<group>"; };
-		77167D4B1517D0BA006E50E8 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone.storyboard; path = Storyboards/iPhone.storyboard; sourceTree = "<group>"; };
 		77167D4E1517D205006E50E8 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
 		77167D4F1517D21F006E50E8 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
 		771D0C31150E88E5005A707A /* BMLTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAppDelegate.h; sourceTree = "<group>"; };
@@ -88,8 +84,6 @@
 		771D0C33150E88E5005A707A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		771D0C3D150E892A005A707A /* BMLTAdvancedSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAdvancedSearchViewController.h; sourceTree = "<group>"; };
 		771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAdvancedSearchViewController.m; sourceTree = "<group>"; };
-		771D0C41150E892A005A707A /* BMLTMapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMapSearchViewController.h; sourceTree = "<group>"; };
-		771D0C42150E892A005A707A /* BMLTMapSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMapSearchViewController.m; sourceTree = "<group>"; };
 		771D0C4E150E893C005A707A /* BMLTMapResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMapResultsViewController.h; sourceTree = "<group>"; };
 		771D0C4F150E893C005A707A /* BMLTMapResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMapResultsViewController.m; sourceTree = "<group>"; };
 		771D0C54150E893C005A707A /* BMLT_Prefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLT_Prefs.h; path = ../Miscellaneous/BMLT_Prefs.h; sourceTree = "<group>"; };
@@ -130,6 +124,8 @@
 		771D0C91150E899B005A707A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		771D0C93150E89BC005A707A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7722BF8D151B3E02001E8029 /* BMLTVariantDefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTVariantDefs.m; sourceTree = "<group>"; };
+		772C06AB152534C200DA7E1C /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		772C06AC152534C200DA7E1C /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		772C161B151B46B800830596 /* BMLTVariantDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTVariantDefs.h; sourceTree = "<group>"; };
 		772C1629151B49E300830596 /* FormatCircleBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleBlue@2x.png"; sourceTree = "<group>"; };
 		772C162A151B49E300830596 /* FormatCircleGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleGreen@2x.png"; sourceTree = "<group>"; };
@@ -172,8 +168,6 @@
 		7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlack.png; sourceTree = "<group>"; };
 		7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlue.png; sourceTree = "<group>"; };
 		7799D2A5151FAD30007FE822 /* MapMarkerRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerRed.png; sourceTree = "<group>"; };
-		77A10D46151022C200279AAC /* BMLTSegwayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSegwayController.h; sourceTree = "<group>"; };
-		77A10D47151022C200279AAC /* BMLTSegwayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSegwayController.m; sourceTree = "<group>"; };
 		77AE0B7C152150DE00EF66D5 /* DarkWeave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkWeave.png; sourceTree = "<group>"; };
 		77B59D111514BA1B00C07D18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
 		77B59D141514BA6A00C07D18 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MyLocalizable.strings; sourceTree = "<group>"; };
@@ -238,12 +232,8 @@
 		771D0C3C150E892A005A707A /* Main Search */ = {
 			isa = PBXGroup;
 			children = (
-				77A10D46151022C200279AAC /* BMLTSegwayController.h */,
-				77A10D47151022C200279AAC /* BMLTSegwayController.m */,
 				7711417015125CD100BCCE00 /* BMLTSimpleSearchViewController.h */,
 				7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */,
-				771D0C41150E892A005A707A /* BMLTMapSearchViewController.h */,
-				771D0C42150E892A005A707A /* BMLTMapSearchViewController.m */,
 				771D0C3D150E892A005A707A /* BMLTAdvancedSearchViewController.h */,
 				771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */,
 			);
@@ -331,6 +321,15 @@
 			path = "List Search";
 			sourceTree = "<group>";
 		};
+		772C06AA152534C200DA7E1C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				772C06AB152534C200DA7E1C /* iPad.storyboard */,
+				772C06AC152534C200DA7E1C /* iPhone.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		772C1627151B49E300830596 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,7 +414,6 @@
 				77D90B031514C5340059EF41 /* BMLT-Prefix.pch */,
 				772C161B151B46B800830596 /* BMLTVariantDefs.h */,
 				770819011517DF3000319F10 /* Localization Files */,
-				77D96F851517D06B0093399F /* Storyboards */,
 			);
 			name = "Project Files";
 			sourceTree = "<group>";
@@ -431,21 +429,13 @@
 		77D90B961514C6A60059EF41 /* BMLT-NY */ = {
 			isa = PBXGroup;
 			children = (
+				772C06AA152534C200DA7E1C /* Storyboards */,
 				772C1627151B49E300830596 /* images */,
 				7722BF8D151B3E02001E8029 /* BMLTVariantDefs.m */,
 				7765AE711514C72F008E4ACF /* Info.plist */,
 				77D90B971514C6A60059EF41 /* MyLocalizable.strings */,
 			);
 			path = "BMLT-NY";
-			sourceTree = "<group>";
-		};
-		77D96F851517D06B0093399F /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				77167D4B1517D0BA006E50E8 /* iPhone.storyboard */,
-				77167D4A1517D0BA006E50E8 /* iPad.storyboard */,
-			);
-			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		77EAA368151FDFE4007DFAAE /* Abstract View Base Classes */ = {
@@ -519,8 +509,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				773FF2E01514C38200540E30 /* Localizable.strings in Resources */,
-				77167D4C1517D0BA006E50E8 /* iPad.storyboard in Resources */,
-				77167D4D1517D0BA006E50E8 /* iPhone.storyboard in Resources */,
 				77167D501517D21F006E50E8 /* LICENSE.txt in Resources */,
 				772C1637151B49E300830596 /* FormatCircleBlue@2x.png in Resources */,
 				772C1638151B49E300830596 /* FormatCircleGreen@2x.png in Resources */,
@@ -545,6 +533,8 @@
 				77EAA366151FDEF0007DFAAE /* SButtonConcave.png in Resources */,
 				77EAA367151FDEF0007DFAAE /* SButtonConvex.png in Resources */,
 				77AE0B7D152150DE00EF66D5 /* DarkWeave.png in Resources */,
+				772C06AD152534C200DA7E1C /* iPad.storyboard in Resources */,
+				772C06AE152534C200DA7E1C /* iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +564,6 @@
 				771D0C34150E88E5005A707A /* BMLTAppDelegate.m in Sources */,
 				771D0C35150E88E5005A707A /* main.m in Sources */,
 				771D0C47150E892A005A707A /* BMLTAdvancedSearchViewController.m in Sources */,
-				771D0C49150E892A005A707A /* BMLTMapSearchViewController.m in Sources */,
 				771D0C7A150E893C005A707A /* BMLTMapResultsViewController.m in Sources */,
 				771D0C7D150E893C005A707A /* BMLT_Prefs.m in Sources */,
 				771D0C7E150E893C005A707A /* BrassCheckBox.m in Sources */,
@@ -592,7 +581,6 @@
 				771D0C8A150E893C005A707A /* BMLT_ServiceBody.m in Sources */,
 				771D0C8B150E893C005A707A /* BMLTAboutViewController.m in Sources */,
 				771D0C8C150E893C005A707A /* BMLTSettingsViewController.m in Sources */,
-				77A10D48151022C200279AAC /* BMLTSegwayController.m in Sources */,
 				7711417215125CD100BCCE00 /* BMLTSimpleSearchViewController.m in Sources */,
 				77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */,
 				77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */,

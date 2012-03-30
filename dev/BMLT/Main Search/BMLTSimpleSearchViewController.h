@@ -19,17 +19,21 @@
 
 #import <UIKit/UIKit.h>
 #import "A_BMLTNavBarViewController.h"
+#import <MapKit/MapKit.h>
 
 /**************************************************************//**
  \class  BMLTSimpleSearchViewController
  \brief  This class will present the user with a simple "one-button" interface.
  *****************************************************************/
-@interface BMLTSimpleSearchViewController : A_BMLTNavBarViewController
+@interface BMLTSimpleSearchViewController : A_BMLTNavBarViewController <MKMapViewDelegate>
     @property (weak, nonatomic) IBOutlet UIButton *findMeetingsNearMeButton;        ///< This is the "find meetings near me" button.
     @property (weak, nonatomic) IBOutlet UIButton *findMeetingsLaterTodayButton;    ///< This is the "find meetings near me later today" button.
     @property (weak, nonatomic) IBOutlet UIButton *findMeetingsTomorrowButton;      ///< This is the "find meetings near me tomorrow" button.
+    @property (weak, nonatomic) IBOutlet MKMapView *mapSearchView;                  ///< If this is an iPad, then this will point to the map view. iPhone will be nil.
 
     - (IBAction)findAllMeetingsNearMe:(id)sender;                                   ///< Do a simple meeting lookup.
     - (IBAction)findAllMeetingsNearMeLaterToday:(id)sender;                         ///< Do a simple meeting lookup, for meetings later today.
     - (IBAction)findAllMeetingsNearMeTomorrow:(id)sender;                           ///< Do a simple meeting lookup, for meetings tomorrow.
+
+    - (void)setUpMap;                                                               ///< In the case of this being an iPad, set up the search map.
 @end

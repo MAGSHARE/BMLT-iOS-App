@@ -99,13 +99,9 @@
         case _PREFER_SIMPLE_SEARCH:
         [preferredSearchTypeControl setSelectedSegmentIndex:_PREFER_SIMPLE_SEARCH];
         break;
-        
-        case _PREFER_MAP_SEARCH:
-        [preferredSearchTypeControl setSelectedSegmentIndex:_PREFER_MAP_SEARCH];
-        break;
       
         case _PREFER_ADVANCED_SEARCH:
-        [preferredSearchTypeControl setSelectedSegmentIndex:_PREFER_ADVANCED_SEARCH - (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? 1 : 0)];
+        [preferredSearchTypeControl setSelectedSegmentIndex:_PREFER_ADVANCED_SEARCH];
         break;
     }
     // The slider is a logarithmic scale between 5 and 20. Nominal is 10.
@@ -214,7 +210,7 @@
 - (IBAction)preferredSearchChanged:(id)sender   ///< The search type segmented control
 {
     UISegmentedControl  *myControl = (UISegmentedControl *)sender;  // Get the sender as a segmented control
-    [[BMLT_Prefs getBMLT_Prefs] setSearchTypePref:[myControl selectedSegmentIndex] + (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? 1 : 0)];
+    [[BMLT_Prefs getBMLT_Prefs] setSearchTypePref:[myControl selectedSegmentIndex]];
     [BMLT_Prefs saveChanges];
 }
 
