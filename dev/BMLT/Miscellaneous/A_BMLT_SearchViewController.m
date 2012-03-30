@@ -25,7 +25,7 @@
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
 @implementation BMLT_Search_BlackAnnotationView
-/***************************************************************\**
+/**************************************************************//**
  \brief We simply switch on the draggable bit, here.
  \returns self
  *****************************************************************/
@@ -40,6 +40,17 @@
         }
 
     return self;
+}
+
+/**************************************************************//**
+ \brief Handles dragging.
+ *****************************************************************/
+- (void)setDragState:(MKAnnotationViewDragState)newDragState
+            animated:(BOOL)animated
+{
+#ifdef DEBUG
+    NSLog(@"BMLT_Search_BlackAnnotationView setDragState called with a drag state of %@.", newDragState);
+#endif
 }
 @end
 

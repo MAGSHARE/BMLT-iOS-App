@@ -66,14 +66,14 @@
 		7799D2A8151FAD30007FE822 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A5151FAD30007FE822 /* MapMarkerRed.png */; };
 		77AE0B7D152150DE00EF66D5 /* DarkWeave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AE0B7C152150DE00EF66D5 /* DarkWeave.png */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
+		77C1820D1525BDFE00560F34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77C182071525BDFE00560F34 /* InfoPlist.strings */; };
+		77C1820E1525BDFE00560F34 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77C182091525BDFE00560F34 /* Localizable.strings */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
 		77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */; };
 		77EAA364151FDEF0007DFAAE /* MButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EAA360151FDEF0007DFAAE /* MButtonConcave.png */; };
 		77EAA365151FDEF0007DFAAE /* MButtonConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EAA361151FDEF0007DFAAE /* MButtonConvex.png */; };
 		77EAA366151FDEF0007DFAAE /* SButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EAA362151FDEF0007DFAAE /* SButtonConcave.png */; };
 		77EAA367151FDEF0007DFAAE /* SButtonConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EAA363151FDEF0007DFAAE /* SButtonConvex.png */; };
-		77F2E8DD1525B8C400CBBEDB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77F2E8D71525B8C400CBBEDB /* InfoPlist.strings */; };
-		77F2E8DE1525B8C400CBBEDB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77F2E8D91525B8C400CBBEDB /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +170,10 @@
 		77AE0B7C152150DE00EF66D5 /* DarkWeave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkWeave.png; sourceTree = "<group>"; };
 		77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTSearchResultsViewController.h; path = Miscellaneous/A_BMLTSearchResultsViewController.h; sourceTree = "<group>"; };
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSearchResultsViewController.m; path = Miscellaneous/A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
+		77C182081525BDFE00560F34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		77C1820A1525BDFE00560F34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		77C1820B1525BDFE00560F34 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		77C1820C1525BDFE00560F34 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		77CE3F071516252300C93BC6 /* A_BMLTSettingsBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTSettingsBackgroundView.h; path = Miscellaneous/A_BMLTSettingsBackgroundView.h; sourceTree = "<group>"; };
 		77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSettingsBackgroundView.m; path = Miscellaneous/A_BMLTSettingsBackgroundView.m; sourceTree = "<group>"; };
 		77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTNavBarViewController.h; path = Miscellaneous/A_BMLTNavBarViewController.h; sourceTree = "<group>"; };
@@ -179,10 +183,6 @@
 		77EAA361151FDEF0007DFAAE /* MButtonConvex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MButtonConvex.png; sourceTree = "<group>"; };
 		77EAA362151FDEF0007DFAAE /* SButtonConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SButtonConcave.png; sourceTree = "<group>"; };
 		77EAA363151FDEF0007DFAAE /* SButtonConvex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SButtonConvex.png; sourceTree = "<group>"; };
-		77F2E8D81525B8C400CBBEDB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		77F2E8DA1525B8C400CBBEDB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		77F2E8DB1525B8C400CBBEDB /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		77F2E8DC1525B8C400CBBEDB /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,10 +405,18 @@
 			name = "Project Files";
 			sourceTree = "<group>";
 		};
+		77C182061525BDFE00560F34 /* Localization Files */ = {
+			isa = PBXGroup;
+			children = (
+				77C182071525BDFE00560F34 /* InfoPlist.strings */,
+				77C182091525BDFE00560F34 /* Localizable.strings */,
+			);
+			path = "Localization Files";
+			sourceTree = "<group>";
+		};
 		77D90B951514C6A60059EF41 /* Variants */ = {
 			isa = PBXGroup;
 			children = (
-				77F2E8D61525B8C400CBBEDB /* Localization Files */,
 				77D90B961514C6A60059EF41 /* BMLT-NY */,
 			);
 			path = Variants;
@@ -417,6 +425,7 @@
 		77D90B961514C6A60059EF41 /* BMLT-NY */ = {
 			isa = PBXGroup;
 			children = (
+				77C182061525BDFE00560F34 /* Localization Files */,
 				772C06AA152534C200DA7E1C /* Storyboards */,
 				772C1627151B49E300830596 /* images */,
 				7722BF8D151B3E02001E8029 /* BMLTVariantDefs.m */,
@@ -440,15 +449,6 @@
 				7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */,
 			);
 			name = "Abstract View Base Classes";
-			sourceTree = "<group>";
-		};
-		77F2E8D61525B8C400CBBEDB /* Localization Files */ = {
-			isa = PBXGroup;
-			children = (
-				77F2E8D71525B8C400CBBEDB /* InfoPlist.strings */,
-				77F2E8D91525B8C400CBBEDB /* Localizable.strings */,
-			);
-			path = "Localization Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,8 +531,8 @@
 				77AE0B7D152150DE00EF66D5 /* DarkWeave.png in Resources */,
 				772C06AD152534C200DA7E1C /* iPad.storyboard in Resources */,
 				772C06AE152534C200DA7E1C /* iPhone.storyboard in Resources */,
-				77F2E8DD1525B8C400CBBEDB /* InfoPlist.strings in Resources */,
-				77F2E8DE1525B8C400CBBEDB /* Localizable.strings in Resources */,
+				77C1820D1525BDFE00560F34 /* InfoPlist.strings in Resources */,
+				77C1820E1525BDFE00560F34 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,20 +581,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		77F2E8D71525B8C400CBBEDB /* InfoPlist.strings */ = {
+		77C182071525BDFE00560F34 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				77F2E8D81525B8C400CBBEDB /* en */,
-				77F2E8DB1525B8C400CBBEDB /* sv */,
+				77C182081525BDFE00560F34 /* en */,
+				77C1820B1525BDFE00560F34 /* sv */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		77F2E8D91525B8C400CBBEDB /* Localizable.strings */ = {
+		77C182091525BDFE00560F34 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				77F2E8DA1525B8C400CBBEDB /* en */,
-				77F2E8DC1525B8C400CBBEDB /* sv */,
+				77C1820A1525BDFE00560F34 /* en */,
+				77C1820C1525BDFE00560F34 /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
