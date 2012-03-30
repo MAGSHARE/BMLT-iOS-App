@@ -138,6 +138,9 @@
 
 /**************************************************************//**
  \brief  Updates the map to a new location.
+         The way this works, is we accept only one update. That way,
+         the map doesn't keep shifting away as the user chooses a
+         search location.
  *****************************************************************/
 - (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate
 {

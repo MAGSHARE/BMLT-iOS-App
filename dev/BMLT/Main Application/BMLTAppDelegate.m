@@ -398,6 +398,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be reset to initial.");
 #endif
         [self clearAllSearchResultsYes];
+        [activeSearchController setUpdatedOnce:NO]; // Make sure that the search map will return to your current location.
         }
     else if ( !_visitingRelatives )
         {

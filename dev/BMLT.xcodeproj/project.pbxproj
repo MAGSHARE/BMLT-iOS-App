@@ -389,7 +389,7 @@
 				771D0C4D150E893C005A707A /* Map Results */,
 				771D0C73150E893C005A707A /* Settings */,
 				771D0C52150E893C005A707A /* Miscellaneous */,
-				77EAA368151FDFE4007DFAAE /* Abstract View Base Classes */,
+				77EAA368151FDFE4007DFAAE /* Abstract View and Controller Base Classes */,
 				771D0C5A150E893C005A707A /* Model */,
 				77977D16150E882B00485C8D /* Project Files */,
 			);
@@ -434,7 +434,7 @@
 			path = "BMLT-NY";
 			sourceTree = "<group>";
 		};
-		77EAA368151FDFE4007DFAAE /* Abstract View Base Classes */ = {
+		77EAA368151FDFE4007DFAAE /* Abstract View and Controller Base Classes */ = {
 			isa = PBXGroup;
 			children = (
 				777B520D15192409002EDC83 /* A_BMLTMainBackgroundView.h */,
@@ -448,7 +448,7 @@
 				7707F3131525B44C00032CCA /* A_BMLT_SearchViewController.h */,
 				7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */,
 			);
-			name = "Abstract View Base Classes";
+			name = "Abstract View and Controller Base Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
