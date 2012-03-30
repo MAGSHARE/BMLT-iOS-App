@@ -40,24 +40,23 @@
  *****************************************************************/
 - (void)viewDidLoad
 {
-    [weekdaysLabel setText:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS", nil)];
-    [addressEntryText setPlaceholder:NSLocalizedString(@"DEFAULT-ADDRESS-STRING", nil)];
+    [weekdaysLabel setText:NSLocalizedString([weekdaysLabel text], nil)];
     
-    [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-0", nil) forSegmentAtIndex:0];
-    [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-1", nil) forSegmentAtIndex:1];
-    [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-2", nil) forSegmentAtIndex:2];
-    [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-3", nil) forSegmentAtIndex:3];
+    for ( NSUInteger i = 0; i < [weekdaysSelector numberOfSegments]; i++ )
+        {
+        [weekdaysSelector setTitle:NSLocalizedString([weekdaysSelector titleForSegmentAtIndex:i], nil) forSegmentAtIndex:i];
+        }
     
-    [sunLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-0", nil)];
-    [monLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-1", nil)];
-    [tueLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-2", nil)];
-    [wedLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-3", nil)];
-    [thuLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-4", nil)];
-    [friLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-5", nil)];
-    [satLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-6", nil)];
+    [sunLabel setText:NSLocalizedString([sunLabel text], nil)];
+    [monLabel setText:NSLocalizedString([monLabel text], nil)];
+    [tueLabel setText:NSLocalizedString([tueLabel text], nil)];
+    [wedLabel setText:NSLocalizedString([wedLabel text], nil)];
+    [thuLabel setText:NSLocalizedString([thuLabel text], nil)];
+    [friLabel setText:NSLocalizedString([friLabel text], nil)];
+    [satLabel setText:NSLocalizedString([satLabel text], nil)];
     
     [findNearMeLabel setTitle:NSLocalizedString(@"FIND-NEAR-ME", nil) forState:UIControlStateNormal];
-    
+    [addressEntryText setPlaceholder:NSLocalizedString(@"DEFAULT-ADDRESS-STRING", nil)];
     [doSearchButton setTitle:NSLocalizedString(@"DO-SEARCH-BUTTON", nil) forState:UIControlStateNormal];
     
     [super viewDidLoad];
