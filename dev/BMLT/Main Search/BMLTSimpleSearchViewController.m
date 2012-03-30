@@ -18,7 +18,6 @@
 //
 
 #import "BMLTSimpleSearchViewController.h"
-#import "BMLT_Results_MapPointAnnotationView.h"
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
 
@@ -27,7 +26,6 @@
  \brief  This class will present the user with a simple "one-button" interface.
  *****************************************************************/
 @implementation BMLTSimpleSearchViewController
-@synthesize mapSearchView;
 
 @synthesize findMeetingsNearMeButton;
 @synthesize findMeetingsLaterTodayButton;
@@ -53,16 +51,6 @@
     [self setFindMeetingsLaterTodayButton:nil];
     [self setMapSearchView:nil];
     [super viewDidUnload];
-}
-
-/**************************************************************//**
- \brief  Called just before the view will appear. We use it to set
-         up the map (in an iPad).
- *****************************************************************/
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self setUpMap];
 }
 
 #pragma mark IB Actions
@@ -111,51 +99,6 @@
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMeTomorrow.");
 #endif
         [myAppDelegate searchForMeetingsNearMeTomorrow];
-        }
-}
-
-/**************************************************************//**
- \brief  If this is an iPad, we'll set up the map.
- *****************************************************************/
-- (void)setUpMap
-{
-    if ( mapSearchView )
-        {
-#ifdef DEBUG
-        NSLog(@"BMLTSimpleSearchViewController setUpIpadMap called (We're an iPad, baby!).");
-#endif
-        BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
-        
-        CLLocationCoordinate2D  center;
-#ifdef DEBUG
-        NSLog(@"BMLTSimpleSearchViewController setUpIpadMap We're using the canned coordinates.");
-#endif
-        center.latitude = [NSLocalizedString(@"INITIAL-MAP-LAT", nil) doubleValue];
-        center.longitude = [NSLocalizedString(@"INITIAL-MAP-LONG", nil) doubleValue];
-        
-        if ( [myAppDelegate myLocation] )
-            {
-#ifdef DEBUG
-            NSLog(@"BMLTSimpleSearchViewController setUpIpadMap We know where we are, so we'll set the map to that.");
-#endif
-            center = [myAppDelegate myLocation].coordinate;
-            }
-        
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(center, 25000, 25000);
-    
-        [mapSearchView setRegion:region animated:NO];
-        BMLT_Results_MapPointAnnotation *myMarker = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:center andMeetings:nil];
-        
-        [mapSearchView addAnnotation:myMarker];
-        
-        if ( [[BMLT_Prefs getBMLT_Prefs] keepUpdatingLocation] )    // If the user wants us to keep track of them, then we'll do so.
-            {
-            [mapSearchView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
-            }
-        else
-            {
-            [mapSearchView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
-            }
         }
 }
 @end
