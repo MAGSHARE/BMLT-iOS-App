@@ -28,11 +28,14 @@
 @class BMLT_Meeting;    ///< Forward decl for a meeting.
 @class A_BMLT_SearchViewController; ///< This will be for the active search controller.
 
+#define kGoogleReverseLooupURI_Format @"http://maps.google.com/maps/geo?q=%@&output=xml&sensor=false"
+#define kAddressLookupTimeoutPeriod_in_seconds  10
+
 /**************************************************************//**
  \class BMLTAppDelegate
  \brief This is the main application delegate class for the BMLT application
  *****************************************************************/
-@interface BMLTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate, SearchDelegate>
+@interface BMLTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate, SearchDelegate, NSXMLParserDelegate>
 {
     Reachability    *internetReachable; ///< This handles tests of the network
     Reachability    *hostReachable;     ///< This handles testing for the root server.
@@ -55,7 +58,9 @@
 + (BOOL)locationServicesAvailable;                      ///< Used to check to see if location services are available.
 + (BOOL)canReachRootServer;                             ///< Returns YES, if the root server can be reached via network.
 + (BOOL)validLocation;                                  ///< Returns YES if the app has a valid location.
-+ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting withController:(UIViewController *)theController;
++ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting withController:(UIViewController *)theController;  ///< Push the meeting details view onto the current nav stack.
++ (void)lookupLocationFromAddressString:(NSString *)inLocationString;       ///< Look up the location as a geocode.
++ (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod;    ///< This is used to calculate the time for "later today" meetings.
 
 /// Instance methods
 - (BOOL)isLookupValid;                                  ///< Returns YES, if the last location lookup is kosher.

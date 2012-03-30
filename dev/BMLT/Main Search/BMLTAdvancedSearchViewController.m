@@ -18,6 +18,7 @@
 //
 
 #import "BMLTAdvancedSearchViewController.h"
+#import "BMLTAppDelegate.h"
 
 /**************************************************************//**
  \class  BMLTAdvancedSearchViewController    -Private Interface
@@ -32,34 +33,241 @@
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
 @implementation BMLTAdvancedSearchViewController
+@synthesize weekdaysLabel, weekdaysSelector, sunLabel, sunButton, monLabel, monButton, tueLabel, tueButton, wedLabel, wedButton, thuLabel, thuButton, friLabel, friButton, satLabel, satButton, doSearchButton, findNearMeLabel, findNearMeCheckbox, containerView, addressEntryText;
 
 /**************************************************************//**
- \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
- \returns    self
- *****************************************************************/
-- (id)initWithNibName:(NSString *)nibNameOrNil
-               bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-        {
-        }
-    return self;
-}
-
-/**************************************************************//**
- \brief  Called after the controller's view object has loaded.
+ \brief Sets up all the localized strings and whatnot.
  *****************************************************************/
 - (void)viewDidLoad
 {
+    [weekdaysLabel setText:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS", nil)];
+    [addressEntryText setPlaceholder:NSLocalizedString(@"DEFAULT-ADDRESS-STRING", nil)];
+    
+    [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-0", nil) forSegmentAtIndex:0];
+    [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-1", nil) forSegmentAtIndex:1];
+    [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-2", nil) forSegmentAtIndex:2];
+    [weekdaysSelector setTitle:NSLocalizedString(@"SEARCH-SPEC-SELECTED-WEEKDAYS-3", nil) forSegmentAtIndex:3];
+    
+    [sunLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-0", nil)];
+    [monLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-1", nil)];
+    [tueLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-2", nil)];
+    [wedLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-3", nil)];
+    [thuLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-4", nil)];
+    [friLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-5", nil)];
+    [satLabel setText:NSLocalizedString(@"WEEKDAY-SHORT-NAME-6", nil)];
+    
+    [findNearMeLabel setTitle:NSLocalizedString(@"FIND-NEAR-ME", nil) forState:UIControlStateNormal];
+    
+    [doSearchButton setTitle:NSLocalizedString(@"DO-SEARCH-BUTTON", nil) forState:UIControlStateNormal];
+    
     [super viewDidLoad];
 }
 
-/**************************************************************//**
- \brief  Called after the controller's view object has unloaded.
- *****************************************************************/
-- (void)viewDidUnload
+- (IBAction)weekdaySelectionChanged:(id)sender
 {
-    [super viewDidUnload];
+    UISegmentedControl  *theControl = (UISegmentedControl*)sender;
+    
+    [sunButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [monButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [tueButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [wedButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [thuButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [friButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [satButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    
+    if ( [theControl selectedSegmentIndex] == kWeekdaySelectWeekdays )
+        {
+        [sunButton setEnabled:YES];
+        [monButton setEnabled:YES];
+        [tueButton setEnabled:YES];
+        [wedButton setEnabled:YES];
+        [thuButton setEnabled:YES];
+        [friButton setEnabled:YES];
+        [satButton setEnabled:YES];
+        }
+    else
+        {
+        [sunButton setEnabled:NO];
+        [monButton setEnabled:NO];
+        [monButton setEnabled:NO];
+        [tueButton setEnabled:NO];
+        [wedButton setEnabled:NO];
+        [thuButton setEnabled:NO];
+        [friButton setEnabled:NO];
+        [satButton setEnabled:NO];
+        }
+    
+    if ( ([theControl selectedSegmentIndex] == kWeekdaySelectToday) || ([theControl selectedSegmentIndex] == kWeekdaySelectTomorrow) )
+        {
+        NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
+        NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
+        NSInteger           wd = [weekdayComponents weekday];
+        weekdayComponents = [gregorian components:(NSHourCalendarUnit) fromDate:date];
+        NSInteger           hr = [weekdayComponents hour];
+        weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
+        NSInteger           mn = [weekdayComponents minute];
+        
+        NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
+        
+        if ( [theControl selectedSegmentIndex] == kWeekdaySelectTomorrow )
+            {
+            wd++;
+            if ( wd > kWeekdaySelectValue_Sat )
+                {
+                wd = kWeekdaySelectValue_Sun;
+                }
+            }
+        else
+            {
+            [myParams setObject:[NSString stringWithFormat:@"%d",hr] forKey:@"StartsAfterH"];
+            [myParams setObject:[NSString stringWithFormat:@"%d",mn] forKey:@"StartsAfterM"];
+            }
+        
+        [myParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
+        [myParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
+        
+        switch ( wd )
+            {
+                case kWeekdaySelectValue_Sun:
+                [sunButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
+                
+                case kWeekdaySelectValue_Mon:
+                [monButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
+                
+                case kWeekdaySelectValue_Tue:
+                [tueButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
+                
+                case kWeekdaySelectValue_Wed:
+                [wedButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
+                
+                case kWeekdaySelectValue_Thu:
+                [thuButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
+                
+                case kWeekdaySelectValue_Fri:
+                [friButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
+                
+                case kWeekdaySelectValue_Sat:
+                [satButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+                break;
+            }
+        }
+    [self setParamsForWeekdaySelection];
+}
+
+- (IBAction)doSearchButtonPressed:(id)sender
+{
+    
+}
+
+- (IBAction)backgroundClicked:(id)sender
+{
+
+}
+
+- (IBAction)findMeLabelClicked:(id)sender
+{
+    
+}
+
+- (IBAction)findNearMeChanged:(id)sender
+{
+
+}
+
+- (IBAction)weekdayChanged:(id)sender
+{
+    [self setParamsForWeekdaySelection];
+}
+
+- (void)setParamsForWeekdaySelection
+{
+    NSString *weekday = @"";
+    
+    if ( [sunButton isEnabled] && [sunButton isOn] )
+        {
+        weekday = [weekday stringByAppendingFormat:@"1"];
+        }
+    
+    if ( [monButton isEnabled] && [monButton isOn] )
+        {
+        if ( [weekday length] )
+            {
+            weekday = [weekday stringByAppendingFormat:@",2"];
+            }
+        else
+            {
+            weekday = [weekday stringByAppendingFormat:@"2"];
+            }
+        }
+    
+    if ( [tueButton isEnabled] && [tueButton isOn] )
+        {
+        if ( [weekday length] )
+            {
+            weekday = [weekday stringByAppendingFormat:@",3"];
+            }
+        else
+            {
+            weekday = [weekday stringByAppendingFormat:@"3"];
+            }
+        }
+    
+    if ( [wedButton isEnabled] && [wedButton isOn] )
+        {
+        if ( [weekday length] )
+            {
+            weekday = [weekday stringByAppendingFormat:@",4"];
+            }
+        else
+            {
+            weekday = [weekday stringByAppendingFormat:@"4"];
+            }
+        }
+    
+    if ( [thuButton isEnabled] && [thuButton isOn] )
+        {
+        if ( [weekday length] )
+            {
+            weekday = [weekday stringByAppendingFormat:@",5"];
+            }
+        else
+            {
+            weekday = [weekday stringByAppendingFormat:@"5"];
+            }
+        }
+    
+    if ( [friButton isEnabled] && [friButton isOn] )
+        {
+        if ( [weekday length] )
+            {
+            weekday = [weekday stringByAppendingFormat:@",6"];
+            }
+        else
+            {
+            weekday = [weekday stringByAppendingFormat:@"6"];
+            }
+        }
+    
+    if ( [satButton isEnabled] && [satButton isOn] )
+        {
+        if ( [weekday length] )
+            {
+            weekday = [weekday stringByAppendingFormat:@",7"];
+            }
+        else
+            {
+            weekday = [weekday stringByAppendingFormat:@"7"];
+            }
+        }
+    
+    NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
+    [myParams setObject:weekday forKey:@"weekdays"];
 }
 @end

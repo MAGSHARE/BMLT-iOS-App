@@ -20,6 +20,7 @@
 #import "Reachability.h"
 #import "BMLT_Prefs.h"
 #import "BMLT_Meeting.h"
+#import "BMLT_Parser.h"
 #import "BMLTDisplayListResultsViewController.h"
 #import "BMLTMapResultsViewController.h"
 #import "BMLTSimpleSearchViewController.h"
@@ -42,7 +43,6 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     BMLTDisplayListResultsViewController    *listResultsViewController; ///< This will point to our list results main controller.
     BMLTMapResultsViewController            *mapResultsViewController;  ///< This will point to our map results main controller.
 }
-+ (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod; ///< This is used to calculate the time for "later today" meetings.
 
 - (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;   ///< Do a nice transition between tab views.
 - (void)callInSick;                                     ///< Display an alert, informing the user that network connectivity is unavailable.
@@ -124,7 +124,7 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
 }
 
 /**************************************************************//**
- \brief 
+ \brief Pushes the meeting details screen onto the current nav stack.
  *****************************************************************/
 + (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting
             withController:(UIViewController *)theController
@@ -135,6 +135,28 @@ NSInteger distanceSort (id meeting1, id meeting2, void *context);   ///< Callbac
     [[meetingDetails navigationItem] setTitle:[inMeeting getBMLTName]];
     [[[meetingDetails navigationItem] titleView] sizeToFit];
     [[theController navigationController] pushViewController:meetingDetails animated:YES];
+}
+
+/**************************************************************//**
+ \brief Starts an asynchronous geocode from a given address string.
+ *****************************************************************/
++ (void)lookupLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
+{
+    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+    [[NSURLCache sharedURLCache] setDiskCapacity:0];
+    
+    inLocationString = [inLocationString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    inLocationString = [inLocationString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSData *xml = [NSData 
+                   dataWithContentsOfURL: [NSURL 
+                                           URLWithString:[NSString stringWithFormat:kGoogleReverseLooupURI_Format, inLocationString]]];
+    BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithData:xml];
+    
+    [myParser setDelegate:[BMLTAppDelegate getBMLTAppDelegate]];
+    
+    [myParser parseAsync:NO
+             WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
 }
 
 #pragma mark - Private methods -
