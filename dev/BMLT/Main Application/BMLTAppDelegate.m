@@ -661,17 +661,18 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"BMLTAppDelegate didUpdateToLocation Location Found: (%@)", newLocation);
 #endif
     
-    NSInteger  t = abs((NSInteger)[[newLocation timestamp] timeIntervalSinceNow]);
-    if ( t < -10 )  // Ten seconds old is too old.
+    NSTimeInterval howRecent = [[newLocation timestamp] timeIntervalSinceNow];
+    
+    if ( abs(howRecent) >= 15 )  // Fifteen seconds old is too old.
         {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate didUpdateToLocation ignoring old GPS info :%d", t);
+        NSLog(@"BMLTAppDelegate didUpdateToLocation ignoring old GPS info");
 #endif
         return;
         }    
     
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f, and the time interval is %d.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy, t);
+    NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy);
 #endif
     
     // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).

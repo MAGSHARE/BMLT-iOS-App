@@ -156,6 +156,16 @@
 #ifdef DEBUG
     NSLog(@"BMLTMapResultsViewController determineMapSize -The current map area is NW: (%f, %f), SE: (%f, %f)", northWestCorner.longitude, northWestCorner.latitude, southEastCorner.longitude, southEastCorner.latitude );
 #endif
+    // We include the user location in the map.
+    CLLocationCoordinate2D lastLookup = [[BMLTAppDelegate getBMLTAppDelegate] lastLookupLoc];
+    
+    if ( lastLookup.longitude && lastLookup.latitude )
+        {
+        northWestCorner.longitude = fmin(northWestCorner.longitude, lastLookup.longitude);
+        northWestCorner.latitude = fmax(northWestCorner.latitude, lastLookup.latitude);
+        southEastCorner.longitude = fmax(southEastCorner.longitude, lastLookup.longitude);
+        southEastCorner.latitude = fmin(southEastCorner.latitude, lastLookup.latitude);
+        }
     
     // OK. We now know how much room we need. Let's make sure that the map can accommodate all the points.
     double  longSpan = southEastCorner.longitude - northWestCorner.longitude;
