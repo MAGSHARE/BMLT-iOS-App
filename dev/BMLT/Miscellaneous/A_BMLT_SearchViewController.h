@@ -26,7 +26,14 @@
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
 @interface BMLT_Search_BlackAnnotationView : BMLT_Results_BlackAnnotationView
-- (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier;
+{
+    CLLocationCoordinate2D   coordinate;
+}
+@property (nonatomic) BOOL                  draggable;
+
+- (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier coordinate:(CLLocationCoordinate2D)inCoordinate;
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate;
+- (CLLocationCoordinate2D)coordinate;
 @end
 
 /**************************************************************//**

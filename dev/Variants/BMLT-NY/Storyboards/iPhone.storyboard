@@ -350,15 +350,6 @@
                     <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF" userLabel="search-advanced" customClass="A_BMLTMainBackgroundView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ADVANCED SEARCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="nqJ-aV-Lyn">
-                                <rect key="frame" x="20" y="167" width="280" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="SEARCH-SPEC-ADVANCED-TITLE" id="lQM-JY-HPx"/>
@@ -438,10 +429,16 @@
         <class className="A_BMLTSettingsBackgroundView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSettingsBackgroundView.h"/>
         </class>
+        <class className="A_BMLT_SearchViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
         <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
         </class>
-        <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLTNavBarViewController">
+        <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLT_SearchViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
         </class>
         <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
@@ -484,7 +481,7 @@
                 <relationship kind="outlet" name="retainStateSwitch" candidateClass="UISwitch"/>
             </relationships>
         </class>
-        <class className="BMLTSimpleSearchViewController" superclassName="A_BMLTNavBarViewController">
+        <class className="BMLTSimpleSearchViewController" superclassName="A_BMLT_SearchViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
             <relationships>
                 <relationship kind="action" name="findAllMeetingsNearMe:"/>
@@ -493,7 +490,6 @@
                 <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="BMLTSnappyLogSlider" superclassName="UISlider">

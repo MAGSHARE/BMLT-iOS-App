@@ -25,12 +25,15 @@
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
 @implementation BMLT_Search_BlackAnnotationView
+@synthesize draggable;
+
 /**************************************************************//**
  \brief We simply switch on the draggable bit, here.
  \returns self
  *****************************************************************/
 - (id)initWithAnnotation:(id<MKAnnotation>)annotation
          reuseIdentifier:(NSString *)reuseIdentifier
+              coordinate:(CLLocationCoordinate2D)inCoordinate
 {
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
 
@@ -51,7 +54,29 @@
 #ifdef DEBUG
     NSLog(@"BMLT_Search_BlackAnnotationView setDragState called with a drag state of %@.", newDragState);
 #endif
+    self.dragState = newDragState;
 }
+
+/**************************************************************//**
+ \brief Accessor. Set the coordinate data member.
+ *****************************************************************/
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate
+{
+#ifdef DEBUG
+    NSLog(@"BMLT_Search_BlackAnnotationView setCoordinate called with a drag state of (%f, %f).", newCoordinate.longitude, newCoordinate.latitude);
+#endif
+    coordinate = newCoordinate;
+}
+
+/**************************************************************//**
+ \brief Accessor. Get the coordinate data member.
+ \returns the coordinates of the marker.
+ *****************************************************************/
+- (CLLocationCoordinate2D)coordinate
+{
+    return coordinate;
+}
+
 @end
 
 /**************************************************************//**
@@ -103,6 +128,7 @@
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(center, 25000, 25000);
         
         [mapSearchView setRegion:region animated:NO];
+        
         BMLT_Results_MapPointAnnotation *myMarker = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:center andMeetings:nil];
         
         [mapSearchView addAnnotation:myMarker];
@@ -127,13 +153,16 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id < MKAnnotation >)annotation
 {
+#ifdef DEBUG
+    NSLog(@"A_BMLT_SearchViewController viewForAnnotation called.");
+#endif
     static NSString* identifier = @"single_meeting_annotation";
     
     MKAnnotationView* ret = [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
     
     if ( !ret )
         {
-        ret = [[BMLT_Search_BlackAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        ret = [[BMLT_Search_BlackAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier coordinate:[annotation coordinate]];
         }
     
     return ret;
