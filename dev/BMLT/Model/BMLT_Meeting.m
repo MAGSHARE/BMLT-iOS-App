@@ -455,11 +455,14 @@ foundCharacters:(NSString *)string      ///< The characters
                             NSArray *time_ar = [string componentsSeparatedByString:@":"];
                             if ( time_ar && ([time_ar count] > 1) )
                                 {
-                                NSDateComponents *comps = [[NSDateComponents alloc] init];
-                                [comps setMinute:[(NSString *)[time_ar objectAtIndex:1] intValue]];
-                                [comps setHour:[(NSString *)[time_ar objectAtIndex:0] intValue]];
+                                NSInteger hours = [(NSString *)[time_ar objectAtIndex:0] intValue];
+                                NSInteger minutes = [(NSString *)[time_ar objectAtIndex:1] intValue];
                                 
-                                ordinalStartTime = ([(NSString *)[time_ar objectAtIndex:1] intValue] * 100) + [(NSString *)[time_ar objectAtIndex:0] intValue];
+                                NSDateComponents *comps = [[NSDateComponents alloc] init];
+                                [comps setMinute:minutes];
+                                [comps setHour:hours];
+                                
+                                ordinalStartTime = (hours * 100) + minutes;
                                 
                                 NSCalendar  *curCal = [NSCalendar currentCalendar];
                                 NSDate      *startT = [curCal dateFromComponents:comps];
