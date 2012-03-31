@@ -474,15 +474,17 @@ foundCharacters:(NSString *)string      ///< The characters
                             NSArray *time_ar = [string componentsSeparatedByString:@":"];
                             if ( time_ar && ([time_ar count] > 1) )
                                 {
+                                NSInteger   hours = [(NSString *)[time_ar objectAtIndex:0] intValue];
+                                NSInteger   minutes = [(NSString *)[time_ar objectAtIndex:1] intValue];
+                                
                                 NSDateComponents *comps = [[NSDateComponents alloc] init];
-                                [comps setMinute:[(NSString *)[time_ar objectAtIndex:1] intValue]];
-                                [comps setHour:[(NSString *)[time_ar objectAtIndex:0] intValue]];
                                 
-                                ordinalStartTime = ([(NSString *)[time_ar objectAtIndex:1] intValue] * 100) + [(NSString *)[time_ar objectAtIndex:0] intValue];
+                                [comps setMinute:minutes];
+                                [comps setHour:hours];
                                 
-                                NSCalendar  *curCal = [NSCalendar currentCalendar];
-                                NSDate      *startT = [curCal dateFromComponents:comps];
-                                [self setStartTime:startT];
+                                ordinalStartTime = (hours * 100) + minutes;
+                                
+                                [self setStartTime:[[NSCalendar currentCalendar] dateFromComponents:comps]];
                                 [comps release];
 #ifdef _CONNECTION_PARSE_TRACE_
                                 NSLog(@"\t\tBMLT_Meeting Parser Setting Start Time To: \"%@\"", [self getStartTime]);
