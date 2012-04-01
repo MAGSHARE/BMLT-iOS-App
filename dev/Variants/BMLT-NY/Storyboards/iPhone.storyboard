@@ -351,6 +351,21 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e5b-WO-qmk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backgroundClicked:" destination="eMe-9F-zBx" eventType="touchUpInside" id="L5g-dj-ZML"/>
+                                </connections>
+                            </button>
                             <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="Dpw-iQ-3B7" userLabel="Weekday Search">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -389,7 +404,7 @@
                                             <action selector="weekdaySelectionChanged:" destination="eMe-9F-zBx" eventType="valueChanged" id="uyA-Gx-5lX"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="9jU-a4-9Ze" userLabel="Sunday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="9jU-a4-9Ze" userLabel="Sunday Label">
                                         <rect key="frame" x="7" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -412,7 +427,7 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="C0k-7i-BgT"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="bVk-Ce-Lae" userLabel="Monday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="bVk-Ce-Lae" userLabel="Monday Label">
                                         <rect key="frame" x="52" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -435,7 +450,7 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="XE3-xe-bPG"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-2" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Zfv-2T-3S2" userLabel="Tuesday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-2" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Zfv-2T-3S2" userLabel="Tuesday Label">
                                         <rect key="frame" x="97" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -458,7 +473,7 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="bUh-x8-LOL"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-3" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Gbj-OP-cXZ" userLabel="Wednesday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-3" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Gbj-OP-cXZ" userLabel="Wednesday Label">
                                         <rect key="frame" x="142" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -481,7 +496,7 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="Fci-hZ-yw5"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-4" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Eag-Mq-W9i" userLabel="Thursday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-4" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Eag-Mq-W9i" userLabel="Thursday Label">
                                         <rect key="frame" x="187" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -504,7 +519,7 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="eAJ-lT-Div"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-5" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="RHF-kJ-jFp" userLabel="Friday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-5" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="RHF-kJ-jFp" userLabel="Friday Label">
                                         <rect key="frame" x="232" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -527,7 +542,7 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="ODd-R1-bBP"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-6" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="aZR-zK-7dA" userLabel="Saturday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-6" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="aZR-zK-7dA" userLabel="Saturday Label">
                                         <rect key="frame" x="277" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -556,6 +571,42 @@
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                 </accessibility>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="lb2-e5-k2n">
+                                <rect key="frame" x="38" y="127" width="244" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="SEARCH-SPEC-MY-LOC"/>
+                                    <segment title="SEARCH-SPEC-ADDRESS"/>
+                                </segments>
+                                <connections>
+                                    <action selector="searchSpecChanged:" destination="eMe-9F-zBx" eventType="valueChanged" id="gBl-8n-V7w"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DEFAULT-ADDRESS-STRING" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="WvY-tb-Ifr">
+                                <rect key="frame" x="0.0" y="157" width="320" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="addressTextEntered:" destination="eMe-9F-zBx" eventType="editingDidEnd" id="6a5-rF-Axa"/>
+                                    <outlet property="delegate" destination="eMe-9F-zBx" id="Zcl-D0-o48"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Uc-nB-87j">
+                                <rect key="frame" x="108" y="271" width="104" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="ADVANCED-GO-BUTTON">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doSearchButtonPressed:" destination="eMe-9F-zBx" eventType="touchUpInside" id="hV3-a1-AmB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -565,10 +616,13 @@
                     <connections>
                         <outlet property="friButton" destination="lt1-bn-5qO" id="pTV-6W-gXO"/>
                         <outlet property="friLabel" destination="RHF-kJ-jFp" id="FMz-o5-BlH"/>
+                        <outlet property="goButton" destination="8Uc-nB-87j" id="Tef-sp-LY9"/>
                         <outlet property="monButton" destination="iAX-gQ-hbw" id="sC6-oF-Cn7"/>
                         <outlet property="monLabel" destination="bVk-Ce-Lae" id="s7x-ZL-sRc"/>
                         <outlet property="satButton" destination="1TB-Mz-Udv" id="cSQ-Rf-wuM"/>
                         <outlet property="satLabel" destination="aZR-zK-7dA" id="dUb-33-nzm"/>
+                        <outlet property="searchSpecAddressTextEntry" destination="WvY-tb-Ifr" id="ZDc-wo-bGZ"/>
+                        <outlet property="searchSpecSegmentedControl" destination="lb2-e5-k2n" id="vBm-TQ-sfE"/>
                         <outlet property="sunButton" destination="gwF-5Z-P6k" id="dJD-G3-Nvv"/>
                         <outlet property="sunLabel" destination="9jU-a4-9Ze" id="OEu-9N-fSV"/>
                         <outlet property="thuButton" destination="iCP-4u-9Df" id="i9j-gN-iEF"/>
@@ -638,6 +692,120 @@
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
     </resources>
+    <classes>
+        <class className="A_BMLTMainBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTMainBackgroundView.h"/>
+        </class>
+        <class className="A_BMLTNavBarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTNavBarViewController.h"/>
+        </class>
+        <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearSearch:"/>
+            </relationships>
+        </class>
+        <class className="A_BMLTSettingsBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSettingsBackgroundView.h"/>
+        </class>
+        <class className="A_BMLT_SearchViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
+        </class>
+        <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLT_SearchViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addressTextEntered:"/>
+                <relationship kind="action" name="backgroundClicked:"/>
+                <relationship kind="action" name="doSearchButtonPressed:"/>
+                <relationship kind="action" name="searchSpecChanged:"/>
+                <relationship kind="action" name="weekdayChanged:"/>
+                <relationship kind="action" name="weekdaySelectionChanged:"/>
+                <relationship kind="outlet" name="friButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="friLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="goButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="monButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="monLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="satButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="satLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchLocationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchSpecAddressTextEntry" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="searchSpecSegmentedControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="sunButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="sunLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thuButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="thuLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tueButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="tueLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="wedButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="wedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weekdaysLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weekdaysSelector" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTDisplayListResultsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sortMeetings:"/>
+            </relationships>
+        </class>
+        <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="distanceSortChanged:"/>
+                <relationship kind="action" name="keepUpdatingChanged:"/>
+                <relationship kind="action" name="lookupLocationChanged:"/>
+                <relationship kind="action" name="mapResultsChanged:"/>
+                <relationship kind="action" name="numMeetingsChanged:"/>
+                <relationship kind="action" name="preferredSearchChanged:"/>
+                <relationship kind="action" name="retainStateChanged:"/>
+                <relationship kind="outlet" name="distanceSortLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="distanceSortSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="keepUpdatingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="keepUpdatingSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="lookUpLocationSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="lookupLocationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapResultsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapResultsSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="maxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numMeetingsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numMeetingsSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="preferredSearchTypeControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="preferredSearchTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="retainStateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="retainStateSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="BMLTSimpleSearchViewController" superclassName="A_BMLT_SearchViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="findAllMeetingsNearMe:"/>
+                <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
+                <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
+                <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BMLTSnappyLogSlider" superclassName="UISlider">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSnappyLogSlider.h"/>
+        </class>
+        <class className="BrassCheckBox" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrassCheckBox.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

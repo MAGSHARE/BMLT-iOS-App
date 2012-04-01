@@ -22,7 +22,9 @@
 #import "BMLT_Prefs.h"
 #import "BMLT_Parser.h"
 
-static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
+static BOOL geocodeInProgress = NO;     ///< Used to look for a successful geocode.
+static BOOL doSearchAfterGeocode = NO;  ///< This is a semaphore to tell the controller to execute a search after the geocode completes successfully.
+static BOOL dontLookup = NO;            ///< This is used to keep the text editor from triggering a search when it is dismissed prematurely (kludge).
 
 /**************************************************************//**
  \class  BMLTAdvancedSearchViewController    -Implementation
@@ -201,7 +203,10 @@ static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
  *****************************************************************/
 - (IBAction)backgroundClicked:(id)sender
 {
-
+    doSearchAfterGeocode = NO;
+    geocodeInProgress = NO;
+    dontLookup = YES;
+    [searchSpecAddressTextEntry resignFirstResponder];
 }
 
 /**************************************************************//**
@@ -217,6 +222,9 @@ static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
  *****************************************************************/
 - (IBAction)searchSpecChanged:(id)sender    ///< The segmented control
 {
+    doSearchAfterGeocode = NO;
+    geocodeInProgress = NO;
+    dontLookup = YES;
     if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 )
         {
         [self setUpdatedOnce:NO];
@@ -228,6 +236,8 @@ static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
         {
         [searchSpecAddressTextEntry setAlpha:1.0];
         [searchSpecAddressTextEntry setEnabled:YES];
+        dontLookup = NO;
+        [searchSpecAddressTextEntry becomeFirstResponder];
         }
 }
 
@@ -239,7 +249,11 @@ static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
 #ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController addressTextEntered: \"%@\".", [searchSpecAddressTextEntry text] );
 #endif
-    [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
+    if ( !dontLookup && [searchSpecAddressTextEntry text] && ([searchSpecSegmentedControl selectedSegmentIndex] == 1) )
+        {
+        [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
+        }
+    dontLookup = NO;
 }
 
 /**************************************************************//**
@@ -370,6 +384,9 @@ static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
  *****************************************************************/
 - (void)cantGeocode
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAdvancedSearchViewController cantGeocode. Alert displayed." );
+#endif
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GEOCODE-FAILURE",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
     [myAlert show];    
 }
@@ -378,10 +395,10 @@ static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
 /**************************************************************//**
  \brief We keep our current location up to date as the map changes.
  *****************************************************************/
-- (void)mapView:(MKMapView *)mapView
- annotationView:(MKAnnotationView *)annotationView
-didChangeDragState:(MKAnnotationViewDragState)newState
-   fromOldState:(MKAnnotationViewDragState)oldState
+- (void)mapView:(MKMapView *)mapView                    ///< The map view object.
+ annotationView:(MKAnnotationView *)annotationView      ///< The annotation that changed state (was dragged)
+didChangeDragState:(MKAnnotationViewDragState)newState  ///< The new state.
+   fromOldState:(MKAnnotationViewDragState)oldState     ///< The old state.
 {
     if ( newState == MKAnnotationViewDragStateNone )
         {
@@ -389,15 +406,27 @@ didChangeDragState:(MKAnnotationViewDragState)newState
         }
 }
 
+#pragma mark - UITextFieldDelegate Functions -
+/**************************************************************//**
+ \brief This is called when the user presses the "Enter" button on the text field editor.
+ *****************************************************************/
+- (BOOL)textFieldShouldReturn:(UITextField *)textField  ///< The text field object.
+{
+    doSearchAfterGeocode = YES;
+    geocodeInProgress = NO;
+    [searchSpecAddressTextEntry resignFirstResponder];
+    return YES;
+}
+
 #pragma mark - NSXMLParserDelegate Functions -
 /**************************************************************//**
- \brief 
+ \brief Called when the parser starts on an element.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-didStartElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName
-    attributes:(NSDictionary *)attributeDict
+- (void)parser:(NSXMLParser *)parser            ///< The parser in question.
+didStartElement:(NSString *)elementName         ///< The XML name of the element.
+  namespaceURI:(NSString *)namespaceURI         ///< The namespace of the element.
+ qualifiedName:(NSString *)qName                ///< The XML q-name of the element.
+    attributes:(NSDictionary *)attributeDict    ///< The element's attributes.
 {
     currentElement = elementName;
 #ifdef DEBUG
@@ -406,10 +435,10 @@ didStartElement:(NSString *)elementName
 }
 
 /**************************************************************//**
- \brief 
+ \brief Called when the parser finds characters in an element.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-foundCharacters:(NSString *)string
+- (void)parser:(NSXMLParser *)parser        ///< The parser in question.
+foundCharacters:(NSString *)string          ///< The character data.
 {
 #ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser foundCharacters: \"%@\"", string );
@@ -430,6 +459,11 @@ foundCharacters:(NSString *)string
                 {
                 [self updateMapWithThisLocation:myCurrentLocation];
                 geocodeInProgress = NO;
+                if ( doSearchAfterGeocode )
+                    {
+                    [self doSearchButtonPressed:goButton];
+                    }
+                doSearchAfterGeocode = NO;
                 }
 #ifdef DEBUG
             NSLog(@"BMLTAdvancedSearchViewController Parser set myCurrentLocation to: %f, %f", myCurrentLocation.longitude, myCurrentLocation.latitude );
@@ -439,12 +473,12 @@ foundCharacters:(NSString *)string
 }
 
 /**************************************************************//**
- \brief 
+ \brief Called when the parser is done with an element.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
- didEndElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName
+- (void)parser:(NSXMLParser *)parser        ///< The parser in question.
+didStartElement:(NSString *)elementName     ///< The XML name of the element.
+  namespaceURI:(NSString *)namespaceURI     ///< The namespace of the element.
+ qualifiedName:(NSString *)qName            ///< The XML q-name of the element.
 {
 #ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser Stop %@ element", elementName );
@@ -453,10 +487,10 @@ foundCharacters:(NSString *)string
 }
 
 /**************************************************************//**
- \brief 
+ \brief Called if the parser encounters an error.
  *****************************************************************/
-- (void)parser:(NSXMLParser *)parser
-parseErrorOccurred:(NSError *)parseError
+- (void)parser:(NSXMLParser *)parser        ///< The parser in question.
+parseErrorOccurred:(NSError *)parseError    ///< The error.
 {
 #ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser Error: %@", [parseError localizedDescription] );
@@ -466,11 +500,12 @@ parseErrorOccurred:(NSError *)parseError
         [self cantGeocode];
         }
     
+    doSearchAfterGeocode = NO;
     geocodeInProgress = NO;
 }
 
 /**************************************************************//**
- \brief 
+ \brief Called when the parser starts on the returned XML document.
  *****************************************************************/
 - (void)parserDidStartDocument:(NSXMLParser *)parser  ///< The parser in question
 {
@@ -481,7 +516,8 @@ parseErrorOccurred:(NSError *)parseError
 }
 
 /**************************************************************//**
- \brief 
+ \brief Called when the parser is done with the document. If we could
+        not get a geocode, we flag an error.
  *****************************************************************/
 - (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser in question
 {
@@ -492,10 +528,10 @@ parseErrorOccurred:(NSError *)parseError
         [self cantGeocode];
         }
     
+    doSearchAfterGeocode = NO;
     geocodeInProgress = NO;
 #ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser Complete" );
 #endif
 }
-
 @end

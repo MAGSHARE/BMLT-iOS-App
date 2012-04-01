@@ -57,21 +57,21 @@
  *****************************************************************/
 + (UIColor *)meetingDetailBackgroundColor
 {
-    return [UIColor blackColor];
+    return [UIColor underPageBackgroundColor];
 }
 
 /**************************************************************//**
  *****************************************************************/
 + (UIColor *)modalBackgroundColor
 {
-    return [UIColor blackColor];
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkWeave.png"]];
 }
 
 /**************************************************************//**
  *****************************************************************/
 + (UIColor *)popoverBackgroundColor
 {
-    return [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:@"DarkWeave.png"]];
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkWeave.png"]];
 }
 
 /**************************************************************//**
