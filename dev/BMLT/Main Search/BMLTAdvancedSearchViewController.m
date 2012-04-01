@@ -219,6 +219,8 @@ static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
 {
     if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 )
         {
+        [self setUpdatedOnce:NO];
+        [self updateMapWithThisLocation:[[BMLTAppDelegate getBMLTAppDelegate] myLocation].coordinate];
         [searchSpecAddressTextEntry setAlpha:0.0];
         [searchSpecAddressTextEntry setEnabled:NO];
         }
@@ -234,10 +236,10 @@ static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
  *****************************************************************/
 - (IBAction)addressTextEntered:(id)sender   ///< The text entry field.
 {
-    if ( [self mapSearchView] )
-        {
-        [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
-        }
+#ifdef DEBUG
+    NSLog(@"BMLTAdvancedSearchViewController addressTextEntered: \"%@\".", [searchSpecAddressTextEntry text] );
+#endif
+    [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
 }
 
 /**************************************************************//**
@@ -348,12 +350,18 @@ static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
     inLocationString = [inLocationString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     inLocationString = [inLocationString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSData *xml = [NSData dataWithContentsOfURL: [NSURL URLWithString:[NSString stringWithFormat:kGoogleReverseLooupURI_Format, inLocationString]]];
-    BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithData:xml];
+    NSString    *uriString = [NSString stringWithFormat:kGoogleReverseLooupURI_Format, inLocationString];
+    
+#ifdef DEBUG
+    NSLog(@"BMLTAdvancedSearchViewController lookupLocationFromAddressString: \"%@\", and the URI is \"%@\".", inLocationString, uriString );
+#endif
+
+    BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithContentsOfURL:[NSURL URLWithString:uriString]];
     
     [myParser setDelegate:self];
     
     geocodeInProgress = YES;
+    [self setUpdatedOnce:NO];
     [myParser parseAsync:NO WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
 }
 
@@ -392,7 +400,7 @@ didStartElement:(NSString *)elementName
     attributes:(NSDictionary *)attributeDict
 {
     currentElement = elementName;
-#ifdef _CONNECTION_PARSE_TRACE_
+#ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser Start %@ element", elementName );
 #endif
 }
@@ -403,7 +411,7 @@ didStartElement:(NSString *)elementName
 - (void)parser:(NSXMLParser *)parser
 foundCharacters:(NSString *)string
 {
-#ifdef _CONNECTION_PARSE_TRACE_
+#ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser foundCharacters: \"%@\"", string );
 #endif
     if ( [currentElement isEqualToString:@"coordinates"] )
@@ -411,18 +419,20 @@ foundCharacters:(NSString *)string
         NSArray *coords = [string componentsSeparatedByString:@","];
         if ( coords && ([coords count] > 1) )
             {
+            CLLocationCoordinate2D  lastLookup;
+            
+            lastLookup.longitude = [(NSString *)[coords objectAtIndex:0] doubleValue];
+            lastLookup.latitude = [(NSString *)[coords objectAtIndex:1] doubleValue];
+            
+            myCurrentLocation = lastLookup;
+            
             if ( [self mapSearchView] )
                 {
-                CLLocationCoordinate2D  lastLookup;
-                
-                lastLookup.longitude = [(NSString *)[coords objectAtIndex:0] doubleValue];
-                lastLookup.latitude = [(NSString *)[coords objectAtIndex:1] doubleValue];
-                
-                [self updateMapWithThisLocation:lastLookup];
+                [self updateMapWithThisLocation:myCurrentLocation];
                 geocodeInProgress = NO;
                 }
-#ifdef _CONNECTION_PARSE_TRACE_
-            NSLog(@"BMLTAdvancedSearchViewController Parser set lastLookup to: %f, %f", lastLookup.longitude, lastLookup.latitude );
+#ifdef DEBUG
+            NSLog(@"BMLTAdvancedSearchViewController Parser set myCurrentLocation to: %f, %f", myCurrentLocation.longitude, myCurrentLocation.latitude );
 #endif
             }
         }
@@ -436,7 +446,7 @@ foundCharacters:(NSString *)string
   namespaceURI:(NSString *)namespaceURI
  qualifiedName:(NSString *)qName
 {
-#ifdef _CONNECTION_PARSE_TRACE_
+#ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser Stop %@ element", elementName );
 #endif
     currentElement = nil;
@@ -448,7 +458,7 @@ foundCharacters:(NSString *)string
 - (void)parser:(NSXMLParser *)parser
 parseErrorOccurred:(NSError *)parseError
 {
-#ifdef _CONNECTION_PARSE_TRACE_
+#ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser Error: %@", [parseError localizedDescription] );
 #endif
     if ( geocodeInProgress )
@@ -464,7 +474,7 @@ parseErrorOccurred:(NSError *)parseError
  *****************************************************************/
 - (void)parserDidStartDocument:(NSXMLParser *)parser  ///< The parser in question
 {
-#ifdef _CONNECTION_PARSE_TRACE_
+#ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser Starting" );
 #endif
     currentElement = nil;
@@ -483,7 +493,7 @@ parseErrorOccurred:(NSError *)parseError
         }
     
     geocodeInProgress = NO;
-#ifdef _CONNECTION_PARSE_TRACE_
+#ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser Complete" );
 #endif
 }
