@@ -70,6 +70,8 @@
 
 @property (strong, atomic, readwrite)   NSString                *currentElement;    ///< This will be used during our XML parsing adventure.
 
+@property (nonatomic, assign)           CLLocationCoordinate2D  myCurrentLocation;  ///< This will hold the location used to center the search. We do it this way, so we always know where we're searching from.
+
 - (IBAction)weekdaySelectionChanged:(id)sender;
 - (IBAction)doSearchButtonPressed:(id)sender;
 - (IBAction)backgroundClicked:(id)sender;
@@ -79,5 +81,6 @@
 
 - (void)setParamsForWeekdaySelection;
 - (void)lookupLocationFromAddressString:(NSString *)inLocationString;       ///< Look up the location as a geocode.
+- (void)cantGeocode;
 
 @end

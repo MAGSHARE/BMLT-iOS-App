@@ -22,12 +22,14 @@
 #import "BMLT_Prefs.h"
 #import "BMLT_Parser.h"
 
+static BOOL geocodeInProgress = NO; ///< Used to look for a successful geocode.
+
 /**************************************************************//**
  \class  BMLTAdvancedSearchViewController    -Implementation
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
 @implementation BMLTAdvancedSearchViewController
-@synthesize myParams, currentElement;
+@synthesize myParams, currentElement, myCurrentLocation;
 @synthesize weekdaysLabel, weekdaysSelector, sunLabel, sunButton, monLabel, monButton, tueLabel, tueButton, wedLabel, wedButton, thuLabel, thuButton, friLabel, friButton, satLabel, satButton;
 @synthesize searchLocationLabel, searchSpecSegmentedControl, searchSpecAddressTextEntry;
 @synthesize goButton;
@@ -43,6 +45,7 @@
     if ( self )
         {
         myParams = [[NSMutableDictionary alloc] init];
+        [self setMyCurrentLocation:[[BMLTAppDelegate getBMLTAppDelegate] myLocation].coordinate];
         }
     
     return self;
@@ -186,21 +189,10 @@
  *****************************************************************/
 - (IBAction)doSearchButtonPressed:(id)sender    ///< The search button.
 {
-    if ( ([self mapSearchView] == nil) && ([searchSpecSegmentedControl selectedSegmentIndex] == 1) && [[searchSpecAddressTextEntry text] length] )
-        {
-        [myParams setObject:[searchSpecAddressTextEntry text] forKey:@"SearchString"];
-        [myParams setObject:@"1" forKey:@"StringSearchIsAnAddress"];
-        }
-    else
-        {
-        CLLocationCoordinate2D  myLocation = ([self mapSearchView] == nil) ? [[BMLTAppDelegate getBMLTAppDelegate] myLocation].coordinate : [self getMapCoordinates];
-        
-        [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
-        [myParams setObject:[NSString stringWithFormat:@"%f", myLocation.longitude] forKey:@"long_val"];
-        [myParams setObject:[NSString stringWithFormat:@"%f", myLocation.latitude] forKey:@"lat_val"];
-        [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:myLocation];
-        }
-    
+    [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
+    [myParams setObject:[NSString stringWithFormat:@"%f", myCurrentLocation.longitude] forKey:@"long_val"];
+    [myParams setObject:[NSString stringWithFormat:@"%f", myCurrentLocation.latitude] forKey:@"lat_val"];
+    [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:myCurrentLocation];
     [[BMLTAppDelegate getBMLTAppDelegate] executeSearchWithParams:myParams];    // Start the search.
 }
 
@@ -246,6 +238,16 @@
         {
         [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
         }
+}
+
+/**************************************************************//**
+ \brief We overload this in order to keep track of the location.
+ *****************************************************************/
+- (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate
+{
+    myCurrentLocation = inCoordinate;
+    
+    [super updateMapWithThisLocation:inCoordinate];
 }
 
 /**************************************************************//**
@@ -351,11 +353,36 @@
     
     [myParser setDelegate:self];
     
+    geocodeInProgress = YES;
     [myParser parseAsync:NO WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
 }
 
+/**************************************************************//**
+ \brief Displays an error, indicating geocode failure.
+ *****************************************************************/
+- (void)cantGeocode
+{
+    UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GEOCODE-FAILURE",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+    [myAlert show];    
+}
+
+#pragma mark - MKMapViewDelegate Functions -
+/**************************************************************//**
+ \brief We keep our current location up to date as the map changes.
+ *****************************************************************/
+- (void)mapView:(MKMapView *)mapView
+ annotationView:(MKAnnotationView *)annotationView
+didChangeDragState:(MKAnnotationViewDragState)newState
+   fromOldState:(MKAnnotationViewDragState)oldState
+{
+    if ( newState == MKAnnotationViewDragStateNone )
+        {
+        myCurrentLocation = [self getMapCoordinates];
+        }
+}
+
 #pragma mark - NSXMLParserDelegate Functions -
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -370,7 +397,7 @@ didStartElement:(NSString *)elementName
 #endif
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -392,6 +419,7 @@ foundCharacters:(NSString *)string
                 lastLookup.latitude = [(NSString *)[coords objectAtIndex:1] doubleValue];
                 
                 [self updateMapWithThisLocation:lastLookup];
+                geocodeInProgress = NO;
                 }
 #ifdef _CONNECTION_PARSE_TRACE_
             NSLog(@"BMLTAdvancedSearchViewController Parser set lastLookup to: %f, %f", lastLookup.longitude, lastLookup.latitude );
@@ -400,7 +428,7 @@ foundCharacters:(NSString *)string
         }
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
@@ -414,18 +442,24 @@ foundCharacters:(NSString *)string
     currentElement = nil;
 }
 
-#ifdef _CONNECTION_PARSE_TRACE_
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser
 parseErrorOccurred:(NSError *)parseError
 {
+#ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"BMLTAdvancedSearchViewController Parser Error: %@", [parseError localizedDescription] );
-}
 #endif
+    if ( geocodeInProgress )
+        {
+        [self cantGeocode];
+        }
+    
+    geocodeInProgress = NO;
+}
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parserDidStartDocument:(NSXMLParser *)parser  ///< The parser in question
@@ -436,13 +470,19 @@ parseErrorOccurred:(NSError *)parseError
     currentElement = nil;
 }
 
-/***************************************************************\**
+/**************************************************************//**
  \brief 
  *****************************************************************/
 - (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser in question
 {
     [(BMLT_Parser *)parser cancelTimeout];
     currentElement = nil;
+    if ( geocodeInProgress )
+        {
+        [self cantGeocode];
+        }
+    
+    geocodeInProgress = NO;
 #ifdef _CONNECTION_PARSE_TRACE_
     NSLog(@"BMLTAdvancedSearchViewController Parser Complete" );
 #endif

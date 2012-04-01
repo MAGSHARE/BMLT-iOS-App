@@ -587,11 +587,11 @@
                                     <action selector="searchSpecChanged:" destination="crR-vv-v9x" eventType="valueChanged" id="K0n-fj-rYd"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DEFAULT-ADDRESS-STRING" clearsOnBeginEditing="YES" minimumFontSize="17" id="dQU-Vu-HAg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DEFAULT-ADDRESS-STRING" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="dQU-Vu-HAg">
                                 <rect key="frame" x="320" y="109" width="388" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="addressTextEntered:" destination="crR-vv-v9x" eventType="editingDidEnd" id="dqg-k5-HTk"/>
                                 </connections>
