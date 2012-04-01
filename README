@@ -11,7 +11,7 @@ The initial version of the app will be "tuned" to specific servers, as opposed t
 
 REQUIREMENTS
 ------------
-This is an iOS app, made for iPhones and iPads. It is only available via the Apple App Store.
+This is an iOS app, made for iPhones and iPads. It is only available via the Apple App Store, and requires iOS 5.0 or above.
 
 INSTALLATION
 ------------
@@ -32,6 +32,41 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this code.  If not, see <http://www.gnu.org/licenses/>.
+
+NOTE ON THE VERSION 2.0 PROJECT
+-------------------------------
+
+The Version 2.0 project is a major rewrite. It is starting from a fundamental re-architecture, based on a model more in line
+with a traditional iOS program.
+
+The main app is still a UITabController app, but the search specification has been broken away from the results, and everything
+is being handled in a far more modeless (read: "buggy") manner.
+
+There is now no cross-controller communication. Everything must go through the app delegate, which is a strict "fulcrum."
+
+A bunch of stuff has been factored into abstract base classes and shared throughout.
+
+This is an ARC program, and uses storyboards. It is now aimed at a minimum iOS 5.0 OS level. I still can't believe there's no leaks.
+It feels...wrong.
+
+The iPad and the iPhone now have drastically divergent user experiences. The iPad version now introduces a map with a draggable
+marker as a search specification.
+
+There are now more settings and preferences, including a slider that allows the user to select the density of the meetings returned
+in proximity searches.
+
+A fair bit of code from the 1.0 version has been adapted (none of it could come over straight, without modification), but the lions'
+share of the code is new.
+
+The variant now has the entire UX. This allows the app to be heavily customized and "skinned" (also making new variants more difficult
+to produce). This is because Apple will no longer allow simple "reskins" of a central design. It will also allow the creation of a
+richer user experience.
+
+The "combined" Localized file is no more. We are back to a single Localizable.strings file.
+
+The code has been anal-retentively commented with Doxygen comments.
+
+The new app will read the prefs from the original, but this is really meant to be an entirely different app, as the UX is so different.
 
 NOTE ON CODE QUALITY
 --------------------

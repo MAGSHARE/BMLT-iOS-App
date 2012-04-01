@@ -23,8 +23,8 @@
 #import "BMLT_Parser.h"
 
 static BOOL geocodeInProgress = NO;     ///< Used to look for a successful geocode.
-static BOOL doSearchAfterGeocode = NO;  ///< This is a semaphore to tell the controller to execute a search after the geocode completes successfully.
 static BOOL dontLookup = NO;            ///< This is used to keep the text editor from triggering a search when it is dismissed prematurely (kludge).
+static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a search happens after the lookup for the return key (Handled differently for the iPad).
 
 /**************************************************************//**
  \class  BMLTAdvancedSearchViewController    -Implementation
@@ -203,7 +203,6 @@ static BOOL dontLookup = NO;            ///< This is used to keep the text edito
  *****************************************************************/
 - (IBAction)backgroundClicked:(id)sender
 {
-    doSearchAfterGeocode = NO;
     geocodeInProgress = NO;
     dontLookup = YES;
     [searchSpecAddressTextEntry resignFirstResponder];
@@ -222,9 +221,9 @@ static BOOL dontLookup = NO;            ///< This is used to keep the text edito
  *****************************************************************/
 - (IBAction)searchSpecChanged:(id)sender    ///< The segmented control
 {
-    doSearchAfterGeocode = NO;
     geocodeInProgress = NO;
     dontLookup = YES;
+    searchAfterLookup = NO;
     if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 )
         {
         [self setUpdatedOnce:NO];
@@ -251,6 +250,8 @@ static BOOL dontLookup = NO;            ///< This is used to keep the text edito
 #endif
     if ( !dontLookup && [searchSpecAddressTextEntry text] && ([searchSpecSegmentedControl selectedSegmentIndex] == 1) )
         {
+        [searchSpecAddressTextEntry resignFirstResponder];
+
         [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
         }
     dontLookup = NO;
@@ -387,6 +388,9 @@ static BOOL dontLookup = NO;            ///< This is used to keep the text edito
 #ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController cantGeocode. Alert displayed." );
 #endif
+    searchAfterLookup = NO;
+    geocodeInProgress = NO;
+    dontLookup = NO;
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GEOCODE-FAILURE",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
     [myAlert show];    
 }
@@ -412,10 +416,13 @@ didChangeDragState:(MKAnnotationViewDragState)newState  ///< The new state.
  *****************************************************************/
 - (BOOL)textFieldShouldReturn:(UITextField *)textField  ///< The text field object.
 {
-    doSearchAfterGeocode = YES;
     geocodeInProgress = NO;
-    [searchSpecAddressTextEntry resignFirstResponder];
-    return YES;
+    if ( ![self mapSearchView] )
+        {
+        searchAfterLookup = YES;
+        }
+    [self lookupLocationFromAddressString:[textField text]];
+    return NO;
 }
 
 #pragma mark - NSXMLParserDelegate Functions -
@@ -455,15 +462,18 @@ foundCharacters:(NSString *)string          ///< The character data.
             
             myCurrentLocation = lastLookup;
             
+            searchAfterLookup = NO;
+            geocodeInProgress = NO;
+            dontLookup = NO;
             if ( [self mapSearchView] )
                 {
+                searchAfterLookup = NO;
                 [self updateMapWithThisLocation:myCurrentLocation];
-                geocodeInProgress = NO;
-                if ( doSearchAfterGeocode )
-                    {
-                    [self doSearchButtonPressed:goButton];
-                    }
-                doSearchAfterGeocode = NO;
+                }
+            else if ( searchAfterLookup )
+                {
+                searchAfterLookup = NO;
+                [self doSearchButtonPressed:goButton];
                 }
 #ifdef DEBUG
             NSLog(@"BMLTAdvancedSearchViewController Parser set myCurrentLocation to: %f, %f", myCurrentLocation.longitude, myCurrentLocation.latitude );
@@ -500,7 +510,6 @@ parseErrorOccurred:(NSError *)parseError    ///< The error.
         [self cantGeocode];
         }
     
-    doSearchAfterGeocode = NO;
     geocodeInProgress = NO;
 }
 
@@ -528,7 +537,6 @@ parseErrorOccurred:(NSError *)parseError    ///< The error.
         [self cantGeocode];
         }
     
-    doSearchAfterGeocode = NO;
     geocodeInProgress = NO;
 #ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController Parser Complete" );
