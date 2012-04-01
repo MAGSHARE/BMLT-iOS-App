@@ -299,6 +299,10 @@
                                     <outlet property="delegate" destination="SFh-VH-MDA" id="32t-Xl-5Qm"/>
                                 </connections>
                             </mapView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="4oS-86-45g">
+                                <rect key="frame" x="0.0" y="31" width="768" height="20"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -573,7 +577,7 @@
                                 </connections>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="5yb-xE-FT8">
-                                <rect key="frame" x="75" y="110" width="207" height="30"/>
+                                <rect key="frame" x="75" y="110" width="244" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="SEARCH-SPEC-MY-LOC"/>
@@ -584,7 +588,7 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DEFAULT-ADDRESS-STRING" clearsOnBeginEditing="YES" minimumFontSize="17" id="dQU-Vu-HAg">
-                                <rect key="frame" x="284" y="109" width="413" height="31"/>
+                                <rect key="frame" x="320" y="109" width="388" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
@@ -600,7 +604,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qkj-bw-yHW">
-                                <rect key="frame" x="705" y="108" width="55" height="32"/>
+                                <rect key="frame" x="710" y="108" width="55" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="ADVANCED-GO-BUTTON">
@@ -614,6 +618,10 @@
                                     <action selector="doSearchButtonPressed:" destination="crR-vv-v9x" eventType="touchUpInside" id="EVI-Ho-CJD"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="ucF-ka-X0y">
+                                <rect key="frame" x="0.0" y="161" width="768" height="20"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -650,6 +658,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Shadow.png" width="1" height="20"/>
         <image name="list.png" width="26" height="26"/>
         <image name="map.png" width="26" height="26"/>
         <image name="search.png" width="26" height="26"/>
