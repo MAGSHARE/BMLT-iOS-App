@@ -221,10 +221,12 @@
     if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 )
         {
         [searchSpecAddressTextEntry setAlpha:0.0];
+        [searchSpecAddressTextEntry setEnabled:NO];
         }
     else
         {
         [searchSpecAddressTextEntry setAlpha:1.0];
+        [searchSpecAddressTextEntry setEnabled:YES];
         }
 }
 
