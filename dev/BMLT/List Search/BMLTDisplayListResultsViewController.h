@@ -35,7 +35,8 @@
  \brief  This class handles display of listed search results.
  *****************************************************************/
 @interface BMLTDisplayListResultsViewController : A_BMLTSearchResultsViewController <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic) BOOL includeSortRow;
+@property (nonatomic) BOOL                  includeSortRow;
+@property (nonatomic) UISegmentedControl    *sortControl;
 
 - (IBAction)sortMeetings:(id)sender;                        ///< Sorts the meeting search results.
 @end

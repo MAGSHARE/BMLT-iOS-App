@@ -19,21 +19,33 @@
 
 #import "BMLTAdvancedSearchViewController.h"
 #import "BMLTAppDelegate.h"
-
-/**************************************************************//**
- \class  BMLTAdvancedSearchViewController    -Private Interface
- \brief  This class will present the user with a powerful search specification interface.
- *****************************************************************/
-@interface BMLTAdvancedSearchViewController ()
-
-@end
+#import "BMLT_Prefs.h"
 
 /**************************************************************//**
  \class  BMLTAdvancedSearchViewController    -Implementation
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
 @implementation BMLTAdvancedSearchViewController
-@synthesize weekdaysLabel, weekdaysSelector, sunLabel, sunButton, monLabel, monButton, tueLabel, tueButton, wedLabel, wedButton, thuLabel, thuButton, friLabel, friButton, satLabel, satButton, doSearchButton, findNearMeLabel, findNearMeCheckbox, containerView, addressEntryText;
+@synthesize myParams;
+@synthesize weekdaysLabel, weekdaysSelector, sunLabel, sunButton, monLabel, monButton, tueLabel, tueButton, wedLabel, wedButton, thuLabel, thuButton, friLabel, friButton, satLabel, satButton;
+@synthesize searchLocationLabel, searchSpecSegmentedControl, searchSpecAddressTextEntry;
+@synthesize goButton;
+
+/**************************************************************//**
+ \brief Initializer -allocates our parameter dictionary.
+ \returns self
+ *****************************************************************/
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    if ( self )
+        {
+        myParams = [[NSMutableDictionary alloc] init];
+        }
+    
+    return self;
+}
 
 /**************************************************************//**
  \brief Sets up all the localized strings and whatnot.
@@ -55,14 +67,26 @@
     [friLabel setText:NSLocalizedString([friLabel text], nil)];
     [satLabel setText:NSLocalizedString([satLabel text], nil)];
     
-    [findNearMeLabel setTitle:NSLocalizedString(@"FIND-NEAR-ME", nil) forState:UIControlStateNormal];
-    [addressEntryText setPlaceholder:NSLocalizedString(@"DEFAULT-ADDRESS-STRING", nil)];
-    [doSearchButton setTitle:NSLocalizedString(@"DO-SEARCH-BUTTON", nil) forState:UIControlStateNormal];
+    [searchLocationLabel setText:NSLocalizedString([searchLocationLabel text], nil)];
+    
+    for ( NSUInteger i = 0; i < [searchSpecSegmentedControl numberOfSegments]; i++ )
+        {
+        [searchSpecSegmentedControl setTitle:NSLocalizedString([searchSpecSegmentedControl titleForSegmentAtIndex:i], nil) forSegmentAtIndex:i];
+        }
+    
+    [searchSpecAddressTextEntry setPlaceholder:NSLocalizedString([searchSpecAddressTextEntry placeholder], nil)];
+    
+    [self searchSpecChanged:searchSpecSegmentedControl];
+    
+    [goButton setTitle:NSLocalizedString([goButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
     
     [super viewDidLoad];
 }
 
-- (IBAction)weekdaySelectionChanged:(id)sender
+/**************************************************************//**
+ \brief Called when the weekday selection segmented control is changed.
+ *****************************************************************/
+- (IBAction)weekdaySelectionChanged:(id)sender  ///< The segmented control.
 {
     UISegmentedControl  *theControl = (UISegmentedControl*)sender;
     
@@ -106,8 +130,6 @@
         NSInteger           hr = [weekdayComponents hour];
         weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
         NSInteger           mn = [weekdayComponents minute];
-        
-        NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
         
         if ( [theControl selectedSegmentIndex] == kWeekdaySelectTomorrow )
             {
@@ -160,49 +182,80 @@
     [self setParamsForWeekdaySelection];
 }
 
-- (IBAction)doSearchButtonPressed:(id)sender
+/**************************************************************//**
+ \brief Called when the search button is pressed.
+ *****************************************************************/
+- (IBAction)doSearchButtonPressed:(id)sender    ///< The search button.
 {
+    CLLocationCoordinate2D  myLocation = [self getMapCoordinates];
     
+    [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
+    [myParams setObject:[NSString stringWithFormat:@"%f", myLocation.longitude] forKey:@"long_val"];
+    [myParams setObject:[NSString stringWithFormat:@"%f", myLocation.latitude] forKey:@"lat_val"];
+    [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:myLocation];
+    
+    [[BMLTAppDelegate getBMLTAppDelegate] executeSearchWithParams:myParams];    // Start the search.
 }
 
+/**************************************************************//**
+ \brief Called when there is a click in the background.
+ *****************************************************************/
 - (IBAction)backgroundClicked:(id)sender
 {
 
 }
 
-- (IBAction)findMeLabelClicked:(id)sender
-{
-    
-}
-
-- (IBAction)findNearMeChanged:(id)sender
-{
-
-}
-
-- (IBAction)weekdayChanged:(id)sender
+/**************************************************************//**
+ \brief Called when one of the weekday checkboxes is selected.
+ *****************************************************************/
+- (IBAction)weekdayChanged:(id)sender   //< The checkbox
 {
     [self setParamsForWeekdaySelection];
 }
 
+/**************************************************************//**
+ \brief Called when the search spec segmented control changes.
+ *****************************************************************/
+- (IBAction)searchSpecChanged:(id)sender    ///< The segmented control
+{
+    if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 )
+        {
+        [searchSpecAddressTextEntry setAlpha:0.0];
+        }
+    else
+        {
+        [searchSpecAddressTextEntry setAlpha:1.0];
+        }
+}
+
+/**************************************************************//**
+ \brief Called when the user has entered an address.
+ *****************************************************************/
+- (IBAction)addressTextEntered:(id)sender   ///< The text entry field.
+{
+}
+
+/**************************************************************//**
+ \brief Sets up the parameters for the search, based on the state of the checkboxes.
+ *****************************************************************/
 - (void)setParamsForWeekdaySelection
 {
     NSString *weekday = @"";
     
     if ( [sunButton isEnabled] && [sunButton isOn] )
         {
-        weekday = [weekday stringByAppendingFormat:@"1"];
+        weekday = [weekday stringByAppendingString:@"1"];
         }
     
     if ( [monButton isEnabled] && [monButton isOn] )
         {
         if ( [weekday length] )
             {
-            weekday = [weekday stringByAppendingFormat:@",2"];
+            weekday = [weekday stringByAppendingString:@",2"];
             }
         else
             {
-            weekday = [weekday stringByAppendingFormat:@"2"];
+            weekday = [weekday stringByAppendingString:@"2"];
             }
         }
     
@@ -210,11 +263,11 @@
         {
         if ( [weekday length] )
             {
-            weekday = [weekday stringByAppendingFormat:@",3"];
+            weekday = [weekday stringByAppendingString:@",3"];
             }
         else
             {
-            weekday = [weekday stringByAppendingFormat:@"3"];
+            weekday = [weekday stringByAppendingString:@"3"];
             }
         }
     
@@ -222,11 +275,11 @@
         {
         if ( [weekday length] )
             {
-            weekday = [weekday stringByAppendingFormat:@",4"];
+            weekday = [weekday stringByAppendingString:@",4"];
             }
         else
             {
-            weekday = [weekday stringByAppendingFormat:@"4"];
+            weekday = [weekday stringByAppendingString:@"4"];
             }
         }
     
@@ -234,11 +287,11 @@
         {
         if ( [weekday length] )
             {
-            weekday = [weekday stringByAppendingFormat:@",5"];
+            weekday = [weekday stringByAppendingString:@",5"];
             }
         else
             {
-            weekday = [weekday stringByAppendingFormat:@"5"];
+            weekday = [weekday stringByAppendingString:@"5"];
             }
         }
     
@@ -246,11 +299,11 @@
         {
         if ( [weekday length] )
             {
-            weekday = [weekday stringByAppendingFormat:@",6"];
+            weekday = [weekday stringByAppendingString:@",6"];
             }
         else
             {
-            weekday = [weekday stringByAppendingFormat:@"6"];
+            weekday = [weekday stringByAppendingString:@"6"];
             }
         }
     
@@ -258,15 +311,14 @@
         {
         if ( [weekday length] )
             {
-            weekday = [weekday stringByAppendingFormat:@",7"];
+            weekday = [weekday stringByAppendingString:@",7"];
             }
         else
             {
-            weekday = [weekday stringByAppendingFormat:@"7"];
+            weekday = [weekday stringByAppendingString:@"7"];
             }
         }
     
-    NSMutableDictionary *myParams = [[NSMutableDictionary alloc] init];
     [myParams setObject:weekday forKey:@"weekdays"];
 }
 @end

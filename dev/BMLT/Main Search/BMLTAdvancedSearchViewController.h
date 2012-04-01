@@ -42,34 +42,37 @@
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
 @interface BMLTAdvancedSearchViewController : A_BMLT_SearchViewController <UITextFieldDelegate>
-@property (atomic, weak, readonly) IBOutlet UILabel             *weekdaysLabel;
-@property (atomic, weak, readonly) IBOutlet UISegmentedControl  *weekdaysSelector;
-@property (atomic, weak, readonly) IBOutlet UILabel             *sunLabel;
-@property (atomic, weak, readonly) IBOutlet BrassCheckBox       *sunButton;
-@property (atomic, weak, readonly) IBOutlet UILabel             *monLabel;
-@property (atomic, weak, readonly) IBOutlet BrassCheckBox       *monButton;
-@property (atomic, weak, readonly) IBOutlet UILabel             *tueLabel;
-@property (atomic, weak, readonly) IBOutlet BrassCheckBox       *tueButton;
-@property (atomic, weak, readonly) IBOutlet UILabel             *wedLabel;
-@property (atomic, weak, readonly) IBOutlet BrassCheckBox       *wedButton;
-@property (atomic, weak, readonly) IBOutlet UILabel             *thuLabel;
-@property (atomic, weak, readonly) IBOutlet BrassCheckBox       *thuButton;
-@property (atomic, weak, readonly) IBOutlet UILabel             *friLabel;
-@property (atomic, weak, readonly) IBOutlet BrassCheckBox       *friButton;
-@property (atomic, weak, readonly) IBOutlet UILabel             *satLabel;
-@property (atomic, weak, readonly) IBOutlet BrassCheckBox       *satButton;
-@property (atomic, weak, readonly) IBOutlet UIButton            *doSearchButton;
-@property (atomic, weak, readonly) IBOutlet UIButton            *findNearMeLabel;
-@property (atomic, weak, readonly) IBOutlet BrassCheckBox       *findNearMeCheckbox;
-@property (atomic, weak, readonly) IBOutlet UIView              *containerView;
-@property (atomic, weak, readonly) IBOutlet UITextField         *addressEntryText;
+@property (atomic, weak, readonly)  IBOutlet UILabel            *weekdaysLabel;
+@property (atomic, weak, readonly)  IBOutlet UISegmentedControl *weekdaysSelector;
+@property (atomic, weak, readonly)  IBOutlet UILabel            *sunLabel;
+@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *sunButton;
+@property (atomic, weak, readonly)  IBOutlet UILabel            *monLabel;
+@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *monButton;
+@property (atomic, weak, readonly)  IBOutlet UILabel            *tueLabel;
+@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *tueButton;
+@property (atomic, weak, readonly)  IBOutlet UILabel            *wedLabel;
+@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *wedButton;
+@property (atomic, weak, readonly)  IBOutlet UILabel            *thuLabel;
+@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *thuButton;
+@property (atomic, weak, readonly)  IBOutlet UILabel            *friLabel;
+@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *friButton;
+@property (atomic, weak, readonly)  IBOutlet UILabel            *satLabel;
+@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *satButton;
+
+@property (atomic, weak, readonly)  IBOutlet UILabel            *searchLocationLabel;
+@property (atomic, weak, readonly)  IBOutlet UISegmentedControl *searchSpecSegmentedControl;
+@property (atomic, weak, readonly)  IBOutlet UITextField        *searchSpecAddressTextEntry;
+
+@property (atomic, weak, readonly)  IBOutlet UIButton           *goButton;
+
+@property (strong, atomic, readwrite)   NSMutableDictionary     *myParams;
 
 - (IBAction)weekdaySelectionChanged:(id)sender;
 - (IBAction)doSearchButtonPressed:(id)sender;
 - (IBAction)backgroundClicked:(id)sender;
-- (IBAction)findMeLabelClicked:(id)sender;
-- (IBAction)findNearMeChanged:(id)sender;
 - (IBAction)weekdayChanged:(id)sender;
+- (IBAction)searchSpecChanged:(id)sender;
+- (IBAction)addressTextEntered:(id)sender;
 
 - (void)setParamsForWeekdaySelection;
 

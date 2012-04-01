@@ -248,6 +248,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     if ( [[self searchResults] count] )
         {
         [listResultsViewController setIncludeSortRow:YES];
+        [listResultsViewController sortMeetings:nil];
         
         BOOL    mapSearch = [[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap];
         int selectedIndex = (mapSearch ? 2 : 1);

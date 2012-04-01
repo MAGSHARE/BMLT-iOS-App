@@ -49,7 +49,7 @@
  *****************************************************************/
 @implementation BMLTDisplayListResultsViewController
 
-@synthesize includeSortRow;
+@synthesize includeSortRow, sortControl;
 
 /**************************************************************//**
  \brief Called after the view has loaded.
@@ -77,7 +77,18 @@
  *****************************************************************/
 - (IBAction)sortMeetings:(id)sender        ///< The Segmented Control
 {
-    if ( [(UISegmentedControl *)sender selectedSegmentIndex] )
+    NSInteger   selectedIndex = [(UISegmentedControl *)sender selectedSegmentIndex];
+
+    if ( !sender && sortControl )
+        {
+        selectedIndex = [sortControl selectedSegmentIndex];
+        }
+    if ( !sortControl )
+        {
+        selectedIndex = 1;
+        }
+    
+    if ( selectedIndex )
         {
 #ifdef DEBUG
         NSLog(@"BMLTDisplayListResultsViewController::sortMeetings Sorting Meetings By Weekday and Time.");
@@ -134,9 +145,9 @@
 #ifdef DEBUG
                 NSLog(@"Sort Control");
 #endif
-                UISegmentedControl *theSortControl = [[UISegmentedControl alloc] initWithItems:sortChoices];
-                [theSortControl addTarget:self action:@selector(sortMeetings:) forControlEvents:UIControlEventValueChanged];
-                [ret_cast setTheSortControl:theSortControl];
+                sortControl = [[UISegmentedControl alloc] initWithItems:sortChoices];
+                [sortControl addTarget:self action:@selector(sortMeetings:) forControlEvents:UIControlEventValueChanged];
+                [ret_cast setTheSortControl:sortControl];
                 }
             else
                 {

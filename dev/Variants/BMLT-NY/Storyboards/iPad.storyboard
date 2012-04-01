@@ -248,7 +248,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C3s-sr-oSN">
-                                <rect key="frame" x="10" y="5" width="244" height="37"/>
+                                <rect key="frame" x="10" y="5" width="244" height="23"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-NEARBY-TITLE">
@@ -263,7 +263,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oHM-sY-V2t">
-                                <rect key="frame" x="262" y="5" width="244" height="37"/>
+                                <rect key="frame" x="262" y="5" width="244" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-LATER-TODAY-TITLE">
@@ -278,7 +278,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NNa-Bu-ist">
-                                <rect key="frame" x="514" y="5" width="244" height="37"/>
+                                <rect key="frame" x="514" y="5" width="244" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-TOMORROW-TITLE">
@@ -293,7 +293,7 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="nLJ-nP-ZR5">
-                                <rect key="frame" x="0.0" y="46" width="768" height="865"/>
+                                <rect key="frame" x="0.0" y="31" width="768" height="880"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="SFh-VH-MDA" id="32t-Xl-5Qm"/>
@@ -364,9 +364,9 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="C0F-w4-0yM" userLabel="Weekday Search">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="C0F-w4-0yM" userLabel="Weekday Search">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xVg-3D-ILP" userLabel="Background Touch Button">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
@@ -380,30 +380,29 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SEARCH-SPEC-SELECTED-WEEKDAYS" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="2EG-UC-yPb" userLabel="Weekday Search Label">
-                                        <rect key="frame" x="229" y="0.0" width="311" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SEARCH-SPEC-SELECTED-WEEKDAYS" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="2EG-UC-yPb" userLabel="Weekday Search Label">
+                                        <rect key="frame" x="5" y="10" width="311" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="z9g-Xu-t7M" userLabel="Weekday Search Mode">
-                                        <rect key="frame" x="182" y="27" width="410" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="324" y="6" width="410" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="SEARCH-SPEC-SELECTED-WEEKDAYS-0"/>
                                             <segment title="SEARCH-SPEC-SELECTED-WEEKDAYS-1"/>
                                             <segment title="SEARCH-SPEC-SELECTED-WEEKDAYS-2"/>
                                             <segment title="SEARCH-SPEC-SELECTED-WEEKDAYS-3"/>
                                         </segments>
-                                        <color key="tintColor" red="0.23361895160000001" green="0.3544921875" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="weekdaySelectionChanged:" destination="crR-vv-v9x" eventType="valueChanged" id="v8j-0e-1Z2"/>
                                         </connections>
                                     </segmentedControl>
                                     <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-NAME-0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="6Zq-yw-jRb" userLabel="Sunday Label">
-                                        <rect key="frame" x="5" y="64" width="108" height="21"/>
+                                        <rect key="frame" x="5" y="39" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -411,7 +410,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H1C-wB-9hU" userLabel="Sunday Checkbox" customClass="BrassCheckBox">
-                                        <rect key="frame" x="43" y="87" width="32" height="32"/>
+                                        <rect key="frame" x="43" y="62" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal">
@@ -426,7 +425,7 @@
                                         </connections>
                                     </button>
                                     <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-NAME-1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="1Wr-Xs-oCr" userLabel="Monday Label">
-                                        <rect key="frame" x="113" y="64" width="108" height="21"/>
+                                        <rect key="frame" x="113" y="39" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -434,7 +433,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3uT-XX-Y9P" userLabel="Monday Checkbox" customClass="BrassCheckBox">
-                                        <rect key="frame" x="151" y="87" width="32" height="32"/>
+                                        <rect key="frame" x="151" y="62" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal">
@@ -449,7 +448,7 @@
                                         </connections>
                                     </button>
                                     <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-NAME-2" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="j32-hj-ALe" userLabel="Tuesday Label">
-                                        <rect key="frame" x="221" y="64" width="108" height="21"/>
+                                        <rect key="frame" x="221" y="39" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -457,7 +456,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xea-KG-kF9" userLabel="Tuesday Checkbox" customClass="BrassCheckBox">
-                                        <rect key="frame" x="259" y="87" width="32" height="32"/>
+                                        <rect key="frame" x="259" y="62" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal">
@@ -472,7 +471,7 @@
                                         </connections>
                                     </button>
                                     <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-NAME-3" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="fbB-tf-bHd" userLabel="Wednesday Label">
-                                        <rect key="frame" x="329" y="64" width="108" height="21"/>
+                                        <rect key="frame" x="329" y="39" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -480,7 +479,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="019-Ei-7Xs" userLabel="Wednesday Checkbox" customClass="BrassCheckBox">
-                                        <rect key="frame" x="367" y="87" width="32" height="32"/>
+                                        <rect key="frame" x="367" y="62" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal">
@@ -495,7 +494,7 @@
                                         </connections>
                                     </button>
                                     <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-NAME-4" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="EUs-7E-Zxx" userLabel="Thursday Label">
-                                        <rect key="frame" x="437" y="64" width="108" height="21"/>
+                                        <rect key="frame" x="437" y="39" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -503,7 +502,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HtH-I0-m1E" userLabel="Thursday Checkbox" customClass="BrassCheckBox">
-                                        <rect key="frame" x="475" y="87" width="32" height="32"/>
+                                        <rect key="frame" x="475" y="62" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal">
@@ -518,7 +517,7 @@
                                         </connections>
                                     </button>
                                     <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-NAME-5" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="qpt-TE-8uR" userLabel="Friday Label">
-                                        <rect key="frame" x="545" y="64" width="108" height="21"/>
+                                        <rect key="frame" x="545" y="39" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -526,7 +525,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DbT-IY-Ei4" userLabel="Friday Checkbox" customClass="BrassCheckBox">
-                                        <rect key="frame" x="583" y="87" width="32" height="32"/>
+                                        <rect key="frame" x="583" y="62" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal">
@@ -541,7 +540,7 @@
                                         </connections>
                                     </button>
                                     <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-NAME-6" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="p7A-cp-aKW" userLabel="Saturday Label">
-                                        <rect key="frame" x="653" y="64" width="108" height="21"/>
+                                        <rect key="frame" x="653" y="39" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -549,7 +548,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gXx-N8-aGI" userLabel="Saturday Checkbox" customClass="BrassCheckBox">
-                                        <rect key="frame" x="691" y="87" width="32" height="32"/>
+                                        <rect key="frame" x="691" y="62" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal">
@@ -565,10 +564,56 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
-                                </accessibility>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="f8b-Wv-mvF">
+                                <rect key="frame" x="0.0" y="161" width="768" height="750"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="crR-vv-v9x" id="fsb-FQ-Yhm"/>
+                                </connections>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="5yb-xE-FT8">
+                                <rect key="frame" x="75" y="110" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="SEARCH-SPEC-MY-LOC"/>
+                                    <segment title="SEARCH-SPEC-ADDRESS"/>
+                                </segments>
+                                <connections>
+                                    <action selector="searchSpecChanged:" destination="crR-vv-v9x" eventType="valueChanged" id="K0n-fj-rYd"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DEFAULT-ADDRESS-STRING" clearsOnBeginEditing="YES" minimumFontSize="17" id="dQU-Vu-HAg">
+                                <rect key="frame" x="284" y="109" width="413" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="addressTextEntered:" destination="crR-vv-v9x" eventType="editingDidEnd" id="dqg-k5-HTk"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SEARCH-SPEC-LABEL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="LSo-16-9lL">
+                                <rect key="frame" x="-115" y="114" width="182" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qkj-bw-yHW">
+                                <rect key="frame" x="705" y="108" width="55" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="ADVANCED-GO-BUTTON">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doSearchButtonPressed:" destination="crR-vv-v9x" eventType="touchUpInside" id="EVI-Ho-CJD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -578,16 +623,22 @@
                     <connections>
                         <outlet property="friButton" destination="DbT-IY-Ei4" id="Quc-0y-ahV"/>
                         <outlet property="friLabel" destination="qpt-TE-8uR" id="aaN-5M-TrC"/>
+                        <outlet property="goButton" destination="qkj-bw-yHW" id="cRa-To-ItT"/>
+                        <outlet property="mapSearchView" destination="f8b-Wv-mvF" id="muz-0T-PXK"/>
                         <outlet property="monButton" destination="3uT-XX-Y9P" id="ppz-Dm-xMI"/>
                         <outlet property="monLabel" destination="1Wr-Xs-oCr" id="7J9-Us-Kyv"/>
                         <outlet property="satButton" destination="gXx-N8-aGI" id="jzj-TZ-SQ3"/>
                         <outlet property="satLabel" destination="p7A-cp-aKW" id="Qcf-ng-qLA"/>
+                        <outlet property="searchLocationLabel" destination="LSo-16-9lL" id="j9y-VI-KXd"/>
+                        <outlet property="searchSpecAddressTextEntry" destination="dQU-Vu-HAg" id="puO-4T-XnI"/>
+                        <outlet property="searchSpecSegmentedControl" destination="5yb-xE-FT8" id="3Vf-rH-Zx7"/>
                         <outlet property="sunButton" destination="H1C-wB-9hU" id="YKP-fw-Mhv"/>
                         <outlet property="sunLabel" destination="6Zq-yw-jRb" id="FCo-2u-SHK"/>
                         <outlet property="thuButton" destination="HtH-I0-m1E" id="OSk-Xi-Sjk"/>
                         <outlet property="thuLabel" destination="EUs-7E-Zxx" id="YgI-pU-HKK"/>
                         <outlet property="tueButton" destination="xea-KG-kF9" id="5dX-36-bMj"/>
                         <outlet property="tueLabel" destination="j32-hj-ALe" id="5v1-jZ-pHH"/>
+                        <outlet property="view" destination="QJv-Je-6DP" id="Z1g-rE-wh4"/>
                         <outlet property="wedButton" destination="019-Ei-7Xs" id="pwF-Vz-X18"/>
                         <outlet property="wedLabel" destination="fbB-tf-bHd" id="t2w-XQ-LZ1"/>
                         <outlet property="weekdaysLabel" destination="2EG-UC-yPb" id="ZjQ-Gv-C36"/>
@@ -629,23 +680,22 @@
         <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLT_SearchViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addressTextEntered:"/>
                 <relationship kind="action" name="backgroundClicked:"/>
                 <relationship kind="action" name="doSearchButtonPressed:"/>
-                <relationship kind="action" name="findMeLabelClicked:"/>
-                <relationship kind="action" name="findNearMeChanged:"/>
+                <relationship kind="action" name="searchSpecChanged:"/>
                 <relationship kind="action" name="weekdayChanged:"/>
                 <relationship kind="action" name="weekdaySelectionChanged:"/>
-                <relationship kind="outlet" name="addressEntryText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="doSearchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="findNearMeCheckbox" candidateClass="BrassCheckBox"/>
-                <relationship kind="outlet" name="findNearMeLabel" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="friButton" candidateClass="BrassCheckBox"/>
                 <relationship kind="outlet" name="friLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="goButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="monButton" candidateClass="BrassCheckBox"/>
                 <relationship kind="outlet" name="monLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="satButton" candidateClass="BrassCheckBox"/>
                 <relationship kind="outlet" name="satLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchLocationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchSpecAddressTextEntry" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="searchSpecSegmentedControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="sunButton" candidateClass="BrassCheckBox"/>
                 <relationship kind="outlet" name="sunLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="thuButton" candidateClass="BrassCheckBox"/>
