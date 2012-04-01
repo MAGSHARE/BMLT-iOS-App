@@ -59,7 +59,6 @@
 + (BOOL)canReachRootServer;                             ///< Returns YES, if the root server can be reached via network.
 + (BOOL)validLocation;                                  ///< Returns YES if the app has a valid location.
 + (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting withController:(UIViewController *)theController;  ///< Push the meeting details view onto the current nav stack.
-+ (void)lookupLocationFromAddressString:(NSString *)inLocationString;       ///< Look up the location as a geocode.
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod;    ///< This is used to calculate the time for "later today" meetings.
 
 /// Instance methods

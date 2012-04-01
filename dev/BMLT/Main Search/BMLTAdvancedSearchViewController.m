@@ -20,13 +20,14 @@
 #import "BMLTAdvancedSearchViewController.h"
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
+#import "BMLT_Parser.h"
 
 /**************************************************************//**
  \class  BMLTAdvancedSearchViewController    -Implementation
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
 @implementation BMLTAdvancedSearchViewController
-@synthesize myParams;
+@synthesize myParams, currentElement;
 @synthesize weekdaysLabel, weekdaysSelector, sunLabel, sunButton, monLabel, monButton, tueLabel, tueButton, wedLabel, wedButton, thuLabel, thuButton, friLabel, friButton, satLabel, satButton;
 @synthesize searchLocationLabel, searchSpecSegmentedControl, searchSpecAddressTextEntry;
 @synthesize goButton;
@@ -88,8 +89,6 @@
  *****************************************************************/
 - (IBAction)weekdaySelectionChanged:(id)sender  ///< The segmented control.
 {
-    UISegmentedControl  *theControl = (UISegmentedControl*)sender;
-    
     [sunButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
     [monButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
     [tueButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
@@ -98,7 +97,7 @@
     [friButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
     [satButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
     
-    if ( [theControl selectedSegmentIndex] == kWeekdaySelectWeekdays )
+    if ( [weekdaysSelector selectedSegmentIndex] == kWeekdaySelectWeekdays )
         {
         [sunButton setEnabled:YES];
         [monButton setEnabled:YES];
@@ -120,7 +119,7 @@
         [satButton setEnabled:NO];
         }
     
-    if ( ([theControl selectedSegmentIndex] == kWeekdaySelectToday) || ([theControl selectedSegmentIndex] == kWeekdaySelectTomorrow) )
+    if ( ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) )
         {
         NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
         NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -131,7 +130,7 @@
         weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
         NSInteger           mn = [weekdayComponents minute];
         
-        if ( [theControl selectedSegmentIndex] == kWeekdaySelectTomorrow )
+        if ( [weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow )
             {
             wd++;
             if ( wd > kWeekdaySelectValue_Sat )
@@ -187,12 +186,20 @@
  *****************************************************************/
 - (IBAction)doSearchButtonPressed:(id)sender    ///< The search button.
 {
-    CLLocationCoordinate2D  myLocation = [self getMapCoordinates];
-    
-    [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
-    [myParams setObject:[NSString stringWithFormat:@"%f", myLocation.longitude] forKey:@"long_val"];
-    [myParams setObject:[NSString stringWithFormat:@"%f", myLocation.latitude] forKey:@"lat_val"];
-    [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:myLocation];
+    if ( ([self mapSearchView] == nil) && ([searchSpecSegmentedControl selectedSegmentIndex] == 1) && [[searchSpecAddressTextEntry text] length] )
+        {
+        [myParams setObject:[searchSpecAddressTextEntry text] forKey:@"SearchString"];
+        [myParams setObject:@"1" forKey:@"StringSearchIsAnAddress"];
+        }
+    else
+        {
+        CLLocationCoordinate2D  myLocation = ([self mapSearchView] == nil) ? [[BMLTAppDelegate getBMLTAppDelegate] myLocation].coordinate : [self getMapCoordinates];
+        
+        [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
+        [myParams setObject:[NSString stringWithFormat:@"%f", myLocation.longitude] forKey:@"long_val"];
+        [myParams setObject:[NSString stringWithFormat:@"%f", myLocation.latitude] forKey:@"lat_val"];
+        [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:myLocation];
+        }
     
     [[BMLTAppDelegate getBMLTAppDelegate] executeSearchWithParams:myParams];    // Start the search.
 }
@@ -235,6 +242,10 @@
  *****************************************************************/
 - (IBAction)addressTextEntered:(id)sender   ///< The text entry field.
 {
+    if ( [self mapSearchView] )
+        {
+        [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
+        }
 }
 
 /**************************************************************//**
@@ -323,4 +334,118 @@
     
     [myParams setObject:weekday forKey:@"weekdays"];
 }
+
+/**************************************************************//**
+ \brief Starts an asynchronous geocode from a given address string.
+ *****************************************************************/
+- (void)lookupLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
+{
+    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+    [[NSURLCache sharedURLCache] setDiskCapacity:0];
+    
+    inLocationString = [inLocationString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    inLocationString = [inLocationString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSData *xml = [NSData dataWithContentsOfURL: [NSURL URLWithString:[NSString stringWithFormat:kGoogleReverseLooupURI_Format, inLocationString]]];
+    BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithData:xml];
+    
+    [myParser setDelegate:self];
+    
+    [myParser parseAsync:NO WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
+}
+
+#pragma mark - NSXMLParserDelegate Functions -
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)parser:(NSXMLParser *)parser
+didStartElement:(NSString *)elementName
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName
+    attributes:(NSDictionary *)attributeDict
+{
+    currentElement = elementName;
+#ifdef _CONNECTION_PARSE_TRACE_
+    NSLog(@"BMLTAdvancedSearchViewController Parser Start %@ element", elementName );
+#endif
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)parser:(NSXMLParser *)parser
+foundCharacters:(NSString *)string
+{
+#ifdef _CONNECTION_PARSE_TRACE_
+    NSLog(@"BMLTAdvancedSearchViewController Parser foundCharacters: \"%@\"", string );
+#endif
+    if ( [currentElement isEqualToString:@"coordinates"] )
+        {
+        NSArray *coords = [string componentsSeparatedByString:@","];
+        if ( coords && ([coords count] > 1) )
+            {
+            if ( [self mapSearchView] )
+                {
+                CLLocationCoordinate2D  lastLookup;
+                
+                lastLookup.longitude = [(NSString *)[coords objectAtIndex:0] doubleValue];
+                lastLookup.latitude = [(NSString *)[coords objectAtIndex:1] doubleValue];
+                
+                [self updateMapWithThisLocation:lastLookup];
+                }
+#ifdef _CONNECTION_PARSE_TRACE_
+            NSLog(@"BMLTAdvancedSearchViewController Parser set lastLookup to: %f, %f", lastLookup.longitude, lastLookup.latitude );
+#endif
+            }
+        }
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)parser:(NSXMLParser *)parser
+ didEndElement:(NSString *)elementName
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName
+{
+#ifdef _CONNECTION_PARSE_TRACE_
+    NSLog(@"BMLTAdvancedSearchViewController Parser Stop %@ element", elementName );
+#endif
+    currentElement = nil;
+}
+
+#ifdef _CONNECTION_PARSE_TRACE_
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)parser:(NSXMLParser *)parser
+parseErrorOccurred:(NSError *)parseError
+{
+    NSLog(@"BMLTAdvancedSearchViewController Parser Error: %@", [parseError localizedDescription] );
+}
+#endif
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)parserDidStartDocument:(NSXMLParser *)parser  ///< The parser in question
+{
+#ifdef _CONNECTION_PARSE_TRACE_
+    NSLog(@"BMLTAdvancedSearchViewController Parser Starting" );
+#endif
+    currentElement = nil;
+}
+
+/***************************************************************\**
+ \brief 
+ *****************************************************************/
+- (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser in question
+{
+    [(BMLT_Parser *)parser cancelTimeout];
+    currentElement = nil;
+#ifdef _CONNECTION_PARSE_TRACE_
+    NSLog(@"BMLTAdvancedSearchViewController Parser Complete" );
+#endif
+}
+
 @end

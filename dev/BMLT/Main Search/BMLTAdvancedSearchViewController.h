@@ -41,7 +41,8 @@
  \class  BMLTAdvancedSearchViewController
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
-@interface BMLTAdvancedSearchViewController : A_BMLT_SearchViewController <UITextFieldDelegate>
+@interface BMLTAdvancedSearchViewController : A_BMLT_SearchViewController <UITextFieldDelegate, NSXMLParserDelegate>
+
 @property (atomic, weak, readonly)  IBOutlet UILabel            *weekdaysLabel;     ///< The label item for the weekdays.
 @property (atomic, weak, readonly)  IBOutlet UISegmentedControl *weekdaysSelector;  ///< The mode selector for the weekday selection.
 @property (atomic, weak, readonly)  IBOutlet UILabel            *sunLabel;          ///< The label for the "Sunday" checkbox.
@@ -67,6 +68,8 @@
 
 @property (strong, atomic, readwrite)   NSMutableDictionary     *myParams;          ///< This dictionary will be used to build up the parameters we'll be giving the app delegate for our search.
 
+@property (strong, atomic, readwrite)   NSString                *currentElement;    ///< This will be used during our XML parsing adventure.
+
 - (IBAction)weekdaySelectionChanged:(id)sender;
 - (IBAction)doSearchButtonPressed:(id)sender;
 - (IBAction)backgroundClicked:(id)sender;
@@ -75,5 +78,6 @@
 - (IBAction)addressTextEntered:(id)sender;
 
 - (void)setParamsForWeekdaySelection;
+- (void)lookupLocationFromAddressString:(NSString *)inLocationString;       ///< Look up the location as a geocode.
 
 @end

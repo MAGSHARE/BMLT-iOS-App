@@ -135,28 +135,6 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     [[theController navigationController] pushViewController:meetingDetails animated:YES];
 }
 
-/**************************************************************//**
- \brief Starts an asynchronous geocode from a given address string.
- *****************************************************************/
-+ (void)lookupLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
-{
-    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
-    [[NSURLCache sharedURLCache] setDiskCapacity:0];
-    
-    inLocationString = [inLocationString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    inLocationString = [inLocationString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSData *xml = [NSData 
-                   dataWithContentsOfURL: [NSURL 
-                                           URLWithString:[NSString stringWithFormat:kGoogleReverseLooupURI_Format, inLocationString]]];
-    BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithData:xml];
-    
-    [myParser setDelegate:[BMLTAppDelegate getBMLTAppDelegate]];
-    
-    [myParser parseAsync:NO
-             WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
-}
-
 #pragma mark - Private methods -
 /**************************************************************//**
  \brief Manages the transition from one view to another. Just like
