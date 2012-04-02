@@ -19,8 +19,8 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "BMLTMeetingDetailViewController.h"
 #import "BMLT_Results_MapPointAnnotationView.h"
+#import "BMLTMeetingDetailViewController.h"
 #import "BMLT_Meeting.h"
 #import "BMLT_Format.h"
 #import "BMLTAppDelegate.h"

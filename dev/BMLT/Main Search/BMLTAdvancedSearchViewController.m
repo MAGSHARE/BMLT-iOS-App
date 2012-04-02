@@ -552,7 +552,6 @@ parseErrorOccurred:(NSError *)parseError    ///< The error.
         }
     else
         {
-        
         if ( [self mapSearchView] )
             {
 #ifdef DEBUG

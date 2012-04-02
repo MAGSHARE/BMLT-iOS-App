@@ -60,7 +60,6 @@
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		7799D29B151FA633007FE822 /* BMLTMeetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */; };
 		7799D29C151FA633007FE822 /* BMLTMeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7799D29A151FA633007FE822 /* BMLTMeetingDetailViewController.xib */; };
-		7799D2A0151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799D29F151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m */; };
 		7799D2A2151FACD5007FE822 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799D2A1151FACD4007FE822 /* MapKit.framework */; };
 		7799D2A6151FAD30007FE822 /* MapMarkerBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */; };
 		7799D2A7151FAD30007FE822 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */; };
@@ -73,6 +72,7 @@
 		77B6F5D11526392400E55863 /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B6F5CB1526392400E55863 /* RedX.png */; };
 		77B6F5D21526392400E55863 /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B6F5CC1526392400E55863 /* RedXConcave.png */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
+		77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */; };
 		77C1820D1525BDFE00560F34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77C182071525BDFE00560F34 /* InfoPlist.strings */; };
 		77C1820E1525BDFE00560F34 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77C182091525BDFE00560F34 /* Localizable.strings */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
@@ -169,8 +169,6 @@
 		7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMeetingDetailViewController.h; sourceTree = "<group>"; };
 		7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMeetingDetailViewController.m; sourceTree = "<group>"; };
 		7799D29A151FA633007FE822 /* BMLTMeetingDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMLTMeetingDetailViewController.xib; sourceTree = "<group>"; };
-		7799D29E151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLT_Results_MapPointAnnotationView.h; path = "../../../oldDev/BMLT/Search Screens/Common/BMLT_Results_MapPointAnnotationView.h"; sourceTree = "<group>"; };
-		7799D29F151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLT_Results_MapPointAnnotationView.m; path = "../../../oldDev/BMLT/Search Screens/Common/BMLT_Results_MapPointAnnotationView.m"; sourceTree = "<group>"; };
 		7799D2A1151FACD4007FE822 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlack.png; sourceTree = "<group>"; };
 		7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlue.png; sourceTree = "<group>"; };
@@ -184,6 +182,8 @@
 		77B6F5CC1526392400E55863 /* RedXConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedXConcave.png; sourceTree = "<group>"; };
 		77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTSearchResultsViewController.h; path = Miscellaneous/A_BMLTSearchResultsViewController.h; sourceTree = "<group>"; };
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSearchResultsViewController.m; path = Miscellaneous/A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
+		77BCBBDB152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Results_MapPointAnnotationView.h; sourceTree = "<group>"; };
+		77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Results_MapPointAnnotationView.m; sourceTree = "<group>"; };
 		77C182081525BDFE00560F34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		77C1820A1525BDFE00560F34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		77C1820B1525BDFE00560F34 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -256,11 +256,11 @@
 		771D0C52150E893C005A707A /* Miscellaneous View and Controller Classes */ = {
 			isa = PBXGroup;
 			children = (
+				77BCBBDB152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.h */,
+				77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */,
 				7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */,
 				7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */,
 				7799D29A151FA633007FE822 /* BMLTMeetingDetailViewController.xib */,
-				7799D29E151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.h */,
-				7799D29F151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m */,
 				77803C3C151C011D00A8ADC3 /* FormatDetailView.h */,
 				77803C3D151C011D00A8ADC3 /* FormatDetailView.m */,
 				77803C3E151C011D00A8ADC3 /* FormatDetailView.xib */,
@@ -605,8 +605,8 @@
 				7722BF8E151B3E02001E8029 /* BMLTVariantDefs.m in Sources */,
 				77803C3F151C011D00A8ADC3 /* FormatDetailView.m in Sources */,
 				7799D29B151FA633007FE822 /* BMLTMeetingDetailViewController.m in Sources */,
-				7799D2A0151FA655007FE822 /* BMLT_Results_MapPointAnnotationView.m in Sources */,
 				7707F3151525B44C00032CCA /* A_BMLT_SearchViewController.m in Sources */,
+				77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

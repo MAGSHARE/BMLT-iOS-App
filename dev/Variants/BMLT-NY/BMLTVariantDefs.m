@@ -57,7 +57,7 @@
  *****************************************************************/
 + (UIColor *)meetingDetailBackgroundColor
 {
-    return [UIColor underPageBackgroundColor];
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkWeave.png"]];
 }
 
 /**************************************************************//**

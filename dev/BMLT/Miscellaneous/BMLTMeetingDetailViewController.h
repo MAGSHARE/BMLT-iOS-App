@@ -21,9 +21,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "BMLT_Results_MapPointAnnotationView.h"
 
 @class BMLT_Meeting;
+@class BMLT_Results_MapPointAnnotation;
 
 #define List_Meeting_Format_Circle_Size_Big 30
 
