@@ -47,6 +47,14 @@
 }
 
 /**************************************************************//**
+ \brief 
+ *****************************************************************/
+- (void)selectImage
+{
+    [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
+}
+
+/**************************************************************//**
  \brief Handles dragging.
  *****************************************************************/
 - (void)setDragState:(MKAnnotationViewDragState)newDragState
