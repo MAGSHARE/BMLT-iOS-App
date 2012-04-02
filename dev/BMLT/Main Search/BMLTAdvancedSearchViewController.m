@@ -282,12 +282,12 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 {
     NSString *weekday = @"";
     
-    if ( [sunButton isEnabled] && [sunButton isOn] )
+    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [sunButton isEnabled]) && [sunButton isOn] )
         {
         weekday = [weekday stringByAppendingString:@"1"];
         }
     
-    if ( [monButton isEnabled] && [monButton isOn] )
+    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [monButton isEnabled]) && [monButton isOn] )
         {
         if ( [weekday length] )
             {
@@ -299,7 +299,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
             }
         }
     
-    if ( [tueButton isEnabled] && [tueButton isOn] )
+    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [tueButton isEnabled]) && [tueButton isOn] )
         {
         if ( [weekday length] )
             {
@@ -311,7 +311,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
             }
         }
     
-    if ( [wedButton isEnabled] && [wedButton isOn] )
+    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [wedButton isEnabled]) && [wedButton isOn] )
         {
         if ( [weekday length] )
             {
@@ -323,7 +323,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
             }
         }
     
-    if ( [thuButton isEnabled] && [thuButton isOn] )
+    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [thuButton isEnabled]) && [thuButton isOn] )
         {
         if ( [weekday length] )
             {
@@ -335,7 +335,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
             }
         }
     
-    if ( [friButton isEnabled] && [friButton isOn] )
+    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [friButton isEnabled]) && [friButton isOn] )
         {
         if ( [weekday length] )
             {
@@ -347,7 +347,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
             }
         }
     
-    if ( [satButton isEnabled] && [satButton isOn] )
+    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [satButton isEnabled]) && [satButton isOn] )
         {
         if ( [weekday length] )
             {
@@ -359,7 +359,10 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
             }
         }
     
-    [myParams setObject:weekday forKey:@"weekdays"];
+    if ( [weekday length] )
+        {
+        [myParams setObject:weekday forKey:@"weekdays"];
+        }
 }
 
 /**************************************************************//**
