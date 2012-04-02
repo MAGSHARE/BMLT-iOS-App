@@ -225,6 +225,8 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
         [listResultsViewController setIncludeSortRow:YES];
         [listResultsViewController sortMeetings:nil];
         
+        [(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] addClearSearchButton];
+        
         BOOL    mapSearch = [[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap];
         int selectedIndex = (mapSearch ? 2 : 1);
         
@@ -232,6 +234,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
         }
     else
         {
+        [[(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] navigationItem] setLeftBarButtonItem:nil];
         [self sorryCharlie];
         }
 }
@@ -268,6 +271,15 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
                                                                                                     target:nil
                                                                                                     action:nil];
             break;
+            }
+        
+        if ( [searchResults count] )
+            {
+            [(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] addClearSearchButton];
+            }
+        else
+            {
+            [[(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] navigationItem] setLeftBarButtonItem:nil];
             }
         }
 }
