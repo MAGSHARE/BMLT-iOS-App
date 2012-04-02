@@ -20,7 +20,7 @@
 
 #import "A_BMLT_Search.h"
 
-#define kBMLT_Max_Number_Of_Meetings_In_Response    500
+#define kBMLT_Max_Number_Of_Meetings_In_Response    [BMLTVariantDefs maxNumberOgMeetings]
 
 /**************************************************************//**
  \class BMLT_Meeting_Search

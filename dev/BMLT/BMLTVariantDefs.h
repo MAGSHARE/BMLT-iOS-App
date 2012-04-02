@@ -107,5 +107,12 @@
  *****************************************************************/
 + (NSURL *)directionsURITo:(CLLocation *)inTo from:(CLLocation *)inFrom;
 
+/**************************************************************//**
+ \brief     In some cases, we may get back too many meetings. This
+            function returns the threshold, at which we stop a
+            transaction and report a failure.
+ \returns   The number of meetings that will trigger a failure.
+ *****************************************************************/
++ (NSInteger)maxNumberOgMeetings;
 @end
 #endif

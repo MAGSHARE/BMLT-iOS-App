@@ -65,6 +65,7 @@ didStartElement:(NSString *)elementName         ///< The name of the element
 #endif
                 if ( myDelegate )   // Let the delegate know we're done.
                     {
+                    searchInProgress = NO;
                     [parser abortParsing];
                     NSString    *error_Text = [NSString stringWithFormat:NSLocalizedString(@"TOO-MANY-RESULTS-FORMAT", nil), kBMLT_Max_Number_Of_Meetings_In_Response];
                     

@@ -380,12 +380,12 @@ foundCharacters:(NSString *)string      ///< The character data
 - (void)parser:(NSXMLParser *)parser        ///< The parser object
 parseErrorOccurred:(NSError *)parseError    ///< The error object
 {
+    searchInProgress = NO;
     if ( myDelegate )   /// We call any search delegates
         {
         [myDelegate performSelectorOnMainThread:@selector(searchCompleteWithError:) withObject:parseError waitUntilDone:YES];
         }
     [parser abortParsing];
-    searchInProgress = NO;
 }
 
 /**************************************************************//**

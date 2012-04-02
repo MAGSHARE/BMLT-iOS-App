@@ -350,7 +350,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     listResultsViewController = (BMLTDisplayListResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:1] topViewController];
     mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:2] topViewController];
     
-    [self clearAllSearchResultsYes];
+    [self clearAllSearchResults:YES];
     if ( [myPrefs lookupMyLocation] )
         {
         [locationManager startUpdatingLocation];
@@ -393,7 +393,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be reset to initial.");
 #endif
-        [self clearAllSearchResultsYes];
+        [self clearAllSearchResults:YES];
         [activeSearchController setUpdatedOnce:NO]; // Make sure that the search map will return to your current location.
         }
     else if ( !_visitingRelatives )
@@ -564,7 +564,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self simpleClearSearch];
     [self stopAnimations];
-    [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
     [mapResultsViewController closeModal];      ///< Make sure we close any open modals or popovers, first.
     [listResultsViewController closeModal];
     [mapResultsViewController clearMapCompletely];
@@ -572,6 +571,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [[listResultsViewController navigationController] popToRootViewControllerAnimated:NO];
     [listResultsViewController setDataArrayFromData:nil];
     [self selectInitialSearchAndForce:inForce];
+    [self setUpTabBarItems];
 }
 
 /**************************************************************//**
@@ -927,7 +927,10 @@ shouldSelectViewController:(UIViewController *)inViewController
 #endif
     if ( inError )
         {
-        [self clearAllSearchResultsYes];
+        [self performSelectorOnMainThread:@selector(clearAllSearchResultsYes) withObject:nil waitUntilDone:YES];
+        UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:[inError localizedDescription] delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+
+        [myAlert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
         }
     else
         {

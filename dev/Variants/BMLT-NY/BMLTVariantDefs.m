@@ -109,5 +109,11 @@
 {
     return [NSURL URLWithString:[NSString stringWithFormat:NSLocalizedString(@"DIRECTIONS-URI-FORMAT",nil),inTo.coordinate.latitude, inTo.coordinate.longitude, inFrom.coordinate.latitude, inFrom.coordinate.longitude]];
 }
+/**************************************************************//**
+ *****************************************************************/
++ (NSInteger)maxNumberOgMeetings
+{
+    return 500;
+}
 
 @end
