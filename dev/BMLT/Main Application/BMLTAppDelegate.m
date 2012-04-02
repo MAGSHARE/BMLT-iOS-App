@@ -576,11 +576,20 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 /**************************************************************//**
  \brief Clears all the search results, and the results views.
-        This version assumes YES, and is a shorthand for the button.
+ This version assumes YES, and is a shorthand for the button.
  *****************************************************************/
 - (void)clearAllSearchResultsYes
 {
     [self clearAllSearchResults:YES];
+}
+
+/**************************************************************//**
+ \brief Clears all the search results, and the results views.
+ This version assumes NO, and is a shorthand for the button.
+ *****************************************************************/
+- (void)clearAllSearchResultsNo
+{
+    [self clearAllSearchResults:NO];
 }
 
 /**************************************************************//**
@@ -927,10 +936,9 @@ shouldSelectViewController:(UIViewController *)inViewController
 #endif
     if ( inError )
         {
-        [self performSelectorOnMainThread:@selector(clearAllSearchResultsYes) withObject:nil waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(clearAllSearchResultsNo) withObject:nil waitUntilDone:NO];
         UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:[inError localizedDescription] delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
-
-        [myAlert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+        [myAlert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
         }
     else
         {
