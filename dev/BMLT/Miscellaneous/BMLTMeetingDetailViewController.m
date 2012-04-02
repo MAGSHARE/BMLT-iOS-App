@@ -26,7 +26,7 @@
 #import "BMLTAppDelegate.h"
 
 @implementation BMLTMeetingDetailViewController
-@synthesize meetingMapView;
+@synthesize meetingMapView, myMeeting = _myMeeting;
 
 #pragma mark - View lifecycle
 
@@ -34,15 +34,15 @@
  \brief  Set the view backgound to the appropriate color.
  \returns   self
  *****************************************************************/
-- (id)initWithCoder:(NSCoder *)coder
+- (id)initWithMeeting:(BMLT_Meeting *)inMeeting
+        andController:(UIViewController *)inController
 {
-    self = [super initWithCoder:coder];
+    self = [super initWithNibName:nil bundle:nil];
     if (self)
         {
-        if ( [BMLTVariantDefs windowBackgroundColor] )
-            {
-            [[self view] setBackgroundColor:[BMLTVariantDefs meetingDetailBackgroundColor]];
-            }
+        _myMeeting = inMeeting;
+        myModalController = inController;
+        [[self view] setBackgroundColor:[BMLTVariantDefs meetingDetailBackgroundColor]];
         }
     return self;
 }
@@ -53,6 +53,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
+    [[[self navigationItem] titleView] sizeToFit];
     [self setFormats];
     [self setMeetingFrequencyText];
     [self setMeetingCommentsText];
@@ -95,20 +97,12 @@
 #pragma mark - Custom Functions -
 
 /**************************************************************//**
- \brief Accessor - set the meeting object.
- *****************************************************************/
-- (void)setMyMeeting:(BMLT_Meeting *)inMeeting  ///< The meeting object for this instance.
-{
-    myMeeting = inMeeting;
-}
-
-/**************************************************************//**
  \brief Accessor -Get the meeting object.
  \returns   a reference to an instance of BMLT_Meeting.
  *****************************************************************/
 - (BMLT_Meeting *)getMyMeeting
 {
-    return myMeeting;
+    return _myMeeting;
 }
 
 /**************************************************************//**
@@ -136,7 +130,7 @@
  *****************************************************************/
 - (void)setFormats
 {
-    NSArray *formats = [myMeeting getFormats];
+    NSArray *formats = [_myMeeting getFormats];
     
     if ( [formats count] )
         {
@@ -176,8 +170,8 @@
 - (void)setMeetingFrequencyText
 {
     NSString    *formatString = NSLocalizedString ( @"MEETING-DETAILS-FREQUENCY-FORMAT", nil );
-    NSString    *weekday = [myMeeting getWeekday];
-    NSDate      *startTime = [myMeeting getStartTime];
+    NSString    *weekday = [_myMeeting getWeekday];
+    NSDate      *startTime = [_myMeeting getStartTime];
     NSString    *time = [NSDateFormatter localizedStringFromDate:startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
     NSCalendar  *gregorian = [[NSCalendar alloc]
                               initWithCalendarIdentifier:NSGregorianCalendar];
@@ -204,7 +198,7 @@
  *****************************************************************/
 - (void)setMeetingCommentsText
 {
-    [commentsTextView setText:[myMeeting getBMLTDescription]];
+    [commentsTextView setText:[_myMeeting getBMLTDescription]];
 }
 
 /**************************************************************//**
@@ -212,14 +206,14 @@
  *****************************************************************/
 - (void)setMeetingLocationText
 {
-    NSString    *townAndState = [NSString stringWithFormat:@"%@, %@", (([myMeeting getValueFromField:@"location_city_subsection"]) ? (NSString *)[myMeeting getValueFromField:@"location_city_subsection"] : (NSString *)[myMeeting getValueFromField:@"location_municipality"]), (NSString *)[myMeeting getValueFromField:@"location_province"]];
-    NSString    *meetingLocationString = [NSString stringWithFormat:@"%@%@", (([myMeeting getValueFromField:@"location_text"]) ? [NSString stringWithFormat:@"%@, ", (NSString *)[myMeeting getValueFromField:@"location_text"]] : @""), [myMeeting getValueFromField:@"location_street"]];
+    NSString    *townAndState = [NSString stringWithFormat:@"%@, %@", (([_myMeeting getValueFromField:@"location_city_subsection"]) ? (NSString *)[_myMeeting getValueFromField:@"location_city_subsection"] : (NSString *)[_myMeeting getValueFromField:@"location_municipality"]), (NSString *)[_myMeeting getValueFromField:@"location_province"]];
+    NSString    *meetingLocationString = [NSString stringWithFormat:@"%@%@", (([_myMeeting getValueFromField:@"location_text"]) ? [NSString stringWithFormat:@"%@, ", (NSString *)[_myMeeting getValueFromField:@"location_text"]] : @""), [_myMeeting getValueFromField:@"location_street"]];
     
     NSString    *theAddress = [NSString stringWithFormat:@"%@, %@", meetingLocationString, townAndState];
     [addressButton setTitle:theAddress forState:UIControlStateNormal];
     
-    CLLocation  *loc = [myMeeting getMeetingLocationCoords];
-    NSArray *meetings = [[NSArray alloc] initWithObjects:myMeeting, nil];
+    CLLocation  *loc = [_myMeeting getMeetingLocationCoords];
+    NSArray *meetings = [[NSArray alloc] initWithObjects:_myMeeting, nil];
     
     myMarker =[[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[loc coordinate] andMeetings:meetings];
     
@@ -233,7 +227,7 @@
  *****************************************************************/
 - (void)setMapLocation
 {
-    CLLocation  *loc = [myMeeting getMeetingLocationCoords];
+    CLLocation  *loc = [_myMeeting getMeetingLocationCoords];
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([loc coordinate], 250, 250);
     [meetingMapView setDelegate:self];
     [meetingMapView setRegion:region animated:NO];
@@ -287,6 +281,6 @@
 - (IBAction)callForDirections:(id)sender
 {
     [[BMLTAppDelegate getBMLTAppDelegate] imVisitingRelatives];
-    [[UIApplication sharedApplication] openURL:[BMLTVariantDefs directionsURITo:[myMeeting getMeetingLocationCoords] from:[[BMLTAppDelegate getBMLTAppDelegate] myLocation]]];
+    [[UIApplication sharedApplication] openURL:[BMLTVariantDefs directionsURITo:[_myMeeting getMeetingLocationCoords] from:[[BMLTAppDelegate getBMLTAppDelegate] myLocation]]];
 }
 @end

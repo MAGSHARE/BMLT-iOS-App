@@ -127,11 +127,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 + (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting
             withController:(UIViewController *)theController
 {
-    BMLTMeetingDetailViewController *meetingDetails = [[BMLTMeetingDetailViewController alloc] init];
-    [meetingDetails setMyMeeting:inMeeting];
-    [meetingDetails setMyModalController:theController];
-    [[meetingDetails navigationItem] setTitle:[inMeeting getBMLTName]];
-    [[[meetingDetails navigationItem] titleView] sizeToFit];
+    BMLTMeetingDetailViewController *meetingDetails = [[BMLTMeetingDetailViewController alloc] initWithMeeting:inMeeting andController:theController];
     [[theController navigationController] pushViewController:meetingDetails animated:YES];
 }
 
