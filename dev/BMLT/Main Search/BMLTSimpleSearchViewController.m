@@ -34,6 +34,18 @@
 /**************************************************************//**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ( [[[BMLTAppDelegate getBMLTAppDelegate] searchResults] count] )
+        {
+        [self addClearSearchButton];
+        }
+    [super viewWillAppear:animated];
+}
+
+/**************************************************************//**
+ \brief  Called after the controller's view object has loaded.
+ *****************************************************************/
 - (void)viewDidLoad
 {
     [findMeetingsNearMeButton setTitle:NSLocalizedString([findMeetingsNearMeButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];

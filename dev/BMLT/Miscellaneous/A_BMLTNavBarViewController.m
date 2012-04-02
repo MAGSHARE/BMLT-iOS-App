@@ -45,7 +45,10 @@
     
     UINavigationItem    *navItem = [self navigationItem];
     
-    [navItem setLeftBarButtonItem:clearButton animated:NO];
+    if ( ![navItem leftBarButtonItem] && ([[self navigationController] topViewController] == [[[self navigationController] viewControllers] objectAtIndex:0]) )
+        {
+        [navItem setLeftBarButtonItem:clearButton animated:NO];
+        }
 }
 
 /**************************************************************//**
