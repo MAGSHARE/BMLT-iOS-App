@@ -45,13 +45,10 @@
  *****************************************************************/
 - (void)setDataArrayFromData:(NSArray *)dataArray   ///< The array of data to be used for this view.
 {
-    if ( !_dataArray )
-        {
-        _dataArray = [[NSMutableArray alloc] init];
-        }
-    
-    [_dataArray removeAllObjects];
+    _dataArray = nil;
+    _dataArray = [[NSMutableArray alloc] init];
     [_dataArray setArray:dataArray];
+    [[self view] setNeedsDisplay];
 }
 
 /**************************************************************//**

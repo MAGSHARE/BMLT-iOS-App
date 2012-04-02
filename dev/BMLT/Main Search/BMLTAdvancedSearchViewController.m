@@ -191,6 +191,10 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (IBAction)doSearchButtonPressed:(id)sender    ///< The search button.
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAdvancedSearchViewController doSearchButtonPressed");
+#endif
+    [searchSpecAddressTextEntry resignFirstResponder];
     [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
     [myParams setObject:[NSString stringWithFormat:@"%f", myCurrentLocation.longitude] forKey:@"long_val"];
     [myParams setObject:[NSString stringWithFormat:@"%f", myCurrentLocation.latitude] forKey:@"lat_val"];
@@ -203,6 +207,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (IBAction)backgroundClicked:(id)sender
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAdvancedSearchViewController backgroundClicked");
+#endif
     geocodeInProgress = NO;
     dontLookup = YES;
     [searchSpecAddressTextEntry resignFirstResponder];
@@ -221,6 +228,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (IBAction)searchSpecChanged:(id)sender    ///< The segmented control
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAdvancedSearchViewController searchSpecChanged: %d.", [(UISegmentedControl *)sender selectedSegmentIndex] );
+#endif
     geocodeInProgress = NO;
     dontLookup = YES;
     searchAfterLookup = NO;
@@ -250,8 +260,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 #endif
     if ( !dontLookup && [searchSpecAddressTextEntry text] && ([searchSpecSegmentedControl selectedSegmentIndex] == 1) )
         {
-        [searchSpecAddressTextEntry resignFirstResponder];
-
         [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
         }
     dontLookup = NO;
@@ -395,6 +403,14 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [myAlert show];    
 }
 
+/**************************************************************//**
+ \brief This function exists only to allow the parser to call it in the main thread.
+ *****************************************************************/
+- (void)updateMap
+{
+    [super updateMapWithThisLocation:myCurrentLocation];
+}
+
 #pragma mark - MKMapViewDelegate Functions -
 /**************************************************************//**
  \brief We keep our current location up to date as the map changes.
@@ -421,6 +437,9 @@ didChangeDragState:(MKAnnotationViewDragState)newState  ///< The new state.
         {
         searchAfterLookup = YES;
         }
+#ifdef DEBUG
+    NSLog(@"BMLTAdvancedSearchViewController textFieldShouldReturn: searchAfterLookup = \"%@\".", searchAfterLookup ? @"YES" : @"NO");
+#endif
     [self lookupLocationFromAddressString:[textField text]];
     return NO;
 }
@@ -461,20 +480,7 @@ foundCharacters:(NSString *)string          ///< The character data.
             lastLookup.latitude = [(NSString *)[coords objectAtIndex:1] doubleValue];
             
             myCurrentLocation = lastLookup;
-            
-            searchAfterLookup = NO;
             geocodeInProgress = NO;
-            dontLookup = NO;
-            if ( [self mapSearchView] )
-                {
-                searchAfterLookup = NO;
-                [self updateMapWithThisLocation:myCurrentLocation];
-                }
-            else if ( searchAfterLookup )
-                {
-                searchAfterLookup = NO;
-                [self doSearchButtonPressed:goButton];
-                }
 #ifdef DEBUG
             NSLog(@"BMLTAdvancedSearchViewController Parser set myCurrentLocation to: %f, %f", myCurrentLocation.longitude, myCurrentLocation.latitude );
 #endif
@@ -507,10 +513,11 @@ parseErrorOccurred:(NSError *)parseError    ///< The error.
 #endif
     if ( geocodeInProgress )
         {
-        [self cantGeocode];
+        [self performSelectorOnMainThread:@selector(cantGeocode) withObject:nil waitUntilDone:YES];
         }
     
     geocodeInProgress = NO;
+    searchAfterLookup = NO;
 }
 
 /**************************************************************//**
@@ -530,16 +537,41 @@ parseErrorOccurred:(NSError *)parseError    ///< The error.
  *****************************************************************/
 - (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser in question
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAdvancedSearchViewController Parser Complete" );
+#endif
+    
     [(BMLT_Parser *)parser cancelTimeout];
     currentElement = nil;
     if ( geocodeInProgress )
         {
-        [self cantGeocode];
+#ifdef DEBUG
+        NSLog(@"BMLTAdvancedSearchViewController parserDidEndDocument. Error. Nothing returned. Pitch a fit." );
+#endif
+        [self performSelectorOnMainThread:@selector(cantGeocode) withObject:nil waitUntilDone:NO];
+        }
+    else
+        {
+        
+        if ( [self mapSearchView] )
+            {
+#ifdef DEBUG
+            NSLog(@"BMLTAdvancedSearchViewController parserDidEndDocument. Updating the map." );
+#endif
+            searchAfterLookup = NO;
+            [self performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
+            }
+        else if ( searchAfterLookup )
+            {
+#ifdef DEBUG
+            NSLog(@"BMLTAdvancedSearchViewController parserDidEndDocument. Starting a Search." );
+#endif
+            searchAfterLookup = NO;
+            [self performSelectorOnMainThread:@selector(doSearchButtonPressed:) withObject:goButton waitUntilDone:NO];
+            }
         }
     
     geocodeInProgress = NO;
-#ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController Parser Complete" );
-#endif
+    dontLookup = NO;
 }
 @end

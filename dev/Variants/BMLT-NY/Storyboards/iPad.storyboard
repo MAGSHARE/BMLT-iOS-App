@@ -591,7 +591,7 @@
                                 <rect key="frame" x="320" y="109" width="388" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="addressTextEntered:" destination="crR-vv-v9x" eventType="editingDidEnd" id="dqg-k5-HTk"/>
                                     <outlet property="delegate" destination="crR-vv-v9x" id="f0E-I9-D5I"/>

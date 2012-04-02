@@ -222,6 +222,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     
     [listResultsViewController setDataArrayFromData:[self searchResults]];
     [mapResultsViewController setDataArrayFromData:[self searchResults]];
+    [mapResultsViewController setMapInit:NO];
     
     if ( [[self searchResults] count] )
         {
@@ -632,8 +633,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    [locationManager stopUpdatingLocation]; // Stop updating for now.
-    
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate didUpdateToLocation Location Found: (%@)", newLocation);
 #endif
@@ -651,6 +650,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy);
 #endif
+    
+    [locationManager stopUpdatingLocation]; // Stop updating for now.
     
     // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).
     if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )

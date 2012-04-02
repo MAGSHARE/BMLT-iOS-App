@@ -80,7 +80,8 @@
 - (IBAction)addressTextEntered:(id)sender;
 
 - (void)setParamsForWeekdaySelection;
-- (void)lookupLocationFromAddressString:(NSString *)inLocationString;       ///< Look up the location as a geocode.
+- (void)lookupLocationFromAddressString:(NSString *)inLocationString;
 - (void)cantGeocode;
+- (void)updateMap;
 
 @end
