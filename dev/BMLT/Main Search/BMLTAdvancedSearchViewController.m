@@ -196,9 +196,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 #endif
     [searchSpecAddressTextEntry resignFirstResponder];
     [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
-    [myParams setObject:[NSString stringWithFormat:@"%f", myCurrentLocation.longitude] forKey:@"long_val"];
-    [myParams setObject:[NSString stringWithFormat:@"%f", myCurrentLocation.latitude] forKey:@"lat_val"];
-    [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:myCurrentLocation];
+    [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinatesAndForceReNew:NO].longitude] forKey:@"long_val"];
+    [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinatesAndForceReNew:NO].latitude] forKey:@"lat_val"];
+    [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:[self getSearchCoordinatesAndForceReNew:NO]];
     [[BMLTAppDelegate getBMLTAppDelegate] executeSearchWithParams:myParams];    // Start the search.
 }
 
@@ -412,6 +412,22 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 - (void)updateMap
 {
     [super updateMapWithThisLocation:myCurrentLocation];
+}
+
+/**************************************************************//**
+ \brief We overload the base class function to allow use of our address lookup.
+ \returns the long/lat coordinates of the search location.
+ *****************************************************************/
+- (CLLocationCoordinate2D)getSearchCoordinatesAndForceReNew:(BOOL)shouldForce   ///< If this is YES, we don't get the user location from the app delegate, which will force it to look up first.
+{
+    CLLocationCoordinate2D  ret = [super getSearchCoordinatesAndForceReNew:shouldForce];
+
+    if ( myCurrentLocation.longitude || myCurrentLocation.latitude )    // If we have a valid current location, we use that.
+        {
+        ret = myCurrentLocation;
+        }
+    
+    return ret;
 }
 
 #pragma mark - MKMapViewDelegate Functions -
