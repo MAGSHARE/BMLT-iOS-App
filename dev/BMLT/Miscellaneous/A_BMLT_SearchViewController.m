@@ -55,7 +55,7 @@
 }
 
 /**************************************************************//**
- \brief Handles dragging.
+ \brief Handles dragging. Changes the image while dragging.
  *****************************************************************/
 - (void)setDragState:(MKAnnotationViewDragState)newDragState
             animated:(BOOL)animated
