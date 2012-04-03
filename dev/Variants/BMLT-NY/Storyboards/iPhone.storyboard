@@ -76,6 +76,13 @@
                                     <action selector="findAllMeetingsNearMeTomorrow:" destination="1ej-mT-cW2" eventType="touchUpInside" id="jkM-Tw-nGC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SEARCH-SPEC-DISABLED-TEXT" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dkI-Vz-hJE">
+                                <rect key="frame" x="13" y="207" width="295" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -89,6 +96,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="disabledTextLabel" destination="dkI-Vz-hJE" id="liA-o6-bty"/>
                         <outlet property="findMeetingsLaterTodayButton" destination="5ho-0G-QvA" id="j2t-Sp-ob5"/>
                         <outlet property="findMeetingsNearMeButton" destination="4sw-z7-Qal" id="Yma-zE-9bd"/>
                         <outlet property="findMeetingsTomorrowButton" destination="YBD-Eb-aW4" id="z4v-NC-n6v"/>

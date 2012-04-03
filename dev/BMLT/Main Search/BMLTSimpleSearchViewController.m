@@ -26,6 +26,7 @@
  \brief  This class will present the user with a simple "one-button" interface.
  *****************************************************************/
 @implementation BMLTSimpleSearchViewController
+@synthesize disabledTextLabel;
 
 @synthesize findMeetingsNearMeButton;
 @synthesize findMeetingsLaterTodayButton;
@@ -36,22 +37,26 @@
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
 {
+    [findMeetingsNearMeButton setTitle:NSLocalizedString([findMeetingsNearMeButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
+    [findMeetingsLaterTodayButton setTitle:NSLocalizedString([findMeetingsLaterTodayButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
+    [findMeetingsTomorrowButton setTitle:NSLocalizedString([findMeetingsTomorrowButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
+    [disabledTextLabel setText:NSLocalizedString([disabledTextLabel text], nil)];
+    [disabledTextLabel setAlpha:0.0];
+    
+    // If there's no way for us to search (We're on an iPhone or iPod Touch with no location services, and we have no map on those devices), then we can't use these buttons.
+    if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
+        {
+        [findMeetingsNearMeButton setEnabled:NO];
+        [findMeetingsLaterTodayButton setEnabled:NO];
+        [findMeetingsTomorrowButton setEnabled:NO];
+        [disabledTextLabel setAlpha:1.0];
+        }
+    
     if ( [[[BMLTAppDelegate getBMLTAppDelegate] searchResults] count] )
         {
         [self addClearSearchButton];
         }
     [super viewWillAppear:animated];
-}
-
-/**************************************************************//**
- \brief  Called after the controller's view object has loaded.
- *****************************************************************/
-- (void)viewDidLoad
-{
-    [findMeetingsNearMeButton setTitle:NSLocalizedString([findMeetingsNearMeButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
-    [findMeetingsLaterTodayButton setTitle:NSLocalizedString([findMeetingsLaterTodayButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
-    [findMeetingsTomorrowButton setTitle:NSLocalizedString([findMeetingsTomorrowButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
-    [super viewDidLoad];
 }
 
 /**************************************************************//**
@@ -62,6 +67,7 @@
     [self setFindMeetingsNearMeButton:nil];
     [self setFindMeetingsLaterTodayButton:nil];
     [self setMapSearchView:nil];
+    [self setDisabledTextLabel:nil];
     [super viewDidUnload];
 }
 

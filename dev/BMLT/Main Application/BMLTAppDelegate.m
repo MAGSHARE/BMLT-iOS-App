@@ -605,7 +605,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /**************************************************************//**
- \brief    Starts the animations in the two results screens.
+ \brief Starts the "Hurry up and wait" animations.
  *****************************************************************/
 - (void)startAnimations
 {
@@ -613,7 +613,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 /**************************************************************//**
- \brief    Stops the animations in the two results screens.
+ \brief Stops the animation.
  *****************************************************************/
 - (void)stopAnimations
 {

@@ -53,6 +53,18 @@
 + (UIColor *)listResultsBackgroundColor;
 
 /**************************************************************//**
+ \brief     This returns the color to be used as the background for the "Multiple Meetings" header.
+ \returns   The color to be used.
+ *****************************************************************/
++ (UIColor *)multiMeetingsBackgroundColor;
+
+/**************************************************************//**
+ \brief     This returns the color to be used for the text for the "Multiple Meetings" header.
+ \returns   The color to be used.
+ *****************************************************************/
++ (UIColor *)multiMeetingsTextColor;
+
+/**************************************************************//**
  \brief     This returns the color to be used as the main view background for the map results (seldom seen).
  \returns   The color to be used.
  *****************************************************************/

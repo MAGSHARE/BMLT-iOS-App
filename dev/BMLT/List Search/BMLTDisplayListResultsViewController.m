@@ -156,7 +156,10 @@
 #endif
                 UILabel *label = [[UILabel alloc] initWithFrame:bounds];
                 [label setText:NSLocalizedString(@"MAP-LIST-HEADER", nil)];
+                [label setFont:[UIFont boldSystemFontOfSize:kSortHeaderHeight / 2]];
                 [label setTextAlignment:UITextAlignmentCenter];
+                [label setBackgroundColor:[BMLTVariantDefs multiMeetingsBackgroundColor]];
+                [label setTextColor:[BMLTVariantDefs multiMeetingsTextColor]];
                 [ret_cast addSubview:label];
                 }
             
