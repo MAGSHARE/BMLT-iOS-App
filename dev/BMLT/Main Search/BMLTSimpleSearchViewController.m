@@ -79,13 +79,10 @@
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     
-    if ( myAppDelegate && [BMLTAppDelegate locationServicesAvailable] )
-        {
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMe.");
 #endif
-        [myAppDelegate searchForMeetingsNearMe:[self getSearchCoordinatesAndForceReNew:YES]];
-        }
+    [myAppDelegate searchForMeetingsNearMe:[self getSearchCoordinatesAndForceReNew:YES]];
 }
 
 /**************************************************************//**
@@ -95,13 +92,10 @@
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     
-    if ( myAppDelegate && [BMLTAppDelegate locationServicesAvailable] )
-        {
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMeLaterToday.");
 #endif
-        [myAppDelegate searchForMeetingsNearMeLaterToday:[self getSearchCoordinatesAndForceReNew:YES]];
-        }
+    [myAppDelegate searchForMeetingsNearMeLaterToday:[self getSearchCoordinatesAndForceReNew:YES]];
 }
 
 /**************************************************************//**
@@ -111,12 +105,9 @@
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     
-    if ( myAppDelegate && [BMLTAppDelegate locationServicesAvailable] )
-        {
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMeTomorrow.");
 #endif
-        [myAppDelegate searchForMeetingsNearMeTomorrow:[self getSearchCoordinatesAndForceReNew:YES]];
-        }
+    [myAppDelegate searchForMeetingsNearMeTomorrow:[self getSearchCoordinatesAndForceReNew:YES]];
 }
 @end
