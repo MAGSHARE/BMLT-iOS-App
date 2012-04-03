@@ -197,8 +197,15 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
     [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinates].longitude] forKey:@"long_val"];
     [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinates].latitude] forKey:@"lat_val"];
-    [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:[self getSearchCoordinates]];
-    [[BMLTAppDelegate getBMLTAppDelegate] executeSearchWithParams:myParams];    // Start the search.
+    
+    CLLocationCoordinate2D  location = CLLocationCoordinate2DMake(0.0, 0.0);
+    
+    if ( [self mapSearchView] )
+        {
+        location = [self getSearchCoordinates];
+        }
+    
+    [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:location withParams:myParams]; 
 }
 
 /**************************************************************//**
@@ -233,10 +240,14 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     geocodeInProgress = NO;
     dontLookup = YES;
     searchAfterLookup = NO;
-    if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 )
+    if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 ) // Near Me/Marker?
         {
-        [self setUpdatedOnce:NO];
-        [self updateMapWithThisLocation:[[BMLTAppDelegate getBMLTAppDelegate] myLocation].coordinate];
+        if ( ![self myMarker] ) // If we have a map view, then we'll take the location from there. If not, we use our current location, so we send a 0 location.
+            {
+            [self setUpdatedOnce:NO];
+            [self updateMapWithThisLocation:CLLocationCoordinate2DMake(0.0, 0.0)];
+            }
+        
         [searchSpecAddressTextEntry setAlpha:0.0];
         [searchSpecAddressTextEntry setEnabled:NO];
         }

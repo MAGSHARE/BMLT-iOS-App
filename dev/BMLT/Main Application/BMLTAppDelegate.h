@@ -28,6 +28,8 @@
 @class BMLT_Prefs;      ///< Foward decl for the prefs property.
 @class BMLT_Meeting;    ///< Forward decl for a meeting.
 @class A_BMLT_SearchViewController; ///< This will be for the active search controller.
+@class BMLTDisplayListResultsViewController;
+@class BMLTMapResultsViewController;
 
 #define kGoogleReverseLooupURI_Format @"http://maps.google.com/maps/geo?q=%@&output=xml&sensor=false"
 #define kAddressLookupTimeoutPeriod_in_seconds  10
@@ -55,17 +57,21 @@
 @property (nonatomic, readwrite, assign) A_BMLT_SearchViewController *activeSearchController;    ///< This will point to the active search controller. Nil, if none.
 @property (nonatomic, readwrite, assign) MKCoordinateRegion          searchMapRegion;            ///< Used to track the state of the search spec maps.
 @property (nonatomic, readwrite, assign) CLLocationCoordinate2D      searchMapMarkerLoc;         ///< This contains the location used for the search marker.
+@property (strong, nonatomic) UIViewController                       *searchNavController;       ///< This is the tab controller for all the searches.
+@property (strong, nonatomic) BMLTDisplayListResultsViewController   *listResultsViewController; ///< This will point to our list results main controller.
+@property (strong, nonatomic) BMLTMapResultsViewController           *mapResultsViewController;  ///< This will point to our map results main controller.
 
 /// Class methods
 + (BMLTAppDelegate *)getBMLTAppDelegate;                ///< This class method allows access to the application delegate object (SINGLETON)
 + (BOOL)locationServicesAvailable;                      ///< Used to check to see if location services are available.
 + (BOOL)canReachRootServer;                             ///< Returns YES, if the root server can be reached via network.
 + (BOOL)validLocation;                                  ///< Returns YES if the app has a valid location.
-+ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting withController:(UIViewController *)theController;  ///< Push the meeting details view onto the current nav stack.
++ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting inContext:(UIViewController *)inController;   ///< Push the meeting details view onto the current nav stack.
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod;    ///< This is used to calculate the time for "later today" meetings.
 
 /// Instance methods
 - (BOOL)isLookupValid;                                  ///< Returns YES, if the last location lookup is kosher.
+- (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation withParams:(NSDictionary *)params; ///< A lookup search with parameters.
 - (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation;                        ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
 - (void)searchForMeetingsNearMeLaterToday:(CLLocationCoordinate2D)inMyLocation;              ///< Same as above, but only meetings later today.
 - (void)searchForMeetingsNearMeTomorrow:(CLLocationCoordinate2D)inMyLocation;                ///< Same as above, but only meetings tomorrow.

@@ -574,7 +574,7 @@
                                 <rect key="frame" x="75" y="110" width="244" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="SEARCH-SPEC-MY-LOC"/>
+                                    <segment title="SEARCH-SPEC-MARKER-LOC"/>
                                     <segment title="SEARCH-SPEC-ADDRESS"/>
                                 </segments>
                                 <connections>

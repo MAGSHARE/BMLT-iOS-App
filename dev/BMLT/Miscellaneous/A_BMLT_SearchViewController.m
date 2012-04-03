@@ -52,6 +52,10 @@
 - (void)selectImage
 {
     [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
+    
+    CGSize  annotationSize = [[self image] size];
+    
+    [self setCenterOffset:CGPointMake((annotationSize.width / 2), -(annotationSize.height / 2))];
 }
 
 /**************************************************************//**

@@ -59,9 +59,10 @@
 /**************************************************************//**
  \brief Called when the view is about to unload.
  *****************************************************************/
-- (void)viewDidUnload
+- (void)viewDidLoad
 {
-    [super viewDidUnload];
+    [super viewDidLoad];
+    [self setMyModalController:self];
 }
 
 #pragma mark - Custom Functions -
@@ -304,16 +305,47 @@
 
 /**************************************************************//**
  \brief This displays a list of meetings (for a red marker).
+        It will use a popover for iPad.
  *****************************************************************/
 - (void)viewMeetingList:(NSArray *)inList   ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
+                 atRect:(CGRect)selectRect  ///< The rect for the marker.
+                 inView:(UIView *)inContext ///< The context for the display.
 {
     UIStoryboard    *st = [self storyboard];
     
     UIViewController    *newController = [st instantiateViewControllerWithIdentifier:@"list-view-results"];
     
     [(BMLTDisplayListResultsViewController *)newController setDataArrayFromData:inList];
+    [(BMLTDisplayListResultsViewController *)newController setMyModalController:self];
 
-    [[self navigationController] pushViewController:newController animated:YES];
+    if ( ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) )
+        {
+        listPopover = [[UIPopoverController alloc] initWithContentViewController:newController];
+        
+        [listPopover setDelegate:self];
+        
+        [listPopover presentPopoverFromRect:selectRect
+                                       inView:inContext
+                     permittedArrowDirections:UIPopoverArrowDirectionAny
+                                     animated:YES];
+        }
+    else
+        {
+        [[self navigationController] pushViewController:newController animated:YES];
+        }
+}
+
+/**************************************************************//**
+ \brief 
+ *****************************************************************/
+- (void)dismissListPopover
+{
+    if (listPopover)
+        {
+        [listPopover dismissPopoverAnimated:YES];
+        }
+    
+    listPopover = nil;
 }
 
 #pragma mark - MKMapViewDelegate Functions -
@@ -371,14 +403,14 @@ regionDidChangeAnimated:(BOOL)animated  ///< Whether or not to animate the chang
  \brief Called when a marker is selected.
  *****************************************************************/
 - (void)mapView:(MKMapView *)mapView                ///< The map view.
-didSelectAnnotationView:(MKAnnotationView *)view    ///< The selected annotation view.
+didSelectAnnotationView:(MKAnnotationView *)inView    ///< The selected annotation view.
 {
 #ifdef DEBUG
     NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView called.");
 #endif
     if ( mapView && ([mapView alpha] == 1) )
         {
-        id<MKAnnotation>    annotation = [view annotation];
+        id<MKAnnotation>    annotation = [inView annotation];
         
         if ( [annotation isKindOfClass:[BMLT_Results_MapPointAnnotation class]] && [(BMLT_Results_MapPointAnnotation *)annotation getNumberOfMeetings] )
             {
@@ -399,7 +431,7 @@ didSelectAnnotationView:(MKAnnotationView *)view    ///< The selected annotation
             
             if ( [theAnnotation getNumberOfMeetings] > 1 )
                 {
-                [self viewMeetingList:theMeetings];
+                [self viewMeetingList:theMeetings atRect:[inView frame] inView:[inView superview]];
                 }
             else
                 {

@@ -35,11 +35,13 @@
     BOOL                _map_initialized;
     IBOutlet MKMapView  *meetingMapView;
     MKCoordinateRegion  lastRegion;
+    UIPopoverController *listPopover;   ///< This will handle the list view in a popover.
 }
 
 - (void)setMapInit:(BOOL)isInit;
 - (BOOL)isMapInitialized;
-- (void)viewMeetingList:(NSArray *)inList;
+- (void)viewMeetingList:(NSArray *)inList atRect:(CGRect)selectRect inView:(UIView *)inContext;
+- (void)dismissListPopover;
 - (void)clearLastRegion;
 - (void)clearMapCompletely;
 - (void)displayMapAnnotations:(NSArray *)inResults;

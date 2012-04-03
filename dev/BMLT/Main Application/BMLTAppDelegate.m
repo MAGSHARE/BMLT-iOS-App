@@ -38,10 +38,8 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     BOOL                                    _findMeetings;              ///< If this is YES, then a meeting search will be done.
     BOOL                                    _amISick;                   ///< If true, it indicates that the alert for connectivity problems should not be shown.
     BOOL                                    _visitingRelatives;         ///< If true, then we will retain the app state, despite the flag that says we shouldn't.
+    BOOL                                    _iveUpdatedTheMap;          ///< YES, to prevent the map from being continuously updated.
     BMLT_Meeting_Search                     *mySearch;                  ///< The current meeting search in progress.
-    UIViewController                        *searchNavController;       ///< This is the tab controller for all the searches.
-    BMLTDisplayListResultsViewController    *listResultsViewController; ///< This will point to our list results main controller.
-    BMLTMapResultsViewController            *mapResultsViewController;  ///< This will point to our map results main controller.
 }
 
 - (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;   ///< Do a nice transition between tab views.
@@ -74,6 +72,9 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 @synthesize activeSearchController;     ///< This will point to the active search controller. Nil, if none.
 @synthesize searchMapRegion;            ///< Used to track the state of the search spec maps.
 @synthesize searchMapMarkerLoc;         ///< This contains the location used for the search marker.
+@synthesize searchNavController;        ///< This is the tab controller for all the searches.
+@synthesize listResultsViewController;  ///< This will point to our list results main controller.
+@synthesize mapResultsViewController;   ///< This will point to our map results main controller.
 
 #pragma mark - Class Methods -
 /**************************************************************//**
@@ -126,11 +127,17 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 /**************************************************************//**
  \brief Pushes the meeting details screen onto the current nav stack.
  *****************************************************************/
-+ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting
-            withController:(UIViewController *)theController
++ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting inContext:(UIViewController *)inController
 {
-    BMLTMeetingDetailViewController *meetingDetails = [[BMLTMeetingDetailViewController alloc] initWithMeeting:inMeeting andController:theController];
-    [[theController navigationController] pushViewController:meetingDetails animated:YES];
+    if ( !inController )
+        {
+        inController = [[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController];
+        }
+    [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];      ///< Make sure we close any open modals or popovers, first.
+    [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] dismissListPopover];
+    [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];
+    BMLTMeetingDetailViewController *meetingDetails = [[BMLTMeetingDetailViewController alloc] initWithMeeting:inMeeting andController:inController];
+    [[inController navigationController] pushViewController:meetingDetails animated:YES];
 }
 
 #pragma mark - Private methods -
@@ -418,6 +425,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be reset to initial.");
 #endif
+        _iveUpdatedTheMap = NO;
         [self clearAllSearchResults:YES];
         [activeSearchController setUpdatedOnce:NO]; // Make sure that the search map will return to your current location.
         }
@@ -450,25 +458,37 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 #pragma mark - Custom Instance Methods -
 /**************************************************************//**
- \brief Begins a lookup search, in which a location is found first,
-        then all meetings near there are returned.
+ \brief This is the base search. Params are passed in.
  *****************************************************************/
 - (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation
+                     withParams:(NSDictionary *)params 
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate searchForMeetingsNearMe called.");
+    NSLog(@"BMLTAppDelegate searchForMeetingsNearMe withParams called.");
 #endif
-    [self clearAllSearchResults:NO];
-    [self startAnimations];
     // Remember that we have a pref for result count.
+    if ( params )
+        {
+        [self clearAllSearchResults:NO];
+        [searchParams removeAllObjects];
+        [searchParams setValuesForKeysWithDictionary:params];
+        }
+    [self startAnimations];
     [searchParams setObject:[NSString stringWithFormat:@"%d", -[myPrefs resultCount]] forKey:@"geo_width"];
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate searchForMeetingsNearMe withParams called. These are the parameters:");
+    
+    for(id key in searchParams)
+        NSLog(@"key=\"%@\", value=\"%@\"", key, [searchParams objectForKey:key]);
+#endif
+                          
     if ( inMyLocation.longitude == 0 && inMyLocation.latitude == 0 )
         {
         _findMeetings = YES;   // This is a semaphore, that tells the app to do a search, once it has settled on a location.
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate searchForMeetingsNearMe: Starting a new location-based search after a lookup.");
+        NSLog(@"BMLTAppDelegate searchForMeetingsNearMe withParams Starting a new location-based search after a lookup.");
 #endif
         [locationManager startUpdatingLocation];
         }
@@ -480,10 +500,22 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.longitude] forKey:@"long_val"];
         [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.latitude] forKey:@"lat_val"];
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate searchForMeetingsNearMe: Starting a new location-based search immediately.");
+        NSLog(@"BMLTAppDelegate searchForMeetingsNearMe withParams Starting a new location-based search immediately.");
 #endif
         [self executeSearchWithParams:searchParams];    // Start the search.
         }
+}
+
+/**************************************************************//**
+ \brief Begins a lookup search, in which a location is found first,
+        then all meetings near there are returned.
+ *****************************************************************/
+- (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation
+{
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate searchForMeetingsNearMe called.");
+#endif
+    [self searchForMeetingsNearMe:inMyLocation withParams:nil];
 }
 
 /**************************************************************//**
@@ -590,6 +622,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self simpleClearSearch];
     [self stopAnimations];
     [mapResultsViewController closeModal];      ///< Make sure we close any open modals or popovers, first.
+    [mapResultsViewController dismissListPopover];
     [listResultsViewController closeModal];
     [mapResultsViewController clearMapCompletely];
     [[mapResultsViewController navigationController] popToRootViewControllerAnimated:NO];
@@ -704,7 +737,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     
     [self setMyLocation:newLocation];
-    [[self activeSearchController] updateMapWithThisLocation:[newLocation coordinate]];
+    if ( !_iveUpdatedTheMap )
+        {
+        [[self activeSearchController] updateMapWithThisLocation:[newLocation coordinate]];
+        _iveUpdatedTheMap = YES;
+        }
 
     if ( [myPrefs keepUpdatingLocation] )   // If they want us to keep updating, we will.
         {

@@ -37,7 +37,7 @@
  *****************************************************************/
 @implementation A_BMLTSearchResultsViewController
 
-@synthesize dataArray = _dataArray;
+@synthesize dataArray = _dataArray, myModalController;
 
 /**************************************************************//**
  \brief Specialize the implicit call, because we trigger a redraw, and
@@ -49,35 +49,6 @@
     _dataArray = [[NSMutableArray alloc] init];
     [_dataArray setArray:dataArray];
     [[self view] setNeedsDisplay];
-}
-
-/**************************************************************//**
- \brief  Called after the controller's view object has loaded.
- *****************************************************************/
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-/**************************************************************//**
- \brief  Called after the controller's view object has unloaded.
- *****************************************************************/
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-}
-
-/**************************************************************//**
- \brief  Called to validate the autorotation.
- \returns    a BOOL. YES if the rotation is approved.
- *****************************************************************/
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
 }
 
 /**************************************************************//**
@@ -95,7 +66,7 @@
 - (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting    ///< The meeting being displayed.
 {
     // The app delegate takes care of pushing the details window onto the stack.
-    [BMLTAppDelegate viewMeetingDetails:inMeeting withController:self];
+    [BMLTAppDelegate viewMeetingDetails:inMeeting inContext:[self myModalController]];
 }
 
 /**************************************************************//**

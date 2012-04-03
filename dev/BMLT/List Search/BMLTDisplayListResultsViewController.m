@@ -58,6 +58,7 @@
 {
     [super viewDidLoad];
     [(UITableView *)[self view] reloadData];
+    [self setMyModalController:self];
 }
 
 /**************************************************************//**
@@ -68,6 +69,10 @@
 {
     [super setDataArrayFromData:dataArray];
     [(UITableView *)[self view] reloadData];
+    
+    float   height = kSortHeaderHeight + (List_Meeting_Display_CellHeight * [dataArray count]);
+    
+    [self setContentSizeForViewInPopover:CGSizeMake([[self view] bounds].size.width, height)];    // Make sure our popover isn't too big.
 }
 
 #pragma mark - IBAction Functions -

@@ -84,7 +84,7 @@
  *****************************************************************/
 - (void)viewDidUnload
 {
-    [(A_BMLTSearchResultsViewController *)myModalController closeModal];
+//    [(A_BMLTSearchResultsViewController *)myModalController closeModal];
     navBar = nil;
     formatKeyLabel = nil;
     formatKeyImage = nil;
