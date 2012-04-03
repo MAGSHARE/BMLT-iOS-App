@@ -59,7 +59,6 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 @implementation BMLTAppDelegate
 
 #pragma mark - Synthesize Class Properties -
-@synthesize lastLookupLoc;              ///< Contains the last lookup location.
 @synthesize window      = _window;      ///< This will hold the window associated with this application instance.
 @synthesize myLocation  = _myLocation;  ///< This will hold the location set by the last location lookup.
 @synthesize locationManager;            ///< This holds the location manager instance.
@@ -496,7 +495,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
         _findMeetings = NO;   // Clear the semaphore.
         // We give the new search our location.
-        [self setLastLookupLoc:inMyLocation];
         [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.longitude] forKey:@"long_val"];
         [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.latitude] forKey:@"lat_val"];
 #ifdef DEBUG
@@ -720,7 +718,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
         {
         // We give the new search our location.
-        [self setLastLookupLoc:newLocation.coordinate];
         [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.longitude] forKey:@"long_val"];
         [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.latitude] forKey:@"lat_val"];
 #ifdef DEBUG

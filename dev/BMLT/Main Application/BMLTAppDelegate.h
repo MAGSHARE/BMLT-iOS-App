@@ -44,7 +44,6 @@
     Reachability    *hostReachable;     ///< This handles testing for the root server.
 }
 
-@property (nonatomic, readwrite, assign) CLLocationCoordinate2D lastLookupLoc; ///< This contains the location used for the last search.
 @property (strong, nonatomic) UIWindow              *window;            ///< This is the main window object (SINGLETON)
 @property (strong, nonatomic) CLLocation            *myLocation;        ///< This will contain our location.
 @property (strong, nonatomic) CLLocationManager     *locationManager;   ///< This will hold our location manager.

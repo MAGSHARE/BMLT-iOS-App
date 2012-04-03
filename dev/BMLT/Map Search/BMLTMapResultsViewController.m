@@ -158,7 +158,7 @@
     NSLog(@"BMLTMapResultsViewController determineMapSize -The current map area is NW: (%f, %f), SE: (%f, %f)", northWestCorner.longitude, northWestCorner.latitude, southEastCorner.longitude, southEastCorner.latitude );
 #endif
     // We include the user location in the map.
-    CLLocationCoordinate2D lastLookup = [[BMLTAppDelegate getBMLTAppDelegate] lastLookupLoc];
+    CLLocationCoordinate2D lastLookup = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
     
     if ( lastLookup.longitude && lastLookup.latitude )
         {
@@ -264,7 +264,7 @@
             }
         }
     
-    CLLocationCoordinate2D lastLookup = [[BMLTAppDelegate getBMLTAppDelegate] lastLookupLoc];
+    CLLocationCoordinate2D lastLookup = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
     
     if ( [ret count] && lastLookup.longitude && lastLookup.latitude )
         {
