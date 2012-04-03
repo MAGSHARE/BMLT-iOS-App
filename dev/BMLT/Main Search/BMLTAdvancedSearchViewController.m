@@ -31,7 +31,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
 @implementation BMLTAdvancedSearchViewController
-@synthesize myParams, currentElement, myCurrentLocation;
+@synthesize myParams, currentElement;
 @synthesize weekdaysLabel, weekdaysSelector, sunLabel, sunButton, monLabel, monButton, tueLabel, tueButton, wedLabel, wedButton, thuLabel, thuButton, friLabel, friButton, satLabel, satButton;
 @synthesize searchLocationLabel, searchSpecSegmentedControl, searchSpecAddressTextEntry;
 @synthesize goButton;
@@ -47,7 +47,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     if ( self )
         {
         myParams = [[NSMutableDictionary alloc] init];
-        [self setMyCurrentLocation:[[BMLTAppDelegate getBMLTAppDelegate] myLocation].coordinate];
         }
     
     return self;
@@ -266,16 +265,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
- \brief We overload this in order to keep track of the location.
- *****************************************************************/
-- (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate
-{
-    myCurrentLocation = inCoordinate;
-    
-    [super updateMapWithThisLocation:inCoordinate];
-}
-
-/**************************************************************//**
  \brief Sets up the parameters for the search, based on the state of the checkboxes.
  *****************************************************************/
 - (void)setParamsForWeekdaySelection
@@ -387,7 +376,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [myParser setDelegate:self];
     
     geocodeInProgress = YES;
-    [self setUpdatedOnce:NO];
+
     [myParser parseAsync:NO WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
 }
 
@@ -411,23 +400,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (void)updateMap
 {
-    [super updateMapWithThisLocation:myCurrentLocation];
-}
-
-/**************************************************************//**
- \brief We overload the base class function to allow use of our address lookup.
- \returns the long/lat coordinates of the search location.
- *****************************************************************/
-- (CLLocationCoordinate2D)getSearchCoordinatesAndForceReNew:(BOOL)shouldForce   ///< If this is YES, we don't get the user location from the app delegate, which will force it to look up first.
-{
-    CLLocationCoordinate2D  ret = [super getSearchCoordinatesAndForceReNew:shouldForce];
-
-    if ( myCurrentLocation.longitude || myCurrentLocation.latitude )    // If we have a valid current location, we use that.
-        {
-        ret = myCurrentLocation;
-        }
-    
-    return ret;
+    [self setUpdatedOnce:NO];
+    [super updateMapWithThisLocation:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
 }
 
 #pragma mark - MKMapViewDelegate Functions -
@@ -441,7 +415,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState  ///< The new state.
 {
     if ( newState == MKAnnotationViewDragStateNone )
         {
-        myCurrentLocation = [self getMapCoordinates];
+        [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:[[self myMarker] coordinate]];
         }
 }
 
@@ -498,10 +472,12 @@ foundCharacters:(NSString *)string          ///< The character data.
             lastLookup.longitude = [(NSString *)[coords objectAtIndex:0] doubleValue];
             lastLookup.latitude = [(NSString *)[coords objectAtIndex:1] doubleValue];
             
-            myCurrentLocation = lastLookup;
+            [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:lastLookup];
+            [self performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
+            
             geocodeInProgress = NO;
 #ifdef DEBUG
-            NSLog(@"BMLTAdvancedSearchViewController Parser set myCurrentLocation to: %f, %f", myCurrentLocation.longitude, myCurrentLocation.latitude );
+            NSLog(@"BMLTAdvancedSearchViewController Parser set location to: %f, %f", lastLookup.longitude, lastLookup.latitude );
 #endif
             }
         }

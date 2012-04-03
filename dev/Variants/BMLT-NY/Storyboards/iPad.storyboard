@@ -295,9 +295,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="nLJ-nP-ZR5">
                                 <rect key="frame" x="0.0" y="31" width="768" height="880"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="SFh-VH-MDA" id="32t-Xl-5Qm"/>
-                                </connections>
                             </mapView>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="4oS-86-45g">
                                 <rect key="frame" x="0.0" y="31" width="768" height="20"/>
@@ -572,9 +569,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="f8b-Wv-mvF">
                                 <rect key="frame" x="0.0" y="161" width="768" height="750"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="crR-vv-v9x" id="fsb-FQ-Yhm"/>
-                                </connections>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="5yb-xE-FT8">
                                 <rect key="frame" x="75" y="110" width="244" height="30"/>
@@ -764,6 +758,7 @@
                 <relationship kind="action" name="findAllMeetingsNearMe:"/>
                 <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
                 <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
+                <relationship kind="outlet" name="disabledTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>

@@ -104,6 +104,8 @@
     [super viewWillAppear:animated];
     [self setUpMap];
     [[BMLTAppDelegate getBMLTAppDelegate] setActiveSearchController:self];
+    [mapSearchView setRegion:[mapSearchView regionThatFits:[[BMLTAppDelegate getBMLTAppDelegate] searchMapRegion]]];
+    [myMarker setCoordinate:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
 }
 
 /**************************************************************//**
@@ -118,30 +120,15 @@
 #endif
         BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
         
-        CLLocationCoordinate2D  center;
-#ifdef DEBUG
-        NSLog(@"A_BMLT_SearchViewController setUpIpadMap We're using the canned coordinates.");
-#endif
-        center.latitude = [NSLocalizedString(@"INITIAL-MAP-LAT", nil) doubleValue];
-        center.longitude = [NSLocalizedString(@"INITIAL-MAP-LONG", nil) doubleValue];
+        [mapSearchView setRegion:[mapSearchView regionThatFits:[myAppDelegate searchMapRegion]] animated:YES];
         
-        if ( [myAppDelegate myLocation] )
-            {
-#ifdef DEBUG
-            NSLog(@"A_BMLT_SearchViewController setUpIpadMap We know where we are, so we'll set the map to that.");
-#endif
-            center = [myAppDelegate myLocation].coordinate;
-            }
-        
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(center, 25000, 25000);
-        
-        [mapSearchView setRegion:region animated:YES];
-        
-        myMarker = [[BMLT_Search_MapPointAnnotation alloc] initWithCoordinate:center andMeetings:nil];
+        myMarker = [[BMLT_Search_MapPointAnnotation alloc] initWithCoordinate:[myAppDelegate searchMapMarkerLoc] andMeetings:nil];
         
         [myMarker setTitle:@"Marker"];
         
         [mapSearchView addAnnotation:myMarker];
+        
+        [mapSearchView setDelegate:self];
         }
 }
 
@@ -157,6 +144,7 @@
         {
         [myMarker setCoordinate:inCoordinate];
         [mapSearchView setCenterCoordinate:[myMarker coordinate] animated:YES];
+        [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:inCoordinate];
         [self setUpdatedOnce:YES];
         }
 }
@@ -172,7 +160,7 @@
     
     if (mapSearchView)
         {
-        ret = [self getMapCoordinates];
+        ret = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
         }
     else if ( !shouldForce )
         {
@@ -200,8 +188,17 @@
     return ret;
 }
 
-#pragma mark - MkMapAnnotationDelegate Functions -
+#pragma mark - MKMapViewDelegate Functions -
+/**************************************************************//**
+ \brief Called when the map is moved, scrolled, panned, etc.
+ *****************************************************************/
+- (void)mapView:(MKMapView *)mapView    ///< The map view
+regionDidChangeAnimated:(BOOL)animated  ///< Whether or not the change was animated.
+{
+    [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapRegion:[mapView region]];
+}
 
+#pragma mark - MkMapAnnotationDelegate Functions -
 /**************************************************************//**
  \brief Returns the view for the marker in the center of the map.
  \returns an annotation view, representing the marker.

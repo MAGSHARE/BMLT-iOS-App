@@ -23,6 +23,7 @@
 #import "Reachability.h"
 #import "BMLT_Driver.h"
 #import "BMLT_Meeting_Search.h"
+#import <MapKit/MapKit.h>
 
 @class BMLT_Prefs;      ///< Foward decl for the prefs property.
 @class BMLT_Meeting;    ///< Forward decl for a meeting.
@@ -52,6 +53,8 @@
 @property (strong, nonatomic) NSMutableDictionary   *searchParams;      ///< This will hold the parameters to be used for the next search.
 @property (strong, nonatomic) NSDictionary          *lastSearchParams;  ///< This will hold the parameters that were used for the last search.
 @property (nonatomic, readwrite, assign) A_BMLT_SearchViewController *activeSearchController;    ///< This will point to the active search controller. Nil, if none.
+@property (nonatomic, readwrite, assign) MKCoordinateRegion          searchMapRegion;            ///< Used to track the state of the search spec maps.
+@property (nonatomic, readwrite, assign) CLLocationCoordinate2D      searchMapMarkerLoc;         ///< This contains the location used for the search marker.
 
 /// Class methods
 + (BMLTAppDelegate *)getBMLTAppDelegate;                ///< This class method allows access to the application delegate object (SINGLETON)

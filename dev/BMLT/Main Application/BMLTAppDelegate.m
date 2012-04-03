@@ -72,6 +72,8 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 @synthesize searchParams;               ///< This will hold the parameters to be used for the next search.
 @synthesize lastSearchParams;           ///< This will hold the parameters that were used for the last search.
 @synthesize activeSearchController;     ///< This will point to the active search controller. Nil, if none.
+@synthesize searchMapRegion;            ///< Used to track the state of the search spec maps.
+@synthesize searchMapMarkerLoc;         ///< This contains the location used for the search marker.
 
 #pragma mark - Class Methods -
 /**************************************************************//**
@@ -370,6 +372,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     [listResultsViewController addClearSearchButton];
     [mapResultsViewController addClearSearchButton];
+    
+    float   projection = [NSLocalizedString(@"INITIAL-PROJECTION", nil) floatValue] * 1000.0;
+    float   longitude = [NSLocalizedString(@"INITIAL-MAP-LONG", nil) floatValue];
+    float   latitude = [NSLocalizedString(@"INITIAL-MAP-LAT", nil) floatValue];
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(latitude, longitude);
+    
+    MKCoordinateRegion  region = MKCoordinateRegionMakeWithDistance(center, projection, projection);
+    
+    [self setSearchMapRegion:region];
+    [self setSearchMapMarkerLoc:center];
+    
     return YES;
 }
 
