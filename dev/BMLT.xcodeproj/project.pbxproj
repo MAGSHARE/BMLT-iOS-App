@@ -50,6 +50,7 @@
 		772C1641151B49E300830596 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 772C1633151B49E300830596 /* search@2x.png */; };
 		772C1642151B49E300830596 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 772C1634151B49E300830596 /* settings.png */; };
 		772C1643151B49E300830596 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 772C1635151B49E300830596 /* settings@2x.png */; };
+		77300A85152A7C4B009BC533 /* SearchMarkerSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 77300A84152A7C4B009BC533 /* SearchMarkerSelected.png */; };
 		775A10BA1528128C00CD10E1 /* Shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 775A10B91528128C00CD10E1 /* Shadow.png */; };
 		77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */; };
 		776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */; };
@@ -153,6 +154,7 @@
 		772C1633151B49E300830596 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		772C1634151B49E300830596 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		772C1635151B49E300830596 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		77300A84152A7C4B009BC533 /* SearchMarkerSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchMarkerSelected.png; sourceTree = "<group>"; };
 		775A10B91528128C00CD10E1 /* Shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shadow.png; sourceTree = "<group>"; };
 		77640D3F151A67BE00634143 /* BMLTMeetingDisplayCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMeetingDisplayCellView.h; sourceTree = "<group>"; };
 		77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMeetingDisplayCellView.m; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				772A856C15293EC600D688B5 /* SearchMarker.png */,
+				77300A84152A7C4B009BC533 /* SearchMarkerSelected.png */,
 				77B6F5C71526392400E55863 /* Concave.png */,
 				77B6F5C81526392400E55863 /* Convex.png */,
 				77B6F5C91526392400E55863 /* GreenCheck.png */,
@@ -569,6 +572,7 @@
 				77B6F5D21526392400E55863 /* RedXConcave.png in Resources */,
 				775A10BA1528128C00CD10E1 /* Shadow.png in Resources */,
 				772A856D15293EC600D688B5 /* SearchMarker.png in Resources */,
+				77300A85152A7C4B009BC533 /* SearchMarkerSelected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

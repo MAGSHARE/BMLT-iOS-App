@@ -47,8 +47,8 @@
 }
 
 /**************************************************************//**
- \brief 
- *****************************************************************/
+\brief Ensure the proper image is displayed for dragging.
+*****************************************************************/
 - (void)selectImage
 {
     [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
@@ -67,14 +67,15 @@
     {
         case MKAnnotationViewDragStateStarting:
         newDragState = MKAnnotationViewDragStateDragging;
+        [self setImage:[UIImage imageNamed:@"SearchMarkerSelected.png"]];
         break;
         
         case MKAnnotationViewDragStateEnding:
         newDragState = MKAnnotationViewDragStateNone;
+        [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
         break;
     }
-    
-    self.dragState = newDragState;
+    [super setDragState:newDragState animated:animated];
 }
 @end
 
