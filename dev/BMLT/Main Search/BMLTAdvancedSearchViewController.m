@@ -195,9 +195,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 #endif
     [searchSpecAddressTextEntry resignFirstResponder];
     [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
-    [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinatesAndForceReNew:NO].longitude] forKey:@"long_val"];
-    [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinatesAndForceReNew:NO].latitude] forKey:@"lat_val"];
-    [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:[self getSearchCoordinatesAndForceReNew:NO]];
+    [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinates].longitude] forKey:@"long_val"];
+    [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinates].latitude] forKey:@"lat_val"];
+    [[BMLTAppDelegate getBMLTAppDelegate] setLastLookupLoc:[self getSearchCoordinates]];
     [[BMLTAppDelegate getBMLTAppDelegate] executeSearchWithParams:myParams];    // Start the search.
 }
 

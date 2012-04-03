@@ -49,8 +49,7 @@
 @property (atomic, readwrite, assign) BOOL  updatedOnce;                ///< Set to YES once the first position update has occurred.
 @property (weak, atomic, readwrite) IBOutlet MKMapView *mapSearchView;  ///< If this is an iPad, then this will point to the map view. iPhone will be nil. The property is linked in the storyboard.
 
-- (CLLocationCoordinate2D)getSearchCoordinatesAndForceReNew:(BOOL)shouldForce;  ///< This returns whatever coordinates are to be used in the next search.
-- (CLLocationCoordinate2D)getMapCoordinates;                    ///< This returns whatever coordinates are indicated by the marker in the map.
+- (CLLocationCoordinate2D)getSearchCoordinates;                 ///< This returns whatever coordinates are to be used in the next search.
 - (void)setUpMap;                                               ///< In the case of this being an iPad, set up the search map.
 - (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate; ///< Updates the map to a new location.
 @end

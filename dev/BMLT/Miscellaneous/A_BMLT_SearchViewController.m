@@ -153,39 +153,9 @@
  \brief This returns whatever coordinates are to be used in the next search.
  \returns the long/lat coordinates of the search location.
  *****************************************************************/
-- (CLLocationCoordinate2D)getSearchCoordinatesAndForceReNew:(BOOL)shouldForce   ///< If this is YES, we don't get the user location from the app delegate, which will force it to look up first.
+- (CLLocationCoordinate2D)getSearchCoordinates
 {
-    CLLocationCoordinate2D  ret;
-    ret.longitude = ret.latitude = 0.0; // We start off with 0,0.
-    
-    if (mapSearchView)
-        {
-        ret = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
-        }
-    else if ( !shouldForce )
-        {
-        ret = [[BMLTAppDelegate getBMLTAppDelegate] myLocation].coordinate;  ///< This is where the user is, according to the app delegate.
-        }
-    return ret;
-}
-
-/**************************************************************//**
- \brief This returns whatever coordinates are indicated by the marker in the map.
- \returns the long/lat coordinates of the map marker.
- *****************************************************************/
-- (CLLocationCoordinate2D)getMapCoordinates
-{
-    CLLocationCoordinate2D  ret;
-    
-    ret.longitude = 0;
-    ret.latitude = 0;
-    
-    if ( myMarker )
-        {
-        ret = [myMarker coordinate];
-        }
-    
-    return ret;
+    return [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
 }
 
 #pragma mark - MKMapViewDelegate Functions -
