@@ -82,7 +82,13 @@
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMe.");
 #endif
-    [myAppDelegate searchForMeetingsNearMe:[self getSearchCoordinates]];
+    CLLocationCoordinate2D  location = CLLocationCoordinate2DMake(0.0, 0.0);
+    
+    if ( [self mapSearchView] ) // If we have a map view, then we'll take the location from there. If not, we use our current location, so we send a 0 location.
+        {
+        location = [self getSearchCoordinates];
+        }
+    [myAppDelegate searchForMeetingsNearMe:location];
 }
 
 /**************************************************************//**
@@ -95,7 +101,13 @@
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMeLaterToday.");
 #endif
-    [myAppDelegate searchForMeetingsNearMeLaterToday:[self getSearchCoordinates]];
+    CLLocationCoordinate2D  location = CLLocationCoordinate2DMake(0.0, 0.0);
+    
+    if ( [self mapSearchView] )
+        {
+        location = [self getSearchCoordinates];
+        }
+    [myAppDelegate searchForMeetingsNearMeLaterToday:location];
 }
 
 /**************************************************************//**
@@ -108,6 +120,12 @@
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMeTomorrow.");
 #endif
-    [myAppDelegate searchForMeetingsNearMeTomorrow:[self getSearchCoordinates]];
+    CLLocationCoordinate2D  location = CLLocationCoordinate2DMake(0.0, 0.0);
+    
+    if ( [self mapSearchView] )
+        {
+        location = [self getSearchCoordinates];
+        }
+    [myAppDelegate searchForMeetingsNearMeTomorrow:location];
 }
 @end
