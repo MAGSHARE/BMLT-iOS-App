@@ -194,18 +194,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     NSLog(@"BMLTAdvancedSearchViewController doSearchButtonPressed");
 #endif
     [searchSpecAddressTextEntry resignFirstResponder];
-    [myParams setObject:[NSString stringWithFormat:@"%d", -[[BMLT_Prefs getBMLT_Prefs] resultCount]] forKey:@"geo_width"];
-    [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinates].longitude] forKey:@"long_val"];
-    [myParams setObject:[NSString stringWithFormat:@"%f", [self getSearchCoordinates].latitude] forKey:@"lat_val"];
     
-    CLLocationCoordinate2D  location = CLLocationCoordinate2DMake(0.0, 0.0);
-    
-    if ( [self mapSearchView] )
-        {
-        location = [self getSearchCoordinates];
-        }
-    
-    [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:location withParams:myParams]; 
+    [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc] withParams:myParams]; 
 }
 
 /**************************************************************//**
