@@ -18,11 +18,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 #ifndef _VARIANT_DEFS_  // This kludge just keeps the compiler from yelling at us for duplicating the class definition (because this is in the precompiled header).
 #define _VARIANT_DEFS_ 1
-
-@class CLLocation;
 
 /**************************************************************//**
  \class  BMLTVariantDefs
@@ -117,7 +116,7 @@
             location (long/lat) from the given location.
  \returns   The URI of the directins call.
  *****************************************************************/
-+ (NSURL *)directionsURITo:(CLLocation *)inTo from:(CLLocation *)inFrom;
++ (NSURL *)directionsURITo:(CLLocationCoordinate2D)inTo from:(CLLocationCoordinate2D)inFrom;
 
 /**************************************************************//**
  \brief     In some cases, we may get back too many meetings. This

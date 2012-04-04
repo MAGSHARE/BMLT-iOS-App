@@ -482,7 +482,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     for(id key in searchParams)
         NSLog(@"key=\"%@\", value=\"%@\"", key, [searchParams objectForKey:key]);
 #endif
-                          
+
     if ( inMyLocation.longitude == 0 && inMyLocation.latitude == 0 )
         {
         _findMeetings = YES;   // This is a semaphore, that tells the app to do a search, once it has settled on a location.
@@ -493,6 +493,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     else
         {
+        [self setMyLocation:inMyLocation];
         _findMeetings = NO;   // Clear the semaphore.
         // We give the new search our location.
         [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.longitude] forKey:@"long_val"];
@@ -570,7 +571,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (BOOL)isLookupValid
 {
     BOOL    ret = YES;
-    CLLocationCoordinate2D  lLookup = [self myLocation].coordinate;
+    CLLocationCoordinate2D  lLookup = [self myLocation];
     
     if ( lLookup.longitude == 0 && lLookup.latitude == 0 )
         {
@@ -733,7 +734,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [self stopAnimations];
         }
     
-    [self setMyLocation:newLocation];
+    [self setMyLocation:newLocation.coordinate];
+    
     if ( !_iveUpdatedTheMap )
         {
         [[self activeSearchController] updateMapWithThisLocation:[newLocation coordinate]];

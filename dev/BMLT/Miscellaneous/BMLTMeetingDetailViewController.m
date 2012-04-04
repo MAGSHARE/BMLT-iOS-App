@@ -281,6 +281,11 @@
 - (IBAction)callForDirections:(id)sender
 {
     [[BMLTAppDelegate getBMLTAppDelegate] imVisitingRelatives];
-    [[UIApplication sharedApplication] openURL:[BMLTVariantDefs directionsURITo:[_myMeeting getMeetingLocationCoords] from:[[BMLTAppDelegate getBMLTAppDelegate] myLocation]]];
+    
+    CLLocationCoordinate2D  meetingLocation = [_myMeeting getMeetingLocationCoords].coordinate;
+    CLLocationCoordinate2D  myLocation = [[BMLTAppDelegate getBMLTAppDelegate] myLocation];
+    NSURL                   *helpfulGasStationAttendant = [BMLTVariantDefs directionsURITo:meetingLocation from:myLocation];
+    
+    [[UIApplication sharedApplication] openURL:helpfulGasStationAttendant];
 }
 @end

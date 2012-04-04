@@ -45,7 +45,6 @@
 }
 
 @property (strong, nonatomic) UIWindow              *window;            ///< This is the main window object (SINGLETON)
-@property (strong, nonatomic) CLLocation            *myLocation;        ///< This will contain our location.
 @property (strong, nonatomic) CLLocationManager     *locationManager;   ///< This will hold our location manager.
 @property (atomic) BOOL                             internetActive;     ///< Set to YES, if the network test says that the Internet is available.
 @property (atomic) BOOL                             hostActive;         ///< Set to YES, if the network test says that the root server is available.
@@ -55,6 +54,7 @@
 @property (strong, nonatomic) NSDictionary          *lastSearchParams;  ///< This will hold the parameters that were used for the last search.
 @property (nonatomic, readwrite, assign) A_BMLT_SearchViewController *activeSearchController;    ///< This will point to the active search controller. Nil, if none.
 @property (nonatomic, readwrite, assign) MKCoordinateRegion          searchMapRegion;            ///< Used to track the state of the search spec maps.
+@property (nonatomic, readwrite, assign) CLLocationCoordinate2D      myLocation;                 ///< This contains the location used for the location manager.
 @property (nonatomic, readwrite, assign) CLLocationCoordinate2D      searchMapMarkerLoc;         ///< This contains the location used for the search marker.
 @property (strong, nonatomic) UIViewController                       *searchNavController;       ///< This is the tab controller for all the searches.
 @property (strong, nonatomic) BMLTDisplayListResultsViewController   *listResultsViewController; ///< This will point to our list results main controller.
