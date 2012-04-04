@@ -60,7 +60,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 
 #pragma mark - Synthesize Class Properties -
 @synthesize window      = _window;      ///< This will hold the window associated with this application instance.
-@synthesize myLocation  = _myLocation;  ///< This will hold the location set by the last location lookup.
+@synthesize myLocation  = _myLocation;  ///< This will hold the location set by the last location lookup. This is the user location; not the search location.
 @synthesize locationManager;            ///< This holds the location manager instance.
 @synthesize internetActive;             ///< Set to YES, if the network test says that the Internet is available.
 @synthesize hostActive;                 ///< Set to YES, if the network test says that the root server is available.
@@ -70,7 +70,11 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 @synthesize lastSearchParams;           ///< This will hold the parameters that were used for the last search.
 @synthesize activeSearchController;     ///< This will point to the active search controller. Nil, if none.
 @synthesize searchMapRegion;            ///< Used to track the state of the search spec maps.
-@synthesize searchMapMarkerLoc = _markerLoc;         ///< This contains the location used for the search marker.
+@synthesize searchMapMarkerLoc = _markerLoc;         /**<   This contains the location used for the search marker.
+                                                            This is the central location for all searches and results displays. This is where the black marker sits.
+                                                            It may well be a different place from the user's location (for example, if they entered an address, or
+                                                            moved the marker in a map search). IT is not set in many places, but is referenced throughout the app.
+                                                      */
 @synthesize searchNavController;        ///< This is the tab controller for all the searches.
 @synthesize listResultsViewController;  ///< This will point to our list results main controller.
 @synthesize mapResultsViewController;   ///< This will point to our map results main controller.
