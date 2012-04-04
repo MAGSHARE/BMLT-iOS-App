@@ -171,13 +171,10 @@
     // OK. We now know how much room we need. Let's make sure that the map can accommodate all the points.
     double  longSpan = southEastCorner.longitude - northWestCorner.longitude;
     double  latSpan = northWestCorner.latitude - southEastCorner.latitude;
-    CLLocationCoordinate2D  center;
-    center.latitude = (northWestCorner.latitude + southEastCorner.latitude) / 2.0;
-    center.longitude = (southEastCorner.longitude + northWestCorner.longitude) / 2.0;
-    MKCoordinateSpan    mapSpan = MKCoordinateSpanMake(latSpan * 1.2, longSpan * 1.2);  // Slight expansion to give us "padding."
-    MKCoordinateRegion  mapMap = MKCoordinateRegionMake ( center, mapSpan );
+    CLLocationCoordinate2D  center = CLLocationCoordinate2DMake((northWestCorner.latitude + southEastCorner.latitude) / 2.0, (southEastCorner.longitude + northWestCorner.longitude) / 2.0);
+    MKCoordinateRegion  mapMap = MKCoordinateRegionMake ( center, MKCoordinateSpanMake(latSpan, longSpan) );
     
-    [(MKMapView *)[self view] setRegion:mapMap animated:NO];
+    [(MKMapView *)[self view] setRegion:[(MKMapView *)[self view] regionThatFits:mapMap] animated:NO];
     [self displayMapAnnotations:inResults];
 }
 

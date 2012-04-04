@@ -235,7 +235,7 @@
 			path = "Main Application";
 			sourceTree = "<group>";
 		};
-		771D0C3C150E892A005A707A /* Main Search Tab */ = {
+		771D0C3C150E892A005A707A /* Search Tab */ = {
 			isa = PBXGroup;
 			children = (
 				7711417015125CD100BCCE00 /* BMLTSimpleSearchViewController.h */,
@@ -243,7 +243,7 @@
 				771D0C3D150E892A005A707A /* BMLTAdvancedSearchViewController.h */,
 				771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */,
 			);
-			name = "Main Search Tab";
+			name = "Search Tab";
 			path = "Main Search";
 			sourceTree = "<group>";
 		};
@@ -415,7 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				771D0C30150E88E5005A707A /* Main Application */,
-				771D0C3C150E892A005A707A /* Main Search Tab */,
+				771D0C3C150E892A005A707A /* Search Tab */,
 				771D0CCF150E8B73005A707A /* List Results Tab */,
 				771D0C4D150E893C005A707A /* Map Results Tab */,
 				771D0C73150E893C005A707A /* Settings Tab */,

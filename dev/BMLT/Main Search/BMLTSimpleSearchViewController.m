@@ -84,9 +84,9 @@
 #endif
     CLLocationCoordinate2D  location = CLLocationCoordinate2DMake(0.0, 0.0);
     
-    if ( [self mapSearchView] ) // If we have a map view, then we'll take the location from there. If not, we use our current location, so we send a 0 location.
+    if ( [self myMarker] ) // If we have a map view, then we'll take the location from there. If not, we use our current location, so we send a 0 location.
         {
-        location = [self getSearchCoordinates];
+        location = [[self myMarker] coordinate];
         }
     [myAppDelegate searchForMeetingsNearMe:location];
 }
@@ -103,9 +103,9 @@
 #endif
     CLLocationCoordinate2D  location = CLLocationCoordinate2DMake(0.0, 0.0);
     
-    if ( [self mapSearchView] )
+    if ( [self myMarker] ) // If we have a map view, then we'll take the location from there. If not, we use our current location, so we send a 0 location.
         {
-        location = [self getSearchCoordinates];
+        location = [[self myMarker] coordinate];
         }
     [myAppDelegate searchForMeetingsNearMeLaterToday:location];
 }
@@ -122,9 +122,9 @@
 #endif
     CLLocationCoordinate2D  location = CLLocationCoordinate2DMake(0.0, 0.0);
     
-    if ( [self mapSearchView] )
+    if ( [self myMarker] ) // If we have a map view, then we'll take the location from there. If not, we use our current location, so we send a 0 location.
         {
-        location = [self getSearchCoordinates];
+        location = [[self myMarker] coordinate];
         }
     [myAppDelegate searchForMeetingsNearMeTomorrow:location];
 }

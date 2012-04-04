@@ -248,7 +248,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C3s-sr-oSN">
-                                <rect key="frame" x="10" y="5" width="244" height="23"/>
+                                <rect key="frame" x="10" y="5" width="244" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-NEARBY-TITLE">
@@ -263,7 +263,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oHM-sY-V2t">
-                                <rect key="frame" x="262" y="5" width="244" height="23"/>
+                                <rect key="frame" x="262" y="5" width="244" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-LATER-TODAY-TITLE">
@@ -278,7 +278,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NNa-Bu-ist">
-                                <rect key="frame" x="514" y="5" width="244" height="23"/>
+                                <rect key="frame" x="514" y="5" width="244" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="SEARCH-SPEC-TOMORROW-TITLE">
@@ -293,11 +293,11 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="nLJ-nP-ZR5">
-                                <rect key="frame" x="0.0" y="31" width="768" height="880"/>
+                                <rect key="frame" x="0.0" y="44" width="768" height="867"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="4oS-86-45g">
-                                <rect key="frame" x="0.0" y="31" width="768" height="20"/>
+                                <rect key="frame" x="0.0" y="44" width="768" height="20"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -599,7 +599,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qkj-bw-yHW">
-                                <rect key="frame" x="710" y="108" width="55" height="32"/>
+                                <rect key="frame" x="709" y="108" width="55" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="ADVANCED-GO-BUTTON">

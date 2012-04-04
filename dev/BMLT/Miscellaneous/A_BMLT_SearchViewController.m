@@ -97,7 +97,7 @@
         the iPad version of the app.
  *****************************************************************/
 @implementation A_BMLT_SearchViewController
-@synthesize mapSearchView, myMarker, updatedOnce;
+@synthesize mapSearchView, myMarker;
 
 /**************************************************************//**
  \brief  Called just before the view will appear. We use it to set
@@ -144,12 +144,11 @@
  *****************************************************************/
 - (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate
 {
-    if ( mapSearchView && myMarker && ![self updatedOnce] )
+    if ( mapSearchView && myMarker )
         {
         [myMarker setCoordinate:inCoordinate];
         [mapSearchView setCenterCoordinate:[myMarker coordinate] animated:YES];
         [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:inCoordinate];
-        [self setUpdatedOnce:YES];
         }
 }
 

@@ -242,12 +242,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     searchAfterLookup = NO;
     if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 ) // Near Me/Marker?
         {
-        if ( ![self myMarker] ) // If we have a map view, then we'll take the location from there. If not, we use our current location, so we send a 0 location.
-            {
-            [self setUpdatedOnce:NO];
-            [self updateMapWithThisLocation:CLLocationCoordinate2DMake(0.0, 0.0)];
-            }
-        
+        [self updateMapWithThisLocation:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
         [searchSpecAddressTextEntry setAlpha:0.0];
         [searchSpecAddressTextEntry setEnabled:NO];
         }
@@ -411,7 +406,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (void)updateMap
 {
-    [self setUpdatedOnce:NO];
     [super updateMapWithThisLocation:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
 }
 

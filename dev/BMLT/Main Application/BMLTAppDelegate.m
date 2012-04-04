@@ -426,7 +426,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
         _iveUpdatedTheMap = NO;
         [self clearAllSearchResults:YES];
-        [activeSearchController setUpdatedOnce:NO]; // Make sure that the search map will return to your current location.
         }
     else if ( !_visitingRelatives )
         {
@@ -738,7 +737,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     if ( !_iveUpdatedTheMap )
         {
-        [[self activeSearchController] updateMapWithThisLocation:[newLocation coordinate]];
+        [self setSearchMapMarkerLoc:[newLocation coordinate]];
         _iveUpdatedTheMap = YES;
         }
 
