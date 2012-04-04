@@ -20,6 +20,9 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
 
+#define kNumberOfPixelsDown 24
+#define kNumberOfPixelsLeft 19
+
 /**************************************************************//**
  \class BMLT_Search_BlackAnnotationView
  \brief We modify the black annotation view to allow dragging.
@@ -53,9 +56,7 @@
 {
     [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
     
-    CGSize  annotationSize = [[self image] size];
-    
-    [self setCenterOffset:CGPointMake((annotationSize.width / 2), -(annotationSize.height / 2))];
+    [self setCenterOffset:CGPointMake(-kNumberOfPixelsLeft, -kNumberOfPixelsDown)];    // Hardcoded, but the image has a specific point.
 }
 
 /**************************************************************//**
@@ -148,8 +149,20 @@
         {
         [myMarker setCoordinate:inCoordinate];
         [mapSearchView setCenterCoordinate:[myMarker coordinate] animated:YES];
+        }
+    if ( inCoordinate.longitude != 0 || inCoordinate.latitude != 0 )
+        {
+#ifdef DEBUG
+        NSLog(@"A_BMLT_SearchViewController updateMapWithThisLocation set location to: %f, %f", inCoordinate.longitude, inCoordinate.latitude );
+#endif
         [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:inCoordinate];
         }
+#ifdef DEBUG
+    else
+        {
+        NSLog(@"A_BMLT_SearchViewController NULL location!");
+        }
+#endif
 }
 
 /**************************************************************//**
@@ -158,6 +171,9 @@
  *****************************************************************/
 - (CLLocationCoordinate2D)getSearchCoordinates
 {
+#ifdef DEBUG
+    NSLog(@"A_BMLT_SearchViewController getSearchCoordinates" );
+#endif
     return [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
 }
 
@@ -168,6 +184,9 @@
 - (void)mapView:(MKMapView *)mapView    ///< The map view
 regionDidChangeAnimated:(BOOL)animated  ///< Whether or not the change was animated.
 {
+#ifdef DEBUG
+    NSLog(@"A_BMLT_SearchViewController regionDidChangeAnimated" );
+#endif
     [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapRegion:[mapView region]];
 }
 
@@ -188,6 +207,9 @@ regionDidChangeAnimated:(BOOL)animated  ///< Whether or not the change was anima
     
     if ( !ret )
         {
+#ifdef DEBUG
+        NSLog(@"A_BMLT_SearchViewController mapView: viewForAnnotation:. Creating Black Marker at (%f, %f)", [annotation coordinate].latitude, [annotation coordinate].longitude );
+#endif
         ret = [[BMLT_Search_BlackAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier coordinate:[annotation coordinate]];
         }
     

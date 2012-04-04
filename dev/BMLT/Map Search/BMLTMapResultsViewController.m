@@ -245,7 +245,7 @@
 #endif
                 [annotation addMeeting:meeting];
                 }
-            
+
             if ( annotation )
                 {
                 if ( !ret )
@@ -261,17 +261,13 @@
             }
         }
     
-    CLLocationCoordinate2D lastLookup = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
+    // This is the black marker.
+    BMLT_Results_MapPointAnnotation *annotation = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc] andMeetings:nil];
     
-    if ( [ret count] && lastLookup.longitude && lastLookup.latitude )
+    if ( annotation )
         {
-        BMLT_Results_MapPointAnnotation *annotation = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:lastLookup andMeetings:nil];
-        
-        if ( annotation )
-            {
-            [annotation setTitle:NSLocalizedString(@"BLACK-MARKER-TITLE", nil)];
-            [ret addObject:annotation];
-            }
+        [annotation setTitle:NSLocalizedString(@"BLACK-MARKER-TITLE", nil)];
+        [ret addObject:annotation];
         }
     
     return ret;
@@ -372,7 +368,7 @@
 #ifdef DEBUG
                 NSLog(@"BMLTMapResultsViewController mapView:viewForAnnotation -Black Center Annotation.");
 #endif
-                ret = [[BMLT_Results_BlackAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Center_Annot"];
+                ret = [[BMLT_Results_BlackAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Search_Location_Annot"];
                 
                 [ret setCanShowCallout:YES];
                 }

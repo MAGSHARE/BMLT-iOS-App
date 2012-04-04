@@ -70,7 +70,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 @synthesize lastSearchParams;           ///< This will hold the parameters that were used for the last search.
 @synthesize activeSearchController;     ///< This will point to the active search controller. Nil, if none.
 @synthesize searchMapRegion;            ///< Used to track the state of the search spec maps.
-@synthesize searchMapMarkerLoc;         ///< This contains the location used for the search marker.
+@synthesize searchMapMarkerLoc = _markerLoc;         ///< This contains the location used for the search marker.
 @synthesize searchNavController;        ///< This is the tab controller for all the searches.
 @synthesize listResultsViewController;  ///< This will point to our list results main controller.
 @synthesize mapResultsViewController;   ///< This will point to our map results main controller.
@@ -227,6 +227,8 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     [listResultsViewController setDataArrayFromData:[self searchResults]];
     [mapResultsViewController setDataArrayFromData:[self searchResults]];
     [mapResultsViewController setMapInit:NO];
+    [listResultsViewController addClearSearchButton];
+    [mapResultsViewController addClearSearchButton];
     
     if ( [[self searchResults] count] )
         {
@@ -371,13 +373,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:2] topViewController];
     
     [self clearAllSearchResults:YES];
-    if ( [myPrefs lookupMyLocation] )
-        {
-        [locationManager startUpdatingLocation];
-        }
-    
-    [listResultsViewController addClearSearchButton];
-    [mapResultsViewController addClearSearchButton];
     
     float   projection = [NSLocalizedString(@"INITIAL-PROJECTION", nil) floatValue] * 1000.0;
     float   longitude = [NSLocalizedString(@"INITIAL-MAP-LONG", nil) floatValue];
@@ -388,6 +383,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     [self setSearchMapRegion:region];
     [self setSearchMapMarkerLoc:center];
+    
+    if ( [myPrefs lookupMyLocation] )
+        {
+        [locationManager startUpdatingLocation];
+        }
     
     return YES;
 }
@@ -648,6 +648,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self clearAllSearchResults:NO];
 }
 
+#ifdef DEBUG
+/**************************************************************//**
+ \brief Debug-only accessor, so we can log assignment to this data member.
+ *****************************************************************/
+- (void)setSearchMapMarkerLoc:(CLLocationCoordinate2D)inLocation
+{
+    NSLog(@"BMLTAppDelegate setSearchMapMarkerLoc: (%f, %f)", inLocation.latitude, inLocation.longitude);
+    _markerLoc = inLocation;
+}
+#endif
+
 /**************************************************************//**
  \brief Starts the "Hurry up and wait" animations.
  *****************************************************************/
@@ -712,39 +723,46 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy);
 #endif
     
-    [locationManager stopUpdatingLocation]; // Stop updating for now.
-    
-    // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).
-    if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
+    if ( newLocation.coordinate.longitude != 0 && newLocation.coordinate.latitude != 0 )
         {
-        // We give the new search our location.
-        [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.longitude] forKey:@"long_val"];
-        [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.latitude] forKey:@"lat_val"];
-#ifdef DEBUG
-        NSLog(@"BMLTAppDelegate didUpdateToLocation: Starting a new location-based search.");
-#endif
-        [self executeSearchWithParams:searchParams];    // Start the search.
+        [locationManager stopUpdatingLocation]; // Stop updating for now.
         
-        _findMeetings = NO; // Clear the semaphore.
-        [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
+        // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).
+        if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
+            {
+            // We give the new search our location.
+            [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.longitude] forKey:@"long_val"];
+            [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.latitude] forKey:@"lat_val"];
+#ifdef DEBUG
+            NSLog(@"BMLTAppDelegate didUpdateToLocation: Starting a new location-based search.");
+#endif
+            [self performSelectorOnMainThread:@selector(executeSearchWithParams:) withObject:searchParams waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
+            }
+        else
+            {
+            [self stopAnimations];
+            }
+        
+        [self setMyLocation:[newLocation coordinate]];
+        
+        if ( !_iveUpdatedTheMap )
+            {
+            [activeSearchController updateMapWithThisLocation:[newLocation coordinate]];
+            _iveUpdatedTheMap = YES;
+            }
+        
+        if ( [myPrefs keepUpdatingLocation] )   // If they want us to keep updating, we will.
+            {
+            [locationManager startUpdatingLocation];
+            }
         }
-    else
+#ifdef DEBUG
+    else    // Something's wrong. We cannot be at exactly 0,0. Try again.
         {
-        [self stopAnimations];
+        NSLog(@"BMLTAppDelegate didUpdateToLocation Location Error: (%@)", newLocation);
         }
-    
-    [self setMyLocation:newLocation.coordinate];
-    
-    if ( !_iveUpdatedTheMap )
-        {
-        [self setSearchMapMarkerLoc:[newLocation coordinate]];
-        _iveUpdatedTheMap = YES;
-        }
-
-    if ( [myPrefs keepUpdatingLocation] )   // If they want us to keep updating, we will.
-        {
-        [locationManager startUpdatingLocation];
-        }
+#endif
 }
 
 #pragma mark - UITabBarControllerDelegate code -
@@ -968,6 +986,7 @@ shouldSelectViewController:(UIViewController *)inViewController
  *****************************************************************/
 - (void)executeSearchWithParams:(NSDictionary *)inSearchParams  ///< These are the search criteria to be sent to the server.
 {
+    _findMeetings = NO; // Clear the semaphore.
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate executeSearchWithParams called.");
 #endif

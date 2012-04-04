@@ -406,7 +406,11 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (void)updateMap
 {
-    [super updateMapWithThisLocation:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
+    CLLocationCoordinate2D  newLoc = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
+#ifdef DEBUG
+    NSLog(@"BMLTAdvancedSearchViewController updateMap set location to: %f, %f", newLoc.longitude, newLoc.latitude );
+#endif
+    [super updateMapWithThisLocation:newLoc];
 }
 
 #pragma mark - MKMapViewDelegate Functions -
@@ -477,12 +481,20 @@ foundCharacters:(NSString *)string          ///< The character data.
             lastLookup.longitude = [(NSString *)[coords objectAtIndex:0] doubleValue];
             lastLookup.latitude = [(NSString *)[coords objectAtIndex:1] doubleValue];
             
-            [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:lastLookup];
-            [self performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
+            if ( lastLookup.longitude != 0 && lastLookup.latitude != 0 )
+                {
+                [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:lastLookup];
             
-            geocodeInProgress = NO;
+                geocodeInProgress = NO;
 #ifdef DEBUG
-            NSLog(@"BMLTAdvancedSearchViewController Parser set location to: %f, %f", lastLookup.longitude, lastLookup.latitude );
+                NSLog(@"BMLTAdvancedSearchViewController Parser set location to: %f, %f", lastLookup.longitude, lastLookup.latitude );
+#endif
+                }
+#ifdef DEBUG
+            else
+                {
+                NSLog(@"BMLTAdvancedSearchViewController NULL location!");
+                }
 #endif
             }
         }
@@ -552,15 +564,9 @@ parseErrorOccurred:(NSError *)parseError    ///< The error.
         }
     else
         {
-        if ( [self mapSearchView] )
-            {
-#ifdef DEBUG
-            NSLog(@"BMLTAdvancedSearchViewController parserDidEndDocument. Updating the map." );
-#endif
-            searchAfterLookup = NO;
-            [self performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
-            }
-        else if ( searchAfterLookup )
+        [self performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
+        
+        if ( searchAfterLookup )
             {
 #ifdef DEBUG
             NSLog(@"BMLTAdvancedSearchViewController parserDidEndDocument. Starting a Search." );

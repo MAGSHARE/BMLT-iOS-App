@@ -47,8 +47,26 @@
     
     if ( ![navItem leftBarButtonItem] && ([[self navigationController] topViewController] == [[[self navigationController] viewControllers] objectAtIndex:0]) )
         {
+#ifdef DEBUG
+        NSLog(@"A_BMLTNavBarViewController addClearSearchButton: Adding a Clear Search Button to the %@ screen", [navItem title] );
+#endif
         [navItem setLeftBarButtonItem:clearButton animated:NO];
         }
+#ifdef DEBUG
+    else
+        {
+        NSLog(@"A_BMLTNavBarViewController addClearSearchButton: Clear Search Button NOT ADDED to the %@ screen.", [navItem title] );
+        if ( [navItem leftBarButtonItem] )
+            {
+            NSLog(@"A_BMLTNavBarViewController addClearSearchButton: This is because there is already a Left Button." );
+            }
+        
+        if ( ([[self navigationController] topViewController] != [[[self navigationController] viewControllers] objectAtIndex:0]) )
+            {
+            NSLog(@"A_BMLTNavBarViewController addClearSearchButton: This is because this is not the top controller." );
+            }
+        }
+#endif
 }
 
 /**************************************************************//**
