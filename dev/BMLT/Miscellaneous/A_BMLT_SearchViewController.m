@@ -28,15 +28,15 @@
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
 @implementation BMLT_Search_BlackAnnotationView
-@synthesize coordinate = _coordinate;
+@synthesize coordinate = _coordinate;                           ///< The annotation/marker coordinate.
 
 /**************************************************************//**
  \brief We simply switch on the draggable bit, here.
  \returns self
  *****************************************************************/
-- (id)initWithAnnotation:(id<MKAnnotation>)annotation
-         reuseIdentifier:(NSString *)reuseIdentifier
-              coordinate:(CLLocationCoordinate2D)inCoordinate
+- (id)initWithAnnotation:(id<MKAnnotation>)annotation           ///< The annotation for this marker view
+         reuseIdentifier:(NSString *)reuseIdentifier            ///< The Reuse ID
+              coordinate:(CLLocationCoordinate2D)inCoordinate   ///< The corrdinate of the annotation.
 {
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
 
@@ -62,8 +62,8 @@
 /**************************************************************//**
  \brief Handles dragging. Changes the image while dragging.
  *****************************************************************/
-- (void)setDragState:(MKAnnotationViewDragState)newDragState
-            animated:(BOOL)animated
+- (void)setDragState:(MKAnnotationViewDragState)newDragState    ///< The upcoming drag state
+            animated:(BOOL)animated                             ///< Whether or not to animate the drag.
 {
 #ifdef DEBUG
     NSLog(@"BMLT_Search_BlackAnnotationView::setDragState: animated: called.");
@@ -102,7 +102,7 @@
  \brief  Called just before the view will appear. We use it to set
          up the map (in an iPad).
  *****************************************************************/
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated   /// YES, if the view will be animated.
 {
     [super viewWillAppear:animated];
     [self setUpMap];
@@ -140,7 +140,7 @@
 /**************************************************************//**
  \brief  Updates the map to a new location.
  *****************************************************************/
-- (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate
+- (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate  ///< The new coordinate for the marker.
 {
     if ( mapSearchView && myMarker )
         {
@@ -189,7 +189,7 @@
 /**************************************************************//**
  \brief  Look up the user's location.
  *****************************************************************/
-- (IBAction)locationButtonPressed:(id)sender
+- (IBAction)locationButtonPressed:(id)sender    ///< The button object.
 {
     [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
 }
@@ -210,10 +210,10 @@ regionDidChangeAnimated:(BOOL)animated  ///< Whether or not the change was anima
 /**************************************************************//**
  \brief Called when the marker is dragged.
  *****************************************************************/
-- (void)mapView:(MKMapView *)mapView
-annotationView:(MKAnnotationView *)annotationView
-didChangeDragState:(MKAnnotationViewDragState)newState
-fromOldState:(MKAnnotationViewDragState)oldState
+- (void)mapView:(MKMapView *)mapView                    ///< The map view.
+annotationView:(MKAnnotationView *)annotationView       ///< The annotation view.
+didChangeDragState:(MKAnnotationViewDragState)newState  ///< The new state of the annotation.
+fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state of the annotation.
 {
 #ifdef DEBUG
     NSLog(@"A_BMLT_SearchViewController::mapView: annotationView: newState:%d oldState:%d called.", newState, oldState);
@@ -233,8 +233,8 @@ fromOldState:(MKAnnotationViewDragState)oldState
  \brief Returns the view for the marker in the center of the map.
  \returns an annotation view, representing the marker.
  *****************************************************************/
-- (MKAnnotationView *)mapView:(MKMapView *)mapView
-            viewForAnnotation:(id < MKAnnotation >)annotation
+- (MKAnnotationView *)mapView:(MKMapView *)mapView              ///< The map view.
+            viewForAnnotation:(id < MKAnnotation >)annotation   ///< The annotation view.
 {
 #ifdef DEBUG
     NSLog(@"A_BMLT_SearchViewController viewForAnnotation called.");
