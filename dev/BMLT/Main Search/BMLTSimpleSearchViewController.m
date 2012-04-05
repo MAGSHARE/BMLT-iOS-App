@@ -73,14 +73,6 @@
 
 #pragma mark IB Actions
 /**************************************************************//**
- \brief  Look up the user's location.
- *****************************************************************/
-- (IBAction)locationButtonPressed:(id)sender
-{
-    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
-}
-
-/**************************************************************//**
  \brief  Do a simple meeting lookup.
  *****************************************************************/
 - (IBAction)findAllMeetingsNearMe:(id)sender    ///< The object that called this.

@@ -29,6 +29,13 @@
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
+
+#define kSearchTabIndex             0   /**< The index of the Search tab. */
+
+#define kListResultsTabIndex        (kSearchTabIndex + 1)   /**< The index of the list results tab. */
+#define kMapResultsTabIndex         (kSearchTabIndex + 2)   /**< The index of the map results tab. */
+#define kSettingsTabIndex           (kSearchTabIndex + 3)   /**< The index of the settings tab. */
+
 /**************************************************************//**
  \class  BMLTAppDelegate -Private Interface
  \brief  This is the main application delegate class for the BMLT application
@@ -192,7 +199,6 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
         UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:NSLocalizedString(@"ERROR-CANT-LOAD-DRIVER",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
         [myAlert show];
         }
-    
 }
 
 /**************************************************************//**
@@ -253,7 +259,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 #endif
     UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
     
-    [tabController setSelectedIndex:0]; // Set the tab bar to the search screens.
+    [tabController setSelectedIndex:kSearchTabIndex]; // Set the tab bar to the search screens.
     
     if ( force )
         {
@@ -348,23 +354,25 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions called.");
 #endif
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
-    [tabController setSelectedIndex:0];
+    
+    [tabController setSelectedIndex:kSearchTabIndex];
     [tabController setDelegate:self];
     // We're going to have a blue "leather" background for most screens.
     if ( [BMLTVariantDefs windowBackgroundColor] )
         {
         [_window setBackgroundColor:[BMLTVariantDefs windowBackgroundColor]];
         }
-    for ( NSInteger i = 0; i < [[tabController viewControllers] count]; i++ )
+    
+    for ( NSInteger i = kSearchTabIndex; i < [[tabController viewControllers] count]; i++ )
         {
         UITabBarItem    *theItem = [[[tabController viewControllers] objectAtIndex:i] tabBarItem];
         [theItem setTitle:NSLocalizedString([theItem title], nil)];
         }
     
     // We keep track of these in private data members for convenience.
-    searchNavController = (UINavigationController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:0] topViewController];
-    listResultsViewController = (BMLTDisplayListResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:1] topViewController];
-    mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:2] topViewController];
+    searchNavController = (UINavigationController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kSearchTabIndex] topViewController];
+    listResultsViewController = (BMLTDisplayListResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kListResultsTabIndex] topViewController];
+    mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kMapResultsTabIndex] topViewController];
     
     [self clearAllSearchResults:YES];
     
@@ -375,6 +383,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     MKCoordinateRegion  region = MKCoordinateRegionMakeWithDistance(center, projection, projection);
     
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions Initializing the map region and center point to the server default.");
+#endif
     [self setSearchMapRegion:region];
     [self setSearchMapMarkerLoc:center];
     
@@ -584,7 +595,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
         [listResultsItem setEnabled:NO];
         [mapResultsItem setEnabled:NO];
-        [tabController setSelectedIndex:0];
+        [tabController setSelectedIndex:kSearchTabIndex];
         }
 }
 
@@ -734,6 +745,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         
         if ( !_iveUpdatedTheMap )   // If we are flagged to set our search location, then we do so now.
             {
+#ifdef DEBUG
+            NSLog(@"BMLTAppDelegate::didUpdateToLocation Setting the marker location to (%f, %f).", newLocation.coordinate.longitude, newLocation.coordinate.latitude);
+#endif
             [self setSearchMapMarkerLoc:[newLocation coordinate]];
             [activeSearchController performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
             _iveUpdatedTheMap = YES;

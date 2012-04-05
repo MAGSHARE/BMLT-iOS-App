@@ -29,7 +29,7 @@
     @property (weak, nonatomic) IBOutlet UIButton   *findMeetingsLaterTodayButton;  ///< This is the "find meetings near me later today" button.
     @property (weak, nonatomic) IBOutlet UIButton   *findMeetingsTomorrowButton;    ///< This is the "find meetings near me tomorrow" button.
     @property (weak, nonatomic) IBOutlet UILabel    *disabledTextLabel;             ///< Displayed if the buttons are disabled.
-    - (IBAction)locationButtonPressed:(id)sender;
+
     - (IBAction)findAllMeetingsNearMe:(id)sender;                                   ///< Do a simple meeting lookup.
     - (IBAction)findAllMeetingsNearMeLaterToday:(id)sender;                         ///< Do a simple meeting lookup, for meetings later today.
     - (IBAction)findAllMeetingsNearMeTomorrow:(id)sender;                           ///< Do a simple meeting lookup, for meetings tomorrow.

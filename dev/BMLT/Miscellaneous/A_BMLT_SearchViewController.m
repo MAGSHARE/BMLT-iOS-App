@@ -66,19 +66,16 @@
             animated:(BOOL)animated
 {
 #ifdef DEBUG
-    NSLog(@"BMLT_Search_BlackAnnotationView setDragState called.");
+    NSLog(@"BMLT_Search_BlackAnnotationView::setDragState: animated: called.");
 #endif
     switch ( newDragState )
     {
         case MKAnnotationViewDragStateStarting:
-        newDragState = MKAnnotationViewDragStateDragging;
         [self setImage:[UIImage imageNamed:@"SearchMarkerSelected.png"]];
         break;
         
         case MKAnnotationViewDragStateEnding:
-        newDragState = MKAnnotationViewDragStateNone;
         [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
-        [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:[self coordinate]];
         break;
     }
     [super setDragState:newDragState animated:animated];
@@ -133,7 +130,7 @@
         myMarker = [[BMLT_Search_MapPointAnnotation alloc] initWithCoordinate:markerLoc andMeetings:nil];
         
         [myMarker setTitle:@"Marker"];
-        
+
         [mapSearchView addAnnotation:myMarker];
         
         [mapSearchView setDelegate:self];
@@ -189,6 +186,14 @@
     return [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
 }
 
+/**************************************************************//**
+ \brief  Look up the user's location.
+ *****************************************************************/
+- (IBAction)locationButtonPressed:(id)sender
+{
+    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
+}
+
 #pragma mark - MKMapViewDelegate Functions -
 /**************************************************************//**
  \brief Called when the map is moved, scrolled, panned, etc.
@@ -200,6 +205,27 @@ regionDidChangeAnimated:(BOOL)animated  ///< Whether or not the change was anima
     NSLog(@"A_BMLT_SearchViewController regionDidChangeAnimated" );
 #endif
     [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapRegion:[mapView region]];
+}
+
+/**************************************************************//**
+ \brief Called when the marker is dragged.
+ *****************************************************************/
+- (void)mapView:(MKMapView *)mapView
+annotationView:(MKAnnotationView *)annotationView
+didChangeDragState:(MKAnnotationViewDragState)newState
+fromOldState:(MKAnnotationViewDragState)oldState
+{
+#ifdef DEBUG
+    NSLog(@"A_BMLT_SearchViewController::mapView: annotationView: newState:%d oldState:%d called.", newState, oldState);
+#endif
+    if ( newState == MKAnnotationViewDragStateEnding )
+        {
+        CLLocationCoordinate2D  markerLoc = [myMarker coordinate];
+#ifdef DEBUG
+            NSLog(@"A_BMLT_SearchViewController::mapView: annotationView: newState: oldState: Setting new location to (%f, %f).", markerLoc.longitude, markerLoc.latitude);
+#endif
+        [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:markerLoc];
+        }
 }
 
 #pragma mark - MkMapAnnotationDelegate Functions -
@@ -227,5 +253,6 @@ regionDidChangeAnimated:(BOOL)animated  ///< Whether or not the change was anima
     
     return ret;
 }
+
 
 @end

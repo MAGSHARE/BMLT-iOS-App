@@ -81,8 +81,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     
     [searchSpecAddressTextEntry setPlaceholder:NSLocalizedString([searchSpecAddressTextEntry placeholder], nil)];
     
-    [self searchSpecChanged:searchSpecSegmentedControl];
-    
     [goButton setTitle:NSLocalizedString([goButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
     
     [super viewDidLoad];
@@ -261,14 +259,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
         }
     dontLookup = NO;
-}
-
-/**************************************************************//**
- \brief  Look up the user's location.
- *****************************************************************/
-- (IBAction)locationButtonPressed:(id)sender
-{
-    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
 }
 
 /**************************************************************//**
@@ -457,17 +447,20 @@ foundCharacters:(NSString *)string          ///< The character data.
             
             if ( lastLookup.longitude != 0 && lastLookup.latitude != 0 )
                 {
+#ifdef DEBUG
+                NSLog(@"BMLTAdvancedSearchViewController::parser: foundCharacters: Setting the marker location to (%f, %f).", lastLookup.longitude, lastLookup.latitude);
+#endif
                 [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:lastLookup];
             
                 geocodeInProgress = NO;
 #ifdef DEBUG
-                NSLog(@"BMLTAdvancedSearchViewController Parser set location to: %f, %f", lastLookup.longitude, lastLookup.latitude );
+                NSLog(@"BMLTAdvancedSearchViewController::parser: foundCharacters: set location to: %f, %f", lastLookup.longitude, lastLookup.latitude );
 #endif
                 }
 #ifdef DEBUG
             else
                 {
-                NSLog(@"BMLTAdvancedSearchViewController NULL location!");
+                NSLog(@"BMLTAdvancedSearchViewController::parser: foundCharacters: NULL location!");
                 }
 #endif
             }

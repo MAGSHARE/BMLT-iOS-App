@@ -52,4 +52,5 @@
 - (void)setUpMap;                                               ///< In the case of this being an iPad, set up the search map.
 - (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate; ///< Updates the map to a new location.
 - (void)updateMap;                                              ///< Same as above, but for being called in the main thread.
+- (IBAction)locationButtonPressed:(id)sender;                   ///< Causes the app. delegate to look up the user's location again.
 @end
