@@ -232,7 +232,14 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     searchAfterLookup = NO;
     if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 ) // Near Me/Marker?
         {
-        [self updateMapWithThisLocation:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
+        if ( [self myMarker] )
+            {
+            [self updateMapWithThisLocation:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
+            }
+        else
+            {
+            [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:[[BMLTAppDelegate getBMLTAppDelegate] myLocation]];
+            }
         [searchSpecAddressTextEntry setAlpha:0.0];
         [searchSpecAddressTextEntry setEnabled:NO];
         }
@@ -258,6 +265,14 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
         }
     dontLookup = NO;
+}
+
+/**************************************************************//**
+ \brief  Look up the user's location.
+ *****************************************************************/
+- (IBAction)locationButtonPressed:(id)sender
+{
+    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
 }
 
 /**************************************************************//**
@@ -389,18 +404,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     dontLookup = NO;
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GEOCODE-FAILURE",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
     [myAlert show];    
-}
-
-/**************************************************************//**
- \brief This function exists only to allow the parser to call it in the main thread.
- *****************************************************************/
-- (void)updateMap
-{
-    CLLocationCoordinate2D  newLoc = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
-#ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController updateMap set location to: %f, %f", newLoc.longitude, newLoc.latitude );
-#endif
-    [super updateMapWithThisLocation:newLoc];
 }
 
 #pragma mark - MKMapViewDelegate Functions -

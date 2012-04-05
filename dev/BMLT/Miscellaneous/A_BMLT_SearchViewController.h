@@ -51,4 +51,5 @@
 - (CLLocationCoordinate2D)getSearchCoordinates;                 ///< This returns whatever coordinates are to be used in the next search.
 - (void)setUpMap;                                               ///< In the case of this being an iPad, set up the search map.
 - (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate; ///< Updates the map to a new location.
+- (void)updateMap;                                              ///< Same as above, but for being called in the main thread.
 @end

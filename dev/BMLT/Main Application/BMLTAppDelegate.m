@@ -388,8 +388,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self setSearchMapRegion:region];
     [self setSearchMapMarkerLoc:center];
     
-    if ( [myPrefs lookupMyLocation] )
+    if ( [myPrefs keepUpdatingLocation] || [myPrefs lookupMyLocation] )
         {
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions We will update our location.");
+#endif
         [locationManager startUpdatingLocation];
         }
     
@@ -447,10 +450,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     _visitingRelatives = NO;
     
-    if ( [myPrefs keepUpdatingLocation] )
+    if ( [myPrefs keepUpdatingLocation] || [myPrefs lookupMyLocation] )
         {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground We will coninuously update our location.");
+        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground We will update our location.");
 #endif
         [locationManager startUpdatingLocation];
         }
@@ -689,6 +692,18 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     _visitingRelatives = YES;
 }
 
+/**************************************************************//**
+ \brief Tells the app to do a CL lookup. The map (if there is one)
+        will be updated when the location is updated.
+        This will force the map to update, and will set the main
+        location to the found location.
+ *****************************************************************/
+- (void)lookupMyLocation
+{
+    _iveUpdatedTheMap = NO;
+    [locationManager startUpdatingLocation];
+}
+
 #pragma mark - Core Location Delegate Methods -
 /**************************************************************//**
  \brief Called when the location manager has a failure.
@@ -731,6 +746,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
         [locationManager stopUpdatingLocation]; // Stop updating for now.
         
+        [self setMyLocation:[newLocation coordinate]];
+        
         // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).
         if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
             {
@@ -748,11 +765,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             [self stopAnimations];
             }
         
-        [self setMyLocation:[newLocation coordinate]];
-        
-        if ( !_iveUpdatedTheMap )
+        if ( !_iveUpdatedTheMap )   // If we are flagged to set our search location, then we do so now.
             {
-            [activeSearchController updateMapWithThisLocation:[newLocation coordinate]];
+            [self setSearchMapMarkerLoc:[newLocation coordinate]];
+            [activeSearchController performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
             _iveUpdatedTheMap = YES;
             }
         

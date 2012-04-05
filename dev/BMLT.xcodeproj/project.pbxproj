@@ -54,6 +54,8 @@
 		775A10BA1528128C00CD10E1 /* Shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 775A10B91528128C00CD10E1 /* Shadow.png */; };
 		77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */; };
 		776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */; };
+		7775A5A8152D24440098A7A3 /* LocationIconBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775A5A6152D24440098A7A3 /* LocationIconBlack.png */; };
+		7775A5A9152D24440098A7A3 /* LocationIconWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775A5A7152D24440098A7A3 /* LocationIconWhite.png */; };
 		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
 		77803C3F151C011D00A8ADC3 /* FormatDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77803C3D151C011D00A8ADC3 /* FormatDetailView.m */; };
 		77803C40151C011D00A8ADC3 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77803C3E151C011D00A8ADC3 /* FormatDetailView.xib */; };
@@ -161,6 +163,8 @@
 		7765AE711514C72F008E4ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		776BAD951519F90A008C608C /* BMLTDisplayListResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTDisplayListResultsViewController.h; sourceTree = "<group>"; };
 		776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTDisplayListResultsViewController.m; sourceTree = "<group>"; };
+		7775A5A6152D24440098A7A3 /* LocationIconBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIconBlack.png; sourceTree = "<group>"; };
+		7775A5A7152D24440098A7A3 /* LocationIconWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIconWhite.png; sourceTree = "<group>"; };
 		777B520D15192409002EDC83 /* A_BMLTMainBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTMainBackgroundView.h; path = Miscellaneous/A_BMLTMainBackgroundView.h; sourceTree = "<group>"; };
 		777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTMainBackgroundView.m; path = Miscellaneous/A_BMLTMainBackgroundView.m; sourceTree = "<group>"; };
 		77803C3C151C011D00A8ADC3 /* FormatDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatDetailView.h; sourceTree = "<group>"; };
@@ -343,6 +347,8 @@
 		772C1627151B49E300830596 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7775A5A6152D24440098A7A3 /* LocationIconBlack.png */,
+				7775A5A7152D24440098A7A3 /* LocationIconWhite.png */,
 				772A856C15293EC600D688B5 /* SearchMarker.png */,
 				77300A84152A7C4B009BC533 /* SearchMarkerSelected.png */,
 				77B6F5C71526392400E55863 /* Concave.png */,
@@ -573,6 +579,8 @@
 				775A10BA1528128C00CD10E1 /* Shadow.png in Resources */,
 				772A856D15293EC600D688B5 /* SearchMarker.png in Resources */,
 				77300A85152A7C4B009BC533 /* SearchMarkerSelected.png in Resources */,
+				7775A5A8152D24440098A7A3 /* LocationIconBlack.png in Resources */,
+				7775A5A9152D24440098A7A3 /* LocationIconWhite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -76,10 +76,10 @@
 - (IBAction)weekdayChanged:(id)sender;
 - (IBAction)searchSpecChanged:(id)sender;
 - (IBAction)addressTextEntered:(id)sender;
+- (IBAction)locationButtonPressed:(id)sender;
 
 - (void)setParamsForWeekdaySelection;
 - (void)lookupLocationFromAddressString:(NSString *)inLocationString;
 - (void)cantGeocode;
-- (void)updateMap;
 
 @end
