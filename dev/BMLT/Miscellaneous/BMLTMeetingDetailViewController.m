@@ -283,8 +283,7 @@
     [[BMLTAppDelegate getBMLTAppDelegate] imVisitingRelatives];
     
     CLLocationCoordinate2D  meetingLocation = [_myMeeting getMeetingLocationCoords].coordinate;
-    CLLocationCoordinate2D  myLocation = [[BMLTAppDelegate getBMLTAppDelegate] myLocation];
-    NSURL                   *helpfulGasStationAttendant = [BMLTVariantDefs directionsURITo:meetingLocation from:myLocation];
+    NSURL                   *helpfulGasStationAttendant = [BMLTVariantDefs directionsURITo:meetingLocation];
     
     [[UIApplication sharedApplication] openURL:helpfulGasStationAttendant];
 }

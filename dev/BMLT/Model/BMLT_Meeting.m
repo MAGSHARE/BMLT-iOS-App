@@ -579,7 +579,7 @@ foundCharacters:(NSString *)string      ///< The characters
                 
                 if ( meetingLoc )
                     {
-                    CLLocation  *newLoc = [[CLLocation alloc] initWithLatitude:[[BMLTAppDelegate getBMLTAppDelegate] myLocation].latitude longitude:[[BMLTAppDelegate getBMLTAppDelegate] myLocation].longitude];
+                    CLLocation  *newLoc = [[CLLocation alloc] initWithLatitude:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc].latitude longitude:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc].longitude];
                     
                     CLLocationDistance  distance = [meetingLoc distanceFromLocation:newLoc] / 1000.0;
                     

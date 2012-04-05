@@ -54,7 +54,6 @@
 @property (strong, nonatomic) NSDictionary          *lastSearchParams;  ///< This will hold the parameters that were used for the last search.
 @property (nonatomic, readwrite, assign) A_BMLT_SearchViewController *activeSearchController;    ///< This will point to the active search controller. Nil, if none.
 @property (nonatomic, readwrite, assign) MKCoordinateRegion          searchMapRegion;            ///< Used to track the state of the search spec maps.
-@property (nonatomic, readwrite, assign) CLLocationCoordinate2D      myLocation;                 ///< This contains the location used for the location manager.
 @property (nonatomic, readwrite, assign) CLLocationCoordinate2D      searchMapMarkerLoc;         ///< This contains the location used for the search marker.
 @property (strong, nonatomic) UIViewController                       *searchNavController;       ///< This is the tab controller for all the searches.
 @property (strong, nonatomic) BMLTDisplayListResultsViewController   *listResultsViewController; ///< This will point to our list results main controller.
@@ -64,12 +63,10 @@
 + (BMLTAppDelegate *)getBMLTAppDelegate;                ///< This class method allows access to the application delegate object (SINGLETON)
 + (BOOL)locationServicesAvailable;                      ///< Used to check to see if location services are available.
 + (BOOL)canReachRootServer;                             ///< Returns YES, if the root server can be reached via network.
-+ (BOOL)validLocation;                                  ///< Returns YES if the app has a valid location.
 + (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting inContext:(UIViewController *)inController;   ///< Push the meeting details view onto the current nav stack.
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod;    ///< This is used to calculate the time for "later today" meetings.
 
 /// Instance methods
-- (BOOL)isLookupValid;                                  ///< Returns YES, if the last location lookup is kosher.
 - (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation withParams:(NSDictionary *)params; ///< A lookup search with parameters.
 - (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation;                        ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
 - (void)searchForMeetingsNearMeLaterToday:(CLLocationCoordinate2D)inMyLocation;              ///< Same as above, but only meetings later today.

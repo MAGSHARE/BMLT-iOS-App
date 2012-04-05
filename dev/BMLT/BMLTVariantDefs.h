@@ -116,7 +116,7 @@
             location (long/lat) from the given location.
  \returns   The URI of the directins call.
  *****************************************************************/
-+ (NSURL *)directionsURITo:(CLLocationCoordinate2D)inTo from:(CLLocationCoordinate2D)inFrom;
++ (NSURL *)directionsURITo:(CLLocationCoordinate2D)inTo;
 
 /**************************************************************//**
  \brief     In some cases, we may get back too many meetings. This

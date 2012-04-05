@@ -118,9 +118,8 @@
 /**************************************************************//**
  *****************************************************************/
 + (NSURL *)directionsURITo:(CLLocationCoordinate2D)inTo   ///< The long/lat of wehere we are going
-                      from:(CLLocationCoordinate2D)inFrom ///< The long/lat of our starting point.
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:NSLocalizedString(@"DIRECTIONS-URI-FORMAT",nil),inFrom.latitude, inFrom.longitude, inTo.latitude, inTo.longitude]];
+    return [NSURL URLWithString:[NSString stringWithFormat:NSLocalizedString(@"DIRECTIONS-URI-FORMAT",nil), inTo.latitude, inTo.longitude]];
 }
 /**************************************************************//**
  *****************************************************************/

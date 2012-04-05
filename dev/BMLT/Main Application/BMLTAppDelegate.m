@@ -60,7 +60,6 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 
 #pragma mark - Synthesize Class Properties -
 @synthesize window      = _window;      ///< This will hold the window associated with this application instance.
-@synthesize myLocation  = _myLocation;  ///< This will hold the location set by the last location lookup. This is the user location; not the search location.
 @synthesize locationManager;            ///< This holds the location manager instance.
 @synthesize internetActive;             ///< Set to YES, if the network test says that the Internet is available.
 @synthesize hostActive;                 ///< Set to YES, if the network test says that the root server is available.
@@ -105,15 +104,6 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 + (BOOL)canReachRootServer
 {
     return [g_AppDelegate hostActive] && [g_AppDelegate internetActive];
-}
-
-/**************************************************************//**
- \brief Check to make sure that we have a valid location.
- \returns YES, if the location is valid.
- *****************************************************************/
-+ (BOOL)validLocation
-{
-    return [g_AppDelegate isLookupValid];
 }
 
 /**************************************************************//**
@@ -388,7 +378,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self setSearchMapRegion:region];
     [self setSearchMapMarkerLoc:center];
     
-    if ( [myPrefs keepUpdatingLocation] || [myPrefs lookupMyLocation] )
+    if ( [myPrefs lookupMyLocation] )
         {
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions We will update our location.");
@@ -450,7 +440,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     _visitingRelatives = NO;
     
-    if ( [myPrefs keepUpdatingLocation] || [myPrefs lookupMyLocation] )
+    if ( [myPrefs lookupMyLocation] )
         {
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::applicationWillEnterForeground We will update our location.");
@@ -499,7 +489,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     else
         {
-        [self setMyLocation:inMyLocation];
         _findMeetings = NO;   // Clear the semaphore.
         // We give the new search our location.
         [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.longitude] forKey:@"long_val"];
@@ -568,26 +557,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
     [self searchForMeetingsNearMe:inMyLocation];
-}
-
-/**************************************************************//**
- \brief     Lets you know if we have a valid location lookup.
- \returns   YES, if the last lookup is valid.
- *****************************************************************/
-- (BOOL)isLookupValid
-{
-    BOOL    ret = YES;
-    CLLocationCoordinate2D  lLookup = [self myLocation];
-    
-    if ( lLookup.longitude == 0 && lLookup.latitude == 0 )
-        {
-        ret = NO;
-        }
-    
-#ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::isLookupValid called. The last lookup is %@.", (ret ? @"valid" : @"invalid"));
-#endif
-    return ret;
 }
 
 /**************************************************************//**
@@ -746,8 +715,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
         [locationManager stopUpdatingLocation]; // Stop updating for now.
         
-        [self setMyLocation:[newLocation coordinate]];
-        
         // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).
         if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
             {
@@ -770,11 +737,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             [self setSearchMapMarkerLoc:[newLocation coordinate]];
             [activeSearchController performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
             _iveUpdatedTheMap = YES;
-            }
-        
-        if ( [myPrefs keepUpdatingLocation] )   // If they want us to keep updating, we will.
-            {
-            [locationManager startUpdatingLocation];
             }
         }
 #ifdef DEBUG
