@@ -78,6 +78,7 @@
         case MKAnnotationViewDragStateEnding:
         newDragState = MKAnnotationViewDragStateNone;
         [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
+        [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:[self coordinate]];
         break;
     }
     [super setDragState:newDragState animated:animated];
@@ -127,7 +128,9 @@
         
         [mapSearchView setRegion:[mapSearchView regionThatFits:[myAppDelegate searchMapRegion]] animated:YES];
         
-        myMarker = [[BMLT_Search_MapPointAnnotation alloc] initWithCoordinate:[myAppDelegate searchMapMarkerLoc] andMeetings:nil];
+        CLLocationCoordinate2D  markerLoc = [myAppDelegate searchMapMarkerLoc];
+        
+        myMarker = [[BMLT_Search_MapPointAnnotation alloc] initWithCoordinate:markerLoc andMeetings:nil];
         
         [myMarker setTitle:@"Marker"];
         

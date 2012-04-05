@@ -232,13 +232,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     searchAfterLookup = NO;
     if ( [(UISegmentedControl *)sender selectedSegmentIndex] == 0 ) // Near Me/Marker?
         {
-        if ( [self myMarker] )
+        if ( ![self myMarker] )
             {
-            [self updateMapWithThisLocation:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
-            }
-        else
-            {
-            [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:[[BMLTAppDelegate getBMLTAppDelegate] myLocation]];
+            [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
             }
         [searchSpecAddressTextEntry setAlpha:0.0];
         [searchSpecAddressTextEntry setEnabled:NO];
@@ -404,21 +400,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     dontLookup = NO;
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GEOCODE-FAILURE",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
     [myAlert show];    
-}
-
-#pragma mark - MKMapViewDelegate Functions -
-/**************************************************************//**
- \brief We keep our current location up to date as the map changes.
- *****************************************************************/
-- (void)mapView:(MKMapView *)mapView                    ///< The map view object.
- annotationView:(MKAnnotationView *)annotationView      ///< The annotation that changed state (was dragged)
-didChangeDragState:(MKAnnotationViewDragState)newState  ///< The new state.
-   fromOldState:(MKAnnotationViewDragState)oldState     ///< The old state.
-{
-    if ( newState == MKAnnotationViewDragStateNone )
-        {
-        [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:[[self myMarker] coordinate]];
-        }
 }
 
 #pragma mark - UITextFieldDelegate Functions -
