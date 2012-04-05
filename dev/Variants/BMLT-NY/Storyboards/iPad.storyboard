@@ -600,7 +600,7 @@
                                     <action selector="searchSpecChanged:" destination="crR-vv-v9x" eventType="valueChanged" id="K0n-fj-rYd"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DEFAULT-ADDRESS-STRING" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="dQU-Vu-HAg">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DEFAULT-ADDRESS-STRING" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="dQU-Vu-HAg">
                                 <rect key="frame" x="320" y="109" width="388" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -699,6 +699,7 @@
         <class className="A_BMLT_SearchViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
             <relationships>
+                <relationship kind="action" name="locationButtonPressed:"/>
                 <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
             </relationships>
         </class>
@@ -708,7 +709,6 @@
                 <relationship kind="action" name="addressTextEntered:"/>
                 <relationship kind="action" name="backgroundClicked:"/>
                 <relationship kind="action" name="doSearchButtonPressed:"/>
-                <relationship kind="action" name="locationButtonPressed:"/>
                 <relationship kind="action" name="searchSpecChanged:"/>
                 <relationship kind="action" name="weekdayChanged:"/>
                 <relationship kind="action" name="weekdaySelectionChanged:"/>
@@ -780,7 +780,6 @@
                 <relationship kind="action" name="findAllMeetingsNearMe:"/>
                 <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
                 <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
-                <relationship kind="action" name="locationButtonPressed:"/>
                 <relationship kind="outlet" name="disabledTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>

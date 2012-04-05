@@ -410,6 +410,16 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     return NO;
 }
 
+/**************************************************************//**
+ \brief When the text is done editing, we do the same thing, but
+        without the subsequent search.
+ *****************************************************************/
+- (void)textFieldDidEndEditing:(UITextField *)textField ///< The text field object.
+{
+    searchAfterLookup = NO;
+    [self lookupLocationFromAddressString:[textField text]];
+}
+
 #pragma mark - NSXMLParserDelegate Functions -
 /**************************************************************//**
  \brief Called when the parser starts on an element.
