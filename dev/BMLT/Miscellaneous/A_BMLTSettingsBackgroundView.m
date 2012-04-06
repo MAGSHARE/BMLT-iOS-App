@@ -36,7 +36,9 @@
         {
         if ( [BMLTVariantDefs settingsBackgroundColor] )
             {
-            [self setBackgroundColor:[BMLTVariantDefs settingsBackgroundColor]];
+            UIColor *myBGColor = [[UIColor alloc] initWithCGColor:[[BMLTVariantDefs settingsBackgroundColor] CGColor]];
+            [self setBackgroundColor:myBGColor];
+            myBGColor = nil;
             }
         }
     return self;

@@ -26,26 +26,9 @@
 #import "BMLTAppDelegate.h"
 
 @implementation BMLTMeetingDetailViewController
-@synthesize meetingMapView, myMeeting = _myMeeting;
+@synthesize meetingMapView, myMeeting = _myMeeting, myModalController;
 
 #pragma mark - View lifecycle
-
-/**************************************************************//**
- \brief  Set the view backgound to the appropriate color.
- \returns   self
- *****************************************************************/
-- (id)initWithMeeting:(BMLT_Meeting *)inMeeting
-        andController:(UIViewController *)inController
-{
-    self = [super initWithNibName:nil bundle:nil];
-    if (self)
-        {
-        _myMeeting = inMeeting;
-        myModalController = inController;
-        [[self view] setBackgroundColor:[BMLTVariantDefs meetingDetailBackgroundColor]];
-        }
-    return self;
-}
 
 /**************************************************************//**
  \brief Sets up the view, with all its parts.
@@ -60,6 +43,7 @@
     [self setMeetingCommentsText];
     [self setMapLocation];
     [self setMeetingLocationText];
+    [[self view] setBackgroundColor:[BMLTVariantDefs meetingDetailBackgroundColor]];
 }
 
 /**************************************************************//**
@@ -67,7 +51,6 @@
  *****************************************************************/
 - (void)viewDidUnload
 {
-    [self setMeetingMapView:nil];
     formatsContainerView = nil;
     commentsTextView = nil;
     frequencyTextView = nil;
@@ -75,6 +58,7 @@
     selectSatelliteButton = nil;
     myMarker = nil;
     addressButton = nil;
+    meetingMapView = nil;
     [super viewDidUnload];
 }
 
@@ -95,15 +79,6 @@
 }
 
 #pragma mark - Custom Functions -
-
-/**************************************************************//**
- \brief Accessor -Get the meeting object.
- \returns   a reference to an instance of BMLT_Meeting.
- *****************************************************************/
-- (BMLT_Meeting *)getMyMeeting
-{
-    return _myMeeting;
-}
 
 /**************************************************************//**
  \brief Accessor -sets the modal controller for this modal display.
@@ -152,6 +127,8 @@
                 [newButton addTarget:[self getMyModalController] action:@selector(displayFormatDetail:) forControlEvents:UIControlEventTouchUpInside];
                 [formatsContainerView addSubview:newButton];
                 }
+            
+            newButton = nil;
 
             formatsBounds.size.width += boundsRect.size.width + List_Meeting_Format_Line_Padding;
             boundsRect.origin.x += boundsRect.size.width + List_Meeting_Format_Line_Padding;
@@ -169,12 +146,9 @@
  *****************************************************************/
 - (void)setMeetingFrequencyText
 {
-    NSString    *formatString = NSLocalizedString ( @"MEETING-DETAILS-FREQUENCY-FORMAT", nil );
-    NSString    *weekday = [_myMeeting getWeekday];
     NSDate      *startTime = [_myMeeting getStartTime];
     NSString    *time = [NSDateFormatter localizedStringFromDate:startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
-    NSCalendar  *gregorian = [[NSCalendar alloc]
-                              initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar  *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
     if ( gregorian )
         {
@@ -188,9 +162,11 @@
             {
             time = NSLocalizedString(@"TIME-NOON", nil);
             }
+        
+        gregorian = nil;
         }
     
-    [frequencyTextView setText:[NSString stringWithFormat:formatString, weekday, time]];
+    [frequencyTextView setText:[NSString stringWithFormat:NSLocalizedString ( @"MEETING-DETAILS-FREQUENCY-FORMAT", nil ), [_myMeeting getWeekday], time]];
 }
 
 /**************************************************************//**
@@ -213,9 +189,8 @@
     [addressButton setTitle:theAddress forState:UIControlStateNormal];
     
     CLLocation  *loc = [_myMeeting getMeetingLocationCoords];
-    NSArray *meetings = [[NSArray alloc] initWithObjects:_myMeeting, nil];
     
-    myMarker =[[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[loc coordinate] andMeetings:meetings];
+    myMarker = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[loc coordinate] andMeetings:nil];
     
     [meetingMapView addAnnotation:myMarker];
     [selectMapButton setAlpha:0.0];

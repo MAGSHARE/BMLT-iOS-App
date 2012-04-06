@@ -65,7 +65,9 @@
         {
         if ( [BMLTVariantDefs popoverBackgroundColor] )
             {
-            [[self view] setBackgroundColor:[BMLTVariantDefs popoverBackgroundColor]];
+            UIColor *myBGColor = [[UIColor alloc] initWithCGColor:[[BMLTVariantDefs popoverBackgroundColor] CGColor]];
+            [[self view] setBackgroundColor:myBGColor];
+            myBGColor = nil;
             }
         [(UINavigationItem *)[navBar topItem] setRightBarButtonItem:nil animated:NO];
         }
@@ -73,7 +75,9 @@
         {
         if ( [BMLTVariantDefs modalBackgroundColor] )
             {
-            [[self view] setBackgroundColor:[BMLTVariantDefs modalBackgroundColor]];
+            UIColor *myBGColor = [[UIColor alloc] initWithCGColor:[[BMLTVariantDefs modalBackgroundColor] CGColor]];
+            [[self view] setBackgroundColor:myBGColor];
+            myBGColor = nil;
             }
         }
     [super viewDidLoad];

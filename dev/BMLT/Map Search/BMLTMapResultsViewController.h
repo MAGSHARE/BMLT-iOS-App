@@ -31,13 +31,6 @@
  \brief  This class will control display of mapped results.
  *****************************************************************/
 @interface BMLTMapResultsViewController : A_BMLTSearchResultsViewController <MKMapViewDelegate>
-{
-    BOOL                _map_initialized;
-    IBOutlet MKMapView  *meetingMapView;
-    MKCoordinateRegion  lastRegion;
-    UIPopoverController *listPopover;   ///< This will handle the list view in a popover.
-}
-
 - (void)setMapInit:(BOOL)isInit;
 - (BOOL)isMapInitialized;
 - (void)viewMeetingList:(NSArray *)inList atRect:(CGRect)selectRect inView:(UIView *)inContext;

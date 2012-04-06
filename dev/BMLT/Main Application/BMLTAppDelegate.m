@@ -136,7 +136,12 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];      ///< Make sure we close any open modals or popovers, first.
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] dismissListPopover];
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];
-    BMLTMeetingDetailViewController *meetingDetails = [[BMLTMeetingDetailViewController alloc] initWithMeeting:inMeeting andController:inController];
+    UIStoryboard    *st = [[[BMLTAppDelegate getBMLTAppDelegate] searchNavController] storyboard];
+    
+    BMLTMeetingDetailViewController    *meetingDetails = (BMLTMeetingDetailViewController *)[st instantiateViewControllerWithIdentifier:@"meeting-details-sheet"];
+
+    [meetingDetails setMyMeeting:inMeeting];
+    [meetingDetails setMyModalController:inController];
     [[inController navigationController] pushViewController:meetingDetails animated:YES];
 }
 
@@ -360,7 +365,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     // We're going to have a blue "leather" background for most screens.
     if ( [BMLTVariantDefs windowBackgroundColor] )
         {
-        [_window setBackgroundColor:[BMLTVariantDefs windowBackgroundColor]];
+        UIColor *myBGColor = [[UIColor alloc] initWithCGColor:[[BMLTVariantDefs windowBackgroundColor] CGColor]];
+        [_window setBackgroundColor:myBGColor];
+        myBGColor = nil;
         }
     
     for ( NSInteger i = kSearchTabIndex; i < [[tabController viewControllers] count]; i++ )

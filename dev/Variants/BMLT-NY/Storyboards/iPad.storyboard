@@ -357,6 +357,110 @@
             </objects>
             <point key="canvasLocation" x="-312" y="842"/>
         </scene>
+        <!--Meeting Detail View Controller-->
+        <scene sceneID="2fO-Ko-eMk">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dXT-z2-v14" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="meeting-details-sheet" id="KvL-qN-ldU" customClass="BMLTMeetingDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QfH-DS-Oon">
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="7ib-x6-Tf2">
+                                <rect key="frame" x="0.0" y="111" width="768" height="747"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KvL-qN-ldU" id="bww-Yx-uXh"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YWr-4M-DCi" userLabel="Satellite">
+                                <rect key="frame" x="728" y="819" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" backgroundImage="SButtonConvex.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="SButtonConcave.png"/>
+                                <state key="highlighted" backgroundImage="SButtonConvex.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectSatelliteView:" destination="KvL-qN-ldU" eventType="touchUpInside" id="CqG-8y-7er"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aqN-R8-sHG" userLabel="Map">
+                                <rect key="frame" x="728" y="819" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" backgroundImage="MButtonConvex.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="MButtonConvex.png"/>
+                                <state key="highlighted" backgroundImage="MButtonConvex.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectMapView:" destination="KvL-qN-ldU" eventType="touchUpInside" id="wE2-FX-ekn"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" text="Comments" id="IQN-RF-boC" userLabel="Comments">
+                                <rect key="frame" x="0.0" y="75" width="773" height="38"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                            </textView>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="MEETING-DETAILS-FREQUENCY-FORMAT" textAlignment="center" id="QkH-sJ-iRG" userLabel="Frequency">
+                                <rect key="frame" x="-6" y="40" width="766" height="36"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" id="pkf-LG-VOL" userLabel="Address">
+                                <rect key="frame" x="0.0" y="859" width="768" height="57"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.32944808469999998" green="0.51559349799999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callForDirections:" destination="KvL-qN-ldU" eventType="touchUpInside" id="Cyy-QY-B8g"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="N9A-0T-YD6" userLabel="Formats">
+                                <rect key="frame" x="224" y="0.0" width="320" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
+                    <connections>
+                        <outlet property="addressButton" destination="pkf-LG-VOL" id="8yd-iL-Svm"/>
+                        <outlet property="commentsTextView" destination="IQN-RF-boC" id="V0B-Cn-Zaj"/>
+                        <outlet property="formatsContainerView" destination="N9A-0T-YD6" id="Bdu-AT-rpu"/>
+                        <outlet property="frequencyTextView" destination="QkH-sJ-iRG" id="EkU-9E-GoQ"/>
+                        <outlet property="meetingMapView" destination="7ib-x6-Tf2" id="jEh-Px-1sH"/>
+                        <outlet property="selectMapButton" destination="aqN-R8-sHG" id="8fv-6O-u2g"/>
+                        <outlet property="selectSatelliteButton" destination="YWr-4M-DCi" id="fUe-ES-wMW"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="555" y="1464"/>
+        </scene>
         <!--Advanced Search View Controller - SEARCH-SPEC-ADVANCED-TITLE-->
         <scene sceneID="y5F-XP-cY6">
             <objects>
@@ -674,6 +778,9 @@
     <resources>
         <image name="LocationIconBlack.png" width="104" height="104"/>
         <image name="LocationIconWhite.png" width="104" height="104"/>
+        <image name="MButtonConvex.png" width="48" height="48"/>
+        <image name="SButtonConcave.png" width="48" height="48"/>
+        <image name="SButtonConvex.png" width="48" height="48"/>
         <image name="Shadow.png" width="1" height="20"/>
         <image name="list.png" width="26" height="26"/>
         <image name="map.png" width="26" height="26"/>
@@ -744,6 +851,21 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="BMLTMeetingDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMeetingDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="callForDirections:"/>
+                <relationship kind="action" name="selectMapView:"/>
+                <relationship kind="action" name="selectSatelliteView:"/>
+                <relationship kind="outlet" name="addressButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="commentsTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="formatsContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="frequencyTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="selectMapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="selectSatelliteButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">

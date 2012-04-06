@@ -29,29 +29,25 @@
 
 @interface BMLTMeetingDetailViewController : UIViewController <MKMapViewDelegate>
 {
-    MKMapView                       *meetingMapView;
     IBOutlet UIView                 *formatsContainerView;
     IBOutlet UIButton               *addressButton;
     IBOutlet UITextView             *commentsTextView;
     IBOutlet UITextView             *frequencyTextView;
     IBOutlet UIButton               *selectMapButton;
     IBOutlet UIButton               *selectSatelliteButton;
-    UIViewController                *myModalController;
     BMLT_Results_MapPointAnnotation *myMarker;
 }
-@property (weak, nonatomic, readonly)   BMLT_Meeting    *myMeeting;
-@property (nonatomic, retain) IBOutlet  MKMapView       *meetingMapView;
+@property (weak, nonatomic, readwrite)   UIViewController    *myModalController;
+@property (weak, nonatomic, readwrite)   BMLT_Meeting        *myMeeting;
+@property (nonatomic, retain) IBOutlet   MKMapView           *meetingMapView;
 
-- (id)initWithMeeting:(BMLT_Meeting *)inMeeting andController:(UIViewController *)inController; ///< Initialize with a meeting object.
-
-- (void)setMyModalController:(UIViewController *)inController;
-- (UIViewController *)getMyModalController;
-- (BMLT_Meeting *)getMyMeeting;
 - (void)setFormats;
 - (void)setMeetingFrequencyText;
 - (void)setMeetingCommentsText;
 - (void)setMeetingLocationText;
 - (void)setMapLocation;
 - (IBAction)callForDirections:(id)sender;
+- (IBAction)selectMapView:(id)sender;
+- (IBAction)selectSatelliteView:(id)sender;
 
 @end

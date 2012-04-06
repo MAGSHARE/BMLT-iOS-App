@@ -26,6 +26,19 @@
  \class  BMLTMapResultsViewController -Private Interface
  \brief  This class will control display of mapped results.
  *****************************************************************/
+@interface BMLTMapResultsViewController ()
+{
+    BOOL                _map_initialized;
+    IBOutlet MKMapView  *meetingMapView;
+    MKCoordinateRegion  lastRegion;
+    UIPopoverController *listPopover;   ///< This will handle the list view in a popover.
+}
+@end
+
+/**************************************************************//**
+ \class  BMLTMapResultsViewController -Implementation
+ \brief  This class will control display of mapped results.
+ *****************************************************************/
 @implementation BMLTMapResultsViewController
 
 #pragma mark - View Lifecycle -
@@ -313,6 +326,8 @@
 
     if ( ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) )
         {
+        [self dismissListPopover];
+        
         listPopover = [[UIPopoverController alloc] initWithContentViewController:newController];
         
         [listPopover setDelegate:self];

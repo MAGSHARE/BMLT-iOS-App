@@ -163,8 +163,12 @@
                 [label setText:NSLocalizedString(@"MAP-LIST-HEADER", nil)];
                 [label setFont:[UIFont boldSystemFontOfSize:kSortHeaderHeight / 2]];
                 [label setTextAlignment:UITextAlignmentCenter];
-                [label setBackgroundColor:[BMLTVariantDefs multiMeetingsBackgroundColor]];
-                [label setTextColor:[BMLTVariantDefs multiMeetingsTextColor]];
+                UIColor *myBGColor = [[UIColor alloc] initWithCGColor:[[BMLTVariantDefs multiMeetingsBackgroundColor] CGColor]];
+                [label setBackgroundColor:myBGColor];
+                myBGColor = nil;
+                myBGColor = [[UIColor alloc] initWithCGColor:[[BMLTVariantDefs multiMeetingsTextColor] CGColor]];
+                [label setTextColor:myBGColor];
+                myBGColor = nil;
                 [ret_cast addSubview:label];
                 }
             

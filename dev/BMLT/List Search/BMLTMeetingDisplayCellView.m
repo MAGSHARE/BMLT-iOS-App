@@ -43,14 +43,20 @@
         wrapperView = [[UIView alloc] initWithFrame:frame];
         [wrapperView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin| UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin| UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         
+        UIColor *myBGColor1 = [[UIColor alloc] initWithCGColor:[[BMLTVariantDefs getSortOddColor] CGColor]];
+        UIColor *myBGColor2 = [[UIColor alloc] initWithCGColor:[[BMLTVariantDefs getSortEvenColor] CGColor]];
+
         if ( index - (floor(index / 2) * 2) )
             {
-            [wrapperView setBackgroundColor:[BMLTVariantDefs getSortOddColor]];
+            [wrapperView setBackgroundColor:myBGColor1];
             }
         else
             {
-            [wrapperView setBackgroundColor:[BMLTVariantDefs getSortEvenColor]];
+            [wrapperView setBackgroundColor:myBGColor2];
             }
+        
+        myBGColor1 = nil;
+        myBGColor2 = nil;
         
         [self addSubview:wrapperView];
         }

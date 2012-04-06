@@ -58,12 +58,10 @@
 		7775A5A9152D24440098A7A3 /* LocationIconWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775A5A7152D24440098A7A3 /* LocationIconWhite.png */; };
 		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
 		77803C3F151C011D00A8ADC3 /* FormatDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77803C3D151C011D00A8ADC3 /* FormatDetailView.m */; };
-		77803C40151C011D00A8ADC3 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77803C3E151C011D00A8ADC3 /* FormatDetailView.xib */; };
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		7799D29B151FA633007FE822 /* BMLTMeetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */; };
-		7799D29C151FA633007FE822 /* BMLTMeetingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7799D29A151FA633007FE822 /* BMLTMeetingDetailViewController.xib */; };
 		7799D2A2151FACD5007FE822 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799D2A1151FACD4007FE822 /* MapKit.framework */; };
 		7799D2A6151FAD30007FE822 /* MapMarkerBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */; };
 		7799D2A7151FAD30007FE822 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */; };
@@ -75,6 +73,7 @@
 		77B6F5D01526392400E55863 /* GreenCheckConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B6F5CA1526392400E55863 /* GreenCheckConcave.png */; };
 		77B6F5D11526392400E55863 /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B6F5CB1526392400E55863 /* RedX.png */; };
 		77B6F5D21526392400E55863 /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B6F5CC1526392400E55863 /* RedXConcave.png */; };
+		77BBA91E152F27200058DD99 /* FormatDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77BBA91C152F27200058DD99 /* FormatDetailView.xib */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */; };
 		77C1820D1525BDFE00560F34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77C182071525BDFE00560F34 /* InfoPlist.strings */; };
@@ -169,14 +168,12 @@
 		777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTMainBackgroundView.m; path = Miscellaneous/A_BMLTMainBackgroundView.m; sourceTree = "<group>"; };
 		77803C3C151C011D00A8ADC3 /* FormatDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatDetailView.h; sourceTree = "<group>"; };
 		77803C3D151C011D00A8ADC3 /* FormatDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatDetailView.m; sourceTree = "<group>"; };
-		77803C3E151C011D00A8ADC3 /* FormatDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormatDetailView.xib; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* NY NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NY NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77977D13150E882B00485C8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMeetingDetailViewController.h; sourceTree = "<group>"; };
 		7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMeetingDetailViewController.m; sourceTree = "<group>"; };
-		7799D29A151FA633007FE822 /* BMLTMeetingDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMLTMeetingDetailViewController.xib; sourceTree = "<group>"; };
 		7799D2A1151FACD4007FE822 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlack.png; sourceTree = "<group>"; };
 		7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlue.png; sourceTree = "<group>"; };
@@ -188,6 +185,7 @@
 		77B6F5CA1526392400E55863 /* GreenCheckConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenCheckConcave.png; sourceTree = "<group>"; };
 		77B6F5CB1526392400E55863 /* RedX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedX.png; sourceTree = "<group>"; };
 		77B6F5CC1526392400E55863 /* RedXConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedXConcave.png; sourceTree = "<group>"; };
+		77BBA91C152F27200058DD99 /* FormatDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormatDetailView.xib; sourceTree = "<group>"; };
 		77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTSearchResultsViewController.h; path = Miscellaneous/A_BMLTSearchResultsViewController.h; sourceTree = "<group>"; };
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSearchResultsViewController.m; path = Miscellaneous/A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
 		77BCBBDB152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Results_MapPointAnnotationView.h; sourceTree = "<group>"; };
@@ -268,10 +266,8 @@
 				77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */,
 				7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */,
 				7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */,
-				7799D29A151FA633007FE822 /* BMLTMeetingDetailViewController.xib */,
 				77803C3C151C011D00A8ADC3 /* FormatDetailView.h */,
 				77803C3D151C011D00A8ADC3 /* FormatDetailView.m */,
-				77803C3E151C011D00A8ADC3 /* FormatDetailView.xib */,
 				771D0C56150E893C005A707A /* BrassCheckBox.h */,
 				771D0C57150E893C005A707A /* BrassCheckBox.m */,
 			);
@@ -338,6 +334,7 @@
 		772C06AA152534C200DA7E1C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				77BBA91C152F27200058DD99 /* FormatDetailView.xib */,
 				772C06AB152534C200DA7E1C /* iPad.storyboard */,
 				772C06AC152534C200DA7E1C /* iPhone.storyboard */,
 			);
@@ -556,8 +553,6 @@
 				772C1641151B49E300830596 /* search@2x.png in Resources */,
 				772C1642151B49E300830596 /* settings.png in Resources */,
 				772C1643151B49E300830596 /* settings@2x.png in Resources */,
-				77803C40151C011D00A8ADC3 /* FormatDetailView.xib in Resources */,
-				7799D29C151FA633007FE822 /* BMLTMeetingDetailViewController.xib in Resources */,
 				7799D2A6151FAD30007FE822 /* MapMarkerBlack.png in Resources */,
 				7799D2A7151FAD30007FE822 /* MapMarkerBlue.png in Resources */,
 				7799D2A8151FAD30007FE822 /* MapMarkerRed.png in Resources */,
@@ -581,6 +576,7 @@
 				77300A85152A7C4B009BC533 /* SearchMarkerSelected.png in Resources */,
 				7775A5A8152D24440098A7A3 /* LocationIconBlack.png in Resources */,
 				7775A5A9152D24440098A7A3 /* LocationIconWhite.png in Resources */,
+				77BBA91E152F27200058DD99 /* FormatDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
