@@ -26,7 +26,14 @@
 #import "BMLTAppDelegate.h"
 
 @implementation BMLTMeetingDetailViewController
-@synthesize meetingMapView, myMeeting = _myMeeting, myModalController;
+@synthesize addressButton;
+@synthesize commentsTextView;
+@synthesize frequencyTextView;
+@synthesize formatsContainerView;
+@synthesize selectSatelliteButton;
+@synthesize selectMapButton;
+@synthesize meetingMapView, myMeeting = _myMeeting;
+@synthesize myModalController;
 
 #pragma mark - View lifecycle
 
@@ -51,14 +58,12 @@
  *****************************************************************/
 - (void)viewDidUnload
 {
-    formatsContainerView = nil;
-    commentsTextView = nil;
-    frequencyTextView = nil;
-    selectMapButton = nil;
-    selectSatelliteButton = nil;
-    myMarker = nil;
-    addressButton = nil;
-    meetingMapView = nil;
+    [self setAddressButton:nil];
+    [self setCommentsTextView:nil];
+    [self setFrequencyTextView:nil];
+    [self setFormatsContainerView:nil];
+    [self setSelectSatelliteButton:nil];
+    [self setSelectMapButton:nil];
     [super viewDidUnload];
 }
 
@@ -79,26 +84,6 @@
 }
 
 #pragma mark - Custom Functions -
-
-/**************************************************************//**
- \brief Accessor -sets the modal controller for this modal display.
-        We do this whacky stuff, because we let the main list/map/app
-        view handle modal dialogs, as opposed to ourselves. It helps
-        to reduce code coverage.
- *****************************************************************/
-- (void)setMyModalController:(UIViewController *)inController   ///< The view controller that is in charge of this instance.
-{
-    myModalController = inController;
-}
-
-/**************************************************************//**
- \brief Accessor -Get the modal controller for this display.
- \returns a reference to an instance of UIViewController
- *****************************************************************/
-- (UIViewController *)getMyModalController
-{
-    return myModalController;
-}
 
 /**************************************************************//**
  \brief Set up the display of the format circles.
@@ -124,7 +109,7 @@
             
             if ( newButton )
                 {
-                [newButton addTarget:[self getMyModalController] action:@selector(displayFormatDetail:) forControlEvents:UIControlEventTouchUpInside];
+                [newButton addTarget:[self myModalController] action:@selector(displayFormatDetail:) forControlEvents:UIControlEventTouchUpInside];
                 [formatsContainerView addSubview:newButton];
                 }
             
@@ -190,9 +175,7 @@
     
     CLLocation  *loc = [_myMeeting getMeetingLocationCoords];
     
-    myMarker = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[loc coordinate] andMeetings:nil];
-    
-    [meetingMapView addAnnotation:myMarker];
+    [meetingMapView addAnnotation:[[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[loc coordinate] andMeetings:nil]];
     [selectMapButton setAlpha:0.0];
     [selectSatelliteButton setAlpha:1.0];
 }

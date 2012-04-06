@@ -28,24 +28,23 @@
 #define List_Meeting_Format_Circle_Size_Big 30
 
 @interface BMLTMeetingDetailViewController : UIViewController <MKMapViewDelegate>
-{
-    IBOutlet UIView                 *formatsContainerView;
-    IBOutlet UIButton               *addressButton;
-    IBOutlet UITextView             *commentsTextView;
-    IBOutlet UITextView             *frequencyTextView;
-    IBOutlet UIButton               *selectMapButton;
-    IBOutlet UIButton               *selectSatelliteButton;
-    BMLT_Results_MapPointAnnotation *myMarker;
-}
-@property (weak, nonatomic, readwrite)   UIViewController    *myModalController;
-@property (weak, nonatomic, readwrite)   BMLT_Meeting        *myMeeting;
-@property (nonatomic, retain) IBOutlet   MKMapView           *meetingMapView;
+
+@property (weak, nonatomic, readwrite)  UIViewController    *myModalController;
+@property (weak, nonatomic, readwrite)  BMLT_Meeting        *myMeeting;
+@property (weak, nonatomic) IBOutlet    MKMapView           *meetingMapView;
+@property (weak, nonatomic) IBOutlet UIButton *addressButton;
+@property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
+@property (weak, nonatomic) IBOutlet UITextView *frequencyTextView;
+@property (weak, nonatomic) IBOutlet UIView *formatsContainerView;
+@property (weak, nonatomic) IBOutlet UIButton *selectSatelliteButton;
+@property (weak, nonatomic) IBOutlet UIButton *selectMapButton;
 
 - (void)setFormats;
 - (void)setMeetingFrequencyText;
 - (void)setMeetingCommentsText;
 - (void)setMeetingLocationText;
 - (void)setMapLocation;
+
 - (IBAction)callForDirections:(id)sender;
 - (IBAction)selectMapView:(id)sender;
 - (IBAction)selectSatelliteView:(id)sender;
