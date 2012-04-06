@@ -70,21 +70,25 @@
  *****************************************************************/
 + (UIColor *)meetingDetailBackgroundColor
 {
-    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkWeave.png"]];
+    // This strange getup is probably temporary. It makes sure that the color only gets instantiated once.
+    static UIColor *color;
+    static dispatch_once_t onceToken;
+    dispatch_once ( &onceToken, ^{ color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkWeave.png"]]; } );
+    return color;
 }
 
 /**************************************************************//**
  *****************************************************************/
 + (UIColor *)modalBackgroundColor
 {
-    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkWeave.png"]];
+    return [BMLTVariantDefs meetingDetailBackgroundColor];
 }
 
 /**************************************************************//**
  *****************************************************************/
 + (UIColor *)popoverBackgroundColor
 {
-    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkWeave.png"]];
+    return [BMLTVariantDefs meetingDetailBackgroundColor];
 }
 
 /**************************************************************//**

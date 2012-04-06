@@ -50,7 +50,6 @@
     [self setMeetingCommentsText];
     [self setMapLocation];
     [self setMeetingLocationText];
-    [[self view] setBackgroundColor:[BMLTVariantDefs meetingDetailBackgroundColor]];
 }
 
 /**************************************************************//**
@@ -64,6 +63,7 @@
     [self setFormatsContainerView:nil];
     [self setSelectSatelliteButton:nil];
     [self setSelectMapButton:nil];
+    
     [super viewDidUnload];
 }
 
@@ -131,24 +131,19 @@
  *****************************************************************/
 - (void)setMeetingFrequencyText
 {
-    NSDate      *startTime = [_myMeeting getStartTime];
-    NSString    *time = [NSDateFormatter localizedStringFromDate:startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
-    NSCalendar  *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate              *startTime = [_myMeeting getStartTime];
+    NSString            *time = [NSDateFormatter localizedStringFromDate:startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+    NSDateComponents    *dateComp = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:startTime];
     
-    if ( gregorian )
+    if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
         {
-        NSDateComponents    *dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:startTime];
-        
-        if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
-            {
-            time = NSLocalizedString(@"TIME-MIDNIGHT", nil);
-            }
-        else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
-            {
-            time = NSLocalizedString(@"TIME-NOON", nil);
-            }
-        
-        gregorian = nil;
+        time = nil;
+        time = NSLocalizedString(@"TIME-MIDNIGHT", nil);
+        }
+    else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
+        {
+        time = nil;
+        time = NSLocalizedString(@"TIME-NOON", nil);
         }
     
     [frequencyTextView setText:[NSString stringWithFormat:NSLocalizedString ( @"MEETING-DETAILS-FREQUENCY-FORMAT", nil ), [_myMeeting getWeekday], time]];
@@ -172,12 +167,6 @@
     
     NSString    *theAddress = [NSString stringWithFormat:@"%@, %@", meetingLocationString, townAndState];
     [addressButton setTitle:theAddress forState:UIControlStateNormal];
-    
-    CLLocation  *loc = [_myMeeting getMeetingLocationCoords];
-    
-    [meetingMapView addAnnotation:[[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[loc coordinate] andMeetings:nil]];
-    [selectMapButton setAlpha:0.0];
-    [selectSatelliteButton setAlpha:1.0];
 }
 
 /**************************************************************//**
@@ -185,16 +174,24 @@
  *****************************************************************/
 - (void)setMapLocation
 {
-    CLLocation  *loc = [_myMeeting getMeetingLocationCoords];
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([loc coordinate], 250, 250);
-    [meetingMapView setDelegate:self];
-    [meetingMapView setRegion:region animated:NO];
+    // If the meeting doesn't yet have its marker, it needs setting up.
+    if ( ![[meetingMapView annotations] count] )
+        {
+        [[self view] setBackgroundColor:[BMLTVariantDefs meetingDetailBackgroundColor]];    // This is here to make sure it's only called once.
+        
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([[_myMeeting getMeetingLocationCoords] coordinate], [NSLocalizedString(@"INITIAL-PROJECTION", nil) floatValue] * 10, [NSLocalizedString(@"INITIAL-PROJECTION", nil) floatValue] * 10);
+        [meetingMapView setRegion:region animated:NO];
+        [meetingMapView addAnnotation:[[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate] andMeetings:nil]];
+        [selectMapButton setAlpha:0.0];
+        [selectSatelliteButton setAlpha:1.0];
+        [meetingMapView setDelegate:self];
+        }
 }
 
 /**************************************************************//**
  \brief The map will be displayed as a map.
  *****************************************************************/
-- (IBAction)selectMapView:(id)sender
+- (IBAction)selectMapView:(id)sender    ///< The Map button
 {
     [meetingMapView setMapType:MKMapTypeStandard];
     [selectMapButton setAlpha:0.0];
@@ -204,7 +201,7 @@
 /**************************************************************//**
  \brief The map will be displayed as a satellite view.
  *****************************************************************/
-- (IBAction)selectSatelliteView:(id)sender
+- (IBAction)selectSatelliteView:(id)sender  ///< The Satellite button
 {
     [meetingMapView setMapType:MKMapTypeHybrid];
     [selectMapButton setAlpha:1.0];
@@ -217,16 +214,14 @@
  \brief Returns the view for the marker in the center of the map.
  \returns an annotation view, representing the marker.
  *****************************************************************/
-- (MKAnnotationView *)mapView:(MKMapView *)mapView
-            viewForAnnotation:(id < MKAnnotation >)annotation
+- (MKAnnotationView *)mapView:(MKMapView *)mapView              ///< The map view
+            viewForAnnotation:(id < MKAnnotation >)annotation   ///< The annotation C, in need of a V
 {
-    static NSString* identifier = @"single_meeting_annotation";
-    
-    MKAnnotationView* ret = [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    MKAnnotationView* ret = [mapView dequeueReusableAnnotationViewWithIdentifier:@"single_meeting_annotation"];
     
     if ( !ret )
         {
-        ret = [[BMLT_Results_BlackAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        ret = [[BMLT_Results_BlackAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"single_meeting_annotation"];
         }
     
     return ret;
@@ -236,7 +231,7 @@
  \brief This will use the Web browser to get directions to the
         meeting from the user's current location.
  *****************************************************************/
-- (IBAction)callForDirections:(id)sender
+- (IBAction)callForDirections:(id)sender    ///< The button we use for this URI.
 {
     [[BMLTAppDelegate getBMLTAppDelegate] imVisitingRelatives];
     

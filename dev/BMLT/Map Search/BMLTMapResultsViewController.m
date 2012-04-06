@@ -182,8 +182,8 @@
         }
     
     // OK. We now know how much room we need. Let's make sure that the map can accommodate all the points.
-    double  longSpan = southEastCorner.longitude - northWestCorner.longitude;
-    double  latSpan = northWestCorner.latitude - southEastCorner.latitude;
+    double  longSpan = (southEastCorner.longitude - northWestCorner.longitude) * 1.2;   // The 1.2 is to add some extra padding, to make sure that the markers get drawn.
+    double  latSpan = (northWestCorner.latitude - southEastCorner.latitude) * 1.2;
     CLLocationCoordinate2D  center = CLLocationCoordinate2DMake((northWestCorner.latitude + southEastCorner.latitude) / 2.0, (southEastCorner.longitude + northWestCorner.longitude) / 2.0);
     MKCoordinateRegion  mapMap = MKCoordinateRegionMake ( center, MKCoordinateSpanMake(latSpan, longSpan) );
     

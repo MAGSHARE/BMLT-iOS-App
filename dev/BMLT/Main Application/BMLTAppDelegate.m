@@ -136,7 +136,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
         }
     
     // Make sure we close the door behind us...
-    [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];      ///< Make sure we close any open modals or popovers, first.
+    [[[BMLTAppDelegate getBMLTAppDelegate] listResultsViewController] closeModal];      ///< Make sure we close any open modals or popovers, first.
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] dismissListPopover];
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];
     
