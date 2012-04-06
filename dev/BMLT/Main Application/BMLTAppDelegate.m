@@ -129,20 +129,28 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
  *****************************************************************/
 + (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting inContext:(UIViewController *)inController
 {
+    // If no controller was supplied, we assume that this was a map results popover.
     if ( !inController )
         {
         inController = [[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController];
         }
+    
+    // Make sure we close the door behind us...
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];      ///< Make sure we close any open modals or popovers, first.
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] dismissListPopover];
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];
-    UIStoryboard    *st = [[[BMLTAppDelegate getBMLTAppDelegate] searchNavController] storyboard];
     
-    BMLTMeetingDetailViewController    *meetingDetails = (BMLTMeetingDetailViewController *)[st instantiateViewControllerWithIdentifier:@"meeting-details-sheet"];
+    // Get the storyboard, then instantiate the details view from the independent view controller.
+    UIStoryboard                    *st = [inController storyboard];
+    BMLTMeetingDetailViewController *meetingDetails = (BMLTMeetingDetailViewController *)[st instantiateViewControllerWithIdentifier:@"meeting-details-sheet"];
 
+    // Set the basics.
     [meetingDetails setMyMeeting:inMeeting];
     [meetingDetails setMyModalController:inController];
+    
+    // Push the new details controller onto the stack.
     [[inController navigationController] pushViewController:meetingDetails animated:YES];
+    meetingDetails = nil;
 }
 
 #pragma mark - Private methods -
