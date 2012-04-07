@@ -29,6 +29,7 @@
 @interface BMLTMapResultsViewController ()
 {
     BOOL                _map_initialized;
+    BMLT_Results_MapPointAnnotation *_selectedAnnotation;   ///< Holds the currently selected annotation.
     IBOutlet MKMapView  *meetingMapView;
     MKCoordinateRegion  lastRegion;
     UIPopoverController *listPopover;   ///< This will handle the list view in a popover.
@@ -67,6 +68,15 @@
         [self determineMapSize:[self dataArray]];
         [self setMapInit:YES];
         }
+}
+
+/**************************************************************//**
+ \brief Called after the view has been drawn.
+ *****************************************************************/
+- (void)viewDidAppear:(BOOL)animated   ///< YES, if the appearance was animated.
+{
+    [super viewDidAppear:animated];
+    [self dismissListPopover];      ///< This deselects any selected annotations.
 }
 
 /**************************************************************//**
@@ -326,11 +336,11 @@
 
     if ( ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) )
         {
-        [self dismissListPopover];
-        
         listPopover = [[UIPopoverController alloc] initWithContentViewController:newController];
         
         [listPopover setDelegate:self];
+        
+        selectRect.size.width -= (kRegularAnnotationOffsetRight * 2);   // This just makes sure that the popover appears over the annotation exactly.
         
         [listPopover presentPopoverFromRect:selectRect
                                        inView:inContext
@@ -344,16 +354,31 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Cleans up when the popover is closed. Closes the popover, if necessary.
  *****************************************************************/
 - (void)dismissListPopover
 {
     if (listPopover)
         {
         [listPopover dismissPopoverAnimated:YES];
+        listPopover = nil;
         }
     
-    listPopover = nil;
+    [_selectedAnnotation setIsSelected:NO];
+    [(BMLT_Results_MapPointAnnotationView *)[(MKMapView *)[self view] viewForAnnotation:_selectedAnnotation] selectImage];
+    _selectedAnnotation = nil;
+}
+
+#pragma mark - UIPopoverControllerDelegate Functions -
+
+/**************************************************************//**
+ \brief Called when the popover closes.
+ *****************************************************************/
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    [_selectedAnnotation setIsSelected:NO];
+    [(BMLT_Results_MapPointAnnotationView *)[(MKMapView *)[self view] viewForAnnotation:_selectedAnnotation] selectImage];
+    _selectedAnnotation = nil;
 }
 
 #pragma mark - MKMapViewDelegate Functions -
@@ -435,6 +460,11 @@ didSelectAnnotationView:(MKAnnotationView *)inView    ///< The selected annotati
                 NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Displaying a list of %d meetings.", [theAnnotation getNumberOfMeetings]);
                 }
 #endif
+            [self dismissListPopover];
+            _selectedAnnotation = theAnnotation;
+            [theAnnotation setIsSelected:YES];
+            [(BMLT_Results_MapPointAnnotationView *)[mapView viewForAnnotation:_selectedAnnotation] selectImage];
+            
             NSArray *theMeetings = [theAnnotation getMyMeetings];
             
             if ( [theAnnotation getNumberOfMeetings] > 1 )
@@ -452,4 +482,5 @@ didSelectAnnotationView:(MKAnnotationView *)inView    ///< The selected annotati
             [mapView deselectAnnotation:annotation animated:NO];
             }
         }
-}@end
+}
+@end

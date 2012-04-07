@@ -20,9 +20,6 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
 
-#define kNumberOfPixelsDown 24
-#define kNumberOfPixelsLeft 19
-
 /**************************************************************//**
  \class BMLT_Search_BlackAnnotationView
  \brief We modify the black annotation view to allow dragging.
@@ -44,6 +41,7 @@
         {
         [self setDraggable:YES];
         [self setCoordinate:inCoordinate];
+        [self setCenterOffset:CGPointMake(kSearchAnnotationOffsetRight, -kSearchAnnotationOffsetUp)];    // Hardcoded, but the image has a specific point.
         }
 
     return self;
@@ -55,8 +53,6 @@
 - (void)selectImage
 {
     [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
-    
-    [self setCenterOffset:CGPointMake(-kNumberOfPixelsLeft, -kNumberOfPixelsDown)];    // Hardcoded, but the image has a specific point.
 }
 
 /**************************************************************//**

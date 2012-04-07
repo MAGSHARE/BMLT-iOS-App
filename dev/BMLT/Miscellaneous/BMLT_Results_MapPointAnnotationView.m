@@ -37,8 +37,8 @@
     
     if ( self )
         {
+        [self setCenterOffset:CGPointMake(kRegularAnnotationOffsetRight, -kRegularAnnotationOffsetUp)];
         [self selectImage];
-        [self setCenterOffset:CGPointMake(-8, -20)];
         }
     
     return self;
@@ -54,18 +54,10 @@
     if ( [[self annotation] isKindOfClass:[BMLT_Results_MapPointAnnotation class]] )
         {
         BOOL    isMulti = [(BMLT_Results_MapPointAnnotation *)[self annotation] getNumberOfMeetings] > 1;
-        
-        [self setImage:[UIImage imageNamed:(isMulti ? @"MapMarkerRed.png" : @"MapMarkerBlue.png")]];
+        BOOL    isSelected = [(BMLT_Results_MapPointAnnotation *)[self annotation] isSelected]; 
+        [self setImage:[UIImage imageNamed:(isSelected ? @"MapMarkerGreen.png" : isMulti ? @"MapMarkerRed.png" : @"MapMarkerBlue.png")]];
+        [self setNeedsDisplay];
         }
-}
-
-/**************************************************************//**
- \brief Just makes sure we select the image before we draw it.
- *****************************************************************/
-- (void)drawRect:(CGRect)rect
-{
-    [self selectImage];
-    [super drawRect:rect];
 }
 
 @end
@@ -94,7 +86,7 @@
  *****************************************************************/
 @implementation BMLT_Results_MapPointAnnotation
 
-@synthesize isSelected, coordinate = _coordinate, title, subtitle;
+@synthesize isSelected = _selected, coordinate = _coordinate, title, subtitle;
 
 /**************************************************************//**
  \brief Initialize with a coordinate, and a list of meetings.
@@ -112,6 +104,14 @@
         }
     
     return self;
+}
+
+/**************************************************************//**
+ \brief Sets the selected property, and triggers a redraw.
+ *****************************************************************/
+- (void)setIsSelected:(BOOL)isSelected
+{
+    _selected = isSelected;
 }
 
 /**************************************************************//**

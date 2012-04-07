@@ -21,6 +21,9 @@
 #import "BMLT_Results_MapPointAnnotationView.h"
 #import <MapKit/MapKit.h>
 
+#define kSearchAnnotationOffsetRight   19  /**< This is how many pixels to shift the annotation view right. */
+#define kSearchAnnotationOffsetUp      24  /**< This is how many pixels to shift the annotation view up. */
+
 /**************************************************************//**
  \class BMLT_Search_BlackAnnotationView
  \brief We modify the black annotation view to allow dragging.
