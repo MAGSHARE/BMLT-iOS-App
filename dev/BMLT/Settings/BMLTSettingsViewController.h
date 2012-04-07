@@ -50,7 +50,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *numMeetingsLabel;
 @property (weak, nonatomic) IBOutlet UISlider *numMeetingsSlider;
 @property (weak, nonatomic) IBOutlet UILabel *minLabel;
+@property (weak, nonatomic) IBOutlet UIButton *updateLocationButton;
 @property (weak, nonatomic) IBOutlet UILabel *maxLabel;
+- (IBAction)updateUserLocationNow:(id)sender;
 - (IBAction)lookupLocationChanged:(id)sender;
 - (IBAction)keepUpdatingChanged:(id)sender;
 - (IBAction)retainStateChanged:(id)sender;

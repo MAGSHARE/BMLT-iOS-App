@@ -96,6 +96,7 @@
         the iPad version of the app.
  *****************************************************************/
 @implementation A_BMLT_SearchViewController
+@synthesize lookupLocationButton;
 @synthesize mapSearchView, myMarker;
 
 /**************************************************************//**
@@ -104,6 +105,11 @@
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated   /// YES, if the view will be animated.
 {
+    if ( ![BMLTAppDelegate locationServicesAvailable] )
+        {
+        [[self lookupLocationButton] setEnabled:NO];
+        }
+          
     [super viewWillAppear:animated];
     [self setUpMap];
     [[BMLTAppDelegate getBMLTAppDelegate] setActiveSearchController:self];
@@ -191,7 +197,7 @@
  *****************************************************************/
 - (IBAction)locationButtonPressed:(id)sender    ///< The button object.
 {
-    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
+    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation:YES];
 }
 
 #pragma mark - MKMapViewDelegate Functions -
@@ -255,4 +261,8 @@ fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state 
 }
 
 
+- (void)viewDidUnload {
+    [self setLookupLocationButton:nil];
+    [super viewDidUnload];
+}
 @end

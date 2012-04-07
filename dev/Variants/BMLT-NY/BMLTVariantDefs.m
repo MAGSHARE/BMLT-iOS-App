@@ -18,6 +18,7 @@
 //
 
 #import "BMLTVariantDefs.h"
+#import "BMLTAppDelegate.h"
 
 /**************************************************************//**
  \brief  See the "BMLTVariantDefs.h" file for details.
@@ -123,7 +124,19 @@
  *****************************************************************/
 + (NSURL *)directionsURITo:(CLLocationCoordinate2D)inTo   ///< The long/lat of wehere we are going
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:NSLocalizedString(@"DIRECTIONS-URI-FORMAT",nil), inTo.latitude, inTo.longitude]];
+    NSURL       *ret = nil;
+    CLLocation  *lastLoc = [[BMLTAppDelegate getBMLTAppDelegate] lastLocation];
+    
+    if ( lastLoc )  // If we know where we are, then we add that to the URI, for a richer user experience.
+        {
+        ret = [NSURL URLWithString:[NSString stringWithFormat:NSLocalizedString(@"DIRECTIONS-URI-FORMAT-ACCURATE",nil), lastLoc.coordinate.latitude, lastLoc.coordinate.longitude, inTo.latitude, inTo.longitude]];
+        }
+    else    // Otherwise, we let the user figger it out when they get to the page.
+        {
+        ret = [NSURL URLWithString:[NSString stringWithFormat:NSLocalizedString(@"DIRECTIONS-URI-FORMAT",nil), inTo.latitude, inTo.longitude]];
+        }
+    
+    return ret;
 }
 /**************************************************************//**
  *****************************************************************/

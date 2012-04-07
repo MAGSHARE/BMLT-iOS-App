@@ -20,6 +20,7 @@
 
 #import "BMLTSettingsViewController.h"
 #import "BMLT_Prefs.h"
+#import "BMLTAppDelegate.h"
 
 #define _LOG_MIN    5       /**< The number of meetings in a search test for the Min level of the slider. */
 #define _LOG_MAX    20      /**< The number of meetings for the Max level of the slider. */
@@ -71,6 +72,7 @@
 @synthesize numMeetingsLabel;
 @synthesize numMeetingsSlider;
 @synthesize minLabel;
+@synthesize updateLocationButton;
 @synthesize maxLabel;
 
 /**************************************************************//**
@@ -128,6 +130,14 @@
         {
         [preferredSearchTypeControl setTitle:NSLocalizedString([preferredSearchTypeControl titleForSegmentAtIndex:i], nil) forSegmentAtIndex:i];
         }
+    
+    [[self updateLocationButton] setTitle:NSLocalizedString([[self updateLocationButton] titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
+    
+    // No location services, no lookup.
+    if ( ![BMLTAppDelegate locationServicesAvailable] )
+        {
+        [[self updateLocationButton] setEnabled:NO];
+        }
 }
 
 /**************************************************************//**
@@ -151,6 +161,7 @@
     [self setNumMeetingsSlider:nil];
     [self setMinLabel:nil];
     [self setMaxLabel:nil];
+    [self setUpdateLocationButton:nil];
     [super viewDidUnload];
 }
 
@@ -222,5 +233,13 @@
     UISlider  *myControl = (UISlider *)sender;  // Get the sender as a slider control
     [[BMLT_Prefs getBMLT_Prefs] setResultCount:floorf(powf(10, [myControl value]))];
     [BMLT_Prefs saveChanges];
+}
+
+/**************************************************************//**
+ \brief  Called when the user wants to update their location now.
+ *****************************************************************/
+- (IBAction)updateUserLocationNow:(id)sender    ///< The update Location button.
+{
+    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation:YES];
 }
 @end

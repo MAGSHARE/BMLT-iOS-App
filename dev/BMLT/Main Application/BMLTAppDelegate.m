@@ -66,6 +66,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 @implementation BMLTAppDelegate
 
 #pragma mark - Synthesize Class Properties -
+@synthesize lastLocation;               ///< This will hold the last location for the user (as opposed to the search center). This is used for directions.
 @synthesize window      = _window;      ///< This will hold the window associated with this application instance.
 @synthesize locationManager;            ///< This holds the location manager instance.
 @synthesize internetActive;             ///< Set to YES, if the network test says that the Internet is available.
@@ -699,9 +700,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         This will force the map to update, and will set the main
         location to the found location.
  *****************************************************************/
-- (void)lookupMyLocation
+- (void)lookupMyLocation:(BOOL)refreshSearch    ///< If YES, then we set the "I'm updated" flag to NO, which resets the search location.
 {
-    _iveUpdatedTheMap = NO;
+    _iveUpdatedTheMap = !refreshSearch;
     [locationManager startUpdatingLocation];
 }
 
@@ -747,6 +748,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
         [locationManager stopUpdatingLocation]; // Stop updating for now.
         
+        [self setLastLocation:newLocation]; // Record for posterity
         // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).
         if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
             {

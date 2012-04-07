@@ -118,6 +118,21 @@
                                     <action selector="numMeetingsChanged:" destination="cUO-18-5Fj" eventType="valueChanged" id="Qqq-r6-NLh"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="We2-k4-kiq">
+                                <rect key="frame" x="259" y="163" width="251" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SETTINGS-UPDATE-LOCATION">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateUserLocationNow:" destination="cUO-18-5Fj" eventType="touchUpInside" id="HyL-bd-NsR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -141,6 +156,7 @@
                         <outlet property="preferredSearchTypeLabel" destination="vXO-QL-xlZ" id="bOo-h9-kSG"/>
                         <outlet property="retainStateLabel" destination="dzB-bV-ZLs" id="hrL-Xu-R8G"/>
                         <outlet property="retainStateSwitch" destination="mYX-gy-1Yx" id="FG4-bf-QOc"/>
+                        <outlet property="updateLocationButton" destination="We2-k4-kiq" id="wue-xB-ajg"/>
                     </connections>
                 </viewController>
             </objects>
@@ -301,6 +317,23 @@
                                     <action selector="locationButtonPressed:" destination="SFh-VH-MDA" eventType="touchUpInside" id="ao9-92-inG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="e6g-Gx-G5K">
+                                <rect key="frame" x="20" y="5" width="31" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" red="0.23361895160000001" green="0.3544921875" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" image="LocationIconBlack.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="LocationIconWhite.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="locationButtonPressed:" destination="SFh-VH-MDA" eventType="touchUpInside" id="O4J-G4-TBP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -316,6 +349,7 @@
                         <outlet property="findMeetingsLaterTodayButton" destination="oHM-sY-V2t" id="R2s-Zt-gGA"/>
                         <outlet property="findMeetingsNearMeButton" destination="C3s-sr-oSN" id="Xk1-b5-NFa"/>
                         <outlet property="findMeetingsTomorrowButton" destination="NNa-Bu-ist" id="fys-Vy-zsx"/>
+                        <outlet property="lookupLocationButton" destination="e6g-Gx-G5K" id="qZ4-QX-fDC"/>
                         <outlet property="mapSearchView" destination="nLJ-nP-ZR5" id="CYK-M2-12B"/>
                     </connections>
                 </viewController>
@@ -435,7 +469,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="callForDirections:" destination="KvL-qN-ldU" eventType="touchUpInside" id="Cyy-QY-B8g"/>
+                                    <action selector="callForDirections:" destination="KvL-qN-ldU" eventType="touchUpInside" id="RdH-DD-V90"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="N9A-0T-YD6" userLabel="Formats">
@@ -750,6 +784,7 @@
                         <outlet property="friButton" destination="DbT-IY-Ei4" id="Quc-0y-ahV"/>
                         <outlet property="friLabel" destination="qpt-TE-8uR" id="aaN-5M-TrC"/>
                         <outlet property="goButton" destination="qkj-bw-yHW" id="cRa-To-ItT"/>
+                        <outlet property="lookupLocationButton" destination="Ocl-h7-ZGe" id="G2p-Ue-DmB"/>
                         <outlet property="mapSearchView" destination="f8b-Wv-mvF" id="muz-0T-PXK"/>
                         <outlet property="monButton" destination="3uT-XX-Y9P" id="ppz-Dm-xMI"/>
                         <outlet property="monLabel" destination="1Wr-Xs-oCr" id="7J9-Us-Kyv"/>
@@ -807,6 +842,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
             <relationships>
                 <relationship kind="action" name="locationButtonPressed:"/>
+                <relationship kind="outlet" name="lookupLocationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
             </relationships>
         </class>
@@ -878,6 +914,7 @@
                 <relationship kind="action" name="numMeetingsChanged:"/>
                 <relationship kind="action" name="preferredSearchChanged:"/>
                 <relationship kind="action" name="retainStateChanged:"/>
+                <relationship kind="action" name="updateUserLocationNow:"/>
                 <relationship kind="outlet" name="distanceSortLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="distanceSortSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="keepUpdatingLabel" candidateClass="UILabel"/>
@@ -894,6 +931,7 @@
                 <relationship kind="outlet" name="preferredSearchTypeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="retainStateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="retainStateSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="updateLocationButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="BMLTSimpleSearchViewController" superclassName="A_BMLT_SearchViewController">
