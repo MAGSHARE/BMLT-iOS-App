@@ -84,6 +84,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 @synthesize searchNavController;        ///< This is the tab controller for all the searches.
 @synthesize listResultsViewController;  ///< This will point to our list results main controller.
 @synthesize mapResultsViewController;   ///< This will point to our map results main controller.
+@synthesize reusableMeetingDetails = _details;     ///< This will hold an instance of our meeting details view controller that we will re-use.
 
 #pragma mark - Class Methods -
 /**************************************************************//**
@@ -140,17 +141,22 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] dismissListPopover];
     [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];
     
-    // Get the storyboard, then instantiate the details view from the independent view controller.
-    UIStoryboard                    *st = [inController storyboard];
-    BMLTMeetingDetailViewController *meetingDetails = (BMLTMeetingDetailViewController *)[st instantiateViewControllerWithIdentifier:@"meeting-details-sheet"];
+    BMLTMeetingDetailViewController *details = [[BMLTAppDelegate getBMLTAppDelegate] reusableMeetingDetails];
+    
+    if ( !details )
+        {
+        // Get the storyboard, then instantiate the details view from the independent view controller.
+        UIStoryboard    *st = [inController storyboard];
+        details = (BMLTMeetingDetailViewController *)[st instantiateViewControllerWithIdentifier:@"meeting-details-sheet"];
+        [[BMLTAppDelegate getBMLTAppDelegate] setReusableMeetingDetails:details];
+        }
 
     // Set the basics.
-    [meetingDetails setMyMeeting:inMeeting];
-    [meetingDetails setMyModalController:inController];
+    [details setMyModalController:inController];
+    [details setMyMeeting:inMeeting];
     
     // Push the new details controller onto the stack.
-    [[inController navigationController] pushViewController:meetingDetails animated:YES];
-    meetingDetails = nil;
+    [[inController navigationController] pushViewController:details animated:YES];
 }
 
 #pragma mark - Private methods -

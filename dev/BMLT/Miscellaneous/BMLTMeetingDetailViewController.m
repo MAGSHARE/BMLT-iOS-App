@@ -40,31 +40,15 @@
 /**************************************************************//**
  \brief Sets up the view, with all its parts.
  *****************************************************************/
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
     [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
     [[[self navigationItem] titleView] sizeToFit];
-    [self setFormats];
     [self setMeetingFrequencyText];
     [self setMeetingCommentsText];
-    [self setMapLocation];
     [self setMeetingLocationText];
-}
-
-/**************************************************************//**
- \brief Scram the reactor.
- *****************************************************************/
-- (void)viewDidUnload
-{
-    [self setAddressButton:nil];
-    [self setCommentsTextView:nil];
-    [self setFrequencyTextView:nil];
-    [self setFormatsContainerView:nil];
-    [self setSelectSatelliteButton:nil];
-    [self setSelectMapButton:nil];
-    
-    [super viewDidUnload];
+    [self setFormats];
+    [self setMapLocation];
 }
 
 /**************************************************************//**
@@ -91,6 +75,11 @@
 - (void)setFormats
 {
     NSArray *formats = [_myMeeting getFormats];
+    
+    for ( UIView *subView in [formatsContainerView subviews] )
+        {
+        [subView removeFromSuperview];
+        }
     
     if ( [formats count] )
         {
@@ -185,6 +174,11 @@
         [selectMapButton setAlpha:0.0];
         [selectSatelliteButton setAlpha:1.0];
         [meetingMapView setDelegate:self];
+        }
+    else
+        {
+        [[[meetingMapView annotations] objectAtIndex:0] setCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate]];
+        [meetingMapView setCenterCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate] animated:NO];
         }
 }
 
