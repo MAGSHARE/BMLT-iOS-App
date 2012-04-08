@@ -22,5 +22,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BMLTAnimationScreenViewController : UIViewController
+@property (weak, nonatomic, readonly) IBOutlet UILabel *messageLabel;
 
 @end

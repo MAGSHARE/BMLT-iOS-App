@@ -74,15 +74,16 @@
         
         imageFrame.size.width *= center_ratio;
         imageFrame.size.height *= center_ratio;
-        imageFrame.origin.x = (bottomSize.width - centerSize.width) / 2 - (bottomSize.width / 44.0);
+        imageFrame.origin.x = (bottomSize.width - centerSize.width) / 2 - (bottomSize.width / 44.0);    // The 44 is because of the drop shadow. The center needs to be offset 1/44th up and left.
         imageFrame.origin.y = (bottomSize.height - centerSize.height) / 2 - (bottomSize.height / 44.0);
         
         animatedImages = [[UIImageView alloc] initWithFrame:imageFrame];
         [animatedImages setAnimationImages:imageArray];
         
-        animatedImages.animationDuration = 2.0;
+        animatedImages.animationDuration = 1.5;
         animatedImages.animationRepeatCount = 0;
         
+        [self setBackgroundColor:[UIColor clearColor]];
         [self addSubview:bottomLayerImage];
         [self addSubview:animatedImages];
         [self addSubview:topLayerImage];

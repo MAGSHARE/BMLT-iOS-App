@@ -30,7 +30,6 @@
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
-
 #define kSearchTabIndex             0   /**< The index of the Search tab. */
 
 #define kListResultsTabIndex        (kSearchTabIndex + 1)   /**< The index of the list results tab. */
@@ -230,9 +229,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 #ifdef DEBUG
     NSLog(@"No meetings found.");
 #endif
-    [[(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] navigationItem] setLeftBarButtonItem:nil];
-    UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NO-SEARCH-RESULTS",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
-    [myAlert show];
+    [[currentAnimation messageLabel] setText:NSLocalizedString(@"NO-SEARCH-RESULTS",nil)];
 }
 
 /**************************************************************//**
@@ -263,11 +260,8 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
         }
     else
         {
-        [self performSelectorOnMainThread:@selector(stopAnimations) withObject:nil waitUntilDone:YES];
-        [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:YES];
         [self performSelectorOnMainThread:@selector(sorryCharlie) withObject:nil waitUntilDone:YES];
         }
-    
 }
 
 /**************************************************************//**
@@ -625,7 +619,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)clearAllSearchResults:(BOOL)inForce ///< YES, if we will force the search to switch.
 {
-    [self stopAnimations];
     [self simpleClearSearch];
     [mapResultsViewController closeModal];      ///< Make sure we close any open modals or popovers, first.
     [mapResultsViewController dismissListPopover];
@@ -743,9 +736,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     if ( newLocation.coordinate.longitude != 0 && newLocation.coordinate.latitude != 0 )
         {
-        [locationManager stopUpdatingLocation]; // Stop updating for now.
-        
-        [self setLastLocation:newLocation]; // Record for posterity
         // Make sure that we have a setup that encourages a location-based meeting search (no current search, and a geo_width that will constrain the search).
         if ( _findMeetings && [searchParams objectForKey:@"geo_width"] )
             {
@@ -771,7 +761,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             [self setSearchMapMarkerLoc:[newLocation coordinate]];
             [activeSearchController performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
             _iveUpdatedTheMap = YES;
+            [locationManager stopUpdatingLocation]; // Stop updating for now.
             }
+        
+        [self setLastLocation:newLocation]; // Record for posterity
         }
 #ifdef DEBUG
     else    // Something's wrong. We cannot be at exactly 0,0. Try again.

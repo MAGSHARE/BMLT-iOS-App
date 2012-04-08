@@ -27,17 +27,18 @@
 @end
 
 @implementation BMLTAnimationScreenViewController
+@synthesize messageLabel;
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [[self messageLabel] setText:@""];
     [[BMLTAppDelegate getBMLTAppDelegate] setCurrentAnimation:self];
-    [[self navigationItem] setHidesBackButton:YES];
-    [[self navigationItem] setTitle:@""];
+    [[self navigationItem] setTitle:NSLocalizedString(@"SEARCH-ANIMATION-TITLE", nil)];
 }
 
 - (void)viewDidUnload
 {
+    [[BMLTAppDelegate getBMLTAppDelegate] setCurrentAnimation:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
