@@ -8,6 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		7707F3151525B44C00032CCA /* A_BMLT_SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */; };
+		77111E5B1531304F001ACF4C /* BottomLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E3A1531304F001ACF4C /* BottomLayer.png */; };
+		77111E5C1531304F001ACF4C /* Globe_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E3C1531304F001ACF4C /* Globe_00.png */; };
+		77111E5D1531304F001ACF4C /* Globe_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E3D1531304F001ACF4C /* Globe_01.png */; };
+		77111E5E1531304F001ACF4C /* Globe_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E3E1531304F001ACF4C /* Globe_02.png */; };
+		77111E5F1531304F001ACF4C /* Globe_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E3F1531304F001ACF4C /* Globe_03.png */; };
+		77111E601531304F001ACF4C /* Globe_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E401531304F001ACF4C /* Globe_04.png */; };
+		77111E611531304F001ACF4C /* Globe_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E411531304F001ACF4C /* Globe_05.png */; };
+		77111E621531304F001ACF4C /* Globe_06.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E421531304F001ACF4C /* Globe_06.png */; };
+		77111E631531304F001ACF4C /* Globe_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E431531304F001ACF4C /* Globe_07.png */; };
+		77111E641531304F001ACF4C /* Globe_08.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E441531304F001ACF4C /* Globe_08.png */; };
+		77111E651531304F001ACF4C /* Globe_09.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E451531304F001ACF4C /* Globe_09.png */; };
+		77111E661531304F001ACF4C /* Globe_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E461531304F001ACF4C /* Globe_10.png */; };
+		77111E671531304F001ACF4C /* Globe_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E471531304F001ACF4C /* Globe_11.png */; };
+		77111E681531304F001ACF4C /* Globe_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E481531304F001ACF4C /* Globe_12.png */; };
+		77111E691531304F001ACF4C /* Globe_13.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E491531304F001ACF4C /* Globe_13.png */; };
+		77111E6A1531304F001ACF4C /* Globe_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E4A1531304F001ACF4C /* Globe_14.png */; };
+		77111E6B1531304F001ACF4C /* Globe_15.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E4B1531304F001ACF4C /* Globe_15.png */; };
+		77111E6C1531304F001ACF4C /* Globe_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E4C1531304F001ACF4C /* Globe_16.png */; };
+		77111E6D1531304F001ACF4C /* Globe_17.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E4D1531304F001ACF4C /* Globe_17.png */; };
+		77111E6E1531304F001ACF4C /* Globe_18.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E4E1531304F001ACF4C /* Globe_18.png */; };
+		77111E6F1531304F001ACF4C /* Globe_19.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E4F1531304F001ACF4C /* Globe_19.png */; };
+		77111E701531304F001ACF4C /* Globe_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E501531304F001ACF4C /* Globe_20.png */; };
+		77111E711531304F001ACF4C /* Globe_21.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E511531304F001ACF4C /* Globe_21.png */; };
+		77111E721531304F001ACF4C /* Globe_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E521531304F001ACF4C /* Globe_22.png */; };
+		77111E731531304F001ACF4C /* Globe_23.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E531531304F001ACF4C /* Globe_23.png */; };
+		77111E741531304F001ACF4C /* Globe_24.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E541531304F001ACF4C /* Globe_24.png */; };
+		77111E751531304F001ACF4C /* Globe_25.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E551531304F001ACF4C /* Globe_25.png */; };
+		77111E761531304F001ACF4C /* Globe_26.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E561531304F001ACF4C /* Globe_26.png */; };
+		77111E771531304F001ACF4C /* Globe_27.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E571531304F001ACF4C /* Globe_27.png */; };
+		77111E781531304F001ACF4C /* Globe_28.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E581531304F001ACF4C /* Globe_28.png */; };
+		77111E791531304F001ACF4C /* Globe_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E591531304F001ACF4C /* Globe_29.png */; };
+		77111E7A1531304F001ACF4C /* TopLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 77111E5A1531304F001ACF4C /* TopLayer.png */; };
+		77111E7E1531306D001ACF4C /* BMLT_Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77111E7D1531306D001ACF4C /* BMLT_Animation.m */; };
 		7711417215125CD100BCCE00 /* BMLTSimpleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */; };
 		77167D501517D21F006E50E8 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 77167D4F1517D21F006E50E8 /* LICENSE.txt */; };
 		771D0C34150E88E5005A707A /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C32150E88E5005A707A /* BMLTAppDelegate.m */; };
@@ -90,6 +123,40 @@
 /* Begin PBXFileReference section */
 		7707F3131525B44C00032CCA /* A_BMLT_SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLT_SearchViewController.h; path = Miscellaneous/A_BMLT_SearchViewController.h; sourceTree = "<group>"; };
 		7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLT_SearchViewController.m; path = Miscellaneous/A_BMLT_SearchViewController.m; sourceTree = "<group>"; };
+		77111E3A1531304F001ACF4C /* BottomLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BottomLayer.png; sourceTree = "<group>"; };
+		77111E3C1531304F001ACF4C /* Globe_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_00.png; sourceTree = "<group>"; };
+		77111E3D1531304F001ACF4C /* Globe_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_01.png; sourceTree = "<group>"; };
+		77111E3E1531304F001ACF4C /* Globe_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_02.png; sourceTree = "<group>"; };
+		77111E3F1531304F001ACF4C /* Globe_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_03.png; sourceTree = "<group>"; };
+		77111E401531304F001ACF4C /* Globe_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_04.png; sourceTree = "<group>"; };
+		77111E411531304F001ACF4C /* Globe_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_05.png; sourceTree = "<group>"; };
+		77111E421531304F001ACF4C /* Globe_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_06.png; sourceTree = "<group>"; };
+		77111E431531304F001ACF4C /* Globe_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_07.png; sourceTree = "<group>"; };
+		77111E441531304F001ACF4C /* Globe_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_08.png; sourceTree = "<group>"; };
+		77111E451531304F001ACF4C /* Globe_09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_09.png; sourceTree = "<group>"; };
+		77111E461531304F001ACF4C /* Globe_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_10.png; sourceTree = "<group>"; };
+		77111E471531304F001ACF4C /* Globe_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_11.png; sourceTree = "<group>"; };
+		77111E481531304F001ACF4C /* Globe_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_12.png; sourceTree = "<group>"; };
+		77111E491531304F001ACF4C /* Globe_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_13.png; sourceTree = "<group>"; };
+		77111E4A1531304F001ACF4C /* Globe_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_14.png; sourceTree = "<group>"; };
+		77111E4B1531304F001ACF4C /* Globe_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_15.png; sourceTree = "<group>"; };
+		77111E4C1531304F001ACF4C /* Globe_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_16.png; sourceTree = "<group>"; };
+		77111E4D1531304F001ACF4C /* Globe_17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_17.png; sourceTree = "<group>"; };
+		77111E4E1531304F001ACF4C /* Globe_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_18.png; sourceTree = "<group>"; };
+		77111E4F1531304F001ACF4C /* Globe_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_19.png; sourceTree = "<group>"; };
+		77111E501531304F001ACF4C /* Globe_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_20.png; sourceTree = "<group>"; };
+		77111E511531304F001ACF4C /* Globe_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_21.png; sourceTree = "<group>"; };
+		77111E521531304F001ACF4C /* Globe_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_22.png; sourceTree = "<group>"; };
+		77111E531531304F001ACF4C /* Globe_23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_23.png; sourceTree = "<group>"; };
+		77111E541531304F001ACF4C /* Globe_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_24.png; sourceTree = "<group>"; };
+		77111E551531304F001ACF4C /* Globe_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_25.png; sourceTree = "<group>"; };
+		77111E561531304F001ACF4C /* Globe_26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_26.png; sourceTree = "<group>"; };
+		77111E571531304F001ACF4C /* Globe_27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_27.png; sourceTree = "<group>"; };
+		77111E581531304F001ACF4C /* Globe_28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_28.png; sourceTree = "<group>"; };
+		77111E591531304F001ACF4C /* Globe_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Globe_29.png; sourceTree = "<group>"; };
+		77111E5A1531304F001ACF4C /* TopLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopLayer.png; sourceTree = "<group>"; };
+		77111E7C1531306D001ACF4C /* BMLT_Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Animation.h; sourceTree = "<group>"; };
+		77111E7D1531306D001ACF4C /* BMLT_Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Animation.m; sourceTree = "<group>"; };
 		7711417015125CD100BCCE00 /* BMLTSimpleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSimpleSearchViewController.h; sourceTree = "<group>"; };
 		7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSimpleSearchViewController.m; sourceTree = "<group>"; };
 		77167D4E1517D205006E50E8 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
@@ -225,6 +292,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77111E391531304F001ACF4C /* BMLT_Animation */ = {
+			isa = PBXGroup;
+			children = (
+				77111E3A1531304F001ACF4C /* BottomLayer.png */,
+				77111E3B1531304F001ACF4C /* Spinning_Globe */,
+				77111E5A1531304F001ACF4C /* TopLayer.png */,
+			);
+			path = BMLT_Animation;
+			sourceTree = "<group>";
+		};
+		77111E3B1531304F001ACF4C /* Spinning_Globe */ = {
+			isa = PBXGroup;
+			children = (
+				77111E3C1531304F001ACF4C /* Globe_00.png */,
+				77111E3D1531304F001ACF4C /* Globe_01.png */,
+				77111E3E1531304F001ACF4C /* Globe_02.png */,
+				77111E3F1531304F001ACF4C /* Globe_03.png */,
+				77111E401531304F001ACF4C /* Globe_04.png */,
+				77111E411531304F001ACF4C /* Globe_05.png */,
+				77111E421531304F001ACF4C /* Globe_06.png */,
+				77111E431531304F001ACF4C /* Globe_07.png */,
+				77111E441531304F001ACF4C /* Globe_08.png */,
+				77111E451531304F001ACF4C /* Globe_09.png */,
+				77111E461531304F001ACF4C /* Globe_10.png */,
+				77111E471531304F001ACF4C /* Globe_11.png */,
+				77111E481531304F001ACF4C /* Globe_12.png */,
+				77111E491531304F001ACF4C /* Globe_13.png */,
+				77111E4A1531304F001ACF4C /* Globe_14.png */,
+				77111E4B1531304F001ACF4C /* Globe_15.png */,
+				77111E4C1531304F001ACF4C /* Globe_16.png */,
+				77111E4D1531304F001ACF4C /* Globe_17.png */,
+				77111E4E1531304F001ACF4C /* Globe_18.png */,
+				77111E4F1531304F001ACF4C /* Globe_19.png */,
+				77111E501531304F001ACF4C /* Globe_20.png */,
+				77111E511531304F001ACF4C /* Globe_21.png */,
+				77111E521531304F001ACF4C /* Globe_22.png */,
+				77111E531531304F001ACF4C /* Globe_23.png */,
+				77111E541531304F001ACF4C /* Globe_24.png */,
+				77111E551531304F001ACF4C /* Globe_25.png */,
+				77111E561531304F001ACF4C /* Globe_26.png */,
+				77111E571531304F001ACF4C /* Globe_27.png */,
+				77111E581531304F001ACF4C /* Globe_28.png */,
+				77111E591531304F001ACF4C /* Globe_29.png */,
+			);
+			path = Spinning_Globe;
+			sourceTree = "<group>";
+		};
 		771D0C30150E88E5005A707A /* Main Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +378,8 @@
 		771D0C52150E893C005A707A /* Miscellaneous View and Controller Classes */ = {
 			isa = PBXGroup;
 			children = (
+				77111E7C1531306D001ACF4C /* BMLT_Animation.h */,
+				77111E7D1531306D001ACF4C /* BMLT_Animation.m */,
 				77BCBBDB152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.h */,
 				77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */,
 				7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */,
@@ -346,6 +462,7 @@
 		772C1627151B49E300830596 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				77111E391531304F001ACF4C /* BMLT_Animation */,
 				7775A5A6152D24440098A7A3 /* LocationIconBlack.png */,
 				7775A5A7152D24440098A7A3 /* LocationIconWhite.png */,
 				772A856C15293EC600D688B5 /* SearchMarker.png */,
@@ -581,6 +698,38 @@
 				7775A5A9152D24440098A7A3 /* LocationIconWhite.png in Resources */,
 				77BBA91E152F27200058DD99 /* FormatDetailView.xib in Resources */,
 				77F77C281530753500C4B5D0 /* MapMarkerGreen.png in Resources */,
+				77111E5B1531304F001ACF4C /* BottomLayer.png in Resources */,
+				77111E5C1531304F001ACF4C /* Globe_00.png in Resources */,
+				77111E5D1531304F001ACF4C /* Globe_01.png in Resources */,
+				77111E5E1531304F001ACF4C /* Globe_02.png in Resources */,
+				77111E5F1531304F001ACF4C /* Globe_03.png in Resources */,
+				77111E601531304F001ACF4C /* Globe_04.png in Resources */,
+				77111E611531304F001ACF4C /* Globe_05.png in Resources */,
+				77111E621531304F001ACF4C /* Globe_06.png in Resources */,
+				77111E631531304F001ACF4C /* Globe_07.png in Resources */,
+				77111E641531304F001ACF4C /* Globe_08.png in Resources */,
+				77111E651531304F001ACF4C /* Globe_09.png in Resources */,
+				77111E661531304F001ACF4C /* Globe_10.png in Resources */,
+				77111E671531304F001ACF4C /* Globe_11.png in Resources */,
+				77111E681531304F001ACF4C /* Globe_12.png in Resources */,
+				77111E691531304F001ACF4C /* Globe_13.png in Resources */,
+				77111E6A1531304F001ACF4C /* Globe_14.png in Resources */,
+				77111E6B1531304F001ACF4C /* Globe_15.png in Resources */,
+				77111E6C1531304F001ACF4C /* Globe_16.png in Resources */,
+				77111E6D1531304F001ACF4C /* Globe_17.png in Resources */,
+				77111E6E1531304F001ACF4C /* Globe_18.png in Resources */,
+				77111E6F1531304F001ACF4C /* Globe_19.png in Resources */,
+				77111E701531304F001ACF4C /* Globe_20.png in Resources */,
+				77111E711531304F001ACF4C /* Globe_21.png in Resources */,
+				77111E721531304F001ACF4C /* Globe_22.png in Resources */,
+				77111E731531304F001ACF4C /* Globe_23.png in Resources */,
+				77111E741531304F001ACF4C /* Globe_24.png in Resources */,
+				77111E751531304F001ACF4C /* Globe_25.png in Resources */,
+				77111E761531304F001ACF4C /* Globe_26.png in Resources */,
+				77111E771531304F001ACF4C /* Globe_27.png in Resources */,
+				77111E781531304F001ACF4C /* Globe_28.png in Resources */,
+				77111E791531304F001ACF4C /* Globe_29.png in Resources */,
+				77111E7A1531304F001ACF4C /* TopLayer.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +772,7 @@
 				7799D29B151FA633007FE822 /* BMLTMeetingDetailViewController.m in Sources */,
 				7707F3151525B44C00032CCA /* A_BMLT_SearchViewController.m in Sources */,
 				77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */,
+				77111E7E1531306D001ACF4C /* BMLT_Animation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

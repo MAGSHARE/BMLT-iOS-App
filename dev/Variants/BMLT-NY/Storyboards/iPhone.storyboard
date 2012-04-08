@@ -825,6 +825,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
             <relationships>
                 <relationship kind="action" name="locationButtonPressed:"/>
+                <relationship kind="outlet" name="lookupLocationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
             </relationships>
         </class>

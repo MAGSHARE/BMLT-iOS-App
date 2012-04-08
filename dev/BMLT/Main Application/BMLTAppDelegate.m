@@ -673,7 +673,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)startAnimations
 {
+    UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
+    UITabBarItem        *searchItem = [[[tabController tabBar] items] objectAtIndex:0];
     
+    if ( searchItem )
+        {
+        
+        }
 }
 
 /**************************************************************//**
@@ -681,7 +687,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)stopAnimations
 {
-    
 }
 
 /**************************************************************//**

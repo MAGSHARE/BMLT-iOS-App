@@ -193,7 +193,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="TAB-BAR-2" id="MGE-X7-pmn"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                     <connections>
                         <outlet property="view" destination="kdU-hf-XEn" id="frN-ac-AVj"/>
                     </connections>
@@ -337,7 +337,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="w6g-t7-6BJ"/>
                     <navigationItem key="navigationItem" title="SEARCH-SPEC-SIMPLE-TITLE" id="cTL-sJ-nIb">
                         <barButtonItem key="rightBarButtonItem" title="SEARCH-SPEC-ADVANCED-TITLE" id="8PK-ZF-Wq2">
                             <connections>
@@ -499,7 +498,7 @@
         <scene sceneID="y5F-XP-cY6">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoG-rK-fy0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="advanced-search" id="crR-vv-v9x" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="advanced-search" wantsFullScreenLayout="YES" id="crR-vv-v9x" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QJv-Je-6DP" customClass="A_BMLTMainBackgroundView">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -842,6 +841,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
             <relationships>
                 <relationship kind="action" name="locationButtonPressed:"/>
+                <relationship kind="outlet" name="animationCoverView" candidateClass="BMLTAnimationCoverView"/>
                 <relationship kind="outlet" name="lookupLocationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
             </relationships>
@@ -876,6 +876,9 @@
                 <relationship kind="outlet" name="weekdaysLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="weekdaysSelector" candidateClass="UISegmentedControl"/>
             </relationships>
+        </class>
+        <class className="BMLTAnimationCoverView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimationCoverView.h"/>
         </class>
         <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTDisplayListResultsViewController.h"/>
