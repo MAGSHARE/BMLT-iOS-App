@@ -549,7 +549,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error.
             NSLog(@"BMLTAdvancedSearchViewController parserDidEndDocument. Starting a Search." );
 #endif
             searchAfterLookup = NO;
-            [self performSelectorOnMainThread:@selector(doSearchButtonPressed:) withObject:goButton waitUntilDone:NO];
+            [goButton sendActionsForControlEvents:UIControlEventTouchUpInside];
             }
         }
     
