@@ -21,6 +21,7 @@
 #import "BMLT_Prefs.h"
 #import "BMLT_Meeting.h"
 #import "BMLT_Parser.h"
+#import "BMLT_Animation.h"
 #import "BMLTDisplayListResultsViewController.h"
 #import "BMLTMapResultsViewController.h"
 #import "BMLTSimpleSearchViewController.h"
@@ -42,11 +43,12 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
  *****************************************************************/
 @interface BMLTAppDelegate ()
 {
-    BOOL                                    _findMeetings;              ///< If this is YES, then a meeting search will be done.
-    BOOL                                    _amISick;                   ///< If true, it indicates that the alert for connectivity problems should not be shown.
-    BOOL                                    _visitingRelatives;         ///< If true, then we will retain the app state, despite the flag that says we shouldn't.
-    BOOL                                    _iveUpdatedTheMap;          ///< YES, to prevent the map from being continuously updated.
-    BMLT_Meeting_Search                     *mySearch;                  ///< The current meeting search in progress.
+    BOOL                    _findMeetings;              ///< If this is YES, then a meeting search will be done.
+    BOOL                    _amISick;                   ///< If true, it indicates that the alert for connectivity problems should not be shown.
+    BOOL                    _visitingRelatives;         ///< If true, then we will retain the app state, despite the flag that says we shouldn't.
+    BOOL                    _iveUpdatedTheMap;          ///< YES, to prevent the map from being continuously updated.
+    BOOL                    _wereAnimating;             ///< Used to indicate that the view controller is doing an animation.
+    BMLT_Meeting_Search     *mySearch;                  ///< The current meeting search in progress.
 }
 
 - (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;   ///< Do a nice transition between tab views.
@@ -229,8 +231,9 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 #ifdef DEBUG
     NSLog(@"No meetings found.");
 #endif
+    [[(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] navigationItem] setLeftBarButtonItem:nil];
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NO-SEARCH-RESULTS",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
-    [myAlert show];    
+    [myAlert show];
 }
 
 /**************************************************************//**
@@ -241,32 +244,31 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate::displaySearchResults called.");
 #endif
-    [self setUpTabBarItems];
-    UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
-    
-    [listResultsViewController setDataArrayFromData:[self searchResults]];
-    [mapResultsViewController setDataArrayFromData:[self searchResults]];
-    [mapResultsViewController setMapInit:NO];
-    [listResultsViewController addClearSearchButton];
-    [mapResultsViewController addClearSearchButton];
-    
     if ( [[self searchResults] count] )
         {
+        [listResultsViewController setDataArrayFromData:[self searchResults]];
+        [mapResultsViewController setDataArrayFromData:[self searchResults]];
+        [mapResultsViewController setMapInit:NO];
+        
+        [listResultsViewController addClearSearchButton];
+        [mapResultsViewController addClearSearchButton];
+        [self stopAnimations];
+        [self setUpTabBarItems];
         [listResultsViewController setIncludeSortRow:YES];
         [listResultsViewController sortMeetings:nil];
         
-        [(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] addClearSearchButton];
-        
         BOOL    mapSearch = [[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap];
-        int selectedIndex = (mapSearch ? 2 : 1);
         
-        [tabController setSelectedIndex:selectedIndex];
+        UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
+        [tabController setSelectedIndex:(mapSearch ? kMapResultsTabIndex : kListResultsTabIndex)];
         }
     else
         {
-        [[(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] navigationItem] setLeftBarButtonItem:nil];
-        [self sorryCharlie];
+        [self performSelectorOnMainThread:@selector(stopAnimations) withObject:nil waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(sorryCharlie) withObject:nil waitUntilDone:YES];
         }
+    
 }
 
 /**************************************************************//**
@@ -278,9 +280,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     NSLog(@"BMLTAppDelegate::selectInitialSearchAndForce called.");
 #endif
     UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
-    
-    [tabController setSelectedIndex:kSearchTabIndex]; // Set the tab bar to the search screens.
-    
+        
     if ( force )
         {
         UIStoryboard    *st = [tabController storyboard];
@@ -501,7 +501,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [searchParams removeAllObjects];
         [searchParams setValuesForKeysWithDictionary:params];
         }
-    [self startAnimations];
+
     [searchParams setObject:[NSString stringWithFormat:@"%d", -[myPrefs resultCount]] forKey:@"geo_width"];
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
@@ -626,8 +626,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)clearAllSearchResults:(BOOL)inForce ///< YES, if we will force the search to switch.
 {
-    [self simpleClearSearch];
     [self stopAnimations];
+    [self simpleClearSearch];
     [mapResultsViewController closeModal];      ///< Make sure we close any open modals or popovers, first.
     [mapResultsViewController dismissListPopover];
     [listResultsViewController closeModal];
@@ -636,6 +636,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [[listResultsViewController navigationController] popToRootViewControllerAnimated:NO];
     [listResultsViewController setDataArrayFromData:nil];
     [self selectInitialSearchAndForce:inForce];
+    [(UITabBarController *)self.window.rootViewController setSelectedIndex:kSearchTabIndex]; // Set the tab bar to the search screens.
     [self setUpTabBarItems];
 }
 
@@ -674,12 +675,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)startAnimations
 {
     UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
-    UITabBarItem        *searchItem = [[[tabController tabBar] items] objectAtIndex:0];
     
-    if ( searchItem )
-        {
-        
-        }
+    UIStoryboard        *st = [tabController storyboard];
+    
+    UIViewController    *newSearch = [st instantiateViewControllerWithIdentifier:@"animation-view-controller"];
+    [[newSearch navigationItem] setHidesBackButton:YES];
+    [[newSearch navigationItem] setTitle:@""];
+    
+    _wereAnimating = YES;
+    
+    [[searchNavController navigationController] pushViewController:newSearch animated:YES];
 }
 
 /**************************************************************//**
@@ -687,6 +692,12 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)stopAnimations
 {
+    if ( _wereAnimating )
+        {
+        [[searchNavController navigationController] popViewControllerAnimated:YES];
+        }
+    
+    _wereAnimating = NO;
 }
 
 /**************************************************************//**
@@ -768,7 +779,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             }
         else
             {
-            [self stopAnimations];
+            [self performSelectorOnMainThread:@selector(stopAnimations) withObject:nil waitUntilDone:NO];
             }
         
         if ( !_iveUpdatedTheMap )   // If we are flagged to set our search location, then we do so now.
@@ -1014,7 +1025,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate executeSearchWithParams called.");
 #endif
-    [self startAnimations];
+    [self performSelectorOnMainThread:@selector(startAnimations) withObject:nil waitUntilDone:YES];
     [locationManager stopUpdatingLocation];
     [self simpleClearSearch];
     [mySearch clearSearch];

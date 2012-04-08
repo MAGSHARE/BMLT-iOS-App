@@ -22,34 +22,60 @@
 #import "BMLT_Animation.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface BMLT_Animation ()
+{
+    NSMutableArray      *imageArray;
+    UIImageView         *bottomLayerImage;
+    UIImageView         *topLayerImage;
+    UIImageView         *animatedImages;
+    double              center_ratio;
+}
+@end;
+
 @implementation BMLT_Animation
 /***************************************************************\**
  \brief 
  \returns 
  *****************************************************************/
-- (id)init
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super init];
+    self = [super initWithCoder:aDecoder];
     
     if ( self )
         {
         imageArray = [[NSMutableArray alloc] init];
-            
+        
         // Build array of images, cycling through image names.
-        // The images are actually in reverse order, so we go through it backwards.
-        for (int i = 0; i < kBMLT_Animation_frame_count; i++ )
+        // We intercept the first one, to get its size.
+        UIImage *theImage = [UIImage imageNamed:@"Globe_00.png"];
+        CGSize  centerSize = [theImage size];
+        
+        [imageArray addObject:theImage];
+        
+        for (int i = 1; i < kBMLT_Animation_frame_count; i++ )
             {
             [imageArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"Globe_%02d.png", i]]];
             }
         
-        bottomLayerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BottomLayer.png"]];
+        theImage = [UIImage imageNamed:@"BottomLayer.png"];
+        CGSize  bottomSize = [theImage size];
+        bottomLayerImage = [[UIImageView alloc] initWithImage:theImage];
         
-        topLayerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TopLayer.png"]];
+        theImage = [UIImage imageNamed:@"TopLayer.png"];
+        topLayerImage = [[UIImageView alloc] initWithImage:theImage];
+        
+        center_ratio = centerSize.width / bottomSize.width;
         
         CGRect imageFrame = [bottomLayerImage bounds];
                 
         [bottomLayerImage setFrame:imageFrame];
         [topLayerImage setFrame:imageFrame];
+        [self setBounds:imageFrame];
+        
+        imageFrame.size.width *= center_ratio;
+        imageFrame.size.height *= center_ratio;
+        imageFrame.origin.x = (bottomSize.width - centerSize.width) / 2 - (bottomSize.width / 44.0);
+        imageFrame.origin.y = (bottomSize.height - centerSize.height) / 2 - (bottomSize.height / 44.0);
         
         animatedImages = [[UIImageView alloc] initWithFrame:imageFrame];
         [animatedImages setAnimationImages:imageArray];
@@ -60,45 +86,9 @@
         [self addSubview:bottomLayerImage];
         [self addSubview:animatedImages];
         [self addSubview:topLayerImage];
-        [self setBounds:imageFrame];
+        [animatedImages startAnimating];
         }
     
     return self;
-}
-
-/***************************************************************\**
- \brief 
- *****************************************************************/
-- (void)layoutSubviews
-{
-    CGRect  myBounds = [self bounds];
-    CGRect  globeBounds = myBounds;
-    
-    double mySize = myBounds.size.height = myBounds.size.width;
-    
-    // The globe is about half the size of the frame.
-    globeBounds = CGRectInset ( globeBounds, (mySize / 3.8), (mySize / 3.8) );
-    // Because of the drop shadow, the center is 1/44th off.
-    globeBounds = CGRectOffset ( globeBounds, -(mySize / 44), -(mySize / 44) );
-    
-    [bottomLayerImage setFrame:myBounds];
-    [topLayerImage setFrame:myBounds];
-    [animatedImages setFrame:globeBounds];
-}
-
-/***************************************************************\**
- \brief 
- *****************************************************************/
-- (void)startAnimating
-{
-    [animatedImages startAnimating];
-}
-
-/***************************************************************\**
- \brief 
- *****************************************************************/
-- (void)stopAnimating
-{
-    [animatedImages stopAnimating];
 }
 @end

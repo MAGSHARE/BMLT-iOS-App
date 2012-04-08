@@ -24,11 +24,4 @@
 #define kBMLT_Animation_frame_count 30
 
 @interface BMLT_Animation : UIView
-{
-    NSMutableArray      *imageArray;
-    UIImageView         *bottomLayerImage;
-    UIImageView         *topLayerImage;
-    UIImageView         *animatedImages;
-}
-
 @end

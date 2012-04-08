@@ -795,6 +795,29 @@
             </objects>
             <point key="canvasLocation" x="728" y="972"/>
         </scene>
+        <!--View Controller - Animation View Controller-->
+        <scene sceneID="F4a-A6-TVU">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ClX-gX-ige" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="animation-view-controller" title="Animation View Controller" wantsFullScreenLayout="YES" id="bJU-BV-QkD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kPa-8a-XsS">
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="5L2-fd-0pO" customClass="BMLT_Animation">
+                                <rect key="frame" x="110" y="158" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1098160282" green="0.16834677419999999" blue="0.89654737900000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1132" y="1287"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MButtonConvex.png" width="48" height="48"/>
@@ -934,6 +957,9 @@
         </class>
         <class className="BMLTSnappyLogSlider" superclassName="UISlider">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSnappyLogSlider.h"/>
+        </class>
+        <class className="BMLT_Animation" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLT_Animation.h"/>
         </class>
         <class className="BrassCheckBox" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BrassCheckBox.h"/>
