@@ -31,6 +31,7 @@
 @class BMLTDisplayListResultsViewController;
 @class BMLTMapResultsViewController;
 @class BMLTMeetingDetailViewController;
+@class BMLTAnimationScreenViewController;
 
 #define kGoogleReverseLooupURI_Format @"http://maps.google.com/maps/geo?q=%@&output=xml&sensor=false"
 #define kAddressLookupTimeoutPeriod_in_seconds  10
@@ -61,6 +62,8 @@
 @property (strong, nonatomic) BMLTDisplayListResultsViewController   *listResultsViewController; ///< This will point to our list results main controller.
 @property (strong, nonatomic) BMLTMapResultsViewController           *mapResultsViewController;  ///< This will point to our map results main controller.
 @property (nonatomic, readwrite, retain) BMLTMeetingDetailViewController *reusableMeetingDetails;    ///< This will hold an instance of the meeting details view that we will use over and over.
+@property (strong, atomic) BMLTAnimationScreenViewController         *currentAnimation;          ///< This holds the current active animation controller.
+
 /// Class methods
 + (BMLTAppDelegate *)getBMLTAppDelegate;                ///< This class method allows access to the application delegate object (SINGLETON)
 + (BOOL)locationServicesAvailable;                      ///< Used to check to see if location services are available.

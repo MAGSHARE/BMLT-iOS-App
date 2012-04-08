@@ -21,12 +21,12 @@
 #import "BMLT_Prefs.h"
 #import "BMLT_Meeting.h"
 #import "BMLT_Parser.h"
-#import "BMLT_Animation.h"
 #import "BMLTDisplayListResultsViewController.h"
 #import "BMLTMapResultsViewController.h"
 #import "BMLTSimpleSearchViewController.h"
 #import "BMLTAdvancedSearchViewController.h"
 #import "BMLTMeetingDetailViewController.h"
+#import "BMLTAnimationScreenViewController.h"
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
@@ -47,7 +47,6 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     BOOL                    _amISick;                   ///< If true, it indicates that the alert for connectivity problems should not be shown.
     BOOL                    _visitingRelatives;         ///< If true, then we will retain the app state, despite the flag that says we shouldn't.
     BOOL                    _iveUpdatedTheMap;          ///< YES, to prevent the map from being continuously updated.
-    BOOL                    _wereAnimating;             ///< Used to indicate that the view controller is doing an animation.
     BMLT_Meeting_Search     *mySearch;                  ///< The current meeting search in progress.
 }
 
@@ -55,7 +54,6 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 - (void)callInSick;                                     ///< Display an alert, informing the user that network connectivity is unavailable.
 - (void)sorryCharlie;                                   ///< Display an alert for no meetings found.
 - (void)displaySearchResults;                           ///< Display the results of a search, according to the user preferences.
-- (void)startAnimations;                                ///< Starts the animations in the two results screens.
 - (void)stopAnimations;                                 ///< Stops the animations in the two results screens.
 - (void)selectInitialSearchAndForce:(BOOL)force;        ///< Selects the initial search screen, depending on the user's choice.
 - (void)simpleClearSearch;                              ///< Just clears the search results with no frou-frou.
@@ -88,6 +86,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 @synthesize listResultsViewController;  ///< This will point to our list results main controller.
 @synthesize mapResultsViewController;   ///< This will point to our map results main controller.
 @synthesize reusableMeetingDetails = _details;     ///< This will hold an instance of our meeting details view controller that we will re-use.
+@synthesize currentAnimation;           ///< This will hold our current active animation (nil, otherwise).
 
 #pragma mark - Class Methods -
 /**************************************************************//**
@@ -670,34 +669,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
 
 /**************************************************************//**
- \brief Starts the "Hurry up and wait" animations.
- *****************************************************************/
-- (void)startAnimations
-{
-    UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
-    
-    UIStoryboard        *st = [tabController storyboard];
-    
-    UIViewController    *newSearch = [st instantiateViewControllerWithIdentifier:@"animation-view-controller"];
-    [[newSearch navigationItem] setHidesBackButton:YES];
-    [[newSearch navigationItem] setTitle:@""];
-    
-    _wereAnimating = YES;
-    
-    [[searchNavController navigationController] pushViewController:newSearch animated:YES];
-}
-
-/**************************************************************//**
  \brief Stops the animation.
  *****************************************************************/
 - (void)stopAnimations
 {
-    if ( _wereAnimating )
+    if ( currentAnimation )
         {
-        [[searchNavController navigationController] popViewControllerAnimated:YES];
+        [[currentAnimation navigationController] popViewControllerAnimated:YES];
         }
     
-    _wereAnimating = NO;
+    currentAnimation = nil;
 }
 
 /**************************************************************//**
@@ -1025,7 +1006,6 @@ shouldSelectViewController:(UIViewController *)inViewController
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate executeSearchWithParams called.");
 #endif
-    [self performSelectorOnMainThread:@selector(startAnimations) withObject:nil waitUntilDone:YES];
     [locationManager stopUpdatingLocation];
     [self simpleClearSearch];
     [mySearch clearSearch];
