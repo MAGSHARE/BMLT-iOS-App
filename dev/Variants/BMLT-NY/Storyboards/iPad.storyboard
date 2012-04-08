@@ -260,6 +260,7 @@
                                 </state>
                                 <connections>
                                     <action selector="findAllMeetingsNearMe:" destination="SFh-VH-MDA" eventType="touchUpInside" id="oOf-tq-a6u"/>
+                                    <segue destination="dpF-Rt-xdP" kind="push" id="z2u-fl-bsf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oHM-sY-V2t">
@@ -275,6 +276,7 @@
                                 </state>
                                 <connections>
                                     <action selector="findAllMeetingsNearMeLaterToday:" destination="SFh-VH-MDA" eventType="touchUpInside" id="vFd-4q-Xh1"/>
+                                    <segue destination="dpF-Rt-xdP" kind="push" id="qGw-PF-GkB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NNa-Bu-ist">
@@ -290,6 +292,7 @@
                                 </state>
                                 <connections>
                                     <action selector="findAllMeetingsNearMeTomorrow:" destination="SFh-VH-MDA" eventType="touchUpInside" id="n70-NS-EUd"/>
+                                    <segue destination="dpF-Rt-xdP" kind="push" id="KLa-KI-nqo"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="nLJ-nP-ZR5">
@@ -767,6 +770,7 @@
                                 </state>
                                 <connections>
                                     <action selector="doSearchButtonPressed:" destination="crR-vv-v9x" eventType="touchUpInside" id="EVI-Ho-CJD"/>
+                                    <segue destination="dpF-Rt-xdP" kind="push" id="iN7-wG-p0k"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="ucF-ka-X0y">
@@ -808,6 +812,28 @@
             </objects>
             <point key="canvasLocation" x="555" y="-395"/>
         </scene>
+        <!--Animation Screen View Controller-->
+        <scene sceneID="X6b-Hm-acI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHu-Ba-3rc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController wantsFullScreenLayout="YES" id="dpF-Rt-xdP" customClass="BMLTAnimationScreenViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bqE-c8-wMe">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="bx7-fg-Nj4" customClass="BMLT_AnimationView">
+                                <rect key="frame" x="309" y="381" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1098160282" green="0.16834677419999999" blue="0.89654737900000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WEc-Wm-7Qe"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1442" y="-395"/>
+        </scene>
     </scenes>
     <resources>
         <image name="LocationIconBlack.png" width="104" height="104"/>
@@ -841,7 +867,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
             <relationships>
                 <relationship kind="action" name="locationButtonPressed:"/>
-                <relationship kind="outlet" name="animationCoverView" candidateClass="BMLTAnimationCoverView"/>
                 <relationship kind="outlet" name="lookupLocationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
             </relationships>
@@ -877,8 +902,8 @@
                 <relationship kind="outlet" name="weekdaysSelector" candidateClass="UISegmentedControl"/>
             </relationships>
         </class>
-        <class className="BMLTAnimationCoverView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimationCoverView.h"/>
+        <class className="BMLTAnimationScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimationScreenViewController.h"/>
         </class>
         <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTDisplayListResultsViewController.h"/>
@@ -952,6 +977,9 @@
         <class className="BMLTSnappyLogSlider" superclassName="UISlider">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSnappyLogSlider.h"/>
         </class>
+        <class className="BMLT_AnimationView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLT_AnimationView.h"/>
+        </class>
         <class className="BrassCheckBox" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BrassCheckBox.h"/>
         </class>
@@ -961,4 +989,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="iN7-wG-p0k"/>
+    </inferredMetricsTieBreakers>
 </document>
