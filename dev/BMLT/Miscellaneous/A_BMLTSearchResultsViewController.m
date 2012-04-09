@@ -22,7 +22,6 @@
 #import "BMLTFormatDetailViewController.h"
 #import "BMLT_Format.h"
 #import "BMLTAppDelegate.h"
-#import "BMLTActionButtonViewController.h"
 
 /**************************************************************//**
  \class  A_BMLTSearchResultsViewController
@@ -93,6 +92,7 @@
             }
         else
             {
+            [actionModal setMyModalController:self];
             [self presentModalViewController:actionModal animated:YES];
             }
         }

@@ -20,16 +20,16 @@
 
 #import <UIKit/UIKit.h>
 #import "A_BMLTNavBarViewController.h"
+#import "BMLTActionButtonViewController.h"
 
 @class BMLTFormatDetailViewController;
 @class BMLT_Meeting;
-@class BMLTActionButtonViewController;
 
 /**************************************************************//**
  \class  BMLTSearchResultsViewController
  \brief  This abstract base class will control display of listed results.
  *****************************************************************/
-@interface A_BMLTSearchResultsViewController : A_BMLTNavBarViewController <UIPopoverControllerDelegate>
+@interface A_BMLTSearchResultsViewController : A_BMLTNavBarViewController <UIPopoverControllerDelegate, BMLTCloseModalProtocol>
 {
     BMLTFormatDetailViewController  *myModalView;
     UIPopoverController             *formatPopover;

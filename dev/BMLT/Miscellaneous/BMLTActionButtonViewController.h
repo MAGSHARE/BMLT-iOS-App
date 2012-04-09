@@ -25,6 +25,14 @@
 #define kButtonY 15
 
 /**************************************************************//**
+ \class BMLTCloseModalProtocol
+ \brief Simply ensures that the classes will have a proper "closeModal" method.
+ *****************************************************************/
+@protocol BMLTCloseModalProtocol
+- (void)closeModal;
+@end
+
+/**************************************************************//**
  \class BMLTActionButtonViewController
  \brief This implements the popver (iPad) or modal dialog (iPhone)
         that allows a user to create a PDF and send by email, or
@@ -34,10 +42,12 @@
 {
     IBOutlet UINavigationBar    *navBar;    ///< This is our navbar item.
 }
-@property (weak, nonatomic) IBOutlet UIButton   *emailButton;   ///< If the user presses this button, they will email a PDF
-@property (weak, nonatomic) IBOutlet UIButton   *printButton;   ///< If the user presses this button, they will print the current view.
-@property (weak, nonatomic) IBOutlet UIView     *containerView; ///< This is a container, used to "size" the dialog for a popover.
+    @property (weak, nonatomic) IBOutlet UIButton   *emailButton;   ///< If the user presses this button, they will email a PDF
+    @property (weak, nonatomic) IBOutlet UIButton   *printButton;   ///< If the user presses this button, they will print the current view.
+    @property (weak, nonatomic) IBOutlet UIView     *containerView; ///< This is a container, used to "size" the dialog for a popover.
+    @property (weak, nonatomic, readwrite) UIViewController<BMLTCloseModalProtocol>    *myModalController;  ///< This will hold our modal controller (where we can send "close me" messages.
 
+- (IBAction)doneButtonPressed:(id)sender;
 - (IBAction)emailPDFPressed:(id)sender;
 - (IBAction)printButtonPressed:(id)sender;
 @end

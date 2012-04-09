@@ -31,6 +31,7 @@
 @synthesize containerView;
 @synthesize emailButton;
 @synthesize printButton;
+@synthesize myModalController;
 
 /**************************************************************//**
  \brief We set up the background colors and whatnot, here.
@@ -91,6 +92,14 @@
         }
     
     return ret;
+}
+
+/**************************************************************//**
+ \brief This is called to close the dialog.
+ *****************************************************************/
+- (IBAction)doneButtonPressed:(id)sender
+{
+    [[self myModalController] closeModal];
 }
 
 /**************************************************************//**

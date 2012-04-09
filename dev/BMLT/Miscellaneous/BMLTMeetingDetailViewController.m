@@ -24,7 +24,6 @@
 #import "BMLT_Meeting.h"
 #import "BMLT_Format.h"
 #import "BMLTAppDelegate.h"
-#import "BMLTActionButtonViewController.h"
 
 @implementation BMLTMeetingDetailViewController
 @synthesize addressButton;
@@ -216,6 +215,7 @@
             }
         else
             {
+            [actionModal setMyModalController:self];
             [self presentModalViewController:actionModal animated:YES];
             }
         }
