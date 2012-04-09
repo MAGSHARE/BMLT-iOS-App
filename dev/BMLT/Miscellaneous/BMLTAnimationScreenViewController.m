@@ -22,20 +22,28 @@
 #import "BMLTAnimationScreenViewController.h"
 #import "BMLTAppDelegate.h"
 
-@interface BMLTAnimationScreenViewController ()
-
-@end
-
+/**************************************************************//**
+ \class BMLTAnimationScreenViewController
+ \brief This implements a view with the animated globe and, if necessary,
+        a failure message. It is pushed onto the search stack.
+ *****************************************************************/
 @implementation BMLTAnimationScreenViewController
 @synthesize messageLabel;
 
-- (void)viewWillAppear:(BOOL)animated
+/**************************************************************//**
+ \brief Called just before the screen appears. We use it to set a
+        "tracker" variable in the app delegate, and to set the title.
+ *****************************************************************/
+- (void)viewWillAppear:(BOOL)animated   ///< YES, if the appearance is animated.
 {
     [[self messageLabel] setText:@""];
     [[BMLTAppDelegate getBMLTAppDelegate] setCurrentAnimation:self];
     [[self navigationItem] setTitle:NSLocalizedString(@"SEARCH-ANIMATION-TITLE", nil)];
 }
 
+/**************************************************************//**
+ \brief We take this opportunity to remove ourselves from the "tracker."
+ *****************************************************************/
 - (void)viewDidUnload
 {
     [[BMLTAppDelegate getBMLTAppDelegate] setCurrentAnimation:nil];
@@ -43,11 +51,15 @@
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)io
+/**************************************************************//**
+ \brief We follow the same rules as all the other views.
+ \returns YES, if the autorotation is approved.
+ *****************************************************************/
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)io   ///< The desired rotation
 {
-    BOOL    ret = (io == UIInterfaceOrientationPortrait);
+    BOOL    ret = (io == UIInterfaceOrientationPortrait);   // iPhone is portrait-only.
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)   // iPad is any which way.
         {
         ret = YES;
         }

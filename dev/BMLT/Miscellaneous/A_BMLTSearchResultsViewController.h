@@ -21,8 +21,9 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTNavBarViewController.h"
 
-@class FormatDetailView;
+@class BMLTFormatDetailViewController;
 @class BMLT_Meeting;
+@class BMLTActionButtonViewController;
 
 /**************************************************************//**
  \class  BMLTSearchResultsViewController
@@ -30,8 +31,10 @@
  *****************************************************************/
 @interface A_BMLTSearchResultsViewController : A_BMLTNavBarViewController <UIPopoverControllerDelegate>
 {
-    FormatDetailView    *myModalView;
-    UIPopoverController *formatPopover;
+    BMLTFormatDetailViewController  *myModalView;
+    UIPopoverController             *formatPopover;
+    BMLTActionButtonViewController  *actionModal;
+    UIPopoverController             *actionPopover;
 }
 @property (strong, nonatomic) NSMutableArray    *dataArray; ///< This will hold the data for the table to display.
 @property (strong, nonatomic) UIViewController  *myModalController;     ///< Used to make sure the right modal controller is used for popovers.
@@ -41,5 +44,6 @@
 - (IBAction)clearSearch:(id)sender;
 - (void)setDataArrayFromData:(NSArray *)dataArray;          ///< Set the data array to the contents of the given array.
 - (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting;
+- (IBAction)actionItemClicked:(id)sender;
 
 @end

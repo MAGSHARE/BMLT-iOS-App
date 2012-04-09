@@ -1,5 +1,5 @@
 //
-//  BMLTAnimationScreenViewController.h
+//  FormatDetailView.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -21,11 +21,24 @@
 
 #import <UIKit/UIKit.h>
 
-/**************************************************************//**
- \class BMLTAnimationScreenViewController
- \brief This implements a view with the animated globe and, if necessary,
-        a failure message. It is pushed onto the search stack.
- *****************************************************************/
-@interface BMLTAnimationScreenViewController : UIViewController
-    @property (weak, nonatomic, readonly) IBOutlet UILabel *messageLabel;   ///< This will contain the failure message.
+@class BMLT_Format;
+
+@interface BMLTFormatDetailViewController : UIViewController
+{
+    UIViewController            *myModalController;
+    BMLT_Format                 *myFormat;
+    IBOutlet UINavigationBar    *navBar;
+    IBOutlet UILabel            *formatKeyLabel;
+    IBOutlet UIImageView        *formatKeyImage;
+    IBOutlet UITextView         *formatDescription;
+}
+- (id)initWithFormat:(BMLT_Format *)inFormat andController:(UIViewController *)inController;
+- (IBAction)donePressed:(id)sender;
+- (void)setMyFormat:(BMLT_Format *)inFormat;
+- (void)setUpKey;
+- (void)setTitle;
+- (void)setDescription;
+- (BMLT_Format *)getMyFormat;
+- (void)setMyModalController:(UIViewController *)inController;
+- (UIViewController *)getMyModalController;
 @end

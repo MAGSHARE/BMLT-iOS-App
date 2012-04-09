@@ -24,6 +24,7 @@
 #import "BMLT_Meeting.h"
 #import "BMLT_Format.h"
 #import "BMLTAppDelegate.h"
+#import "BMLTActionButtonViewController.h"
 
 @implementation BMLTMeetingDetailViewController
 @synthesize addressButton;
@@ -44,6 +45,8 @@
 {
     [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
     [[[self navigationItem] titleView] sizeToFit];
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItemPressed)];
+    [[self navigationItem] setRightBarButtonItem:actionButton animated:NO];
     [self setMeetingFrequencyText];
     [self setMeetingCommentsText];
     [self setMeetingLocationText];
@@ -180,6 +183,60 @@
         [[[meetingMapView annotations] objectAtIndex:0] setCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate]];
         [meetingMapView setCenterCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate] animated:NO];
         }
+}
+
+/**************************************************************//**
+ \brief Called when the navbar action item is pressed.
+ *****************************************************************/
+- (void)actionItemPressed
+{
+#ifdef DEBUG
+    NSLog(@"BMLTMeetingDetailViewController::actionItemPressed");
+#endif
+    UIView  *myContext = [[self navigationController] navigationBar];
+    CGRect  selectRect = [myContext frame];
+    selectRect.origin.x = selectRect.size.width - kButtonX;
+    selectRect.size.width = kButtonX;
+    selectRect.size.height = kButtonY;
+    
+    actionModal = [[BMLTActionButtonViewController alloc] initWithNibName:nil bundle:nil];
+    
+    if ( actionModal )
+        {
+        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
+            {
+            actionPopover = [[UIPopoverController alloc] initWithContentViewController:actionModal];
+            
+            [actionPopover setDelegate:self];
+            
+            [actionPopover presentPopoverFromRect:selectRect
+                                           inView:myContext
+                         permittedArrowDirections:UIPopoverArrowDirectionUp
+                                         animated:YES];
+            }
+        else
+            {
+            [self presentModalViewController:actionModal animated:YES];
+            }
+        }
+}
+
+/**************************************************************//**
+ \brief This is called to dismiss the modal dialog or popover.
+ *****************************************************************/
+- (void)closeModal
+{
+    if (actionPopover)
+        {
+        [actionPopover dismissPopoverAnimated:YES];
+        }
+    else
+        {
+        [self dismissModalViewControllerAnimated:YES];
+        }
+    
+    actionPopover = nil;
+    actionModal = nil;
 }
 
 /**************************************************************//**

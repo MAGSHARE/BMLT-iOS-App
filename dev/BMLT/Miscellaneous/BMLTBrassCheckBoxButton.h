@@ -1,5 +1,5 @@
 //
-//  BMLTAnimationScreenViewController.h
+//  BrassCheckBox.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -22,10 +22,15 @@
 #import <UIKit/UIKit.h>
 
 /**************************************************************//**
- \class BMLTAnimationScreenViewController
- \brief This implements a view with the animated globe and, if necessary,
-        a failure message. It is pushed onto the search stack.
+ \class BrassCheckBox
+ \brief This implements a special "checkbox" interface element.
  *****************************************************************/
-@interface BMLTAnimationScreenViewController : UIViewController
-    @property (weak, nonatomic, readonly) IBOutlet UILabel *messageLabel;   ///< This will contain the failure message.
+@interface BMLTBrassCheckBoxButton : UIButton
+{
+    BOOL    isOn;   ///< YES, if checked.
+}
+- (BOOL)isOn;
+- (void)setIsOn:(BOOL)inIsOn;
+- (BOOL)toggleState;
+- (void)buttonClickedInside:(id)sender;
 @end

@@ -19,7 +19,7 @@
 
 #import <UIKit/UIKit.h>
 #import "A_BMLT_SearchViewController.h"
-#import "BrassCheckBox.h"
+#import "BMLTBrassCheckBoxButton.h"
 
 /// These are the states for the weekday selection mode segmented control.
 #define kWeekdaySelectAllDays       0   ///< Select all days (disables all the checkboxes)
@@ -46,19 +46,19 @@
 @property (atomic, weak, readonly)  IBOutlet UILabel            *weekdaysLabel;     ///< The label item for the weekdays.
 @property (atomic, weak, readonly)  IBOutlet UISegmentedControl *weekdaysSelector;  ///< The mode selector for the weekday selection.
 @property (atomic, weak, readonly)  IBOutlet UILabel            *sunLabel;          ///< The label for the "Sunday" checkbox.
-@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *sunButton;         ///< The "Sunday" checkbox.
+@property (atomic, weak, readonly)  IBOutlet BMLTBrassCheckBoxButton      *sunButton;         ///< The "Sunday" checkbox.
 @property (atomic, weak, readonly)  IBOutlet UILabel            *monLabel;          ///< The label for the "Monday" checkbox.
-@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *monButton;         ///< The "Monday" checkbox.
+@property (atomic, weak, readonly)  IBOutlet BMLTBrassCheckBoxButton      *monButton;         ///< The "Monday" checkbox.
 @property (atomic, weak, readonly)  IBOutlet UILabel            *tueLabel;          ///< The label for the "Tuesday" checkbox.
-@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *tueButton;         ///< The "Tuesday" checkbox.
+@property (atomic, weak, readonly)  IBOutlet BMLTBrassCheckBoxButton      *tueButton;         ///< The "Tuesday" checkbox.
 @property (atomic, weak, readonly)  IBOutlet UILabel            *wedLabel;          ///< The label for the "Wednesday" checkbox.
-@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *wedButton;         ///< The "Wednesday" checkbox.
+@property (atomic, weak, readonly)  IBOutlet BMLTBrassCheckBoxButton      *wedButton;         ///< The "Wednesday" checkbox.
 @property (atomic, weak, readonly)  IBOutlet UILabel            *thuLabel;          ///< The label for the "Thursday" checkbox.
-@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *thuButton;         ///< The "Thursday" checkbox.
+@property (atomic, weak, readonly)  IBOutlet BMLTBrassCheckBoxButton      *thuButton;         ///< The "Thursday" checkbox.
 @property (atomic, weak, readonly)  IBOutlet UILabel            *friLabel;          ///< The label for the "Friday" checkbox.
-@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *friButton;         ///< The "Friday" checkbox.
+@property (atomic, weak, readonly)  IBOutlet BMLTBrassCheckBoxButton      *friButton;         ///< The "Friday" checkbox.
 @property (atomic, weak, readonly)  IBOutlet UILabel            *satLabel;          ///< The label for the "Saturday" checkbox.
-@property (atomic, weak, readonly)  IBOutlet BrassCheckBox      *satButton;         ///< The "Saturday" checkbox.
+@property (atomic, weak, readonly)  IBOutlet BMLTBrassCheckBoxButton      *satButton;         ///< The "Saturday" checkbox.
 
 @property (atomic, weak, readonly)  IBOutlet UILabel            *searchLocationLabel;           ///< The label for the location specification items.
 @property (atomic, weak, readonly)  IBOutlet UISegmentedControl *searchSpecSegmentedControl;    ///< The segmented control that specifies the location mode.

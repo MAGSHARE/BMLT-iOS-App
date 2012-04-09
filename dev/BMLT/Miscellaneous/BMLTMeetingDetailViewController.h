@@ -24,11 +24,15 @@
 
 @class BMLT_Meeting;
 @class BMLT_Results_MapPointAnnotation;
+@class BMLTActionButtonViewController;
 
 #define List_Meeting_Format_Circle_Size_Big 30
 
-@interface BMLTMeetingDetailViewController : UIViewController <MKMapViewDelegate>
-
+@interface BMLTMeetingDetailViewController : UIViewController <MKMapViewDelegate, UIPopoverControllerDelegate>
+{
+    BMLTActionButtonViewController  *actionModal;
+    UIPopoverController             *actionPopover;
+}
 @property (weak, nonatomic, readwrite)  UIViewController    *myModalController;
 @property (weak, nonatomic, readwrite)  BMLT_Meeting        *myMeeting;
 @property (weak, nonatomic) IBOutlet    MKMapView           *meetingMapView;
@@ -44,6 +48,8 @@
 - (void)setMeetingCommentsText;
 - (void)setMeetingLocationText;
 - (void)setMapLocation;
+- (void)actionItemPressed;
+- (void)closeModal;
 
 - (IBAction)callForDirections:(id)sender;
 - (IBAction)selectMapView:(id)sender;

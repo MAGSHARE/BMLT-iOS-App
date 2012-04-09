@@ -157,7 +157,13 @@
                         </connections>
                     </mapView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="tMp-9S-1Bs"/>
+                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="tMp-9S-1Bs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="HPk-TX-3gl">
+                            <connections>
+                                <action selector="actionItemClicked:" destination="3" id="jnQ-Qj-tdq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -422,7 +428,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gwF-5Z-P6k" userLabel="Sunday Checkbox" customClass="BrassCheckBox">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gwF-5Z-P6k" userLabel="Sunday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="12" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
@@ -445,7 +451,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iAX-gQ-hbw" userLabel="Monday Checkbox" customClass="BrassCheckBox">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iAX-gQ-hbw" userLabel="Monday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="57" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
@@ -468,7 +474,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gHr-E2-eM9" userLabel="Tuesday Checkbox" customClass="BrassCheckBox">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gHr-E2-eM9" userLabel="Tuesday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="102" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
@@ -491,7 +497,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fLF-iM-xCH" userLabel="Wednesday Checkbox" customClass="BrassCheckBox">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fLF-iM-xCH" userLabel="Wednesday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="147" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
@@ -514,7 +520,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iCP-4u-9Df" userLabel="Thursday Checkbox" customClass="BrassCheckBox">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iCP-4u-9Df" userLabel="Thursday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="192" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
@@ -537,7 +543,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lt1-bn-5qO" userLabel="Friday Checkbox" customClass="BrassCheckBox">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lt1-bn-5qO" userLabel="Friday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="237" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
@@ -560,7 +566,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1TB-Mz-Udv" userLabel="Saturday Checkbox" customClass="BrassCheckBox">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1TB-Mz-Udv" userLabel="Saturday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="282" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
@@ -686,7 +692,13 @@
                             <outlet property="delegate" destination="toC-1w-pMV" id="bih-Jg-JkE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="j0m-Qo-Uu7"/>
+                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="j0m-Qo-Uu7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="RVS-K2-aCk">
+                            <connections>
+                                <action selector="actionItemClicked:" destination="toC-1w-pMV" id="IJb-M8-RXz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -853,6 +865,7 @@
         <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="actionItemClicked:"/>
                 <relationship kind="action" name="clearSearch:"/>
             </relationships>
         </class>
@@ -879,23 +892,23 @@
                 <relationship kind="action" name="searchSpecChanged:"/>
                 <relationship kind="action" name="weekdayChanged:"/>
                 <relationship kind="action" name="weekdaySelectionChanged:"/>
-                <relationship kind="outlet" name="friButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="friButton" candidateClass="BMLTBrassCheckBoxButton"/>
                 <relationship kind="outlet" name="friLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="goButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="monButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="monButton" candidateClass="BMLTBrassCheckBoxButton"/>
                 <relationship kind="outlet" name="monLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="satButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="satButton" candidateClass="BMLTBrassCheckBoxButton"/>
                 <relationship kind="outlet" name="satLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="searchLocationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="searchSpecAddressTextEntry" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="searchSpecSegmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="sunButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="sunButton" candidateClass="BMLTBrassCheckBoxButton"/>
                 <relationship kind="outlet" name="sunLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thuButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="thuButton" candidateClass="BMLTBrassCheckBoxButton"/>
                 <relationship kind="outlet" name="thuLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tueButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="tueButton" candidateClass="BMLTBrassCheckBoxButton"/>
                 <relationship kind="outlet" name="tueLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wedButton" candidateClass="BrassCheckBox"/>
+                <relationship kind="outlet" name="wedButton" candidateClass="BMLTBrassCheckBoxButton"/>
                 <relationship kind="outlet" name="wedLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="weekdaysLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="weekdaysSelector" candidateClass="UISegmentedControl"/>
@@ -906,6 +919,9 @@
             <relationships>
                 <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="BMLTBrassCheckBoxButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTBrassCheckBoxButton.h"/>
         </class>
         <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTDisplayListResultsViewController.h"/>
@@ -981,9 +997,6 @@
         </class>
         <class className="BMLT_AnimationView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLT_AnimationView.h"/>
-        </class>
-        <class className="BrassCheckBox" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrassCheckBox.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

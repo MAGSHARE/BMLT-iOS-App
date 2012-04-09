@@ -19,17 +19,10 @@
 //
 
 #import "A_BMLTSearchResultsViewController.h"
-#import "FormatDetailView.h"
+#import "BMLTFormatDetailViewController.h"
 #import "BMLT_Format.h"
 #import "BMLTAppDelegate.h"
-
-/**************************************************************//**
- \class  A_BMLTSearchResultsViewController -Private Interface
- \brief  This class will control display of listed results.
- *****************************************************************/
-@interface A_BMLTSearchResultsViewController ()
-
-@end
+#import "BMLTActionButtonViewController.h"
 
 /**************************************************************//**
  \class  A_BMLTSearchResultsViewController
@@ -70,6 +63,42 @@
 }
 
 /**************************************************************//**
+ \brief Called when the "Action Item" in the NavBar is clicked.
+ *****************************************************************/
+- (IBAction)actionItemClicked:(id)sender
+{
+#ifdef DEBUG
+    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:");
+#endif
+    UIView  *myContext = [[self navigationController] navigationBar];
+    CGRect  selectRect = [myContext frame];
+    selectRect.origin.x = selectRect.size.width - kButtonX;
+    selectRect.size.width = kButtonX;
+    selectRect.size.height = kButtonY;
+    
+    actionModal = [[BMLTActionButtonViewController alloc] initWithNibName:nil bundle:nil];
+    
+    if ( actionModal )
+        {
+        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
+            {
+            actionPopover = [[UIPopoverController alloc] initWithContentViewController:actionModal];
+            
+            [actionPopover setDelegate:self];
+            
+            [actionPopover presentPopoverFromRect:selectRect
+                                           inView:myContext
+                         permittedArrowDirections:UIPopoverArrowDirectionUp
+                                         animated:YES];
+            }
+        else
+            {
+            [self presentModalViewController:actionModal animated:YES];
+            }
+        }
+}
+
+/**************************************************************//**
  \brief This is called when someone clicks on a format button.
  *****************************************************************/
 - (void)displayFormatDetail:(id)inSender
@@ -81,7 +110,7 @@
     NSLog(@"Format Button Pressed for %@", [myFormat key]);
 #endif
     
-    myModalView = [[FormatDetailView alloc] initWithFormat:myFormat andController:self];
+    myModalView = [[BMLTFormatDetailViewController alloc] initWithFormat:myFormat andController:self];
     
     if ( myModalView )
         {
@@ -109,6 +138,11 @@
  *****************************************************************/
 - (void)closeModal
 {
+    if (actionPopover)
+        {
+        [actionPopover dismissPopoverAnimated:YES];
+        }
+
     if (formatPopover)
         {
         [formatPopover dismissPopoverAnimated:YES];
@@ -120,6 +154,8 @@
     
     formatPopover = nil;
     myModalView = nil;
+    actionPopover = nil;
+    actionModal = nil;
 }
 
 /**************************************************************//**
