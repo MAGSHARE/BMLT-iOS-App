@@ -20,6 +20,8 @@
 //
 
 #import "BMLTActionButtonViewController.h"
+#import "BMLTAppDelegate.h"
+#import <time.h>
 
 /**************************************************************//**
  \class BMLTActionButtonViewController
@@ -32,6 +34,7 @@
 @synthesize emailButton;
 @synthesize printButton;
 @synthesize myModalController;
+@synthesize singleMeeting;
 
 /**************************************************************//**
  \brief We set up the background colors and whatnot, here.
@@ -95,9 +98,39 @@
 }
 
 /**************************************************************//**
+ \brief Draw a printable version of the search results as a map.
+ *****************************************************************/
+- (void)drawPrintableSearchMap
+{
+#ifdef DEBUG
+    NSLog(@"BMLTActionButtonViewController::drawPrintableSearchMap");
+#endif
+}
+
+/**************************************************************//**
+ \brief Draw a printable version of the search results.
+ *****************************************************************/
+- (void)drawPrintableSearchList
+{
+#ifdef DEBUG
+    NSLog(@"BMLTActionButtonViewController::drawPrintableSearchList");
+#endif
+}
+
+/**************************************************************//**
+ \brief Draw a printable version of our single meeting.
+ *****************************************************************/
+- (void)drawPrintableMeetingDetails
+{
+#ifdef DEBUG
+    NSLog(@"BMLTActionButtonViewController::drawPrintableMeetingDetails");
+#endif
+}
+
+/**************************************************************//**
  \brief This is called to close the dialog.
  *****************************************************************/
-- (IBAction)doneButtonPressed:(id)sender
+- (IBAction)doneButtonPressed:(id)sender    ///< The done button object
 {
     [[self myModalController] closeModal];
 }
@@ -110,6 +143,22 @@
 #ifdef DEBUG
     NSLog(@"BMLTActionButtonViewController::emailPDFPressed:");
 #endif
+    CGSize      myPageSize = [BMLTVariantDefs pdfPageSize];
+    NSString    *pdfFileName = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)]];
+    UIGraphicsBeginPDFContextToFile ( pdfFileName, CGRectZero, nil) ;
+
+    if ( [self singleMeeting] )
+        {
+        UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, myPageSize.width, myPageSize.height), nil);
+        [self drawPrintableMeetingDetails];
+        }
+    else
+        {
+        UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, myPageSize.width, myPageSize.height), nil);
+        [self drawPrintableSearchMap];
+        }
+    
+    UIGraphicsEndPDFContext();
 }
 
 /**************************************************************//**

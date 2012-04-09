@@ -24,12 +24,14 @@
 #define kButtonX 20 ///< These are defined to make sure the popover for the "action item" shows up at the correct place.
 #define kButtonY 15
 
+@class BMLT_Meeting;
+
 /**************************************************************//**
  \class BMLTCloseModalProtocol
  \brief Simply ensures that the classes will have a proper "closeModal" method.
  *****************************************************************/
 @protocol BMLTCloseModalProtocol
-- (void)closeModal;
+    - (void)closeModal;
 @end
 
 /**************************************************************//**
@@ -42,12 +44,17 @@
 {
     IBOutlet UINavigationBar    *navBar;    ///< This is our navbar item.
 }
+    @property (weak, nonatomic) BMLT_Meeting        *singleMeeting; ///< This is set to a meeting object, if this is for a meeting details page.
     @property (weak, nonatomic) IBOutlet UIButton   *emailButton;   ///< If the user presses this button, they will email a PDF
     @property (weak, nonatomic) IBOutlet UIButton   *printButton;   ///< If the user presses this button, they will print the current view.
     @property (weak, nonatomic) IBOutlet UIView     *containerView; ///< This is a container, used to "size" the dialog for a popover.
     @property (weak, nonatomic, readwrite) UIViewController<BMLTCloseModalProtocol>    *myModalController;  ///< This will hold our modal controller (where we can send "close me" messages.
 
-- (IBAction)doneButtonPressed:(id)sender;
-- (IBAction)emailPDFPressed:(id)sender;
-- (IBAction)printButtonPressed:(id)sender;
+    - (void)drawPrintableSearchMap;
+    - (void)drawPrintableSearchList;
+    - (void)drawPrintableMeetingDetails;
+
+    - (IBAction)doneButtonPressed:(id)sender;
+    - (IBAction)emailPDFPressed:(id)sender;
+    - (IBAction)printButtonPressed:(id)sender;
 @end

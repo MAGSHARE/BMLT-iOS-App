@@ -106,6 +106,18 @@
 + (UIColor *)getSortEvenColor;
 
 /**************************************************************//**
+ \brief     Returns the page size, in points of PDF output pages.
+ \returns   a CGSize, in points.
+ *****************************************************************/
++ (CGSize)pdfPageSize;
+
+/**************************************************************//**
+ \brief     Returns the temporary File Name Format for PDF files.
+ \returns   an NSString, meant to be used as a format, with an integer number.
+ *****************************************************************/
++ (NSString *)pdfTempFileNameFormat;
+
+/**************************************************************//**
  \brief     Returns the root server URI for this variant.
  \returns   The URI of the Root Server.
  *****************************************************************/

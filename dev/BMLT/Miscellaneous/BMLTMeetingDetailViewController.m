@@ -202,6 +202,7 @@
     
     if ( actionModal )
         {
+        [actionModal setSingleMeeting:[self myMeeting]];    // This tells the processor that we'll be doing a single meeting.
         if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
             {
             actionPopover = [[UIPopoverController alloc] initWithContentViewController:actionModal];
