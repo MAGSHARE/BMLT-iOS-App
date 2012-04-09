@@ -157,13 +157,7 @@
                         </connections>
                     </mapView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="tMp-9S-1Bs">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="HPk-TX-3gl">
-                            <connections>
-                                <action selector="actionItemClicked:" destination="3" id="jnQ-Qj-tdq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="tMp-9S-1Bs"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -692,13 +686,7 @@
                             <outlet property="delegate" destination="toC-1w-pMV" id="bih-Jg-JkE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="j0m-Qo-Uu7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="RVS-K2-aCk">
-                            <connections>
-                                <action selector="actionItemClicked:" destination="toC-1w-pMV" id="IJb-M8-RXz"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="j0m-Qo-Uu7"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

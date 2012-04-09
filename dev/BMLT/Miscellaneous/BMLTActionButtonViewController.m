@@ -21,7 +21,11 @@
 
 #import "BMLTActionButtonViewController.h"
 #import "BMLTAppDelegate.h"
+#import "BMLT_Meeting.h"
+#import "BMLT_Results_MapPointAnnotationView.h"
 #import <time.h>
+
+#define BMLT_Meeting_Distance_Threshold_In_Pixels   12
 
 /**************************************************************//**
  \class BMLTActionButtonViewController
@@ -35,6 +39,7 @@
 @synthesize printButton;
 @synthesize myModalController;
 @synthesize singleMeeting;
+@synthesize myMapView;
 
 /**************************************************************//**
  \brief We set up the background colors and whatnot, here.
@@ -105,6 +110,8 @@
 #ifdef DEBUG
     NSLog(@"BMLTActionButtonViewController::drawPrintableSearchMap");
 #endif
+    [self determineMapSize:[[BMLTAppDelegate getBMLTAppDelegate] searchResults]];
+    [self displayMapAnnotations:[[BMLTAppDelegate getBMLTAppDelegate] searchResults]];
 }
 
 /**************************************************************//**
@@ -127,6 +134,172 @@
 #endif
 }
 
+#pragma mark - Map Draing Functions -
+
+/**************************************************************//**
+ \brief This draws annotations for the meetings passed in.
+ *****************************************************************/
+- (void)displayMapAnnotations:(NSArray *)inResults  ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
+{
+    // First, clear out all the old annotations (there shouldn't be any).
+    [[self myMapView] removeAnnotations:[[self myMapView] annotations]];
+    
+    // This function looks for meetings in close proximity to each other, and collects them into "red markers."
+    NSArray *annotations = [self mapMeetingAnnotations:inResults];
+    
+    if ( annotations )  // If we have annotations, we draw them.
+        {
+#ifdef DEBUG
+        NSLog(@"BMLTMapResultsViewController displayMapAnnotations -Adding %d annotations", [inResults count]);
+#endif
+        [[self myMapView] addAnnotations:annotations];
+        }
+}
+
+/**************************************************************//**
+ \brief This function looks for meetings in close proximity to each
+ other, and collects them into "red markers."
+ \returns an NSArray of BMLT_Results_MapPointAnnotation objects.
+ *****************************************************************/
+- (NSArray *)mapMeetingAnnotations:(NSArray *)inResults ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
+{
+#ifdef DEBUG
+    NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Checking %d Meetings.", [inResults count]);
+#endif
+    NSMutableArray  *ret = nil;
+    
+    if ( [inResults count] )
+        {
+        NSMutableArray  *points = [[NSMutableArray alloc] init];
+        for ( BMLT_Meeting *meeting in inResults )
+            {
+#ifdef DEBUG
+            NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Checking Meeting \"%@\".", [meeting getBMLTName]);
+#endif
+            CLLocationCoordinate2D  meetingLocation = [meeting getMeetingLocationCoords].coordinate;
+            CGPoint meetingPoint = [[self myMapView] convertCoordinate:meetingLocation toPointToView:nil];
+            CGRect  hitTestRect = CGRectMake(meetingPoint.x - BMLT_Meeting_Distance_Threshold_In_Pixels,
+                                             meetingPoint.y - BMLT_Meeting_Distance_Threshold_In_Pixels,
+                                             BMLT_Meeting_Distance_Threshold_In_Pixels * 2,
+                                             BMLT_Meeting_Distance_Threshold_In_Pixels * 2);
+            
+            BMLT_Results_MapPointAnnotation *annotation = nil;
+#ifdef DEBUG
+            NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Meeting \"%@\" Has the Following Hit Test Rect: (%f, %f), (%f, %f).", [meeting getBMLTName], hitTestRect.origin.x, hitTestRect.origin.y, hitTestRect.size.width, hitTestRect.size.height);
+#endif
+            
+            for ( BMLT_Results_MapPointAnnotation *annotationTemp in points )
+                {
+                CGPoint annotationPoint = [[self myMapView] convertCoordinate:annotationTemp.coordinate toPointToView:nil];
+#ifdef DEBUG
+                NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Comparing the Following Annotation Point: (%f, %f).", annotationPoint.x, annotationPoint.y);
+#endif
+                
+                if ( !([[annotationTemp getMyMeetings] containsObject:meeting]) && CGRectContainsPoint(hitTestRect, annotationPoint) )
+                    {
+#ifdef DEBUG
+                    for ( BMLT_Meeting *t_meeting in [annotationTemp getMyMeetings] )
+                        {
+                        NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Meeting \"%@\" Is Close to \"%@\".", [meeting getBMLTName], [t_meeting getBMLTName]);
+                        }
+#endif
+                    annotation = annotationTemp;
+                    }
+                }
+            
+            if ( !annotation )
+                {
+#ifdef DEBUG
+                NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations -This meeting gets its own annotation.");
+#endif
+                NSArray *meetingsAr = [[NSArray alloc] initWithObjects:meeting, nil];  
+                annotation = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[meeting getMeetingLocationCoords].coordinate andMeetings:meetingsAr];
+                [points addObject:annotation];
+                }
+            else
+                {
+#ifdef DEBUG
+                NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations -This meeting gets lumped in with others.");
+#endif
+                [annotation addMeeting:meeting];
+                }
+            
+            if ( annotation )
+                {
+                if ( !ret )
+                    {
+                    ret = [[NSMutableArray alloc] init];
+                    }
+                
+                if ( ![ret containsObject:annotation] )
+                    {
+                    [ret addObject:annotation];
+                    }
+                }
+            }
+        }
+    
+    // This is the black marker.
+    BMLT_Results_MapPointAnnotation *annotation = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc] andMeetings:nil];
+    
+    if ( annotation )
+        {
+        [annotation setTitle:NSLocalizedString(@"BLACK-MARKER-TITLE", nil)];
+        [ret addObject:annotation];
+        }
+    
+    return ret;
+}
+
+/**************************************************************//**
+ \brief This scans through the list of meetings, and will produce
+ a region that encompasses them all. It then scales the
+ map to cover that region.
+ *****************************************************************/
+- (void)determineMapSize:(NSArray *)inResults   ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
+{    
+    CLLocationCoordinate2D  northWestCorner;
+    CLLocationCoordinate2D  southEastCorner;
+    
+    northWestCorner = [(BMLT_Meeting *)[inResults objectAtIndex:0] getMeetingLocationCoords].coordinate;
+    southEastCorner = [(BMLT_Meeting *)[inResults objectAtIndex:0] getMeetingLocationCoords].coordinate;
+    
+    for ( BMLT_Meeting *meeting in inResults )
+        {
+#ifdef DEBUG
+        NSLog(@"BMLTMapResultsViewController determineMapSize -Calculating the container, working on meeting \"%@\".", [meeting getBMLTName]);
+#endif
+        CLLocationCoordinate2D  meetingLocation = [meeting getMeetingLocationCoords].coordinate;
+        northWestCorner.longitude = fmin(northWestCorner.longitude, meetingLocation.longitude);
+        northWestCorner.latitude = fmax(northWestCorner.latitude, meetingLocation.latitude);
+        southEastCorner.longitude = fmax(southEastCorner.longitude, meetingLocation.longitude);
+        southEastCorner.latitude = fmin(southEastCorner.latitude, meetingLocation.latitude);
+        }
+#ifdef DEBUG
+    NSLog(@"BMLTMapResultsViewController determineMapSize -The current map area is NW: (%f, %f), SE: (%f, %f)", northWestCorner.longitude, northWestCorner.latitude, southEastCorner.longitude, southEastCorner.latitude );
+#endif
+    // We include the user location in the map.
+    CLLocationCoordinate2D lastLookup = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
+    
+    if ( lastLookup.longitude && lastLookup.latitude )
+        {
+        northWestCorner.longitude = fmin(northWestCorner.longitude, lastLookup.longitude);
+        northWestCorner.latitude = fmax(northWestCorner.latitude, lastLookup.latitude);
+        southEastCorner.longitude = fmax(southEastCorner.longitude, lastLookup.longitude);
+        southEastCorner.latitude = fmin(southEastCorner.latitude, lastLookup.latitude);
+        }
+    
+    // OK. We now know how much room we need. Let's make sure that the map can accommodate all the points.
+    double  longSpan = (southEastCorner.longitude - northWestCorner.longitude) * 1.2;   // The 1.2 is to add some extra padding, to make sure that the markers get drawn.
+    double  latSpan = (northWestCorner.latitude - southEastCorner.latitude) * 1.2;
+    CLLocationCoordinate2D  center = CLLocationCoordinate2DMake((northWestCorner.latitude + southEastCorner.latitude) / 2.0, (southEastCorner.longitude + northWestCorner.longitude) / 2.0);
+    MKCoordinateRegion  mapMap = MKCoordinateRegionMake ( center, MKCoordinateSpanMake(latSpan, longSpan) );
+    
+    [[self myMapView] setRegion:[[self myMapView] regionThatFits:mapMap] animated:NO];
+    [self displayMapAnnotations:inResults];
+}
+
+#pragma mark - IBActions -
 /**************************************************************//**
  \brief This is called to close the dialog.
  *****************************************************************/
@@ -144,7 +317,16 @@
     NSLog(@"BMLTActionButtonViewController::emailPDFPressed:");
 #endif
     CGSize      myPageSize = [BMLTVariantDefs pdfPageSize];
-    NSString    *pdfFileName = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)]];
+    NSString    *pdfFileName = [NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)];
+    NSString    *containerDirectory = NSTemporaryDirectory();
+    
+#ifdef DEBUG
+    NSLog(@"BMLTActionButtonViewController::emailPDFPressed: The temporary directory is %@", containerDirectory);
+#endif
+    
+    pdfFileName = [containerDirectory stringByAppendingPathComponent:pdfFileName];
+
+    [self setMyMapView:[[MKMapView alloc] init]];
     UIGraphicsBeginPDFContextToFile ( pdfFileName, CGRectZero, nil) ;
 
     if ( [self singleMeeting] )
@@ -159,6 +341,7 @@
         }
     
     UIGraphicsEndPDFContext();
+    [self setMyMapView:nil];
 }
 
 /**************************************************************//**

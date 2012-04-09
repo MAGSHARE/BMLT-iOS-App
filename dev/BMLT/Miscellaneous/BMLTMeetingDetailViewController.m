@@ -44,8 +44,11 @@
 {
     [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
     [[[self navigationItem] titleView] sizeToFit];
-    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItemPressed)];
-    [[self navigationItem] setRightBarButtonItem:actionButton animated:NO];
+    if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
+        {
+        UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItemPressed)];
+        [[self navigationItem] setRightBarButtonItem:actionButton animated:NO];
+        }
     [self setMeetingFrequencyText];
     [self setMeetingCommentsText];
     [self setMeetingLocationText];

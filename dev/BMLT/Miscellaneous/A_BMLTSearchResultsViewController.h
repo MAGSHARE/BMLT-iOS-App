@@ -33,7 +33,7 @@
 {
     BMLTFormatDetailViewController  *myModalView;
     UIPopoverController             *formatPopover;
-    BMLTActionButtonViewController  *actionModal;
+    UIPrintInteractionController    *actionModal;
     UIPopoverController             *actionPopover;
 }
 @property (strong, nonatomic) NSMutableArray    *dataArray; ///< This will hold the data for the table to display.

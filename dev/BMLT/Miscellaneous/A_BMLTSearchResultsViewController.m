@@ -66,36 +66,6 @@
  *****************************************************************/
 - (IBAction)actionItemClicked:(id)sender
 {
-#ifdef DEBUG
-    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:");
-#endif
-    UIView  *myContext = [[self navigationController] navigationBar];
-    CGRect  selectRect = [myContext frame];
-    selectRect.origin.x = selectRect.size.width - kButtonX;
-    selectRect.size.width = kButtonX;
-    selectRect.size.height = kButtonY;
-    
-    actionModal = [[BMLTActionButtonViewController alloc] initWithNibName:nil bundle:nil];
-    
-    if ( actionModal )
-        {
-        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
-            {
-            actionPopover = [[UIPopoverController alloc] initWithContentViewController:actionModal];
-            
-            [actionPopover setDelegate:self];
-            
-            [actionPopover presentPopoverFromRect:selectRect
-                                           inView:myContext
-                         permittedArrowDirections:UIPopoverArrowDirectionUp
-                                         animated:YES];
-            }
-        else
-            {
-            [actionModal setMyModalController:self];
-            [self presentModalViewController:actionModal animated:YES];
-            }
-        }
 }
 
 /**************************************************************//**

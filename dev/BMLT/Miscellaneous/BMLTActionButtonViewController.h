@@ -25,6 +25,7 @@
 #define kButtonY 15
 
 @class BMLT_Meeting;
+@class MKMapView;
 
 /**************************************************************//**
  \class BMLTCloseModalProtocol
@@ -49,10 +50,15 @@
     @property (weak, nonatomic) IBOutlet UIButton   *printButton;   ///< If the user presses this button, they will print the current view.
     @property (weak, nonatomic) IBOutlet UIView     *containerView; ///< This is a container, used to "size" the dialog for a popover.
     @property (weak, nonatomic, readwrite) UIViewController<BMLTCloseModalProtocol>    *myModalController;  ///< This will hold our modal controller (where we can send "close me" messages.
+    @property (weak, nonatomic, readwrite) MKMapView *myMapView;    ///< This will be used for drawing the maps in the PDFs.
 
     - (void)drawPrintableSearchMap;
     - (void)drawPrintableSearchList;
     - (void)drawPrintableMeetingDetails;
+
+    - (void)displayMapAnnotations:(NSArray *)inResults;
+    - (NSArray *)mapMeetingAnnotations:(NSArray *)inResults;
+    - (void)determineMapSize:(NSArray *)inResults;
 
     - (IBAction)doneButtonPressed:(id)sender;
     - (IBAction)emailPDFPressed:(id)sender;
