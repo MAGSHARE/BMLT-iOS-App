@@ -69,36 +69,7 @@
 #ifdef DEBUG
     NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:");
 #endif
-    UIView  *myContext = [[self navigationController] navigationBar];
-    CGRect  selectRect = [myContext frame];
-    selectRect.origin.x = selectRect.size.width - kButtonX;
-    selectRect.size.width = kButtonX;
-    selectRect.size.height = kButtonY;
-    
-    actionModal = [UIPrintInteractionController sharedPrintController];
-    
-    if ( actionModal )
-        {
-        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
-            {
-            [actionModal setPrintFormatter:[[self view] viewPrintFormatter]];
-            [actionModal presentFromRect:selectRect inView:myContext animated:YES completionHandler:^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
-#ifdef DEBUG
-                if (!completed)
-                    {
-                    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:completionHandler: FAIL");
-                    }
-                else
-                    {
-                    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:completionHandler: WIN");
-                    }
-#endif
-            }];
-            }
-        else
-            {
-            }
-        }
+    [self printView];
 }
 
 /**************************************************************//**
@@ -158,7 +129,67 @@
     formatPopover = nil;
     myModalView = nil;
     actionPopover = nil;
-    actionModal = nil;
+    printModal = nil;
+}
+
+/**************************************************************//**
+ \brief Prints the view displayed on the screen.
+ *****************************************************************/
+- (void)printView
+{
+#ifdef DEBUG
+    NSLog(@"A_BMLTSearchResultsViewController::printView");
+#endif
+    UIView  *myContext = [[self navigationController] navigationBar];
+    CGRect  selectRect = [myContext frame];
+    selectRect.origin.x = selectRect.size.width - kButtonX;
+    selectRect.size.width = kButtonX;
+    selectRect.size.height = kButtonY;
+    
+    printModal = [UIPrintInteractionController sharedPrintController];
+    
+    if ( printModal )
+        {
+        [printModal setPrintFormatter:[[self view] viewPrintFormatter]];
+        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
+            {
+            [printModal presentFromBarButtonItem:[[self navigationItem] rightBarButtonItem] animated:YES completionHandler:
+#ifdef DEBUG
+             ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
+                 if (!completed)
+                     {
+                     NSLog(@"A_BMLTSearchResultsViewController::printView completionHandler: FAIL");
+                     }
+                 else
+                     {
+                     NSLog(@"A_BMLTSearchResultsViewController::printView completionHandler: WIN");
+                     }
+             }
+#else
+             nil
+#endif
+             ];
+            }
+        else
+            {
+            [printModal presentAnimated:YES completionHandler:
+#ifdef DEBUG
+            ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
+                if (!completed)
+                    {
+                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: FAIL");
+                    }
+                else
+                    {
+                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: WIN");
+                    }
+            }
+#else
+            nil
+#endif
+            ];
+            }
+        }
 }
 
 /**************************************************************//**

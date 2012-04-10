@@ -44,11 +44,8 @@
 {
     [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
     [[[self navigationItem] titleView] sizeToFit];
-    if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
-        {
-        UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItemPressed)];
-        [[self navigationItem] setRightBarButtonItem:actionButton animated:NO];
-        }
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItem)];
+    [[self navigationItem] setRightBarButtonItem:actionButton animated:NO];
     [self setMeetingFrequencyText];
     [self setMeetingCommentsText];
     [self setMeetingLocationText];
@@ -188,12 +185,12 @@
 }
 
 /**************************************************************//**
- \brief Called when the "Action Item" in the NavBar is clicked.
+ \brief Prints the view displayed on the screen.
  *****************************************************************/
-- (void)actionItemPressed
+- (void)printView
 {
 #ifdef DEBUG
-    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:");
+    NSLog(@"BMLTMeetingDetailViewController::printView");
 #endif
     UIView  *myContext = [[self navigationController] navigationBar];
     CGRect  selectRect = [myContext frame];
@@ -201,30 +198,61 @@
     selectRect.size.width = kButtonX;
     selectRect.size.height = kButtonY;
     
-    actionModal = [UIPrintInteractionController sharedPrintController];
+    printModal = [UIPrintInteractionController sharedPrintController];
     
-    if ( actionModal )
+    if ( printModal )
         {
+        [printModal setPrintFormatter:[[self view] viewPrintFormatter]];
         if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
             {
-            [actionModal setPrintFormatter:[[self view] viewPrintFormatter]];
-            [actionModal presentFromRect:selectRect inView:myContext animated:YES completionHandler:^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
+            [printModal presentFromBarButtonItem:[[self navigationItem] rightBarButtonItem] animated:YES completionHandler:
 #ifdef DEBUG
+             ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
                 if (!completed)
                     {
-                    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:completionHandler: FAIL");
+                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: FAIL");
                     }
                 else
                     {
-                    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:completionHandler: WIN");
+                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: WIN");
                     }
+            }
+#else
+             nil
 #endif
-            }];
+             ];
             }
         else
             {
+            [printModal presentAnimated:YES completionHandler:
+#ifdef DEBUG
+                ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
+                    if (!completed)
+                        {
+                        NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: FAIL");
+                        }
+                    else
+                        {
+                        NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: WIN");
+                        }
+                }
+#else
+                nil
+#endif
+             ];
             }
         }
+}
+
+/**************************************************************//**
+ \brief Called when the "Action Item" in the NavBar is clicked.
+ *****************************************************************/
+- (void)actionItem
+{
+#ifdef DEBUG
+    NSLog(@"BMLTMeetingDetailViewController::actionItem");
+#endif
+    [self printView];
 }
 
 /**************************************************************//**
@@ -242,7 +270,7 @@
         }
     
     actionPopover = nil;
-    actionModal = nil;
+    printModal = nil;
 }
 
 /**************************************************************//**

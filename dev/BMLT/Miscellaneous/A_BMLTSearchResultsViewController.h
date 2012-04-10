@@ -33,7 +33,7 @@
 {
     BMLTFormatDetailViewController  *myModalView;
     UIPopoverController             *formatPopover;
-    UIPrintInteractionController    *actionModal;
+    UIPrintInteractionController    *printModal;
     UIPopoverController             *actionPopover;
 }
 @property (strong, nonatomic) NSMutableArray    *dataArray; ///< This will hold the data for the table to display.
@@ -41,6 +41,7 @@
 
 - (void)displayFormatDetail:(id)inSender;
 - (void)closeModal;
+- (void)printView;
 - (IBAction)clearSearch:(id)sender;
 - (void)setDataArrayFromData:(NSArray *)dataArray;          ///< Set the data array to the contents of the given array.
 - (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting;

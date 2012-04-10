@@ -30,7 +30,7 @@
 
 @interface BMLTMeetingDetailViewController : UIViewController <MKMapViewDelegate, UIPopoverControllerDelegate, BMLTCloseModalProtocol>
 {
-    UIPrintInteractionController    *actionModal;
+    UIPrintInteractionController    *printModal;
     UIPopoverController             *actionPopover;
 }
 @property (weak, nonatomic, readwrite)  UIViewController    *myModalController;
@@ -48,7 +48,8 @@
 - (void)setMeetingCommentsText;
 - (void)setMeetingLocationText;
 - (void)setMapLocation;
-- (void)actionItemPressed;
+- (void)actionItem;
+- (void)printView;
 - (void)closeModal;
 
 - (IBAction)callForDirections:(id)sender;
