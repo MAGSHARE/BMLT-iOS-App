@@ -30,7 +30,7 @@
 
 @interface BMLTMeetingDetailViewController : UIViewController <MKMapViewDelegate, UIPopoverControllerDelegate, BMLTCloseModalProtocol>
 {
-    BMLTActionButtonViewController  *actionModal;
+    UIPrintInteractionController    *actionModal;
     UIPopoverController             *actionPopover;
 }
 @property (weak, nonatomic, readwrite)  UIViewController    *myModalController;

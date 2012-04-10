@@ -66,6 +66,39 @@
  *****************************************************************/
 - (IBAction)actionItemClicked:(id)sender
 {
+#ifdef DEBUG
+    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:");
+#endif
+    UIView  *myContext = [[self navigationController] navigationBar];
+    CGRect  selectRect = [myContext frame];
+    selectRect.origin.x = selectRect.size.width - kButtonX;
+    selectRect.size.width = kButtonX;
+    selectRect.size.height = kButtonY;
+    
+    actionModal = [UIPrintInteractionController sharedPrintController];
+    
+    if ( actionModal )
+        {
+        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
+            {
+            [actionModal setPrintFormatter:[[self view] viewPrintFormatter]];
+            [actionModal presentFromRect:selectRect inView:myContext animated:YES completionHandler:^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
+#ifdef DEBUG
+                if (!completed)
+                    {
+                    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:completionHandler: FAIL");
+                    }
+                else
+                    {
+                    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:completionHandler: WIN");
+                    }
+#endif
+            }];
+            }
+        else
+            {
+            }
+        }
 }
 
 /**************************************************************//**
