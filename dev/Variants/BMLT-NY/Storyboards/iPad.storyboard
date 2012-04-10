@@ -394,13 +394,7 @@
                             <outlet property="delegate" destination="BfE-yH-RTK" id="QN4-GO-dx8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="CdA-a3-G7W">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="081-Hd-odk">
-                            <connections>
-                                <action selector="actionItemClicked:" destination="BfE-yH-RTK" id="gkh-6f-fxE"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="TAB-BAR-1" id="CdA-a3-G7W"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-312" y="842"/>
