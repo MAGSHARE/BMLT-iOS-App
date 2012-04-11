@@ -79,6 +79,8 @@
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     
+    [myAppDelegate clearAllSearchResultsNo];
+    
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMe.");
 #endif
@@ -98,6 +100,8 @@
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     
+    [myAppDelegate clearAllSearchResultsNo];
+
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMeLaterToday.");
 #endif
@@ -117,6 +121,8 @@
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     
+    [myAppDelegate clearAllSearchResultsNo];
+
 #ifdef DEBUG
         NSLog(@"BMLTSimpleSearchViewController findAllMeetingsNearMeTomorrow.");
 #endif

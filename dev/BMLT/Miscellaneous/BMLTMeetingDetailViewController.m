@@ -44,8 +44,8 @@
 {
     [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
     [[[self navigationItem] titleView] sizeToFit];
-    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItem)];
-    [[self navigationItem] setRightBarButtonItem:actionButton animated:NO];
+//    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItem)];
+//    [[self navigationItem] setRightBarButtonItem:actionButton animated:NO];
     [self setMeetingFrequencyText];
     [self setMeetingCommentsText];
     [self setMeetingLocationText];

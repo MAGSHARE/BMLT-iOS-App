@@ -620,14 +620,19 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)clearAllSearchResults:(BOOL)inForce ///< YES, if we will force the search to switch.
 {
     [self simpleClearSearch];
+    
     [mapResultsViewController closeModal];      ///< Make sure we close any open modals or popovers, first.
     [mapResultsViewController dismissListPopover];
-    [listResultsViewController closeModal];
+    [mapResultsViewController setDataArrayFromData:nil];
     [mapResultsViewController clearMapCompletely];
     [[mapResultsViewController navigationController] popToRootViewControllerAnimated:NO];
-    [[listResultsViewController navigationController] popToRootViewControllerAnimated:NO];
+    
+    [listResultsViewController closeModal];
     [listResultsViewController setDataArrayFromData:nil];
+    [[listResultsViewController navigationController] popToRootViewControllerAnimated:NO];
+    
     [self selectInitialSearchAndForce:inForce];
+    
     [(UITabBarController *)self.window.rootViewController setSelectedIndex:kSearchTabIndex]; // Set the tab bar to the search screens.
     [self setUpTabBarItems];
 }
@@ -668,7 +673,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     if ( currentAnimation )
         {
-        [[currentAnimation navigationController] popViewControllerAnimated:YES];
+        [[currentAnimation navigationController] popViewControllerAnimated:NO];
         }
     
     currentAnimation = nil;

@@ -192,6 +192,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     NSLog(@"BMLTAdvancedSearchViewController doSearchButtonPressed");
 #endif
     [searchSpecAddressTextEntry resignFirstResponder];
+    [[BMLTAppDelegate getBMLTAppDelegate] clearAllSearchResultsNo];
     
     [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc] withParams:myParams]; 
 }
