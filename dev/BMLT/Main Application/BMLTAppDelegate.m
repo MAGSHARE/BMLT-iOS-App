@@ -134,22 +134,22 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     // If no controller was supplied, we assume that this was a map results popover.
     if ( !inController )
         {
-        inController = [[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController];
+        inController = [g_AppDelegate mapResultsViewController];
         }
     
     // Make sure we close the door behind us...
-    [[[BMLTAppDelegate getBMLTAppDelegate] listResultsViewController] closeModal];      ///< Make sure we close any open modals or popovers, first.
-    [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] dismissListPopover];
-    [[[BMLTAppDelegate getBMLTAppDelegate] mapResultsViewController] closeModal];
+    [[g_AppDelegate listResultsViewController] closeModal];      ///< Make sure we close any open modals or popovers, first.
+    [[g_AppDelegate mapResultsViewController] dismissListPopover];
+    [[g_AppDelegate mapResultsViewController] closeModal];
     
-    BMLTMeetingDetailViewController *details = [[BMLTAppDelegate getBMLTAppDelegate] reusableMeetingDetails];
+    BMLTMeetingDetailViewController *details = [g_AppDelegate reusableMeetingDetails];
     
     if ( !details )
         {
         // Get the storyboard, then instantiate the details view from the independent view controller.
         UIStoryboard    *st = [inController storyboard];
         details = (BMLTMeetingDetailViewController *)[st instantiateViewControllerWithIdentifier:@"meeting-details-sheet"];
-        [[BMLTAppDelegate getBMLTAppDelegate] setReusableMeetingDetails:details];
+        [g_AppDelegate setReusableMeetingDetails:details];
         }
 
     // Set the basics.
@@ -189,7 +189,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     NSLog(@"BMLTAppDelegate::createWholeSearchPDF");
 #endif
     
-    return [BMLTAppDelegate createSearchResultsPDF:[[BMLTAppDelegate getBMLTAppDelegate] searchResults] withMap:YES];
+    return [BMLTAppDelegate createSearchResultsPDF:[g_AppDelegate searchResults] withMap:YES];
 }
 
 /**************************************************************//**
