@@ -160,6 +160,56 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     [[inController navigationController] pushViewController:details animated:YES];
 }
 
+/**************************************************************//**
+ \brief Creates a PDF file, based on the given meetings.
+ \returns a string. The path to the PDF file (in the tmp directory)
+ *****************************************************************/
++ (NSString *)createSearchResultsPDF:(NSArray *)inSearchResults ///< An array of BMLT_Meeting objects. These will be used to populate the PDF.
+                             withMap:(BOOL)useMap               ///< If YES, then a map display of the meetings will also be created.
+{
+    NSString    *pdfFileName = [NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)];
+    NSString    *containerDirectory = NSTemporaryDirectory();
+    
+    pdfFileName = [containerDirectory stringByAppendingPathComponent:pdfFileName];
+    
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::createSearchResultsPDF: withMap: File Name is %@", pdfFileName);
+#endif
+    
+    return pdfFileName;
+}
+
+/**************************************************************//**
+ \brief This creates a PDF file with map of the entire search set.
+ \returns a string. The path to the PDF file (in the tmp directory)
+ *****************************************************************/
++ (NSString *)createWholeSearchPDF
+{
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::createWholeSearchPDF");
+#endif
+    
+    return [BMLTAppDelegate createSearchResultsPDF:[[BMLTAppDelegate getBMLTAppDelegate] searchResults] withMap:YES];
+}
+
+/**************************************************************//**
+ \brief Creates a PDF file, based on only one meeting (Detailed).
+ \returns a string. The path to the PDF file (in the tmp directory)
+ *****************************************************************/
++ (NSString *)creatingMeetingDetailsPDF:(BMLT_Meeting *)inMeeting   ///< The meeting to be used as the target.
+{
+    NSString    *pdfFileName = [NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)];
+    NSString    *containerDirectory = NSTemporaryDirectory();
+    
+    pdfFileName = [containerDirectory stringByAppendingPathComponent:pdfFileName];
+    
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::creatingMeetingDetailsPDF: File Name is %@", pdfFileName);
+#endif
+    
+    return pdfFileName;
+}
+
 #pragma mark - Private methods -
 /**************************************************************//**
  \brief Manages the transition from one view to another. Just like
