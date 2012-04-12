@@ -20,6 +20,7 @@
 //
 
 #import "BMLTFormattedOutputSmartView.h"
+#import "BMLT_Meeting.h"
 
 /**************************************************************//**
  \class BMLTFormattedOutputSmartView
@@ -33,6 +34,7 @@
         be repurposed and handed to different controllers for display.
  *****************************************************************/
 @implementation BMLTFormattedOutputSmartView
+@synthesize myMeetings = _myMeetings;
 
 /**************************************************************//**
  \brief Initializes with model data
@@ -41,21 +43,22 @@
 - (id)initWithFrame:(CGRect)inFrame
      andMeetingList:(NSArray *)inMeetings
 {
+#ifdef DEBUG
+    NSLog( @"BMLTFormattedOutputSmartView::initWithFrame: (%f, %f), (%f, %f) andMeetingList: (%d entries)", inFrame.origin.x, inFrame.origin.y, inFrame.size.width, inFrame.size.height, [inMeetings count] );
+#endif
     self = [super initWithFrame:inFrame];
     if (self)
         {
-
+        _myMeetings = inMeetings;
         }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+#ifdef DEBUG
+    NSLog( @"BMLTFormattedOutputSmartView::drawRect: (%f, %f), (%f, %f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height );
+#endif
 }
-*/
 
 @end

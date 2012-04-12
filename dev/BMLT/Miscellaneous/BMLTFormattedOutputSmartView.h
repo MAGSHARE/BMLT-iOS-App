@@ -33,5 +33,10 @@
         be repurposed and handed to different controllers for display.
  *****************************************************************/
 @interface BMLTFormattedOutputSmartView : UIView
+{
+
+}
+@property (weak, nonatomic, readonly) NSArray *myMeetings;
+
 - (id)initWithFrame:(CGRect)inFrame andMeetingList:(NSArray *)inMeetings;
 @end
