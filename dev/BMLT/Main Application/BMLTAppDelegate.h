@@ -70,7 +70,7 @@
 + (BOOL)canReachRootServer;                             ///< Returns YES, if the root server can be reached via network.
 + (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting inContext:(UIViewController *)inController;   ///< Push the meeting details view onto the current nav stack.
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod;    ///< This is used to calculate the time for "later today" meetings.
-+ (NSString *)createSearchResultsPDF:(NSArray *)inSearchResults withMap:(BOOL)useMap;
++ (NSString *)createSearchResultsPDF:(NSArray *)inSearchResults;
 + (NSString *)createWholeSearchPDF;
 + (NSString *)creatingMeetingDetailsPDF:(BMLT_Meeting *)inMeeting;
 

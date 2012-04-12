@@ -165,7 +165,6 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
  \returns a string. The path to the PDF file (in the tmp directory)
  *****************************************************************/
 + (NSString *)createSearchResultsPDF:(NSArray *)inSearchResults ///< An array of BMLT_Meeting objects. These will be used to populate the PDF.
-                             withMap:(BOOL)useMap               ///< If YES, then a map display of the meetings will also be created.
 {
     NSString    *pdfFileName = [NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)];
     NSString    *containerDirectory = NSTemporaryDirectory();
@@ -173,7 +172,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     pdfFileName = [containerDirectory stringByAppendingPathComponent:pdfFileName];
     
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::createSearchResultsPDF: withMap: File Name is %@", pdfFileName);
+    NSLog(@"BMLTAppDelegate::createSearchResultsPDF: File Name is %@", pdfFileName);
 #endif
     
     return pdfFileName;
@@ -189,7 +188,7 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
     NSLog(@"BMLTAppDelegate::createWholeSearchPDF");
 #endif
     
-    return [BMLTAppDelegate createSearchResultsPDF:[g_AppDelegate searchResults] withMap:YES];
+    return [BMLTAppDelegate createSearchResultsPDF:[g_AppDelegate searchResults]];
 }
 
 /**************************************************************//**

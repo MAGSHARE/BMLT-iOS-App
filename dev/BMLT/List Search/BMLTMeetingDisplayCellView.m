@@ -78,6 +78,17 @@
 }
 
 /**************************************************************//**
+ \brief 
+ *****************************************************************/
+- (void)drawRect:(CGRect)rect
+forViewPrintFormatter:(UIViewPrintFormatter *)formatter
+{
+#ifdef DEBUG
+    NSLog(@"BMLTMeetingDisplayCellView::drawRect: forViewPrintFormatter:");
+#endif
+}
+
+/**************************************************************//**
  \brief This is the controller for our modal dialogs (We like to use the top).
  *****************************************************************/
 - (void)setMyModalController:(BMLTDisplayListResultsViewController *)inController   ///< The controller in question.

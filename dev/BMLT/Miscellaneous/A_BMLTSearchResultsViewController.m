@@ -140,29 +140,23 @@
 #ifdef DEBUG
     NSLog(@"A_BMLTSearchResultsViewController::printView");
 #endif
-    UIView  *myContext = [[self navigationController] navigationBar];
-    CGRect  selectRect = [myContext frame];
-    selectRect.origin.x = selectRect.size.width - kButtonX;
-    selectRect.size.width = kButtonX;
-    selectRect.size.height = kButtonY;
-    
     printModal = [UIPrintInteractionController sharedPrintController];
     
     if ( printModal )
         {
         [printModal setPrintFormatter:[[self view] viewPrintFormatter]];
-        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
+        if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
             {
             [printModal presentFromBarButtonItem:[[self navigationItem] rightBarButtonItem] animated:YES completionHandler:
 #ifdef DEBUG
              ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
                  if (!completed)
                      {
-                     NSLog(@"A_BMLTSearchResultsViewController::printView completionHandler: FAIL");
+                     NSLog(@"A_BMLTSearchResultsViewController::printView completionHandler: Print FAIL");
                      }
                  else
                      {
-                     NSLog(@"A_BMLTSearchResultsViewController::printView completionHandler: WIN");
+                     NSLog(@"A_BMLTSearchResultsViewController::printView completionHandler: Print WIN");
                      }
              }
 #else
@@ -177,11 +171,11 @@
             ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
                 if (!completed)
                     {
-                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: FAIL");
+                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: Print FAIL");
                     }
                 else
                     {
-                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: WIN");
+                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: Print WIN");
                     }
             }
 #else

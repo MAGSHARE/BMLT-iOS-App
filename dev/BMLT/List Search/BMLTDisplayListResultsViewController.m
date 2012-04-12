@@ -43,6 +43,24 @@
 
 @end
 
+@interface UITableView (override)
+- (void)drawRect:(CGRect)rect forViewPrintFormatter:(UIViewPrintFormatter *)formatter;
+@end
+
+@implementation UITableView (override)
+
+/**************************************************************//**
+ \brief 
+ *****************************************************************/
+- (void)drawRect:(CGRect)rect
+forViewPrintFormatter:(UIViewPrintFormatter *)formatter
+{
+#ifdef DEBUG
+    NSLog(@"UITableView (override)::drawRect: forViewPrintFormatter:");
+#endif
+}
+@end
+
 /**************************************************************//**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.
@@ -120,6 +138,9 @@
  *****************************************************************/
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#ifdef DEBUG
+    NSLog(@"BMLTDisplayListResultsViewController::numberOfSectionsInTableView:" );
+#endif
     return ([[self dataArray] count] > 1) ? 2 : 1;
 }
 
@@ -131,6 +152,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView ///< The table view in question.
          cellForRowAtIndexPath:(NSIndexPath *)indexPath ///< The index path for the cell.
 {
+#ifdef DEBUG
+    NSLog(@"BMLTDisplayListResultsViewController::tableView: cellForRowAtIndexPath:(%d, %d)", [indexPath section], [indexPath row] );
+#endif
+
     UITableViewCell *ret = nil;
     
     // If we are populating the header, then we simply generate a new 
@@ -227,7 +252,13 @@
 - (NSInteger)tableView:(UITableView *)tableView ///< The table view in question.
  numberOfRowsInSection:(NSInteger)section       ///< The section index.
 {
-    return ((section == 0) && ([[self dataArray] count] > 1)) ? 1 : [[self dataArray] count];
+    NSInteger   ret = ((section == 0) && ([[self dataArray] count] > 1)) ? 1 : [[self dataArray] count];
+    
+#ifdef DEBUG
+    NSLog(@"BMLTDisplayListResultsViewController::tableView: numberOfRowsInSection:%d, returns %d", section, ret);
+#endif
+
+    return ret;
 }
 
 /**************************************************************//**
@@ -237,7 +268,13 @@
 - (CGFloat)tableView:(UITableView *)tableView       ///< The table view
 heightForRowAtIndexPath:(NSIndexPath *)indexPath    ///< The index.
 {
-    return (([self numberOfSectionsInTableView:tableView] > 1) && ([indexPath section] == 0)) ? kSortHeaderHeight : ([[self dataArray] count] > [indexPath row]) ? List_Meeting_Display_CellHeight : 0;
+    CGFloat ret = (([self numberOfSectionsInTableView:tableView] > 1) && ([indexPath section] == 0)) ? kSortHeaderHeight : ([[self dataArray] count] > [indexPath row]) ? List_Meeting_Display_CellHeight : 0;
+    
+#ifdef DEBUG
+    NSLog(@"BMLTDisplayListResultsViewController::tableView: heightForRowAtIndexPath:(%d, %d)", [indexPath section], [indexPath row] );
+#endif
+
+    return ret;
 }
 
 /**************************************************************//**
@@ -250,6 +287,10 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath    ///< The index.
         {
         [self viewMeetingDetails:(BMLT_Meeting *)[[self dataArray] objectAtIndex:[indexPath row]]];
         }
+    
+#ifdef DEBUG
+    NSLog(@"BMLTDisplayListResultsViewController::tableView: willSelectRowAtIndexPath:(%d, %d)", [indexPath section], [indexPath row] );
+#endif
     
     return nil;
 }
