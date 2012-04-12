@@ -84,6 +84,7 @@
 		772C1642151B49E300830596 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 772C1634151B49E300830596 /* settings.png */; };
 		772C1643151B49E300830596 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 772C1635151B49E300830596 /* settings@2x.png */; };
 		77300A85152A7C4B009BC533 /* SearchMarkerSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 77300A84152A7C4B009BC533 /* SearchMarkerSelected.png */; };
+		775737201537315A00029D81 /* BMLTFormattedOutputSmartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7757371F1537315A00029D81 /* BMLTFormattedOutputSmartView.m */; };
 		775A10BA1528128C00CD10E1 /* Shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 775A10B91528128C00CD10E1 /* Shadow.png */; };
 		77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */; };
 		776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */; };
@@ -227,6 +228,8 @@
 		772C1634151B49E300830596 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		772C1635151B49E300830596 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		77300A84152A7C4B009BC533 /* SearchMarkerSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchMarkerSelected.png; sourceTree = "<group>"; };
+		7757371E1537315900029D81 /* BMLTFormattedOutputSmartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTFormattedOutputSmartView.h; sourceTree = "<group>"; };
+		7757371F1537315A00029D81 /* BMLTFormattedOutputSmartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTFormattedOutputSmartView.m; sourceTree = "<group>"; };
 		775A10B91528128C00CD10E1 /* Shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shadow.png; sourceTree = "<group>"; };
 		77640D3F151A67BE00634143 /* BMLTMeetingDisplayCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMeetingDisplayCellView.h; sourceTree = "<group>"; };
 		77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMeetingDisplayCellView.m; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 				77F6C3691531D1A90038784D /* BMLTAnimationScreenViewController.m */,
 				77E28C1D153234FD00B4FBEA /* BMLTActionButtonViewController.h */,
 				77E28C1E153234FD00B4FBEA /* BMLTActionButtonViewController.m */,
+				7757371E1537315900029D81 /* BMLTFormattedOutputSmartView.h */,
+				7757371F1537315A00029D81 /* BMLTFormattedOutputSmartView.m */,
 			);
 			name = "Miscellaneous View and Controller Classes";
 			path = Miscellaneous;
@@ -789,6 +794,7 @@
 				77111E7E1531306D001ACF4C /* BMLT_AnimationView.m in Sources */,
 				77F6C36A1531D1A90038784D /* BMLTAnimationScreenViewController.m in Sources */,
 				77E28C20153234FD00B4FBEA /* BMLTActionButtonViewController.m in Sources */,
+				775737201537315A00029D81 /* BMLTFormattedOutputSmartView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
