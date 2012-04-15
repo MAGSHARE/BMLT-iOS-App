@@ -50,10 +50,10 @@
 @implementation UITableView (override)
 
 /**************************************************************//**
- \brief 
+ \brief This allows us to do special stuff when printing.
  *****************************************************************/
-- (void)drawRect:(CGRect)rect
-forViewPrintFormatter:(UIViewPrintFormatter *)formatter
+- (void)drawRect:(CGRect)rect                           ///< The input rect
+forViewPrintFormatter:(UIViewPrintFormatter *)formatter ///< The print formatter object
 {
 #ifdef DEBUG
     NSLog(@"UITableView (override)::drawRect: forViewPrintFormatter:");

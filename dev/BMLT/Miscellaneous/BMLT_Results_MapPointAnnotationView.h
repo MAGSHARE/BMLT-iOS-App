@@ -52,14 +52,16 @@
     NSMutableArray  *myMeetings;
     NSString        *title;
     NSString        *subtitle;
+    NSInteger       displayIndex;
 }
 
-- (id)initWithCoordinate:(CLLocationCoordinate2D)coords andMeetings:(NSArray *)inMeetings;
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coords andMeetings:(NSArray *)inMeetings andIndex:(NSInteger)inIndex;
 
 @property (nonatomic, readwrite, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readwrite, copy) NSString                 *title;
 @property (nonatomic, readwrite, copy) NSString                 *subtitle;
 @property (nonatomic, readwrite) BOOL                           isSelected;
+@property (nonatomic, readwrite) NSInteger                      displayIndex;
 
 - (NSArray *)getMyMeetings;
 - (NSInteger)getNumberOfMeetings;

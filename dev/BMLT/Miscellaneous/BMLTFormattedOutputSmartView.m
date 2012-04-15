@@ -40,8 +40,8 @@
  \brief Initializes with model data
  \returns self
  *****************************************************************/
-- (id)initWithFrame:(CGRect)inFrame
-     andMeetingList:(NSArray *)inMeetings
+- (id)initWithFrame:(CGRect)inFrame         ///< The view frame.
+     andMeetingList:(NSArray *)inMeetings   ///< The model data (an array of BMLT_Meeting objects. If just one, then the view produces a detailed drawing)
 {
 #ifdef DEBUG
     NSLog( @"BMLTFormattedOutputSmartView::initWithFrame: (%f, %f), (%f, %f) andMeetingList: (%d entries)", inFrame.origin.x, inFrame.origin.y, inFrame.size.width, inFrame.size.height, [inMeetings count] );
@@ -54,10 +54,24 @@
     return self;
 }
 
-- (void)drawRect:(CGRect)rect
+/**************************************************************//**
+ \brief Rolls up its sleeves, and draws the data. rect is ignored.
+ *****************************************************************/
+- (void)drawRect:(CGRect)rect   ///< We ignore the requested rect, and draw the whole damn thing, every time.
 {
 #ifdef DEBUG
     NSLog( @"BMLTFormattedOutputSmartView::drawRect: (%f, %f), (%f, %f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height );
+#endif
+}
+
+/**************************************************************//**
+ \brief This allows us to do special stuff when printing.
+ *****************************************************************/
+- (void)drawRect:(CGRect)rect                           ///< The requested rect (ignored)
+forViewPrintFormatter:(UIViewPrintFormatter *)formatter ///< The print formatter object.
+{
+#ifdef DEBUG
+    NSLog( @"BMLTFormattedOutputSmartView::drawRect: (%f, %f), (%f, %f) forViewPrintFormatter:", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height );
 #endif
 }
 

@@ -86,7 +86,7 @@
  *****************************************************************/
 @implementation BMLT_Results_MapPointAnnotation
 
-@synthesize isSelected = _selected, coordinate = _coordinate, title, subtitle;
+@synthesize isSelected = _selected, coordinate = _coordinate, title, subtitle, displayIndex;
 
 /**************************************************************//**
  \brief Initialize with a coordinate, and a list of meetings.
@@ -94,6 +94,7 @@
  *****************************************************************/
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coords ///< The coordinates of this marker.
              andMeetings:(NSArray *)inMeetings          ///< A list of BMLT_Meeting objects, represented by this marker (it may be 1 meeting).
+                andIndex:(NSInteger)inIndex             ///< This is an index that is displayed near the annotation. If >0, a little number is displayed, which is used to match to a printed or PDF number.
 {
     self = [super init];
     

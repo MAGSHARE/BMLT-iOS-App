@@ -129,7 +129,7 @@
         
         CLLocationCoordinate2D  markerLoc = [myAppDelegate searchMapMarkerLoc];
         
-        myMarker = [[BMLT_Search_MapPointAnnotation alloc] initWithCoordinate:markerLoc andMeetings:nil];
+        myMarker = [[BMLT_Search_MapPointAnnotation alloc] initWithCoordinate:markerLoc andMeetings:nil andIndex:0];
         
         [myMarker setTitle:@"Marker"];
 
