@@ -33,8 +33,7 @@
 @class BMLTMeetingDetailViewController;
 @class BMLTAnimationScreenViewController;
 
-#define kGoogleReverseLooupURI_Format @"http://maps.google.com/maps/geo?q=%@&output=xml&sensor=false"
-
+extern NSString *const kGoogleReverseLooupURI_Format;
 extern int kAddressLookupTimeoutPeriod_in_seconds;
 
 /**************************************************************//**
