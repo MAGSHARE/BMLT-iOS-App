@@ -46,5 +46,6 @@
 - (void)setDataArrayFromData:(NSArray *)dataArray;          ///< Set the data array to the contents of the given array.
 - (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting;
 - (IBAction)actionItemClicked:(id)sender;
+- (UIPrintPageRenderer *)getMyPageRenderer; ///< Overload this
 
 @end

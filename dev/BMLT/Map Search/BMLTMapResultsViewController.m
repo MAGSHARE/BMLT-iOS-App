@@ -21,6 +21,7 @@
 #import "BMLT_Meeting.h"
 #import "BMLT_Results_MapPointAnnotationView.h"
 #import "BMLTDisplayListResultsViewController.h"
+#import "BMLT_MapPrintPageRenderer.h"
 
 static int BMLT_Meeting_Distance_Threshold_In_Pixels = 12;
 
@@ -369,6 +370,15 @@ static int BMLT_Meeting_Distance_Threshold_In_Pixels = 12;
     [_selectedAnnotation setIsSelected:NO];
     [(BMLT_Results_MapPointAnnotationView *)[(MKMapView *)[self view] viewForAnnotation:_selectedAnnotation] selectImage];
     _selectedAnnotation = nil;
+}
+
+/**************************************************************//**
+ \brief Instantiates and returns the appropriate page renderer
+ \returns an instance of BMLT_MapPrintPageRenderer, disguised as a UIPrintPageRenderer
+ *****************************************************************/
+- (UIPrintPageRenderer *)getMyPageRenderer
+{
+    return [[BMLT_MapPrintPageRenderer alloc] init];
 }
 
 #pragma mark - UIPopoverControllerDelegate Functions -

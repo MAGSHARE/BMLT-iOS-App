@@ -22,7 +22,7 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
 #import "BMLT_Meeting.h"
-#import "BMLTFormattedOutputSmartView.h"
+#import "BMLT_ListPrintPageRenderer.h"
 
 static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for lists of more than one result.
 
@@ -44,29 +44,6 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
     [self addSubview:inControl];
 }
 
-@end
-
-@interface UITableView (override)
-- (void)drawRect:(CGRect)rect forViewPrintFormatter:(UIViewPrintFormatter *)formatter;
-@end
-
-@implementation UITableView (override)
-
-/**************************************************************//**
- \brief This allows us to do special stuff when printing.
- *****************************************************************/
-- (void)drawRect:(CGRect)rect                           ///< The input rect
-forViewPrintFormatter:(UIViewPrintFormatter *)formatter ///< The print formatter object
-{
-#ifdef DEBUG
-    NSLog(@"UITableView (override)::drawRect: forViewPrintFormatter:");
-#endif
-    BMLTFormattedOutputSmartView    *drawingContextView = [[BMLTFormattedOutputSmartView alloc] initWithFrame:[self frame] andMeetingList:[(BMLTDisplayListResultsViewController *)[self dataSource] dataArray] asPDF:NO];
-    
-    [drawingContextView drawRect:rect];
-    
-    drawingContextView = nil;
-}
 @end
 
 /**************************************************************//**
@@ -99,6 +76,15 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter ///< The print formatter
     float   height = kSortHeaderHeight + (List_Meeting_Display_CellHeight * [dataArray count]);
     
     [self setContentSizeForViewInPopover:CGSizeMake([[self view] bounds].size.width, height)];    // Make sure our popover isn't too big.
+}
+
+/**************************************************************//**
+ \brief Instantiates and returns the appropriate page renderer
+ \returns an instance of BMLT_ListPrintPageRenderer, disguised as a UIPrintPageRenderer
+ *****************************************************************/
+- (UIPrintPageRenderer *)getMyPageRenderer
+{
+    return [[BMLT_ListPrintPageRenderer alloc] init];
 }
 
 #pragma mark - IBAction Functions -

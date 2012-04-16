@@ -133,6 +133,15 @@
 }
 
 /**************************************************************//**
+ \brief Instantiates and returns the appropriate page renderer
+ \returns nil, for this class. It needs to be overloaded.
+ *****************************************************************/
+- (UIPrintPageRenderer *)getMyPageRenderer
+{
+    return nil;
+}
+
+/**************************************************************//**
  \brief Prints the view displayed on the screen.
  *****************************************************************/
 - (void)printView
@@ -144,6 +153,7 @@
     
     if ( printModal )
         {
+        [printModal setPrintPageRenderer:[self getMyPageRenderer]];
         [printModal setPrintFormatter:[[self view] viewPrintFormatter]];
         if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
             {
