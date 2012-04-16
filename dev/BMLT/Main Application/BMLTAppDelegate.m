@@ -32,12 +32,21 @@ static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON in
 
 int kAddressLookupTimeoutPeriod_in_seconds = 10;
 
-enum
+enum    ///< These are the tab indexes in the array.
 {
     kSearchTabIndex = 0,    /**< The index of the Search tab. */
     kListResultsTabIndex,   /**< The index of the list results tab. */
     kMapResultsTabIndex,    /**< The index of the map results tab. */
     kSettingsTabIndex       /**< The index of the settings tab. */
+};
+
+enum    ///< These enums reflect values set by the storyboard, and govern the transition between selected tabs.
+{
+    kTransition_LeavingSettings = -2,   ///< Going out of the settings tab to another tab.
+    kTransition_RightToLeft,            ///< Going from a right tab to a left tab.
+    kTransition_Nothing,                ///< Not used.
+    kTransition_LeftToRight,            ///< Going from a left tab to a right tab.
+    kTransition_EnteringSettings        ///< Coming from another tab to the settings tab.
 };
 
 /**************************************************************//**
@@ -223,8 +232,9 @@ enum
                         direction:(int)dir          /**< The direction. One of these:
                                                         - -2 Going out of the settings pages.
                                                         - -1 Going from right to left
-                                                        - 1 Going from left to right
-                                                        - 2 Going into the settings pages
+                                                        -  1 Going from left to right
+                                                        -  2 Going into the settings pages
+                                                        The value is set in the storyboard as a negative or positive integer.
                                                     */
 {
     if ( dir && (srcView != dstView) )
@@ -233,19 +243,19 @@ enum
         
         switch ( dir )
             {
-                case -2:    // Going from the settings to another tab.
+                case kTransition_LeavingSettings:   // Going from the settings to another tab.
                 option = UIViewAnimationOptionTransitionCurlDown;
                 break;
                 
-                case -1:    // Going from a right tab to a left tab.
+                case kTransition_RightToLeft:       // Going from a right tab to a left tab.
                 option = UIViewAnimationOptionTransitionFlipFromLeft;
                 break;
                 
-                case 1:     // Going from a left tab to a right tab.
+                case kTransition_LeftToRight:       // Going from a left tab to a right tab.
                 option = UIViewAnimationOptionTransitionFlipFromRight;
                 break;
                 
-                case 2:     // Going into the settings pages.
+                case kTransition_EnteringSettings:  // Going into the settings pages.
                 option = UIViewAnimationOptionTransitionCurlUp;
                 break;
             }
