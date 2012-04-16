@@ -33,7 +33,6 @@
 @class BMLTMeetingDetailViewController;
 @class BMLTAnimationScreenViewController;
 
-extern NSString *const kGoogleReverseLooupURI_Format;
 extern int kAddressLookupTimeoutPeriod_in_seconds;
 
 /**************************************************************//**

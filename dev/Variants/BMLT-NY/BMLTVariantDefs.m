@@ -143,4 +143,9 @@
     return 500;
 }
 
+/*****************************************************************/
++ (NSString *)reverseLookupURIFormat
+{
+    return @"http://maps.google.com/maps/geo?q=%@&output=xml&sensor=false";
+}
 @end

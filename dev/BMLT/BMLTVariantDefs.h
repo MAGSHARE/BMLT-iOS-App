@@ -131,4 +131,10 @@
  \returns   The number of meetings that will trigger a failure.
  *****************************************************************/
 + (NSInteger)maxNumberOgMeetings;
+
+/**************************************************************//**
+ \brief     Returns the format string for the reverse lookup URI.
+ \returns   The URI of the reverse lookup, with one string token.
+ *****************************************************************/
++ (NSString *)reverseLookupURIFormat;
 @end

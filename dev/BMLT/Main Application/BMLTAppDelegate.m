@@ -30,8 +30,6 @@
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
-NSString *const kGoogleReverseLooupURI_Format = @"http://maps.google.com/maps/geo?q=%@&output=xml&sensor=false";
-
 int kAddressLookupTimeoutPeriod_in_seconds = 10;
 
 enum

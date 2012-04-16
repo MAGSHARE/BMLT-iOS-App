@@ -363,7 +363,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     inLocationString = [inLocationString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     inLocationString = [inLocationString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSString    *uriString = [NSString stringWithFormat:kGoogleReverseLooupURI_Format, inLocationString];
+    NSString    *uriString = [NSString stringWithFormat:[BMLTVariantDefs reverseLookupURIFormat], inLocationString];
     
 #ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController lookupLocationFromAddressString: \"%@\", and the URI is \"%@\".", inLocationString, uriString );
