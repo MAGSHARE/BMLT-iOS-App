@@ -92,6 +92,7 @@
 		7775A5A9152D24440098A7A3 /* LocationIconWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775A5A7152D24440098A7A3 /* LocationIconWhite.png */; };
 		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
 		77803C3F151C011D00A8ADC3 /* BMLTFormatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77803C3D151C011D00A8ADC3 /* BMLTFormatDetailViewController.m */; };
+		7794A735153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794A734153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m */; };
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
@@ -113,6 +114,7 @@
 		77C1820D1525BDFE00560F34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77C182071525BDFE00560F34 /* InfoPlist.strings */; };
 		77C1820E1525BDFE00560F34 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77C182091525BDFE00560F34 /* Localizable.strings */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
+		77CFE116153CB874005FB181 /* BMLT_ListPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */; };
 		77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */; };
 		77E28C20153234FD00B4FBEA /* BMLTActionButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E28C1E153234FD00B4FBEA /* BMLTActionButtonViewController.m */; };
 		77E28C231532355100B4FBEA /* BMLTActionButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77E28C221532355100B4FBEA /* BMLTActionButtonViewController.xib */; };
@@ -242,6 +244,8 @@
 		777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTMainBackgroundView.m; path = Miscellaneous/A_BMLTMainBackgroundView.m; sourceTree = "<group>"; };
 		77803C3C151C011D00A8ADC3 /* BMLTFormatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTFormatDetailViewController.h; sourceTree = "<group>"; };
 		77803C3D151C011D00A8ADC3 /* BMLTFormatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTFormatDetailViewController.m; sourceTree = "<group>"; };
+		7794A733153CB9FE004CF156 /* BMLT_MapPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_MapPrintPageRenderer.h; sourceTree = "<group>"; };
+		7794A734153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_MapPrintPageRenderer.m; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* NY NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NY NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -270,6 +274,8 @@
 		77C1820C1525BDFE00560F34 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		77CE3F071516252300C93BC6 /* A_BMLTSettingsBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTSettingsBackgroundView.h; path = Miscellaneous/A_BMLTSettingsBackgroundView.h; sourceTree = "<group>"; };
 		77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSettingsBackgroundView.m; path = Miscellaneous/A_BMLTSettingsBackgroundView.m; sourceTree = "<group>"; };
+		77CFE114153CB874005FB181 /* BMLT_ListPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_ListPrintPageRenderer.h; sourceTree = "<group>"; };
+		77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_ListPrintPageRenderer.m; sourceTree = "<group>"; };
 		77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTNavBarViewController.h; path = Miscellaneous/A_BMLTNavBarViewController.h; sourceTree = "<group>"; };
 		77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTNavBarViewController.m; path = Miscellaneous/A_BMLTNavBarViewController.m; sourceTree = "<group>"; };
 		77D90B031514C5340059EF41 /* BMLT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
@@ -405,6 +411,10 @@
 				77E28C1E153234FD00B4FBEA /* BMLTActionButtonViewController.m */,
 				7757371E1537315900029D81 /* BMLTFormattedOutputSmartView.h */,
 				7757371F1537315A00029D81 /* BMLTFormattedOutputSmartView.m */,
+				77CFE114153CB874005FB181 /* BMLT_ListPrintPageRenderer.h */,
+				77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */,
+				7794A733153CB9FE004CF156 /* BMLT_MapPrintPageRenderer.h */,
+				7794A734153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m */,
 			);
 			name = "Miscellaneous View and Controller Classes";
 			path = Miscellaneous;
@@ -795,6 +805,8 @@
 				77F6C36A1531D1A90038784D /* BMLTAnimationScreenViewController.m in Sources */,
 				77E28C20153234FD00B4FBEA /* BMLTActionButtonViewController.m in Sources */,
 				775737201537315A00029D81 /* BMLTFormattedOutputSmartView.m in Sources */,
+				77CFE116153CB874005FB181 /* BMLT_ListPrintPageRenderer.m in Sources */,
+				7794A735153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,8 @@
 #import "BMLTFormattedOutputSmartView.h"
 #import "BMLT_Meeting.h"
 
+static int  kNumberOfMeetingsPerListPage = 10;
+
 /**************************************************************//**
  \class BMLTFormattedOutputSmartView
  \brief Draws a customized version of the search results for print or PDF
@@ -34,7 +36,7 @@
         be repurposed and handed to different controllers for display.
  *****************************************************************/
 @implementation BMLTFormattedOutputSmartView
-@synthesize myMeetings = _myMeetings;
+@synthesize myMeetings = _myMeetings, isPDF = _isPDF;
 
 /**************************************************************//**
  \brief Initializes with model data
@@ -42,6 +44,7 @@
  *****************************************************************/
 - (id)initWithFrame:(CGRect)inFrame         ///< The view frame.
      andMeetingList:(NSArray *)inMeetings   ///< The model data (an array of BMLT_Meeting objects. If just one, then the view produces a detailed drawing)
+              asPDF:(BOOL)isPDF
 {
 #ifdef DEBUG
     NSLog( @"BMLTFormattedOutputSmartView::initWithFrame: (%f, %f), (%f, %f) andMeetingList: (%d entries)", inFrame.origin.x, inFrame.origin.y, inFrame.size.width, inFrame.size.height, [inMeetings count] );
@@ -50,6 +53,7 @@
     if (self)
         {
         _myMeetings = inMeetings;
+        _isPDF = isPDF;
         }
     return self;
 }
@@ -63,33 +67,90 @@
     NSLog( @"BMLTFormattedOutputSmartView::drawRect: (%f, %f), (%f, %f) -This is ignored, anyway.", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height );
 #endif
     CGSize      myPageSize = [BMLTVariantDefs pdfPageSize];
-    NSString    *pdfFileName = [NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)];
-    NSString    *containerDirectory = NSTemporaryDirectory();
     
-    pdfFileName = [containerDirectory stringByAppendingPathComponent:pdfFileName];
-    
+    if ( [self isPDF] )
+        {
+        NSString    *pdfFileName = [NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)];
+        NSString    *containerDirectory = NSTemporaryDirectory();
+        
+        pdfFileName = [containerDirectory stringByAppendingPathComponent:pdfFileName];
+        
+        UIGraphicsBeginPDFContextToFile ( pdfFileName, CGRectZero, nil) ;
+        
 #ifdef DEBUG
-    NSLog(@"BMLTFormattedOutputSmartView::drawRect: The page size is: (%f, %f), and the file name is %@", myPageSize.width, myPageSize.height, pdfFileName);
+        NSLog(@"BMLTFormattedOutputSmartView::drawRect: The page size is: (%f, %f), and the file name is %@", myPageSize.width, myPageSize.height, pdfFileName);
 #endif
+        }
     
-    UIGraphicsBeginPDFContextToFile ( pdfFileName, CGRectZero, nil) ;
+    int index = 0;
+    CGRect  meetingCellRect = [self bounds];
+    
+    meetingCellRect.size.height = myPageSize.height / kNumberOfMeetingsPerListPage;
     
     for ( BMLT_Meeting *myMeeting in _myMeetings )
         {
-        [self drawThisMeeting:myMeeting];
+        if ( !fmod(index++, kNumberOfMeetingsPerListPage) )
+            {
+#ifdef DEBUG
+            NSLog( @"BMLTFormattedOutputSmartView::drawRect: New PDF Page (first meeting is number %d)", index );
+#endif
+            if ( [self isPDF] )
+                {
+                UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, myPageSize.width, myPageSize.height), nil);
+                }
+            else
+                {
+
+                }
+            
+            meetingCellRect.origin = CGPointZero;
+            [self drawPageNumber:index];
+            }
+#ifdef DEBUG
+        NSLog( @"BMLTFormattedOutputSmartView::drawRect: About to draw meeting number %d.", index );
+#endif
+        [self drawThisMeeting:myMeeting inRect:meetingCellRect];
+        
+        meetingCellRect.origin.y += meetingCellRect.size.height;
         }
     
-    UIGraphicsEndPDFContext();
+    if ( [self isPDF] )
+        {
+        UIGraphicsEndPDFContext();
+        }
 }
 
 /**************************************************************//**
- \brief Writes out ne meeting.
+ \brief Writes out one meeting.
  *****************************************************************/
-- (void)drawThisMeeting:(BMLT_Meeting *)inMeeting   ///< The meeting to be written out.
+- (void)drawThisMeeting:(BMLT_Meeting *)inMeeting
+                 inRect:(CGRect)rect  ///< The meeting to be written out.
 {
 #ifdef DEBUG
-    NSLog( @"BMLTFormattedOutputSmartView::drawThisMeeting: %@", [inMeeting getBMLTName] );
+    NSLog( @"BMLTFormattedOutputSmartView::drawThisMeeting: (%f, %f), (%f, %f) -%@.", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height, [inMeeting getBMLTName] );
 #endif
+    [[inMeeting getBMLTName] drawInRect:rect withFont:[UIFont boldSystemFontOfSize:16]];
 }
 
+/**************************************************************//**
+ \brief Writes out the page number.
+ *****************************************************************/
+- (void)drawPageNumber:(NSInteger)pageNum
+{
+    CGSize    myPageSize = [BMLTVariantDefs pdfPageSize];
+    NSString* pageString = [NSString stringWithFormat:@"Page %d", pageNum];
+    UIFont* theFont = [UIFont systemFontOfSize:12];
+    CGSize maxSize = CGSizeMake(myPageSize.width, myPageSize.height / 10);
+    
+    CGSize pageStringSize = [pageString sizeWithFont:theFont
+                                   constrainedToSize:maxSize
+                                       lineBreakMode:UILineBreakModeClip];
+    
+    CGRect stringRect = CGRectMake(((myPageSize.width - pageStringSize.width) / 2.0),
+                                   myPageSize.height + ((myPageSize.height / 10 - pageStringSize.height) / 2.0) ,
+                                   pageStringSize.width,
+                                   pageStringSize.height);
+    
+    [pageString drawInRect:stringRect withFont:theFont];
+}
 @end

@@ -61,7 +61,7 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter ///< The print formatter
 #ifdef DEBUG
     NSLog(@"UITableView (override)::drawRect: forViewPrintFormatter:");
 #endif
-    BMLTFormattedOutputSmartView    *drawingContextView = [[BMLTFormattedOutputSmartView alloc] initWithFrame:[self frame] andMeetingList:[(BMLTDisplayListResultsViewController *)[self dataSource] dataArray]];
+    BMLTFormattedOutputSmartView    *drawingContextView = [[BMLTFormattedOutputSmartView alloc] initWithFrame:[self frame] andMeetingList:[(BMLTDisplayListResultsViewController *)[self dataSource] dataArray] asPDF:NO];
     
     [drawingContextView drawRect:rect];
     

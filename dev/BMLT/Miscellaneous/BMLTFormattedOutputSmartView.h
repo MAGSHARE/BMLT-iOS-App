@@ -39,7 +39,9 @@
 
 }
 @property (weak, nonatomic, readonly) NSArray *myMeetings;
+@property (nonatomic, assign) BOOL  isPDF;
 
-- (id)initWithFrame:(CGRect)inFrame andMeetingList:(NSArray *)inMeetings;
-- (void)drawThisMeeting:(BMLT_Meeting *)inMeeting;
+- (id)initWithFrame:(CGRect)inFrame andMeetingList:(NSArray *)inMeetings asPDF:(BOOL)isPDF;
+- (void)drawThisMeeting:(BMLT_Meeting *)inMeeting inRect:(CGRect)rect;
+- (void)drawPageNumber:(NSInteger)pageNum;
 @end
