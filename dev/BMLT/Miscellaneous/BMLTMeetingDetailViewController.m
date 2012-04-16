@@ -35,6 +35,10 @@
 @synthesize meetingMapView, myMeeting = _myMeeting;
 @synthesize myModalController;
 
+static int kButtonX = 20; ///< These are defined to make sure the popover for the "action item" shows up at the correct place.
+static int kButtonY = 15;
+static int List_Meeting_Format_Circle_Size_Big = 30;
+
 #pragma mark - View lifecycle
 
 /**************************************************************//**

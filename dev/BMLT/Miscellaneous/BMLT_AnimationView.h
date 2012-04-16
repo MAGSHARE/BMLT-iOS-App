@@ -21,7 +21,5 @@
 
 #import <UIKit/UIKit.h>
 
-#define kBMLT_Animation_frame_count 30
-
 @interface BMLT_AnimationView : UIView
 @end

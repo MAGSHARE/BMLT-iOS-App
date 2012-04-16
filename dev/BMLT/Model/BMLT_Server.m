@@ -26,6 +26,9 @@
 #import "BMLT_Server.h"
 #import "BMLT_Driver.h"
 
+static int initial_query_timeout_in_seconds = 10;
+static int format_query_timeout_in_seconds = 20;
+
 /**************************************************************//**
  \class BMLT_Server
  \brief This class models a BMLT root server.

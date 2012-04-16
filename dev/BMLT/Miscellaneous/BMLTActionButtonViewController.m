@@ -25,7 +25,8 @@
 #import "BMLT_Results_MapPointAnnotationView.h"
 #import <time.h>
 
-#define BMLT_Meeting_Distance_Threshold_In_Pixels   12
+static int BMLT_Meeting_Distance_Threshold_In_Pixels = 12;
+
 
 /**************************************************************//**
  \class BMLTActionButtonViewController

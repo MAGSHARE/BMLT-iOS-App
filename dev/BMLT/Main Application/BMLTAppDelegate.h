@@ -34,7 +34,8 @@
 @class BMLTAnimationScreenViewController;
 
 #define kGoogleReverseLooupURI_Format @"http://maps.google.com/maps/geo?q=%@&output=xml&sensor=false"
-#define kAddressLookupTimeoutPeriod_in_seconds  10
+
+extern int kAddressLookupTimeoutPeriod_in_seconds;
 
 /**************************************************************//**
  \class BMLTAppDelegate

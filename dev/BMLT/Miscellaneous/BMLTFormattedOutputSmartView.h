@@ -21,6 +21,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class BMLT_Meeting;
+
 /**************************************************************//**
  \class BMLTFormattedOutputSmartView
  \brief Draws a customized version of the search results for print or PDF
@@ -39,4 +41,5 @@
 @property (weak, nonatomic, readonly) NSArray *myMeetings;
 
 - (id)initWithFrame:(CGRect)inFrame andMeetingList:(NSArray *)inMeetings;
+- (void)drawThisMeeting:(BMLT_Meeting *)inMeeting;
 @end

@@ -22,8 +22,8 @@
 #import "BMLT_Prefs.h"
 #import "BMLTAppDelegate.h"
 
-#define _LOG_MIN    5       /**< The number of meetings in a search test for the Min level of the slider. */
-#define _LOG_MAX    20      /**< The number of meetings for the Max level of the slider. */
+static int _LOG_MIN = 5;       /**< The number of meetings in a search test for the Min level of the slider. */
+static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of the slider. */
 
 /**************************************************************//**
  \class  BMLTSnappyLogSlider

@@ -24,8 +24,6 @@
 
 @class BMLT_Meeting;
 
-#define BMLT_Meeting_Distance_Threshold_In_Pixels   12
-
 /**************************************************************//**
  \class  BMLTMapResultsViewController
  \brief  This class will control display of mapped results.

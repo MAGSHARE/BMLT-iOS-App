@@ -20,6 +20,9 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
 
+static int kSearchAnnotationOffsetRight   = 19;  /**< This is how many pixels to shift the annotation view right. */
+static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to shift the annotation view up. */
+
 /**************************************************************//**
  \class BMLT_Search_BlackAnnotationView
  \brief We modify the black annotation view to allow dragging.

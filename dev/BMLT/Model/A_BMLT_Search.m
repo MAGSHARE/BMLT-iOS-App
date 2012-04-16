@@ -31,6 +31,8 @@
 #import "BMLT_Server.h"
 #import "BMLTAppDelegate.h"
 
+static int meeting_search_timeout_period_in_seconds = 30;
+
 /**************************************************************//**
  \class  A_BMLT_Search
  \brief  This class contains a search instance, with criteria and

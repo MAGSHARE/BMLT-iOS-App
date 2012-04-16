@@ -55,6 +55,7 @@ typedef enum {
 	ReachableViaWiFi,
 	ReachableViaWWAN
 } NetworkStatus;
+
 #define kReachabilityChangedNotification @"kNetworkReachabilityChangedNotification"
 
 @interface Reachability: NSObject

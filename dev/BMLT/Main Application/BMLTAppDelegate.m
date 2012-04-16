@@ -30,11 +30,15 @@
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
-#define kSearchTabIndex             0   /**< The index of the Search tab. */
+int kAddressLookupTimeoutPeriod_in_seconds = 10;
 
-#define kListResultsTabIndex        (kSearchTabIndex + 1)   /**< The index of the list results tab. */
-#define kMapResultsTabIndex         (kSearchTabIndex + 2)   /**< The index of the map results tab. */
-#define kSettingsTabIndex           (kSearchTabIndex + 3)   /**< The index of the settings tab. */
+enum
+{
+    kSearchTabIndex = 0,    /**< The index of the Search tab. */
+    kListResultsTabIndex,   /**< The index of the list results tab. */
+    kMapResultsTabIndex,    /**< The index of the map results tab. */
+    kSettingsTabIndex       /**< The index of the settings tab. */
+};
 
 /**************************************************************//**
  \class  BMLTAppDelegate -Private Interface

@@ -60,18 +60,35 @@
 - (void)drawRect:(CGRect)rect   ///< We ignore the requested rect, and draw the whole damn thing, every time.
 {
 #ifdef DEBUG
-    NSLog( @"BMLTFormattedOutputSmartView::drawRect: (%f, %f), (%f, %f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height );
+    NSLog( @"BMLTFormattedOutputSmartView::drawRect: (%f, %f), (%f, %f) -This is ignored, anyway.", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height );
 #endif
+    CGSize      myPageSize = [BMLTVariantDefs pdfPageSize];
+    NSString    *pdfFileName = [NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)];
+    NSString    *containerDirectory = NSTemporaryDirectory();
+    
+    pdfFileName = [containerDirectory stringByAppendingPathComponent:pdfFileName];
+    
+#ifdef DEBUG
+    NSLog(@"BMLTFormattedOutputSmartView::drawRect: The page size is: (%f, %f), and the file name is %@", myPageSize.width, myPageSize.height, pdfFileName);
+#endif
+    
+    UIGraphicsBeginPDFContextToFile ( pdfFileName, CGRectZero, nil) ;
+    
+    for ( BMLT_Meeting *myMeeting in _myMeetings )
+        {
+        [self drawThisMeeting:myMeeting];
+        }
+    
+    UIGraphicsEndPDFContext();
 }
 
 /**************************************************************//**
- \brief This allows us to do special stuff when printing.
+ \brief Writes out ne meeting.
  *****************************************************************/
-- (void)drawRect:(CGRect)rect                           ///< The requested rect (ignored)
-forViewPrintFormatter:(UIViewPrintFormatter *)formatter ///< The print formatter object.
+- (void)drawThisMeeting:(BMLT_Meeting *)inMeeting   ///< The meeting to be written out.
 {
 #ifdef DEBUG
-    NSLog( @"BMLTFormattedOutputSmartView::drawRect: (%f, %f), (%f, %f) forViewPrintFormatter:", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height );
+    NSLog( @"BMLTFormattedOutputSmartView::drawThisMeeting: %@", [inMeeting getBMLTName] );
 #endif
 }
 

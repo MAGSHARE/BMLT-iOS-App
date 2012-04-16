@@ -22,20 +22,25 @@
 #import "BMLTBrassCheckBoxButton.h"
 
 /// These are the states for the weekday selection mode segmented control.
-#define kWeekdaySelectAllDays       0   ///< Select all days (disables all the checkboxes)
-#define kWeekdaySelectWeekdays      1   ///< Select any weekday[s]. This enables all of the checkboxes.
-#define kWeekdaySelectToday         2   ///< Select Today. This disables all of the checkboxes, but marks "today" as selected (even though it is disabled).
-#define kWeekdaySelectTomorrow      3   ///< Select Tomorrow. Same as above, except "Tomorrow" is selected.
+enum
+{
+    kWeekdaySelectAllDays = 0,  ///< Select all days (disables all the checkboxes)
+    kWeekdaySelectWeekdays,     ///< Select any weekday[s]. This enables all of the checkboxes.
+    kWeekdaySelectToday,        ///< Select Today. This disables all of the checkboxes, but marks "today" as selected (even though it is disabled).
+    kWeekdaySelectTomorrow      ///< Select Tomorrow. Same as above, except "Tomorrow" is selected.
+};
 
 /// These are the indexes for the weekdays. These are used for calculation of the parameters.
-#define kWeekdaySelectValue_Sun     1
-#define kWeekdaySelectValue_Mon     2
-#define kWeekdaySelectValue_Tue     3
-#define kWeekdaySelectValue_Wed     4
-#define kWeekdaySelectValue_Thu     5
-#define kWeekdaySelectValue_Fri     6
-#define kWeekdaySelectValue_Sat     7
-
+enum
+{
+    kWeekdaySelectValue_Sun = 1,
+    kWeekdaySelectValue_Mon,
+    kWeekdaySelectValue_Tue,
+    kWeekdaySelectValue_Wed,
+    kWeekdaySelectValue_Thu,
+    kWeekdaySelectValue_Fri,
+    kWeekdaySelectValue_Sat
+};
 
 /**************************************************************//**
  \class  BMLTAdvancedSearchViewController

@@ -22,9 +22,6 @@
 #import "BMLT_Format.h"
 #import "BMLT_Parser.h"
 
-#define initial_query_timeout_in_seconds    10
-#define format_query_timeout_in_seconds     20
-
 /**************************************************************//**
  \class BMLT_Server
  \brief This class models a BMLT root server.

@@ -22,6 +22,8 @@
 #import "BMLT_Results_MapPointAnnotationView.h"
 #import "BMLTDisplayListResultsViewController.h"
 
+static int BMLT_Meeting_Distance_Threshold_In_Pixels = 12;
+
 /**************************************************************//**
  \class  BMLTMapResultsViewController -Private Interface
  \brief  This class will control display of mapped results.

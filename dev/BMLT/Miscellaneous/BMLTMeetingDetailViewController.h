@@ -26,8 +26,6 @@
 @class BMLT_Meeting;
 @class BMLT_Results_MapPointAnnotation;
 
-#define List_Meeting_Format_Circle_Size_Big 30
-
 @interface BMLTMeetingDetailViewController : UIViewController <MKMapViewDelegate, UIPopoverControllerDelegate, BMLTCloseModalProtocol>
 {
     UIPrintInteractionController    *printModal;

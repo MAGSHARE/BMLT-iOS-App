@@ -20,18 +20,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-#ifndef _VARIANT_DEFS_  // This kludge just keeps the compiler from yelling at us for duplicating the class definition (because this is in the precompiled header).
-#define _VARIANT_DEFS_ 1
-
 /**************************************************************//**
  \class  BMLTVariantDefs
  \brief  This class will be a static class that provides various
          definitions and macros for use by each variant.
  *****************************************************************/
 @interface BMLTVariantDefs : NSObject
-{
-
-}
 
 /**************************************************************//**
  \brief     This returns the color (or texture) to use for the main window background.
@@ -138,4 +132,3 @@
  *****************************************************************/
 + (NSInteger)maxNumberOgMeetings;
 @end
-#endif

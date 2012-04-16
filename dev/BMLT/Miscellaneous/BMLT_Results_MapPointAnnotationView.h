@@ -22,10 +22,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
+extern int kRegularAnnotationOffsetRight;   /**< This is how many pixels to shift the annotation view right. */
 @class BMLT_Meeting;
-
-#define kRegularAnnotationOffsetRight   7   /**< This is how many pixels to shift the annotation view right. */
-#define kRegularAnnotationOffsetUp      20  /**< This is how many pixels to shift the annotation view up. */
 
 /**************************************************************//**
  \class BMLT_Results_MapPointAnnotationView

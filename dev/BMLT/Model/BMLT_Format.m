@@ -27,6 +27,11 @@
 #import "BMLT_Server.h"
 #import <UIKit/UIKit.h>
 
+static int format_Name_Text_Size = 12;    ///< This defines the text size of the format name string.
+
+int List_Meeting_Format_Circle_Size = 24;   ///< These govern the display of the format code circles.
+int List_Meeting_Format_Line_Padding = 2;
+
 /**************************************************************//**
  \class BMLT_FormatButton -Implementation
  \brief This class describes a format button to be displayed (I know,

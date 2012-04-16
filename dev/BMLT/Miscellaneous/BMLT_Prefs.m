@@ -30,6 +30,8 @@
 
 static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 
+static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace period, in minutes for a meeting to be declared "too late."
+
 /**************************************************************//**
  \class BMLT_Prefs
  \brief This class is a preference for a single server connection.

@@ -21,9 +21,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define kButtonX 20 ///< These are defined to make sure the popover for the "action item" shows up at the correct place.
-#define kButtonY 15
-
 @class BMLT_Meeting;
 @class MKMapView;
 

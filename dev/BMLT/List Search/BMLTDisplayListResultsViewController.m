@@ -22,6 +22,9 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
 #import "BMLT_Meeting.h"
+#import "BMLTFormattedOutputSmartView.h"
+
+static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for lists of more than one result.
 
 /**************************************************************//**
  \class  BMLTMeetingDisplaySortCellView
@@ -58,6 +61,11 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter ///< The print formatter
 #ifdef DEBUG
     NSLog(@"UITableView (override)::drawRect: forViewPrintFormatter:");
 #endif
+    BMLTFormattedOutputSmartView    *drawingContextView = [[BMLTFormattedOutputSmartView alloc] initWithFrame:[self frame] andMeetingList:[(BMLTDisplayListResultsViewController *)[self dataSource] dataArray]];
+    
+    [drawingContextView drawRect:rect];
+    
+    drawingContextView = nil;
 }
 @end
 
@@ -81,7 +89,7 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter ///< The print formatter
 
 /**************************************************************//**
  \brief Specialize the implicit call, because we trigger a redraw, and
- we want to be able to use a regular array, not a mutable one.
+        we want to be able to use a regular array, not a mutable one.
  *****************************************************************/
 - (void)setDataArrayFromData:(NSArray *)dataArray   ///< The array of data to be used for this view.
 {

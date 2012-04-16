@@ -22,6 +22,8 @@
 #import "BMLT_AnimationView.h"
 #import <QuartzCore/QuartzCore.h>
 
+static int kBMLT_Animation_frame_count = 30; ///< This is how many frames we have to display.
+
 @interface BMLT_AnimationView ()
 {
     NSMutableArray      *imageArray;

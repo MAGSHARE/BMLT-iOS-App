@@ -20,7 +20,12 @@
 
 #import <Foundation/Foundation.h>
 
-#define BMLT_Pref_Default_Value_Grace_Period    15
+/// These define the state of the searchTypePref datamember.
+enum 
+{
+    _PREFER_SIMPLE_SEARCH = 0,  ///< Start on the Simple Search.
+    _PREFER_ADVANCED_SEARCH     ///< Start on the Advanced Search.
+};
 
 /**************************************************************//**
  \class BMLT_Prefs
@@ -42,10 +47,6 @@
 - (NSString *)getServerDescription;
 
 @end
-
-/// These define the state of the searchTypePref datamember.
-#define _PREFER_SIMPLE_SEARCH   0   ///< Start on the Simple Search.
-#define _PREFER_ADVANCED_SEARCH 1   ///< Start on the Advanced Search.
 
 /**************************************************************//**
  \class BMLT_Prefs

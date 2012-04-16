@@ -23,15 +23,9 @@
 #import "BMLT_Format.h"
 #import "BMLTDisplayListResultsViewController.h"
 
-#define List_Meeting_Display_Line_Height            25
-#define List_Meeting_Display_CellHeight             ((List_Meeting_Display_Line_Height * 4) + 4)
+extern int List_Meeting_Display_Line_Height;
 
-#define List_Meeting_Name_Text_Size                 16
-#define List_Meeting_Display_Text_Size              12
-#define List_Meeting_Format_Distance_Label_Width    80
-#define List_Meeting_Format_Weekday_Width           80
-#define List_Meeting_Format_Time_Width              60
-#define List_Meeting_Format_Town_Width              160
+#define List_Meeting_Display_CellHeight             ((List_Meeting_Display_Line_Height * 4) + 4)
 
 @interface BMLTMeetingDisplayCellView : UITableViewCell
 {
