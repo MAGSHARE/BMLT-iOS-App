@@ -32,7 +32,7 @@
  \brief initializer with the meetings to be displayed.
  \returns self
  *****************************************************************/
-- (id)initWithMeetings:(NSArray *)inMeetings
+- (id)initWithMeetings:(NSArray *)inMeetings    ///< The list of BMLT_Meeting objects to be displayed.
 {
 #ifdef DEBUG
     NSLog(@"A_BMLT_PrintPageRenderer initWithMeetings: (%d meetings)", [inMeetings count]);
@@ -48,20 +48,20 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Prepares for drawing. Set up any initial stuff here.
  *****************************************************************/
-- (void)prepareForDrawingPages:(NSRange)range
+- (void)prepareForDrawingPages:(NSRange)range   ///< The range of pages to be drawn.
 {
 #ifdef DEBUG
-    NSLog(@"A_BMLT_PrintPageRenderer prepareForDrawingPages: range.location: %d, range.length: %d", range.location, range.length);
+    NSLog(@"A_BMLT_PrintPageRenderer prepareForDrawingPages: From page %d, to page %d", range.location, range.length);
 #endif
 }
 
 /**************************************************************//**
- \brief 
+ \brief Draw the header for the printed page.
  *****************************************************************/
-- (void)drawHeaderForPageAtIndex:(NSInteger)index
-                          inRect:(CGRect)inRect
+- (void)drawHeaderForPageAtIndex:(NSInteger)index  ///< The page index
+                          inRect:(CGRect)inRect    ///< The content rect
 {
 #ifdef DEBUG
     NSLog(@"A_BMLT_PrintPageRenderer drawHeaderForPageAtIndex: %d inRect: (%f, %f), (%f, %f)", index, inRect.origin.x, inRect.origin.y, inRect.size.width, inRect.size.height );
@@ -69,10 +69,10 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief This is ignored in the superclass.
  *****************************************************************/
-- (void)drawContentForPageAtIndex:(NSInteger)index
-                           inRect:(CGRect)inRect
+- (void)drawContentForPageAtIndex:(NSInteger)index  ///< The page index
+                           inRect:(CGRect)inRect    ///< The content rect
 {
 #ifdef DEBUG
     NSLog(@"A_BMLT_PrintPageRenderer drawContentForPageAtIndex: %d inRect: (%f, %f), (%f, %f)", index, inRect.origin.x, inRect.origin.y, inRect.size.width, inRect.size.height );
@@ -80,10 +80,10 @@
 }
 
 /**************************************************************//**
- \brief 
+ \brief Draw the footer for the printed page.
  *****************************************************************/
-- (void)drawFooterForPageAtIndex:(NSInteger)index
-                          inRect:(CGRect)inRect
+- (void)drawFooterForPageAtIndex:(NSInteger)index  ///< The page index
+                          inRect:(CGRect)inRect    ///< The content rect
 {
 #ifdef DEBUG
     NSLog(@"A_BMLT_PrintPageRenderer drawFooterForPageAtIndex: %d inRect: (%f, %f), (%f, %f)", index, inRect.origin.x, inRect.origin.y, inRect.size.width, inRect.size.height );
