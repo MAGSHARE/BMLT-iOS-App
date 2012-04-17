@@ -21,7 +21,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "BMLTActionButtonViewController.h"
+#import "BMLTCloseModalProtocol.h"
 
 @class BMLT_Meeting;
 @class BMLT_Results_MapPointAnnotation;

@@ -21,6 +21,10 @@
 
 #import "BMLT_ListPrintPageRenderer.h"
 
+/**************************************************************//**
+ \class BMLT_ListPrintPageRenderer
+ \brief This is a concrete class that implements a list display print.
+ *****************************************************************/
 @implementation BMLT_ListPrintPageRenderer
 
 @end

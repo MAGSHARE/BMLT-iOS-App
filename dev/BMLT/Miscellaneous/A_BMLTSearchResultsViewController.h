@@ -20,7 +20,7 @@
 
 #import <UIKit/UIKit.h>
 #import "A_BMLTNavBarViewController.h"
-#import "BMLTActionButtonViewController.h"
+#import "BMLTCloseModalProtocol.h"
 
 @class BMLTFormatDetailViewController;
 @class BMLT_Meeting;

@@ -1,10 +1,8 @@
 //
-//  BMLT_MapPrintPageRenderer.h
+//  A_BMLTNavBarViewController.h
 //  BMLT
 //
 //  Created by MAGSHARE.
-//  Copyright 2012 MAGSHARE. All rights reserved.
-//
 //  This is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
@@ -20,12 +18,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "A_BMLT_PrintPageRenderer.h"
 
 /**************************************************************//**
- \class BMLT_MapPrintPageRenderer
- \brief This is a concrete class that implements a map display print.
+ \class BMLTCloseModalProtocol
+ \brief Simply ensures that the classes will have a proper "closeModal" method.
  *****************************************************************/
-@interface BMLT_MapPrintPageRenderer : A_BMLT_PrintPageRenderer
-
+@protocol BMLTCloseModalProtocol
+- (void)closeModal;
 @end

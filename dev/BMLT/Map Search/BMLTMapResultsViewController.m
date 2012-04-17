@@ -378,7 +378,7 @@ static int BMLT_Meeting_Distance_Threshold_In_Pixels = 12;
  *****************************************************************/
 - (UIPrintPageRenderer *)getMyPageRenderer
 {
-    return [[BMLT_MapPrintPageRenderer alloc] init];
+    return [[BMLT_MapPrintPageRenderer alloc] initWithMeetings:[self dataArray]];
 }
 
 #pragma mark - UIPopoverControllerDelegate Functions -
@@ -404,7 +404,7 @@ static int BMLT_Meeting_Distance_Threshold_In_Pixels = 12;
 {
     MKAnnotationView* ret = nil;
     
-    if ( mapView && ([mapView alpha] == 1) )
+    if ( mapView && ([mapView alpha] == 1) )    // We have to have a map, and it needs to be visible, or no annotations.
         {
         if ( [annotation isKindOfClass:[BMLT_Results_MapPointAnnotation class]] )
             {

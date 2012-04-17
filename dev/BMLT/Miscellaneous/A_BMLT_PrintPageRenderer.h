@@ -1,5 +1,5 @@
 //
-//  BMLT_MapPrintPageRenderer.h
+//  A_BMLT_PrintPageRenderer.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -20,12 +20,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "A_BMLT_PrintPageRenderer.h"
+
 
 /**************************************************************//**
- \class BMLT_MapPrintPageRenderer
- \brief This is a concrete class that implements a map display print.
+ \class A_BMLT_PrintPageRenderer
+ \brief This is an abstract base class that implements a print formatter.
  *****************************************************************/
-@interface BMLT_MapPrintPageRenderer : A_BMLT_PrintPageRenderer
-
+@interface A_BMLT_PrintPageRenderer : UIPrintPageRenderer
+@property (atomic, assign)  NSArray *myMeetings;
+- (id)initWithMeetings:(NSArray *)inMeetings;
 @end

@@ -21,6 +21,10 @@
 
 #import "BMLT_MapPrintPageRenderer.h"
 
+/**************************************************************//**
+ \class BMLT_MapPrintPageRenderer
+ \brief This is a concrete class that implements a map display print.
+ *****************************************************************/
 @implementation BMLT_MapPrintPageRenderer
 
 @end

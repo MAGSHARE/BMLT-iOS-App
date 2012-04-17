@@ -20,7 +20,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "A_BMLT_PrintPageRenderer.h"
 
-@interface BMLT_ListPrintPageRenderer : UIPrintPageRenderer
+/**************************************************************//**
+ \class BMLT_ListPrintPageRenderer
+ \brief This is a concrete class that implements a list display print.
+ *****************************************************************/
+@interface BMLT_ListPrintPageRenderer : A_BMLT_PrintPageRenderer
 
 @end

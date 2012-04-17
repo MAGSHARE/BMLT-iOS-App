@@ -100,6 +100,7 @@
 		7799D2A6151FAD30007FE822 /* MapMarkerBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */; };
 		7799D2A7151FAD30007FE822 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */; };
 		7799D2A8151FAD30007FE822 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7799D2A5151FAD30007FE822 /* MapMarkerRed.png */; };
+		77A5600D153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */; };
 		77AE0B7D152150DE00EF66D5 /* DarkWeave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AE0B7C152150DE00EF66D5 /* DarkWeave.png */; };
 		77B6F5CD1526392400E55863 /* Concave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B6F5C71526392400E55863 /* Concave.png */; };
 		77B6F5CE1526392400E55863 /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B6F5C81526392400E55863 /* Convex.png */; };
@@ -115,8 +116,6 @@
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
 		77CFE116153CB874005FB181 /* BMLT_ListPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */; };
 		77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */; };
-		77E28C20153234FD00B4FBEA /* BMLTActionButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E28C1E153234FD00B4FBEA /* BMLTActionButtonViewController.m */; };
-		77E28C231532355100B4FBEA /* BMLTActionButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77E28C221532355100B4FBEA /* BMLTActionButtonViewController.xib */; };
 		77EAA364151FDEF0007DFAAE /* MButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EAA360151FDEF0007DFAAE /* MButtonConcave.png */; };
 		77EAA365151FDEF0007DFAAE /* MButtonConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EAA361151FDEF0007DFAAE /* MButtonConvex.png */; };
 		77EAA366151FDEF0007DFAAE /* SButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77EAA362151FDEF0007DFAAE /* SButtonConcave.png */; };
@@ -253,6 +252,9 @@
 		7799D2A3151FAD30007FE822 /* MapMarkerBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlack.png; sourceTree = "<group>"; };
 		7799D2A4151FAD30007FE822 /* MapMarkerBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerBlue.png; sourceTree = "<group>"; };
 		7799D2A5151FAD30007FE822 /* MapMarkerRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapMarkerRed.png; sourceTree = "<group>"; };
+		77A5600B153CF0520039CCDD /* A_BMLT_PrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLT_PrintPageRenderer.h; sourceTree = "<group>"; };
+		77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLT_PrintPageRenderer.m; sourceTree = "<group>"; };
+		77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BMLTCloseModalProtocol.h; path = Miscellaneous/BMLTCloseModalProtocol.h; sourceTree = "<group>"; };
 		77AE0B7C152150DE00EF66D5 /* DarkWeave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkWeave.png; sourceTree = "<group>"; };
 		77B6F5C71526392400E55863 /* Concave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Concave.png; sourceTree = "<group>"; };
 		77B6F5C81526392400E55863 /* Convex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Convex.png; sourceTree = "<group>"; };
@@ -276,9 +278,6 @@
 		77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTNavBarViewController.h; path = Miscellaneous/A_BMLTNavBarViewController.h; sourceTree = "<group>"; };
 		77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTNavBarViewController.m; path = Miscellaneous/A_BMLTNavBarViewController.m; sourceTree = "<group>"; };
 		77D90B031514C5340059EF41 /* BMLT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
-		77E28C1D153234FD00B4FBEA /* BMLTActionButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTActionButtonViewController.h; sourceTree = "<group>"; };
-		77E28C1E153234FD00B4FBEA /* BMLTActionButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTActionButtonViewController.m; sourceTree = "<group>"; };
-		77E28C221532355100B4FBEA /* BMLTActionButtonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMLTActionButtonViewController.xib; sourceTree = "<group>"; };
 		77EAA360151FDEF0007DFAAE /* MButtonConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MButtonConcave.png; sourceTree = "<group>"; };
 		77EAA361151FDEF0007DFAAE /* MButtonConvex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MButtonConvex.png; sourceTree = "<group>"; };
 		77EAA362151FDEF0007DFAAE /* SButtonConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SButtonConcave.png; sourceTree = "<group>"; };
@@ -468,7 +467,6 @@
 		772C06AA152534C200DA7E1C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				77E28C221532355100B4FBEA /* BMLTActionButtonViewController.xib */,
 				77BBA91C152F27200058DD99 /* BMLTFormatDetailViewController.xib */,
 				772C06AB152534C200DA7E1C /* iPad.storyboard */,
 				772C06AC152534C200DA7E1C /* iPhone.storyboard */,
@@ -573,6 +571,7 @@
 			children = (
 				77D90B031514C5340059EF41 /* BMLT-Prefix.pch */,
 				772C161B151B46B800830596 /* BMLTVariantDefs.h */,
+				77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */,
 			);
 			name = "Project Files";
 			sourceTree = "<group>";
@@ -580,8 +579,8 @@
 		77A56009153CEE2B0039CCDD /* Printing and Formatted Output */ = {
 			isa = PBXGroup;
 			children = (
-				77E28C1D153234FD00B4FBEA /* BMLTActionButtonViewController.h */,
-				77E28C1E153234FD00B4FBEA /* BMLTActionButtonViewController.m */,
+				77A5600B153CF0520039CCDD /* A_BMLT_PrintPageRenderer.h */,
+				77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */,
 				77CFE114153CB874005FB181 /* BMLT_ListPrintPageRenderer.h */,
 				77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */,
 				7794A733153CB9FE004CF156 /* BMLT_MapPrintPageRenderer.h */,
@@ -762,7 +761,6 @@
 				77111E781531304F001ACF4C /* Globe_28.png in Resources */,
 				77111E791531304F001ACF4C /* Globe_29.png in Resources */,
 				77111E7A1531304F001ACF4C /* TopLayer.png in Resources */,
-				77E28C231532355100B4FBEA /* BMLTActionButtonViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,9 +805,9 @@
 				77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */,
 				77111E7E1531306D001ACF4C /* BMLT_AnimationView.m in Sources */,
 				77F6C36A1531D1A90038784D /* BMLTAnimationScreenViewController.m in Sources */,
-				77E28C20153234FD00B4FBEA /* BMLTActionButtonViewController.m in Sources */,
 				77CFE116153CB874005FB181 /* BMLT_ListPrintPageRenderer.m in Sources */,
 				7794A735153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m in Sources */,
+				77A5600D153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
