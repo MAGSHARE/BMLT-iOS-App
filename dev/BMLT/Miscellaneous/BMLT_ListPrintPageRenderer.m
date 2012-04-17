@@ -21,10 +21,17 @@
 
 #import "BMLT_ListPrintPageRenderer.h"
 #import "BMLT_Meeting.h"
+#import "BMLT_Format.h"
 
 static int  kNumberOfMeetingsPerPage    = 10;   ///< This is how many meetings we can list per page.
 static int  kFontSizeOfMeetingName      = 16;   ///< The font size, in points, of the meeting name.
-static int  kDisplayGap                 = 4;    ///< The vertical space between lines, in the meeting display.
+static int  kFontSizeOfMeetingTownState = 12;   ///< The font size, in points, of the meeting town and state display.
+static int  kFontSizeOfAddress          = 10;   ///< The font size for the address line.
+static int  kFontSizeOfFormats          = 9;    ///< The size of the formats strings.
+static int  kFontSizeOfComments         = 9;    ///< The size of the comments string.
+static int  kDisplayGap                 = 0;    ///< The vertical space between lines, in the meeting display.
+static int  kLeftPadding                = 4;    ///< The number of pixels in from the left edge of the paper.
+static int  kRightPadding               = 4;    ///< The number of pixels in from the right edge of the paper.
 
 /**************************************************************//**
  \class BMLT_ListPrintPageRenderer
@@ -75,19 +82,163 @@ static int  kDisplayGap                 = 4;    ///< The vertical space between 
 /**************************************************************//**
  \brief This will draw one meeting in the list.
  *****************************************************************/
-- (void)drawOneMeeting:(BMLT_Meeting *)inMeeting    ///< The meeting object to be drawn.
+- (int)drawOneMeeting:(BMLT_Meeting *)inMeeting    ///< The meeting object to be drawn.
                 inRect:(CGRect)inRect               ///< The rect in which it is to be drawn.
 {
 #ifdef DEBUG
     NSLog(@"BMLT_ListPrintPageRenderer::drawOneMeeting: inRect: (%f, %f), (%f, %f). Meeting named \"%@\"", inRect.origin.x, inRect.origin.y, inRect.size.width, inRect.size.height, [inMeeting getBMLTName]);
 #endif
     UIFont  *currentFont = [UIFont boldSystemFontOfSize:kFontSizeOfMeetingName];    // We will use this variable to hold whatever font we're working with.
+
+    inRect.origin.x += kLeftPadding;
+    inRect.size.width -= kLeftPadding + kRightPadding;
     
-    [[inMeeting getBMLTName] drawInRect:inRect withFont:currentFont lineBreakMode:UILineBreakModeCharacterWrap alignment:UITextAlignmentCenter];
+    [[inMeeting getBMLTName] drawInRect:inRect withFont:currentFont lineBreakMode:UILineBreakModeCharacterWrap alignment:UITextAlignmentLeft];
     
     float   lineHeight = [[inMeeting getBMLTName] sizeWithFont:currentFont].height + kDisplayGap;
     inRect.origin.y += lineHeight;      // Adjust the next line top...
     inRect.size.height -= lineHeight;   // ...and the size
+    
+    float ret = lineHeight;
+    
+    // We indent the meeting info slightly.
+    inRect.origin.x += kLeftPadding;
+    inRect.size.width -= kLeftPadding;
+    
+    lineHeight = [self drawTownStateDayAndTime:inMeeting inRect:inRect];
+    
+    ret += lineHeight + kDisplayGap;
+    
+    inRect.origin.y += lineHeight + kDisplayGap;
+    inRect.size.height -= lineHeight + kDisplayGap;
+    
+    lineHeight = [self drawAddress:inMeeting inRect:inRect];
+    
+    ret += lineHeight + kDisplayGap;
+    
+    inRect.origin.y += lineHeight + kDisplayGap;
+    inRect.size.height -= lineHeight + kDisplayGap;
+    
+    lineHeight = [self drawFormats:inMeeting inRect:inRect];
+    
+    ret += lineHeight + kDisplayGap;
+    
+    inRect.origin.y += lineHeight + kDisplayGap;
+    inRect.size.height -= lineHeight + kDisplayGap;
+    
+    lineHeight = [self drawComments:inMeeting inRect:inRect];
+    
+    ret += lineHeight + kDisplayGap;
+    
+    return ceil ( ret );
+}
+
+/**************************************************************//**
+ \brief This sets the town and state.
+ *****************************************************************/
+- (int)drawTownStateDayAndTime:(BMLT_Meeting *)inMeeting    ///< The meeting object to be drawn.
+                         inRect:(CGRect)inRect               ///< The rect in which it is to be drawn.
+{
+    UIFont  *currentFont = [UIFont boldSystemFontOfSize:kFontSizeOfMeetingTownState];    // We will use this variable to hold whatever font we're working with.
+    
+    NSString    *displayString = @"";
+    
+    if ( [inMeeting getValueFromField:@"location_province"] )
+        {
+        displayString = [NSString stringWithFormat:@"%@, %@", (([inMeeting getValueFromField:@"location_city_subsection"]) ? (NSString *)[inMeeting getValueFromField:@"location_city_subsection"] : (NSString *)[inMeeting getValueFromField:@"location_municipality"]), (NSString *)[inMeeting getValueFromField:@"location_province"]];
+        }
+    else
+        {
+        displayString = [NSString stringWithString: (([inMeeting getValueFromField:@"location_city_subsection"]) ? (NSString *)[inMeeting getValueFromField:@"location_city_subsection"] : (NSString *)[inMeeting getValueFromField:@"location_municipality"])];
+        }
+    
+    NSDate      *startTime = [inMeeting getStartTime];
+    NSString    *timeString = [NSDateFormatter localizedStringFromDate:startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+    NSCalendar  *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    if ( gregorian )
+        {
+        NSDateComponents    *dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:startTime];
+        
+        if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
+            {
+            timeString = NSLocalizedString(@"TIME-MIDNIGHT", nil);
+            }
+        else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
+            {
+            timeString = NSLocalizedString(@"TIME-NOON", nil);
+            }
+        }
+    
+    displayString = [displayString stringByAppendingFormat:NSLocalizedString(@"PRINT-TOWN-DATE-FORMAT-STRING", nil), [inMeeting getWeekday], timeString];
+    
+    float   lineHeight = [displayString sizeWithFont:currentFont].height;
+    [displayString drawInRect:inRect withFont:currentFont lineBreakMode:UILineBreakModeCharacterWrap alignment:UITextAlignmentLeft];
+    
+    return ceil ( lineHeight );
+}
+
+/**************************************************************//**
+ \brief This sets the town and state.
+ *****************************************************************/
+- (int)drawAddress:(BMLT_Meeting *)inMeeting
+            inRect:(CGRect)inRect
+{
+    UIFont  *currentFont = [UIFont italicSystemFontOfSize:kFontSizeOfAddress];    // We will use this variable to hold whatever font we're working with.
+
+    NSString    *displayString = [NSString stringWithFormat:@"%@%@", (([inMeeting getValueFromField:@"location_text"]) ? [NSString stringWithFormat:@"%@, ", (NSString *)[inMeeting getValueFromField:@"location_text"]] : @""), [inMeeting getValueFromField:@"location_street"]];
+    
+    if ( !displayString )
+        {
+        displayString =  @"";
+        }
+    
+    float   lineHeight = [displayString sizeWithFont:currentFont].height;
+    [displayString drawInRect:inRect withFont:currentFont lineBreakMode:UILineBreakModeCharacterWrap alignment:UITextAlignmentLeft];
+
+    return ceil ( lineHeight );
+}
+
+/**************************************************************//**
+ \brief This writes out the format names.
+ *****************************************************************/
+- (int)drawFormats:(BMLT_Meeting *)inMeeting
+            inRect:(CGRect)inRect
+{
+    UIFont      *currentFont = [UIFont boldSystemFontOfSize:kFontSizeOfFormats];    // We will use this variable to hold whatever font we're working with.
+    NSString    *displayString = @"";
+    
+    NSArray *formats = [inMeeting getFormats];
+    
+    for ( BMLT_Format *format in formats )
+        {
+        displayString = [displayString stringByAppendingFormat:([displayString length] ? @", %@" : @"%@"), [format getBMLTName]];
+        }
+    
+    float   lineHeight = [displayString sizeWithFont:currentFont].height;
+    [displayString drawInRect:inRect withFont:currentFont lineBreakMode:UILineBreakModeCharacterWrap alignment:UITextAlignmentLeft];
+    
+    return ceil ( lineHeight );
+}
+
+/**************************************************************//**
+ \brief This writes out any comments about the meeting.
+ *****************************************************************/
+- (int)drawComments:(BMLT_Meeting *)inMeeting
+            inRect:(CGRect)inRect
+{
+    if ( [inMeeting getValueFromField:@"comments"] )
+        {
+        UIFont      *currentFont = [UIFont italicSystemFontOfSize:kFontSizeOfComments];    // We will use this variable to hold whatever font we're working with.
+        NSString    *displayString = (NSString *)[inMeeting getValueFromField:@"comments"];
+                
+        float   lineHeight = [displayString sizeWithFont:currentFont].height;
+        [displayString drawInRect:inRect withFont:currentFont lineBreakMode:UILineBreakModeCharacterWrap alignment:UITextAlignmentLeft];
+        
+        return ceil ( lineHeight );
+        }
+    
+    return 0.0;
 }
 
 @end

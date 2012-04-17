@@ -29,5 +29,9 @@
  \brief This is a concrete class that implements a list display print.
  *****************************************************************/
 @interface BMLT_ListPrintPageRenderer : A_BMLT_PrintPageRenderer
-- (void)drawOneMeeting:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
+- (int)drawOneMeeting:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
+- (int)drawTownStateDayAndTime:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
+- (int)drawAddress:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
+- (int)drawFormats:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
+- (int)drawComments:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
 @end
