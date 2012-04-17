@@ -20,7 +20,6 @@
 //
 
 #import "BMLT_ListPrintPageRenderer.h"
-#import "BMLTFormattedOutputSmartView.h"
 
 @implementation BMLT_ListPrintPageRenderer
 

@@ -20,7 +20,6 @@
 //
 
 #import "BMLT_MapPrintPageRenderer.h"
-#import "BMLTFormattedOutputSmartView.h"
 
 @implementation BMLT_MapPrintPageRenderer
 
