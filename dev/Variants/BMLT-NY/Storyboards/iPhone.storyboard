@@ -157,7 +157,13 @@
                         </connections>
                     </mapView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="tMp-9S-1Bs"/>
+                    <navigationItem key="navigationItem" title="TAB-BAR-2" id="tMp-9S-1Bs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ROA-Ho-63r">
+                            <connections>
+                                <action selector="actionItemClicked:" destination="3" id="EnM-wt-RqR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>

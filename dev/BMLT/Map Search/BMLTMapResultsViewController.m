@@ -378,7 +378,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
  *****************************************************************/
 - (UIPrintPageRenderer *)getMyPageRenderer
 {
-    return [[BMLT_ListPrintPageRenderer alloc] initWithMeetings:[self dataArray]];
+    return [[BMLT_ListPrintPageRenderer alloc] initWithMeetings:[self dataArray] andMapFormatter:[[self view] viewPrintFormatter]];
 }
 
 #pragma mark - UIPopoverControllerDelegate Functions -

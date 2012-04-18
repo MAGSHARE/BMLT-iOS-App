@@ -84,7 +84,7 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
  *****************************************************************/
 - (UIPrintPageRenderer *)getMyPageRenderer
 {
-    return [[BMLT_ListPrintPageRenderer alloc] initWithMeetings:[self dataArray]];
+    return [[BMLT_ListPrintPageRenderer alloc] initWithMeetings:[self dataArray] andMapFormatter:nil];
 }
 
 #pragma mark - IBAction Functions -
