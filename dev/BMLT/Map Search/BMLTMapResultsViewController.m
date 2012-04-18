@@ -21,9 +21,9 @@
 #import "BMLT_Meeting.h"
 #import "BMLT_Results_MapPointAnnotationView.h"
 #import "BMLTDisplayListResultsViewController.h"
-#import "BMLT_MapPrintPageRenderer.h"
+#import "BMLT_ListPrintPageRenderer.h"
 
-static int BMLT_Meeting_Distance_Threshold_In_Pixels = 12;
+static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum distance apart for map annotations, before they are combined.
 
 /**************************************************************//**
  \class  BMLTMapResultsViewController -Private Interface
@@ -378,7 +378,7 @@ static int BMLT_Meeting_Distance_Threshold_In_Pixels = 12;
  *****************************************************************/
 - (UIPrintPageRenderer *)getMyPageRenderer
 {
-    return [[BMLT_MapPrintPageRenderer alloc] initWithMeetings:[self dataArray]];
+    return [[BMLT_ListPrintPageRenderer alloc] initWithMeetings:[self dataArray]];
 }
 
 #pragma mark - UIPopoverControllerDelegate Functions -

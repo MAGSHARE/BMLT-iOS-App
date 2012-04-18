@@ -91,7 +91,6 @@
 		7775A5A9152D24440098A7A3 /* LocationIconWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775A5A7152D24440098A7A3 /* LocationIconWhite.png */; };
 		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
 		77803C3F151C011D00A8ADC3 /* BMLTFormatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77803C3D151C011D00A8ADC3 /* BMLTFormatDetailViewController.m */; };
-		7794A735153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794A734153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m */; };
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
@@ -240,8 +239,6 @@
 		777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTMainBackgroundView.m; path = Miscellaneous/A_BMLTMainBackgroundView.m; sourceTree = "<group>"; };
 		77803C3C151C011D00A8ADC3 /* BMLTFormatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTFormatDetailViewController.h; sourceTree = "<group>"; };
 		77803C3D151C011D00A8ADC3 /* BMLTFormatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTFormatDetailViewController.m; sourceTree = "<group>"; };
-		7794A733153CB9FE004CF156 /* BMLT_MapPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_MapPrintPageRenderer.h; sourceTree = "<group>"; };
-		7794A734153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_MapPrintPageRenderer.m; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* NY NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NY NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -583,8 +580,6 @@
 				77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */,
 				77CFE114153CB874005FB181 /* BMLT_ListPrintPageRenderer.h */,
 				77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */,
-				7794A733153CB9FE004CF156 /* BMLT_MapPrintPageRenderer.h */,
-				7794A734153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m */,
 			);
 			name = "Printing and Formatted Output";
 			path = Miscellaneous;
@@ -806,7 +801,6 @@
 				77111E7E1531306D001ACF4C /* BMLT_AnimationView.m in Sources */,
 				77F6C36A1531D1A90038784D /* BMLTAnimationScreenViewController.m in Sources */,
 				77CFE116153CB874005FB181 /* BMLT_ListPrintPageRenderer.m in Sources */,
-				7794A735153CB9FF004CF156 /* BMLT_MapPrintPageRenderer.m in Sources */,
 				77A5600D153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -905,6 +899,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "Variants/BMLT-NY/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -918,6 +917,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "Variants/BMLT-NY/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;

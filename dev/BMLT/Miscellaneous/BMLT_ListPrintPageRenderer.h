@@ -21,6 +21,7 @@
 
 #import <UIKit/UIKit.h>
 #import "A_BMLT_PrintPageRenderer.h"
+#import <MapKit/MapKit.h>
 
 @class BMLT_Meeting;
 
@@ -28,10 +29,14 @@
  \class BMLT_ListPrintPageRenderer
  \brief This is a concrete class that implements a list display print.
  *****************************************************************/
-@interface BMLT_ListPrintPageRenderer : A_BMLT_PrintPageRenderer
+@interface BMLT_ListPrintPageRenderer : A_BMLT_PrintPageRenderer <MKMapViewDelegate>
+@property (retain, nonatomic, readwrite) MKMapView  *myMap;
+
 - (int)drawOneMeeting:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
 - (int)drawTownStateDayAndTime:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
 - (int)drawAddress:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
 - (int)drawFormats:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
 - (int)drawComments:(BMLT_Meeting *)inMeeting inRect:(CGRect)inRect;
+- (void)determineMapSize;
+- (NSArray *)mapMeetingAnnotations;
 @end
