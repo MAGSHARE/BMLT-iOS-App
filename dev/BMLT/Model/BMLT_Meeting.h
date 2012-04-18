@@ -21,6 +21,7 @@
 #import "A_BMLT_ChildClass.h"
 #import <CoreLocation/CoreLocation.h>
 
+@class BMLT_Results_MapPointAnnotation;
 @class BMLT_Location;
 @class BMLT_Server;
 
@@ -43,6 +44,8 @@
     NSString                *currentElement;    ///< Used while parsing the meeting.
     BMLT_Server             *myServer;          ///< The server that "owns" this meeting.
 }
+
+@property (atomic, readwrite)   NSInteger   meetingIndex;   ///< This will be used by the printer to match the meeting to an annotation.
 
 - (id)initWithParent:(NSObject *)inParent andName:(NSString *)inName andDescription:(NSString *)inDescription;
 

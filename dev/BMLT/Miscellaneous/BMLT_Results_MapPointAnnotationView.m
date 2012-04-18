@@ -21,8 +21,8 @@
 
 #import "BMLT_Results_MapPointAnnotationView.h"
 
-static int kRegularAnnotationOffsetUp = 20; /**< This is how many pixels to shift the annotation view up. */
-int kRegularAnnotationOffsetRight = 7;      /**< This is how many pixels to shift the annotation view right. */
+static int kRegularAnnotationOffsetUp   = 24; /**< This is how many pixels to shift the annotation view up. */
+int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to shift the annotation view right. */
 
 /**************************************************************//**
  \class BMLT_Results_MapPointAnnotationView
@@ -89,7 +89,7 @@ int kRegularAnnotationOffsetRight = 7;      /**< This is how many pixels to shif
  *****************************************************************/
 @implementation BMLT_Results_MapPointAnnotation
 
-@synthesize isSelected = _selected, coordinate = _coordinate, title, subtitle, displayIndex;
+@synthesize isSelected = _selected, coordinate = _coordinate, title, subtitle, displayIndex, myMeetings;
 
 /**************************************************************//**
  \brief Initialize with a coordinate, and a list of meetings.
@@ -108,6 +108,17 @@ int kRegularAnnotationOffsetRight = 7;      /**< This is how many pixels to shif
         }
     
     return self;
+}
+
+/**************************************************************//**
+ \brief This handles drawing the view and adding the index number.
+ *****************************************************************/
+- (void)drawRect:(CGRect)rect   ///< The rect to be filled.
+{
+    [self drawRect:rect];
+#ifdef DEBUG
+    NSLog(@"BMLT_Results_MapPointAnnotationView drawRect: (%f, %f), (%f, %f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+#endif
 }
 
 /**************************************************************//**

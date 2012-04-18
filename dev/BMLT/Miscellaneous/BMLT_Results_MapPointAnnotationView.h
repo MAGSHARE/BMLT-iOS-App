@@ -47,7 +47,6 @@ extern int kRegularAnnotationOffsetRight;   /**< This is how many pixels to shif
  *****************************************************************/
 @interface BMLT_Results_MapPointAnnotation : NSObject <MKAnnotation>
 {
-    NSMutableArray  *myMeetings;
     NSString        *title;
     NSString        *subtitle;
     NSInteger       displayIndex;
@@ -60,6 +59,7 @@ extern int kRegularAnnotationOffsetRight;   /**< This is how many pixels to shif
 @property (nonatomic, readwrite, copy) NSString                 *subtitle;
 @property (nonatomic, readwrite) BOOL                           isSelected;
 @property (nonatomic, readwrite) NSInteger                      displayIndex;
+@property (retain, nonatomic)   NSMutableArray                  *myMeetings;
 
 - (NSArray *)getMyMeetings;
 - (NSInteger)getNumberOfMeetings;

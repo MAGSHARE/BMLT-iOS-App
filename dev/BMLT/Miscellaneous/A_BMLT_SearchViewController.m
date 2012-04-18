@@ -20,7 +20,7 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
 
-static int kSearchAnnotationOffsetRight   = 19;  /**< This is how many pixels to shift the annotation view right. */
+static int kSearchAnnotationOffsetRight   = 7;  /**< This is how many pixels to shift the annotation view right. */
 static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to shift the annotation view up. */
 
 /**************************************************************//**
@@ -55,7 +55,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 *****************************************************************/
 - (void)selectImage
 {
-    [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
+    [self setImage:[UIImage imageNamed:@"MapMarkerBlack.png"]];
 }
 
 /**************************************************************//**
@@ -70,11 +70,11 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     switch ( newDragState )
     {
         case MKAnnotationViewDragStateStarting:
-        [self setImage:[UIImage imageNamed:@"SearchMarkerSelected.png"]];
+        [self setImage:[UIImage imageNamed:@"MapMarkerGreen.png"]];
         break;
         
         case MKAnnotationViewDragStateEnding:
-        [self setImage:[UIImage imageNamed:@"SearchMarker.png"]];
+        [self setImage:[UIImage imageNamed:@"MapMarkerBlack.png"]];
         break;
     }
     [super setDragState:newDragState animated:animated];

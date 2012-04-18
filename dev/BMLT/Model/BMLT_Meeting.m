@@ -38,6 +38,8 @@
  *****************************************************************/
 @implementation BMLT_Meeting
 
+@synthesize meetingIndex;    ///< Used to map the meeting to a map annotation.
+
 #pragma mark - Override Functions -
 
 /**************************************************************//**

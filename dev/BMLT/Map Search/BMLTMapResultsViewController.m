@@ -413,6 +413,18 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
 #ifdef DEBUG
                 NSLog(@"BMLTMapResultsViewController mapView:viewForAnnotation -Annotation Selected. This annotation contains %d meetings.", [(BMLT_Results_MapPointAnnotation *)annotation getNumberOfMeetings]);
 #endif
+                // What we do here, is associate an index number for each meeting in the list, so it matches to the displayed meeting annotation. This is used in printing.
+                for ( BMLT_Meeting *theMeeting in [(BMLT_Results_MapPointAnnotation *)annotation getMyMeetings] )
+                    {
+                    NSInteger theIndex = [[mapView annotations] indexOfObject:annotation] + 1;
+                    
+#ifdef DEBUG
+                    NSLog(@"BMLTMapResultsViewController mapView:viewForAnnotation Setting the annotation index of \"%@\" to %d.", [theMeeting getBMLTName], theIndex);
+#endif
+                    
+                    [theMeeting setMeetingIndex:theIndex];
+                    }
+                
                 ret = [[BMLT_Results_MapPointAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Map_Annot"];
                 }
             else

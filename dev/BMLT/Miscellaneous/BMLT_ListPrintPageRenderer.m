@@ -37,13 +37,14 @@ static int  kRightPadding               = 4;    ///< The number of pixels in fro
 
 /**************************************************************//**
  \class BMLT_ListPrintPageRenderer
+        If the map formatter is nil, then just a list will be printed. If it is non-nil, then the first page will be the printed map.
  \brief This is a concrete class that implements a list display print.
  *****************************************************************/
 @implementation BMLT_ListPrintPageRenderer
 @synthesize myMapFormatter; ///< This will contain the map print formatter.
 
-- (id)initWithMeetings:(NSArray *)inMeetings
-       andMapFormatter:(UIViewPrintFormatter *)inFormatter
+- (id)initWithMeetings:(NSArray *)inMeetings                ///< An NSArray of BMLT_Meeting objects that describe the list of meetings.
+       andMapFormatter:(UIViewPrintFormatter *)inFormatter  ///< The print formatter for the displayed map (can be nil).
 {
     self = [super initWithMeetings:inMeetings];
     
