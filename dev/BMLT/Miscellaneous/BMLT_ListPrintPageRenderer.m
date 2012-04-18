@@ -129,7 +129,7 @@ static int  kRegularAnnotationOffsetTop = 4;  /**< This is how many pixels to pa
     inRect.origin.x += kLeftPadding;
     inRect.size.width -= kLeftPadding + kRightPadding;
     
-    if ( [inMeeting meetingIndex] )
+    if ( [inMeeting meetingIndex] && ([self myMapFormatter] != nil) )
         {
         NSString    *annotationMatch = [NSString stringWithFormat:@"%d", [inMeeting meetingIndex]];
         
