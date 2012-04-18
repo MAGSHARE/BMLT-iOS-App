@@ -20,6 +20,7 @@
 
 #import "BMLTMeetingDisplayCellView.h"
 
+static int List_Meeting_Annotation_Size                = 26;
 static int List_Meeting_Name_Text_Size                 = 16;
 static int List_Meeting_Display_Text_Size              = 12;
 static int List_Meeting_Format_Distance_Label_Width    = 80;
@@ -78,6 +79,7 @@ int List_Meeting_Display_Line_Height                   = 25;
  *****************************************************************/
 - (void)layoutSubviews
 {
+    [self setAnnotation];
     [self setMeetingName];
     [self setWeekdayAndTime];
     [self setTownAndState];
@@ -121,6 +123,30 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
 - (BMLT_Meeting *)getMyMeeting
 {
     return myMeeting;
+}
+
+/**************************************************************//**
+ \brief Sets the item that draws the annotation key.
+ *****************************************************************/
+- (void)setAnnotation
+{
+    if ( [myMeeting meetingIndex] )
+        {
+        NSString    *myNum = [NSString stringWithFormat:@"%d", [myMeeting meetingIndex]];
+#ifdef DEBUG
+        NSLog(@"BMLTMeetingDisplayCellView::setAnnotation %@", myNum);
+#endif
+        UILabel    *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, List_Meeting_Annotation_Size, List_Meeting_Annotation_Size)];
+        if ( textLabel )
+            {
+            [textLabel setBackgroundColor:[UIColor clearColor]];
+            [textLabel setTextAlignment:UITextAlignmentCenter];
+            [textLabel setAdjustsFontSizeToFitWidth:YES];
+            [textLabel setFont:[UIFont boldSystemFontOfSize:List_Meeting_Name_Text_Size]];
+            [textLabel setText:myNum];
+            [wrapperView addSubview:textLabel];
+            }
+        }
 }
 
 /**************************************************************//**

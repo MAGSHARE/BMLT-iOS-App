@@ -34,6 +34,7 @@ extern int List_Meeting_Display_Line_Height;
     UIView                                *wrapperView;
 }
 - (id)initWithMeeting:(BMLT_Meeting *)inMeeting andFrame:(CGRect)frame andReuseID:(NSString *)reuseID andIndex:(int)index;
+- (void)setAnnotation;
 - (void)setMeetingName;
 - (void)setWeekdayAndTime;
 - (void)setTownAndState;

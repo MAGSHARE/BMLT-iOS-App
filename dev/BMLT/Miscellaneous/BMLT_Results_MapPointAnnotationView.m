@@ -20,8 +20,10 @@
 //
 
 #import "BMLT_Results_MapPointAnnotationView.h"
+#import "BMLT_Meeting.h"
 
 static int kRegularAnnotationOffsetUp   = 24; /**< This is how many pixels to shift the annotation view up. */
+static int kRegularAnnotationOffsetTop  = 4;  /**< This is how many pixels to pad the top number display. */
 int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to shift the annotation view right. */
 
 /**************************************************************//**
@@ -59,7 +61,34 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
         BOOL    isMulti = [(BMLT_Results_MapPointAnnotation *)[self annotation] getNumberOfMeetings] > 1;
         BOOL    isSelected = [(BMLT_Results_MapPointAnnotation *)[self annotation] isSelected]; 
         [self setImage:[UIImage imageNamed:(isSelected ? @"MapMarkerGreen.png" : isMulti ? @"MapMarkerRed.png" : @"MapMarkerBlue.png")]];
+        [self setBackgroundColor:[UIColor clearColor]];
         [self setNeedsDisplay];
+        }
+}
+
+/**************************************************************//**
+ \brief This draws the marker. We add the index number to the
+        marker, so it can be associated with the listed meetings.
+ *****************************************************************/
+- (void)drawRect:(CGRect)rect
+{
+    [[self image] drawInRect:rect];
+    
+    BMLT_Meeting   *firstMeeting = (BMLT_Meeting *)[[(BMLT_Results_MapPointAnnotation *)[self annotation] myMeetings] objectAtIndex:0];
+    
+    if ( firstMeeting )
+        {
+        NSString    *indexString = [NSString stringWithFormat:@"%d", [firstMeeting meetingIndex]];
+        
+        // Blue and red get a white number. Green gets black (default).
+        if ( ![(BMLT_Results_MapPointAnnotation *)[self annotation] isSelected] )
+            {
+            CGContextSetRGBFillColor ( UIGraphicsGetCurrentContext(), 1, 1, 1, 1 );
+            }
+        
+        rect.size.width -= (kRegularAnnotationOffsetRight * 2);
+        rect.origin.y += kRegularAnnotationOffsetTop;
+        [indexString drawInRect:rect withFont:[UIFont boldSystemFontOfSize:16] lineBreakMode:UILineBreakModeClip alignment:UITextAlignmentCenter];
         }
 }
 
@@ -108,17 +137,6 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
         }
     
     return self;
-}
-
-/**************************************************************//**
- \brief This handles drawing the view and adding the index number.
- *****************************************************************/
-- (void)drawRect:(CGRect)rect   ///< The rect to be filled.
-{
-    [self drawRect:rect];
-#ifdef DEBUG
-    NSLog(@"BMLT_Results_MapPointAnnotationView drawRect: (%f, %f), (%f, %f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
-#endif
 }
 
 /**************************************************************//**

@@ -25,6 +25,7 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Results_MapPointAnnotationView.h"
 
+static int  kAnnotationArea             = 26;   ///< This is how much space we'll give the annotation label.
 static int  kNumberOfMeetingsPerPage    = 10;   ///< This is how many meetings we can list per page.
 static int  kFontSizeOfMeetingName      = 16;   ///< The font size, in points, of the meeting name.
 static int  kFontSizeOfMeetingTownState = 12;   ///< The font size, in points, of the meeting town and state display.
@@ -123,9 +124,19 @@ static int  kRightPadding               = 4;    ///< The number of pixels in fro
     NSLog(@"BMLT_ListPrintPageRenderer::drawOneMeeting: inRect: (%f, %f), (%f, %f). Meeting named \"%@\"", inRect.origin.x, inRect.origin.y, inRect.size.width, inRect.size.height, [inMeeting getBMLTName]);
 #endif
     UIFont  *currentFont = [UIFont boldSystemFontOfSize:kFontSizeOfMeetingName];    // We will use this variable to hold whatever font we're working with.
-
+    
     inRect.origin.x += kLeftPadding;
     inRect.size.width -= kLeftPadding + kRightPadding;
+    
+    if ( [inMeeting meetingIndex] )
+        {
+        NSString    *annotationMatch = [NSString stringWithFormat:@"%d", [inMeeting meetingIndex]];
+        
+        [annotationMatch drawInRect:inRect withFont:currentFont];
+        
+        inRect.origin.x += kAnnotationArea;
+        inRect.size.width -= kAnnotationArea;
+        }
     
     [[inMeeting getBMLTName] drawInRect:inRect withFont:currentFont lineBreakMode:UILineBreakModeCharacterWrap alignment:UITextAlignmentLeft];
     
