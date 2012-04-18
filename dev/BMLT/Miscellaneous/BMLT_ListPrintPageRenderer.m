@@ -35,6 +35,7 @@ static int  kFontSizeOfComments         = 9;    ///< The size of the comments st
 static int  kDisplayGap                 = 0;    ///< The vertical space between lines, in the meeting display.
 static int  kLeftPadding                = 4;    ///< The number of pixels in from the left edge of the paper.
 static int  kRightPadding               = 4;    ///< The number of pixels in from the right edge of the paper.
+static int  kRegularAnnotationOffsetTop = 4;  /**< This is how many pixels to pad the top number display. */
 
 /**************************************************************//**
  \class BMLT_ListPrintPageRenderer
@@ -132,10 +133,26 @@ static int  kRightPadding               = 4;    ///< The number of pixels in fro
         {
         NSString    *annotationMatch = [NSString stringWithFormat:@"%d", [inMeeting meetingIndex]];
         
-        [annotationMatch drawInRect:inRect withFont:currentFont];
+        CGRect  annotRect = CGRectMake(inRect.origin.x, inRect.origin.y, kAnnotationArea, kAnnotationArea);
         
-        inRect.origin.x += kAnnotationArea;
-        inRect.size.width -= kAnnotationArea;
+        if ( [inMeeting partOfMulti] )
+            {
+            CGContextSetRGBFillColor ( UIGraphicsGetCurrentContext(), 0.9, 0, 0, 1 );
+            }
+        else
+            {
+            CGContextSetRGBFillColor ( UIGraphicsGetCurrentContext(), 0, 0, 1, 1 );
+            }
+        CGContextFillRect(UIGraphicsGetCurrentContext(), annotRect);
+        CGContextSetRGBFillColor ( UIGraphicsGetCurrentContext(), 1, 1, 1, 1 );
+        annotRect.origin.y += kRegularAnnotationOffsetTop;
+        annotRect.size.height -= kRegularAnnotationOffsetTop;
+        
+        [annotationMatch drawInRect:annotRect withFont:currentFont lineBreakMode:UILineBreakModeClip alignment:UITextAlignmentCenter];
+        CGContextSetRGBFillColor ( UIGraphicsGetCurrentContext(), 0, 0, 0, 1 );
+        
+        inRect.origin.x += kAnnotationArea + kLeftPadding;
+        inRect.size.width -= (kAnnotationArea + kLeftPadding);
         }
     
     [[inMeeting getBMLTName] drawInRect:inRect withFont:currentFont lineBreakMode:UILineBreakModeCharacterWrap alignment:UITextAlignmentLeft];

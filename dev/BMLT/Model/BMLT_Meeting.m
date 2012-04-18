@@ -39,6 +39,7 @@
 @implementation BMLT_Meeting
 
 @synthesize meetingIndex;    ///< Used to map the meeting to a map annotation.
+@synthesize partOfMulti;     ///< Set to YES, if this meeting is part of a red annotation.
 
 #pragma mark - Override Functions -
 

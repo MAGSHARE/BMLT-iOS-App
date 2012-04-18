@@ -423,6 +423,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
 #endif
                     
                     [theMeeting setMeetingIndex:theIndex];
+                    [theMeeting setPartOfMulti:[(BMLT_Results_MapPointAnnotation *)annotation getNumberOfMeetings] > 1];
                     }
                 
                 ret = [[BMLT_Results_MapPointAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Map_Annot"];

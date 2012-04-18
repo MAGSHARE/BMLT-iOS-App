@@ -139,10 +139,11 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
         UILabel    *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, List_Meeting_Annotation_Size, List_Meeting_Annotation_Size)];
         if ( textLabel )
             {
-            [textLabel setBackgroundColor:[UIColor clearColor]];
+            [textLabel setBackgroundColor:[myMeeting partOfMulti] ? [UIColor redColor] : [UIColor blueColor]];
             [textLabel setTextAlignment:UITextAlignmentCenter];
             [textLabel setAdjustsFontSizeToFitWidth:YES];
             [textLabel setFont:[UIFont boldSystemFontOfSize:List_Meeting_Name_Text_Size]];
+            [textLabel setTextColor:[UIColor whiteColor]];
             [textLabel setText:myNum];
             [wrapperView addSubview:textLabel];
             }

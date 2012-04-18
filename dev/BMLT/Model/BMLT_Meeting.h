@@ -46,6 +46,7 @@
 }
 
 @property (atomic, readwrite)   NSInteger   meetingIndex;   ///< This will be used by the printer to match the meeting to an annotation.
+@property (atomic, readwrite)   BOOL        partOfMulti;    ///< This is set YES if this meeting is part of a multi-annotation.
 
 - (id)initWithParent:(NSObject *)inParent andName:(NSString *)inName andDescription:(NSString *)inDescription;
 
