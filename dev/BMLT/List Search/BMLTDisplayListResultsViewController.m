@@ -60,8 +60,16 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [(UITableView *)[self view] reloadData];
     [self setMyModalController:self];
+}
+
+/**************************************************************//**
+ \brief Called before the load appears. We use it to reload.
+ *****************************************************************/
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [(UITableView *)[self view] reloadData];
 }
 
 /**************************************************************//**
