@@ -26,6 +26,24 @@
 @implementation BMLTVariantDefs
 
 /*****************************************************************/
++ (float)initialMapProjection
+{
+    NSString    *plistPath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+    
+    return [[[NSDictionary dictionaryWithContentsOfFile:plistPath] valueForKey:@"BMLTInitialProjectionSizeInKM"] floatValue];
+}
+
+/*****************************************************************/
++ (CLLocationCoordinate2D)mapDefaultCenter;
+{
+    NSString    *plistPath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+    float       longitude = [[[NSDictionary dictionaryWithContentsOfFile:plistPath] valueForKey:@"BMLTServerHomeLong"] floatValue];
+    float       latitude = [[[NSDictionary dictionaryWithContentsOfFile:plistPath] valueForKey:@"BMLTServerHomeLat"] floatValue];
+    
+    return CLLocationCoordinate2DMake(latitude, longitude);
+}
+
+/*****************************************************************/
 + (UIColor *)windowBackgroundColor
 {
     return [UIColor blueColor];

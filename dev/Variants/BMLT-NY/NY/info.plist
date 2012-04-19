@@ -2,8 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BMLTInitialProjectionSizeInKM</key>
+	<integer>25</integer>
+	<key>BMLTLeadText</key>
+	<string>Find NA Meetings in New York</string>
 	<key>BMLTRootServerURI</key>
 	<string>http://bmlt.newyorkna.org/main_server</string>
+	<key>BMLTServerHomeLat</key>
+	<real>40.771132999999999</real>
+	<key>BMLTServerHomeLong</key>
+	<real>-73.974187000000001</real>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -13,7 +21,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>Provided by MAGSHARE</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.magshare.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>org.magshare.NYNAMeetings</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -47,7 +55,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>BMLTLeadText</key>
-	<string>Find NA Meetings in New York</string>
 </dict>
 </plist>

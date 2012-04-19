@@ -454,10 +454,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     [self clearAllSearchResults:YES];
     
-    float   projection = [NSLocalizedString(@"INITIAL-PROJECTION", nil) floatValue] * 1000.0;
-    float   longitude = [NSLocalizedString(@"INITIAL-MAP-LONG", nil) floatValue];
-    float   latitude = [NSLocalizedString(@"INITIAL-MAP-LAT", nil) floatValue];
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(latitude, longitude);
+    float   projection = [BMLTVariantDefs initialMapProjection] * 1000.0;
+    CLLocationCoordinate2D center = [BMLTVariantDefs mapDefaultCenter];
     
     MKCoordinateRegion  region = MKCoordinateRegionMakeWithDistance(center, projection, projection);
     

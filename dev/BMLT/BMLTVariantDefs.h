@@ -27,6 +27,14 @@
  *****************************************************************/
 @interface BMLTVariantDefs : NSObject
 
++ (float)initialMapProjection;
+
+/**************************************************************//**
+ \brief     This returns the map center long/lat.
+ \returns   The coordinate of the map center.
+ *****************************************************************/
++ (CLLocationCoordinate2D)mapDefaultCenter;
+
 /**************************************************************//**
  \brief     This returns the color (or texture) to use for the main window background.
  \returns   The color to be used.
