@@ -116,7 +116,9 @@
 /*****************************************************************/
 + (NSURL *)rootServerURI
 {
-    return [NSURL URLWithString:NSLocalizedString(@"INITIAL-SERVER-URI",nil)];
+    NSString    *plistPath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+    NSString    *uriString = [[NSDictionary dictionaryWithContentsOfFile:plistPath] valueForKey:@"BMLTRootServerURI"];
+    return [NSURL URLWithString:uriString];
 }
 
 /*****************************************************************/
