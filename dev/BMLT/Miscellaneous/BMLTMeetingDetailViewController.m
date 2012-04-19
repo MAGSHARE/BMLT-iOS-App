@@ -24,6 +24,7 @@
 #import "BMLT_Meeting.h"
 #import "BMLT_Format.h"
 #import "BMLTAppDelegate.h"
+#import "BMLT_DetailsPrintPageRenderer.h"
 
 @implementation BMLTMeetingDetailViewController
 @synthesize addressButton;
@@ -35,8 +36,6 @@
 @synthesize meetingMapView, myMeeting = _myMeeting;
 @synthesize myModalController;
 
-static int kButtonX = 20; ///< These are defined to make sure the popover for the "action item" shows up at the correct place.
-static int kButtonY = 15;
 static int List_Meeting_Format_Circle_Size_Big = 30;
 
 #pragma mark - View lifecycle
@@ -48,6 +47,8 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 {
     [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
     [[[self navigationItem] titleView] sizeToFit];
+    UIBarButtonItem *theButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItemClicked:)];
+    [[self navigationItem] setRightBarButtonItem:theButton];
     [self setMeetingFrequencyText];
     [self setMeetingCommentsText];
     [self setMeetingLocationText];
@@ -187,38 +188,33 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 }
 
 /**************************************************************//**
- \brief Prints the view displayed on the screen.
- *****************************************************************/
+                                                                 \brief Prints the view displayed on the screen.
+                                                                 *****************************************************************/
 - (void)printView
 {
 #ifdef DEBUG
     NSLog(@"BMLTMeetingDetailViewController::printView");
 #endif
-    UIView  *myContext = [[self navigationController] navigationBar];
-    CGRect  selectRect = [myContext frame];
-    selectRect.origin.x = selectRect.size.width - kButtonX;
-    selectRect.size.width = kButtonX;
-    selectRect.size.height = kButtonY;
-    
     printModal = [UIPrintInteractionController sharedPrintController];
     
     if ( printModal )
         {
+        [printModal setPrintPageRenderer:[self getMyPageRenderer]];
         [printModal setPrintFormatter:[[self view] viewPrintFormatter]];
-        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) && !CGRectIsEmpty(selectRect))
+        if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
             {
             [printModal presentFromBarButtonItem:[[self navigationItem] rightBarButtonItem] animated:YES completionHandler:
 #ifdef DEBUG
              ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
-                if (!completed)
-                    {
-                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: FAIL");
-                    }
-                else
-                    {
-                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: WIN");
-                    }
-            }
+                 if (!completed)
+                     {
+                     NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: Print FAIL");
+                     }
+                 else
+                     {
+                     NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: Print WIN");
+                     }
+             }
 #else
              nil
 #endif
@@ -228,18 +224,18 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
             {
             [printModal presentAnimated:YES completionHandler:
 #ifdef DEBUG
-                ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
-                    if (!completed)
-                        {
-                        NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: FAIL");
-                        }
-                    else
-                        {
-                        NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: WIN");
-                        }
-                }
+             ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
+                 if (!completed)
+                     {
+                     NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: Print FAIL");
+                     }
+                 else
+                     {
+                     NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: Print WIN");
+                     }
+             }
 #else
-                nil
+             nil
 #endif
              ];
             }
@@ -249,10 +245,10 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 /**************************************************************//**
  \brief Called when the "Action Item" in the NavBar is clicked.
  *****************************************************************/
-- (void)actionItem
+- (IBAction)actionItemClicked:(id)sender
 {
 #ifdef DEBUG
-    NSLog(@"BMLTMeetingDetailViewController::actionItem");
+    NSLog(@"A_BMLTSearchResultsViewController::actionItemClicked:");
 #endif
     [self printView];
 }
@@ -273,6 +269,15 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     
     actionPopover = nil;
     printModal = nil;
+}
+
+/**************************************************************//**
+ \brief Instantiates and returns the appropriate page renderer
+ \returns an instance of BMLT_DetailsPrintPageRenderer, disguised as a UIPrintPageRenderer
+ *****************************************************************/
+- (UIPrintPageRenderer *)getMyPageRenderer
+{
+    return [[BMLT_DetailsPrintPageRenderer alloc] initWithMeetings:[NSArray arrayWithObject:[self myMeeting]] andMapFormatter:[[self meetingMapView] viewPrintFormatter]];
 }
 
 /**************************************************************//**

@@ -85,6 +85,7 @@
 		775A10BA1528128C00CD10E1 /* Shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 775A10B91528128C00CD10E1 /* Shadow.png */; };
 		77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */; };
 		776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */; };
+		776CAD8A15404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 776CAD8915404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m */; };
 		7775A5A8152D24440098A7A3 /* LocationIconBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775A5A6152D24440098A7A3 /* LocationIconBlack.png */; };
 		7775A5A9152D24440098A7A3 /* LocationIconWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775A5A7152D24440098A7A3 /* LocationIconWhite.png */; };
 		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
@@ -229,6 +230,8 @@
 		7765AE711514C72F008E4ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		776BAD951519F90A008C608C /* BMLTDisplayListResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTDisplayListResultsViewController.h; sourceTree = "<group>"; };
 		776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTDisplayListResultsViewController.m; sourceTree = "<group>"; };
+		776CAD8815404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_DetailsPrintPageRenderer.h; sourceTree = "<group>"; };
+		776CAD8915404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_DetailsPrintPageRenderer.m; sourceTree = "<group>"; };
 		7775A5A6152D24440098A7A3 /* LocationIconBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIconBlack.png; sourceTree = "<group>"; };
 		7775A5A7152D24440098A7A3 /* LocationIconWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIconWhite.png; sourceTree = "<group>"; };
 		777B520D15192409002EDC83 /* A_BMLTMainBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTMainBackgroundView.h; path = Miscellaneous/A_BMLTMainBackgroundView.h; sourceTree = "<group>"; };
@@ -574,6 +577,8 @@
 				77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */,
 				77CFE114153CB874005FB181 /* BMLT_ListPrintPageRenderer.h */,
 				77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */,
+				776CAD8815404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.h */,
+				776CAD8915404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m */,
 			);
 			name = "Printing and Formatted Output";
 			path = Miscellaneous;
@@ -794,6 +799,7 @@
 				77F6C36A1531D1A90038784D /* BMLTAnimationScreenViewController.m in Sources */,
 				77CFE116153CB874005FB181 /* BMLT_ListPrintPageRenderer.m in Sources */,
 				77A5600D153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m in Sources */,
+				776CAD8A15404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

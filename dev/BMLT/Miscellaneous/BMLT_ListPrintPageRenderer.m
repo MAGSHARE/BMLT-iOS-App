@@ -27,15 +27,16 @@
 
 static int  kAnnotationArea             = 26;   ///< This is how much space we'll give the annotation label.
 static int  kNumberOfMeetingsPerPage    = 10;   ///< This is how many meetings we can list per page.
-static int  kFontSizeOfMeetingName      = 16;   ///< The font size, in points, of the meeting name.
-static int  kFontSizeOfMeetingTownState = 12;   ///< The font size, in points, of the meeting town and state display.
-static int  kFontSizeOfAddress          = 10;   ///< The font size for the address line.
-static int  kFontSizeOfFormats          = 9;    ///< The size of the formats strings.
-static int  kFontSizeOfComments         = 9;    ///< The size of the comments string.
-static int  kDisplayGap                 = 0;    ///< The vertical space between lines, in the meeting display.
-static int  kLeftPadding                = 4;    ///< The number of pixels in from the left edge of the paper.
-static int  kRightPadding               = 4;    ///< The number of pixels in from the right edge of the paper.
-static int  kRegularAnnotationOffsetTop = 4;  /**< This is how many pixels to pad the top number display. */
+static int  kDisplayAnnotationOffsetTop = 4;    ///< This is how many pixels to pad the top number display.
+
+int         kDisplayGap                 = 0;    ///< The vertical space between lines, in the meeting display.
+int         kFontSizeOfMeetingName      = 16;   ///< The font size, in points, of the meeting name.
+int         kFontSizeOfMeetingTownState = 12;   ///< The font size, in points, of the meeting town and state display.
+int         kFontSizeOfAddress          = 10;   ///< The font size for the address line.
+int         kFontSizeOfFormats          = 9;    ///< The size of the formats strings.
+int         kFontSizeOfComments         = 9;    ///< The size of the comments string.
+int         kLeftPadding                = 4;    ///< The number of pixels in from the left edge of the paper.
+int         kRightPadding               = 4;    ///< The number of pixels in from the right edge of the paper.
 
 /**************************************************************//**
  \class BMLT_ListPrintPageRenderer
@@ -45,6 +46,10 @@ static int  kRegularAnnotationOffsetTop = 4;  /**< This is how many pixels to pa
 @implementation BMLT_ListPrintPageRenderer
 @synthesize myMapFormatter; ///< This will contain the map print formatter.
 
+/**************************************************************//**
+ \brief Initializer with initial info.
+ \returns self
+ *****************************************************************/
 - (id)initWithMeetings:(NSArray *)inMeetings                ///< An NSArray of BMLT_Meeting objects that describe the list of meetings.
        andMapFormatter:(UIViewPrintFormatter *)inFormatter  ///< The print formatter for the displayed map (can be nil).
 {
@@ -145,8 +150,8 @@ static int  kRegularAnnotationOffsetTop = 4;  /**< This is how many pixels to pa
             }
         CGContextFillRect(UIGraphicsGetCurrentContext(), annotRect);
         CGContextSetRGBFillColor ( UIGraphicsGetCurrentContext(), 1, 1, 1, 1 );
-        annotRect.origin.y += kRegularAnnotationOffsetTop;
-        annotRect.size.height -= kRegularAnnotationOffsetTop;
+        annotRect.origin.y += kDisplayAnnotationOffsetTop;
+        annotRect.size.height -= kDisplayAnnotationOffsetTop;
         
         [annotationMatch drawInRect:annotRect withFont:currentFont lineBreakMode:UILineBreakModeClip alignment:UITextAlignmentCenter];
         CGContextSetRGBFillColor ( UIGraphicsGetCurrentContext(), 0, 0, 0, 1 );

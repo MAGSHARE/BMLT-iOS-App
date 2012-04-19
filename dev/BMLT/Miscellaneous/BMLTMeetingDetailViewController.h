@@ -46,12 +46,13 @@
 - (void)setMeetingCommentsText;
 - (void)setMeetingLocationText;
 - (void)setMapLocation;
-- (void)actionItem;
 - (void)printView;
 - (void)closeModal;
+- (UIPrintPageRenderer *)getMyPageRenderer;
 
 - (IBAction)callForDirections:(id)sender;
 - (IBAction)selectMapView:(id)sender;
 - (IBAction)selectSatelliteView:(id)sender;
+- (IBAction)actionItemClicked:(id)sender;
 
 @end

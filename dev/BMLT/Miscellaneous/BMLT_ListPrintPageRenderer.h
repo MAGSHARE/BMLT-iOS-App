@@ -25,6 +25,15 @@
 
 @class BMLT_Meeting;
 
+extern int  kLeftPadding;                   ///< The number of pixels in from the left edge of the paper.
+extern int  kRightPadding;                  ///< The number of pixels in from the right edge of the paper.
+extern int  kFontSizeOfMeetingName;         ///< The font size, in points, of the meeting name.
+extern int  kFontSizeOfMeetingTownState;    ///< The font size, in points, of the meeting town and state display.
+extern int  kFontSizeOfAddress;             ///< The font size for the address line.
+extern int  kFontSizeOfFormats;             ///< The size of the formats strings.
+extern int  kFontSizeOfComments;            ///< The size of the comments string.
+extern int  kDisplayGap;                    ///< The vertical space between lines, in the meeting display.
+
 /**************************************************************//**
  \class BMLT_ListPrintPageRenderer
  \brief This is a concrete class that implements a list display print.

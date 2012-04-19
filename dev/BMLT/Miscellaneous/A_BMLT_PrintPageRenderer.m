@@ -48,6 +48,18 @@
 }
 
 /**************************************************************//**
+ \brief This is how many pages we'll need to print.
+ \returns an integer. Always 0, as this is an abstract class.
+ *****************************************************************/
+- (NSInteger)numberOfPages
+{
+#ifdef DEBUG
+    NSLog(@"A_BMLT_PrintPageRenderer::numberOfPages:");
+#endif
+    return 0;
+}
+
+/**************************************************************//**
  \brief Prepares for drawing. Set up any initial stuff here.
  *****************************************************************/
 - (void)prepareForDrawingPages:(NSRange)range   ///< The range of pages to be drawn.

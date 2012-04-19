@@ -181,11 +181,11 @@
             ^(UIPrintInteractionController *printInteractionController, BOOL completed, NSError *error) {
                 if (!completed)
                     {
-                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: Print FAIL");
+                    NSLog(@"A_BMLTSearchResultsViewController::printView completionHandler: Print FAIL");
                     }
                 else
                     {
-                    NSLog(@"BMLTMeetingDetailViewController::printView completionHandler: Print WIN");
+                    NSLog(@"A_BMLTSearchResultsViewController::printView completionHandler: Print WIN");
                     }
             }
 #else

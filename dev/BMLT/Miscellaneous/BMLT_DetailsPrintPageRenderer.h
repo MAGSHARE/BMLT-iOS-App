@@ -1,5 +1,5 @@
 //
-//  A_BMLT_PrintPageRenderer.h
+//  BMLT_DetailsPrintPageRenderer.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -19,14 +19,8 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <UIKit/UIKit.h>
+#import "BMLT_ListPrintPageRenderer.h"
 
+@interface BMLT_DetailsPrintPageRenderer : BMLT_ListPrintPageRenderer
 
-/**************************************************************//**
- \class A_BMLT_PrintPageRenderer
- \brief This is an abstract base class that implements a print formatter.
- *****************************************************************/
-@interface A_BMLT_PrintPageRenderer : UIPrintPageRenderer
-@property (retain, atomic)  NSArray *myMeetings;
-- (id)initWithMeetings:(NSArray *)inMeetings;
 @end
