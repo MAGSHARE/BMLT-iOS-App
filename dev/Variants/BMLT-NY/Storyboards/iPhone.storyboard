@@ -192,12 +192,31 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X92-tD-epd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="fFZ-gF-vrb" customClass="BMLTAboutViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IHx-Y9-nFx" userLabel="settings-about" customClass="A_BMLTSettingsBackgroundView">
+                    <view key="view" contentMode="scaleToFill" id="IHx-Y9-nFx" userLabel="settings-about">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-VERSION-LABEL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6WO-b9-OV4">
+                                <rect key="frame" x="20" y="20" width="172" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rjo-ez-kmA" customClass="BMLTVersionDisplayLabel">
+                                <rect key="frame" x="200" y="20" width="107" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="ABOUT-TITLE" id="Hjk-U2-sOA"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="6WO-b9-OV4" id="uz5-bS-qN9"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="695" y="1887"/>
@@ -882,6 +901,9 @@
         </class>
         <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLT_SearchViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
@@ -938,6 +960,7 @@
         <class className="BMLTMeetingDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMeetingDetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="actionItemClicked:"/>
                 <relationship kind="action" name="callForDirections:"/>
                 <relationship kind="action" name="selectMapView:"/>
                 <relationship kind="action" name="selectSatelliteView:"/>
@@ -961,6 +984,7 @@
                 <relationship kind="action" name="preferredSearchChanged:"/>
                 <relationship kind="action" name="retainStateChanged:"/>
                 <relationship kind="action" name="updateUserLocationNow:"/>
+                <relationship kind="outlet" name="aboutView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="distanceSortLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="distanceSortSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="keepUpdatingLabel" candidateClass="UILabel"/>
@@ -994,6 +1018,9 @@
         </class>
         <class className="BMLTSnappyLogSlider" superclassName="UISlider">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSnappyLogSlider.h"/>
+        </class>
+        <class className="BMLTVersionDisplayLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTVersionDisplayLabel.h"/>
         </class>
         <class className="BMLT_AnimationView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLT_AnimationView.h"/>

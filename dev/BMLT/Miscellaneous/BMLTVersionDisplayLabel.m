@@ -21,13 +21,26 @@
 
 #import "BMLTVersionDisplayLabel.h"
 
+/**************************************************************//**
+ \class BMLTVersionDisplayLabel
+ \brief This class implements a label that displays the short
+        version string. This allows a transparent version display
+        that can be easily formatted.
+ *****************************************************************/
 @implementation BMLTVersionDisplayLabel
 
-- (id)initWithFrame:(CGRect)frame
+/**************************************************************//**
+ \brief Initializer -Grabs the version, and sets it as the display.
+ \returns self
+ *****************************************************************/
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithCoder:aDecoder];
     if (self)
         {
+        NSString    *plistPath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+        NSString    *versionInfo = [[NSDictionary dictionaryWithContentsOfFile:plistPath] valueForKey:@"CFBundleVersion"];
+        [self setText:versionInfo];
         }
     return self;
 }

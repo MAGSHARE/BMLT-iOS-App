@@ -226,7 +226,7 @@
 		772C1634151B49E300830596 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		772C1635151B49E300830596 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		775A10B91528128C00CD10E1 /* Shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shadow.png; sourceTree = "<group>"; };
-		775EF74515406534005C3FD0 /* BMLTVersionDisplayLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; path = BMLTVersionDisplayLabel.h; sourceTree = "<group>"; };
+		775EF74515406534005C3FD0 /* BMLTVersionDisplayLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTVersionDisplayLabel.h; sourceTree = "<group>"; };
 		775EF74615406534005C3FD0 /* BMLTVersionDisplayLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTVersionDisplayLabel.m; sourceTree = "<group>"; };
 		77640D3F151A67BE00634143 /* BMLTMeetingDisplayCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMeetingDisplayCellView.h; sourceTree = "<group>"; };
 		77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMeetingDisplayCellView.m; sourceTree = "<group>"; };

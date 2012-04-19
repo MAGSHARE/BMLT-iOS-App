@@ -21,6 +21,7 @@
 #import "BMLTSettingsViewController.h"
 #import "BMLT_Prefs.h"
 #import "BMLTAppDelegate.h"
+#import "BMLTAboutViewController.h"
 
 static int _LOG_MIN = 5;       /**< The number of meetings in a search test for the Min level of the slider. */
 static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of the slider. */
@@ -74,6 +75,8 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
 @synthesize minLabel;
 @synthesize updateLocationButton;
 @synthesize maxLabel;
+@synthesize aboutView;
+@synthesize myAboutViewController;
 
 /**************************************************************//**
  \brief  Called after the controller's view object has loaded.
@@ -138,6 +141,21 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
         {
         [[self updateLocationButton] setEnabled:NO];
         }
+    
+    if ( [self aboutView] )
+        {
+        [self setMyAboutViewController:[[self storyboard] instantiateViewControllerWithIdentifier:@"info-window-view"]];
+        
+        if ( myAboutViewController )
+            {
+#ifdef DEBUG
+            NSLog(@"BMLTSettingsViewController::viewDidLoad: Loading the about view into the big view");
+#endif
+            [[myAboutViewController view] setFrame:[[self aboutView] bounds]];
+            
+            [[self aboutView] addSubview:[myAboutViewController view]];
+            }
+        }
 }
 
 /**************************************************************//**
@@ -162,6 +180,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
     [self setMinLabel:nil];
     [self setMaxLabel:nil];
     [self setUpdateLocationButton:nil];
+    [self setAboutView:nil];
     [super viewDidUnload];
 }
 

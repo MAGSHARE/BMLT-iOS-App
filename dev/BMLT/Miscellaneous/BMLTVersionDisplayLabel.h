@@ -21,6 +21,12 @@
 
 #import <UIKit/UIKit.h>
 
+/**************************************************************//**
+ \class BMLTVersionDisplayLabel
+ \brief This class implements a label that displays the short
+        version string. This allows a transparent version display
+        that can be easily formatted.
+ *****************************************************************/
 @interface BMLTVersionDisplayLabel : UILabel
 
 @end

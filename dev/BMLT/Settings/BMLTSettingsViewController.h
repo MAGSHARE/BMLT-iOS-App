@@ -35,23 +35,25 @@
  \brief  Allows the user to change the settings/preferences.
  *****************************************************************/
 @interface BMLTSettingsViewController : A_BMLTNavBarViewController
-@property (weak, nonatomic) IBOutlet UILabel *lookupLocationLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *lookUpLocationSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *keepUpdatingLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *keepUpdatingSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *retainStateLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *retainStateSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *mapResultsLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *mapResultsSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *distanceSortLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *distanceSortSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *preferredSearchTypeLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *preferredSearchTypeControl;
-@property (weak, nonatomic) IBOutlet UILabel *numMeetingsLabel;
-@property (weak, nonatomic) IBOutlet UISlider *numMeetingsSlider;
-@property (weak, nonatomic) IBOutlet UILabel *minLabel;
-@property (weak, nonatomic) IBOutlet UIButton *updateLocationButton;
-@property (weak, nonatomic) IBOutlet UILabel *maxLabel;
+@property (weak, nonatomic) IBOutlet    UILabel *lookupLocationLabel;
+@property (weak, nonatomic) IBOutlet    UISwitch *lookUpLocationSwitch;
+@property (weak, nonatomic) IBOutlet    UILabel *keepUpdatingLabel;
+@property (weak, nonatomic) IBOutlet    UISwitch *keepUpdatingSwitch;
+@property (weak, nonatomic) IBOutlet    UILabel *retainStateLabel;
+@property (weak, nonatomic) IBOutlet    UISwitch *retainStateSwitch;
+@property (weak, nonatomic) IBOutlet    UILabel *mapResultsLabel;
+@property (weak, nonatomic) IBOutlet    UISwitch *mapResultsSwitch;
+@property (weak, nonatomic) IBOutlet    UILabel *distanceSortLabel;
+@property (weak, nonatomic) IBOutlet    UISwitch *distanceSortSwitch;
+@property (weak, nonatomic) IBOutlet    UILabel *preferredSearchTypeLabel;
+@property (weak, nonatomic) IBOutlet    UISegmentedControl *preferredSearchTypeControl;
+@property (weak, nonatomic) IBOutlet    UILabel *numMeetingsLabel;
+@property (weak, nonatomic) IBOutlet    UISlider *numMeetingsSlider;
+@property (weak, nonatomic) IBOutlet    UILabel *minLabel;
+@property (weak, nonatomic) IBOutlet    UIButton *updateLocationButton;
+@property (weak, nonatomic) IBOutlet    UILabel *maxLabel;
+@property (weak, nonatomic) IBOutlet    UIView *aboutView;
+@property (retain, atomic)              UIViewController    *myAboutViewController;
 - (IBAction)updateUserLocationNow:(id)sender;
 - (IBAction)lookupLocationChanged:(id)sender;
 - (IBAction)keepUpdatingChanged:(id)sender;

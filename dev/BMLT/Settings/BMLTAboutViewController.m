@@ -37,6 +37,8 @@
  \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
  \returns    self
  *****************************************************************/
+@synthesize versionLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,6 +55,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self versionLabel] setText:NSLocalizedString([[self versionLabel] text], nil)];
 }
 
 /**************************************************************//**
@@ -60,6 +63,7 @@
  *****************************************************************/
 - (void)viewDidUnload
 {
+    [self setVersionLabel:nil];
     [super viewDidUnload];
 }
 @end

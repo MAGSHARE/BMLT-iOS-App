@@ -25,5 +25,6 @@
  \brief  Simply displays information about the app.
  *****************************************************************/
 @interface BMLTAboutViewController : A_BMLTNavBarViewController
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 @end
