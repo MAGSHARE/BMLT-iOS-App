@@ -43,6 +43,8 @@
 		77111E7E1531306D001ACF4C /* BMLT_AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77111E7D1531306D001ACF4C /* BMLT_AnimationView.m */; };
 		7711417215125CD100BCCE00 /* BMLTSimpleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */; };
 		77167D501517D21F006E50E8 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 77167D4F1517D21F006E50E8 /* LICENSE.txt */; };
+		771A40EA15408C2500EF34DF /* BMLTAppNameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 771A40E915408C2500EF34DF /* BMLTAppNameLabel.m */; };
+		771A40ED15408EA000EF34DF /* BMLTGetInfoLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 771A40EC15408EA000EF34DF /* BMLTGetInfoLabel.m */; };
 		771D0C34150E88E5005A707A /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C32150E88E5005A707A /* BMLTAppDelegate.m */; };
 		771D0C35150E88E5005A707A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C33150E88E5005A707A /* main.m */; };
 		771D0C47150E892A005A707A /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
@@ -164,6 +166,10 @@
 		7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSimpleSearchViewController.m; sourceTree = "<group>"; };
 		77167D4E1517D205006E50E8 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
 		77167D4F1517D21F006E50E8 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
+		771A40E815408C2500EF34DF /* BMLTAppNameLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAppNameLabel.h; sourceTree = "<group>"; };
+		771A40E915408C2500EF34DF /* BMLTAppNameLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAppNameLabel.m; sourceTree = "<group>"; };
+		771A40EB15408EA000EF34DF /* BMLTGetInfoLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTGetInfoLabel.h; sourceTree = "<group>"; };
+		771A40EC15408EA000EF34DF /* BMLTGetInfoLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTGetInfoLabel.m; sourceTree = "<group>"; };
 		771D0C31150E88E5005A707A /* BMLTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAppDelegate.h; sourceTree = "<group>"; };
 		771D0C32150E88E5005A707A /* BMLTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAppDelegate.m; sourceTree = "<group>"; };
 		771D0C33150E88E5005A707A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -404,6 +410,10 @@
 				77111E7D1531306D001ACF4C /* BMLT_AnimationView.m */,
 				775EF74515406534005C3FD0 /* BMLTVersionDisplayLabel.h */,
 				775EF74615406534005C3FD0 /* BMLTVersionDisplayLabel.m */,
+				771A40E815408C2500EF34DF /* BMLTAppNameLabel.h */,
+				771A40E915408C2500EF34DF /* BMLTAppNameLabel.m */,
+				771A40EB15408EA000EF34DF /* BMLTGetInfoLabel.h */,
+				771A40EC15408EA000EF34DF /* BMLTGetInfoLabel.m */,
 			);
 			name = "Miscellaneous View and Controller Classes";
 			path = Miscellaneous;
@@ -806,6 +816,8 @@
 				77A5600D153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m in Sources */,
 				776CAD8A15404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m in Sources */,
 				775EF74715406534005C3FD0 /* BMLTVersionDisplayLabel.m in Sources */,
+				771A40EA15408C2500EF34DF /* BMLTAppNameLabel.m in Sources */,
+				771A40ED15408EA000EF34DF /* BMLTGetInfoLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
