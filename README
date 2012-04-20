@@ -84,8 +84,13 @@ self-explanatory.
 
 CHANGELIST
 ----------
-= Version 2.0
+= Version 2.0d1
 * TBD
+* Changed the way in which the annotation numbers are assigned, which improves the stability of those numbers. i.e. You will get the same numbers, over and over, for the same searches. The previous method would often yield different numbers, each time.
+* Rearranged some of the localized strings, so they are now in the info.plist file. This makes it more practical to produce different variants.
+
+= Version 2.0d0
+* April 19, 2012
 * Major rewrite. This will be an entrirely new app. The model code, and some of the various supporting code will be used, but the app framework will be very different.
 
 = Version 1.3.2 =
