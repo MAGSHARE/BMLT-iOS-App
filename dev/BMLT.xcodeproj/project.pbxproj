@@ -460,8 +460,6 @@
 		776CAD8815404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_DetailsPrintPageRenderer.h; sourceTree = "<group>"; };
 		776CAD8915404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_DetailsPrintPageRenderer.m; sourceTree = "<group>"; };
 		777597CE1540F15F00D45ADA /* SV NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SV NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		777597D31540F1FC00D45ADA /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		777597D41540F2BE00D45ADA /* StockholmSweden.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = StockholmSweden.gpx; path = ../../../../../Desktop/StockholmSweden.gpx; sourceTree = "<group>"; };
 		7775A5A6152D24440098A7A3 /* LocationIconBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIconBlack.png; sourceTree = "<group>"; };
 		7775A5A7152D24440098A7A3 /* LocationIconWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIconWhite.png; sourceTree = "<group>"; };
 		777B520D15192409002EDC83 /* A_BMLTMainBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTMainBackgroundView.h; path = Miscellaneous/A_BMLTMainBackgroundView.h; sourceTree = "<group>"; };
@@ -483,8 +481,6 @@
 		77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BMLTCloseModalProtocol.h; path = Miscellaneous/BMLTCloseModalProtocol.h; sourceTree = "<group>"; };
 		77AC71E215409E9F0060CA80 /* MN NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MN NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AE0B7C152150DE00EF66D5 /* DarkWeave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkWeave.png; sourceTree = "<group>"; };
-		77AFC01D1540A903005BBB11 /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		77AFC01F1540A903005BBB11 /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		77B6F5C71526392400E55863 /* Concave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Concave.png; sourceTree = "<group>"; };
 		77B6F5C81526392400E55863 /* Convex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Convex.png; sourceTree = "<group>"; };
 		77B6F5C91526392400E55863 /* GreenCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenCheck.png; sourceTree = "<group>"; };
@@ -492,6 +488,9 @@
 		77B6F5CB1526392400E55863 /* RedX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedX.png; sourceTree = "<group>"; };
 		77B6F5CC1526392400E55863 /* RedXConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedXConcave.png; sourceTree = "<group>"; };
 		77BBA91C152F27200058DD99 /* BMLTFormatDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMLTFormatDetailViewController.xib; sourceTree = "<group>"; };
+		77BBAEF215417694001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		77BBAEF4154176A4001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		77BBAEF6154176A4001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		77BC71961512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTSearchResultsViewController.h; path = Miscellaneous/A_BMLTSearchResultsViewController.h; sourceTree = "<group>"; };
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSearchResultsViewController.m; path = Miscellaneous/A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
 		77BCBBDB152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Results_MapPointAnnotationView.h; sourceTree = "<group>"; };
@@ -772,18 +771,9 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		777597D21540F1FC00D45ADA /* SV */ = {
-			isa = PBXGroup;
-			children = (
-				777597D31540F1FC00D45ADA /* info.plist */,
-			);
-			path = SV;
-			sourceTree = "<group>";
-		};
 		77977D00150E882B00485C8D = {
 			isa = PBXGroup;
 			children = (
-				777597D41540F2BE00D45ADA /* StockholmSweden.gpx */,
 				77167D4E1517D205006E50E8 /* README */,
 				77977D15150E882B00485C8D /* BMLT */,
 				77D90B951514C6A60059EF41 /* Variants */,
@@ -858,20 +848,20 @@
 			path = Miscellaneous;
 			sourceTree = "<group>";
 		};
-		77AFC01C1540A903005BBB11 /* MN */ = {
+		77BBAEF3154176A4001F5BCC /* BMLT-MN */ = {
 			isa = PBXGroup;
 			children = (
-				77AFC01D1540A903005BBB11 /* info.plist */,
+				77BBAEF4154176A4001F5BCC /* info.plist */,
 			);
-			path = MN;
+			path = "BMLT-MN";
 			sourceTree = "<group>";
 		};
-		77AFC01E1540A903005BBB11 /* NY */ = {
+		77BBAEF5154176A4001F5BCC /* BMLT-SV */ = {
 			isa = PBXGroup;
 			children = (
-				77AFC01F1540A903005BBB11 /* info.plist */,
+				77BBAEF6154176A4001F5BCC /* info.plist */,
 			);
-			path = NY;
+			path = "BMLT-SV";
 			sourceTree = "<group>";
 		};
 		77C182061525BDFE00560F34 /* Localization Files */ = {
@@ -886,6 +876,8 @@
 		77D90B951514C6A60059EF41 /* Variants */ = {
 			isa = PBXGroup;
 			children = (
+				77BBAEF3154176A4001F5BCC /* BMLT-MN */,
+				77BBAEF5154176A4001F5BCC /* BMLT-SV */,
 				77D90B961514C6A60059EF41 /* BMLT-NY */,
 			);
 			path = Variants;
@@ -894,13 +886,11 @@
 		77D90B961514C6A60059EF41 /* BMLT-NY */ = {
 			isa = PBXGroup;
 			children = (
-				77AFC01C1540A903005BBB11 /* MN */,
-				77AFC01E1540A903005BBB11 /* NY */,
-				777597D21540F1FC00D45ADA /* SV */,
 				77C182061525BDFE00560F34 /* Localization Files */,
 				772C06AA152534C200DA7E1C /* Storyboards */,
 				772C1627151B49E300830596 /* images */,
 				7722BF8D151B3E02001E8029 /* BMLTVariantDefs.m */,
+				77BBAEF215417694001F5BCC /* info.plist */,
 			);
 			path = "BMLT-NY";
 			sourceTree = "<group>";
@@ -1407,7 +1397,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
-				INFOPLIST_FILE = "Variants/BMLT-NY/SV/info.plist";
+				INFOPLIST_FILE = "Variants/BMLT-SV/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "SV NA Meetings";
 				PROVISIONING_PROFILE = "";
@@ -1427,7 +1417,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
-				INFOPLIST_FILE = "Variants/BMLT-NY/SV/info.plist";
+				INFOPLIST_FILE = "Variants/BMLT-SV/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "SV NA Meetings";
 				PROVISIONING_PROFILE = "";
@@ -1512,7 +1502,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
-				INFOPLIST_FILE = "Variants/BMLT-NY/NY/info.plist";
+				INFOPLIST_FILE = "Variants/BMLT-NY/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1532,7 +1522,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
-				INFOPLIST_FILE = "Variants/BMLT-NY/NY/info.plist";
+				INFOPLIST_FILE = "Variants/BMLT-NY/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1552,7 +1542,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
-				INFOPLIST_FILE = "Variants/BMLT-NY/MN/info.plist";
+				INFOPLIST_FILE = "Variants/BMLT-MN/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "MN NA Meetings";
 				PROVISIONING_PROFILE = "";
@@ -1572,7 +1562,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
-				INFOPLIST_FILE = "Variants/BMLT-NY/MN/info.plist";
+				INFOPLIST_FILE = "Variants/BMLT-MN/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "MN NA Meetings";
 				PROVISIONING_PROFILE = "";
