@@ -216,6 +216,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
 #endif
     NSMutableArray  *ret = nil;
     
+    NSInteger   displayIndex = 1;
+    
     if ( [inResults count] )
         {
         NSMutableArray  *points = [[NSMutableArray alloc] init];
@@ -262,6 +264,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
 #endif
                 NSArray *meetingsAr = [[NSArray alloc] initWithObjects:meeting, nil];  
                 annotation = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[meeting getMeetingLocationCoords].coordinate andMeetings:meetingsAr andIndex:0];
+                [annotation setDisplayIndex:displayIndex++];
                 [points addObject:annotation];
                 }
             else
@@ -422,7 +425,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
                     NSLog(@"BMLTMapResultsViewController mapView:viewForAnnotation Setting the annotation index of \"%@\" to %d.", [theMeeting getBMLTName], theIndex);
 #endif
                     
-                    [theMeeting setMeetingIndex:theIndex];
+                    [theMeeting setMeetingIndex:[(BMLT_Results_MapPointAnnotation *)annotation displayIndex]];
                     [theMeeting setPartOfMulti:[(BMLT_Results_MapPointAnnotation *)annotation getNumberOfMeetings] > 1];
                     }
                 
