@@ -974,7 +974,7 @@
 			attributes = {
 				CLASSPREFIX = BMLT;
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "Nikon Inc.";
+				ORGANIZATIONNAME = MAGSHARE;
 			};
 			buildConfigurationList = 77977D05150E882B00485C8D /* Build configuration list for PBXProject "BMLT" */;
 			compatibilityVersion = "Xcode 3.2";
