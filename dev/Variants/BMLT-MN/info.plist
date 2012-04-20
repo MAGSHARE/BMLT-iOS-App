@@ -12,6 +12,8 @@
 	<real>44.984713</real>
 	<key>BMLTServerHomeLong</key>
 	<real>-93.179855</real>
+	<key>BMLTDistanceUnits</key>
+	<string>MI</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -55,7 +57,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>BMLTDistanceUnits</key>
-	<string>MI</string>
 </dict>
 </plist>

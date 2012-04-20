@@ -5,13 +5,15 @@
 	<key>BMLTInitialProjectionSizeInKM</key>
 	<integer>25</integer>
 	<key>BMLTLeadText</key>
-	<string>Find NA Meetings in New York</string>
+	<string>Find NA Meetings In New York</string>
 	<key>BMLTRootServerURI</key>
 	<string>http://bmlt.newyorkna.org/main_server</string>
 	<key>BMLTServerHomeLat</key>
-	<real>40.771133</real>
+	<string>40.771133</string>
 	<key>BMLTServerHomeLong</key>
-	<real>-73.974187</real>
+	<string>-73.974187</string>
+	<key>BMLTDistanceUnits</key>
+	<string>MI</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -55,7 +57,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>BMLTDistanceUnits</key>
-	<string>MI</string>
 </dict>
 </plist>
