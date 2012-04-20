@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx
+  version="1.0"
+  creator="GPSBabel - http://www.gpsbabel.org"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.topografix.com/GPX/1/0"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<time>2012-04-19T19:45:28Z</time>
+<bounds minlat="44.954167012" minlon="-93.113889015" maxlat="44.954167012" maxlon="-93.113889015"/>
+<wpt lat="44.954167012" lon="-93.113889015">
+  <ele>0.000000</ele>
+  <name>St Paul, MN</name>
+  <cmt>St Paul, MN</cmt>
+  <desc>St Paul, MN</desc>
+</wpt>
+</gpx>
