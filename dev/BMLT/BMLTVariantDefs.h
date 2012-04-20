@@ -27,6 +27,16 @@
  *****************************************************************/
 @interface BMLTVariantDefs : NSObject
 
+/**************************************************************//**
+ \brief     This returns the distance units to be used for this app.
+ \returns   A string. Either "MI" (miles) or "KM" (Kilomters).
+ *****************************************************************/
++ (NSString *)distanceUnits;
+
+/**************************************************************//**
+ \brief     This returns the map coverage size (projection).
+ \returns   The number of kilometers (square) to be displayed..
+ *****************************************************************/
 + (float)initialMapProjection;
 
 /**************************************************************//**

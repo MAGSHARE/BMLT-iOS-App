@@ -9,9 +9,9 @@
 	<key>BMLTRootServerURI</key>
 	<string>http://bmlt.newyorkna.org/main_server</string>
 	<key>BMLTServerHomeLat</key>
-	<real>40.771132999999999</real>
+	<real>40.771133</real>
 	<key>BMLTServerHomeLong</key>
-	<real>-73.974187000000001</real>
+	<real>-73.974187</real>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -55,5 +55,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>BMLTDistanceUnits</key>
+	<string>MI</string>
 </dict>
 </plist>

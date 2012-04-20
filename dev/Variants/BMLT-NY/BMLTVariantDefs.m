@@ -26,6 +26,14 @@
 @implementation BMLTVariantDefs
 
 /*****************************************************************/
++ (NSString *)distanceUnits
+{
+    NSString    *plistPath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+    
+    return [[NSDictionary dictionaryWithContentsOfFile:plistPath] valueForKey:@"BMLTDistanceUnits"];
+}
+
+/*****************************************************************/
 + (float)initialMapProjection
 {
     NSString    *plistPath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];

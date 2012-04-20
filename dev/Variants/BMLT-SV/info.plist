@@ -9,9 +9,9 @@
 	<key>BMLTRootServerURI</key>
 	<string>http://www.nasverige.org/bmlt</string>
 	<key>BMLTServerHomeLat</key>
-	<real>59.319178000000001</real>
+	<real>59.319178</real>
 	<key>BMLTServerHomeLong</key>
-	<real>18.104089999999999</real>
+	<real>18.10409</real>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -55,5 +55,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>BMLTDistanceUnits</key>
+	<string>KM</string>
 </dict>
 </plist>
