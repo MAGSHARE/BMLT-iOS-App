@@ -99,7 +99,7 @@ static float    kHeaderHeight   = 100.0;
     inRect.origin.y += lineHeight + kDisplayGap;
     inRect.size.height -= lineHeight + kDisplayGap;
     
-    lineHeight = [self drawComments:myMeeting inRect:inRect];
+    [self drawComments:myMeeting inRect:inRect];
 }
 
 @end
