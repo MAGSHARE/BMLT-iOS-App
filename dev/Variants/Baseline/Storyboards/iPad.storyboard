@@ -210,7 +210,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="SETTINGS-TITLE" image="settings.png" id="apI-fa-iOp"/>
+                    <tabBarItem key="tabBarItem" title="TAB-BAR-3" image="settings.png" id="apI-fa-iOp"/>
                     <navigationItem key="navigationItem" title="SETTINGS-TITLE" id="HQQ-TY-8NO">
                         <barButtonItem key="rightBarButtonItem" title="ABOUT-TITLE" id="Cx7-gc-axl"/>
                     </navigationItem>
