@@ -352,6 +352,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7700DE3C1541FDEF009A1DBB /* MainDocumentPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainDocumentPage.h; sourceTree = "<group>"; };
 		7707F3131525B44C00032CCA /* A_BMLT_SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLT_SearchViewController.h; path = Miscellaneous/A_BMLT_SearchViewController.h; sourceTree = "<group>"; };
 		7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLT_SearchViewController.m; path = Miscellaneous/A_BMLT_SearchViewController.m; sourceTree = "<group>"; };
 		77111E7C1531306D001ACF4C /* BMLT_AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_AnimationView.h; sourceTree = "<group>"; };
@@ -800,6 +801,7 @@
 			isa = PBXGroup;
 			children = (
 				77167D4E1517D205006E50E8 /* README */,
+				7700DE3C1541FDEF009A1DBB /* MainDocumentPage.h */,
 				77977D15150E882B00485C8D /* BMLT */,
 				77D90B951514C6A60059EF41 /* Variants */,
 				77977D0E150E882B00485C8D /* Frameworks */,
