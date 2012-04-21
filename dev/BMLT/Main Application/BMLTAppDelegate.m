@@ -61,6 +61,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     BOOL                    _visitingRelatives;         ///< If true, then we will retain the app state, despite the flag that says we shouldn't.
     BOOL                    _iveUpdatedTheMap;          ///< YES, to prevent the map from being continuously updated.
     BMLT_Meeting_Search     *mySearch;                  ///< The current meeting search in progress.
+    BOOL                    deferredSearch;             ///< A semaphore that is set, in order to allow the animation to appear before the search starts.
 }
 
 - (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;   ///< Do a nice transition between tab views.
@@ -779,6 +780,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [locationManager startUpdatingLocation];
 }
 
+/**************************************************************//**
+ \brief If there is an extrenal search abort, it is sent here.
+ *****************************************************************/
+- (void)executeDeferredSearch
+{
+    deferredSearch = NO;
+    [mySearch setDelegate:self];
+    [mySearch doSearch];
+}
+
 #pragma mark - Core Location Delegate Methods -
 /**************************************************************//**
  \brief Called when the location manager has a failure.
@@ -1087,8 +1098,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     [mySearch clearSearch];
     mySearch = nil;
     mySearch = [[BMLT_Meeting_Search alloc] initWithCriteria:inSearchParams andName:nil andDescription:nil];
-    [mySearch setDelegate:self];
-    [mySearch doSearch];
+    deferredSearch = YES;
 }
 
 /**************************************************************//**
