@@ -27,6 +27,7 @@
 #import "BMLTAdvancedSearchViewController.h"
 #import "BMLTMeetingDetailViewController.h"
 #import "BMLTAnimationScreenViewController.h"
+#import "BMLTSettingsViewController.h"
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
 
@@ -97,6 +98,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 @synthesize searchNavController;        ///< This is the tab controller for all the searches.
 @synthesize listResultsViewController;  ///< This will point to our list results main controller.
 @synthesize mapResultsViewController;   ///< This will point to our map results main controller.
+@synthesize settingsViewController;     ///< This will point to our settings/info main controller.
 @synthesize reusableMeetingDetails = _details;     ///< This will hold an instance of our meeting details view controller that we will re-use.
 @synthesize currentAnimation;           ///< This will hold our current active animation (nil, otherwise).
 
@@ -451,7 +453,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     searchNavController = (UINavigationController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kSearchTabIndex] topViewController];
     listResultsViewController = (BMLTDisplayListResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kListResultsTabIndex] topViewController];
     mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kMapResultsTabIndex] topViewController];
-    
+    settingsViewController = (BMLTSettingsViewController *)(UINavigationController *)[[tabController viewControllers] objectAtIndex:kSettingsTabIndex];
     [self clearAllSearchResults:YES];
     
     float   projection = [BMLTVariantDefs initialMapProjection] * 1000.0;
@@ -510,6 +512,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
         _iveUpdatedTheMap = NO;
         [self clearAllSearchResults:YES];
+        [[settingsViewController navigationController] popToRootViewControllerAnimated:NO];
         }
     else if ( !_visitingRelatives )
         {
@@ -517,6 +520,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be left alone, but we'll make sure the tab bar is enabled/disabled properly.");
 #endif
         [self setUpTabBarItems];
+        [[settingsViewController navigationController] popToRootViewControllerAnimated:NO];
         }
 #ifdef DEBUG
     else
