@@ -26,5 +26,5 @@
     <li>Selecting the Settings tab will bring up an instance of BMLTSettingsViewController. This displays a screen that allows the user to select a number of settings and preferences for the app.</li>
     <li>In the case of the iPad, the "about" information will be displayed in the same screen as the settings. In the iPhone, a new screen will be pushed onto the navbar. This screen is controlled by the BMLTAboutViewController class.</li>
  </ol>
- <p>There are many more classes involved. Most will be self-evident in their purpose. However, we should discuss the Model classes. These are an object "model" of the data retrieved from the server.</p>
+ <p>There are many more classes involved. Most will be self-evident in their purpose.</p>
 */
