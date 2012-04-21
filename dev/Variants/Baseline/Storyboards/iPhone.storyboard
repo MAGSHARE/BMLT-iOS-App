@@ -39,6 +39,9 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -53,6 +56,9 @@
                                 <state key="normal" title="SEARCH-SPEC-LATER-TODAY-TITLE">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,6 +75,9 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -76,10 +85,10 @@
                                     <action selector="findAllMeetingsNearMeTomorrow:" destination="1ej-mT-cW2" eventType="touchUpInside" id="jkM-Tw-nGC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SEARCH-SPEC-DISABLED-TEXT" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dkI-Vz-hJE">
-                                <rect key="frame" x="13" y="207" width="295" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" text="SEARCH-SPEC-DISABLED-TEXT" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" id="iqL-3E-3rT">
+                                <rect key="frame" x="13" y="207" width="295" height="140"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -96,7 +105,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="disabledTextLabel" destination="dkI-Vz-hJE" id="liA-o6-bty"/>
+                        <outlet property="disabledTextLabel" destination="iqL-3E-3rT" id="3Sk-aI-J7R"/>
                         <outlet property="findMeetingsLaterTodayButton" destination="5ho-0G-QvA" id="j2t-Sp-ob5"/>
                         <outlet property="findMeetingsNearMeButton" destination="4sw-z7-Qal" id="Yma-zE-9bd"/>
                         <outlet property="findMeetingsTomorrowButton" destination="YBD-Eb-aW4" id="z4v-NC-n6v"/>
@@ -652,6 +661,9 @@
                                 <state key="normal" title="ADVANCED-GO-BUTTON">
                                     <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.82999840561224492" green="0.82999840561224492" blue="0.82999840561224492" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

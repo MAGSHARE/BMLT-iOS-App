@@ -84,6 +84,10 @@ self-explanatory.
 
 CHANGELIST
 ----------
+= Version 2.0d2
+* April 21, 2012
+* Now disable the simple searches and the advanced search "Near Me" if location services are disanled. This is for the iPhone only. The iPad can still use the map marker.
+
 = Version 2.0d1
 * April 21, 2012
 * Changed the way in which the annotation numbers are assigned, which improves the stability of those numbers. i.e. You will get the same numbers, over and over, for the same searches. The previous method would often yield different numbers, each time.

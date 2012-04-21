@@ -801,11 +801,11 @@
 			isa = PBXGroup;
 			children = (
 				77167D4E1517D205006E50E8 /* README */,
-				7700DE3C1541FDEF009A1DBB /* MainDocumentPage.h */,
 				77977D15150E882B00485C8D /* BMLT */,
 				77D90B951514C6A60059EF41 /* Variants */,
 				77977D0E150E882B00485C8D /* Frameworks */,
 				77977D0C150E882B00485C8D /* Products */,
+				7700DE3C1541FDEF009A1DBB /* MainDocumentPage.h */,
 				77167D4F1517D21F006E50E8 /* LICENSE.txt */,
 			);
 			sourceTree = "<group>";

@@ -540,6 +540,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [locationManager startUpdatingLocation];
         }
     
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::applicationWillEnterForeground We will start the network monitor update..");
+#endif
     [self startNetworkMonitor];
 }
 

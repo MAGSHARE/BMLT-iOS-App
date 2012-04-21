@@ -84,6 +84,17 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [goButton setTitle:NSLocalizedString([goButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
     
     [super viewDidLoad];
+    
+    if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
+        {
+        [searchSpecSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+        [searchSpecSegmentedControl setSelectedSegmentIndex:1];
+        [searchSpecAddressTextEntry setAlpha:1.0];
+        [searchSpecAddressTextEntry setEnabled:YES];
+        dontLookup = NO;
+        [searchSpecAddressTextEntry becomeFirstResponder];
+        [goButton setEnabled:NO];
+        }
 }
 
 /**************************************************************//**
@@ -259,6 +270,10 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         {
         [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
         }
+    else if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
+        {
+        [goButton setEnabled:NO];
+        }
     dontLookup = NO;
 }
 
@@ -390,7 +405,12 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     geocodeInProgress = NO;
     dontLookup = NO;
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GEOCODE-FAILURE",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
-    [myAlert show];    
+    [myAlert show];
+    
+    if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
+        {
+        [goButton setEnabled:NO];
+        }
 }
 
 #pragma mark - UITextFieldDelegate Functions -
@@ -465,18 +485,24 @@ foundCharacters:(NSString *)string          ///< The character data.
                 NSLog(@"BMLTAdvancedSearchViewController::parser: foundCharacters: Setting the marker location to (%f, %f).", lastLookup.longitude, lastLookup.latitude);
 #endif
                 [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:lastLookup];
-            
+                
+                [goButton setEnabled:YES];
+                
                 geocodeInProgress = NO;
 #ifdef DEBUG
                 NSLog(@"BMLTAdvancedSearchViewController::parser: foundCharacters: set location to: %f, %f", lastLookup.longitude, lastLookup.latitude );
 #endif
                 }
-#ifdef DEBUG
             else
                 {
+                if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
+                    {
+                    [goButton setEnabled:NO];
+                    }
+#ifdef DEBUG
                 NSLog(@"BMLTAdvancedSearchViewController::parser: foundCharacters: NULL location!");
-                }
 #endif
+                }
             }
         }
 }
