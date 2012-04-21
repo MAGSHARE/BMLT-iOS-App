@@ -44,10 +44,10 @@
 /**************************************************************//**
  \brief We take this opportunity to remove ourselves from the "tracker."
  *****************************************************************/
-- (void)viewDidUnload
+- (void)viewDidDisappear:(BOOL)animated
 {
     [[BMLTAppDelegate getBMLTAppDelegate] setCurrentAnimation:nil];
-    [super viewDidUnload];
+    [super viewDidDisappear:animated];
     // Release any retained subviews of the main view.
 }
 

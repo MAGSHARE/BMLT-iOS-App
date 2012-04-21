@@ -84,6 +84,8 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 - (void)stopNetworkMonitor;                             ///< Stop observing the network connectivity status.
 - (void)startNetworkMonitor;                            ///< Start a network test.
 - (void)networkStatusCallback:(NSNotification *)notice; ///< Gets the results of the network test.
+- (void)startAnimations;                                ///< Starts the animation by bringing in the animation view.
+- (void)stopAnimations;                                 ///< Stops the animations.
 - (void)setUpTabBarItems;                               ///< Enables and Disables the UITabBar items in accordance with the current state.
 - (void)clearAllSearchResults:(BOOL)inForce;            ///< Clears all the search results, and the results views.
 - (void)clearAllSearchResultsYes;                       ///< Clears all the search results, and the results views (Shorthand that assumes YES).

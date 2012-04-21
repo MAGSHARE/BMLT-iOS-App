@@ -89,6 +89,7 @@ CHANGELIST
 * Changed the way in which the annotation numbers are assigned, which improves the stability of those numbers. i.e. You will get the same numbers, over and over, for the same searches. The previous method would often yield different numbers, each time.
 * Rearranged some of the localized strings, so they are now in the info.plist file. This makes it more practical to produce different variants.
 * Stopped the text entry from registering an error if it is blank, in advanced search. This caused annoyance in the iPhone app.
+* Made the animation load happen programmatically, as opposed to via storyboard.
 
 = Version 2.0d0
 * April 19, 2012

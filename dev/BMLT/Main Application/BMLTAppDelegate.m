@@ -570,6 +570,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         NSLog(@"key=\"%@\", value=\"%@\"", key, [searchParams objectForKey:key]);
 #endif
 
+    [self startAnimations];
     if ( inMyLocation.longitude == 0 && inMyLocation.latitude == 0 )
         {
         _findMeetings = YES;   // This is a semaphore, that tells the app to do a search, once it has settled on a location.
@@ -730,6 +731,18 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     _markerLoc = inLocation;
 }
 #endif
+
+/**************************************************************//**
+ \brief Starts the animation.
+ *****************************************************************/
+- (void)startAnimations
+{
+    if ( !currentAnimation )
+        {
+        currentAnimation = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"animation-screen"];
+        [[searchNavController navigationController] pushViewController:currentAnimation animated:YES];
+        }
+}
 
 /**************************************************************//**
  \brief Stops the animation.
