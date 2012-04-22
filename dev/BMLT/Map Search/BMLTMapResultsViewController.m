@@ -467,41 +467,46 @@ didSelectAnnotationView:(MKAnnotationView *)inView    ///< The selected annotati
         {
         id<MKAnnotation>    annotation = [inView annotation];
         
-        if ( [annotation isKindOfClass:[BMLT_Results_MapPointAnnotation class]] && [(BMLT_Results_MapPointAnnotation *)annotation getNumberOfMeetings] )
+        if ( [annotation isKindOfClass:[BMLT_Results_MapPointAnnotation class]] )
             {
             BMLT_Results_MapPointAnnotation *theAnnotation = (BMLT_Results_MapPointAnnotation *)annotation;
-#ifdef DEBUG
-            NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Annotation Selected. This annotation contains %d meetings.", [theAnnotation getNumberOfMeetings]);
-            if ( [theAnnotation getNumberOfMeetings] == 1 )
+            
+            if ([(BMLT_Results_MapPointAnnotation *)annotation getNumberOfMeetings] )
                 {
-                BMLT_Meeting    *firstMeeting = [theAnnotation getMeetingAtIndex:0];
-                NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Displaying details for \"%@\".", [firstMeeting getBMLTName]);
+    #ifdef DEBUG
+                NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Annotation Selected. This annotation contains %d meetings.", [theAnnotation getNumberOfMeetings]);
+                if ( [theAnnotation getNumberOfMeetings] == 1 )
+                    {
+                    BMLT_Meeting    *firstMeeting = [theAnnotation getMeetingAtIndex:0];
+                    NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Displaying details for \"%@\".", [firstMeeting getBMLTName]);
+                    }
+                else
+                    {
+                    NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Displaying a list of %d meetings.", [theAnnotation getNumberOfMeetings]);
+                    }
+    #endif
+                [self dismissListPopover];
+                
+                NSArray *theMeetings = [theAnnotation getMyMeetings];
+                
+                if ( [theAnnotation getNumberOfMeetings] > 1 )
+                    {
+                    [self viewMeetingList:theMeetings atRect:[inView frame] inView:[inView superview]];
+                    }
+                else
+                    {
+                    if ( [theAnnotation getNumberOfMeetings] == 1 )
+                        {
+                        [self viewMeetingDetails:[theMeetings objectAtIndex:0]];
+                        }
+                    }
+                
+                [mapView deselectAnnotation:annotation animated:NO];
                 }
-            else
-                {
-                NSLog(@"BMLTMapResultsViewController mapView:didSelectAnnotationView -Displaying a list of %d meetings.", [theAnnotation getNumberOfMeetings]);
-                }
-#endif
-            [self dismissListPopover];
+
             _selectedAnnotation = theAnnotation;
             [theAnnotation setIsSelected:YES];
             [(BMLT_Results_MapPointAnnotationView *)[mapView viewForAnnotation:_selectedAnnotation] selectImage];
-            
-            NSArray *theMeetings = [theAnnotation getMyMeetings];
-            
-            if ( [theAnnotation getNumberOfMeetings] > 1 )
-                {
-                [self viewMeetingList:theMeetings atRect:[inView frame] inView:[inView superview]];
-                }
-            else
-                {
-                if ( [theAnnotation getNumberOfMeetings] == 1 )
-                    {
-                    [self viewMeetingDetails:[theMeetings objectAtIndex:0]];
-                    }
-                }
-            
-            [mapView deselectAnnotation:annotation animated:NO];
             }
         }
 }

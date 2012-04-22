@@ -92,6 +92,7 @@ CHANGELIST
 * Stop the iPhone and iPad text entry fields from clearing their contents when editing begins.
 * Improved the technical documentation.
 * The default pref for results is map, for iPad (since the map featured so prominently in the search).
+* All annotations highlight, now. Not just the red ones.
 
 = Version 2.0d3
 * April 21, 2012
