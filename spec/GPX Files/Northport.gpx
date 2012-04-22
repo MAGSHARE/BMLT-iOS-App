@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx
+  version="1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.topografix.com/GPX/1/0"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<time>2012-04-22T17:32:54Z</time>
+<bounds minlat="40.891910784" minlon="-73.335898408" maxlat="40.891910784" maxlon="-73.335898408"/>
+<wpt lat="40.891910784" lon="-73.335898408">
+  <ele>0.000000</ele>
+  <name>Northport, NY</name>
+  <cmt>Northport, NY</cmt>
+  <desc>Northport, NYe</desc>
+</wpt>
+</gpx>

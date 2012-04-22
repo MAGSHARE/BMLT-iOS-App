@@ -21,7 +21,7 @@
 #import "BMLT_Results_MapPointAnnotationView.h"
 #import <MapKit/MapKit.h>
 
-@class A_BMLT_SearchViewController;
+@class A_BMLT_SearchViewController; ///< Forward declaration for the gesture recognizer.
 
 /**************************************************************//**
  \class WildcardGestureRecognizer
@@ -30,7 +30,7 @@
         http://stackoverflow.com/questions/1049889/how-to-intercept-touches-events-on-a-mkmapview-or-uiwebview-objects/4064538#4064538
  *****************************************************************/
 @interface WildcardGestureRecognizer : UIGestureRecognizer
-@property (atomic, assign) A_BMLT_SearchViewController  *myController;
+    @property (atomic, assign) A_BMLT_SearchViewController  *myController;  ///< This will hold the view controller that we'll use to update.
 @end
 
 /**************************************************************//**
@@ -38,9 +38,9 @@
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
 @interface BMLT_Search_BlackAnnotationView : BMLT_Results_BlackAnnotationView
+    @property (atomic,readwrite,assign) CLLocationCoordinate2D   coordinate;
 
-@property (atomic,readwrite,assign) CLLocationCoordinate2D   coordinate;
-- (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier coordinate:(CLLocationCoordinate2D)inCoordinate;
+    - (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier coordinate:(CLLocationCoordinate2D)inCoordinate;
 @end
 
 /**************************************************************//**
@@ -57,13 +57,13 @@
  the iPad version of the app.
  *****************************************************************/
 @interface A_BMLT_SearchViewController : A_BMLTNavBarViewController <MKMapViewDelegate>
-@property (strong, atomic, readwrite) BMLT_Search_MapPointAnnotation  *myMarker;    ///< This holds the marker in the search location map.
-@property (weak, atomic, readwrite) IBOutlet MKMapView  *mapSearchView;             ///< If this is an iPad, then this will point to the map view. iPhone will be nil. The property is linked in the storyboard.
-@property (weak, atomic, readwrite) IBOutlet UIButton *lookupLocationButton;        ///< This will be for a button that allows the user to re-establish their location.
+    @property (strong, atomic, readwrite) BMLT_Search_MapPointAnnotation  *myMarker;    ///< This holds the marker in the search location map.
+    @property (weak, atomic, readwrite) IBOutlet MKMapView  *mapSearchView;             ///< If this is an iPad, then this will point to the map view. iPhone will be nil. The property is linked in the storyboard.
+    @property (weak, atomic, readwrite) IBOutlet UIButton *lookupLocationButton;        ///< This will be for a button that allows the user to re-establish their location.
 
-- (CLLocationCoordinate2D)getSearchCoordinates;                 ///< This returns whatever coordinates are to be used in the next search.
-- (void)setUpMap;                                               ///< In the case of this being an iPad, set up the search map.
-- (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate; ///< Updates the map to a new location.
-- (void)updateMap;                                              ///< Same as above, but for being called in the main thread.
-- (IBAction)locationButtonPressed:(id)sender;                   ///< Causes the app. delegate to look up the user's location again.
+    - (CLLocationCoordinate2D)getSearchCoordinates;                 ///< This returns whatever coordinates are to be used in the next search.
+    - (void)setUpMap;                                               ///< In the case of this being an iPad, set up the search map.
+    - (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate; ///< Updates the map to a new location.
+    - (void)updateMap;                                              ///< Same as above, but for being called in the main thread.
+    - (IBAction)locationButtonPressed:(id)sender;                   ///< Causes the app. delegate to look up the user's location again.
 @end

@@ -48,10 +48,10 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 }
 
 /**************************************************************//**
- \brief 
+ \brief Called when the touch has completed, and the recognizer has decided it was legit.
  *****************************************************************/
-- (void)touchesEnded:(NSSet *)touches
-           withEvent:(UIEvent *)event
+- (void)touchesEnded:(NSSet *)touches   ///< The touches involved. We ignore this.
+           withEvent:(UIEvent *)event   ///< The event in question. We use this data.
 {
 #ifdef DEBUG
     NSLog(@"WildcardGestureRecognizer::touchesEnded: withEvent:%@", [event description]);

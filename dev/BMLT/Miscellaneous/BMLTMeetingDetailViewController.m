@@ -48,7 +48,17 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
     [[[self navigationItem] titleView] sizeToFit];
     UIBarButtonItem *theButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItemClicked:)];
-    [[self navigationItem] setRightBarButtonItem:theButton];
+    // iPad has enough room for us to add a "Directions" button.
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+        UIBarButtonItem *dirButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"DIRECTIONS-BUTTON-TITLE",nil) style:UIBarButtonItemStylePlain target:self action:@selector(callForDirections:)];
+        NSArray *buttons = [NSArray arrayWithObjects:theButton, dirButton, nil];
+        [[self navigationItem] setRightBarButtonItems:buttons];
+        }
+    else    // iPhone does not.
+        {
+        [[self navigationItem] setRightBarButtonItem:theButton];
+        }
     [self setMeetingFrequencyText];
     [self setMeetingCommentsText];
     [self setMeetingLocationText];
@@ -169,15 +179,13 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 - (void)setMapLocation
 {
     // If the meeting doesn't yet have its marker, it needs setting up.
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([[_myMeeting getMeetingLocationCoords] coordinate], [NSLocalizedString(@"INITIAL-PROJECTION", nil) floatValue] * 10, [NSLocalizedString(@"INITIAL-PROJECTION", nil) floatValue] * 10);
+
+    [meetingMapView setRegion:region animated:NO];
     if ( ![[meetingMapView annotations] count] )
         {
         [[self view] setBackgroundColor:[BMLTVariantDefs meetingDetailBackgroundColor]];    // This is here to make sure it's only called once.
-        
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([[_myMeeting getMeetingLocationCoords] coordinate], [NSLocalizedString(@"INITIAL-PROJECTION", nil) floatValue] * 10, [NSLocalizedString(@"INITIAL-PROJECTION", nil) floatValue] * 10);
-        [meetingMapView setRegion:region animated:NO];
         [meetingMapView addAnnotation:[[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate] andMeetings:nil andIndex:0]];
-        [selectMapButton setAlpha:0.0];
-        [selectSatelliteButton setAlpha:1.0];
         [meetingMapView setDelegate:self];
         }
     else
@@ -185,11 +193,13 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
         [[[meetingMapView annotations] objectAtIndex:0] setCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate]];
         [meetingMapView setCenterCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate] animated:NO];
         }
+    
+    [self selectMapView:nil];
 }
 
 /**************************************************************//**
-                                                                 \brief Prints the view displayed on the screen.
-                                                                 *****************************************************************/
+ \brief Prints the view displayed on the screen.
+ *****************************************************************/
 - (void)printView
 {
 #ifdef DEBUG

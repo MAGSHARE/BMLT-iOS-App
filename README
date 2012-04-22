@@ -70,6 +70,11 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+= Version 2.0d6
+* April 22, 2012
+* Added a "Directions" button to the navbar on iPad.
+* The meeting details kept appearing with leftover map stuff. I now establish the same view, each time.
+
 = Version 2.0d5
 * April 22, 2012
 * Added the ability to tap in the search map to change the location of the marker (iPad only).
