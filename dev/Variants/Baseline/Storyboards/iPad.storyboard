@@ -381,23 +381,6 @@
                                 <rect key="frame" x="0.0" y="44" width="768" height="20"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="xEC-Vi-wEq">
-                                <rect key="frame" x="20" y="5" width="31" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" red="0.23361895160000001" green="0.3544921875" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                <state key="normal" image="LocationIconBlack.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted" image="LocationIconWhite.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="locationButtonPressed:" destination="SFh-VH-MDA" eventType="touchUpInside" id="ao9-92-inG"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="e6g-Gx-G5K">
                                 <rect key="frame" x="20" y="5" width="31" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -429,7 +412,7 @@
                         <outlet property="findMeetingsLaterTodayButton" destination="oHM-sY-V2t" id="R2s-Zt-gGA"/>
                         <outlet property="findMeetingsNearMeButton" destination="C3s-sr-oSN" id="Xk1-b5-NFa"/>
                         <outlet property="findMeetingsTomorrowButton" destination="NNa-Bu-ist" id="fys-Vy-zsx"/>
-                        <outlet property="lookupLocationButton" destination="e6g-Gx-G5K" id="qZ4-QX-fDC"/>
+                        <outlet property="lookupLocationButton" destination="e6g-Gx-G5K" id="w1N-Bs-9dM"/>
                         <outlet property="mapSearchView" destination="nLJ-nP-ZR5" id="CYK-M2-12B"/>
                     </connections>
                 </viewController>
@@ -621,7 +604,6 @@
                                         </state>
                                         <connections>
                                             <action selector="locationButtonPressed:" destination="crR-vv-v9x" eventType="touchUpInside" id="FIe-Dh-egw"/>
-                                            <action selector="locationButtonPressed:" destination="SFh-VH-MDA" eventType="touchUpInside" id="xMd-vz-A7i"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SEARCH-SPEC-SELECTED-WEEKDAYS" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="2EG-UC-yPb" userLabel="Weekday Search Label">

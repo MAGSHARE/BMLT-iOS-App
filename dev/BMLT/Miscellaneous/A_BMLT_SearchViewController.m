@@ -260,9 +260,4 @@ fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state 
     return ret;
 }
 
-
-- (void)viewDidUnload {
-    [self setLookupLocationButton:nil];
-    [super viewDidUnload];
-}
 @end
