@@ -791,9 +791,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         This will force the map to update, and will set the main
         location to the found location.
  *****************************************************************/
-- (void)lookupMyLocation:(BOOL)refreshSearch    ///< If YES, then we set the "I'm updated" flag to NO, which resets the search location.
+- (void)lookupMyLocation
 {
-    _iveUpdatedTheMap = !refreshSearch;
+    _iveUpdatedTheMap = NO;
     [locationManager startUpdatingLocation];
 }
 
@@ -867,8 +867,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
             [self setSearchMapMarkerLoc:[newLocation coordinate]];
             [activeSearchController performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
-            _iveUpdatedTheMap = YES;
             [locationManager stopUpdatingLocation]; // Stop updating for now.
+            _iveUpdatedTheMap = YES;
             }
         
         [self setLastLocation:newLocation]; // Record for posterity

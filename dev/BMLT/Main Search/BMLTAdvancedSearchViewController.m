@@ -244,7 +244,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         {
         if ( ![self myMarker] )
             {
-            [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation:YES];
+            [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
             }
         [searchSpecAddressTextEntry setAlpha:0.0];
         [searchSpecAddressTextEntry setEnabled:NO];
