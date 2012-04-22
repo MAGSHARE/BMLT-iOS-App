@@ -88,7 +88,6 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 @synthesize myPrefs;                    ///< This will have a reference to the global prefs object.
 @synthesize searchResults;              ///< This will hold the latest search results.
 @synthesize searchParams;               ///< This will hold the parameters to be used for the next search.
-@synthesize lastSearchParams;           ///< This will hold the parameters that were used for the last search.
 @synthesize activeSearchController;     ///< This will point to the active search controller. Nil, if none.
 @synthesize searchMapRegion;            ///< Used to track the state of the search spec maps.
 @synthesize searchMapMarkerLoc = _markerLoc;         /**<   This contains the location used for the search marker.
@@ -319,10 +318,8 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         [listResultsViewController setIncludeSortRow:YES];
         [listResultsViewController sortMeetings:nil];
         
-        BOOL    mapSearch = [[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap];
-        
         UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
-        [tabController setSelectedIndex:(mapSearch ? kMapResultsTabIndex : kListResultsTabIndex)];
+        [tabController setSelectedIndex:([[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap] ? kMapResultsTabIndex : kListResultsTabIndex)];
         }
     else
         {
@@ -1119,7 +1116,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 #endif
     if ( inError )
         {
-        [self performSelectorOnMainThread:@selector(clearAllSearchResultsNo) withObject:nil waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(clearAllSearchResultsNo) withObject:nil waitUntilDone:YES];
         UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"COMM-ERROR",nil) message:[inError localizedDescription] delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
         [myAlert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
         }
@@ -1129,12 +1126,9 @@ shouldSelectViewController:(UIViewController *)inViewController
         searchResults = [NSMutableArray arrayWithArray:[mySearch getSearchResults]];
         [mySearch clearSearch];
         mySearch = nil;
-        // We copy the parameters that were used for the last search, so they can be accessed later, then clear the search parameters.
-        lastSearchParams = nil;
-        lastSearchParams = [[NSDictionary alloc] initWithDictionary:searchParams];
         [searchParams removeAllObjects];
         // Since it is possible we are in another thread, make sure that we call the UI routine in the main thread.
-        [self performSelectorOnMainThread:@selector(displaySearchResults) withObject:nil waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(displaySearchResults) withObject:nil waitUntilDone:YES];
         }
 }
 

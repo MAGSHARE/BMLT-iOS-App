@@ -55,7 +55,6 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 @property (weak, atomic) BMLT_Prefs                 *myPrefs;           ///< This will have a reference to the global prefs object.
 @property (strong, nonatomic) NSMutableArray        *searchResults;     ///< This will hold the latest search results.
 @property (strong, nonatomic) NSMutableDictionary   *searchParams;      ///< This will hold the parameters to be used for the next search.
-@property (strong, nonatomic) NSDictionary          *lastSearchParams;  ///< This will hold the parameters that were used for the last search.
 @property (nonatomic, readwrite, assign) A_BMLT_SearchViewController *activeSearchController;    ///< This will point to the active search controller. Nil, if none.
 @property (nonatomic, readwrite, assign) MKCoordinateRegion          searchMapRegion;            ///< Used to track the state of the search spec maps.
 @property (nonatomic, readwrite, assign) CLLocationCoordinate2D      searchMapMarkerLoc;         ///< This contains the location used for the search marker.

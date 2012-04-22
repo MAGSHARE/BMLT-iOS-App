@@ -104,17 +104,17 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated   /// YES, if the view will be animated.
 {
-    if ( ![BMLTAppDelegate locationServicesAvailable] )
-        {
-        [[self lookupLocationButton] setEnabled:NO];
-        [[self lookupLocationButton] setAlpha:0];
-        }
-          
     [super viewWillAppear:animated];
     [self setUpMap];
     [[BMLTAppDelegate getBMLTAppDelegate] setActiveSearchController:self];
     [mapSearchView setRegion:[mapSearchView regionThatFits:[[BMLTAppDelegate getBMLTAppDelegate] searchMapRegion]]];
     [myMarker setCoordinate:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
+
+    if ( ![BMLTAppDelegate locationServicesAvailable] )
+        {
+        [[self lookupLocationButton] setEnabled:NO];
+        [[self lookupLocationButton] setAlpha:0];
+        }
 }
 
 /**************************************************************//**
