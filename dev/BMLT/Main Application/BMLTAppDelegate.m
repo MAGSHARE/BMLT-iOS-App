@@ -313,10 +313,10 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         
         [listResultsViewController addClearSearchButton];
         [mapResultsViewController addClearSearchButton];
-        [self stopAnimations];
-        [self setUpTabBarItems];
         [listResultsViewController setIncludeSortRow:YES];
         [listResultsViewController sortMeetings:nil];
+        [self stopAnimations];
+        [self setUpTabBarItems];
         
         UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
         [tabController setSelectedIndex:([[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap] ? kMapResultsTabIndex : kListResultsTabIndex)];
@@ -341,6 +341,9 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         {
         UIStoryboard    *st = [tabController storyboard];
         
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::selectInitialSearchAndForce popping search to root view controller.");
+#endif
         [[searchNavController navigationController] popToRootViewControllerAnimated:NO];
         
         UIViewController    *newSearch = nil;
@@ -510,12 +513,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
         _iveUpdatedTheMap = NO;
         [self clearAllSearchResults:YES];
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground popping settings to root view controller.");
+#endif
         [[settingsViewController navigationController] popToRootViewControllerAnimated:NO];
         }
     else if ( !_visitingRelatives )
         {
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be left alone, but we'll make sure the tab bar is enabled/disabled properly.");
+        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground popping settings to root view controller.");
 #endif
         [self setUpTabBarItems];
         [[settingsViewController navigationController] popToRootViewControllerAnimated:NO];
@@ -692,10 +699,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [mapResultsViewController dismissListPopover];
     [mapResultsViewController setDataArrayFromData:nil];
     [mapResultsViewController clearMapCompletely];
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::clearAllSearchResults popping map results to root view controller.");
+#endif
     [[mapResultsViewController navigationController] popToRootViewControllerAnimated:NO];
     
     [listResultsViewController closeModal];
     [listResultsViewController setDataArrayFromData:nil];
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::clearAllSearchResults popping list results to root view controller.");
+#endif
     [[listResultsViewController navigationController] popToRootViewControllerAnimated:NO];
     
     [self selectInitialSearchAndForce:inForce];
@@ -752,6 +765,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     if ( currentAnimation )
         {
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::stopAnimations popping current animation.");
+#endif
         [[currentAnimation navigationController] popViewControllerAnimated:NO];
         }
     
@@ -841,10 +857,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
             [self performSelectorOnMainThread:@selector(executeSearchWithParams:) withObject:searchParams waitUntilDone:YES];
             [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
-            }
-        else
-            {
-            [self performSelectorOnMainThread:@selector(stopAnimations) withObject:nil waitUntilDone:NO];
             }
         
         if ( !_iveUpdatedTheMap )   // If we are flagged to set our search location, then we do so now.

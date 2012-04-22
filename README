@@ -85,8 +85,9 @@ self-explanatory.
 CHANGELIST
 ----------
 = Version 2.0d3
-* TBD
+* April 21, 2012
 * Now hide the "find me" button for iPad if Location Services are unavailable.
+* Fixed a bug, in which the search animation screen could get mixed up with the search screens.
 
 = Version 2.0d2
 * April 21, 2012
