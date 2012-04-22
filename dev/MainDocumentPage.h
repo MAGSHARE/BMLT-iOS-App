@@ -27,4 +27,23 @@
     <li>In the case of the iPad, the "about" information will be displayed in the same screen as the settings. In the iPhone, a new screen will be pushed onto the navbar. This screen is controlled by the BMLTAboutViewController class.</li>
  </ol>
  <p>There are many more classes involved. Most will be self-evident in their purpose.</p>
+ <h2>Location</h2>
+ <p>Since this is a location-based app, and the search is done as a radius around a location, we need to have good control of both the user's current location, and the desired location for the search center (not always the same).</p>
+ <p>The search location can be specified in four ways:</p>
+ <ol>
+    <li>There is a default location. This is specifed by the server settings, and is generally a central or important location in the server's Service area.</li>
+    <li>There is theu user's current location, as determined by <a href="http://developer.apple.com/library/ios/#documentation/UserExperience/Conceptual/LocationAwarenessPG/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009497-CH1-SW1">the Core Location services</a>.</li>
+    <li>There is an address, entered into a text box, and geocoded into a long/lat location.</li>
+    <li>On the iPad, the user is presented with an interactive map, and they can move the marker around to specify a search center.</li>
+ </ol>
+ <p>If the Core Location services are unavailable, then #1 is used for the "user's location." On the iPhone, the simple search will not work, nor will the "near me" search. The user must type in an address. On the iPad, the user also has the choice of manipulating the map.</p>
+ <p>On the iPhone, #2 is required for all 3 simple search choices, as well ass "near me" in Advanced. On the iPad, the map location (set to #1, by default), is used, so these searches are enabled.</p>
+ <p>In all cases, the address can be entered, and the search will take place from there.</p>
+ <p>On the iPad, the map will always show where the search will be centered.</p>
+ <p>Location is kept by the BMLTAppDelegate instance in two instance properties:</p>
+ <ul>
+     <li>BMLTAppDelegate::lastLocation<br />This contains the user's location, as determined by the Core Location Services. It is a <a href="http://developer.apple.com/library/ios/#documentation/CoreLocation/Reference/CLLocation_Class/CLLocation/CLLocation.html#//apple_ref/doc/uid/TP40007126">CLLocation</a> object.<br />This object will be nil, if location services are unavailable, or if the user's location has not been determined (the user can choose to not do a lookup upon start).</li>
+     <li>BMLTAppDelegate::searchMapMarkerLoc<br />This contains the search center coordinates. It is a <a href="http://developer.apple.com/library/ios/#documentation/CoreLocation/Reference/CoreLocationDataTypesRef/Reference/reference.html">CLLocationCoordinates2D</a> struct.</li>
+ </ul>
+ <p>When a search is done, and displayed in the map results view, there will be a black marker. This will always display the central location for the search.</p>
 */

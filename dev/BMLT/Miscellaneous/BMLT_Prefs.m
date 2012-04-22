@@ -332,7 +332,7 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
                 }
             else
                 {
-                [self setStartWithMap:NO];
+                [self setStartWithMap:([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)];  // iPad starts with map preference.
                 }
             
             if ( [decoder containsValueForKey:@"preferDistanceSort"] )
@@ -427,7 +427,7 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
             }
         else
             {
-            [self setStartWithMap:NO];
+            [self setStartWithMap:([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)];  // iPad defaults to map search.
             [self setPreferDistanceSort:NO];
             [self setLookupMyLocation:YES];
             [self setGracePeriod:BMLT_Pref_Default_Value_Grace_Period];
