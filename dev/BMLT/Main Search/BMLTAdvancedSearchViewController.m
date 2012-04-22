@@ -438,7 +438,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 - (void)textFieldDidEndEditing:(UITextField *)textField ///< The text field object.
 {
     searchAfterLookup = NO;
-    if ( [[textField text] length] && ([searchSpecSegmentedControl selectedSegmentIndex] > 0) )
+    if ( [[textField text] length] && ([searchSpecSegmentedControl selectedSegmentIndex] > 0) && !([[self view] isHidden]) )
         {
         [self lookupLocationFromAddressString:[textField text]];
         }
