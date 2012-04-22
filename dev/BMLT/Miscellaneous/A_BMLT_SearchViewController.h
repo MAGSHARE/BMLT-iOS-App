@@ -21,6 +21,18 @@
 #import "BMLT_Results_MapPointAnnotationView.h"
 #import <MapKit/MapKit.h>
 
+@class A_BMLT_SearchViewController;
+
+/**************************************************************//**
+ \class WildcardGestureRecognizer
+ \brief This is used to find taps anywhere in the map.
+        It is inspired (and cribbed) from here:
+        http://stackoverflow.com/questions/1049889/how-to-intercept-touches-events-on-a-mkmapview-or-uiwebview-objects/4064538#4064538
+ *****************************************************************/
+@interface WildcardGestureRecognizer : UIGestureRecognizer
+@property (atomic, assign) A_BMLT_SearchViewController  *myController;
+@end
+
 /**************************************************************//**
  \class BMLT_Search_BlackAnnotationView
  \brief We modify the black annotation view to allow dragging.

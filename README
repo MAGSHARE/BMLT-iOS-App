@@ -70,6 +70,10 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+= Version 2.0d5
+* TBD
+* Added the ability to tap in the search map to change the location of the marker (iPad only).
+
 = Version 2.0d4
 * April 22, 2012
 * Fixed a bug, where the settings title was wrong in the iPhone.

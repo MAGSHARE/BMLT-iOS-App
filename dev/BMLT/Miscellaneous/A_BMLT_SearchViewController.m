@@ -24,6 +24,57 @@ static int kSearchAnnotationOffsetRight   = 7;  /**< This is how many pixels to 
 static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to shift the annotation view up. */
 
 /**************************************************************//**
+ \class WildcardGestureRecognizer
+ \brief This is used to find taps anywhere in the map.
+        It is inspired (and cribbed) from here:
+        http://stackoverflow.com/questions/1049889/how-to-intercept-touches-events-on-a-mkmapview-or-uiwebview-objects/4064538#4064538
+ *****************************************************************/
+@implementation WildcardGestureRecognizer
+@synthesize myController;
+
+/**************************************************************//**
+ \brief Initialize the gesture recognizer.
+ \returns self
+ *****************************************************************/
+-(id) init
+{
+    self = [super init];
+    if ( self )
+        {
+        [self setCancelsTouchesInView:NO];
+        }
+    
+    return self;
+}
+
+/**************************************************************//**
+ \brief 
+ *****************************************************************/
+- (void)touchesEnded:(NSSet *)touches
+           withEvent:(UIEvent *)event
+{
+#ifdef DEBUG
+    NSLog(@"WildcardGestureRecognizer::touchesEnded: withEvent:%@", [event description]);
+#endif
+    
+    UITouch *viewTouch = (UITouch *)[[event touchesForGestureRecognizer:self] anyObject];
+    
+    if ( viewTouch )
+        {
+        MKMapView *myView = (MKMapView *)[self view];
+        CGPoint position = [viewTouch locationInView:myView];
+        CLLocationCoordinate2D  longLat = [myView convertPoint:position toCoordinateFromView:myView];
+        
+#ifdef DEBUG
+        NSLog(@"WildcardGestureRecognizer::touchesEnded: withEvent: Position of Touch In View: (%f, %f)", position.x, position.y);
+        NSLog(@"WildcardGestureRecognizer::touchesEnded: withEvent: Long/Lat of Touch In View: (%f, %f)", longLat.longitude, longLat.latitude);
+#endif
+        [myController updateMapWithThisLocation:longLat];
+        }
+}
+@end
+
+/**************************************************************//**
  \class BMLT_Search_BlackAnnotationView
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
@@ -140,6 +191,10 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         [mapSearchView addAnnotation:myMarker];
         
         [mapSearchView setDelegate:self];
+        
+        WildcardGestureRecognizer * tapInterceptor = [[WildcardGestureRecognizer alloc] init];
+        [tapInterceptor setMyController:self];
+        [mapSearchView addGestureRecognizer:tapInterceptor];
         }
 }
 
