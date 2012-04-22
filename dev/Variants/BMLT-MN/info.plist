@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BMLTDistanceUnits</key>
+	<string>MI</string>
 	<key>BMLTInitialProjectionSizeInKM</key>
 	<integer>25</integer>
 	<key>BMLTLeadText</key>
@@ -9,11 +11,9 @@
 	<key>BMLTRootServerURI</key>
 	<string>http://naminnesota.org/bmlt/main_server</string>
 	<key>BMLTServerHomeLat</key>
-	<real>44.984713</real>
+	<real>44.984712999999999</real>
 	<key>BMLTServerHomeLong</key>
-	<real>-93.179855</real>
-	<key>BMLTDistanceUnits</key>
-	<string>MI</string>
+	<real>-93.179855000000003</real>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -31,11 +31,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0d3</string>
+	<string>2.0d4</string>
 	<key>CFBundleSignature</key>
 	<string>LGVP</string>
 	<key>CFBundleVersion</key>
-	<string>2.0d3</string>
+	<string>2.0d4</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

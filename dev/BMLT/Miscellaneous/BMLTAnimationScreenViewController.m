@@ -39,7 +39,6 @@
     [[self messageLabel] setText:@""];
     [[BMLTAppDelegate getBMLTAppDelegate] setCurrentAnimation:self];
     [[BMLTAppDelegate getBMLTAppDelegate] executeDeferredSearch];
-    [[self navigationItem] setTitle:NSLocalizedString(@"SEARCH-ANIMATION-TITLE", nil)];
 }
 
 /**************************************************************//**

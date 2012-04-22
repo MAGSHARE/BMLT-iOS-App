@@ -84,6 +84,12 @@ self-explanatory.
 
 CHANGELIST
 ----------
+= Version 2.0d4
+* TBD
+* Fixed a bug, where the settings title was wrong in the iPhone.
+* Now set the search animation title at instantiation time, so it will be displayed.
+* Fixed an iPhone bug, in which an advanced address could be carried back to the simple search.
+
 = Version 2.0d3
 * April 21, 2012
 * Now hide the "find me" button for iPad if Location Services are unavailable.

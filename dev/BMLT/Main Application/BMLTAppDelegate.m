@@ -754,6 +754,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     if ( !currentAnimation )
         {
         currentAnimation = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"animation-screen"];
+        [[searchNavController navigationItem] setTitle:NSLocalizedString(@"SEARCH-ANIMATION-TITLE", nil)];
         [[searchNavController navigationController] pushViewController:currentAnimation animated:YES];
         }
 }

@@ -52,6 +52,12 @@
         [disabledTextLabel setAlpha:1.0];
         }
     
+    // If this is the iPhone, we always use the user's current location.
+    if ( ![self mapSearchView] )
+        {
+        [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:[[BMLTAppDelegate getBMLTAppDelegate] lastLocation].coordinate];
+        }
+    
     if ( [[[BMLTAppDelegate getBMLTAppDelegate] searchResults] count] )
         {
         [self addClearSearchButton];
