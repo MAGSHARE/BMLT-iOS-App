@@ -74,6 +74,7 @@ CHANGELIST
 * April 22, 2012
 * Added a "Directions" button to the navbar on iPad.
 * The meeting details kept appearing with leftover map stuff. I now establish the same view, each time.
+* Moved the "find me" button for the advanced search out of the weekday collective, so it will stay in its corner, properly.
 
 = Version 2.0d5
 * April 22, 2012
