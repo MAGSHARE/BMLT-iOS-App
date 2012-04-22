@@ -84,6 +84,10 @@ self-explanatory.
 
 CHANGELIST
 ----------
+= Version 2.0d3
+* TBD
+* Now hide the "find me" button for iPad if Location Services are unavailable.
+
 = Version 2.0d2
 * April 21, 2012
 * Now disable the simple searches and the advanced search "Near Me" if location services are disabled. This is for the iPhone only. The iPad can still use the map marker.

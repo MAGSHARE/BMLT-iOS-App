@@ -107,6 +107,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     if ( ![BMLTAppDelegate locationServicesAvailable] )
         {
         [[self lookupLocationButton] setEnabled:NO];
+        [[self lookupLocationButton] setAlpha:0];
         }
           
     [super viewWillAppear:animated];
