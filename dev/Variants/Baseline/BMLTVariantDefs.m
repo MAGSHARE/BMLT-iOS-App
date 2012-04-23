@@ -54,19 +54,22 @@
 /*****************************************************************/
 + (UIColor *)windowBackgroundColor
 {
-    return [UIColor blueColor];
+    static UIColor *bluecolor;
+    static dispatch_once_t onceTokenBlue;
+    dispatch_once ( &onceTokenBlue, ^{ bluecolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueLeather.gif"]]; } );
+    return bluecolor;
 }
 
 /*****************************************************************/
 + (UIColor *)searchBackgroundColor
 {
-    return [UIColor blueColor];
+    return [[self class] windowBackgroundColor];
 }
 
 /*****************************************************************/
 + (UIColor *)listResultsBackgroundColor
 {
-    return [UIColor blueColor];
+    return [[self class] windowBackgroundColor];
 }
 
 /*****************************************************************/
@@ -84,7 +87,7 @@
 /*****************************************************************/
 + (UIColor *)mapResultsBackgroundColor
 {
-    return [UIColor blueColor];
+    return [[self class] windowBackgroundColor];
 }
 
 /*****************************************************************/

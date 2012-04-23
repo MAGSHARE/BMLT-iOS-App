@@ -30,6 +30,12 @@
 @implementation BMLTAnimationScreenViewController
 @synthesize messageLabel;
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[self view] setBackgroundColor:[BMLTVariantDefs windowBackgroundColor]];
+}
+
 /**************************************************************//**
  \brief Called just before the screen appears. We use it to set a
         "tracker" variable in the app delegate, and to set the title.

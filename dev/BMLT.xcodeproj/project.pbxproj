@@ -343,6 +343,9 @@
 		77AC719615409E9F0060CA80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77AC719715409E9F0060CA80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77AC719815409E9F0060CA80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
+		77ADCC4F1545AACF0080250E /* BlueLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77ADCC4E1545AACF0080250E /* BlueLeather.gif */; };
+		77ADCC501545AACF0080250E /* BlueLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77ADCC4E1545AACF0080250E /* BlueLeather.gif */; };
+		77ADCC511545AACF0080250E /* BlueLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77ADCC4E1545AACF0080250E /* BlueLeather.gif */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
@@ -503,6 +506,7 @@
 		77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLT_PrintPageRenderer.m; sourceTree = "<group>"; };
 		77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BMLTCloseModalProtocol.h; path = Miscellaneous/BMLTCloseModalProtocol.h; sourceTree = "<group>"; };
 		77AC71E215409E9F0060CA80 /* MN NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MN NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77ADCC4E1545AACF0080250E /* BlueLeather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BlueLeather.gif; sourceTree = "<group>"; };
 		77BBAEF215417694001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		77BBAEF4154176A4001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		77BBAEF6154176A4001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
@@ -695,6 +699,7 @@
 		77603DA21541DC8300C4840F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				77ADCC4E1545AACF0080250E /* BlueLeather.gif */,
 				77603DA31541DC8300C4840F /* BMLT_Animation */,
 				77603DC51541DC8300C4840F /* Concave.png */,
 				77603DC61541DC8300C4840F /* Convex.png */,
@@ -1096,6 +1101,7 @@
 				77603EBB1541DC8300C4840F /* BMLTFormatDetailViewController.xib in Resources */,
 				77603EBE1541DC8300C4840F /* iPad.storyboard in Resources */,
 				77603EC11541DC8300C4840F /* iPhone.storyboard in Resources */,
+				77ADCC511545AACF0080250E /* BlueLeather.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1172,6 +1178,7 @@
 				77603EB91541DC8300C4840F /* BMLTFormatDetailViewController.xib in Resources */,
 				77603EBC1541DC8300C4840F /* iPad.storyboard in Resources */,
 				77603EBF1541DC8300C4840F /* iPhone.storyboard in Resources */,
+				77ADCC4F1545AACF0080250E /* BlueLeather.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1248,6 +1255,7 @@
 				77603EBA1541DC8300C4840F /* BMLTFormatDetailViewController.xib in Resources */,
 				77603EBD1541DC8300C4840F /* iPad.storyboard in Resources */,
 				77603EC01541DC8300C4840F /* iPhone.storyboard in Resources */,
+				77ADCC501545AACF0080250E /* BlueLeather.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
