@@ -31,37 +31,47 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4sw-z7-Qal">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4sw-z7-Qal">
                                 <rect key="frame" x="13" y="65" width="295" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="SEARCH-SPEC-NEARBY-TITLE">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="SEARCH-SPEC-NEARBY-TITLE" backgroundImage="LongButtonNormal.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="disabled" backgroundImage="LongButtonNormal.png">
+                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="LongButtonHighlight.png">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="LongButtonHighlight.png">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="findAllMeetingsNearMe:" destination="1ej-mT-cW2" eventType="touchUpInside" id="dLV-fV-32n"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5ho-0G-QvA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5ho-0G-QvA">
                                 <rect key="frame" x="13" y="110" width="295" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="SEARCH-SPEC-LATER-TODAY-TITLE">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="SEARCH-SPEC-LATER-TODAY-TITLE" backgroundImage="LongButtonNormal.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="disabled" backgroundImage="LongButtonNormal.png">
+                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="LongButtonHighlight.png">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="LongButtonHighlight.png">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="findAllMeetingsNearMeLaterToday:" destination="1ej-mT-cW2" eventType="touchUpInside" id="blk-RL-NaC"/>
@@ -71,15 +81,21 @@
                                 <rect key="frame" x="13" y="155" width="295" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="SEARCH-SPEC-TOMORROW-TITLE">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="SEARCH-SPEC-TOMORROW-TITLE" backgroundImage="LongButtonNormal.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="disabled" backgroundImage="LongButtonNormal.png">
+                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="LongButtonHighlight.png">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="findAllMeetingsNearMeTomorrow:" destination="1ej-mT-cW2" eventType="touchUpInside" id="jkM-Tw-nGC"/>
@@ -260,6 +276,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="lwl-k3-B1U">
                                 <rect key="frame" x="229" y="10" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="lookupLocationChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="aV1-Ve-h7z"/>
                                 </connections>
@@ -274,6 +291,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="5I5-tm-Io6">
                                 <rect key="frame" x="229" y="50" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="retainStateChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="ORc-ix-hJq"/>
                                 </connections>
@@ -288,6 +306,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="HAI-1z-Rmb">
                                 <rect key="frame" x="229" y="93" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="mapResultsChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="l7A-Ur-kCa"/>
                                 </connections>
@@ -302,6 +321,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="d1R-Bw-4lt">
                                 <rect key="frame" x="229" y="134" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="distanceSortChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="pFB-K2-Hbk"/>
                                 </connections>
@@ -348,6 +368,7 @@
                                     <segment title="SEARCH-SPEC-SIMPLE-TITLE"/>
                                     <segment title="SEARCH-SPEC-ADVANCED-TITLE"/>
                                 </segments>
+                                <color key="tintColor" red="0.65306122450000004" green="0.65231628870000002" blue="0.0013506968430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="preferredSearchChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="JtI-Ri-mHF"/>
                                 </connections>
@@ -355,20 +376,30 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="aiz-ga-Xae" customClass="BMLTSnappyLogSlider">
                                 <rect key="frame" x="18" y="258" width="284" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.53826530610000001" green="0.5347308019" blue="0.0063979508980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="0.94662786990000003" green="0.94554806769999999" blue="0.00195786739" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="numMeetingsChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="QLc-H1-b9D"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1M9-WK-Tok">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1M9-WK-Tok">
                                 <rect key="frame" x="35" y="310" width="251" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="SETTINGS-UPDATE-LOCATION">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="SETTINGS-UPDATE-LOCATION" backgroundImage="LongButtonNormal.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" backgroundImage="LongButtonNormal.png">
+                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" backgroundImage="LongButtonHighlight.png">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="LongButtonHighlight.png">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="updateUserLocationNow:" destination="Nxo-gu-wB5" eventType="touchUpInside" id="WVu-5o-tZk"/>
@@ -462,6 +493,7 @@
                                             <segment title="SEARCH-SPEC-SELECTED-WEEKDAYS-2"/>
                                             <segment title="SEARCH-SPEC-SELECTED-WEEKDAYS-3"/>
                                         </segments>
+                                        <color key="tintColor" red="0.65306122448979598" green="0.65231628870607139" blue="0.0013506968430383188" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="weekdaySelectionChanged:" destination="eMe-9F-zBx" eventType="valueChanged" id="uyA-Gx-5lX"/>
                                         </connections>
@@ -640,6 +672,7 @@
                                     <segment title="SEARCH-SPEC-MY-LOC"/>
                                     <segment title="SEARCH-SPEC-ADDRESS"/>
                                 </segments>
+                                <color key="tintColor" red="0.65306122450000004" green="0.65231628870000002" blue="0.0013506968430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="searchSpecChanged:" destination="eMe-9F-zBx" eventType="valueChanged" id="gBl-8n-V7w"/>
                                 </connections>
@@ -658,15 +691,20 @@
                                 <rect key="frame" x="108" y="271" width="104" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="ADVANCED-GO-BUTTON">
-                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" red="0.82999840561224492" green="0.82999840561224492" blue="0.82999840561224492" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="ADVANCED-GO-BUTTON" backgroundImage="GoButtonNormal.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="disabled" backgroundImage="GoButtonNormal.png">
+                                    <color key="titleColor" red="0.82999840561224492" green="0.82999840561224492" blue="0.82999840561224492" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="GoButtonHighlight.png">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="GoButtonHighlight.png">
+                                    <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="doSearchButtonPressed:" destination="eMe-9F-zBx" eventType="touchUpInside" id="hV3-a1-AmB"/>
@@ -895,6 +933,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GoButtonHighlight.png" width="56" height="32"/>
+        <image name="GoButtonNormal.png" width="56" height="32"/>
+        <image name="LongButtonHighlight.png" width="220" height="32"/>
+        <image name="LongButtonNormal.png" width="220" height="32"/>
         <image name="MButtonConvex.png" width="48" height="48"/>
         <image name="SButtonConcave.png" width="48" height="48"/>
         <image name="SButtonConvex.png" width="48" height="48"/>
