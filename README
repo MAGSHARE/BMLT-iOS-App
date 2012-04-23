@@ -70,6 +70,10 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0d7
+* TBD
+* Made it so that dragging the marker re-centers the map in the same manner as touching.
+
 = Version 2.0d6
 * April 22, 2012
 * Added a "Directions" button to the navbar on iPad.

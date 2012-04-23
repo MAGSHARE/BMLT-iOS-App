@@ -279,13 +279,13 @@ fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state 
 #ifdef DEBUG
     NSLog(@"A_BMLT_SearchViewController::mapView: annotationView: newState:%d oldState:%d called.", newState, oldState);
 #endif
-    if ( newState == MKAnnotationViewDragStateEnding )
+    if ( (newState == MKAnnotationViewDragStateEnding) && (oldState == MKAnnotationViewDragStateStarting) )
         {
         CLLocationCoordinate2D  markerLoc = [myMarker coordinate];
 #ifdef DEBUG
             NSLog(@"A_BMLT_SearchViewController::mapView: annotationView: newState: oldState: Setting new location to (%f, %f).", markerLoc.longitude, markerLoc.latitude);
 #endif
-        [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:markerLoc];
+        [self updateMapWithThisLocation:markerLoc];
         }
 }
 
