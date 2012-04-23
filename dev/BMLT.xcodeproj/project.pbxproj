@@ -313,12 +313,6 @@
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		7799D29B151FA633007FE822 /* BMLTMeetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */; };
 		7799D2A2151FACD5007FE822 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7799D2A1151FACD4007FE822 /* MapKit.framework */; };
-		77A4A0DF1545EDAB00C879D6 /* GoButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4A0DD1545EDAB00C879D6 /* GoButtonHighlight.png */; };
-		77A4A0E01545EDAB00C879D6 /* GoButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4A0DD1545EDAB00C879D6 /* GoButtonHighlight.png */; };
-		77A4A0E11545EDAB00C879D6 /* GoButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4A0DD1545EDAB00C879D6 /* GoButtonHighlight.png */; };
-		77A4A0E21545EDAB00C879D6 /* GoButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4A0DE1545EDAB00C879D6 /* GoButtonNormal.png */; };
-		77A4A0E31545EDAB00C879D6 /* GoButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4A0DE1545EDAB00C879D6 /* GoButtonNormal.png */; };
-		77A4A0E41545EDAB00C879D6 /* GoButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4A0DE1545EDAB00C879D6 /* GoButtonNormal.png */; };
 		77A5600D153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */; };
 		77AC716B15409E9F0060CA80 /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C32150E88E5005A707A /* BMLTAppDelegate.m */; };
 		77AC716C15409E9F0060CA80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C33150E88E5005A707A /* main.m */; };
@@ -534,8 +528,6 @@
 		7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMeetingDetailViewController.h; sourceTree = "<group>"; };
 		7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMeetingDetailViewController.m; sourceTree = "<group>"; };
 		7799D2A1151FACD4007FE822 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		77A4A0DD1545EDAB00C879D6 /* GoButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoButtonHighlight.png; sourceTree = "<group>"; };
-		77A4A0DE1545EDAB00C879D6 /* GoButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoButtonNormal.png; sourceTree = "<group>"; };
 		77A5600B153CF0520039CCDD /* A_BMLT_PrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLT_PrintPageRenderer.h; sourceTree = "<group>"; };
 		77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLT_PrintPageRenderer.m; sourceTree = "<group>"; };
 		77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BMLTCloseModalProtocol.h; path = Miscellaneous/BMLTCloseModalProtocol.h; sourceTree = "<group>"; };
@@ -738,8 +730,6 @@
 		77603DA21541DC8300C4840F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				77A4A0DD1545EDAB00C879D6 /* GoButtonHighlight.png */,
-				77A4A0DE1545EDAB00C879D6 /* GoButtonNormal.png */,
 				7786ABB71545EB16008AC4A9 /* LongButtonHighlight.png */,
 				7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */,
 				772FB9CB1545E7D5006C446F /* LocationButtonHighlighted.png */,
@@ -1155,8 +1145,6 @@
 				772FB9D21545E7D5006C446F /* LocationButtonNormal.png in Resources */,
 				7786ABBB1545EB16008AC4A9 /* LongButtonHighlight.png in Resources */,
 				7786ABBE1545EB16008AC4A9 /* LongButtonNormal.png in Resources */,
-				77A4A0E11545EDAB00C879D6 /* GoButtonHighlight.png in Resources */,
-				77A4A0E41545EDAB00C879D6 /* GoButtonNormal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1240,8 +1228,6 @@
 				772FB9D01545E7D5006C446F /* LocationButtonNormal.png in Resources */,
 				7786ABB91545EB16008AC4A9 /* LongButtonHighlight.png in Resources */,
 				7786ABBC1545EB16008AC4A9 /* LongButtonNormal.png in Resources */,
-				77A4A0DF1545EDAB00C879D6 /* GoButtonHighlight.png in Resources */,
-				77A4A0E21545EDAB00C879D6 /* GoButtonNormal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1325,8 +1311,6 @@
 				772FB9D11545E7D5006C446F /* LocationButtonNormal.png in Resources */,
 				7786ABBA1545EB16008AC4A9 /* LongButtonHighlight.png in Resources */,
 				7786ABBD1545EB16008AC4A9 /* LongButtonNormal.png in Resources */,
-				77A4A0E01545EDAB00C879D6 /* GoButtonHighlight.png in Resources */,
-				77A4A0E31545EDAB00C879D6 /* GoButtonNormal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -862,17 +862,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="ADVANCED-GO-BUTTON" backgroundImage="GoButtonNormal.png">
+                                <state key="normal" title="ADVANCED-GO-BUTTON" backgroundImage="LongButtonNormal.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
-                                <state key="disabled" backgroundImage="GoButtonNormal.png">
+                                <state key="disabled" backgroundImage="LongButtonNormal.png">
+                                    <color key="titleColor" red="0.82999840560000004" green="0.82999840560000004" blue="0.82999840560000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="GoButtonHighlight.png">
+                                <state key="selected" backgroundImage="LongButtonHighlight.png">
                                     <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <state key="highlighted" backgroundImage="GoButtonHighlight.png">
+                                <state key="highlighted" backgroundImage="LongButtonHighlight.png">
                                     <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -976,8 +977,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GoButtonHighlight.png" width="56" height="32"/>
-        <image name="GoButtonNormal.png" width="56" height="32"/>
         <image name="LocationButtonHighlighted.png" width="32" height="32"/>
         <image name="LocationButtonNormal.png" width="32" height="32"/>
         <image name="LongButtonHighlight.png" width="220" height="32"/>
