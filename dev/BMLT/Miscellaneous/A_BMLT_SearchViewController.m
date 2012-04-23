@@ -276,16 +276,16 @@ annotationView:(MKAnnotationView *)annotationView       ///< The annotation view
 didChangeDragState:(MKAnnotationViewDragState)newState  ///< The new state of the annotation.
 fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state of the annotation.
 {
+    CLLocationCoordinate2D  markerLoc = [myMarker coordinate];
 #ifdef DEBUG
-    NSLog(@"A_BMLT_SearchViewController::mapView: annotationView: newState:%d oldState:%d called.", newState, oldState);
+    NSLog(@"A_BMLT_SearchViewController::mapView: annotationView: newState: %d oldState: %d Marker location: (%f, %f).", newState, oldState, markerLoc.longitude, markerLoc.latitude);
 #endif
     if ( (newState == MKAnnotationViewDragStateEnding) && (oldState == MKAnnotationViewDragStateStarting) )
         {
-        CLLocationCoordinate2D  markerLoc = [myMarker coordinate];
 #ifdef DEBUG
-            NSLog(@"A_BMLT_SearchViewController::mapView: annotationView: newState: oldState: Setting new location to (%f, %f).", markerLoc.longitude, markerLoc.latitude);
+        NSLog(@"A_BMLT_SearchViewController::mapView: annotationView: Changing Marker Location.");
 #endif
-        [self updateMapWithThisLocation:markerLoc];
+        return [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:markerLoc];
         }
 }
 
