@@ -72,7 +72,7 @@ CHANGELIST
 ----------
 == Version 2.0d7
 * TBD
-* Made it so that dragging the marker re-centers the map in the same manner as touching.
+* Toned down the colors of the red and blue indicators in the list view to better match the color of the annotations they represent.
 
 = Version 2.0d6
 * April 22, 2012
