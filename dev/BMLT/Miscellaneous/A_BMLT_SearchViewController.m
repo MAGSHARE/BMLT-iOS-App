@@ -116,7 +116,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
             animated:(BOOL)animated                             ///< Whether or not to animate the drag.
 {
 #ifdef DEBUG
-    NSLog(@"BMLT_Search_BlackAnnotationView::setDragState: animated: called.");
+    NSLog(@"BMLT_Search_BlackAnnotationView::setDragState: %d animated: called.", newDragState);
 #endif
     switch ( newDragState )
     {
@@ -125,6 +125,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         break;
         
         case MKAnnotationViewDragStateEnding:
+        default:
         [self setImage:[UIImage imageNamed:@"MapMarkerBlack.png"]];
         break;
     }
