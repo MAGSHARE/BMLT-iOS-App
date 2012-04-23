@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7707F3151525B44C00032CCA /* A_BMLT_SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */; };
+		771094B91545D19D001989F4 /* BrownLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 771094B71545D19D001989F4 /* BrownLeather.gif */; };
+		771094BA1545D19D001989F4 /* BrownLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 771094B71545D19D001989F4 /* BrownLeather.gif */; };
+		771094BB1545D19D001989F4 /* BrownLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 771094B71545D19D001989F4 /* BrownLeather.gif */; };
+		771094BC1545D19D001989F4 /* DarkLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 771094B81545D19D001989F4 /* DarkLeather.gif */; };
+		771094BD1545D19D001989F4 /* DarkLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 771094B81545D19D001989F4 /* DarkLeather.gif */; };
+		771094BE1545D19D001989F4 /* DarkLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 771094B81545D19D001989F4 /* DarkLeather.gif */; };
 		77111E7E1531306D001ACF4C /* BMLT_AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77111E7D1531306D001ACF4C /* BMLT_AnimationView.m */; };
 		7711417215125CD100BCCE00 /* BMLTSimpleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */; };
 		771A40ED15408EA000EF34DF /* BMLTBundleResourceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 771A40EC15408EA000EF34DF /* BMLTBundleResourceLabel.m */; };
@@ -139,9 +145,6 @@
 		77603E561541DC8300C4840F /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DC61541DC8300C4840F /* Convex.png */; };
 		77603E571541DC8300C4840F /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DC61541DC8300C4840F /* Convex.png */; };
 		77603E581541DC8300C4840F /* Convex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DC61541DC8300C4840F /* Convex.png */; };
-		77603E591541DC8300C4840F /* DarkWeave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DC71541DC8300C4840F /* DarkWeave.png */; };
-		77603E5A1541DC8300C4840F /* DarkWeave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DC71541DC8300C4840F /* DarkWeave.png */; };
-		77603E5B1541DC8300C4840F /* DarkWeave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DC71541DC8300C4840F /* DarkWeave.png */; };
 		77603E5C1541DC8300C4840F /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DC81541DC8300C4840F /* FormatCircleBlue@2x.png */; };
 		77603E5D1541DC8300C4840F /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DC81541DC8300C4840F /* FormatCircleBlue@2x.png */; };
 		77603E5E1541DC8300C4840F /* FormatCircleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DC81541DC8300C4840F /* FormatCircleBlue@2x.png */; };
@@ -348,9 +351,15 @@
 		77ADCC511545AACF0080250E /* BlueLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77ADCC4E1545AACF0080250E /* BlueLeather.gif */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */; };
+		77CBD11B1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */; };
+		77CBD11C1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */; };
+		77CBD11D1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
 		77CFE116153CB874005FB181 /* BMLT_ListPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */; };
 		77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */; };
+		77DCF09D1545D4FE00979BF6 /* BMLTAboutBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DCF09C1545D4FE00979BF6 /* BMLTAboutBackgroundView.m */; };
+		77DCF09E1545D4FE00979BF6 /* BMLTAboutBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DCF09C1545D4FE00979BF6 /* BMLTAboutBackgroundView.m */; };
+		77DCF09F1545D4FE00979BF6 /* BMLTAboutBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DCF09C1545D4FE00979BF6 /* BMLTAboutBackgroundView.m */; };
 		77F6C36A1531D1A90038784D /* BMLTAnimationScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F6C3691531D1A90038784D /* BMLTAnimationScreenViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -358,6 +367,8 @@
 		7700DE3C1541FDEF009A1DBB /* MainDocumentPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainDocumentPage.h; sourceTree = "<group>"; };
 		7707F3131525B44C00032CCA /* A_BMLT_SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLT_SearchViewController.h; path = Miscellaneous/A_BMLT_SearchViewController.h; sourceTree = "<group>"; };
 		7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLT_SearchViewController.m; path = Miscellaneous/A_BMLT_SearchViewController.m; sourceTree = "<group>"; };
+		771094B71545D19D001989F4 /* BrownLeather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BrownLeather.gif; sourceTree = "<group>"; };
+		771094B81545D19D001989F4 /* DarkLeather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = DarkLeather.gif; sourceTree = "<group>"; };
 		77111E7C1531306D001ACF4C /* BMLT_AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_AnimationView.h; sourceTree = "<group>"; };
 		77111E7D1531306D001ACF4C /* BMLT_AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_AnimationView.m; sourceTree = "<group>"; };
 		7711417015125CD100BCCE00 /* BMLTSimpleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSimpleSearchViewController.h; sourceTree = "<group>"; };
@@ -446,7 +457,6 @@
 		77603DC41541DC8300C4840F /* TopLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopLayer.png; sourceTree = "<group>"; };
 		77603DC51541DC8300C4840F /* Concave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Concave.png; sourceTree = "<group>"; };
 		77603DC61541DC8300C4840F /* Convex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Convex.png; sourceTree = "<group>"; };
-		77603DC71541DC8300C4840F /* DarkWeave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkWeave.png; sourceTree = "<group>"; };
 		77603DC81541DC8300C4840F /* FormatCircleBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleBlue@2x.png"; sourceTree = "<group>"; };
 		77603DC91541DC8300C4840F /* FormatCircleGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleGreen@2x.png"; sourceTree = "<group>"; };
 		77603DCA1541DC8300C4840F /* FormatCircleRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatCircleRed@2x.png"; sourceTree = "<group>"; };
@@ -514,6 +524,7 @@
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSearchResultsViewController.m; path = Miscellaneous/A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
 		77BCBBDB152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Results_MapPointAnnotationView.h; sourceTree = "<group>"; };
 		77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Results_MapPointAnnotationView.m; sourceTree = "<group>"; };
+		77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShadowUpsideDown.png; sourceTree = "<group>"; };
 		77CE3F071516252300C93BC6 /* A_BMLTSettingsBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTSettingsBackgroundView.h; path = Miscellaneous/A_BMLTSettingsBackgroundView.h; sourceTree = "<group>"; };
 		77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSettingsBackgroundView.m; path = Miscellaneous/A_BMLTSettingsBackgroundView.m; sourceTree = "<group>"; };
 		77CFE114153CB874005FB181 /* BMLT_ListPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_ListPrintPageRenderer.h; sourceTree = "<group>"; };
@@ -521,6 +532,8 @@
 		77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTNavBarViewController.h; path = Miscellaneous/A_BMLTNavBarViewController.h; sourceTree = "<group>"; };
 		77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTNavBarViewController.m; path = Miscellaneous/A_BMLTNavBarViewController.m; sourceTree = "<group>"; };
 		77D90B031514C5340059EF41 /* BMLT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
+		77DCF09B1545D4FE00979BF6 /* BMLTAboutBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAboutBackgroundView.h; sourceTree = "<group>"; };
+		77DCF09C1545D4FE00979BF6 /* BMLTAboutBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAboutBackgroundView.m; sourceTree = "<group>"; };
 		77F6C3681531D1A90038784D /* BMLTAnimationScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTAnimationScreenViewController.h; sourceTree = "<group>"; };
 		77F6C3691531D1A90038784D /* BMLTAnimationScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAnimationScreenViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -610,6 +623,8 @@
 		771D0C52150E893C005A707A /* Miscellaneous View and Controller Classes */ = {
 			isa = PBXGroup;
 			children = (
+				77DCF09B1545D4FE00979BF6 /* BMLTAboutBackgroundView.h */,
+				77DCF09C1545D4FE00979BF6 /* BMLTAboutBackgroundView.m */,
 				77BCBBDB152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.h */,
 				77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */,
 				7799D298151FA633007FE822 /* BMLTMeetingDetailViewController.h */,
@@ -700,10 +715,11 @@
 			isa = PBXGroup;
 			children = (
 				77ADCC4E1545AACF0080250E /* BlueLeather.gif */,
+				771094B71545D19D001989F4 /* BrownLeather.gif */,
+				771094B81545D19D001989F4 /* DarkLeather.gif */,
 				77603DA31541DC8300C4840F /* BMLT_Animation */,
 				77603DC51541DC8300C4840F /* Concave.png */,
 				77603DC61541DC8300C4840F /* Convex.png */,
-				77603DC71541DC8300C4840F /* DarkWeave.png */,
 				77603DC81541DC8300C4840F /* FormatCircleBlue@2x.png */,
 				77603DC91541DC8300C4840F /* FormatCircleGreen@2x.png */,
 				77603DCA1541DC8300C4840F /* FormatCircleRed@2x.png */,
@@ -733,6 +749,7 @@
 				77603DE21541DC8300C4840F /* settings.png */,
 				77603DE31541DC8300C4840F /* settings@2x.png */,
 				77603DE41541DC8300C4840F /* Shadow.png */,
+				77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -1066,7 +1083,6 @@
 				77603E521541DC8300C4840F /* TopLayer.png in Resources */,
 				77603E551541DC8300C4840F /* Concave.png in Resources */,
 				77603E581541DC8300C4840F /* Convex.png in Resources */,
-				77603E5B1541DC8300C4840F /* DarkWeave.png in Resources */,
 				77603E5E1541DC8300C4840F /* FormatCircleBlue@2x.png in Resources */,
 				77603E611541DC8300C4840F /* FormatCircleGreen@2x.png in Resources */,
 				77603E641541DC8300C4840F /* FormatCircleRed@2x.png in Resources */,
@@ -1102,6 +1118,9 @@
 				77603EBE1541DC8300C4840F /* iPad.storyboard in Resources */,
 				77603EC11541DC8300C4840F /* iPhone.storyboard in Resources */,
 				77ADCC511545AACF0080250E /* BlueLeather.gif in Resources */,
+				77CBD11D1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */,
+				771094BB1545D19D001989F4 /* BrownLeather.gif in Resources */,
+				771094BE1545D19D001989F4 /* DarkLeather.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1143,7 +1162,6 @@
 				77603E501541DC8300C4840F /* TopLayer.png in Resources */,
 				77603E531541DC8300C4840F /* Concave.png in Resources */,
 				77603E561541DC8300C4840F /* Convex.png in Resources */,
-				77603E591541DC8300C4840F /* DarkWeave.png in Resources */,
 				77603E5C1541DC8300C4840F /* FormatCircleBlue@2x.png in Resources */,
 				77603E5F1541DC8300C4840F /* FormatCircleGreen@2x.png in Resources */,
 				77603E621541DC8300C4840F /* FormatCircleRed@2x.png in Resources */,
@@ -1179,6 +1197,9 @@
 				77603EBC1541DC8300C4840F /* iPad.storyboard in Resources */,
 				77603EBF1541DC8300C4840F /* iPhone.storyboard in Resources */,
 				77ADCC4F1545AACF0080250E /* BlueLeather.gif in Resources */,
+				77CBD11B1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */,
+				771094B91545D19D001989F4 /* BrownLeather.gif in Resources */,
+				771094BC1545D19D001989F4 /* DarkLeather.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1220,7 +1241,6 @@
 				77603E511541DC8300C4840F /* TopLayer.png in Resources */,
 				77603E541541DC8300C4840F /* Concave.png in Resources */,
 				77603E571541DC8300C4840F /* Convex.png in Resources */,
-				77603E5A1541DC8300C4840F /* DarkWeave.png in Resources */,
 				77603E5D1541DC8300C4840F /* FormatCircleBlue@2x.png in Resources */,
 				77603E601541DC8300C4840F /* FormatCircleGreen@2x.png in Resources */,
 				77603E631541DC8300C4840F /* FormatCircleRed@2x.png in Resources */,
@@ -1256,6 +1276,9 @@
 				77603EBD1541DC8300C4840F /* iPad.storyboard in Resources */,
 				77603EC01541DC8300C4840F /* iPhone.storyboard in Resources */,
 				77ADCC501545AACF0080250E /* BlueLeather.gif in Resources */,
+				77CBD11C1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */,
+				771094BA1545D19D001989F4 /* BrownLeather.gif in Resources */,
+				771094BD1545D19D001989F4 /* DarkLeather.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1304,6 +1327,7 @@
 				7775977C1540F15E00D45ADA /* BMLT_DetailsPrintPageRenderer.m in Sources */,
 				7775977D1540F15E00D45ADA /* BMLTBundleResourceLabel.m in Sources */,
 				77603DF21541DC8300C4840F /* BMLTVariantDefs.m in Sources */,
+				77DCF09F1545D4FE00979BF6 /* BMLTAboutBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1349,6 +1373,7 @@
 				776CAD8A15404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m in Sources */,
 				771A40ED15408EA000EF34DF /* BMLTBundleResourceLabel.m in Sources */,
 				77603DF01541DC8300C4840F /* BMLTVariantDefs.m in Sources */,
+				77DCF09D1545D4FE00979BF6 /* BMLTAboutBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1394,6 +1419,7 @@
 				77AC718F15409E9F0060CA80 /* BMLT_DetailsPrintPageRenderer.m in Sources */,
 				77AC719015409E9F0060CA80 /* BMLTBundleResourceLabel.m in Sources */,
 				77603DF11541DC8300C4840F /* BMLTVariantDefs.m in Sources */,
+				77DCF09E1545D4FE00979BF6 /* BMLTAboutBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

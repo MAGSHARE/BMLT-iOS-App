@@ -32,22 +32,7 @@
  \brief  Simply displays information about the app.
  *****************************************************************/
 @implementation BMLTAboutViewController
-
-/**************************************************************//**
- \brief  Initialize the objectfrom a xib/bundle (used by storyboard)
- \returns    self
- *****************************************************************/
 @synthesize versionLabel;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil
-               bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-        {
-        }
-    return self;
-}
 
 /**************************************************************//**
  \brief  Called after the controller's view object has loaded.
@@ -55,6 +40,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self view] setBackgroundColor:[BMLTVariantDefs infoBackgroundColor]];
     [[self versionLabel] setText:NSLocalizedString([[self versionLabel] text], nil)];
 }
 

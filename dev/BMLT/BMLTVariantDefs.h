@@ -106,6 +106,12 @@
 + (UIColor *)settingsBackgroundColor;
 
 /**************************************************************//**
+ \brief     This is the background for the Info/About screen.
+ \returns   The color to be used.
+ *****************************************************************/
++ (UIColor *)infoBackgroundColor;
+
+/**************************************************************//**
  \brief     This is the background for odd rows in the list results.
  \returns   The color to be used.
  *****************************************************************/

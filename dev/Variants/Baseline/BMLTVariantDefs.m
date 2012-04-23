@@ -93,29 +93,37 @@
 /*****************************************************************/
 + (UIColor *)meetingDetailBackgroundColor
 {
-    // This strange getup is probably temporary. It makes sure that the color only gets instantiated once.
-    static UIColor *color;
-    static dispatch_once_t onceToken;
-    dispatch_once ( &onceToken, ^{ color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkWeave.png"]]; } );
-    return color;
+    static UIColor *browncolor;
+    static dispatch_once_t onceTokenBrown;
+    dispatch_once ( &onceTokenBrown, ^{ browncolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BrownLeather.gif"]]; } );
+    return browncolor;
 }
 
 /*****************************************************************/
 + (UIColor *)modalBackgroundColor
 {
-    return [BMLTVariantDefs meetingDetailBackgroundColor];
+    static UIColor *darkcolor;
+    static dispatch_once_t onceTokenDark;
+    dispatch_once ( &onceTokenDark, ^{ darkcolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkLeather.gif"]]; } );
+    return darkcolor;
 }
 
 /*****************************************************************/
 + (UIColor *)popoverBackgroundColor
 {
-    return [BMLTVariantDefs meetingDetailBackgroundColor];
+    return [[self class] modalBackgroundColor];
 }
 
 /*****************************************************************/
 + (UIColor *)settingsBackgroundColor
 {
-    return [UIColor underPageBackgroundColor];
+    return [[self class] meetingDetailBackgroundColor];
+}
+
+/*****************************************************************/
++ (UIColor *)infoBackgroundColor
+{
+    return [[self class] modalBackgroundColor];
 }
 
 /*****************************************************************/

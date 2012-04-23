@@ -1,5 +1,5 @@
 //
-//  A_BMLTSettingsBackgroundView.m
+//  A_BMLTSettingsBackgroundView.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -17,28 +17,11 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "A_BMLTSettingsBackgroundView.h"
+#import <UIKit/UIKit.h>
 
 /**************************************************************//**
- \class  A_BMLTSettingsBackgroundView    -Implementation
+ \class  A_BMLTSettingsBackgroundView    -Interface
  \brief  This class will simply apply the settings background to a view.
  *****************************************************************/
-@implementation A_BMLTSettingsBackgroundView
-
-/**************************************************************//**
- \brief  Set the view backgound to the standard light linen color.
- \returns   self
- *****************************************************************/
-- (id)initWithCoder:(NSCoder *)coder
-{
-    self = [super initWithCoder:coder];
-    if (self)
-        {
-        if ( [BMLTVariantDefs settingsBackgroundColor] )
-            {
-            [self setBackgroundColor:[BMLTVariantDefs settingsBackgroundColor]];
-            }
-        }
-    return self;
-}
+@interface BMLTAboutBackgroundView : UIView
 @end

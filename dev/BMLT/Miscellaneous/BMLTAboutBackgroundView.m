@@ -17,13 +17,13 @@
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "A_BMLTSettingsBackgroundView.h"
+#import "BMLTAboutBackgroundView.h"
 
 /**************************************************************//**
  \class  A_BMLTSettingsBackgroundView    -Implementation
  \brief  This class will simply apply the settings background to a view.
  *****************************************************************/
-@implementation A_BMLTSettingsBackgroundView
+@implementation BMLTAboutBackgroundView
 
 /**************************************************************//**
  \brief  Set the view backgound to the standard light linen color.
@@ -36,7 +36,7 @@
         {
         if ( [BMLTVariantDefs settingsBackgroundColor] )
             {
-            [self setBackgroundColor:[BMLTVariantDefs settingsBackgroundColor]];
+            [self setBackgroundColor:[BMLTVariantDefs infoBackgroundColor]];
             }
         }
     return self;
