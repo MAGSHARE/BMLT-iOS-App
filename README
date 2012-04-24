@@ -76,6 +76,7 @@ CHANGELIST
 * Refactored the map results view a bit to make it more robust.
 * Gave the list popovers (on map view in iPad) the theme popover background.
 * Added a Beanie "watermark" to the About view.
+* Fixed a bug, in which alerts displayed during startup interfered with the search and location.
 
 == Version 2.0a0
 * April 23, 2012

@@ -489,10 +489,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate::applicationWillResignActive called.");
 #endif
-    [mySearch clearSearch]; // No searches in the background.
-    mySearch = nil;
-    [self stopNetworkMonitor];
-    [locationManager stopUpdatingLocation];
     _amISick = NO;  // Make sure the user is informed of network outages when they come back.
 }
 
