@@ -46,4 +46,8 @@
      <li>BMLTAppDelegate::searchMapMarkerLoc<br />This contains the search center coordinates. It is a <a href="http://developer.apple.com/library/ios/#documentation/CoreLocation/Reference/CoreLocationDataTypesRef/Reference/reference.html">CLLocationCoordinates2D</a> struct.</li>
  </ul>
  <p>When a search is done, and displayed in the map results view, there will be a black marker. This will always display the central location for the search.</p>
+ <h1 style="text-align:center;border-bottom:1px solid black">The Project README File:</h1>
+ <pre>
+ \verbinclude README
+ </pre>
 */
