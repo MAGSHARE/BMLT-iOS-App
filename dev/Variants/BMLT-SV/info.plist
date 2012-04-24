@@ -22,6 +22,22 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
 	<string>Provided by MAGSHARE</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>icon-iPhone.png</string>
+				<string>icon-LargeiPhone.png</string>
+				<string>icon-iPad.png</string>
+				<string>icon-LargeiPad.png</string>
+				<string>iPhone.png</string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<true/>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>org.magshare.SVNAMeetings</string>
 	<key>CFBundleInfoDictionaryVersion</key>

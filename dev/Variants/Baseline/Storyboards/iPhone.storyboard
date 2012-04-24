@@ -688,22 +688,22 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Uc-nB-87j">
-                                <rect key="frame" x="108" y="271" width="104" height="32"/>
+                                <rect key="frame" x="77" y="270" width="166" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="ADVANCED-GO-BUTTON" backgroundImage="GoButtonNormal.png">
+                                <state key="normal" title="ADVANCED-GO-BUTTON" backgroundImage="LongButtonNormal.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
-                                <state key="disabled" backgroundImage="GoButtonNormal.png">
+                                <state key="disabled" backgroundImage="LongButtonNormal.png">
                                     <color key="titleColor" red="0.82999840561224492" green="0.82999840561224492" blue="0.82999840561224492" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="GoButtonHighlight.png">
+                                <state key="selected" backgroundImage="LongButtonHighlight.png">
                                     <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <state key="highlighted" backgroundImage="GoButtonHighlight.png">
+                                <state key="highlighted" backgroundImage="LongButtonHighlight.png">
                                     <color key="titleColor" red="0.00038747176139999998" green="1" blue="0.1734762235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -933,8 +933,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GoButtonHighlight.png" width="56" height="32"/>
-        <image name="GoButtonNormal.png" width="56" height="32"/>
         <image name="LongButtonHighlight.png" width="220" height="32"/>
         <image name="LongButtonNormal.png" width="220" height="32"/>
         <image name="MButtonConvex.png" width="48" height="48"/>
