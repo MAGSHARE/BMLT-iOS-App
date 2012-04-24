@@ -73,6 +73,9 @@ CHANGELIST
 == Version 2.0a0
 * April 23, 2012
 * Toned down the colors of the red and blue indicators in the list view to better match the color of the annotations they represent.
+* Added the app icons.
+* Added a basic, simple "steampunk" theme for the baseline. This involves creation of a number of graphical assets. This theme is designed to keep the file size down.
+* Make sure that the address lookup doesn't happen when switching away from Advanced while the keyboard is open.
 
 = Version 2.0d6
 * April 22, 2012
