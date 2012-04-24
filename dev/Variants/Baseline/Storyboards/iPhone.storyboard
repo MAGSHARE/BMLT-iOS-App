@@ -188,6 +188,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myMapView" destination="xxQ-vK-O5E" id="ai1-cz-SYL"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="285" y="1287"/>
@@ -1030,6 +1033,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="BMLTMeetingDetailViewController" superclassName="UIViewController">

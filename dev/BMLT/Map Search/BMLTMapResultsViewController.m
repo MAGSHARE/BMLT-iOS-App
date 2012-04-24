@@ -44,6 +44,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
  \brief  This class will control display of mapped results.
  *****************************************************************/
 @implementation BMLTMapResultsViewController
+@synthesize myMapView;  ///< This is our MkMapView object.
 
 #pragma mark - View Lifecycle -
 /**************************************************************//**
@@ -115,7 +116,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
 - (void)displayMapAnnotations:(NSArray *)inResults  ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
 {
     // First, clear out all the old annotations (there shouldn't be any).
-    [(MKMapView *)[self view] removeAnnotations:[(MKMapView *)[self view] annotations]];
+    [myMapView removeAnnotations:[myMapView annotations]];
     
     // This function looks for meetings in close proximity to each other, and collects them into "red markers."
     NSArray *annotations = [self mapMeetingAnnotations:inResults];
@@ -125,7 +126,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
 #ifdef DEBUG
         NSLog(@"BMLTMapResultsViewController displayMapAnnotations -Adding %d annotations", [inResults count]);
 #endif
-        [(MKMapView *)[self view] addAnnotations:annotations];
+        [myMapView addAnnotations:annotations];
         }
 }
 
@@ -147,9 +148,9 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
 - (void)clearMapCompletely
 {
     [self clearLastRegion];
-    if ( [[(MKMapView *)[self view] annotations] count] )
+    if ( [[myMapView annotations] count] )
         {
-        [(MKMapView *)[self view] removeAnnotations:[(MKMapView *)[self view] annotations]];
+        [myMapView removeAnnotations:[myMapView annotations]];
         }
     [self setDataArrayFromData:nil];
     [self setMapInit:NO];
@@ -200,7 +201,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
     CLLocationCoordinate2D  center = CLLocationCoordinate2DMake((northWestCorner.latitude + southEastCorner.latitude) / 2.0, (southEastCorner.longitude + northWestCorner.longitude) / 2.0);
     MKCoordinateRegion  mapMap = MKCoordinateRegionMake ( center, MKCoordinateSpanMake(latSpan, longSpan) );
     
-    [(MKMapView *)[self view] setRegion:[(MKMapView *)[self view] regionThatFits:mapMap] animated:NO];
+    [myMapView setRegion:[myMapView regionThatFits:mapMap] animated:NO];
     [self displayMapAnnotations:inResults];
 }
 
@@ -227,7 +228,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
             NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Checking Meeting \"%@\".", [meeting getBMLTName]);
 #endif
             CLLocationCoordinate2D  meetingLocation = [meeting getMeetingLocationCoords].coordinate;
-            CGPoint meetingPoint = [(MKMapView *)[self view] convertCoordinate:meetingLocation toPointToView:nil];
+            CGPoint meetingPoint = [myMapView convertCoordinate:meetingLocation toPointToView:nil];
             CGRect  hitTestRect = CGRectMake(meetingPoint.x - BMLT_Meeting_Distance_Threshold_In_Pixels,
                                              meetingPoint.y - BMLT_Meeting_Distance_Threshold_In_Pixels,
                                              BMLT_Meeting_Distance_Threshold_In_Pixels * 2,
@@ -240,7 +241,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
             
             for ( BMLT_Results_MapPointAnnotation *annotationTemp in points )
                 {
-                CGPoint annotationPoint = [(MKMapView *)[self view] convertCoordinate:annotationTemp.coordinate toPointToView:nil];
+                CGPoint annotationPoint = [myMapView convertCoordinate:annotationTemp.coordinate toPointToView:nil];
 #ifdef DEBUG
                 NSLog(@"BMLTMapResultsViewController mapMeetingAnnotations - Comparing the Following Annotation Point: (%f, %f).", annotationPoint.x, annotationPoint.y);
 #endif
@@ -308,21 +309,21 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
  *****************************************************************/
 - (void)displayAllMarkersIfNeeded
 {
-    if ( (ABS(lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta) > (ABS(lastRegion.span.latitudeDelta) * 0.01))
-        || (ABS(lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta) > (ABS(lastRegion.span.longitudeDelta) * 0.01)) )
+    if ( (ABS(lastRegion.span.latitudeDelta - [myMapView region].span.latitudeDelta) > (ABS(lastRegion.span.latitudeDelta) * 0.01))
+        || (ABS(lastRegion.span.longitudeDelta - [myMapView region].span.longitudeDelta) > (ABS(lastRegion.span.longitudeDelta) * 0.01)) )
         {
 #ifdef DEBUG
-        NSLog(@"BMLTMapResultsViewController mapView:displayAllMarkersIfNeeded -Redrawing Markers, Based on a Delta of (%f, %f).", lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta, lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta);
+        NSLog(@"BMLTMapResultsViewController mapView:displayAllMarkersIfNeeded -Redrawing Markers, Based on a Delta of (%f, %f).", lastRegion.span.latitudeDelta - [myMapView region].span.latitudeDelta, lastRegion.span.longitudeDelta - [myMapView region].span.longitudeDelta);
 #endif
         [self displayMapAnnotations: [self dataArray]];
         }
 #ifdef DEBUG
     else
         {
-        NSLog(@"BMLTMapResultsViewController mapView:displayAllMarkersIfNeeded -Not Redrawing Markers, Delta of (%f, %f) is too small.", lastRegion.span.latitudeDelta - [(MKMapView *)[self view] region].span.latitudeDelta, lastRegion.span.longitudeDelta - [(MKMapView *)[self view] region].span.longitudeDelta);
+        NSLog(@"BMLTMapResultsViewController mapView:displayAllMarkersIfNeeded -Not Redrawing Markers, Delta of (%f, %f) is too small.", lastRegion.span.latitudeDelta - [myMapView region].span.latitudeDelta, lastRegion.span.longitudeDelta - [myMapView region].span.longitudeDelta);
         }
 #endif
-    lastRegion = [(MKMapView *)[self view] region];
+    lastRegion = [myMapView region];
 }
 
 /**************************************************************//**
@@ -343,6 +344,12 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
     if ( ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) )
         {
         listPopover = [[UIPopoverController alloc] initWithContentViewController:newController];
+        if ( [BMLTVariantDefs popoverBackgroundColor] )
+            {
+            UIColor *myBGColor = [[UIColor alloc] initWithCGColor:[[BMLTVariantDefs popoverBackgroundColor] CGColor]];
+            [[newController view] setBackgroundColor:myBGColor];
+            myBGColor = nil;
+            }
         
         [listPopover setDelegate:self];
         
@@ -371,7 +378,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
         }
     
     [_selectedAnnotation setIsSelected:NO];
-    [(BMLT_Results_MapPointAnnotationView *)[(MKMapView *)[self view] viewForAnnotation:_selectedAnnotation] selectImage];
+    [(BMLT_Results_MapPointAnnotationView *)[myMapView viewForAnnotation:_selectedAnnotation] selectImage];
     _selectedAnnotation = nil;
 }
 
@@ -392,7 +399,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum dis
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     [_selectedAnnotation setIsSelected:NO];
-    [(BMLT_Results_MapPointAnnotationView *)[(MKMapView *)[self view] viewForAnnotation:_selectedAnnotation] selectImage];
+    [(BMLT_Results_MapPointAnnotationView *)[myMapView viewForAnnotation:_selectedAnnotation] selectImage];
     _selectedAnnotation = nil;
 }
 
@@ -509,5 +516,9 @@ didSelectAnnotationView:(MKAnnotationView *)inView    ///< The selected annotati
             [(BMLT_Results_MapPointAnnotationView *)[mapView viewForAnnotation:_selectedAnnotation] selectImage];
             }
         }
+}
+- (void)viewDidUnload {
+    [self setMyMapView:nil];
+    [super viewDidUnload];
 }
 @end

@@ -70,6 +70,12 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0a1
+* TBD
+* Made the lower shadow bar (on iPads) smaller.
+* Refactored the map results view a bit to make it more robust.
+* Gave the list popovers (on map view in iPad) the theme popover background.
+
 == Version 2.0a0
 * April 23, 2012
 * Toned down the colors of the red and blue indicators in the list view to better match the color of the annotations they represent.

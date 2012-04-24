@@ -29,6 +29,7 @@
  \brief  This class will control display of mapped results.
  *****************************************************************/
 @interface BMLTMapResultsViewController : A_BMLTSearchResultsViewController <MKMapViewDelegate>
+@property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 - (void)setMapInit:(BOOL)isInit;
 - (BOOL)isMapInitialized;
 - (void)viewMeetingList:(NSArray *)inList atRect:(CGRect)selectRect inView:(UIView *)inContext;

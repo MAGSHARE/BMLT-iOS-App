@@ -219,6 +219,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ShadowUpsideDown.png" id="X2o-qE-8u0">
+                                <rect key="frame" x="0.0" y="940" width="768" height="15"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="gVw-Gg-efD">
                                 <rect key="frame" x="0.0" y="213" width="768" height="28"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -274,13 +279,20 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
                 <viewController id="3" customClass="BMLTMapResultsViewController" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="kdU-hf-XEn">
+                    <view key="view" contentMode="scaleToFill" id="EHt-89-M9Z">
                         <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <connections>
-                            <outlet property="delegate" destination="3" id="QY4-Wm-Sgt"/>
-                        </connections>
-                    </mapView>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="kdU-hf-XEn">
+                                <rect key="frame" x="-1" y="0.0" width="769" height="916"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3" id="QY4-Wm-Sgt"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="TAB-BAR-2" id="MGE-X7-pmn">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="Je4-wu-Twv">
@@ -292,14 +304,10 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                     <connections>
+                        <outlet property="myMapView" destination="kdU-hf-XEn" id="ewc-7M-HY4"/>
                         <outlet property="view" destination="kdU-hf-XEn" id="frN-ac-AVj"/>
                     </connections>
                 </viewController>
-                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ShadowUpsideDown.png" id="rMv-KH-SJ0">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="28"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </imageView>
             </objects>
             <point key="canvasLocation" x="-312" y="2088"/>
         </scene>
@@ -433,7 +441,7 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ShadowUpsideDown.png" id="knX-db-Tgi">
-                                <rect key="frame" x="0.0" y="883" width="768" height="28"/>
+                                <rect key="frame" x="0.0" y="896" width="768" height="15"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -590,7 +598,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ShadowUpsideDown.png" id="B8T-75-QPe">
-                                <rect key="frame" x="0.0" y="833" width="768" height="28"/>
+                                <rect key="frame" x="1" y="845" width="768" height="15"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -902,7 +910,7 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ShadowUpsideDown.png" id="UKO-X9-ra3">
-                                <rect key="frame" x="0.0" y="883" width="768" height="28"/>
+                                <rect key="frame" x="0.0" y="896" width="768" height="15"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -985,7 +993,7 @@
         <image name="SButtonConcave.png" width="48" height="48"/>
         <image name="SButtonConvex.png" width="48" height="48"/>
         <image name="Shadow.png" width="1" height="28"/>
-        <image name="ShadowUpsideDown.png" width="1" height="24"/>
+        <image name="ShadowUpsideDown.png" width="1" height="15"/>
         <image name="list.png" width="26" height="26"/>
         <image name="map.png" width="26" height="26"/>
         <image name="search.png" width="26" height="26"/>
@@ -1078,6 +1086,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="BMLTMeetingDetailViewController" superclassName="UIViewController">
