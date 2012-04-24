@@ -47,11 +47,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0a0</string>
+	<string>2.0d7</string>
 	<key>CFBundleSignature</key>
 	<string>LGVP</string>
 	<key>CFBundleVersion</key>
-	<string>2.0a0</string>
+	<string>2.0d7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
