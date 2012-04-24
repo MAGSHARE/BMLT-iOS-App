@@ -23,8 +23,17 @@
 #import "BMLT_Parser.h"
 
 static BOOL geocodeInProgress = NO;     ///< Used to look for a successful geocode.
-static BOOL dontLookup = NO;            ///< This is used to keep the text editor from triggering a search when it is dismissed prematurely (kludge).
 static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a search happens after the lookup for the return key (Handled differently for the iPad).
+
+/**************************************************************//**
+ \class  BMLTAdvancedSearchViewController    -Private Interface
+ \brief  This class will present the user with a powerful search specification interface.
+ *****************************************************************/
+@interface BMLTAdvancedSearchViewController ()
+{
+    BOOL dontLookup;
+}
+@end
 
 /**************************************************************//**
  \class  BMLTAdvancedSearchViewController    -Implementation
@@ -47,9 +56,18 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     if ( self )
         {
         myParams = [[NSMutableDictionary alloc] init];
+        dontLookup = NO;
         }
     
     return self;
+}
+
+/**************************************************************//**
+ \brief The only reason we intercept this, is to stop lookups.
+ *****************************************************************/
+- (void)viewWillDisappear:(BOOL)animated    ///< YES, if this is an animated disappearance (we don't care).
+{
+    dontLookup = YES;   // We set this to avoid lookups when we close.
 }
 
 /**************************************************************//**
@@ -372,25 +390,28 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (void)lookupLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
 {
-    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
-    [[NSURLCache sharedURLCache] setDiskCapacity:0];
-    
-    inLocationString = [inLocationString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    inLocationString = [inLocationString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSString    *uriString = [NSString stringWithFormat:[BMLTVariantDefs reverseLookupURIFormat], inLocationString];
+    if ( !dontLookup )  // Don't lookup if we are closing up shop.
+        {
+        [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+        [[NSURLCache sharedURLCache] setDiskCapacity:0];
+        
+        inLocationString = [inLocationString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        inLocationString = [inLocationString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        NSString    *uriString = [NSString stringWithFormat:[BMLTVariantDefs reverseLookupURIFormat], inLocationString];
     
 #ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController lookupLocationFromAddressString: \"%@\", and the URI is \"%@\".", inLocationString, uriString );
+        NSLog(@"BMLTAdvancedSearchViewController lookupLocationFromAddressString: \"%@\", and the URI is \"%@\".", inLocationString, uriString );
 #endif
 
-    BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithContentsOfURL:[NSURL URLWithString:uriString]];
-    
-    [myParser setDelegate:self];
-    
-    geocodeInProgress = YES;
+        BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithContentsOfURL:[NSURL URLWithString:uriString]];
+        
+        [myParser setDelegate:self];
+        
+        geocodeInProgress = YES;
 
-    [myParser parseAsync:NO WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
+        [myParser parseAsync:NO WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
+        }
 }
 
 /**************************************************************//**

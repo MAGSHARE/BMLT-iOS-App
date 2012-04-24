@@ -479,10 +479,10 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHo-xY-6ar" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="list-view-results" id="BfE-yH-RTK" customClass="BMLTDisplayListResultsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hf7-TQ-dAm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hf7-TQ-dAm">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="dataSource" destination="BfE-yH-RTK" id="7gZ-XV-Zhv"/>
                             <outlet property="delegate" destination="BfE-yH-RTK" id="QN4-GO-dx8"/>

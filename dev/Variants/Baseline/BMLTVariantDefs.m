@@ -75,7 +75,7 @@
 /*****************************************************************/
 + (UIColor *)multiMeetingsBackgroundColor
 {
-    return [UIColor colorWithRed:0 green:.3 blue:.7 alpha:1];
+    return [UIColor clearColor];
 }
 
 /*****************************************************************/
@@ -129,13 +129,19 @@
 /*****************************************************************/
 + (UIColor *)getSortOddColor
 {
-    return [UIColor colorWithRed:.8 green:.9 blue:1 alpha:1];
+    static UIColor *oddcolor;
+    static dispatch_once_t onceTokenOdd;
+    dispatch_once ( &onceTokenOdd, ^{ oddcolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OddColor.gif"]]; } );
+    return oddcolor;
 }
 
 /*****************************************************************/
 + (UIColor *)getSortEvenColor
 {
-    return [UIColor whiteColor];
+    static UIColor *evencolor;
+    static dispatch_once_t onceTokenEven;
+    dispatch_once ( &onceTokenEven, ^{ evencolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"EvenColor.gif"]]; } );
+    return evencolor;
 }
 
 /*****************************************************************/
