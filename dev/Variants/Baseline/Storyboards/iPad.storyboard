@@ -54,6 +54,10 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" image="Beanie.png" id="UQU-Ym-0c2">
+                                        <rect key="frame" x="284" y="155" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
@@ -985,6 +989,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Beanie.png" width="200" height="200"/>
         <image name="LocationButtonHighlighted.png" width="32" height="32"/>
         <image name="LocationButtonNormal.png" width="32" height="32"/>
         <image name="LongButtonHighlight.png" width="220" height="32"/>
