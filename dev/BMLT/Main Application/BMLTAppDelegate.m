@@ -28,8 +28,10 @@
 #import "BMLTMeetingDetailViewController.h"
 #import "BMLTAnimationScreenViewController.h"
 #import "BMLTSettingsViewController.h"
+#import "TestFlight.h"
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
+static NSString *kTestFlightTeamToken = @"a57839b4d4458e6b113d8908a80187f8_NDEzNTQwMjAxMi0wNC0yNSAxMDoxOTo1NC4yMzQwNzQ";
 
 int kAddressLookupTimeoutPeriod_in_seconds = 10;
 
@@ -434,6 +436,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions called.");
 #endif
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
+    
+    [TestFlight takeOff:kTestFlightTeamToken];
     
     [tabController setSelectedIndex:kSearchTabIndex];
     [tabController setDelegate:self];

@@ -347,6 +347,12 @@
 		7786ABBC1545EB16008AC4A9 /* LongButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */; };
 		7786ABBD1545EB16008AC4A9 /* LongButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */; };
 		7786ABBE1545EB16008AC4A9 /* LongButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */; };
+		77882CB81548872000DBE9A1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; };
+		77882CB91548872000DBE9A1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; };
+		77882CBA1548872000DBE9A1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; };
+		77882CBD1548874C00DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
+		77882CBE1548876000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
+		77882CBF1548877000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
@@ -573,6 +579,9 @@
 		77803C3D151C011D00A8ADC3 /* BMLTFormatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTFormatDetailViewController.m; sourceTree = "<group>"; };
 		7786ABB71545EB16008AC4A9 /* LongButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LongButtonHighlight.png; sourceTree = "<group>"; };
 		7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LongButtonNormal.png; sourceTree = "<group>"; };
+		77882CB61548872000DBE9A1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = BMLT/libTestFlight.a; sourceTree = "<group>"; };
+		77882CB71548872000DBE9A1 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		77882CBC1548874C00DBE9A1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		77977D0B150E882B00485C8D /* NY NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NY NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -618,6 +627,8 @@
 				777597831540F15E00D45ADA /* UIKit.framework in Frameworks */,
 				777597841540F15E00D45ADA /* Foundation.framework in Frameworks */,
 				777597851540F15E00D45ADA /* CoreGraphics.framework in Frameworks */,
+				77882CBF1548877000DBE9A1 /* libz.dylib in Frameworks */,
+				77882CBA1548872000DBE9A1 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +643,8 @@
 				77977D10150E882B00485C8D /* UIKit.framework in Frameworks */,
 				77977D12150E882B00485C8D /* Foundation.framework in Frameworks */,
 				77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */,
+				77882CBD1548874C00DBE9A1 /* libz.dylib in Frameworks */,
+				77882CB81548872000DBE9A1 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +659,8 @@
 				77AC719615409E9F0060CA80 /* UIKit.framework in Frameworks */,
 				77AC719715409E9F0060CA80 /* Foundation.framework in Frameworks */,
 				77AC719815409E9F0060CA80 /* CoreGraphics.framework in Frameworks */,
+				77882CBE1548876000DBE9A1 /* libz.dylib in Frameworks */,
+				77882CB91548872000DBE9A1 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,6 +955,8 @@
 		77977D0E150E882B00485C8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77882CBC1548874C00DBE9A1 /* libz.dylib */,
+				77882CB61548872000DBE9A1 /* libTestFlight.a */,
 				7799D2A1151FACD4007FE822 /* MapKit.framework */,
 				771D0C93150E89BC005A707A /* SystemConfiguration.framework */,
 				771D0C91150E899B005A707A /* QuartzCore.framework */,
@@ -971,6 +988,7 @@
 		77977D16150E882B00485C8D /* Project Files */ = {
 			isa = PBXGroup;
 			children = (
+				77882CB71548872000DBE9A1 /* TestFlight.h */,
 				77D90B031514C5340059EF41 /* BMLT-Prefix.pch */,
 				772C161B151B46B800830596 /* BMLTVariantDefs.h */,
 				77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */,
@@ -1599,6 +1617,10 @@
 				INFOPLIST_FILE = "Variants/BMLT-SV/info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = traditional;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BMLT\"",
+				);
 				PRODUCT_NAME = "SV NA Meetings";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1621,6 +1643,10 @@
 				INFOPLIST_FILE = "Variants/BMLT-SV/info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = traditional;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BMLT\"",
+				);
 				PRODUCT_NAME = "SV NA Meetings";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1708,6 +1734,10 @@
 				INFOPLIST_FILE = "Variants/BMLT-NY/info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = traditional;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BMLT\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1730,6 +1760,10 @@
 				INFOPLIST_FILE = "Variants/BMLT-NY/info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = traditional;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BMLT\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1752,6 +1786,10 @@
 				INFOPLIST_FILE = "Variants/BMLT-MN/info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = traditional;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BMLT\"",
+				);
 				PRODUCT_NAME = "MN NA Meetings";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1774,6 +1812,10 @@
 				INFOPLIST_FILE = "Variants/BMLT-MN/info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = traditional;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BMLT\"",
+				);
 				PRODUCT_NAME = "MN NA Meetings";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
