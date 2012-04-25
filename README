@@ -70,6 +70,11 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0a2
+* TBD
+* Fixed a couple of extremely minor cosmetic issues with displayed images and text.
+* Now make the location update come in twice before setting the marker. Seems to be a scoche more accurate.
+
 == Version 2.0a1
 * April 24, 2012
 * Made the lower shadow bar (on iPads) smaller.

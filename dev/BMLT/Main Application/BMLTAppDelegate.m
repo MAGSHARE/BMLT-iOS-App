@@ -62,6 +62,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     BOOL                    _iveUpdatedTheMap;          ///< YES, to prevent the map from being continuously updated.
     BMLT_Meeting_Search     *mySearch;                  ///< The current meeting search in progress.
     BOOL                    deferredSearch;             ///< A semaphore that is set, in order to allow the animation to appear before the search starts.
+    BOOL                    locationTried;              ///< This is used to ensure that we go 2 cycles with the location manager (Kludgy way to increase accuracy).
 }
 
 - (void)transitionBetweenThisView:(UIView *)srcView andThisView:(UIView *)dstView direction:(int)dir;   ///< Do a nice transition between tab views.
@@ -101,6 +102,8 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 @synthesize settingsViewController;     ///< This will point to our settings/info main controller.
 @synthesize reusableMeetingDetails = _details;     ///< This will hold an instance of our meeting details view controller that we will re-use.
 @synthesize currentAnimation;           ///< This will hold our current active animation (nil, otherwise).
+@synthesize  mapEdgeInsetsSimple;       ///< Used to keep the map from changing zoom when switching between advanced and simple.
+@synthesize  mapEdgeInsetsAdvanced;     ///< Used to keep the map from changing zoom when switching between advanced and simple.
 
 #pragma mark - Class Methods -
 /**************************************************************//**
@@ -473,6 +476,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions We will update our location.");
 #endif
+        locationTried = NO;
         [locationManager startUpdatingLocation];
         }
     
@@ -537,6 +541,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::applicationWillEnterForeground We will update our location.");
 #endif
+        locationTried = NO;
         [locationManager startUpdatingLocation];
         }
     
@@ -581,6 +586,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate searchForMeetingsNearMe withParams Starting a new location-based search after a lookup.");
 #endif
+        locationTried = NO;
         [locationManager startUpdatingLocation];
         }
     else
@@ -790,6 +796,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)lookupMyLocation
 {
     _iveUpdatedTheMap = NO;
+    locationTried = NO;
     [locationManager startUpdatingLocation];
 }
 
@@ -863,8 +870,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
             [self setSearchMapMarkerLoc:[newLocation coordinate]];
             [activeSearchController performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
-            [locationManager stopUpdatingLocation]; // Stop updating for now.
-            _iveUpdatedTheMap = YES;
+            if ( locationTried )    // This makes sure we come back twice.
+                {
+#ifdef DEBUG
+                NSLog(@"BMLTAppDelegate::didUpdateToLocation Second time around. Stopping the update.");
+#endif
+                [locationManager stopUpdatingLocation]; // Stop updating for now.
+                }
+            
+            _iveUpdatedTheMap = locationTried;
+            locationTried = YES;
             }
         
         [self setLastLocation:newLocation]; // Record for posterity
