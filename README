@@ -71,10 +71,11 @@ The new app will read the prefs from the original, but this is really meant to b
 CHANGELIST
 ----------
 == Version 2.0a2
-* TBD
+* April 25, 2012
 * Fixed a couple of extremely minor cosmetic issues with displayed images and text.
 * Now make the location update come in twice before setting the marker. Seems to be a scoche more accurate.
 * Reduced the size of the map in the iPad Simple view, so we no longer have the problem of the map zoom changing every time we switch from simple to advanced and back again.
+* Performed some optimization on the piggy splash screens, which brings the app down to a more reasonable 4MB.
 
 == Version 2.0a1
 * April 24, 2012
