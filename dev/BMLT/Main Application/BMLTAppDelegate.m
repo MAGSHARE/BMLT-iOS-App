@@ -102,8 +102,6 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 @synthesize settingsViewController;     ///< This will point to our settings/info main controller.
 @synthesize reusableMeetingDetails = _details;     ///< This will hold an instance of our meeting details view controller that we will re-use.
 @synthesize currentAnimation;           ///< This will hold our current active animation (nil, otherwise).
-@synthesize  mapEdgeInsetsSimple;       ///< Used to keep the map from changing zoom when switching between advanced and simple.
-@synthesize  mapEdgeInsetsAdvanced;     ///< Used to keep the map from changing zoom when switching between advanced and simple.
 
 #pragma mark - Class Methods -
 /**************************************************************//**

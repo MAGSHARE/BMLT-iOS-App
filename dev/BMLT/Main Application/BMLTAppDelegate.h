@@ -64,8 +64,6 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 @property (nonatomic, readwrite, retain) BMLTMeetingDetailViewController *reusableMeetingDetails;    ///< This will hold an instance of the meeting details view that we will use over and over.
 @property (strong, atomic) BMLTAnimationScreenViewController         *currentAnimation;          ///< This holds the current active animation controller.
 @property (strong, nonatomic) BMLTSettingsViewController             *settingsViewController;    ///< This will point to our map results main controller.
-@property (atomic, readwrite) UIEdgeInsets  mapEdgeInsetsSimple;        ///< Used to keep the map from changing zoom when switching between advanced and simple.
-@property (atomic, readwrite) UIEdgeInsets  mapEdgeInsetsAdvanced;      ///< Used to keep the map from changing zoom when switching between advanced and simple.
 
 /// Class methods
 + (BMLTAppDelegate *)getBMLTAppDelegate;                ///< This class method allows access to the application delegate object (SINGLETON)
