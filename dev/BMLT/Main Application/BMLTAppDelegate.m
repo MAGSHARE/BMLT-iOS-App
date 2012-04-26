@@ -988,10 +988,6 @@ shouldSelectViewController:(UIViewController *)inViewController
     switch ([internetReachable currentReachabilityStatus])
         {
         default:
-#ifdef DEBUG
-            NSLog(@"BMLTAppDelegate::networkStatusCallback: The internet connection is in an unknown state.");
-#endif
-        case NotReachable:
             {
 #ifdef DEBUG
             NSLog(@"BMLTAppDelegate::networkStatusCallback: The internet is down.");
@@ -1025,10 +1021,6 @@ shouldSelectViewController:(UIViewController *)inViewController
     switch ([hostReachable currentReachabilityStatus])
         {
         default:
-#ifdef DEBUG
-            NSLog(@"BMLTAppDelegate::networkStatusCallback: The gateway to the root server is in an unknown state.");
-#endif
-        case NotReachable:
             {
 #ifdef DEBUG
             NSLog(@"BMLTAppDelegate::networkStatusCallback: The gateway to the root server is down.");
@@ -1063,7 +1055,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     
     NSArray *validServers = [BMLT_Driver getValidServers];
     
-    if ( (!validServers || (0 == [validServers count])) && hostActive && internetActive )
+    if ( ![validServers count] && hostActive && internetActive )
         {
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::networkStatusCallback: The network connection is fine, and we don't have valid servers, so we'll set up the server.");
@@ -1075,18 +1067,13 @@ shouldSelectViewController:(UIViewController *)inViewController
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::networkStatusCallback: The network connection is not usable, so we'll make sure we delete our servers.");
 #endif
-        if ( validServers && [validServers count] )
+        for ( NSInteger c = [validServers count]; 0 < c; c-- )
             {
-            NSInteger num_servers = [validServers count];
+            BMLT_Server *server = (BMLT_Server*)[validServers objectAtIndex:c - 1];
             
-            for ( NSInteger c = num_servers; 0 < c; c-- )
+            if ( server )
                 {
-                BMLT_Server *server = (BMLT_Server*)[validServers objectAtIndex:c - 1];
-                
-                if ( server )
-                    {
-                    [[BMLT_Driver getBMLT_Driver] removeServerObject:server];
-                    }
+                [[BMLT_Driver getBMLT_Driver] removeServerObject:server];
                 }
             }
         
