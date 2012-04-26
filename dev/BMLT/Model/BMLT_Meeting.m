@@ -463,6 +463,11 @@ foundCharacters:(NSString *)string      ///< The characters
                                 NSInteger hours = [(NSString *)[time_ar objectAtIndex:0] intValue];
                                 NSInteger minutes = [(NSString *)[time_ar objectAtIndex:1] intValue];
                                 
+                                if ( hours == 23 && minutes > 45 )
+                                    {
+                                    minutes = 59;   // We do this to ensure that we can extrapolate properly.
+                                    }
+                                
                                 NSDateComponents *comps = [[NSDateComponents alloc] init];
                                 [comps setMinute:minutes];
                                 [comps setHour:hours];

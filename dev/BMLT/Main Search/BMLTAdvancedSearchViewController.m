@@ -120,6 +120,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (IBAction)weekdaySelectionChanged:(id)sender  ///< The segmented control.
 {
+    [myParams removeObjectForKey:@"StartsAfterH"];  // Make sure that we start clear.
+    [myParams removeObjectForKey:@"StartsAfterM"];
+    
     [sunButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
     [monButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
     [tueButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
@@ -169,12 +172,12 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
                 wd = kWeekdaySelectValue_Sun;
                 }
             }
-        else
+        else if ( [weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday )
             {
             [myParams setObject:[NSString stringWithFormat:@"%d",hr] forKey:@"StartsAfterH"];
             [myParams setObject:[NSString stringWithFormat:@"%d",mn] forKey:@"StartsAfterM"];
             }
-        
+
         [myParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
         [myParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
         

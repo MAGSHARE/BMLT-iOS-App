@@ -25,7 +25,7 @@ static int List_Meeting_Name_Text_Size                 = 16;
 static int List_Meeting_Display_Text_Size              = 12;
 static int List_Meeting_Format_Distance_Label_Width    = 80;
 static int List_Meeting_Format_Weekday_Width           = 80;
-static int List_Meeting_Format_Time_Width              = 160;
+static int List_Meeting_Format_Time_Width              = 120;
 static int List_Meeting_Format_Town_Width              = 160;
 
 int List_Meeting_Display_Line_Height                   = 25;
@@ -205,26 +205,40 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
         {
         [timeLabel setFont:theFont];
         [timeLabel setBackgroundColor:[UIColor clearColor]];
-        NSDate      *startTime = [myMeeting getStartTime];
-        NSString    *timeString = [NSDateFormatter localizedStringFromDate:startTime dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+        NSDate      *timeDate = [myMeeting getStartTime];
+        NSString    *timeString = [NSDateFormatter localizedStringFromDate:timeDate dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
         NSCalendar  *gregorian = [[NSCalendar alloc]
                                  initWithCalendarIdentifier:NSGregorianCalendar];
         
-        if ( gregorian )
+        NSDateComponents    *dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:timeDate];
+        
+        float   adder = 0.0;
+        
+        if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
             {
-            NSDateComponents    *dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:startTime];
-            
-            if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
-                {
-                timeString = NSLocalizedString(@"TIME-MIDNIGHT", nil);
-                }
-            else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
-                {
-                timeString = NSLocalizedString(@"TIME-NOON", nil);
-                }
+            timeString = NSLocalizedString(@"TIME-MIDNIGHT", nil);
+            adder = 60.0;
+            }
+        else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
+            {
+            timeString = NSLocalizedString(@"TIME-NOON", nil);
             }
         
-        timeString = [timeString stringByAppendingFormat:@" (%f)", [myMeeting getDuration]];
+        NSTimeInterval  duration = [myMeeting getDuration] + adder;
+        timeDate = [timeDate dateByAddingTimeInterval:duration];
+        NSString    *timeString2 = [NSDateFormatter localizedStringFromDate:timeDate dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+        dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:timeDate];
+            
+        if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
+            {
+            timeString2 = NSLocalizedString(@"TIME-MIDNIGHT", nil);
+            }
+        else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
+            {
+            timeString2 = NSLocalizedString(@"TIME-NOON", nil);
+            }
+        
+        timeString = [timeString stringByAppendingFormat:@" - %@", timeString2];
         [timeLabel setText:timeString];
         [timeLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
         [wrapperView addSubview:timeLabel];
