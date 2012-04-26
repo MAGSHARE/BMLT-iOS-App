@@ -75,6 +75,7 @@ CHANGELIST
 * Tweaked the shadow images in the iPad version to look a bit more "3D."
 * This release will be made entirely through TestFlight.
 * Switched to the new Team ID (TestFlight).
+* The top shadow image was slightly misaligned. I moved it up 2 pixels.
 
 == Version 2.0a3
 * April 26, 2012
