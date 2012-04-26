@@ -76,7 +76,7 @@ CHANGELIST
 * This release will be made entirely through TestFlight.
 * Switched to the new Team ID (TestFlight).
 * The top shadow image was slightly misaligned. I moved it up 2 pixels.
-* Incresed the distance that requires individual (blue marker) meetings be combined into red markers. This is because close markers don't work well with chubby paws like mine.
+* Increased the distance that requires individual (blue marker) meetings be combined into red markers. This is because close markers don't work well with chubby paws like mine.
 
 == Version 2.0a3
 * April 26, 2012
