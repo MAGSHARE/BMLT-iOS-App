@@ -31,7 +31,7 @@
 #import "TestFlight.h"
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
-static NSString *kTestFlightTeamToken = @"89521cfd695fa615cc412b7048699107_ODQ2NTYyMDEyLTA0LTI2IDEwOjQ0OjM5LjU2NjA4OQ";
+static NSString *kTestFlightTeamToken = @"89521cfd695fa615cc412b7048699107_ODQ2NTYyMDEyLTA0LTI2IDEwOjQ0OjM5LjU2NjA4OQ"; ///< Used for the TesFlightApp.com utility.
 
 int kAddressLookupTimeoutPeriod_in_seconds = 10;
 
@@ -279,7 +279,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 - (void)callInSick
 {
 #ifdef DEBUG
-    NSLog(@"Calling in sick.");
+    NSLog(@"BMLTAppDelegate::callInSick Calling in sick.");
 #endif
     if ( !_amISick )    // This makes sure we only call it once.
         {
@@ -295,7 +295,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 - (void)sorryCharlie
 {
 #ifdef DEBUG
-    NSLog(@"No meetings found.");
+    NSLog(@"BMLTAppDelegate::sorryCharlie No meetings found.");
 #endif
     [[currentAnimation messageLabel] setText:NSLocalizedString(@"NO-SEARCH-RESULTS",nil)];
 }
@@ -561,7 +561,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                      withParams:(NSDictionary *)params 
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate searchForMeetingsNearMe withParams called.");
+    NSLog(@"BMLTAppDelegate::searchForMeetingsNearMe withParams called.");
 #endif
     // Remember that we have a pref for result count.
     if ( params )
@@ -575,7 +575,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate searchForMeetingsNearMe withParams called. These are the parameters:");
+    NSLog(@"BMLTAppDelegate::searchForMeetingsNearMe withParams called. These are the parameters:");
     
     for(id key in searchParams)
         NSLog(@"key=\"%@\", value=\"%@\"", key, [searchParams objectForKey:key]);
@@ -586,7 +586,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
         _findMeetings = YES;   // This is a semaphore, that tells the app to do a search, once it has settled on a location.
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate searchForMeetingsNearMe withParams Starting a new location-based search after a lookup.");
+        NSLog(@"BMLTAppDelegate::searchForMeetingsNearMe withParams Starting a new location-based search after a lookup.");
 #endif
         locationTried = NO;
         [locationManager startUpdatingLocation];
@@ -598,7 +598,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.longitude] forKey:@"long_val"];
         [searchParams setObject:[NSString stringWithFormat:@"%f", inMyLocation.latitude] forKey:@"lat_val"];
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate searchForMeetingsNearMe withParams Starting a new location-based search immediately.");
+        NSLog(@"BMLTAppDelegate::searchForMeetingsNearMe withParams Starting a new location-based search immediately.");
 #endif
         [self executeSearchWithParams:searchParams];    // Start the search.
         }
@@ -611,7 +611,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate searchForMeetingsNearMe called.");
+    NSLog(@"BMLTAppDelegate::searchForMeetingsNearMe called.");
 #endif
     [self searchForMeetingsNearMe:inMyLocation withParams:nil];
 }
@@ -622,7 +622,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)searchForMeetingsNearMeLaterToday:(CLLocationCoordinate2D)inMyLocation
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate searchForMeetingsNearMeLaterToday called.");
+    NSLog(@"BMLTAppDelegate::searchForMeetingsNearMeLaterToday called.");
 #endif
     NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
     NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -646,7 +646,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)searchForMeetingsNearMeTomorrow:(CLLocationCoordinate2D)inMyLocation
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate searchForMeetingsNearMeTomorrow called.");
+    NSLog(@"BMLTAppDelegate::searchForMeetingsNearMeTomorrow called.");
 #endif
     NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:[BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:NO]];
@@ -676,7 +676,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     if ((searchResults && [searchResults count]) || (mySearch && [mySearch searchInProgress]))
         {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate setUpTabBarItems called. We are enabling the search results tabs.");
+        NSLog(@"BMLTAppDelegate::setUpTabBarItems called. We are enabling the search results tabs.");
 #endif
         [listResultsItem setEnabled:YES];
         [mapResultsItem setEnabled:YES];
@@ -684,7 +684,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     else
         {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate setUpTabBarItems called. We are disabling the search results tabs, and selecting the search tab.");
+        NSLog(@"BMLTAppDelegate::setUpTabBarItems called. We are disabling the search results tabs, and selecting the search tab.");
 #endif
         [listResultsItem setEnabled:NO];
         [mapResultsItem setEnabled:NO];
@@ -745,7 +745,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *****************************************************************/
 - (void)setSearchMapMarkerLoc:(CLLocationCoordinate2D)inLocation
 {
-    NSLog(@"BMLTAppDelegate setSearchMapMarkerLoc: (%f, %f)", inLocation.latitude, inLocation.longitude);
+    NSLog(@"BMLTAppDelegate::setSearchMapMarkerLoc: (%f, %f)", inLocation.latitude, inLocation.longitude);
     _markerLoc = inLocation;
 }
 #endif
@@ -757,6 +757,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     if ( !currentAnimation )
         {
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::startAnimations pushing new animation.");
+#endif
         currentAnimation = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"animation-screen"];
         [[currentAnimation navigationItem] setTitle:NSLocalizedString(@"SEARCH-ANIMATION-TITLE", nil)];
         [[searchNavController navigationController] pushViewController:currentAnimation animated:YES];
@@ -820,7 +823,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
        didFailWithError:(NSError *)error                ///< Oh, Lord, the trouble I'm in...
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate didFailWithError: %@", [error localizedDescription]);
+    NSLog(@"BMLTAppDelegate::didFailWithError: %@", [error localizedDescription]);
 #endif
 }
 
@@ -833,7 +836,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
            fromLocation:(CLLocation *)oldLocation
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate didUpdateToLocation Location Found: (%@)", newLocation);
+    NSLog(@"BMLTAppDelegate::didUpdateToLocation %@ fromLocation: %@", newLocation, oldLocation);
 #endif
     
     NSTimeInterval howRecent = [[newLocation timestamp] timeIntervalSinceNow];
@@ -841,13 +844,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     if ( abs(howRecent) >= 15 )  // Fifteen seconds old is too old.
         {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate didUpdateToLocation ignoring old GPS info");
+        NSLog(@"BMLTAppDelegate::didUpdateToLocation ignoring old GPS info");
 #endif
         return;
         }    
     
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy);
+    NSLog(@"BMLTAppDelegate::didUpdateToLocation I'm at (%f, %f), the horizontal accuracy is %f.", newLocation.coordinate.longitude, newLocation.coordinate.latitude, newLocation.horizontalAccuracy);
 #endif
     
     if ( newLocation.coordinate.longitude != 0 && newLocation.coordinate.latitude != 0 )
@@ -859,7 +862,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.longitude] forKey:@"long_val"];
             [searchParams setObject:[NSString stringWithFormat:@"%f", newLocation.coordinate.latitude] forKey:@"lat_val"];
 #ifdef DEBUG
-            NSLog(@"BMLTAppDelegate didUpdateToLocation: Starting a new location-based search.");
+            NSLog(@"BMLTAppDelegate::didUpdateToLocation: Starting a new location-based search.");
 #endif
             [self performSelectorOnMainThread:@selector(executeSearchWithParams:) withObject:searchParams waitUntilDone:YES];
             [self performSelectorOnMainThread:@selector(setUpTabBarItems) withObject:nil waitUntilDone:NO];
@@ -889,7 +892,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
     else    // Something's wrong. We cannot be at exactly 0,0. Try again.
         {
-        NSLog(@"BMLTAppDelegate didUpdateToLocation Location Error: (%@)", newLocation);
+        NSLog(@"BMLTAppDelegate::didUpdateToLocation Location Error: (%@)", newLocation);
         }
 #endif
 }
@@ -933,7 +936,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     [self stopNetworkMonitor];  // We stop first, in order to establish a "clean slate."
     
 #ifdef DEBUG
-    NSLog(@"Starting the network status check.");
+    NSLog(@"BMLTAppDelegate::startNetworkMonitor Starting the network status check.");
 #endif
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
@@ -957,7 +960,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 - (void)stopNetworkMonitor
 {
 #ifdef DEBUG
-    NSLog(@"Stopping the network status check.");
+    NSLog(@"BMLTAppDelegate::stopNetworkMonitor Stopping the network status check.");
 #endif
     internetActive = NO;
     hostActive = NO;
@@ -978,7 +981,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 - (void)networkStatusCallback:(NSNotification *)notice
 {
 #ifdef DEBUG
-    NSLog(@"Network status check callback.");
+    NSLog(@"BMLTAppDelegate::networkStatusCallback: called");
 #endif
 
     // called after network status changes
@@ -986,12 +989,12 @@ shouldSelectViewController:(UIViewController *)inViewController
         {
         default:
 #ifdef DEBUG
-            NSLog(@"The internet connection is in an unknown state.");
+            NSLog(@"BMLTAppDelegate::networkStatusCallback: The internet connection is in an unknown state.");
 #endif
         case NotReachable:
             {
 #ifdef DEBUG
-            NSLog(@"The internet is down.");
+            NSLog(@"BMLTAppDelegate::networkStatusCallback: The internet is down.");
 #endif
             internetActive = NO;
         
@@ -1001,7 +1004,7 @@ shouldSelectViewController:(UIViewController *)inViewController
         case ReachableViaWiFi:
             {
 #ifdef DEBUG
-            NSLog(@"The internet is working via WIFI.");
+            NSLog(@"BMLTAppDelegate::networkStatusCallback: The internet is working via WIFI.");
 #endif
             internetActive = YES;
         
@@ -1011,7 +1014,7 @@ shouldSelectViewController:(UIViewController *)inViewController
         case ReachableViaWWAN:
             {
 #ifdef DEBUG
-            NSLog(@"The internet is working via WWAN.");
+            NSLog(@"BMLTAppDelegate::networkStatusCallback: The internet is working via WWAN.");
 #endif
             internetActive = YES;
             
@@ -1023,12 +1026,12 @@ shouldSelectViewController:(UIViewController *)inViewController
         {
         default:
 #ifdef DEBUG
-            NSLog(@"The gateway to the root server is in an unknown state.");
+            NSLog(@"BMLTAppDelegate::networkStatusCallback: The gateway to the root server is in an unknown state.");
 #endif
         case NotReachable:
             {
 #ifdef DEBUG
-            NSLog(@"The gateway to the root server is down.");
+            NSLog(@"BMLTAppDelegate::networkStatusCallback: The gateway to the root server is down.");
 #endif
             hostActive = NO;
             
@@ -1038,7 +1041,7 @@ shouldSelectViewController:(UIViewController *)inViewController
         case ReachableViaWiFi:
             {
 #ifdef DEBUG
-            NSLog(@"A gateway to the root server is working via WIFI.");
+            NSLog(@"BMLTAppDelegate::networkStatusCallback: A gateway to the root server is working via WIFI.");
 #endif
             hostActive = YES;
             
@@ -1048,7 +1051,7 @@ shouldSelectViewController:(UIViewController *)inViewController
         case ReachableViaWWAN:
             {
 #ifdef DEBUG
-            NSLog(@"A gateway to the root server is working via WWAN.");
+            NSLog(@"BMLTAppDelegate::networkStatusCallback: A gateway to the root server is working via WWAN.");
 #endif
             hostActive = YES;
             
@@ -1063,14 +1066,14 @@ shouldSelectViewController:(UIViewController *)inViewController
     if ( (!validServers || (0 == [validServers count])) && hostActive && internetActive )
         {
 #ifdef DEBUG
-        NSLog(@"The network connection is fine, and we don't have valid servers, so we'll set up the server.");
+        NSLog(@"BMLTAppDelegate::networkStatusCallback: The network connection is fine, and we don't have valid servers, so we'll set up the server.");
 #endif
         [BMLT_Driver setUpServers];
         }
     else if (!hostActive || !internetActive)
         {
 #ifdef DEBUG
-        NSLog(@"The network connection is not usable, so we'll make sure we delete our servers.");
+        NSLog(@"BMLTAppDelegate::networkStatusCallback: The network connection is not usable, so we'll make sure we delete our servers.");
 #endif
         if ( validServers && [validServers count] )
             {
@@ -1092,7 +1095,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     else
         {
 #ifdef DEBUG
-        NSLog(@"The network connection is fine, and we already have valid servers.");
+        NSLog(@"BMLTAppDelegate::networkStatusCallback: The network connection is fine, and we already have valid servers.");
 #endif
         }
 }
@@ -1104,7 +1107,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 - (void)abortSearch
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate abortSearch called.");
+    NSLog(@"BMLTAppDelegate::abortSearch called.");
 #endif
 }
 
@@ -1117,7 +1120,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 {
     _findMeetings = NO; // Clear the semaphore.
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate executeSearchWithParams called.");
+    NSLog(@"BMLTAppDelegate::executeSearchWithParams: called.");
 #endif
     [locationManager stopUpdatingLocation];
     [self simpleClearSearch];
@@ -1138,7 +1141,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 - (void)searchCompleteWithError:(NSError *)inError  ///< If there was an error, it is indicated in this parameter.
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate searchCompleteWithError Search Complete With %@", (inError ? [inError description] : @"No Errors"));
+    NSLog(@"BMLTAppDelegate::searchCompleteWithError: %@", (inError ? [inError description] : @"No Errors"));
 #endif
     if ( inError )
         {
