@@ -23,7 +23,7 @@
 #import "BMLTDisplayListResultsViewController.h"
 #import "BMLT_ListPrintPageRenderer.h"
 
-static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 12; ///< The minimum distance apart for map annotations, before they are combined.
+static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum distance apart for map annotations, before they are combined.
 
 /**************************************************************//**
  \class  BMLTMapResultsViewController -Private Interface
