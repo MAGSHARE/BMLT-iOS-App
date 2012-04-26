@@ -70,6 +70,11 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0b0
+* TBD
+* Tweaked the shadow images in the iPad version to look a bit more "3D."
+* This release will be made entirely through TestFlight.
+
 == Version 2.0a3
 * April 26, 2012
 * Fixed a nasty stealth bug that only showed up when in connection trace debug.
