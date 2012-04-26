@@ -31,7 +31,7 @@
 #import "TestFlight.h"
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
-static NSString *kTestFlightTeamToken = @"a57839b4d4458e6b113d8908a80187f8_NDEzNTQwMjAxMi0wNC0yNSAxMDoxOTo1NC4yMzQwNzQ";
+static NSString *kTestFlightTeamToken = @"89521cfd695fa615cc412b7048699107_ODQ2NTYyMDEyLTA0LTI2IDEwOjQ0OjM5LjU2NjA4OQ";
 
 int kAddressLookupTimeoutPeriod_in_seconds = 10;
 
