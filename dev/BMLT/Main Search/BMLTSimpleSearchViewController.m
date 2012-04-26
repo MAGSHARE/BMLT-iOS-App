@@ -26,6 +26,7 @@
  \brief  This class will present the user with a simple "one-button" interface.
  *****************************************************************/
 @implementation BMLTSimpleSearchViewController
+@synthesize updateLocationButton;
 @synthesize disabledTextLabel;
 
 @synthesize findMeetingsNearMeButton;
@@ -40,6 +41,7 @@
     [findMeetingsNearMeButton setTitle:NSLocalizedString([findMeetingsNearMeButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
     [findMeetingsLaterTodayButton setTitle:NSLocalizedString([findMeetingsLaterTodayButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
     [findMeetingsTomorrowButton setTitle:NSLocalizedString([findMeetingsTomorrowButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
+    [updateLocationButton setTitle:NSLocalizedString([updateLocationButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
     [disabledTextLabel setText:NSLocalizedString([disabledTextLabel text], nil)];
     [disabledTextLabel setAlpha:0.0];
     
@@ -74,6 +76,7 @@
     [self setFindMeetingsLaterTodayButton:nil];
     [self setMapSearchView:nil];
     [self setDisabledTextLabel:nil];
+    [self setUpdateLocationButton:nil];
     [super viewDidUnload];
 }
 
