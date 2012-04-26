@@ -261,7 +261,7 @@ didStartElement:(NSString *)elementName         ///< The name of the element
 foundCharacters:(NSString *)string      ///< The characters
 {
 #ifdef _CONNECTION_PARSE_TRACE_
-    NSLog(@"\t\tCharacters \"%@\" Received for the Element: \"%@\"", string, currentElement);
+    NSLog(@"\t\tCharacters \"%@\" Received for the Element: \"%@\"", string, [self currentElement]);
 #endif
     if ( [[self currentElement] isEqual:@"id"] )
         {

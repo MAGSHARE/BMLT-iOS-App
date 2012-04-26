@@ -393,6 +393,8 @@ didStartElement:(NSString *)elementName         ///< The name of the element
 
 /**************************************************************//**
  \brief Called when the XML parser is reading element characters.
+        Yeah, it's a cascading if/else mess, and I'll refactor it
+        Real Soon Now...
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser    ///< The parser object
 foundCharacters:(NSString *)string      ///< The characters
@@ -477,79 +479,97 @@ foundCharacters:(NSString *)string      ///< The characters
                             }
                         else
                             {
-                            if ( [currentElement hasPrefix:@"location_"] )
+                            if ( [currentElement isEqual:@"duration_time"] )
                                 {
-                                [location_object setLocationElementValue:string forKey:currentElement];
+                                NSArray *time_ar = [string componentsSeparatedByString:@":"];
+                                if ( time_ar && ([time_ar count] > 1) )
+                                    {
+                                    NSInteger hours = [(NSString *)[time_ar objectAtIndex:0] intValue];
+                                    NSInteger minutes = [(NSString *)[time_ar objectAtIndex:1] intValue];
+                                    
+                                    [self setDuration:((hours * 60) + minutes) * 60];
+                                    
 #ifdef _CONNECTION_PARSE_TRACE_
-                                NSLog(@"\t\t\tBMLT_Meeting Parser Setting Location Value for %@ To: \"%@\"", currentElement, string );
+                                    NSLog(@"\t\tBMLT_Meeting Parser Setting Duration To: \"%f\"", [self getDuration]);
 #endif
+                                    }
                                 }
                             else
                                 {
-                                if ( [currentElement isEqual:@"formats"] )
+                                if ( [currentElement hasPrefix:@"location_"] )
                                     {
+                                    [location_object setLocationElementValue:string forKey:currentElement];
 #ifdef _CONNECTION_PARSE_TRACE_
-                                    NSLog(@"\t\t\tBMLT_Meeting Formats: \"%@\"", string );
+                                    NSLog(@"\t\t\tBMLT_Meeting Parser Setting Location Value for %@ To: \"%@\"", currentElement, string );
 #endif
-                                    if ( !formats )
+                                    }
+                                else
+                                    {
+                                    if ( [currentElement isEqual:@"formats"] )
                                         {
-                                        formats = [[NSMutableArray alloc] init];
-                                        }
-                                    
-                                    if ( formats )
-                                        {
-                                        if ( myServer )
+#ifdef _CONNECTION_PARSE_TRACE_
+                                        NSLog(@"\t\t\tBMLT_Meeting Formats: \"%@\"", string );
+#endif
+                                        if ( !formats )
                                             {
-                                            NSArray *format_choices = [myServer getFormats];
-                                            
-                                            if ( [format_choices count] )
+                                            formats = [[NSMutableArray alloc] init];
+                                            }
+                                        
+                                        if ( formats )
+                                            {
+                                            if ( myServer )
                                                 {
-                                                NSArray *format_keys = [string componentsSeparatedByString:@","];
-                                                if ( format_keys && ([format_keys count] > 0) )
+                                                NSArray *format_choices = [myServer getFormats];
+                                                
+                                                if ( [format_choices count] )
                                                     {
-                                                    for ( int i = 0; i < [format_keys count]; i++ )
+                                                    NSArray *format_keys = [string componentsSeparatedByString:@","];
+                                                    if ( format_keys && ([format_keys count] > 0) )
                                                         {
-                                                        NSString *theKey = (NSString *)[format_keys objectAtIndex:i];
-                                                        
-                                                        for ( int j = 0; j < [format_choices count]; j++ )
+                                                        for ( int i = 0; i < [format_keys count]; i++ )
                                                             {
-                                                            BMLT_Format *the_format = [format_choices objectAtIndex:j];
+                                                            NSString *theKey = (NSString *)[format_keys objectAtIndex:i];
                                                             
-                                                            if ( the_format && [[the_format key] isEqual:theKey] )
+                                                            for ( int j = 0; j < [format_choices count]; j++ )
                                                                 {
-                                                                [formats addObject:the_format];
+                                                                BMLT_Format *the_format = [format_choices objectAtIndex:j];
+                                                                
+                                                                if ( the_format && [[the_format key] isEqual:theKey] )
+                                                                    {
+                                                                    [formats addObject:the_format];
 #ifdef _CONNECTION_PARSE_TRACE_
-                                                                NSLog(@"\t\t\tBMLT_Meeting Adding the Format for Key: \"%@\"", theKey );
+                                                                    NSLog(@"\t\t\tBMLT_Meeting Adding the Format for Key: \"%@\"", theKey );
 #endif
+                                                                    }
                                                                 }
                                                             }
                                                         }
                                                     }
+#ifdef _CONNECTION_PARSE_TRACE_
+                                                else
+                                                    {
+                                                    NSLog(@"\t\t\tBMLT_Meeting No Server Formats!" );
+                                                    }
+#endif
                                                 }
 #ifdef _CONNECTION_PARSE_TRACE_
                                             else
                                                 {
-                                                NSLog(@"\t\t\tBMLT_Meeting No Server Formats!" );
+                                                NSLog(@"\t\t\tBMLT_Meeting No Server Object!" );
                                                 }
 #endif
                                             }
-#ifdef _CONNECTION_PARSE_TRACE_
-                                        else
-                                            {
-                                            NSLog(@"\t\t\tBMLT_Meeting No Server Object!" );
-                                            }
-#endif
-                                        }
-                                    }
-                                else
-                                    {
-                                    if ( [moreFields objectForKey:currentElement] )
-                                        {
-                                        [moreFields setObject:[(NSString *)[moreFields objectForKey:currentElement] stringByAppendingString:string] forKey:currentElement];
                                         }
                                     else
                                         {
-                                        [moreFields setObject:string forKey:currentElement];
+                                        if ( [moreFields objectForKey:currentElement] )
+                                            {
+                                            [moreFields setObject:[(NSString *)[moreFields objectForKey:currentElement] stringByAppendingString:string] forKey:currentElement];
+                                            }
+                                        else
+                                            {
+                                            [moreFields setObject:string forKey:currentElement];
+                                            }
                                         }
                                     }
                                 }

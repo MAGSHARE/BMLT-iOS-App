@@ -70,6 +70,12 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0a3
+* TBD
+* Fixed a nasty stealth bug that only showed up when in connection trace debug.
+* The duration wasn't being parsed correctly. It is now being parsed properly.
+* Starting some test code for displaying duration. Still unripe.
+
 == Version 2.0a2
 * April 25, 2012
 * Fixed a couple of extremely minor cosmetic issues with displayed images and text.
