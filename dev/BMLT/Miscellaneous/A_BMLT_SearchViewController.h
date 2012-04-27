@@ -44,20 +44,13 @@
 @end
 
 /**************************************************************//**
- \class BMLT_Search_MapPointAnnotation
- \brief Handles annotations in the results map.
- *****************************************************************/
-@interface BMLT_Search_MapPointAnnotation : BMLT_Results_MapPointAnnotation
-@end
-
-/**************************************************************//**
  \class A_BMLT_SearchViewController
  \brief This class acts as an abstract base for the two search dialogs.
  its only purpose is to handle the interactive map presented in
  the iPad version of the app.
  *****************************************************************/
 @interface A_BMLT_SearchViewController : A_BMLTNavBarViewController <MKMapViewDelegate>
-    @property (strong, atomic, readwrite) BMLT_Search_MapPointAnnotation  *myMarker;    ///< This holds the marker in the search location map.
+    @property (strong, atomic, readwrite) BMLT_Results_MapPointAnnotation  *myMarker;    ///< This holds the marker in the search location map.
     @property (weak, atomic, readwrite) IBOutlet MKMapView  *mapSearchView;             ///< If this is an iPad, then this will point to the map view. iPhone will be nil. The property is linked in the storyboard.
     @property (weak, atomic, readwrite) IBOutlet UIButton *lookupLocationButton;        ///< This will be for a button that allows the user to re-establish their location.
 

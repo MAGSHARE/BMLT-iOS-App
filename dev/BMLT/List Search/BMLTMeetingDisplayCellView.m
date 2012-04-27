@@ -23,8 +23,8 @@
 static int List_Meeting_Annotation_Size                = 26;
 static int List_Meeting_Name_Text_Size                 = 16;
 static int List_Meeting_Display_Text_Size              = 12;
-static int List_Meeting_Format_Distance_Label_Width    = 80;
-static int List_Meeting_Format_Weekday_Width           = 80;
+static int List_Meeting_Format_Distance_Label_Width    = 70;
+static int List_Meeting_Format_Weekday_Width           = 70;
 static int List_Meeting_Format_Time_Width              = 120;
 static int List_Meeting_Format_Town_Width              = 160;
 
@@ -386,6 +386,13 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
             formatsBounds.size.width -= List_Meeting_Format_Line_Padding;
             boundsRect = [self bounds];
             formatsBounds.origin.x = (boundsRect.size.width - formatsBounds.size.width) / 2;
+            
+            // This odd bit of code is because sometimes long formats lists can overwrite the distance, and we want to nudge to the left, if so.
+            if ( (formatsBounds.origin.x + formatsBounds.size.width) > (boundsRect.size.width - List_Meeting_Format_Distance_Label_Width) )
+                {
+                formatsBounds.origin.x -= ((formatsBounds.origin.x + formatsBounds.size.width) - (boundsRect.size.width - List_Meeting_Format_Distance_Label_Width));
+                }
+            
             [formatsView setFrame:formatsBounds];
             [formatsView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin| UIViewAutoresizingFlexibleLeftMargin];
             [wrapperView addSubview:formatsView];

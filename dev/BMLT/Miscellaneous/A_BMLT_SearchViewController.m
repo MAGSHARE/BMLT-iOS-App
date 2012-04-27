@@ -66,8 +66,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         CLLocationCoordinate2D  longLat = [myView convertPoint:position toCoordinateFromView:myView];
         
 #ifdef DEBUG
-        NSLog(@"WildcardGestureRecognizer::touchesEnded: withEvent: Position of Touch In View: (%f, %f)", position.x, position.y);
-        NSLog(@"WildcardGestureRecognizer::touchesEnded: withEvent: Long/Lat of Touch In View: (%f, %f)", longLat.longitude, longLat.latitude);
+        NSLog(@"WildcardGestureRecognizer::touchesEnded: withEvent: Position of Touch In View: (%f, %f), Long/Lat of Touch In View: (%f, %f)", position.x, position.y, longLat.longitude, longLat.latitude);
 #endif
         [myController updateMapWithThisLocation:longLat];
         }
@@ -134,13 +133,6 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 @end
 
 /**************************************************************//**
- \class BMLT_Search_MapPointAnnotation
- \brief Handles annotations in the results map.
- *****************************************************************/
-@implementation BMLT_Search_MapPointAnnotation
-@end
-
-/**************************************************************//**
  \class A_BMLT_SearchViewController
  \brief This class acts as an abstract base for the two search dialogs.
         its only purpose is to handle the interactive map presented in
@@ -185,7 +177,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         
         CLLocationCoordinate2D  markerLoc = [myAppDelegate searchMapMarkerLoc];
         
-        myMarker = [[BMLT_Search_MapPointAnnotation alloc] initWithCoordinate:markerLoc andMeetings:nil andIndex:0];
+        myMarker = [[BMLT_Results_MapPointAnnotation alloc] initWithCoordinate:markerLoc andMeetings:nil andIndex:0];
         
         [myMarker setTitle:@"Marker"];
 

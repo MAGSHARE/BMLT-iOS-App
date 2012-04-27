@@ -86,7 +86,6 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 @synthesize lastLocation;               ///< This will hold the last location for the user (as opposed to the search center). This is used for directions.
 @synthesize window      = _window;      ///< This will hold the window associated with this application instance.
 @synthesize locationManager;            ///< This holds the location manager instance.
-@synthesize internetActive;             ///< Set to YES, if the network test says that the Internet is available.
 @synthesize hostActive;                 ///< Set to YES, if the network test says that the root server is available.
 @synthesize myPrefs;                    ///< This will have a reference to the global prefs object.
 @synthesize searchResults;              ///< This will hold the latest search results.
@@ -130,7 +129,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
  *****************************************************************/
 + (BOOL)canReachRootServer
 {
-    return [g_AppDelegate hostActive] && [g_AppDelegate internetActive];
+    return [g_AppDelegate hostActive];
 }
 
 /**************************************************************//**
@@ -944,12 +943,10 @@ shouldSelectViewController:(UIViewController *)inViewController
     // check for internet connection
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusCallback:) name:kReachabilityChangedNotification object:nil];
     
-    internetReachable = [Reachability reachabilityForInternetConnection];
-    [internetReachable startNotifier];
-    
     // check if a pathway to our root server exists
     NSURL       *test_uri = [BMLTVariantDefs rootServerURI];
     NSString    *root_uri = [test_uri host];
+    
     hostReachable = [Reachability reachabilityWithHostName:root_uri];
     [hostReachable startNotifier];
 }
@@ -962,11 +959,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate::stopNetworkMonitor Stopping the network status check.");
 #endif
-    internetActive = NO;
     hostActive = NO;
-    
-    [internetReachable stopNotifier];
-    internetReachable = nil;
     [hostReachable stopNotifier];
     hostReachable = nil;
 
@@ -983,40 +976,6 @@ shouldSelectViewController:(UIViewController *)inViewController
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate::networkStatusCallback: called");
 #endif
-
-    // called after network status changes
-    switch ([internetReachable currentReachabilityStatus])
-        {
-        default:
-            {
-#ifdef DEBUG
-            NSLog(@"BMLTAppDelegate::networkStatusCallback: The internet is down.");
-#endif
-            internetActive = NO;
-        
-            break;
-            }
-        
-        case ReachableViaWiFi:
-            {
-#ifdef DEBUG
-            NSLog(@"BMLTAppDelegate::networkStatusCallback: The internet is working via WIFI.");
-#endif
-            internetActive = YES;
-        
-            break;
-            }
-        
-        case ReachableViaWWAN:
-            {
-#ifdef DEBUG
-            NSLog(@"BMLTAppDelegate::networkStatusCallback: The internet is working via WWAN.");
-#endif
-            internetActive = YES;
-            
-            break;
-            }
-        }
     
     switch ([hostReachable currentReachabilityStatus])
         {
@@ -1055,14 +1014,14 @@ shouldSelectViewController:(UIViewController *)inViewController
     
     NSArray *validServers = [BMLT_Driver getValidServers];
     
-    if ( ![validServers count] && hostActive && internetActive )
+    if ( ![validServers count] && hostActive )
         {
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::networkStatusCallback: The network connection is fine, and we don't have valid servers, so we'll set up the server.");
 #endif
         [BMLT_Driver setUpServers];
         }
-    else if (!hostActive || !internetActive)
+    else if ( !hostActive )
         {
 #ifdef DEBUG
         NSLog(@"BMLTAppDelegate::networkStatusCallback: The network connection is not usable, so we'll make sure we delete our servers.");

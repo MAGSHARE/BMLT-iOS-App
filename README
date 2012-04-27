@@ -71,14 +71,16 @@ The new app will read the prefs from the original, but this is really meant to b
 CHANGELIST
 ----------
 == Version 2.0b0
-* TBD
+* April 27, 2012
 * Tweaked the shadow images in the iPad version to look a bit more "3D."
 * This release will be made entirely through TestFlight.
 * Switched to the new Team ID (TestFlight).
 * The top shadow image was slightly misaligned. I moved it up 2 pixels.
 * Increased the distance that requires individual (blue marker) meetings be combined into red markers. This is because close markers don't work well with chubby paws like mine.
 * Added a slightly different button graphic for the "Update My Location" buttons, as the original one was a bit obtuse.
-* A tiny bit of tweaking to reduce the cyclomatic complexity of a couple of routines. Nothing is actually very bad.
+* A tiny bit of tweaking to reduce the cyclomatic complexity of a couple of routines. Nothing is actually very bad, and the only (about 6) routines above 15 would require a fairly substantial refactoring -not a good idea in beta.
+* Added a bit of code to shove the formats over to the left a bit if they crowd the distance (mostly on iPhones).
+* Removed one of the reachability callbacks, as it's not necessary (host is all we need), and it caused one of the high cyclo counts, and also showed "false positive" messages when the network was, indeed, reachable.
 
 == Version 2.0a3
 * April 26, 2012

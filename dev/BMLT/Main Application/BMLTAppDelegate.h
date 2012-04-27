@@ -50,7 +50,6 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 @property (strong, atomic) CLLocation               *lastLocation;      ///< This will hold the last location for the user (as opposed to the search center). This is used for directions.
 @property (strong, nonatomic) UIWindow              *window;            ///< This is the main window object (SINGLETON)
 @property (strong, nonatomic) CLLocationManager     *locationManager;   ///< This will hold our location manager.
-@property (atomic) BOOL                             internetActive;     ///< Set to YES, if the network test says that the Internet is available.
 @property (atomic) BOOL                             hostActive;         ///< Set to YES, if the network test says that the root server is available.
 @property (weak, atomic) BMLT_Prefs                 *myPrefs;           ///< This will have a reference to the global prefs object.
 @property (strong, nonatomic) NSMutableArray        *searchResults;     ///< This will hold the latest search results.
