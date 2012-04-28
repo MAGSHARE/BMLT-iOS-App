@@ -842,7 +842,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="MEETING-DETAILS-FREQUENCY-FORMAT" textAlignment="center" id="KYi-wM-itk" userLabel="Frequency">
-                                <rect key="frame" x="0.0" y="33" width="320" height="32"/>
+                                <rect key="frame" x="0.0" y="33" width="320" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -850,7 +850,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" text="Comments" id="Q4D-Dh-Uq5" userLabel="Comments">
-                                <rect key="frame" x="0.0" y="73" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="59" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1130,6 +1130,7 @@
                 <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="updateLocationButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="BMLTSnappyLogSlider" superclassName="UISlider">
