@@ -458,7 +458,15 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     searchNavController = (UINavigationController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kSearchTabIndex] topViewController];
     listResultsViewController = (BMLTDisplayListResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kListResultsTabIndex] topViewController];
     mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kMapResultsTabIndex] topViewController];
-    settingsViewController = (BMLTSettingsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kSettingsTabIndex] topViewController];
+    if ( [[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPad )
+        {
+        settingsViewController = (BMLTSettingsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kSettingsTabIndex] topViewController];
+        }
+    else
+        {
+        settingsViewController = nil;
+        }
+    
     [self clearAllSearchResults:YES];
     
     float   projection = [BMLTVariantDefs initialMapProjection] * 1000.0;
@@ -514,10 +522,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #endif
         _iveUpdatedTheMap = NO;
         [self clearAllSearchResults:YES];
+        if ( settingsViewController )
+            {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground popping settings to root view controller.");
+            NSLog(@"BMLTAppDelegate::applicationWillEnterForeground popping settings to root view controller.");
 #endif
-        [[settingsViewController navigationController] popToRootViewControllerAnimated:NO];
+            [[settingsViewController navigationController] popToRootViewControllerAnimated:NO];
+            }
         }
     else if ( !_visitingRelatives )
         {
