@@ -70,10 +70,13 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
-== Version 2.0b1
-* TBD
-* Resized the iPhone meeting details comment text item to allow more text to be shown.
+== Version 2.0b2
+* April 28, 2012
 * Fixed a small bug that prevented the settings tab from being reset on the iPhone, when restarting the app.
+
+== Version 2.0b1
+* April 28, 2012
+* Resized the iPhone meeting details comment text item to allow more text to be shown.
 
 == Version 2.0b0
 * April 27, 2012
