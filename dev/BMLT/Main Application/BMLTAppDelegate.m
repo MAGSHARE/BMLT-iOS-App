@@ -387,6 +387,34 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         }
 }
 
+/**************************************************************//**
+ \brief This sets the search map (iPad only) to the default size and location.
+ *****************************************************************/
+- (void)setDefaultMapRegion
+{
+    float   projection = [BMLTVariantDefs initialMapProjection] * 1000.0;
+    CLLocationCoordinate2D center = [BMLTVariantDefs mapDefaultCenter];
+    
+    MKCoordinateRegion  region = MKCoordinateRegionMakeWithDistance(center, projection, projection);
+    
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::setDefaultMapRegion Initializing the map region and center point to the server default.");
+#endif
+    [self setSearchMapRegion:region];
+    [self setSearchMapMarkerLoc:center];
+    
+    if ( [myPrefs lookupMyLocation] )
+        {
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::setDefaultMapRegion We will update our location.");
+#endif
+        locationTried = NO;
+        [locationManager startUpdatingLocation];
+        }
+    
+    [(A_BMLT_SearchViewController *)searchNavController setUpMap];
+}
+
 #pragma mark - Standard Instance Methods -
 /**************************************************************//**
  \brief  Initialize the object
@@ -469,25 +497,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     [self clearAllSearchResults:YES];
     
-    float   projection = [BMLTVariantDefs initialMapProjection] * 1000.0;
-    CLLocationCoordinate2D center = [BMLTVariantDefs mapDefaultCenter];
-    
-    MKCoordinateRegion  region = MKCoordinateRegionMakeWithDistance(center, projection, projection);
-    
-#ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions Initializing the map region and center point to the server default.");
-#endif
-    [self setSearchMapRegion:region];
-    [self setSearchMapMarkerLoc:center];
-    
-    if ( [myPrefs lookupMyLocation] )
-        {
-#ifdef DEBUG
-        NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions We will update our location.");
-#endif
-        locationTried = NO;
-        [locationManager startUpdatingLocation];
-        }
+    [self setDefaultMapRegion];
     
     return YES;
 }
@@ -513,48 +523,35 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::applicationWillEnterForeground called.");
+    NSLog(@"BMLTAppDelegate::applicationWillEnterForeground: called.");
 #endif
+    
+    // If we are not preserving the state (we are resetting the app each time it starts or re-enters the foreground), then we "clear the slate."
+    // "_visitingRelatives" means that we don't even twitch. We ran out for some eggs, and we'll be right back.
     if ( ![myPrefs preserveAppStateOnSuspend] && !_visitingRelatives )
         {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be reset to initial.");
+        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground: The app state will be reset to initial.");
 #endif
         _iveUpdatedTheMap = NO;
         [self clearAllSearchResults:YES];
+        
         if ( settingsViewController )
             {
 #ifdef DEBUG
-            NSLog(@"BMLTAppDelegate::applicationWillEnterForeground popping settings to root view controller.");
+            NSLog(@"BMLTAppDelegate::applicationWillEnterForeground: popping settings to root view controller.");
 #endif
             [[settingsViewController navigationController] popToRootViewControllerAnimated:NO];
             }
+        
+        [self setDefaultMapRegion];
         }
-    else if ( !_visitingRelatives )
-        {
-#ifdef DEBUG
-        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be left alone, but we'll make sure the tab bar is enabled/disabled properly.");
-        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground popping settings to root view controller.");
-#endif
-        [self setUpTabBarItems];
-        [[settingsViewController navigationController] popToRootViewControllerAnimated:NO];
-        }
-#ifdef DEBUG
     else
         {
-        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground The app state will be left completely alone.");
-        }
-#endif
-    
-    _visitingRelatives = NO;
-    
-    if ( [myPrefs lookupMyLocation] )
-        {
 #ifdef DEBUG
-        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground We will update our location.");
+        NSLog(@"BMLTAppDelegate::applicationWillEnterForeground: The app state will be left completely alone.");
 #endif
-        locationTried = NO;
-        [locationManager startUpdatingLocation];
+        _visitingRelatives = NO;    // This means that we won't "freeze" the app state.
         }
     
 #ifdef DEBUG

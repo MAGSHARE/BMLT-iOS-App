@@ -93,4 +93,5 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 - (void)imVisitingRelatives;                            ///< This is called by other instances to prevent the app from having its state changed between calls. It is a "One-shot" operation that loses persistency between calls.
 - (void)lookupMyLocation;                               ///< Tells the app to do a CL lookup. The map (if there is one) will be updated when the location is updated.
 - (void)executeDeferredSearch;                          ///< Starts the search going.
+- (void)setDefaultMapRegion;                            ///< This sets the search map (iPad only) to the default size and location.
 @end

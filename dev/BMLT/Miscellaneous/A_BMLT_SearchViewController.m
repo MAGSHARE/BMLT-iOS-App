@@ -166,13 +166,13 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
  *****************************************************************/
 - (void)setUpMap
 {
+    BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
+    
     if ( mapSearchView && !myMarker )    // This will be set in the storyboard.
         {
 #ifdef DEBUG
         NSLog(@"A_BMLT_SearchViewController setUpIpadMap called (We're an iPad, baby!).");
 #endif
-        BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
-        
         [mapSearchView setRegion:[mapSearchView regionThatFits:[myAppDelegate searchMapRegion]] animated:YES];
         
         CLLocationCoordinate2D  markerLoc = [myAppDelegate searchMapMarkerLoc];
@@ -188,6 +188,11 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         WildcardGestureRecognizer * tapInterceptor = [[WildcardGestureRecognizer alloc] init];
         [tapInterceptor setMyController:self];
         [mapSearchView addGestureRecognizer:tapInterceptor];
+        }
+    else if ( mapSearchView )   // If we are coming back, we simply reset the region.
+        {
+        [mapSearchView setRegion:[mapSearchView regionThatFits:[myAppDelegate searchMapRegion]] animated:YES];
+        [self updateMapWithThisLocation:[myAppDelegate searchMapMarkerLoc]];
         }
 }
 

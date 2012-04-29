@@ -70,6 +70,10 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0b3
+* April 29, 2012
+* The behavior of the app between invocations was incorrect, and inconsistent with the user settings. This change touches a fair bit of code, and requires a lot of testing. It may delay the release by a day or two.
+
 == Version 2.0b2
 * April 28, 2012
 * Fixed a small bug that prevented the settings tab from being reset on the iPhone, when restarting the app.
