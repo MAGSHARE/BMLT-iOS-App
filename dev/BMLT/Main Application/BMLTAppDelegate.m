@@ -458,7 +458,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     searchNavController = (UINavigationController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kSearchTabIndex] topViewController];
     listResultsViewController = (BMLTDisplayListResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kListResultsTabIndex] topViewController];
     mapResultsViewController = (BMLTMapResultsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kMapResultsTabIndex] topViewController];
-    settingsViewController = (BMLTSettingsViewController *)(UINavigationController *)[[tabController viewControllers] objectAtIndex:kSettingsTabIndex];
+    settingsViewController = (BMLTSettingsViewController *)[(UINavigationController *)[[tabController viewControllers] objectAtIndex:kSettingsTabIndex] topViewController];
     [self clearAllSearchResults:YES];
     
     float   projection = [BMLTVariantDefs initialMapProjection] * 1000.0;

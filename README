@@ -73,6 +73,7 @@ CHANGELIST
 == Version 2.0b1
 * TBD
 * Resized the iPhone meeting details comment text item to allow more text to be shown.
+* Fixed a small bug that prevented the settings tab from being reset on the iPhone, when restarting the app.
 
 == Version 2.0b0
 * April 27, 2012
