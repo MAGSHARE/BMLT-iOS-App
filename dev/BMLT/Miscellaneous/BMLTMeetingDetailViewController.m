@@ -82,6 +82,14 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     return ret;
 }
 
+/**************************************************************//**
+ \brief  This just makes sure that the print popover goes away.
+ *****************************************************************/
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[UIPrintInteractionController sharedPrintController] dismissAnimated:YES];    
+}
+
 #pragma mark - Custom Functions -
 
 /**************************************************************//**

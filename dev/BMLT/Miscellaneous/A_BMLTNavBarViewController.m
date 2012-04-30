@@ -86,6 +86,14 @@
 }
 
 /**************************************************************//**
+ \brief  This just makes sure that the print popover goes away.
+ *****************************************************************/
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[UIPrintInteractionController sharedPrintController] dismissAnimated:YES];    
+}
+
+/**************************************************************//**
  \brief We read in the current string, and do a localized lookup on
         it. We do this for the nav title, as well as the button on
         each side. If the string has already been changed, no prob.
