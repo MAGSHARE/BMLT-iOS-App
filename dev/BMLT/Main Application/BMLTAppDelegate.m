@@ -161,6 +161,8 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     
     BMLTMeetingDetailViewController *details = [g_AppDelegate reusableMeetingDetails];
     
+    [[details navigationController] popViewControllerAnimated:NO];    // Make sure that we are not leaving our mudflap open.
+    
     if ( !details )
         {
         // Get the storyboard, then instantiate the details view from the independent view controller.

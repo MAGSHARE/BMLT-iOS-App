@@ -70,6 +70,10 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0b5
+* April 30, 2012
+* Fixed a bug, in which leaving a meetings detail opened in Map of List, then going to the other view, and opening meeting details, left the meeting details NavBar open on the previous view.
+
 == Version 2.0b4
 * April 30, 2012
 * Make sure that the print popover goes away when the screen is changed on the iPad (It was sticking around afte a window is dismissed using the Navigation Bar, as it is not really a true popover).
