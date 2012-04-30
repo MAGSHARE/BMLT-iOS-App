@@ -72,7 +72,7 @@ CHANGELIST
 ----------
 == Version 2.0b4
 * April 30, 2012
-* Make sure that the print popover goes away when the screen is changed (It was sticking around afte a window is dismissed, as it is not really a true popover).
+* Make sure that the print popover goes away when the screen is changed on the iPad (It was sticking around afte a window is dismissed using the Navigation Bar, as it is not really a true popover).
 
 == Version 2.0b3
 * April 29, 2012
