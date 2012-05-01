@@ -70,6 +70,10 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0b7
+* May 1, 2012
+* Fixed a bug, in which zero-length durations were being shown as time-same time. Fixed by removing the duration completely. It is up to each meeting to make sure their duration is recorded properly.
+
 == Version 2.0b6
 * May 1, 2012
 * Had to retract the submission to the App Store, because I found a late bug that will require fairly substantial testing. The bug was that selecting "Weekdays" in the search, and then selecting multiple weekdays, then going to "Tomorrow," or "Later Today," the previously selected days would be included in the search. This requires pretty thorough testing of the app, so the release is being delayed.

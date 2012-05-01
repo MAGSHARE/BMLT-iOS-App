@@ -212,33 +212,40 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
         
         NSDateComponents    *dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:timeDate];
         
-        float   adder = 0.0;
-        
-        if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
+        NSTimeInterval  duration = [myMeeting getDuration];
+
+        if ( duration > 0 )
             {
-            timeString = NSLocalizedString(@"TIME-MIDNIGHT", nil);
-            adder = 60.0;
-            }
-        else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
-            {
-            timeString = NSLocalizedString(@"TIME-NOON", nil);
-            }
-        
-        NSTimeInterval  duration = [myMeeting getDuration] + adder;
-        timeDate = [timeDate dateByAddingTimeInterval:duration];
-        NSString    *timeString2 = [NSDateFormatter localizedStringFromDate:timeDate dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
-        dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:timeDate];
+            float   adder = 0.0;
             
-        if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
-            {
-            timeString2 = NSLocalizedString(@"TIME-MIDNIGHT", nil);
-            }
-        else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
-            {
-            timeString2 = NSLocalizedString(@"TIME-NOON", nil);
+            if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
+                {
+                timeString = NSLocalizedString(@"TIME-MIDNIGHT", nil);
+                adder = 60.0;
+                }
+            else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
+                {
+                timeString = NSLocalizedString(@"TIME-NOON", nil);
+                }
+            
+            duration += adder;
+            
+            timeDate = [timeDate dateByAddingTimeInterval:duration];
+            NSString    *timeString2 = [NSDateFormatter localizedStringFromDate:timeDate dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+            dateComp = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:timeDate];
+            
+            if ( [dateComp hour] >= 23 && [dateComp minute] > 45 )
+                {
+                timeString2 = NSLocalizedString(@"TIME-MIDNIGHT", nil);
+                }
+            else if ( [dateComp hour] == 12 && [dateComp minute] == 0 )
+                {
+                timeString2 = NSLocalizedString(@"TIME-NOON", nil);
+                }
+            
+            timeString = [timeString stringByAppendingFormat:@" - %@", timeString2];
             }
         
-        timeString = [timeString stringByAppendingFormat:@" - %@", timeString2];
         [timeLabel setText:timeString];
         [timeLabel setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
         [wrapperView addSubview:timeLabel];
