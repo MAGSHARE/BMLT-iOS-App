@@ -72,7 +72,7 @@ CHANGELIST
 ----------
 == Version 2.0b6
 * May 1, 2012
-* Fixed a bug, in which selecting "tomorrow" in Advanced would cause subsequent searches with any weekday to find meetings only tomorrow.
+* Had to retract the submission to the App Store, because I found a late bug that will require fairly substantial testing. The bug was that selecting "Weekdays" in the search, and then selecting multiple weekdays, then going to "Tomorrow," or "Later Today," the previously selected days would be included in the search. This requires pretty thorough testing of the app, so the release is being delayed.
 
 == Version 2.0b5
 * April 30, 2012
