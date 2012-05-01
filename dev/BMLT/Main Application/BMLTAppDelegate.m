@@ -138,9 +138,9 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
  *****************************************************************/
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod ///< YES, if the grace period is to be included.
 {
-    NSTimeInterval  interval = useGracePeriod ? [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60 : 0;
+    NSTimeInterval  interval = -(useGracePeriod ? [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60 : 0);
     
-    return [NSDate dateWithTimeIntervalSinceNow:-interval];
+    return [NSDate dateWithTimeIntervalSinceNow:interval];
 }
 
 /**************************************************************//**

@@ -70,6 +70,10 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0b6
+* May 1, 2012
+* Fixed a bug, in which selecting "tomorrow" in Advanced would cause subsequent searches with any weekday to find meetings only tomorrow.
+
 == Version 2.0b5
 * April 30, 2012
 * Fixed a bug, in which leaving a meetings detail opened in Map of List, then going to the other view, and opening meeting details, left the meeting details NavBar open on the previous view.

@@ -120,17 +120,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (IBAction)weekdaySelectionChanged:(id)sender  ///< The segmented control.
 {
-    [myParams removeObjectForKey:@"StartsAfterH"];  // Make sure that we start clear.
-    [myParams removeObjectForKey:@"StartsAfterM"];
-    
-    [sunButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [monButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [tueButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [wedButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [thuButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [friButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [satButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    
     if ( [weekdaysSelector selectedSegmentIndex] == kWeekdaySelectWeekdays )
         {
         [sunButton setEnabled:YES];
@@ -152,66 +141,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         [friButton setEnabled:NO];
         [satButton setEnabled:NO];
         }
-    
-    if ( ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) )
-        {
-        NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
-        NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
-        NSInteger           wd = [weekdayComponents weekday];
-        weekdayComponents = [gregorian components:(NSHourCalendarUnit) fromDate:date];
-        NSInteger           hr = [weekdayComponents hour];
-        weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
-        NSInteger           mn = [weekdayComponents minute];
-        
-        if ( [weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow )
-            {
-            wd++;
-            if ( wd > kWeekdaySelectValue_Sat )
-                {
-                wd = kWeekdaySelectValue_Sun;
-                }
-            }
-        else if ( [weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday )
-            {
-            [myParams setObject:[NSString stringWithFormat:@"%d",hr] forKey:@"StartsAfterH"];
-            [myParams setObject:[NSString stringWithFormat:@"%d",mn] forKey:@"StartsAfterM"];
-            }
 
-        [myParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
-        [myParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
-        
-        switch ( wd )
-            {
-                case kWeekdaySelectValue_Sun:
-                [sunButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-                break;
-                
-                case kWeekdaySelectValue_Mon:
-                [monButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-                break;
-                
-                case kWeekdaySelectValue_Tue:
-                [tueButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-                break;
-                
-                case kWeekdaySelectValue_Wed:
-                [wedButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-                break;
-                
-                case kWeekdaySelectValue_Thu:
-                [thuButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-                break;
-                
-                case kWeekdaySelectValue_Fri:
-                [friButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-                break;
-                
-                case kWeekdaySelectValue_Sat:
-                [satButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
-                break;
-            }
-        }
     [self setParamsForWeekdaySelection];
 }
 
@@ -303,43 +233,93 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  *****************************************************************/
 - (void)setParamsForWeekdaySelection
 {
+    [myParams removeObjectForKey:@"weekdays"];  // Start with a clean slate.
+    [myParams removeObjectForKey:@"StartsAfterH"];
+    [myParams removeObjectForKey:@"StartsAfterM"];
+    
+    [sunButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [monButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [tueButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [wedButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [thuButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [friButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    [satButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    
+    NSInteger   wd = 0;
+    
+    // What we're doing here, is seeing if either the "Later Today" or "Tomorrow" checkboxes are selected. If so, we then set the wd variable to the chosen weekday. Otherwise, it is 0.
+    if ( ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) )
+        {
+        NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
+        NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
+        wd = [weekdayComponents weekday];
+        weekdayComponents = [gregorian components:(NSHourCalendarUnit) fromDate:date];
+        NSInteger           hr = [weekdayComponents hour];
+        weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
+        NSInteger           mn = [weekdayComponents minute];
+        
+        if ( [weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow )
+            {
+            wd++;
+            if ( wd > kWeekdaySelectValue_Sat )
+                {
+                wd = kWeekdaySelectValue_Sun;
+                }
+            }
+        else
+            {
+            [myParams setObject:[NSString stringWithFormat:@"%d",hr] forKey:@"StartsAfterH"];
+            [myParams setObject:[NSString stringWithFormat:@"%d",mn] forKey:@"StartsAfterM"];
+            }
+        }
+    
     NSString *weekday = @"";
     
-    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [sunButton isEnabled]) && [sunButton isOn] )
+    // If we are on the chosen weekday, or our button is enabled, and our buttin is on, then add this day to the list.
+    if ( ((wd == kWeekdaySelectValue_Sun) || [sunButton isEnabled]) && [sunButton isOn] )
         {
+        [sunButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
         weekday = @"1";
         }
     
-    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [monButton isEnabled]) && [monButton isOn] )
+    if ( (wd == kWeekdaySelectValue_Mon) || ([monButton isEnabled] && [monButton isOn]) )
         {
+        [monButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",2" : @"2"];
         }
     
-    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [tueButton isEnabled]) && [tueButton isOn] )
+    if ( (wd == kWeekdaySelectValue_Tue) || ([tueButton isEnabled] && [tueButton isOn]) )
         {
+        [tueButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",3" : @"3"];
         }
     
-    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [wedButton isEnabled]) && [wedButton isOn] )
+    if ( (wd == kWeekdaySelectValue_Wed) || ([wedButton isEnabled] && [wedButton isOn]) )
         {
+        [wedButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",4" : @"4"];
         }
     
-    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [thuButton isEnabled]) && [thuButton isOn] )
+    if ( (wd == kWeekdaySelectValue_Thu) || ([thuButton isEnabled] && [thuButton isOn]) )
         {
+        [thuButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",5" : @"5"];
         }
     
-    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [friButton isEnabled]) && [friButton isOn] )
+    if ( (wd == kWeekdaySelectValue_Fri) || ([friButton isEnabled] && [friButton isOn]) )
         {
+        [friButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",6" : @"6"];
         }
     
-    if ( (([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || [satButton isEnabled]) && [satButton isOn] )
+    if ( (wd == kWeekdaySelectValue_Sat) || ([satButton isEnabled] && [satButton isOn]) )
         {
+        [satButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",7" : @"7"];
         }
     
+    // We have an array of chosen weekdays (integers). Set them to the parameter.
     if ( [weekday length] )
         {
         [myParams setObject:weekday forKey:@"weekdays"];
