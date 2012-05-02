@@ -179,6 +179,73 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     [[inController navigationController] pushViewController:details animated:YES];
 }
 
+/**************************************************************//**
+ \brief Sorts a meeting list results array by weekday and time.
+ \returns an array of meeting objects, sorted the desired way.
+ *****************************************************************/
++ (NSArray *)sortMeetingListByWeekdayAndTime:(NSArray *)inMeetings
+{
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::sortMeetingListByWeekdayAndTime start.");
+#endif
+    NSArray *sortedArray = [inMeetings sortedArrayUsingComparator: ^(id obj1, id obj2) {
+        BMLT_Meeting    *meeting_A = (BMLT_Meeting *)obj1;
+        BMLT_Meeting    *meeting_B = (BMLT_Meeting *)obj2;
+        
+#ifdef DEBUG
+        NSLog(@"\tBMLTAppDelegate::sortMeetingListByWeekdayAndTime: Sort Block. Meeting A: %@ (%d, %d) Meeting B: %@ (%d, %d)", [meeting_A getBMLTName],[meeting_A getStartTimeOrdinal], [meeting_A getWeekdayOrdinal], [meeting_B getBMLTName], [meeting_B getStartTimeOrdinal], [meeting_B getWeekdayOrdinal]);
+#endif
+        if ( [meeting_A getWeekdayOrdinal] < [meeting_B getWeekdayOrdinal] )
+            return NSOrderedAscending;
+        else if ([meeting_A getWeekdayOrdinal] > [meeting_B getWeekdayOrdinal])
+            return NSOrderedDescending;
+        else if ( [meeting_A getStartTimeOrdinal] < [meeting_B getStartTimeOrdinal] )
+            return NSOrderedAscending;
+        else if ( [meeting_A getStartTimeOrdinal] > [meeting_B getStartTimeOrdinal] )
+            return NSOrderedDescending;
+        else
+            return NSOrderedSame;
+    }];
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::sortMeetingListByWeekdayAndTime end.");
+#endif
+    
+    return sortedArray;
+}
+
+/**************************************************************//**
+ \brief Sorts a meeting list results array by distance.
+ \returns an array of meeting objects, sorted the desired way.
+ *****************************************************************/
++ (NSArray *)sortMeetingListByDistance:(NSArray *)inMeetings
+{
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::sortMeetingListByDistance start.");
+#endif
+    NSArray *sortedArray = [inMeetings sortedArrayUsingComparator: ^(id obj1, id obj2) {
+        BMLT_Meeting    *meeting_A = (BMLT_Meeting *)obj1;
+        BMLT_Meeting    *meeting_B = (BMLT_Meeting *)obj2;
+        
+        double   distance1 = [(NSString *)[meeting_A getValueFromField:@"distance_in_km"] doubleValue];
+        double   distance2 = [(NSString *)[meeting_B getValueFromField:@"distance_in_km"] doubleValue];
+        
+#ifdef DEBUG
+        NSLog(@"\tBMLTAppDelegate::sortMeetingListByDistance: Sort Block. Meeting A: %@ (%f KM) Meeting B: %@ (%f KM)", [meeting_A getBMLTName], distance1, [meeting_B getBMLTName], distance2);
+#endif
+        
+        if (distance1 < distance2)
+            return NSOrderedAscending;
+        else if (distance1 > distance2)
+            return NSOrderedDescending;
+        else
+            return NSOrderedSame;
+    }];
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::sortMeetingListByDistance end.");
+#endif
+    return sortedArray;
+}
+
 #pragma mark - Private methods -
 /**************************************************************//**
  \brief Return the prefs object for this app.
@@ -1105,30 +1172,9 @@ shouldSelectViewController:(UIViewController *)inViewController
 - (void)sortMeetingsByWeekdayAndTime
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::sortMeetingsByWeekdayAndTime start.");
+    NSLog(@"BMLTAppDelegate::sortMeetingsByWeekdayAndTime called.");
 #endif
-    NSArray *sortedArray = [searchResults sortedArrayUsingComparator: ^(id obj1, id obj2) {
-        BMLT_Meeting    *meeting_A = (BMLT_Meeting *)obj1;
-        BMLT_Meeting    *meeting_B = (BMLT_Meeting *)obj2;
-        
-#ifdef DEBUG
-        NSLog(@"\tBMLTAppDelegate::sortMeetingsByWeekdayAndTime: Sort Block. Meeting A: %@ (%d, %d) Meeting B: %@ (%d, %d)", [meeting_A getBMLTName],[meeting_A getStartTimeOrdinal], [meeting_A getWeekdayOrdinal], [meeting_B getBMLTName], [meeting_B getStartTimeOrdinal], [meeting_B getWeekdayOrdinal]);
-#endif
-        if ( [meeting_A getWeekdayOrdinal] < [meeting_B getWeekdayOrdinal] )
-            return NSOrderedAscending;
-        else if ([meeting_A getWeekdayOrdinal] > [meeting_B getWeekdayOrdinal])
-            return NSOrderedDescending;
-        else if ( [meeting_A getStartTimeOrdinal] < [meeting_B getStartTimeOrdinal] )
-            return NSOrderedAscending;
-        else if ( [meeting_A getStartTimeOrdinal] > [meeting_B getStartTimeOrdinal] )
-            return NSOrderedDescending;
-        else
-            return NSOrderedSame;
-    }];
-#ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::sortMeetingsByWeekdayAndTime end.");
-#endif
-    searchResults = sortedArray;
+    searchResults = [[self class] sortMeetingListByWeekdayAndTime:searchResults];
 }
 
 /**************************************************************//**
@@ -1137,29 +1183,8 @@ shouldSelectViewController:(UIViewController *)inViewController
 - (void)sortMeetingsByDistance
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::sortMeetingsByDistance start.");
+    NSLog(@"BMLTAppDelegate::sortMeetingsByDistance called.");
 #endif
-    NSArray *sortedArray = [searchResults sortedArrayUsingComparator: ^(id obj1, id obj2) {
-        BMLT_Meeting    *meeting_A = (BMLT_Meeting *)obj1;
-        BMLT_Meeting    *meeting_B = (BMLT_Meeting *)obj2;
-        
-        double   distance1 = [(NSString *)[meeting_A getValueFromField:@"distance_in_km"] doubleValue];
-        double   distance2 = [(NSString *)[meeting_B getValueFromField:@"distance_in_km"] doubleValue];
-        
-#ifdef DEBUG
-        NSLog(@"\tBMLTAppDelegate::sortMeetingsByDistance: Sort Block. Meeting A: %@ (%f KM) Meeting B: %@ (%f KM)", [meeting_A getBMLTName], distance1, [meeting_B getBMLTName], distance2);
-#endif
-        
-        if (distance1 < distance2)
-            return NSOrderedAscending;
-        else if (distance1 > distance2)
-            return NSOrderedDescending;
-        else
-            return NSOrderedSame;
-    }];
-#ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::sortMeetingsByDistance end.");
-#endif
-    searchResults = sortedArray;
+    searchResults = [[self class] sortMeetingListByDistance:searchResults];
 }
 @end

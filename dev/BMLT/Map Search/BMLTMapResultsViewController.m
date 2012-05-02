@@ -338,7 +338,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     
     UIViewController    *newController = [st instantiateViewControllerWithIdentifier:@"list-view-results"];
     
-    [(BMLTDisplayListResultsViewController *)newController setDataArrayFromData:inList];
+    // These lists are always sorted by time.
+    [(BMLTDisplayListResultsViewController *)newController setDataArrayFromData:[BMLTAppDelegate sortMeetingListByWeekdayAndTime:inList]];
     [(BMLTDisplayListResultsViewController *)newController setMyModalController:self];
 
     if ( ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) )
