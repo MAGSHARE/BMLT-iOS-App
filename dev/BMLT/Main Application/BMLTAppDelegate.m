@@ -366,6 +366,8 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         
         UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
         [tabController setSelectedIndex:([myPrefs preferSearchResultsAsMap] ? kMapResultsTabIndex : kListResultsTabIndex)];
+        
+        [[listResultsViewController sortControl] setSelectedSegmentIndex:([[BMLT_Prefs getBMLT_Prefs] preferDistanceSort] ? 0 : 1)];
         }
     else
         {
