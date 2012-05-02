@@ -164,31 +164,34 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
  *****************************************************************/
 + (BMLT_Prefs *)getBMLT_Prefs
 {
-    if ( !s_thePrefs )
-        {
-#ifdef DEBUG
-        NSLog(@"BMLT_Prefs getBMLT_Prefs Trying unarchiving");
-#endif
-        s_thePrefs = [NSKeyedUnarchiver unarchiveObjectWithFile:[BMLT_Prefs docPath]];
-        }
+    // This whackiness just makes sure the prefs singleton is thread-safe.
+    static dispatch_once_t pred;
     
-    if ( !s_thePrefs )
-        {
+    dispatch_once(&pred,
+        ^{
 #ifdef DEBUG
-        NSLog(@"BMLT_Prefs getBMLT_Prefs Unarchiving didn't work. Allocating anew");
+            NSLog(@"BMLT_Prefs getBMLT_Prefs Trying unarchiving");
 #endif
-        s_thePrefs = [[BMLT_Prefs alloc] initWithCoder:nil];
-        NSString    *serverName = NSLocalizedString(@"INITIAL-SERVER-NAME", nil);
-        NSString    *serverDescription = NSLocalizedString(@"INITIAL-SERVER-DESCRIPTION", nil);
-        NSString    *serverURI = [[BMLTVariantDefs rootServerURI] absoluteString];
-        
+            s_thePrefs = [NSKeyedUnarchiver unarchiveObjectWithFile:[BMLT_Prefs docPath]];
+            
+            if ( !s_thePrefs )
+                {
 #ifdef DEBUG
-        NSLog(@"BMLT_Prefs getBMLT_Prefs Adding the default server.");
+                NSLog(@"BMLT_Prefs getBMLT_Prefs Unarchiving didn't work. Allocating anew");
 #endif
-        [s_thePrefs addServerWithURI:serverURI
-                             andName:serverName
-                      andDescription:serverDescription];
-        }
+                s_thePrefs = [[BMLT_Prefs alloc] initWithCoder:nil];
+                NSString    *serverName = NSLocalizedString(@"INITIAL-SERVER-NAME", nil);
+                NSString    *serverDescription = NSLocalizedString(@"INITIAL-SERVER-DESCRIPTION", nil);
+                NSString    *serverURI = [[BMLTVariantDefs rootServerURI] absoluteString];
+                
+#ifdef DEBUG
+                NSLog(@"BMLT_Prefs getBMLT_Prefs Adding the default server.");
+#endif
+                [s_thePrefs addServerWithURI:serverURI
+                                     andName:serverName
+                              andDescription:serverDescription];
+                }
+        });
     
     return s_thePrefs;
 }

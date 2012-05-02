@@ -179,8 +179,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
                 NSLog(@"Sort Control");
 #endif
                 sortControl = [[UISegmentedControl alloc] initWithItems:sortChoices];
-                [sortControl addTarget:self action:@selector(sortMeetings:) forControlEvents:UIControlEventValueChanged];
                 [ret_cast setTheSortControl:sortControl];
+                [sortControl addTarget:self action:@selector(sortMeetings:) forControlEvents:UIControlEventValueChanged];
                 }
             else
                 {

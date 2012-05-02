@@ -72,6 +72,7 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod;    ///< This is used to calculate the time for "later today" meetings.
 
 /// Instance methods
+- (BMLT_Prefs *)getMyPrefs;                             ///< Return the prefs object for this app.
 - (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation withParams:(NSDictionary *)params; ///< A lookup search with parameters.
 - (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation;                        ///< Begins a lookup search, in which a location is found first, then all meetings near there are returned.
 - (void)searchForMeetingsNearMeLaterToday:(CLLocationCoordinate2D)inMyLocation;              ///< Same as above, but only meetings later today.

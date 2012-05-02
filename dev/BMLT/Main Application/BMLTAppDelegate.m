@@ -138,7 +138,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
  *****************************************************************/
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod ///< YES, if the grace period is to be included.
 {
-    NSTimeInterval  interval = -(useGracePeriod ? [[BMLT_Prefs getBMLT_Prefs] gracePeriod] * 60 : 0);
+    NSTimeInterval  interval = -(useGracePeriod ? [[g_AppDelegate getMyPrefs] gracePeriod] * 60 : 0);
     
     return [NSDate dateWithTimeIntervalSinceNow:interval];
 }
@@ -180,6 +180,14 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 }
 
 #pragma mark - Private methods -
+/**************************************************************//**
+ \brief Return the prefs object for this app.
+ *****************************************************************/
+- (BMLT_Prefs *)getMyPrefs
+{
+    return myPrefs;
+}
+
 /**************************************************************//**
  \brief Manages the transition from one view to another. Just like
         it says on the tin.
@@ -258,7 +266,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 - (void)displaySearchResults
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::displaySearchResults called.");
+    NSLog(@"BMLTAppDelegate::displaySearchResults start.");
 #endif
     if ( [[self searchResults] count] )
         {
@@ -266,19 +274,39 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         [listResultsViewController addClearSearchButton];
         [mapResultsViewController addClearSearchButton];
         [listResultsViewController setIncludeSortRow:YES];
-        [listResultsViewController sortMeetings:nil];
+
+        if ( ![myPrefs preferDistanceSort] )
+            {
+#ifdef DEBUG
+            NSLog(@"\tBMLTAppDelegate::displaySearchResults The meetings will be sorted by time.");
+#endif
+            [self sortMeetingsByWeekdayAndTime];
+            }
+        else
+            {
+#ifdef DEBUG
+            NSLog(@"\tBMLTAppDelegate::displaySearchResults The meetings will be sorted by distance.");
+#endif
+            [self sortMeetingsByDistance];
+            }
         [listResultsViewController setDataArrayFromData:[self searchResults]];
         [mapResultsViewController setDataArrayFromData:[self searchResults]];
         [self stopAnimations];
         [self setUpTabBarItems];
         
         UITabBarController  *tabController = (UITabBarController *)self.window.rootViewController;
-        [tabController setSelectedIndex:([[BMLT_Prefs getBMLT_Prefs] preferSearchResultsAsMap] ? kMapResultsTabIndex : kListResultsTabIndex)];
+        [tabController setSelectedIndex:([myPrefs preferSearchResultsAsMap] ? kMapResultsTabIndex : kListResultsTabIndex)];
         }
     else
         {
-        [self performSelectorOnMainThread:@selector(sorryCharlie) withObject:nil waitUntilDone:YES];
+#ifdef DEBUG
+        NSLog(@"\tBMLTAppDelegate::displaySearchResults No search results to display.");
+#endif
+        [self sorryCharlie];
         }
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::displaySearchResults end.");
+#endif
 }
 
 /**************************************************************//**
@@ -302,7 +330,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         
         UIViewController    *newSearch = nil;
         
-        switch ( [[BMLT_Prefs getBMLT_Prefs] searchTypePref] )
+        switch ( [myPrefs searchTypePref] )
             {
             case _PREFER_ADVANCED_SEARCH:
             newSearch = [st instantiateViewControllerWithIdentifier:@"advanced-search"];
@@ -333,6 +361,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 - (void)simpleClearSearch
 {
     searchResults = nil;
+    mySearch = nil;
 }
 
 /**************************************************************//**
@@ -375,8 +404,6 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     if ( self )
         {
         g_AppDelegate = self;
-        myPrefs = [BMLT_Prefs getBMLT_Prefs];
-        [self startNetworkMonitor];
         locationManager = [[CLLocationManager alloc] init];
         [locationManager setPurpose:NSLocalizedString(@"LOCATION-PURPOSE", nil)];
         [locationManager setDistanceFilter:kCLDistanceFilterNone];
@@ -394,7 +421,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
  *****************************************************************/
 - (void)dealloc
 {
-    [mySearch clearSearch];
+    mySearch = nil;
     [searchParams removeAllObjects];
     [self stopNetworkMonitor];
     [locationManager stopUpdatingLocation];
@@ -410,6 +437,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions called.");
 #endif
+    myPrefs = [BMLT_Prefs getBMLT_Prefs];
+
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
     
     [TestFlight takeOff:kTestFlightTeamToken];
@@ -444,7 +473,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     
     [self clearAllSearchResults:YES];
-    
+    [self startNetworkMonitor];
     [self setDefaultMapRegion];
     
     return YES;
@@ -527,7 +556,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
 
     [searchParams setObject:[NSString stringWithFormat:@"%d", -[myPrefs resultCount]] forKey:@"geo_width"];
-    [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate::searchForMeetingsNearMe withParams called. These are the parameters:");
@@ -613,7 +641,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
     
     [searchParams setObject:[NSString stringWithFormat:@"%d",wd] forKey:@"weekdays"];
-    [searchParams setObject:@"time" forKey:@"sort_key"]; // Sort by time for this search.
     
     [self searchForMeetingsNearMe:inMyLocation];
 }
@@ -1026,8 +1053,6 @@ shouldSelectViewController:(UIViewController *)inViewController
 #endif
     [locationManager stopUpdatingLocation];
     [self simpleClearSearch];
-    [mySearch clearSearch];
-    mySearch = nil;
     mySearch = [[BMLT_Meeting_Search alloc] initWithCriteria:inSearchParams andName:nil andDescription:nil];
     deferredSearch = YES;
 }
@@ -1054,7 +1079,6 @@ shouldSelectViewController:(UIViewController *)inViewController
     else
         {
         searchResults = [mySearch getSearchResults];
-        [mySearch clearSearch];
         mySearch = nil;
         [searchParams removeAllObjects];
         // Since it is possible we are in another thread, make sure that we call the UI routine in the main thread.
@@ -1079,12 +1103,15 @@ shouldSelectViewController:(UIViewController *)inViewController
 - (void)sortMeetingsByWeekdayAndTime
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::sortMeetingsByWeekdayAndTime called.");
+    NSLog(@"BMLTAppDelegate::sortMeetingsByWeekdayAndTime start.");
 #endif
     NSArray *sortedArray = [searchResults sortedArrayUsingComparator: ^(id obj1, id obj2) {
         BMLT_Meeting    *meeting_A = (BMLT_Meeting *)obj1;
         BMLT_Meeting    *meeting_B = (BMLT_Meeting *)obj2;
         
+#ifdef DEBUG
+        NSLog(@"\tBMLTAppDelegate::sortMeetingsByWeekdayAndTime: Sort Block. Meeting A: %@ (%d, %d) Meeting B: %@ (%d, %d)", [meeting_A getBMLTName],[meeting_A getStartTimeOrdinal], [meeting_A getWeekdayOrdinal], [meeting_B getBMLTName], [meeting_B getStartTimeOrdinal], [meeting_B getWeekdayOrdinal]);
+#endif
         if ( [meeting_A getWeekdayOrdinal] < [meeting_B getWeekdayOrdinal] )
             return NSOrderedAscending;
         else if ([meeting_A getWeekdayOrdinal] > [meeting_B getWeekdayOrdinal])
@@ -1096,7 +1123,9 @@ shouldSelectViewController:(UIViewController *)inViewController
         else
             return NSOrderedSame;
     }];
-    
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::sortMeetingsByWeekdayAndTime end.");
+#endif
     searchResults = sortedArray;
 }
 
@@ -1106,7 +1135,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 - (void)sortMeetingsByDistance
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::sortMeetingsByDistance called.");
+    NSLog(@"BMLTAppDelegate::sortMeetingsByDistance start.");
 #endif
     NSArray *sortedArray = [searchResults sortedArrayUsingComparator: ^(id obj1, id obj2) {
         BMLT_Meeting    *meeting_A = (BMLT_Meeting *)obj1;
@@ -1115,6 +1144,10 @@ shouldSelectViewController:(UIViewController *)inViewController
         double   distance1 = [(NSString *)[meeting_A getValueFromField:@"distance_in_km"] doubleValue];
         double   distance2 = [(NSString *)[meeting_B getValueFromField:@"distance_in_km"] doubleValue];
         
+#ifdef DEBUG
+        NSLog(@"\tBMLTAppDelegate::sortMeetingsByDistance: Sort Block. Meeting A: %@ (%f KM) Meeting B: %@ (%f KM)", [meeting_A getBMLTName], distance1, [meeting_B getBMLTName], distance2);
+#endif
+        
         if (distance1 < distance2)
             return NSOrderedAscending;
         else if (distance1 > distance2)
@@ -1122,7 +1155,9 @@ shouldSelectViewController:(UIViewController *)inViewController
         else
             return NSOrderedSame;
     }];
-    
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::sortMeetingsByDistance end.");
+#endif
     searchResults = sortedArray;
 }
 @end
