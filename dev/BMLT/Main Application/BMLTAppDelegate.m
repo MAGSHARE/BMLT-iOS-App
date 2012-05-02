@@ -179,55 +179,6 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     [[inController navigationController] pushViewController:details animated:YES];
 }
 
-/**************************************************************//**
- \brief Creates a PDF file, based on the given meetings.
- \returns a string. The path to the PDF file (in the tmp directory)
- *****************************************************************/
-+ (NSString *)createSearchResultsPDF:(NSArray *)inSearchResults ///< An array of BMLT_Meeting objects. These will be used to populate the PDF.
-{
-    NSString    *pdfFileName = [NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)];
-    NSString    *containerDirectory = NSTemporaryDirectory();
-    
-    pdfFileName = [containerDirectory stringByAppendingPathComponent:pdfFileName];
-    
-#ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::createSearchResultsPDF: File Name is %@", pdfFileName);
-#endif
-    
-    return pdfFileName;
-}
-
-/**************************************************************//**
- \brief This creates a PDF file with map of the entire search set.
- \returns a string. The path to the PDF file (in the tmp directory)
- *****************************************************************/
-+ (NSString *)createWholeSearchPDF
-{
-#ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::createWholeSearchPDF");
-#endif
-    
-    return [BMLTAppDelegate createSearchResultsPDF:[g_AppDelegate searchResults]];
-}
-
-/**************************************************************//**
- \brief Creates a PDF file, based on only one meeting (Detailed).
- \returns a string. The path to the PDF file (in the tmp directory)
- *****************************************************************/
-+ (NSString *)creatingMeetingDetailsPDF:(BMLT_Meeting *)inMeeting   ///< The meeting to be used as the target.
-{
-    NSString    *pdfFileName = [NSString stringWithFormat:[BMLTVariantDefs pdfTempFileNameFormat], time(NULL)];
-    NSString    *containerDirectory = NSTemporaryDirectory();
-    
-    pdfFileName = [containerDirectory stringByAppendingPathComponent:pdfFileName];
-    
-#ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::creatingMeetingDetailsPDF: File Name is %@", pdfFileName);
-#endif
-    
-    return pdfFileName;
-}
-
 #pragma mark - Private methods -
 /**************************************************************//**
  \brief Manages the transition from one view to another. Just like
@@ -311,14 +262,13 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 #endif
     if ( [[self searchResults] count] )
         {
-        [listResultsViewController setDataArrayFromData:[self searchResults]];
-        [mapResultsViewController setDataArrayFromData:[self searchResults]];
         [mapResultsViewController setMapInit:NO];
-        
         [listResultsViewController addClearSearchButton];
         [mapResultsViewController addClearSearchButton];
         [listResultsViewController setIncludeSortRow:YES];
         [listResultsViewController sortMeetings:nil];
+        [listResultsViewController setDataArrayFromData:[self searchResults]];
+        [mapResultsViewController setDataArrayFromData:[self searchResults]];
         [self stopAnimations];
         [self setUpTabBarItems];
         
@@ -382,11 +332,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
  *****************************************************************/
 - (void)simpleClearSearch
 {
-    if (searchResults && [searchResults count])
-        {
-        [searchResults removeAllObjects];
-        searchResults = nil;
-        }
+    searchResults = nil;
 }
 
 /**************************************************************//**
@@ -1107,8 +1053,7 @@ shouldSelectViewController:(UIViewController *)inViewController
         }
     else
         {
-        [searchResults removeAllObjects];
-        searchResults = [NSMutableArray arrayWithArray:[mySearch getSearchResults]];
+        searchResults = [mySearch getSearchResults];
         [mySearch clearSearch];
         mySearch = nil;
         [searchParams removeAllObjects];
@@ -1133,6 +1078,9 @@ shouldSelectViewController:(UIViewController *)inViewController
  *****************************************************************/
 - (void)sortMeetingsByWeekdayAndTime
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::sortMeetingsByWeekdayAndTime called.");
+#endif
     NSArray *sortedArray = [searchResults sortedArrayUsingComparator: ^(id obj1, id obj2) {
         BMLT_Meeting    *meeting_A = (BMLT_Meeting *)obj1;
         BMLT_Meeting    *meeting_B = (BMLT_Meeting *)obj2;
@@ -1149,9 +1097,7 @@ shouldSelectViewController:(UIViewController *)inViewController
             return NSOrderedSame;
     }];
     
-    searchResults = nil;
-    
-    searchResults = [[NSMutableArray alloc] initWithArray:sortedArray];
+    searchResults = sortedArray;
 }
 
 /**************************************************************//**
@@ -1159,6 +1105,9 @@ shouldSelectViewController:(UIViewController *)inViewController
  *****************************************************************/
 - (void)sortMeetingsByDistance
 {
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::sortMeetingsByDistance called.");
+#endif
     NSArray *sortedArray = [searchResults sortedArrayUsingComparator: ^(id obj1, id obj2) {
         BMLT_Meeting    *meeting_A = (BMLT_Meeting *)obj1;
         BMLT_Meeting    *meeting_B = (BMLT_Meeting *)obj2;
@@ -1174,8 +1123,6 @@ shouldSelectViewController:(UIViewController *)inViewController
             return NSOrderedSame;
     }];
     
-    searchResults = nil;
-    
-    searchResults = [[NSMutableArray alloc] initWithArray:sortedArray];
+    searchResults = sortedArray;
 }
 @end

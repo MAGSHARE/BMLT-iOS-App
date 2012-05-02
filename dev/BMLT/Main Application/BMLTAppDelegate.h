@@ -52,7 +52,7 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 @property (strong, nonatomic) CLLocationManager     *locationManager;   ///< This will hold our location manager.
 @property (atomic) BOOL                             hostActive;         ///< Set to YES, if the network test says that the root server is available.
 @property (weak, atomic) BMLT_Prefs                 *myPrefs;           ///< This will have a reference to the global prefs object.
-@property (strong, nonatomic) NSMutableArray        *searchResults;     ///< This will hold the latest search results.
+@property (strong, nonatomic) NSArray               *searchResults;     ///< This will hold the latest search results.
 @property (strong, nonatomic) NSMutableDictionary   *searchParams;      ///< This will hold the parameters to be used for the next search.
 @property (nonatomic, readwrite, assign) A_BMLT_SearchViewController *activeSearchController;    ///< This will point to the active search controller. Nil, if none.
 @property (nonatomic, readwrite, assign) MKCoordinateRegion          searchMapRegion;            ///< Used to track the state of the search spec maps.
@@ -70,9 +70,6 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 + (BOOL)canReachRootServer;                             ///< Returns YES, if the root server can be reached via network.
 + (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting inContext:(UIViewController *)inController;   ///< Push the meeting details view onto the current nav stack.
 + (NSDate *)getLocalDateAutoreleaseWithGracePeriod:(BOOL)useGracePeriod;    ///< This is used to calculate the time for "later today" meetings.
-+ (NSString *)createSearchResultsPDF:(NSArray *)inSearchResults;
-+ (NSString *)createWholeSearchPDF;
-+ (NSString *)creatingMeetingDetailsPDF:(BMLT_Meeting *)inMeeting;
 
 /// Instance methods
 - (void)searchForMeetingsNearMe:(CLLocationCoordinate2D)inMyLocation withParams:(NSDictionary *)params; ///< A lookup search with parameters.

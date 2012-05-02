@@ -36,7 +36,7 @@
     UIPrintInteractionController    *printModal;
     UIPopoverController             *actionPopover;
 }
-@property (strong, nonatomic) NSMutableArray    *dataArray; ///< This will hold the data for the table to display.
+@property (strong, nonatomic) NSArray           *dataArray; ///< This will hold the data for the table to display.
 @property (strong, nonatomic) UIViewController  *myModalController;     ///< Used to make sure the right modal controller is used for popovers.
 
 - (void)displayFormatDetail:(id)inSender;

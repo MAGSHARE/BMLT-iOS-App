@@ -69,6 +69,7 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self sortMeetings:nil];
     [(UITableView *)[self view] reloadData];
 }
 

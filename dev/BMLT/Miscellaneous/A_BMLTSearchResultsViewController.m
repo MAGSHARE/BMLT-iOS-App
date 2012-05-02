@@ -37,19 +37,8 @@
  *****************************************************************/
 - (void)setDataArrayFromData:(NSArray *)dataArray   ///< The array of data to be used for this view.
 {
-    _dataArray = nil;
-    _dataArray = [[NSMutableArray alloc] init];
-    [_dataArray setArray:dataArray];
+    _dataArray = dataArray;
     [[self view] setNeedsDisplay];
-}
-
-/**************************************************************//**
- \brief G'night...
- *****************************************************************/
-- (void)dealloc
-{
-    [_dataArray removeAllObjects];
-    _dataArray = nil;
 }
 
 /**************************************************************//**
