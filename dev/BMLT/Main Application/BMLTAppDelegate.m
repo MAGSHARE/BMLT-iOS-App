@@ -274,21 +274,24 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         [listResultsViewController addClearSearchButton];
         [mapResultsViewController addClearSearchButton];
         [listResultsViewController setIncludeSortRow:YES];
-
-        if ( ![myPrefs preferDistanceSort] )
-            {
-#ifdef DEBUG
-            NSLog(@"\tBMLTAppDelegate::displaySearchResults The meetings will be sorted by time.");
-#endif
-            [self sortMeetingsByWeekdayAndTime];
-            }
-        else
+        
+        assert ( myPrefs != nil );
+        
+        if ( [myPrefs preferDistanceSort] )
             {
 #ifdef DEBUG
             NSLog(@"\tBMLTAppDelegate::displaySearchResults The meetings will be sorted by distance.");
 #endif
             [self sortMeetingsByDistance];
             }
+        else
+            {
+#ifdef DEBUG
+            NSLog(@"\tBMLTAppDelegate::displaySearchResults The meetings will be sorted by time.");
+#endif
+            [self sortMeetingsByWeekdayAndTime];
+            }
+        
         [listResultsViewController setDataArrayFromData:[self searchResults]];
         [mapResultsViewController setDataArrayFromData:[self searchResults]];
         [self stopAnimations];
@@ -421,7 +424,6 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
  *****************************************************************/
 - (void)dealloc
 {
-    mySearch = nil;
     [searchParams removeAllObjects];
     [self stopNetworkMonitor];
     [locationManager stopUpdatingLocation];

@@ -73,6 +73,7 @@ CHANGELIST
 == Version 2.0b8
 * TBD
 * Refactored the search results array a bit, so that there is never more than the one central object.
+* Fixed a bug, in which the "sort by distance" pref was being ignored first time through.
 
 == Version 2.0b7
 * May 1, 2012
