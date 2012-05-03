@@ -70,6 +70,10 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0b10
+* May 2, 2012
+* This fixes a small, annoying bug, in which switching away from an open single meeting details page, then coming back, would reset the map. This would wipe out satellite views and/or zooms.
+
 == Version 2.0b9
 * May 2, 2012
 * Fixed a bug, in which the sort header in the list results was sometimes out of kilter with the list. This could be demonstrated by selecting "Sort Search Results By List" in the prefs, doing a search, displaying as a list, then clicking on "Sort By Time." Then clear the search results, and do another search. The new search would be sorted by distance, but the header would say it is sorted by time.

@@ -177,6 +177,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     
     // Push the new details controller onto the stack.
     [[inController navigationController] pushViewController:details animated:YES];
+    [details setMapLocation];
 }
 
 /**************************************************************//**

@@ -63,7 +63,6 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [self setMeetingCommentsText];
     [self setMeetingLocationText];
     [self setFormats];
-    [self setMapLocation];
 }
 
 /**************************************************************//**
