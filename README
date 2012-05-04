@@ -70,6 +70,10 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0b11
+* May 4, 2011
+* Usability issue. When Any Day is selected in Advanced, every day should display a green check, not a red X.
+
 == Version 2.0b10
 * May 2, 2012
 * This fixes a small, annoying bug, in which switching away from an open single meeting details page, then coming back, would reset the map. This would wipe out satellite views and/or zooms.

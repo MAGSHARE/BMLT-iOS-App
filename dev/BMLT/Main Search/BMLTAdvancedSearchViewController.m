@@ -113,6 +113,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         [searchSpecAddressTextEntry becomeFirstResponder];
         [goButton setEnabled:NO];
         }
+    
+    [self setParamsForWeekdaySelection];
 }
 
 /**************************************************************//**
@@ -237,13 +239,15 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [myParams removeObjectForKey:@"StartsAfterH"];
     [myParams removeObjectForKey:@"StartsAfterM"];
     
-    [sunButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [monButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [tueButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [wedButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [thuButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [friButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
-    [satButton setImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateDisabled];
+    NSString    *button_asset = ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectAllDays) ? @"GreenCheckConcave.png" : @"RedXConcave.png";
+    
+    [sunButton setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
+    [monButton setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
+    [tueButton setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
+    [wedButton setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
+    [thuButton setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
+    [friButton setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
+    [satButton setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
     
     NSInteger   wd = 0;
     
