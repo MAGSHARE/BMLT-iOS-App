@@ -76,6 +76,19 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 - (void)viewWillAppear:(BOOL)animated
 {    
     dontLookup = NO;
+    
+    if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
+        {
+        [searchSpecSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+        [searchSpecSegmentedControl setSelectedSegmentIndex:1];
+        [searchSpecAddressTextEntry setAlpha:1.0];
+        [searchSpecAddressTextEntry setEnabled:YES];
+        dontLookup = NO;
+        [searchSpecAddressTextEntry becomeFirstResponder];
+        [goButton setEnabled:NO];
+        }
+    
+    [super viewWillAppear:animated];
 }
 
 /**************************************************************//**
@@ -110,17 +123,6 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [goButton setTitle:NSLocalizedString([goButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
     
     [super viewDidLoad];
-    
-    if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
-        {
-        [searchSpecSegmentedControl setEnabled:NO forSegmentAtIndex:0];
-        [searchSpecSegmentedControl setSelectedSegmentIndex:1];
-        [searchSpecAddressTextEntry setAlpha:1.0];
-        [searchSpecAddressTextEntry setEnabled:YES];
-        dontLookup = NO;
-        [searchSpecAddressTextEntry becomeFirstResponder];
-        [goButton setEnabled:NO];
-        }
     
     [self setParamsForWeekdaySelection];
 }
