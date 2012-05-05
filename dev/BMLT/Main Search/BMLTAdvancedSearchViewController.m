@@ -74,18 +74,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
  \brief Make sure that the text box is shown, if there is no choice.
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
-{
-    if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
-        {
-        [searchSpecSegmentedControl setEnabled:NO forSegmentAtIndex:0];
-        [searchSpecSegmentedControl setSelectedSegmentIndex:1];
-        [searchSpecAddressTextEntry setAlpha:1.0];
-        [searchSpecAddressTextEntry setEnabled:YES];
-        dontLookup = NO;
-        [searchSpecAddressTextEntry becomeFirstResponder];
-        [goButton setEnabled:NO];
-        }
-    
+{    
     dontLookup = NO;
 }
 
@@ -121,6 +110,17 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [goButton setTitle:NSLocalizedString([goButton titleForState:UIControlStateNormal], nil) forState:UIControlStateNormal];
     
     [super viewDidLoad];
+    
+    if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
+        {
+        [searchSpecSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+        [searchSpecSegmentedControl setSelectedSegmentIndex:1];
+        [searchSpecAddressTextEntry setAlpha:1.0];
+        [searchSpecAddressTextEntry setEnabled:YES];
+        dontLookup = NO;
+        [searchSpecAddressTextEntry becomeFirstResponder];
+        [goButton setEnabled:NO];
+        }
     
     [self setParamsForWeekdaySelection];
 }
