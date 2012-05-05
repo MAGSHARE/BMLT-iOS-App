@@ -47,7 +47,7 @@
         [self setIsOn:NO];
             // We need to catch this selector, so we can toggle the state.
         [self addTarget:self action:@selector(buttonClickedInside:) forControlEvents:UIControlEventTouchUpInside];
-        UIImage *logoImage = [UIImage imageNamed:@"Convex.png"];
+        UIImage *logoImage = [UIImage imageNamed:@"RedXConvex.png"];
         CGSize  imageSize = [logoImage size]; 
         [self setBounds:CGRectMake(0, 0, imageSize.width, imageSize.height)];
         }
@@ -97,8 +97,8 @@
         }
     else    // Blank "brass" means OFF
         {
-        [self setBackgroundImage:[UIImage imageNamed:@"Convex.png"] forState:UIControlStateNormal];
-        [self setBackgroundImage:[UIImage imageNamed:@"Concave.png"] forState:UIControlStateHighlighted];
+        [self setBackgroundImage:[UIImage imageNamed:@"RedXConvex.png"] forState:UIControlStateNormal];
+        [self setBackgroundImage:[UIImage imageNamed:@"RedXConcave.png"] forState:UIControlStateHighlighted];
         }
     
         // Red X means disabled.

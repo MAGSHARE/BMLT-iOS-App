@@ -235,9 +235,6 @@
 		77603E981541DC8300C4840F /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDC1541DC8300C4840F /* RedX.png */; };
 		77603E991541DC8300C4840F /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDC1541DC8300C4840F /* RedX.png */; };
 		77603E9A1541DC8300C4840F /* RedX.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDC1541DC8300C4840F /* RedX.png */; };
-		77603E9B1541DC8300C4840F /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDD1541DC8300C4840F /* RedXConcave.png */; };
-		77603E9C1541DC8300C4840F /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDD1541DC8300C4840F /* RedXConcave.png */; };
-		77603E9D1541DC8300C4840F /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDD1541DC8300C4840F /* RedXConcave.png */; };
 		77603E9E1541DC8300C4840F /* SButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDE1541DC8300C4840F /* SButtonConcave.png */; };
 		77603E9F1541DC8300C4840F /* SButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDE1541DC8300C4840F /* SButtonConcave.png */; };
 		77603EA01541DC8300C4840F /* SButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDE1541DC8300C4840F /* SButtonConcave.png */; };
@@ -353,6 +350,12 @@
 		77882CBD1548874C00DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
 		77882CBE1548876000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
 		77882CBF1548877000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
+		77974142155589770041E81D /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77974141155589770041E81D /* RedXConcave.png */; };
+		77974143155589770041E81D /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77974141155589770041E81D /* RedXConcave.png */; };
+		77974144155589770041E81D /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77974141155589770041E81D /* RedXConcave.png */; };
+		7797414715558A700041E81D /* RedXConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 7797414615558A700041E81D /* RedXConvex.png */; };
+		7797414815558A700041E81D /* RedXConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 7797414615558A700041E81D /* RedXConvex.png */; };
+		7797414915558A700041E81D /* RedXConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 7797414615558A700041E81D /* RedXConvex.png */; };
 		77977D10150E882B00485C8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		77977D12150E882B00485C8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
@@ -544,7 +547,6 @@
 		77603DDA1541DC8300C4840F /* MButtonConvex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MButtonConvex.png; sourceTree = "<group>"; };
 		77603DDB1541DC8300C4840F /* RadarAnim@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "RadarAnim@2x.gif"; sourceTree = "<group>"; };
 		77603DDC1541DC8300C4840F /* RedX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedX.png; sourceTree = "<group>"; };
-		77603DDD1541DC8300C4840F /* RedXConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedXConcave.png; sourceTree = "<group>"; };
 		77603DDE1541DC8300C4840F /* SButtonConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SButtonConcave.png; sourceTree = "<group>"; };
 		77603DDF1541DC8300C4840F /* SButtonConvex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SButtonConvex.png; sourceTree = "<group>"; };
 		77603DE01541DC8300C4840F /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -582,6 +584,8 @@
 		77882CB61548872000DBE9A1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = BMLT/libTestFlight.a; sourceTree = "<group>"; };
 		77882CB71548872000DBE9A1 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		77882CBC1548874C00DBE9A1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		77974141155589770041E81D /* RedXConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedXConcave.png; sourceTree = "<group>"; };
+		7797414615558A700041E81D /* RedXConvex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedXConvex.png; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* NY NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NY NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -831,7 +835,8 @@
 				77603DDA1541DC8300C4840F /* MButtonConvex.png */,
 				77603DDB1541DC8300C4840F /* RadarAnim@2x.gif */,
 				77603DDC1541DC8300C4840F /* RedX.png */,
-				77603DDD1541DC8300C4840F /* RedXConcave.png */,
+				77974141155589770041E81D /* RedXConcave.png */,
+				7797414615558A700041E81D /* RedXConvex.png */,
 				77603DDE1541DC8300C4840F /* SButtonConcave.png */,
 				77603DDF1541DC8300C4840F /* SButtonConvex.png */,
 				77603DE01541DC8300C4840F /* search.png */,
@@ -1205,7 +1210,6 @@
 				77603E941541DC8300C4840F /* MButtonConvex.png in Resources */,
 				77603E971541DC8300C4840F /* RadarAnim@2x.gif in Resources */,
 				77603E9A1541DC8300C4840F /* RedX.png in Resources */,
-				77603E9D1541DC8300C4840F /* RedXConcave.png in Resources */,
 				77603EA01541DC8300C4840F /* SButtonConcave.png in Resources */,
 				77603EA31541DC8300C4840F /* SButtonConvex.png in Resources */,
 				77603EA61541DC8300C4840F /* search.png in Resources */,
@@ -1241,6 +1245,8 @@
 				774166C815472315008692FB /* Default@2x.png in Resources */,
 				7740713B1549D48B00B0281F /* LocButtonSimpleHighlight.png in Resources */,
 				7740713E1549D48B00B0281F /* LocButtonSimpleNormal.png in Resources */,
+				77974144155589770041E81D /* RedXConcave.png in Resources */,
+				7797414915558A700041E81D /* RedXConvex.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1301,7 +1307,6 @@
 				77603E921541DC8300C4840F /* MButtonConvex.png in Resources */,
 				77603E951541DC8300C4840F /* RadarAnim@2x.gif in Resources */,
 				77603E981541DC8300C4840F /* RedX.png in Resources */,
-				77603E9B1541DC8300C4840F /* RedXConcave.png in Resources */,
 				77603E9E1541DC8300C4840F /* SButtonConcave.png in Resources */,
 				77603EA11541DC8300C4840F /* SButtonConvex.png in Resources */,
 				77603EA41541DC8300C4840F /* search.png in Resources */,
@@ -1337,6 +1342,8 @@
 				774166C615472315008692FB /* Default@2x.png in Resources */,
 				774071391549D48B00B0281F /* LocButtonSimpleHighlight.png in Resources */,
 				7740713C1549D48B00B0281F /* LocButtonSimpleNormal.png in Resources */,
+				77974142155589770041E81D /* RedXConcave.png in Resources */,
+				7797414715558A700041E81D /* RedXConvex.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1397,7 +1404,6 @@
 				77603E931541DC8300C4840F /* MButtonConvex.png in Resources */,
 				77603E961541DC8300C4840F /* RadarAnim@2x.gif in Resources */,
 				77603E991541DC8300C4840F /* RedX.png in Resources */,
-				77603E9C1541DC8300C4840F /* RedXConcave.png in Resources */,
 				77603E9F1541DC8300C4840F /* SButtonConcave.png in Resources */,
 				77603EA21541DC8300C4840F /* SButtonConvex.png in Resources */,
 				77603EA51541DC8300C4840F /* search.png in Resources */,
@@ -1433,6 +1439,8 @@
 				774166C715472315008692FB /* Default@2x.png in Resources */,
 				7740713A1549D48B00B0281F /* LocButtonSimpleHighlight.png in Resources */,
 				7740713D1549D48B00B0281F /* LocButtonSimpleNormal.png in Resources */,
+				77974143155589770041E81D /* RedXConcave.png in Resources */,
+				7797414815558A700041E81D /* RedXConvex.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
