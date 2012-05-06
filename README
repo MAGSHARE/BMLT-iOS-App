@@ -70,6 +70,10 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0
+* May 6, 2012
+* Official App Store release. No changes from b13, except for this note and the version number.
+
 == Version 2.0b13
 * Cinco De Mayo
 * Addressed a usability issue. The "brass" checkboxes are hard to see, as far as contrast between off (blank button) and "on" (green check). I addressed this by making "off" a red "X".
