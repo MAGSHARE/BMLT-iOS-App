@@ -596,7 +596,7 @@
 		77A5600B153CF0520039CCDD /* A_BMLT_PrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLT_PrintPageRenderer.h; sourceTree = "<group>"; };
 		77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_BMLT_PrintPageRenderer.m; sourceTree = "<group>"; };
 		77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BMLTCloseModalProtocol.h; path = Miscellaneous/BMLTCloseModalProtocol.h; sourceTree = "<group>"; };
-		77AC71E215409E9F0060CA80 /* MN NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MN NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77AC71E215409E9F0060CA80 /* MNNA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MNNA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77ADCC4E1545AACF0080250E /* BlueLeather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BlueLeather.gif; sourceTree = "<group>"; };
 		77BBAEF215417694001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		77BBAEF4154176A4001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
@@ -963,7 +963,7 @@
 			isa = PBXGroup;
 			children = (
 				77977D0B150E882B00485C8D /* NY NA Meetings.app */,
-				77AC71E215409E9F0060CA80 /* MN NA Meetings.app */,
+				77AC71E215409E9F0060CA80 /* MNNA.app */,
 				777597CE1540F15F00D45ADA /* SV NA Meetings.app */,
 			);
 			name = Products;
@@ -1136,9 +1136,9 @@
 			productReference = 77977D0B150E882B00485C8D /* NY NA Meetings.app */;
 			productType = "com.apple.product-type.application";
 		};
-		77AC716915409E9F0060CA80 /* MN NA Meetings */ = {
+		77AC716915409E9F0060CA80 /* MNNA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 77AC71DF15409E9F0060CA80 /* Build configuration list for PBXNativeTarget "MN NA Meetings" */;
+			buildConfigurationList = 77AC71DF15409E9F0060CA80 /* Build configuration list for PBXNativeTarget "MNNA" */;
 			buildPhases = (
 				77AC716A15409E9F0060CA80 /* Sources */,
 				77AC719115409E9F0060CA80 /* Frameworks */,
@@ -1148,9 +1148,9 @@
 			);
 			dependencies = (
 			);
-			name = "MN NA Meetings";
+			name = MNNA;
 			productName = BMLT;
-			productReference = 77AC71E215409E9F0060CA80 /* MN NA Meetings.app */;
+			productReference = 77AC71E215409E9F0060CA80 /* MNNA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1178,7 +1178,7 @@
 			projectRoot = "";
 			targets = (
 				77977D0A150E882B00485C8D /* NY NA Meetings */,
-				77AC716915409E9F0060CA80 /* MN NA Meetings */,
+				77AC716915409E9F0060CA80 /* MNNA */,
 				777597561540F15E00D45ADA /* SV NA Meetings */,
 			);
 		};
@@ -1835,7 +1835,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/BMLT\"",
 				);
-				PRODUCT_NAME = "MN NA Meetings";
+				PRODUCT_NAME = MNNA;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1861,7 +1861,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/BMLT\"",
 				);
-				PRODUCT_NAME = "MN NA Meetings";
+				PRODUCT_NAME = MNNA;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1897,7 +1897,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		77AC71DF15409E9F0060CA80 /* Build configuration list for PBXNativeTarget "MN NA Meetings" */ = {
+		77AC71DF15409E9F0060CA80 /* Build configuration list for PBXNativeTarget "MNNA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77AC71E015409E9F0060CA80 /* Debug */,
