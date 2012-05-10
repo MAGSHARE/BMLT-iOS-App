@@ -32,7 +32,6 @@
 				<string>icon-LargeiPhone.png</string>
 				<string>icon-iPad.png</string>
 				<string>icon-LargeiPad.png</string>
-				<string>iPhone.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
