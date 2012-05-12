@@ -146,7 +146,8 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 /**************************************************************//**
  \brief Pushes the meeting details screen onto the current nav stack.
  *****************************************************************/
-+ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting inContext:(UIViewController *)inController
++ (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting            ///< The object for the meeting to be displayed.
+                 inContext:(UIViewController *)inController     ///< The controller that will be given responsibility for modal dialogs.
 {
     // If no controller was supplied, we assume that this was a map results popover.
     if ( !inController )
@@ -182,9 +183,9 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 
 /**************************************************************//**
  \brief Sorts a meeting list results array by weekday and time.
- \returns an array of meeting objects, sorted the desired way.
+ \returns an array of BMLT_Meeting objects, sorted the desired way.
  *****************************************************************/
-+ (NSArray *)sortMeetingListByWeekdayAndTime:(NSArray *)inMeetings
++ (NSArray *)sortMeetingListByWeekdayAndTime:(NSArray *)inMeetings  ///< An array of BMLT_Meeting objects to be sorted.
 {
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate::sortMeetingListByWeekdayAndTime start.");
@@ -216,9 +217,9 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 
 /**************************************************************//**
  \brief Sorts a meeting list results array by distance.
- \returns an array of meeting objects, sorted the desired way.
+ \returns an array of BMLT_Meeting objects, sorted the desired way.
  *****************************************************************/
-+ (NSArray *)sortMeetingListByDistance:(NSArray *)inMeetings
++ (NSArray *)sortMeetingListByDistance:(NSArray *)inMeetings  ///< An array of BMLT_Meeting objects to be sorted.
 {
 #ifdef DEBUG
     NSLog(@"BMLTAppDelegate::sortMeetingListByDistance start.");
@@ -250,6 +251,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 #pragma mark - Private methods -
 /**************************************************************//**
  \brief Return the prefs object for this app.
+ \returns the app delegate's BMLT_Prefs instance.
  *****************************************************************/
 - (BMLT_Prefs *)getMyPrefs
 {
