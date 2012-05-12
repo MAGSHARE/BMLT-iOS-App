@@ -126,7 +126,7 @@
 /*****************************************************************/
 + (UIColor *)getSortEvenColor
 {
-    return [UIColor colorWithRed:0.7 green:0.8 blue:1 alpha:1.0];
+    return [UIColor colorWithRed:0.8 green:0.9 blue:1.0 alpha:1.0];
 }
 
 /*****************************************************************/
