@@ -478,7 +478,9 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     
     if ( self )
         {
-        g_AppDelegate = self;
+        // If we absolutely MUST use a SINGLETON, then it should be done this way.
+        static dispatch_once_t just_this_one_time_then;
+        dispatch_once ( &just_this_one_time_then, ^{ g_AppDelegate = self; } );
         locationManager = [[CLLocationManager alloc] init];
         [locationManager setPurpose:NSLocalizedString(@"LOCATION-PURPOSE", nil)];
         [locationManager setDistanceFilter:kCLDistanceFilterNone];
