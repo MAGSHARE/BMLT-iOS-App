@@ -21,7 +21,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Provided by MAGSHARE</string>
+	<string>Provided by the Minnesota Region of NA</string>
 	<key>CFBundleIcons</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
