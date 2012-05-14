@@ -28,10 +28,15 @@
 #import "BMLTMeetingDetailViewController.h"
 #import "BMLTAnimationScreenViewController.h"
 #import "BMLTSettingsViewController.h"
-#import "TestFlight.h"
+#ifdef _TESTFLIGHT_
+    #import "TestFlight.h"
+#endif
 
 static BMLTAppDelegate *g_AppDelegate = nil;    ///< This holds the SINGLETON instance of the application delegate.
+
+#ifdef _TESTFLIGHT_
 static NSString *kTestFlightTeamToken = @"89521cfd695fa615cc412b7048699107_ODQ2NTYyMDEyLTA0LTI2IDEwOjQ0OjM5LjU2NjA4OQ"; ///< Used for the TesFlightApp.com utility.
+#endif
 
 int kAddressLookupTimeoutPeriod_in_seconds = 10;
 
@@ -511,13 +516,18 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions called.");
+    NSLog(@"BMLTAppDelegate::didFinishLaunchingWithOptions: called.");
 #endif
     myPrefs = [BMLT_Prefs getBMLT_Prefs];
 
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
-    
+
+#ifdef _TESTFLIGHT_
+#ifdef DEBUG
+    NSLog(@"BMLTAppDelegate::application: didFinishLaunchingWithOptions: TestFlight Startup.");
+#endif
     [TestFlight takeOff:kTestFlightTeamToken];
+#endif
     
     [tabController setSelectedIndex:kSearchTabIndex];
     [tabController setDelegate:self];
