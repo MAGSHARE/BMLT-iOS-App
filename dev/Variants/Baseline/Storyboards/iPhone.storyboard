@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2541" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1875"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - TAB-BAR-1-->
@@ -27,7 +27,7 @@
                 <viewController storyboardIdentifier="simple-search" id="1ej-mT-cW2" customClass="BMLTSimpleSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jso-hj-sh5" userLabel="search-simple" customClass="A_BMLTMainBackgroundView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4sw-z7-Qal">
                                 <rect key="frame" x="13" y="65" width="295" height="37"/>
@@ -99,12 +99,12 @@
                                     <action selector="findAllMeetingsNearMeTomorrow:" destination="1ej-mT-cW2" eventType="touchUpInside" id="jkM-Tw-nGC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SEARCH-SPEC-DISABLED-TEXT" autoshrinkMode="minimumFontSize" id="iqL-3E-3rT">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" text="SEARCH-SPEC-DISABLED-TEXT" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" id="iqL-3E-3rT">
                                 <rect key="frame" x="13" y="207" width="295" height="140"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <nil key="highlightedColor"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -217,52 +217,52 @@
                 <viewController id="fFZ-gF-vrb" customClass="BMLTAboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IHx-Y9-nFx" userLabel="settings-about" customClass="BMLTAboutBackgroundView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SETTINGS-VERSION-LABEL" textAlignment="right" autoshrinkMode="minimumFontSize" id="6WO-b9-OV4">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-VERSION-LABEL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6WO-b9-OV4">
                                 <rect key="frame" x="20" y="113" width="145" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="CFBundleVersion" autoshrinkMode="minimumFontSize" id="rjo-ez-kmA" customClass="BMLTBundleResourceLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CFBundleVersion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rjo-ez-kmA" customClass="BMLTBundleResourceLabel">
                                 <rect key="frame" x="173" y="113" width="107" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="CFBundleName" textAlignment="center" autoshrinkMode="minimumFontSize" id="gfw-UG-IdY" customClass="BMLTBundleResourceLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CFBundleName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="gfw-UG-IdY" customClass="BMLTBundleResourceLabel">
                                 <rect key="frame" x="20" y="20" width="280" height="32"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="CFBundleGetInfoString" textAlignment="center" autoshrinkMode="minimumFontSize" id="JwZ-NO-Fx9" customClass="BMLTBundleResourceLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CFBundleGetInfoString" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="JwZ-NO-Fx9" customClass="BMLTBundleResourceLabel">
                                 <rect key="frame" x="20" y="55" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="BMLTLeadText" textAlignment="center" autoshrinkMode="minimumFontSize" id="id3-OT-thS" customClass="BMLTBundleResourceLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="BMLTLeadText" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="id3-OT-thS" customClass="BMLTBundleResourceLabel">
                                 <rect key="frame" x="20" y="84" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" image="Beanie.png" id="KTY-0c-hgS">
                                 <rect key="frame" x="60" y="147" width="200" height="200"/>
@@ -286,7 +286,7 @@
                 <viewController id="Nxo-gu-wB5" customClass="BMLTSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HCP-8L-4u0" userLabel="settings-prefs" customClass="A_BMLTSettingsBackgroundView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="lwl-k3-B1U">
                                 <rect key="frame" x="229" y="10" width="79" height="27"/>
@@ -296,14 +296,14 @@
                                     <action selector="lookupLocationChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="aV1-Ve-h7z"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SETTINGS-INITIAL-LOCATION" textAlignment="right" autoshrinkMode="minimumFontSize" id="3UZ-z3-M67">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-INITIAL-LOCATION" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3UZ-z3-M67">
                                 <rect key="frame" x="7" y="13" width="218" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="5I5-tm-Io6">
                                 <rect key="frame" x="229" y="50" width="79" height="27"/>
@@ -313,14 +313,14 @@
                                     <action selector="retainStateChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="ORc-ix-hJq"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SETTINGS-RETAIN-STATE" textAlignment="right" autoshrinkMode="minimumFontSize" id="6O9-0z-dzw">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-RETAIN-STATE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6O9-0z-dzw">
                                 <rect key="frame" x="7" y="53" width="218" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="HAI-1z-Rmb">
                                 <rect key="frame" x="229" y="93" width="79" height="27"/>
@@ -330,14 +330,14 @@
                                     <action selector="mapResultsChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="l7A-Ur-kCa"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SETTINGS-PREFER-MAP-RESULTS" textAlignment="right" autoshrinkMode="minimumFontSize" id="TCP-7G-etX">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-PREFER-MAP-RESULTS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="TCP-7G-etX">
                                 <rect key="frame" x="-31" y="96" width="256" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="d1R-Bw-4lt">
                                 <rect key="frame" x="229" y="134" width="79" height="27"/>
@@ -347,50 +347,50 @@
                                     <action selector="distanceSortChanged:" destination="Nxo-gu-wB5" eventType="valueChanged" id="pFB-K2-Hbk"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SETTINGS-PREFER-DISTANCE-SORT" textAlignment="right" autoshrinkMode="minimumFontSize" id="3Q4-Xa-pMg">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-PREFER-DISTANCE-SORT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3Q4-Xa-pMg">
                                 <rect key="frame" x="-46" y="137" width="271" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SETTINGS-PREFERRED-SEARCH-TYPE" textAlignment="center" autoshrinkMode="minimumFontSize" id="zyR-Zg-A3x">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-PREFERRED-SEARCH-TYPE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zyR-Zg-A3x">
                                 <rect key="frame" x="17" y="169" width="287" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SETTINGS-NUM-MEETINGS" textAlignment="center" autoshrinkMode="minimumFontSize" id="Zh0-z9-isd">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-NUM-MEETINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Zh0-z9-isd">
                                 <rect key="frame" x="20" y="234" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SETTINGS-MIN" autoshrinkMode="minimumFontSize" id="bJw-es-cas">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-MIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bJw-es-cas">
                                 <rect key="frame" x="7" y="281" width="100" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="SETTINGS-MAX" textAlignment="right" autoshrinkMode="minimumFontSize" id="xJW-SY-JOl">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS-MAX" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xJW-SY-JOl">
                                 <rect key="frame" x="186" y="281" width="122" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="FbI-hR-hfI">
                                 <rect key="frame" x="20" y="192" width="280" height="30"/>
@@ -474,7 +474,7 @@
                 <viewController storyboardIdentifier="advanced-search" id="eMe-9F-zBx" customClass="BMLTAdvancedSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A2Y-2f-nTF" userLabel="search-advanced" customClass="A_BMLTMainBackgroundView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e5b-WO-qmk">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
@@ -507,13 +507,13 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" text="SEARCH-SPEC-SELECTED-WEEKDAYS" textAlignment="center" autoshrinkMode="minimumFontSize" id="1BM-Lu-EcM" userLabel="Weekday Search Label">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SEARCH-SPEC-SELECTED-WEEKDAYS" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="1BM-Lu-EcM" userLabel="Weekday Search Label">
                                         <rect key="frame" x="20" y="0.0" width="280" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="0r7-fn-XsV" userLabel="Weekday Search Mode">
                                         <rect key="frame" x="7" y="27" width="307" height="30"/>
@@ -529,13 +529,13 @@
                                             <action selector="weekdaySelectionChanged:" destination="eMe-9F-zBx" eventType="valueChanged" id="uyA-Gx-5lX"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" lineBreakMode="tailTruncation" minimumFontSize="10" text="WEEKDAY-SHORT-NAME-0" textAlignment="center" autoshrinkMode="minimumFontSize" id="9jU-a4-9Ze" userLabel="Sunday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="9jU-a4-9Ze" userLabel="Sunday Label">
                                         <rect key="frame" x="7" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gwF-5Z-P6k" userLabel="Sunday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="12" y="87" width="32" height="32"/>
@@ -552,13 +552,13 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="C0k-7i-BgT"/>
                                         </connections>
                                     </button>
-                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" lineBreakMode="tailTruncation" minimumFontSize="10" text="WEEKDAY-SHORT-NAME-1" textAlignment="center" autoshrinkMode="minimumFontSize" id="bVk-Ce-Lae" userLabel="Monday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="bVk-Ce-Lae" userLabel="Monday Label">
                                         <rect key="frame" x="52" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iAX-gQ-hbw" userLabel="Monday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="57" y="87" width="32" height="32"/>
@@ -575,13 +575,13 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="XE3-xe-bPG"/>
                                         </connections>
                                     </button>
-                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" lineBreakMode="tailTruncation" minimumFontSize="10" text="WEEKDAY-SHORT-NAME-2" textAlignment="center" autoshrinkMode="minimumFontSize" id="Zfv-2T-3S2" userLabel="Tuesday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-2" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Zfv-2T-3S2" userLabel="Tuesday Label">
                                         <rect key="frame" x="97" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gHr-E2-eM9" userLabel="Tuesday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="102" y="87" width="32" height="32"/>
@@ -598,13 +598,13 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="bUh-x8-LOL"/>
                                         </connections>
                                     </button>
-                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" lineBreakMode="tailTruncation" minimumFontSize="10" text="WEEKDAY-SHORT-NAME-3" textAlignment="center" autoshrinkMode="minimumFontSize" id="Gbj-OP-cXZ" userLabel="Wednesday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-3" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Gbj-OP-cXZ" userLabel="Wednesday Label">
                                         <rect key="frame" x="142" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fLF-iM-xCH" userLabel="Wednesday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="147" y="87" width="32" height="32"/>
@@ -621,13 +621,13 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="Fci-hZ-yw5"/>
                                         </connections>
                                     </button>
-                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" lineBreakMode="tailTruncation" minimumFontSize="10" text="WEEKDAY-SHORT-NAME-4" textAlignment="center" autoshrinkMode="minimumFontSize" id="Eag-Mq-W9i" userLabel="Thursday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-4" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Eag-Mq-W9i" userLabel="Thursday Label">
                                         <rect key="frame" x="187" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iCP-4u-9Df" userLabel="Thursday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="192" y="87" width="32" height="32"/>
@@ -644,13 +644,13 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="eAJ-lT-Div"/>
                                         </connections>
                                     </button>
-                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" lineBreakMode="tailTruncation" minimumFontSize="10" text="WEEKDAY-SHORT-NAME-5" textAlignment="center" autoshrinkMode="minimumFontSize" id="RHF-kJ-jFp" userLabel="Friday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-5" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="RHF-kJ-jFp" userLabel="Friday Label">
                                         <rect key="frame" x="232" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lt1-bn-5qO" userLabel="Friday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="237" y="87" width="32" height="32"/>
@@ -667,13 +667,13 @@
                                             <action selector="weekdayChanged:" destination="eMe-9F-zBx" eventType="touchUpInside" id="ODd-R1-bBP"/>
                                         </connections>
                                     </button>
-                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" lineBreakMode="tailTruncation" minimumFontSize="10" text="WEEKDAY-SHORT-NAME-6" textAlignment="center" autoshrinkMode="minimumFontSize" id="aZR-zK-7dA" userLabel="Saturday Label">
+                                    <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="WEEKDAY-SHORT-NAME-6" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="aZR-zK-7dA" userLabel="Saturday Label">
                                         <rect key="frame" x="277" y="64" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1TB-Mz-Udv" userLabel="Saturday Checkbox" customClass="BMLTBrassCheckBoxButton">
                                         <rect key="frame" x="282" y="87" width="32" height="32"/>
@@ -711,8 +711,8 @@
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DEFAULT-ADDRESS-STRING" minimumFontSize="17" clearButtonMode="whileEditing" id="WvY-tb-Ifr">
                                 <rect key="frame" x="0.0" y="157" width="320" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="addressTextEntered:" destination="eMe-9F-zBx" eventType="editingDidEnd" id="6a5-rF-Axa"/>
                                     <outlet property="delegate" destination="eMe-9F-zBx" id="Zcl-D0-o48"/>
@@ -832,7 +832,7 @@
                 <viewController storyboardIdentifier="meeting-details-sheet" id="njF-E5-VED" customClass="BMLTMeetingDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XUM-oi-Gj3">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="z8D-a3-WKj" userLabel="Formats">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
@@ -843,18 +843,18 @@
                                 <rect key="frame" x="0.0" y="33" width="320" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" text="Comments" id="Q4D-Dh-Uq5" userLabel="Comments">
                                 <rect key="frame" x="0.0" y="59" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="wordWrap" id="zaY-Io-PJK" userLabel="Address">
                                 <rect key="frame" x="0.0" y="325" width="320" height="47"/>
@@ -941,19 +941,19 @@
                 <viewController storyboardIdentifier="animation-screen" title="Animation View Controller" wantsFullScreenLayout="YES" id="bJU-BV-QkD" customClass="BMLTAnimationScreenViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kPa-8a-XsS">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="5L2-fd-0pO" customClass="BMLT_AnimationView">
                                 <rect key="frame" x="110" y="127" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" text="" textAlignment="center" autoshrinkMode="minimumFontSize" id="Q0D-Eo-14z">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Q0D-Eo-14z">
                                 <rect key="frame" x="20" y="20" width="280" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="highlightedColor"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1098160282" green="0.16834677419999999" blue="0.89654737900000003" alpha="1" colorSpace="calibratedRGB"/>
