@@ -401,6 +401,8 @@
 		77CBD11D1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
 		77CFE116153CB874005FB181 /* BMLT_ListPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */; };
+		77D529961624D50F00AA884B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D529951624D50F00AA884B /* Default-568h@2x.png */; };
+		77D5299A1624D54F00AA884B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D529991624D54F00AA884B /* Default-568h@2x.png */; };
 		77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */; };
 		77DCF09D1545D4FE00979BF6 /* BMLTAboutBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DCF09C1545D4FE00979BF6 /* BMLTAboutBackgroundView.m */; };
 		77DCF09E1545D4FE00979BF6 /* BMLTAboutBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DCF09C1545D4FE00979BF6 /* BMLTAboutBackgroundView.m */; };
@@ -607,6 +609,8 @@
 		77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSettingsBackgroundView.m; path = Miscellaneous/A_BMLTSettingsBackgroundView.m; sourceTree = "<group>"; };
 		77CFE114153CB874005FB181 /* BMLT_ListPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_ListPrintPageRenderer.h; sourceTree = "<group>"; };
 		77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_ListPrintPageRenderer.m; sourceTree = "<group>"; };
+		77D529951624D50F00AA884B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		77D529991624D54F00AA884B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTNavBarViewController.h; path = Miscellaneous/A_BMLTNavBarViewController.h; sourceTree = "<group>"; };
 		77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTNavBarViewController.m; path = Miscellaneous/A_BMLTNavBarViewController.m; sourceTree = "<group>"; };
 		77D90B031514C5340059EF41 /* BMLT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMLT-Prefix.pch"; sourceTree = "<group>"; };
@@ -863,6 +867,7 @@
 				774166B315472315008692FB /* Default-Portrait@2x~ipad.png */,
 				774166B415472315008692FB /* Default-Portrait~ipad.png */,
 				774166B515472315008692FB /* Default.png */,
+				77D529951624D50F00AA884B /* Default-568h@2x.png */,
 				774166B615472315008692FB /* Default@2x.png */,
 			);
 			path = images;
@@ -1085,6 +1090,7 @@
 				77FAF176155C2F8200ADE3FC /* Default-Landscape~ipad.png */,
 				77FAF177155C2F8200ADE3FC /* Default-Portrait@2x~ipad.png */,
 				77FAF178155C2F8200ADE3FC /* Default-Portrait~ipad.png */,
+				77D529991624D54F00AA884B /* Default-568h@2x.png */,
 				77FAF179155C2F8200ADE3FC /* Default.png */,
 				77FAF17A155C2F8200ADE3FC /* Default@2x.png */,
 				77FAF17B155C2F8200ADE3FC /* icon-iPad.png */,
@@ -1375,6 +1381,7 @@
 				7740713C1549D48B00B0281F /* LocButtonSimpleNormal.png in Resources */,
 				77974142155589770041E81D /* RedXConcave.png in Resources */,
 				7797414715558A700041E81D /* RedXConvex.png in Resources */,
+				77D529961624D50F00AA884B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1467,6 +1474,7 @@
 				77FAF188155C2F8200ADE3FC /* icon-LargeiPad.png in Resources */,
 				77FAF189155C2F8200ADE3FC /* icon-LargeiPhone.png in Resources */,
 				77B8BD18155EEBEF00CECED5 /* Beanie.png in Resources */,
+				77D5299A1624D54F00AA884B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
