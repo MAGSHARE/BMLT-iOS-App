@@ -329,8 +329,6 @@
 		7786ABBC1545EB16008AC4A9 /* LongButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */; };
 		7786ABBD1545EB16008AC4A9 /* LongButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */; };
 		7786ABBE1545EB16008AC4A9 /* LongButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */; };
-		77882CB81548872000DBE9A1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; settings = {ATTRIBUTES = (Weak, ); }; };
-		77882CB91548872000DBE9A1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		77882CBA1548872000DBE9A1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		77882CBD1548874C00DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
 		77882CBE1548876000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
@@ -661,7 +659,6 @@
 				77977D12150E882B00485C8D /* Foundation.framework in Frameworks */,
 				77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */,
 				77882CBD1548874C00DBE9A1 /* libz.dylib in Frameworks */,
-				77882CB81548872000DBE9A1 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,7 +674,6 @@
 				77AC719715409E9F0060CA80 /* Foundation.framework in Frameworks */,
 				77AC719815409E9F0060CA80 /* CoreGraphics.framework in Frameworks */,
 				77882CBE1548876000DBE9A1 /* libz.dylib in Frameworks */,
-				77882CB91548872000DBE9A1 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1905,7 +1901,8 @@
 		77977D39150E882B00485C8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -1924,7 +1921,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4223FB32-8488-43B5-A96B-C5A1DF81E4B5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1959,7 +1956,8 @@
 		77AC71E115409E9F0060CA80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Monte Jarvis (6P3Y6YW3P3)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Monte Jarvis";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -1978,7 +1976,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "177BC7F2-0616-4DD2-A532-C71D1B676F42";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
