@@ -70,6 +70,14 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.0.5
+* December 17, 2012
+* MNNA release.
+
+== Version 2.0.4
+* October 17, 2012
+* Fixes a cosmetic bug introduced by iOS 6 maps (the center marker in the search map on iPads wasn't displaying correctly).
+
 == Version 2.0.3
 * October 9, 2012
 * MNNA release.

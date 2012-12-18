@@ -181,9 +181,9 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         
         [myMarker setTitle:@"Marker"];
 
-        [mapSearchView addAnnotation:myMarker];
-        
         [mapSearchView setDelegate:self];
+        
+        [mapSearchView addAnnotation:myMarker];
         
         WildcardGestureRecognizer * tapInterceptor = [[WildcardGestureRecognizer alloc] init];
         [tapInterceptor setMyController:self];
