@@ -1719,7 +1719,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "050EFE45-3DB5-4B62-BA85-576EBD5CB9CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -1948,7 +1948,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "050EFE45-3DB5-4B62-BA85-576EBD5CB9CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1956,8 +1956,8 @@
 		77AC71E115409E9F0060CA80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Monte Jarvis";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Monte Jarvis";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -1976,7 +1976,8 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "177BC7F2-0616-4DD2-A532-C71D1B676F42";
+				PROVISIONING_PROFILE = "1031B3A0-0509-48E1-BA24-2B312155EC2C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
