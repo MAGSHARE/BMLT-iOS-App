@@ -441,8 +441,6 @@
 		777AD6DA1688C61700E064D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77603DE61541DC8300C4840F /* InfoPlist.strings */; };
 		777AD6DB1688C61700E064D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77603DE81541DC8300C4840F /* Localizable.strings */; };
 		777AD6DC1688C61700E064D0 /* BMLTFormatDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77603DED1541DC8300C4840F /* BMLTFormatDetailViewController.xib */; };
-		777AD6DD1688C61700E064D0 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77603DEE1541DC8300C4840F /* iPad.storyboard */; };
-		777AD6DE1688C61700E064D0 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77603DEF1541DC8300C4840F /* iPhone.storyboard */; };
 		777AD6DF1688C61700E064D0 /* BlueLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77ADCC4E1545AACF0080250E /* BlueLeather.gif */; };
 		777AD6E01688C61700E064D0 /* ShadowUpsideDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */; };
 		777AD6E11688C61700E064D0 /* BrownLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 771094B71545D19D001989F4 /* BrownLeather.gif */; };
@@ -530,6 +528,8 @@
 		77AC719815409E9F0060CA80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		77ADCC4F1545AACF0080250E /* BlueLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77ADCC4E1545AACF0080250E /* BlueLeather.gif */; };
 		77ADCC511545AACF0080250E /* BlueLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77ADCC4E1545AACF0080250E /* BlueLeather.gif */; };
+		77B54CD3168922F200AD5E83 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD1168922F200AD5E83 /* iPad.storyboard */; };
+		77B54CD4168922F200AD5E83 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD2168922F200AD5E83 /* iPhone.storyboard */; };
 		77B8BD18155EEBEF00CECED5 /* Beanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B8BD17155EEBEF00CECED5 /* Beanie.png */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */; };
@@ -748,6 +748,8 @@
 		77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BMLTCloseModalProtocol.h; path = Miscellaneous/BMLTCloseModalProtocol.h; sourceTree = "<group>"; };
 		77AC71E215409E9F0060CA80 /* MNNA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MNNA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77ADCC4E1545AACF0080250E /* BlueLeather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BlueLeather.gif; sourceTree = "<group>"; };
+		77B54CD1168922F200AD5E83 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		77B54CD2168922F200AD5E83 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		77B8BD17155EEBEF00CECED5 /* Beanie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beanie.png; sourceTree = "<group>"; };
 		77BBAEF215417694001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		77BBAEF4154176A4001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
@@ -1119,6 +1121,7 @@
 				777AD7071688CCD800E064D0 /* SydneyAU.gpx */,
 				777AD7031688C63000E064D0 /* images */,
 				777AD7041688C63000E064D0 /* info.plist */,
+				77B54CD0168922F200AD5E83 /* Storyboards */,
 			);
 			path = "BMLT-AU";
 			sourceTree = "<group>";
@@ -1222,6 +1225,15 @@
 			);
 			name = "Printing and Formatted Output";
 			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		77B54CD0168922F200AD5E83 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				77B54CD1168922F200AD5E83 /* iPad.storyboard */,
+				77B54CD2168922F200AD5E83 /* iPhone.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		77BBAEF3154176A4001F5BCC /* BMLT-MN */ = {
@@ -1568,8 +1580,6 @@
 				777AD6DA1688C61700E064D0 /* InfoPlist.strings in Resources */,
 				777AD6DB1688C61700E064D0 /* Localizable.strings in Resources */,
 				777AD6DC1688C61700E064D0 /* BMLTFormatDetailViewController.xib in Resources */,
-				777AD6DD1688C61700E064D0 /* iPad.storyboard in Resources */,
-				777AD6DE1688C61700E064D0 /* iPhone.storyboard in Resources */,
 				777AD6DF1688C61700E064D0 /* BlueLeather.gif in Resources */,
 				777AD6E01688C61700E064D0 /* ShadowUpsideDown.png in Resources */,
 				777AD6E11688C61700E064D0 /* BrownLeather.gif in Resources */,
@@ -1597,6 +1607,8 @@
 				776602511688E20F00B1310A /* Default-Portrait~ipad.png in Resources */,
 				776602521688E20F00B1310A /* Default.png in Resources */,
 				776602531688E20F00B1310A /* Default@2x.png in Resources */,
+				77B54CD3168922F200AD5E83 /* iPad.storyboard in Resources */,
+				77B54CD4168922F200AD5E83 /* iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
