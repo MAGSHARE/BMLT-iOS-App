@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx
+  version="1.0"
+  creator="GPSBabel - http://www.gpsbabel.org"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.topografix.com/GPX/1/0"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<time>2012-04-19T19:45:28Z</time>
+<bounds minlat="-33.811102" minlon="151.196594" maxlat="-33.811102" maxlon="151.196594"/>
+<wpt lat="-33.811102" lon="151.196594">
+  <ele>0.000000</ele>
+  <name>Sydney, NSW, AU</name>
+  <cmt>Sydney, NSW, AU</cmt>
+  <desc>Sydney, NSW, AU</desc>
+</wpt>
+</gpx>
