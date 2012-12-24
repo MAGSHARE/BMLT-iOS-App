@@ -263,6 +263,17 @@
 		77603EC01541DC8300C4840F /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77603DEF1541DC8300C4840F /* iPhone.storyboard */; };
 		77603EC11541DC8300C4840F /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77603DEF1541DC8300C4840F /* iPhone.storyboard */; };
 		77640D41151A67BE00634143 /* BMLTMeetingDisplayCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */; };
+		7766022A1688E00400B1310A /* App-Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7766021F1688E00400B1310A /* App-Icon-57.png */; };
+		7766022B1688E00400B1310A /* App-Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 776602201688E00400B1310A /* App-Icon-72.png */; };
+		7766022C1688E00400B1310A /* App-Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 776602211688E00400B1310A /* App-Icon-114.png */; };
+		776602371688E19500B1310A /* App-Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 776602361688E19500B1310A /* App-Icon-144.png */; };
+		7766024D1688E20F00B1310A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 776602461688E20F00B1310A /* Default-568h@2x.png */; };
+		7766024E1688E20F00B1310A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 776602471688E20F00B1310A /* Default-Landscape@2x~ipad.png */; };
+		7766024F1688E20F00B1310A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 776602481688E20F00B1310A /* Default-Landscape~ipad.png */; };
+		776602501688E20F00B1310A /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 776602491688E20F00B1310A /* Default-Portrait@2x~ipad.png */; };
+		776602511688E20F00B1310A /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7766024A1688E20F00B1310A /* Default-Portrait~ipad.png */; };
+		776602521688E20F00B1310A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7766024B1688E20F00B1310A /* Default.png */; };
+		776602531688E20F00B1310A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7766024C1688E20F00B1310A /* Default@2x.png */; };
 		776B05421546233600A02EB6 /* icon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B053E1546233600A02EB6 /* icon-iPad.png */; };
 		776B05441546233600A02EB6 /* icon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B053E1546233600A02EB6 /* icon-iPad.png */; };
 		776B05451546233600A02EB6 /* icon-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B053F1546233600A02EB6 /* icon-iPhone.png */; };
@@ -440,24 +451,13 @@
 		777AD6E41688C61700E064D0 /* LocationButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 772FB9CC1545E7D5006C446F /* LocationButtonNormal.png */; };
 		777AD6E51688C61700E064D0 /* LongButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB71545EB16008AC4A9 /* LongButtonHighlight.png */; };
 		777AD6E61688C61700E064D0 /* LongButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */; };
-		777AD6E71688C61700E064D0 /* icon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B053E1546233600A02EB6 /* icon-iPad.png */; };
-		777AD6E81688C61700E064D0 /* icon-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B053F1546233600A02EB6 /* icon-iPhone.png */; };
-		777AD6E91688C61700E064D0 /* icon-LargeiPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B05401546233600A02EB6 /* icon-LargeiPad.png */; };
-		777AD6EA1688C61700E064D0 /* icon-LargeiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B05411546233600A02EB6 /* icon-LargeiPhone.png */; };
 		777AD6EB1688C61700E064D0 /* EvenColor.gif in Resources */ = {isa = PBXBuildFile; fileRef = 776B054E1546283E00A02EB6 /* EvenColor.gif */; };
 		777AD6EC1688C61700E064D0 /* OddColor.gif in Resources */ = {isa = PBXBuildFile; fileRef = 776B054F1546283E00A02EB6 /* OddColor.gif */; };
 		777AD6ED1688C61700E064D0 /* Beanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 77437ADF1546FE8000327CBF /* Beanie.png */; };
-		777AD6EE1688C61700E064D0 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B115472315008692FB /* Default-Landscape@2x~ipad.png */; };
-		777AD6EF1688C61700E064D0 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B215472315008692FB /* Default-Landscape~ipad.png */; };
-		777AD6F01688C61700E064D0 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B315472315008692FB /* Default-Portrait@2x~ipad.png */; };
-		777AD6F11688C61700E064D0 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B415472315008692FB /* Default-Portrait~ipad.png */; };
-		777AD6F21688C61700E064D0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B515472315008692FB /* Default.png */; };
-		777AD6F31688C61700E064D0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B615472315008692FB /* Default@2x.png */; };
 		777AD6F41688C61700E064D0 /* LocButtonSimpleHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 774071371549D48B00B0281F /* LocButtonSimpleHighlight.png */; };
 		777AD6F51688C61700E064D0 /* LocButtonSimpleNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 774071381549D48B00B0281F /* LocButtonSimpleNormal.png */; };
 		777AD6F61688C61700E064D0 /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77974141155589770041E81D /* RedXConcave.png */; };
 		777AD6F71688C61700E064D0 /* RedXConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 7797414615558A700041E81D /* RedXConvex.png */; };
-		777AD6F81688C61700E064D0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D529951624D50F00AA884B /* Default-568h@2x.png */; };
 		777AD7051688C63000E064D0 /* BMLTVariantDefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 777AD7021688C63000E064D0 /* BMLTVariantDefs.m */; };
 		777AD7081688CCD800E064D0 /* SydneyAU.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 777AD7071688CCD800E064D0 /* SydneyAU.gpx */; };
 		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
@@ -698,6 +698,17 @@
 		77603DEF1541DC8300C4840F /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		77640D3F151A67BE00634143 /* BMLTMeetingDisplayCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTMeetingDisplayCellView.h; sourceTree = "<group>"; };
 		77640D40151A67BE00634143 /* BMLTMeetingDisplayCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMeetingDisplayCellView.m; sourceTree = "<group>"; };
+		7766021F1688E00400B1310A /* App-Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-57.png"; sourceTree = "<group>"; };
+		776602201688E00400B1310A /* App-Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-72.png"; sourceTree = "<group>"; };
+		776602211688E00400B1310A /* App-Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-114.png"; sourceTree = "<group>"; };
+		776602361688E19500B1310A /* App-Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App-Icon-144.png"; sourceTree = "<group>"; };
+		776602461688E20F00B1310A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		776602471688E20F00B1310A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		776602481688E20F00B1310A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		776602491688E20F00B1310A /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		7766024A1688E20F00B1310A /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		7766024B1688E20F00B1310A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		7766024C1688E20F00B1310A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		776B053E1546233600A02EB6 /* icon-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iPad.png"; sourceTree = "<group>"; };
 		776B053F1546233600A02EB6 /* icon-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iPhone.png"; sourceTree = "<group>"; };
 		776B05401546233600A02EB6 /* icon-LargeiPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-LargeiPad.png"; sourceTree = "<group>"; };
@@ -1115,6 +1126,17 @@
 		777AD7031688C63000E064D0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7766021F1688E00400B1310A /* App-Icon-57.png */,
+				776602201688E00400B1310A /* App-Icon-72.png */,
+				776602211688E00400B1310A /* App-Icon-114.png */,
+				776602361688E19500B1310A /* App-Icon-144.png */,
+				776602461688E20F00B1310A /* Default-568h@2x.png */,
+				776602471688E20F00B1310A /* Default-Landscape@2x~ipad.png */,
+				776602481688E20F00B1310A /* Default-Landscape~ipad.png */,
+				776602491688E20F00B1310A /* Default-Portrait@2x~ipad.png */,
+				7766024A1688E20F00B1310A /* Default-Portrait~ipad.png */,
+				7766024B1688E20F00B1310A /* Default.png */,
+				7766024C1688E20F00B1310A /* Default@2x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -1556,25 +1578,25 @@
 				777AD6E41688C61700E064D0 /* LocationButtonNormal.png in Resources */,
 				777AD6E51688C61700E064D0 /* LongButtonHighlight.png in Resources */,
 				777AD6E61688C61700E064D0 /* LongButtonNormal.png in Resources */,
-				777AD6E71688C61700E064D0 /* icon-iPad.png in Resources */,
-				777AD6E81688C61700E064D0 /* icon-iPhone.png in Resources */,
-				777AD6E91688C61700E064D0 /* icon-LargeiPad.png in Resources */,
-				777AD6EA1688C61700E064D0 /* icon-LargeiPhone.png in Resources */,
 				777AD6EB1688C61700E064D0 /* EvenColor.gif in Resources */,
 				777AD6EC1688C61700E064D0 /* OddColor.gif in Resources */,
 				777AD6ED1688C61700E064D0 /* Beanie.png in Resources */,
-				777AD6EE1688C61700E064D0 /* Default-Landscape@2x~ipad.png in Resources */,
-				777AD6EF1688C61700E064D0 /* Default-Landscape~ipad.png in Resources */,
-				777AD6F01688C61700E064D0 /* Default-Portrait@2x~ipad.png in Resources */,
-				777AD6F11688C61700E064D0 /* Default-Portrait~ipad.png in Resources */,
-				777AD6F21688C61700E064D0 /* Default.png in Resources */,
-				777AD6F31688C61700E064D0 /* Default@2x.png in Resources */,
 				777AD6F41688C61700E064D0 /* LocButtonSimpleHighlight.png in Resources */,
 				777AD6F51688C61700E064D0 /* LocButtonSimpleNormal.png in Resources */,
 				777AD6F61688C61700E064D0 /* RedXConcave.png in Resources */,
 				777AD6F71688C61700E064D0 /* RedXConvex.png in Resources */,
-				777AD6F81688C61700E064D0 /* Default-568h@2x.png in Resources */,
 				777AD7081688CCD800E064D0 /* SydneyAU.gpx in Resources */,
+				7766022A1688E00400B1310A /* App-Icon-57.png in Resources */,
+				7766022B1688E00400B1310A /* App-Icon-72.png in Resources */,
+				7766022C1688E00400B1310A /* App-Icon-114.png in Resources */,
+				776602371688E19500B1310A /* App-Icon-144.png in Resources */,
+				7766024D1688E20F00B1310A /* Default-568h@2x.png in Resources */,
+				7766024E1688E20F00B1310A /* Default-Landscape@2x~ipad.png in Resources */,
+				7766024F1688E20F00B1310A /* Default-Landscape~ipad.png in Resources */,
+				776602501688E20F00B1310A /* Default-Portrait@2x~ipad.png in Resources */,
+				776602511688E20F00B1310A /* Default-Portrait~ipad.png in Resources */,
+				776602521688E20F00B1310A /* Default.png in Resources */,
+				776602531688E20F00B1310A /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

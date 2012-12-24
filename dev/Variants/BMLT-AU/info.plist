@@ -28,16 +28,16 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>icon-iPhone.png</string>
-				<string>icon-LargeiPhone.png</string>
-				<string>icon-iPad.png</string>
-				<string>icon-LargeiPad.png</string>
-				<string>Default.png</string>
-				<string>Default@2x.png</string>
-				<string>Default-Portrait~ipad.png</string>
-				<string>Default-Portrait@2x~ipad.png</string>
-				<string>Default-Landscape~ipad.png</string>
-				<string>Default-Landscape@2x~ipad.png</string>
+				<string>App-Icon-57.png</string>
+				<string>App-Icon-114.png</string>
+				<string>App-Icon-72.png</string>
+				<string>App-Icon-144.png</string>
+				<string>iPhone.png</string>
+				<string>iPhone-2x.png</string>
+				<string>iPadPortrait.png</string>
+				<string>iPadPortrait-2X.png</string>
+				<string>iPadLandscape.png</string>
+				<string>iPadLandscape-2X.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
