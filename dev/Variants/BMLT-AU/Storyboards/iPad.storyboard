@@ -247,15 +247,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ShadowUpsideDown.png" id="X2o-qE-8u0">
-                                <rect key="frame" x="0.0" y="935" width="768" height="20"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="gVw-Gg-efD">
-                                <rect key="frame" x="0.0" y="208" width="768" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -447,10 +438,6 @@
                                 <rect key="frame" x="0.0" y="161" width="768" height="750"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="4oS-86-45g">
-                                <rect key="frame" x="0.0" y="156" width="768" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="e6g-Gx-G5K">
                                 <rect key="frame" x="274" y="116" width="220" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -474,11 +461,6 @@
                                     <action selector="locationButtonPressed:" destination="SFh-VH-MDA" eventType="touchUpInside" id="O4J-G4-TBP"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ShadowUpsideDown.png" id="knX-db-Tgi">
-                                <rect key="frame" x="0.0" y="891" width="768" height="20"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -634,15 +616,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="rgb-cR-tsp">
-                                <rect key="frame" x="0.0" y="125" width="768" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ShadowUpsideDown.png" id="B8T-75-QPe">
-                                <rect key="frame" x="0.0" y="840" width="768" height="20"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -929,10 +902,6 @@
                                     <action selector="doSearchButtonPressed:" destination="crR-vv-v9x" eventType="touchUpInside" id="EVI-Ho-CJD"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="ucF-ka-X0y">
-                                <rect key="frame" x="0.0" y="156" width="768" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ocl-h7-ZGe">
                                 <rect key="frame" x="20" y="4" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -950,11 +919,6 @@
                                     <action selector="locationButtonPressed:" destination="crR-vv-v9x" eventType="touchUpInside" id="FIe-Dh-egw"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ShadowUpsideDown.png" id="UKO-X9-ra3">
-                                <rect key="frame" x="0.0" y="891" width="768" height="20"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -1037,8 +1001,6 @@
         <image name="MButtonConvex.png" width="48" height="48"/>
         <image name="SButtonConcave.png" width="48" height="48"/>
         <image name="SButtonConvex.png" width="48" height="48"/>
-        <image name="Shadow.png" width="1" height="30"/>
-        <image name="ShadowUpsideDown.png" width="1" height="20"/>
         <image name="list.png" width="26" height="26"/>
         <image name="map.png" width="26" height="26"/>
         <image name="search.png" width="26" height="26"/>

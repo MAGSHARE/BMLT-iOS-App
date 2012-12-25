@@ -90,7 +90,7 @@
 /*****************************************************************/
 + (UIColor *)meetingDetailBackgroundColor
 {
-    return [UIColor colorWithRed:0.0901960784 green:0.3333333333 blue:0.5450980392 alpha:1.0];
+    return [UIColor colorWithRed:0.0588235294 green:0.2235294118 blue:0.3647058824 alpha:1.0];
 }
 
 /*****************************************************************/
