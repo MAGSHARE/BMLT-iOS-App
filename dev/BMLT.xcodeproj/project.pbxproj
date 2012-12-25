@@ -438,8 +438,6 @@
 		777AD6DC1688C61700E064D0 /* BMLTFormatDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77603DED1541DC8300C4840F /* BMLTFormatDetailViewController.xib */; };
 		777AD6E31688C61700E064D0 /* LocationButtonHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 772FB9CB1545E7D5006C446F /* LocationButtonHighlighted.png */; };
 		777AD6E41688C61700E064D0 /* LocationButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 772FB9CC1545E7D5006C446F /* LocationButtonNormal.png */; };
-		777AD6E51688C61700E064D0 /* LongButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB71545EB16008AC4A9 /* LongButtonHighlight.png */; };
-		777AD6E61688C61700E064D0 /* LongButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */; };
 		777AD6F41688C61700E064D0 /* LocButtonSimpleHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 774071371549D48B00B0281F /* LocButtonSimpleHighlight.png */; };
 		777AD6F51688C61700E064D0 /* LocButtonSimpleNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 774071381549D48B00B0281F /* LocButtonSimpleNormal.png */; };
 		777AD6F61688C61700E064D0 /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77974141155589770041E81D /* RedXConcave.png */; };
@@ -515,6 +513,10 @@
 		77AC719815409E9F0060CA80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
 		77ADCC4F1545AACF0080250E /* BlueLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77ADCC4E1545AACF0080250E /* BlueLeather.gif */; };
 		77ADCC511545AACF0080250E /* BlueLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 77ADCC4E1545AACF0080250E /* BlueLeather.gif */; };
+		77AF35F6168A0FB300588DD0 /* LongButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF35F2168A0FB300588DD0 /* LongButtonHighlight.png */; };
+		77AF35F7168A0FB300588DD0 /* LongButtonHighlight@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF35F3168A0FB300588DD0 /* LongButtonHighlight@2X.png */; };
+		77AF35F8168A0FB300588DD0 /* LongButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF35F4168A0FB300588DD0 /* LongButtonNormal.png */; };
+		77AF35F9168A0FB300588DD0 /* LongButtonNormal@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF35F5168A0FB300588DD0 /* LongButtonNormal@2X.png */; };
 		77B54CD3168922F200AD5E83 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD1168922F200AD5E83 /* iPad.storyboard */; };
 		77B54CD4168922F200AD5E83 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD2168922F200AD5E83 /* iPhone.storyboard */; };
 		77B8BD18155EEBEF00CECED5 /* Beanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B8BD17155EEBEF00CECED5 /* Beanie.png */; };
@@ -735,6 +737,10 @@
 		77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BMLTCloseModalProtocol.h; path = Miscellaneous/BMLTCloseModalProtocol.h; sourceTree = "<group>"; };
 		77AC71E215409E9F0060CA80 /* MNNA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MNNA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77ADCC4E1545AACF0080250E /* BlueLeather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BlueLeather.gif; sourceTree = "<group>"; };
+		77AF35F2168A0FB300588DD0 /* LongButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LongButtonHighlight.png; sourceTree = "<group>"; };
+		77AF35F3168A0FB300588DD0 /* LongButtonHighlight@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LongButtonHighlight@2X.png"; sourceTree = "<group>"; };
+		77AF35F4168A0FB300588DD0 /* LongButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LongButtonNormal.png; sourceTree = "<group>"; };
+		77AF35F5168A0FB300588DD0 /* LongButtonNormal@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LongButtonNormal@2X.png"; sourceTree = "<group>"; };
 		77B54CD1168922F200AD5E83 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		77B54CD2168922F200AD5E83 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		77B8BD17155EEBEF00CECED5 /* Beanie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beanie.png; sourceTree = "<group>"; };
@@ -1127,6 +1133,10 @@
 				7766024A1688E20F00B1310A /* Default-Portrait~ipad.png */,
 				7766024B1688E20F00B1310A /* Default.png */,
 				7766024C1688E20F00B1310A /* Default@2x.png */,
+				77AF35F2168A0FB300588DD0 /* LongButtonHighlight.png */,
+				77AF35F3168A0FB300588DD0 /* LongButtonHighlight@2X.png */,
+				77AF35F4168A0FB300588DD0 /* LongButtonNormal.png */,
+				77AF35F5168A0FB300588DD0 /* LongButtonNormal@2X.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -1540,8 +1550,6 @@
 				777AD6CC1688C61700E064D0 /* MapMarkerBlue.png in Resources */,
 				777AD6CE1688C61700E064D0 /* MapMarkerRed.png in Resources */,
 				777AD6CD1688C61700E064D0 /* MapMarkerGreen.png in Resources */,
-				777AD6E61688C61700E064D0 /* LongButtonNormal.png in Resources */,
-				777AD6E51688C61700E064D0 /* LongButtonHighlight.png in Resources */,
 				777AD6E41688C61700E064D0 /* LocationButtonNormal.png in Resources */,
 				777AD6E31688C61700E064D0 /* LocationButtonHighlighted.png in Resources */,
 				777AD6F51688C61700E064D0 /* LocButtonSimpleNormal.png in Resources */,
@@ -1583,6 +1591,10 @@
 				777AD6DC1688C61700E064D0 /* BMLTFormatDetailViewController.xib in Resources */,
 				77B54CD3168922F200AD5E83 /* iPad.storyboard in Resources */,
 				77B54CD4168922F200AD5E83 /* iPhone.storyboard in Resources */,
+				77AF35F6168A0FB300588DD0 /* LongButtonHighlight.png in Resources */,
+				77AF35F7168A0FB300588DD0 /* LongButtonHighlight@2X.png in Resources */,
+				77AF35F8168A0FB300588DD0 /* LongButtonNormal.png in Resources */,
+				77AF35F9168A0FB300588DD0 /* LongButtonNormal@2X.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
