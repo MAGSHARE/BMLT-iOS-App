@@ -94,4 +94,18 @@ static int kBMLT_Animation_frame_count = 30; ///< This is how many frames we hav
     
     return self;
 }
+
+/***************************************************************\**
+ \brief This starts the animation.
+ *****************************************************************/
+- (void)startAnimating
+{
+}
+
+/***************************************************************\**
+ \brief This stops the animation.
+ *****************************************************************/
+- (void)stopAnimating
+{
+}
 @end
