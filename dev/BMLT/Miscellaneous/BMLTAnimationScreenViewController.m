@@ -21,6 +21,7 @@
 
 #import "BMLTAnimationScreenViewController.h"
 #import "BMLTAppDelegate.h"
+#import "BMLT_AnimationView.h"
 
 /**************************************************************//**
  \class BMLTAnimationScreenViewController
@@ -44,6 +45,7 @@
 {
     [[self messageLabel] setText:@""];
     [[BMLTAppDelegate getBMLTAppDelegate] setCurrentAnimation:self];
+    [[self animationView] startAnimating];
     [[BMLTAppDelegate getBMLTAppDelegate] executeDeferredSearch];
 }
 
@@ -52,6 +54,7 @@
  *****************************************************************/
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [[self animationView] stopAnimating];
     [[BMLTAppDelegate getBMLTAppDelegate] setCurrentAnimation:nil];
     [super viewDidDisappear:animated];
     // Release any retained subviews of the main view.
@@ -73,4 +76,8 @@
     return ret;
 }
 
+- (void)viewDidUnload {
+    [self setAnimationView:nil];
+    [super viewDidUnload];
+}
 @end

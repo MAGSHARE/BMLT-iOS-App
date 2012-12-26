@@ -22,4 +22,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BMLT_AnimationView : UIView
+- (void)startAnimating;
+- (void)stopAnimating;
 @end

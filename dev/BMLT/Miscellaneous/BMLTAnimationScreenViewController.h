@@ -21,11 +21,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class BMLT_AnimationView;
+
 /**************************************************************//**
  \class BMLTAnimationScreenViewController
  \brief This implements a view with the animated globe and, if necessary,
         a failure message. It is pushed onto the search stack.
  *****************************************************************/
 @interface BMLTAnimationScreenViewController : UIViewController
-    @property (weak, nonatomic, readonly) IBOutlet UILabel *messageLabel;   ///< This will contain the failure message.
+    @property (weak, nonatomic)             IBOutlet BMLT_AnimationView *animationView;
+    @property (weak, nonatomic, readonly)   IBOutlet UILabel            *messageLabel;   ///< This will contain the failure message.
 @end

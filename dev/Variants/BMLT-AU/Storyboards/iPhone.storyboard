@@ -959,6 +959,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="animationView" destination="5L2-fd-0pO" id="h5Y-jx-iCu"/>
                         <outlet property="messageLabel" destination="Q0D-Eo-14z" id="5Zg-ei-SUS"/>
                     </connections>
                 </viewController>
@@ -1047,6 +1048,7 @@
         <class className="BMLTAnimationScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimationScreenViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="animationView" candidateClass="BMLT_AnimationView"/>
                 <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

@@ -27,8 +27,7 @@
 
 @interface BMLT_AnimationView ()
 {
-    UIImageView *bottomLayerImage;
-    UIImageView *transparencyImage;
+    UIImageView *_transparencyImage;
 }
 @end;
 
@@ -44,26 +43,40 @@
     
     if ( self )
         {
-        bottomLayerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AU-Back.png"]];
+        UIImageView *bottomLayerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AU-Back.png"]];
         [bottomLayerImage setFrame:[self bounds]];
         [self addSubview:bottomLayerImage];
         
-        transparencyImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AU-Transparency.png"]];
-        [transparencyImage setFrame:[self bounds]];
-        
-        CABasicAnimation *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+        _transparencyImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AU-Transparency.png"]];
+        [_transparencyImage setFrame:[self bounds]];
+        CABasicAnimation    *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
         [fullRotation setFromValue:[NSNumber numberWithFloat:0]];
         [fullRotation setToValue:[NSNumber numberWithFloat:((360*M_PI)/180)]];
         [fullRotation setDuration:3.5f];
         [fullRotation setRepeatCount:MAXFLOAT];
         
-        [[transparencyImage layer] addAnimation:fullRotation
-                                         forKey:@"360"];
-
-        [self addSubview:transparencyImage];
-        [transparencyImage startAnimating];
+        [[_transparencyImage layer] addAnimation:fullRotation
+                                          forKey:@"360"];
+        
+        [self addSubview:_transparencyImage];
         }
     
     return self;
+}
+
+/***************************************************************\**
+ \brief This starts the animation.
+ *****************************************************************/
+- (void)startAnimating
+{
+    [_transparencyImage startAnimating];
+}
+
+/***************************************************************\**
+ \brief This stops the animation.
+ *****************************************************************/
+- (void)stopAnimating
+{
+    [_transparencyImage stopAnimating];
 }
 @end
