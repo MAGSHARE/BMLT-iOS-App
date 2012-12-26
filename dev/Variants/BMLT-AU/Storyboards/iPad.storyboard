@@ -436,7 +436,7 @@
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="e6g-Gx-G5K">
                                 <rect key="frame" x="274" y="116" width="220" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -960,7 +960,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="bx7-fg-Nj4" customClass="BMLT_AnimationView">
-                                <rect key="frame" x="284" y="312" width="200" height="200"/>
+                                <rect key="frame" x="234" y="306" width="300" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>

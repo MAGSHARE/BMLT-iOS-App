@@ -941,7 +941,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="5L2-fd-0pO" customClass="BMLT_AnimationView">
-                                <rect key="frame" x="110" y="127" width="100" height="100"/>
+                                <rect key="frame" x="60" y="84" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
