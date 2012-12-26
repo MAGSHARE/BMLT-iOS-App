@@ -533,11 +533,11 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gwF-5Z-P6k" userLabel="Sunday Checkbox" customClass="BMLTBrassCheckBoxButton">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gwF-5Z-P6k" userLabel="Sunday Checkbox" customClass="BMLT_Checkbox">
                                         <rect key="frame" x="12" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" backgroundImage="CheckBoxNormal.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -556,11 +556,11 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iAX-gQ-hbw" userLabel="Monday Checkbox" customClass="BMLTBrassCheckBoxButton">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iAX-gQ-hbw" userLabel="Monday Checkbox" customClass="BMLT_Checkbox">
                                         <rect key="frame" x="57" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" backgroundImage="CheckBoxNormal.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -579,11 +579,11 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gHr-E2-eM9" userLabel="Tuesday Checkbox" customClass="BMLTBrassCheckBoxButton">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gHr-E2-eM9" userLabel="Tuesday Checkbox" customClass="BMLT_Checkbox">
                                         <rect key="frame" x="102" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" backgroundImage="CheckBoxNormal.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -602,11 +602,11 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fLF-iM-xCH" userLabel="Wednesday Checkbox" customClass="BMLTBrassCheckBoxButton">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fLF-iM-xCH" userLabel="Wednesday Checkbox" customClass="BMLT_Checkbox">
                                         <rect key="frame" x="147" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" backgroundImage="CheckBoxNormal.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -625,11 +625,11 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iCP-4u-9Df" userLabel="Thursday Checkbox" customClass="BMLTBrassCheckBoxButton">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iCP-4u-9Df" userLabel="Thursday Checkbox" customClass="BMLT_Checkbox">
                                         <rect key="frame" x="192" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" backgroundImage="CheckBoxNormal.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -648,11 +648,11 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lt1-bn-5qO" userLabel="Friday Checkbox" customClass="BMLTBrassCheckBoxButton">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lt1-bn-5qO" userLabel="Friday Checkbox" customClass="BMLT_Checkbox">
                                         <rect key="frame" x="237" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" backgroundImage="CheckBoxNormal.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -671,11 +671,11 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1TB-Mz-Udv" userLabel="Saturday Checkbox" customClass="BMLTBrassCheckBoxButton">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1TB-Mz-Udv" userLabel="Saturday Checkbox" customClass="BMLT_Checkbox">
                                         <rect key="frame" x="282" y="87" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" backgroundImage="CheckBoxNormal.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -744,23 +744,23 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="friButton" destination="lt1-bn-5qO" id="pTV-6W-gXO"/>
-                        <outlet property="friLabel" destination="RHF-kJ-jFp" id="FMz-o5-BlH"/>
+                        <outlet property="friButton" destination="lt1-bn-5qO" id="EfD-l8-ulh"/>
+                        <outlet property="friLabel" destination="RHF-kJ-jFp" id="C04-5M-aCf"/>
                         <outlet property="goButton" destination="8Uc-nB-87j" id="Tef-sp-LY9"/>
-                        <outlet property="monButton" destination="iAX-gQ-hbw" id="sC6-oF-Cn7"/>
-                        <outlet property="monLabel" destination="bVk-Ce-Lae" id="s7x-ZL-sRc"/>
-                        <outlet property="satButton" destination="1TB-Mz-Udv" id="cSQ-Rf-wuM"/>
-                        <outlet property="satLabel" destination="aZR-zK-7dA" id="dUb-33-nzm"/>
+                        <outlet property="monButton" destination="iAX-gQ-hbw" id="jDP-u4-4Vr"/>
+                        <outlet property="monLabel" destination="bVk-Ce-Lae" id="IVH-gg-QpQ"/>
+                        <outlet property="satButton" destination="1TB-Mz-Udv" id="Ap2-JS-U1y"/>
+                        <outlet property="satLabel" destination="aZR-zK-7dA" id="lNH-0J-2KO"/>
                         <outlet property="searchSpecAddressTextEntry" destination="WvY-tb-Ifr" id="ZDc-wo-bGZ"/>
                         <outlet property="searchSpecSegmentedControl" destination="lb2-e5-k2n" id="vBm-TQ-sfE"/>
-                        <outlet property="sunButton" destination="gwF-5Z-P6k" id="dJD-G3-Nvv"/>
-                        <outlet property="sunLabel" destination="9jU-a4-9Ze" id="OEu-9N-fSV"/>
-                        <outlet property="thuButton" destination="iCP-4u-9Df" id="i9j-gN-iEF"/>
-                        <outlet property="thuLabel" destination="Eag-Mq-W9i" id="UGw-mD-RdF"/>
-                        <outlet property="tueButton" destination="gHr-E2-eM9" id="QL7-Ya-1FT"/>
-                        <outlet property="tueLabel" destination="Zfv-2T-3S2" id="mx6-fH-GD5"/>
-                        <outlet property="wedButton" destination="fLF-iM-xCH" id="jAb-dj-rB7"/>
-                        <outlet property="wedLabel" destination="Gbj-OP-cXZ" id="v7Y-qC-Pst"/>
+                        <outlet property="sunButton" destination="gwF-5Z-P6k" id="mge-Jw-emh"/>
+                        <outlet property="sunLabel" destination="9jU-a4-9Ze" id="sAr-Ho-tQT"/>
+                        <outlet property="thuButton" destination="iCP-4u-9Df" id="ieM-9t-OXz"/>
+                        <outlet property="thuLabel" destination="Eag-Mq-W9i" id="LkT-Tp-1h4"/>
+                        <outlet property="tueButton" destination="gHr-E2-eM9" id="Jcb-UE-PC7"/>
+                        <outlet property="tueLabel" destination="Zfv-2T-3S2" id="Dd2-u3-1Y0"/>
+                        <outlet property="wedButton" destination="fLF-iM-xCH" id="BUt-ui-Mn0"/>
+                        <outlet property="wedLabel" destination="Gbj-OP-cXZ" id="2EN-Oi-RrY"/>
                         <outlet property="weekdaysLabel" destination="1BM-Lu-EcM" id="CLM-eQ-N0g"/>
                         <outlet property="weekdaysSelector" destination="0r7-fn-XsV" id="40i-Fp-BIC"/>
                     </connections>
@@ -953,7 +953,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.1098160282" green="0.16834677419999999" blue="0.89654737900000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZnD-3E-c3s"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -969,12 +969,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LongButtonHighlight.png" width="16" height="16"/>
-        <image name="LongButtonNormal.png" width="16" height="16"/>
+        <image name="CheckBoxNormal.png" width="48" height="48"/>
+        <image name="LongButtonHighlight.png" width="220" height="32"/>
+        <image name="LongButtonNormal.png" width="220" height="32"/>
         <image name="MButtonConcave.png" width="48" height="48"/>
         <image name="MButtonConvex.png" width="48" height="48"/>
         <image name="SButtonConcave.png" width="48" height="48"/>
-        <image name="SButtonConvex.png" width="16" height="16"/>
+        <image name="SButtonConvex.png" width="48" height="48"/>
         <image name="list.png" width="26" height="26"/>
         <image name="map.png" width="26" height="26"/>
         <image name="search.png" width="26" height="26"/>

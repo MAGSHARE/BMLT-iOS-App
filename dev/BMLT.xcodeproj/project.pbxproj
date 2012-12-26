@@ -20,7 +20,7 @@
 		771D0C47150E892A005A707A /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
 		771D0C7A150E893C005A707A /* BMLTMapResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C4F150E893C005A707A /* BMLTMapResultsViewController.m */; };
 		771D0C7D150E893C005A707A /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C55150E893C005A707A /* BMLT_Prefs.m */; };
-		771D0C7E150E893C005A707A /* BMLTBrassCheckBoxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLTBrassCheckBoxButton.m */; };
+		771D0C7E150E893C005A707A /* BMLT_Checkbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLT_Checkbox.m */; };
 		771D0C7F150E893C005A707A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C59150E893C005A707A /* Reachability.m */; };
 		771D0C80150E893C005A707A /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C5C150E893C005A707A /* A_BMLT_ChildClass.m */; };
 		771D0C81150E893C005A707A /* A_BMLT_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C5E150E893C005A707A /* A_BMLT_Search.m */; };
@@ -58,7 +58,7 @@
 		77437AE01546FE8000327CBF /* Beanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 77437ADF1546FE8000327CBF /* Beanie.png */; };
 		77437AE21546FE8000327CBF /* Beanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 77437ADF1546FE8000327CBF /* Beanie.png */; };
 		774B100A168B6C7400E4BBF5 /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
-		774B100B168B6C7400E4BBF5 /* BMLTBrassCheckBoxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLTBrassCheckBoxButton.m */; };
+		774B100B168B6C7400E4BBF5 /* BMLT_Checkbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLT_Checkbox.m */; };
 		774B100C168B6D1800E4BBF5 /* CheckBoxDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D378D168B3AA200BB2167 /* CheckBoxDisabled.png */; };
 		774B100D168B6D1800E4BBF5 /* CheckBoxDisabled@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D378E168B3AA200BB2167 /* CheckBoxDisabled@2X.png */; };
 		774B100E168B6D1800E4BBF5 /* CheckBoxHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D378F168B3AA200BB2167 /* CheckBoxHighlight.png */; };
@@ -325,6 +325,12 @@
 		776602511688E20F00B1310A /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7766024A1688E20F00B1310A /* Default-Portrait~ipad.png */; };
 		776602521688E20F00B1310A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7766024B1688E20F00B1310A /* Default.png */; };
 		776602531688E20F00B1310A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7766024C1688E20F00B1310A /* Default@2x.png */; };
+		77682CE3168BA36F00DDB11C /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD2168922F200AD5E83 /* iPhone.storyboard */; };
+		77682CE4168BA36F00DDB11C /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD1168922F200AD5E83 /* iPad.storyboard */; };
+		77682CE6168BA37000DDB11C /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD2168922F200AD5E83 /* iPhone.storyboard */; };
+		77682CE7168BA37000DDB11C /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD1168922F200AD5E83 /* iPad.storyboard */; };
+		77682CE8168BA37100DDB11C /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD2168922F200AD5E83 /* iPhone.storyboard */; };
+		77682CE9168BA37100DDB11C /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD1168922F200AD5E83 /* iPad.storyboard */; };
 		776B05421546233600A02EB6 /* icon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B053E1546233600A02EB6 /* icon-iPad.png */; };
 		776B05441546233600A02EB6 /* icon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B053E1546233600A02EB6 /* icon-iPad.png */; };
 		776B05451546233600A02EB6 /* icon-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 776B053F1546233600A02EB6 /* icon-iPhone.png */; };
@@ -350,7 +356,7 @@
 		7775975A1540F15E00D45ADA /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
 		7775975B1540F15E00D45ADA /* BMLTMapResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C4F150E893C005A707A /* BMLTMapResultsViewController.m */; };
 		7775975C1540F15E00D45ADA /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C55150E893C005A707A /* BMLT_Prefs.m */; };
-		7775975D1540F15E00D45ADA /* BMLTBrassCheckBoxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLTBrassCheckBoxButton.m */; };
+		7775975D1540F15E00D45ADA /* BMLT_Checkbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLT_Checkbox.m */; };
 		7775975E1540F15E00D45ADA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C59150E893C005A707A /* Reachability.m */; };
 		7775975F1540F15E00D45ADA /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C5C150E893C005A707A /* A_BMLT_ChildClass.m */; };
 		777597601540F15E00D45ADA /* A_BMLT_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C5E150E893C005A707A /* A_BMLT_Search.m */; };
@@ -479,7 +485,7 @@
 		77AC716D15409E9F0060CA80 /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
 		77AC716E15409E9F0060CA80 /* BMLTMapResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C4F150E893C005A707A /* BMLTMapResultsViewController.m */; };
 		77AC716F15409E9F0060CA80 /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C55150E893C005A707A /* BMLT_Prefs.m */; };
-		77AC717015409E9F0060CA80 /* BMLTBrassCheckBoxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLTBrassCheckBoxButton.m */; };
+		77AC717015409E9F0060CA80 /* BMLT_Checkbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLT_Checkbox.m */; };
 		77AC717115409E9F0060CA80 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C59150E893C005A707A /* Reachability.m */; };
 		77AC717215409E9F0060CA80 /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C5C150E893C005A707A /* A_BMLT_ChildClass.m */; };
 		77AC717315409E9F0060CA80 /* A_BMLT_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C5E150E893C005A707A /* A_BMLT_Search.m */; };
@@ -585,8 +591,8 @@
 		771D0C4F150E893C005A707A /* BMLTMapResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTMapResultsViewController.m; sourceTree = "<group>"; };
 		771D0C54150E893C005A707A /* BMLT_Prefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMLT_Prefs.h; path = ../Miscellaneous/BMLT_Prefs.h; sourceTree = "<group>"; };
 		771D0C55150E893C005A707A /* BMLT_Prefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMLT_Prefs.m; path = ../Miscellaneous/BMLT_Prefs.m; sourceTree = "<group>"; };
-		771D0C56150E893C005A707A /* BMLTBrassCheckBoxButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTBrassCheckBoxButton.h; sourceTree = "<group>"; };
-		771D0C57150E893C005A707A /* BMLTBrassCheckBoxButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTBrassCheckBoxButton.m; sourceTree = "<group>"; };
+		771D0C56150E893C005A707A /* BMLT_Checkbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Checkbox.h; sourceTree = "<group>"; };
+		771D0C57150E893C005A707A /* BMLT_Checkbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Checkbox.m; sourceTree = "<group>"; };
 		771D0C58150E893C005A707A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Miscellaneous/Reachability.h; sourceTree = "<group>"; };
 		771D0C59150E893C005A707A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../Miscellaneous/Reachability.m; sourceTree = "<group>"; };
 		771D0C5B150E893C005A707A /* A_BMLT_ChildClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_BMLT_ChildClass.h; sourceTree = "<group>"; };
@@ -918,8 +924,8 @@
 				77803C3D151C011D00A8ADC3 /* BMLTFormatDetailViewController.m */,
 				77F6C3681531D1A90038784D /* BMLTAnimationScreenViewController.h */,
 				77F6C3691531D1A90038784D /* BMLTAnimationScreenViewController.m */,
-				771D0C56150E893C005A707A /* BMLTBrassCheckBoxButton.h */,
-				771D0C57150E893C005A707A /* BMLTBrassCheckBoxButton.m */,
+				771D0C56150E893C005A707A /* BMLT_Checkbox.h */,
+				771D0C57150E893C005A707A /* BMLT_Checkbox.m */,
 				77111E7C1531306D001ACF4C /* BMLT_AnimationView.h */,
 				77111E7D1531306D001ACF4C /* BMLT_AnimationView.m */,
 				771A40EB15408EA000EF34DF /* BMLTBundleResourceLabel.h */,
@@ -1111,8 +1117,8 @@
 			isa = PBXGroup;
 			children = (
 				77603DED1541DC8300C4840F /* BMLTFormatDetailViewController.xib */,
-				77B54CD1168922F200AD5E83 /* iPad.storyboard */,
 				77B54CD2168922F200AD5E83 /* iPhone.storyboard */,
+				77B54CD1168922F200AD5E83 /* iPad.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1560,6 +1566,8 @@
 				774B1069168B6D1A00E4BBF5 /* LocButton@2x.png in Resources */,
 				774B106A168B6D1A00E4BBF5 /* LocButtonHighlight.png in Resources */,
 				774B106B168B6D1A00E4BBF5 /* LocButtonHighlight@2X.png in Resources */,
+				77682CE8168BA37100DDB11C /* iPhone.storyboard in Resources */,
+				77682CE9168BA37100DDB11C /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1742,6 +1750,8 @@
 				774B1029168B6D1800E4BBF5 /* LocButton@2x.png in Resources */,
 				774B102A168B6D1800E4BBF5 /* LocButtonHighlight.png in Resources */,
 				774B102B168B6D1800E4BBF5 /* LocButtonHighlight@2X.png in Resources */,
+				77682CE3168BA36F00DDB11C /* iPhone.storyboard in Resources */,
+				77682CE4168BA36F00DDB11C /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1845,6 +1855,8 @@
 				774B1049168B6D1900E4BBF5 /* LocButton@2x.png in Resources */,
 				774B104A168B6D1900E4BBF5 /* LocButtonHighlight.png in Resources */,
 				774B104B168B6D1900E4BBF5 /* LocButtonHighlight@2X.png in Resources */,
+				77682CE6168BA37000DDB11C /* iPhone.storyboard in Resources */,
+				77682CE7168BA37000DDB11C /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1860,7 +1872,7 @@
 				7775975A1540F15E00D45ADA /* BMLTAdvancedSearchViewController.m in Sources */,
 				7775975B1540F15E00D45ADA /* BMLTMapResultsViewController.m in Sources */,
 				7775975C1540F15E00D45ADA /* BMLT_Prefs.m in Sources */,
-				7775975D1540F15E00D45ADA /* BMLTBrassCheckBoxButton.m in Sources */,
+				7775975D1540F15E00D45ADA /* BMLT_Checkbox.m in Sources */,
 				7775975E1540F15E00D45ADA /* Reachability.m in Sources */,
 				7775975F1540F15E00D45ADA /* A_BMLT_ChildClass.m in Sources */,
 				777597601540F15E00D45ADA /* A_BMLT_Search.m in Sources */,
@@ -1939,7 +1951,7 @@
 				777AD7051688C63000E064D0 /* BMLTVariantDefs.m in Sources */,
 				7775B8A7168A756500C64086 /* BMLT_AnimationView.m in Sources */,
 				774B100A168B6C7400E4BBF5 /* BMLTAdvancedSearchViewController.m in Sources */,
-				774B100B168B6C7400E4BBF5 /* BMLTBrassCheckBoxButton.m in Sources */,
+				774B100B168B6C7400E4BBF5 /* BMLT_Checkbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1952,7 +1964,7 @@
 				771D0C47150E892A005A707A /* BMLTAdvancedSearchViewController.m in Sources */,
 				771D0C7A150E893C005A707A /* BMLTMapResultsViewController.m in Sources */,
 				771D0C7D150E893C005A707A /* BMLT_Prefs.m in Sources */,
-				771D0C7E150E893C005A707A /* BMLTBrassCheckBoxButton.m in Sources */,
+				771D0C7E150E893C005A707A /* BMLT_Checkbox.m in Sources */,
 				771D0C7F150E893C005A707A /* Reachability.m in Sources */,
 				771D0C80150E893C005A707A /* A_BMLT_ChildClass.m in Sources */,
 				771D0C81150E893C005A707A /* A_BMLT_Search.m in Sources */,
@@ -1998,7 +2010,7 @@
 				77AC716D15409E9F0060CA80 /* BMLTAdvancedSearchViewController.m in Sources */,
 				77AC716E15409E9F0060CA80 /* BMLTMapResultsViewController.m in Sources */,
 				77AC716F15409E9F0060CA80 /* BMLT_Prefs.m in Sources */,
-				77AC717015409E9F0060CA80 /* BMLTBrassCheckBoxButton.m in Sources */,
+				77AC717015409E9F0060CA80 /* BMLT_Checkbox.m in Sources */,
 				77AC717115409E9F0060CA80 /* Reachability.m in Sources */,
 				77AC717215409E9F0060CA80 /* A_BMLT_ChildClass.m in Sources */,
 				77AC717315409E9F0060CA80 /* A_BMLT_Search.m in Sources */,
@@ -2093,7 +2105,8 @@
 		7723B82C1561840500A2BC84 /* TestFlight */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2112,7 +2125,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3AA64AA5-E145-4B57-853A-1B31C5E600DD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6705E561-F1B8-46B8-BB3B-7AA801144F1E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2378,7 +2391,8 @@
 		77977D38150E882B00485C8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2400,7 +2414,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3AA64AA5-E145-4B57-853A-1B31C5E600DD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6705E561-F1B8-46B8-BB3B-7AA801144F1E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

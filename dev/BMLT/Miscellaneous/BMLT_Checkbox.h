@@ -1,5 +1,5 @@
 //
-//  BrassCheckBox.h
+//  BMLT_CheckBox.h
 //  BMLT
 //
 //  Created by MAGSHARE.
@@ -25,12 +25,8 @@
  \class BrassCheckBox
  \brief This implements a special "checkbox" interface element.
  *****************************************************************/
-@interface BMLTBrassCheckBoxButton : UIButton
-{
-    BOOL    isOn;   ///< YES, if checked.
-}
-- (BOOL)isOn;
-- (void)setIsOn:(BOOL)inIsOn;
+@interface BMLT_Checkbox : UIButton
+@property (nonatomic, readwrite)   BOOL    isChecked;
 - (BOOL)toggleState;
 - (void)buttonClickedInside:(id)sender;
 @end
