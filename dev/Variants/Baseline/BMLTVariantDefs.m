@@ -54,7 +54,7 @@
 /*****************************************************************/
 + (UIColor *)windowBackgroundColor
 {
-    return [UIColor colorWithRed:0.1137254902 green:0.4666666667 blue:0.768627451 alpha:1.0];
+    return [UIColor colorWithRed:0.1098039216 green:0.1019607843 blue:0.7490196078 alpha:1.0];
 }
 
 /*****************************************************************/
@@ -90,13 +90,13 @@
 /*****************************************************************/
 + (UIColor *)meetingDetailBackgroundColor
 {
-    return [UIColor colorWithRed:0.0588235294 green:0.2235294118 blue:0.3647058824 alpha:1.0];
+    return [UIColor colorWithRed:0.01 green:0.2 blue:0.3 alpha:1.0];
 }
 
 /*****************************************************************/
 + (UIColor *)modalBackgroundColor
 {
-    return [UIColor colorWithRed:0.1098039216 green:0.462745098 blue:0.768627451 alpha:1.0];
+    return [UIColor colorWithRed:0.1 green:0.2 blue:0.4 alpha:1.0];
 }
 
 /*****************************************************************/
@@ -108,13 +108,13 @@
 /*****************************************************************/
 + (UIColor *)settingsBackgroundColor
 {
-    return [[self class] meetingDetailBackgroundColor];
+    return [[self class] modalBackgroundColor];
 }
 
 /*****************************************************************/
 + (UIColor *)infoBackgroundColor
 {
-    return [[self class] modalBackgroundColor];
+    return [[self class] windowBackgroundColor];
 }
 
 /*****************************************************************/
@@ -126,7 +126,7 @@
 /*****************************************************************/
 + (UIColor *)getSortEvenColor
 {
-    return [UIColor colorWithRed:0.8549019608 green:0.9098039216 blue:0.737254902 alpha:1.0];
+    return [UIColor colorWithRed:0.8 green:0.9 blue:1.0 alpha:1.0];
 }
 
 /*****************************************************************/
