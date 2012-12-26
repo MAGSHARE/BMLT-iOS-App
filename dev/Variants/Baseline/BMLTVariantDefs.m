@@ -7,12 +7,12 @@
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
-//  
+//
 //  BMLT is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //  GNU General Public License for more details.
-//  
+//
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -21,8 +21,8 @@
 #import "BMLTAppDelegate.h"
 
 /**************************************************************//**
- \brief  See the "BMLTVariantDefs.h" file for details.
- *****************************************************************/
+                                                                 \brief  See the "BMLTVariantDefs.h" file for details.
+                                                                 *****************************************************************/
 @implementation BMLTVariantDefs
 
 /*****************************************************************/
@@ -54,10 +54,7 @@
 /*****************************************************************/
 + (UIColor *)windowBackgroundColor
 {
-    static UIColor *bluecolor;
-    static dispatch_once_t onceTokenBlue;
-    dispatch_once ( &onceTokenBlue, ^{ bluecolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BlueLeather.gif"]]; } );
-    return bluecolor;
+    return [UIColor colorWithRed:0.1137254902 green:0.4666666667 blue:0.768627451 alpha:1.0];
 }
 
 /*****************************************************************/
@@ -93,19 +90,13 @@
 /*****************************************************************/
 + (UIColor *)meetingDetailBackgroundColor
 {
-    static UIColor *browncolor;
-    static dispatch_once_t onceTokenBrown;
-    dispatch_once ( &onceTokenBrown, ^{ browncolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BrownLeather.gif"]]; } );
-    return browncolor;
+    return [UIColor colorWithRed:0.0588235294 green:0.2235294118 blue:0.3647058824 alpha:1.0];
 }
 
 /*****************************************************************/
 + (UIColor *)modalBackgroundColor
 {
-    static UIColor *darkcolor;
-    static dispatch_once_t onceTokenDark;
-    dispatch_once ( &onceTokenDark, ^{ darkcolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"DarkLeather.gif"]]; } );
-    return darkcolor;
+    return [UIColor colorWithRed:0.1098039216 green:0.462745098 blue:0.768627451 alpha:1.0];
 }
 
 /*****************************************************************/
@@ -129,19 +120,13 @@
 /*****************************************************************/
 + (UIColor *)getSortOddColor
 {
-    static UIColor *oddcolor;
-    static dispatch_once_t onceTokenOdd;
-    dispatch_once ( &onceTokenOdd, ^{ oddcolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OddColor.gif"]]; } );
-    return oddcolor;
+    return [UIColor whiteColor];
 }
 
 /*****************************************************************/
 + (UIColor *)getSortEvenColor
 {
-    static UIColor *evencolor;
-    static dispatch_once_t onceTokenEven;
-    dispatch_once ( &onceTokenEven, ^{ evencolor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"EvenColor.gif"]]; } );
-    return evencolor;
+    return [UIColor colorWithRed:0.8549019608 green:0.9098039216 blue:0.737254902 alpha:1.0];
 }
 
 /*****************************************************************/

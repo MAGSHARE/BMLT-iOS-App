@@ -7,12 +7,12 @@
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
-//  
+//
 //  BMLT is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //  GNU General Public License for more details.
-//  
+//
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -26,9 +26,9 @@ static BOOL geocodeInProgress = NO;     ///< Used to look for a successful geoco
 static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a search happens after the lookup for the return key (Handled differently for the iPad).
 
 /**************************************************************//**
- \class  BMLTAdvancedSearchViewController    -Private Interface
- \brief  This class will present the user with a powerful search specification interface.
- *****************************************************************/
+                                                                 \class  BMLTAdvancedSearchViewController    -Private Interface
+                                                                 \brief  This class will present the user with a powerful search specification interface.
+                                                                 *****************************************************************/
 @interface BMLTAdvancedSearchViewController ()
 {
     BOOL dontLookup;
@@ -36,9 +36,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 @end
 
 /**************************************************************//**
- \class  BMLTAdvancedSearchViewController    -Implementation
- \brief  This class will present the user with a powerful search specification interface.
- *****************************************************************/
+                                                                 \class  BMLTAdvancedSearchViewController    -Implementation
+                                                                 \brief  This class will present the user with a powerful search specification interface.
+                                                                 *****************************************************************/
 @implementation BMLTAdvancedSearchViewController
 @synthesize myParams, currentElement;
 @synthesize weekdaysLabel, weekdaysSelector, sunLabel, sunButton, monLabel, monButton, tueLabel, tueButton, wedLabel, wedButton, thuLabel, thuButton, friLabel, friButton, satLabel, satButton;
@@ -46,9 +46,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 @synthesize goButton;
 
 /**************************************************************//**
- \brief Initializer -allocates our parameter dictionary.
- \returns self
- *****************************************************************/
+                                                                 \brief Initializer -allocates our parameter dictionary.
+                                                                 \returns self
+                                                                 *****************************************************************/
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -63,18 +63,18 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
- \brief The only reason we intercept this, is to stop lookups.
- *****************************************************************/
+                                                                 \brief The only reason we intercept this, is to stop lookups.
+                                                                 *****************************************************************/
 - (void)viewWillDisappear:(BOOL)animated    ///< YES, if this is an animated disappearance (we don't care).
 {
     dontLookup = YES;   // We set this to avoid lookups when we close.
 }
 
 /**************************************************************//**
- \brief Make sure that the text box is shown, if there is no choice.
- *****************************************************************/
+                                                                 \brief Make sure that the text box is shown, if there is no choice.
+                                                                 *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
-{    
+{
     dontLookup = NO;
     
     if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
@@ -92,8 +92,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
- \brief Sets up all the localized strings and whatnot.
- *****************************************************************/
+                                                                 \brief Sets up all the localized strings and whatnot.
+                                                                 *****************************************************************/
 - (void)viewDidLoad
 {
     [weekdaysLabel setText:NSLocalizedString([weekdaysLabel text], nil)];
@@ -128,8 +128,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
- \brief Called when the weekday selection segmented control is changed.
- *****************************************************************/
+                                                                 \brief Called when the weekday selection segmented control is changed.
+                                                                 *****************************************************************/
 - (IBAction)weekdaySelectionChanged:(id)sender  ///< The segmented control.
 {
     if ( [weekdaysSelector selectedSegmentIndex] == kWeekdaySelectWeekdays )
@@ -153,13 +153,13 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         [friButton setEnabled:NO];
         [satButton setEnabled:NO];
         }
-
+    
     [self setParamsForWeekdaySelection];
 }
 
 /**************************************************************//**
- \brief Called when the search button is pressed.
- *****************************************************************/
+                                                                 \brief Called when the search button is pressed.
+                                                                 *****************************************************************/
 - (IBAction)doSearchButtonPressed:(id)sender    ///< The search button.
 {
 #ifdef DEBUG
@@ -168,12 +168,12 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [searchSpecAddressTextEntry resignFirstResponder];
     [[BMLTAppDelegate getBMLTAppDelegate] clearAllSearchResultsNo];
     
-    [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc] withParams:myParams]; 
+    [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc] withParams:myParams];
 }
 
 /**************************************************************//**
- \brief Called when there is a click in the background.
- *****************************************************************/
+                                                                 \brief Called when there is a click in the background.
+                                                                 *****************************************************************/
 - (IBAction)backgroundClicked:(id)sender
 {
 #ifdef DEBUG
@@ -185,16 +185,16 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
- \brief Called when one of the weekday checkboxes is selected.
- *****************************************************************/
+                                                                 \brief Called when one of the weekday checkboxes is selected.
+                                                                 *****************************************************************/
 - (IBAction)weekdayChanged:(id)sender   //< The checkbox
 {
     [self setParamsForWeekdaySelection];
 }
 
 /**************************************************************//**
- \brief Called when the search spec segmented control changes.
- *****************************************************************/
+                                                                 \brief Called when the search spec segmented control changes.
+                                                                 *****************************************************************/
 - (IBAction)searchSpecChanged:(id)sender    ///< The segmented control
 {
 #ifdef DEBUG
@@ -222,8 +222,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
- \brief Called when the user has entered an address.
- *****************************************************************/
+                                                                 \brief Called when the user has entered an address.
+                                                                 *****************************************************************/
 - (IBAction)addressTextEntered:(id)sender   ///< The text entry field.
 {
 #ifdef DEBUG
@@ -241,15 +241,15 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
- \brief Sets up the parameters for the search, based on the state of the checkboxes.
- *****************************************************************/
+                                                                 \brief Sets up the parameters for the search, based on the state of the checkboxes.
+                                                                 *****************************************************************/
 - (void)setParamsForWeekdaySelection
 {
     [myParams removeObjectForKey:@"weekdays"];  // Start with a clean slate.
     [myParams removeObjectForKey:@"StartsAfterH"];
     [myParams removeObjectForKey:@"StartsAfterM"];
     
-    NSString    *button_asset = ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectAllDays) ? @"GreenCheckConcave.png" : @"RedXConcave.png";
+    NSString    *button_asset = ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectAllDays) ? @"CheckBoxDisabled-Check.png" : @"CheckBoxDisabled.png";
     
     [sunButton setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
     [monButton setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
@@ -293,43 +293,43 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     // If we are on the chosen weekday, or our button is enabled, and our buttin is on, then add this day to the list.
     if ( ((wd == kWeekdaySelectValue_Sun) || [sunButton isEnabled]) && [sunButton isOn] )
         {
-        [sunButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+        [sunButton setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = @"1";
         }
     
     if ( (wd == kWeekdaySelectValue_Mon) || ([monButton isEnabled] && [monButton isOn]) )
         {
-        [monButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+        [monButton setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",2" : @"2"];
         }
     
     if ( (wd == kWeekdaySelectValue_Tue) || ([tueButton isEnabled] && [tueButton isOn]) )
         {
-        [tueButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+        [tueButton setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",3" : @"3"];
         }
     
     if ( (wd == kWeekdaySelectValue_Wed) || ([wedButton isEnabled] && [wedButton isOn]) )
         {
-        [wedButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+        [wedButton setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",4" : @"4"];
         }
     
     if ( (wd == kWeekdaySelectValue_Thu) || ([thuButton isEnabled] && [thuButton isOn]) )
         {
-        [thuButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+        [thuButton setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",5" : @"5"];
         }
     
     if ( (wd == kWeekdaySelectValue_Fri) || ([friButton isEnabled] && [friButton isOn]) )
         {
-        [friButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+        [friButton setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",6" : @"6"];
         }
     
     if ( (wd == kWeekdaySelectValue_Sat) || ([satButton isEnabled] && [satButton isOn]) )
         {
-        [satButton setImage:[UIImage imageNamed:@"GreenCheckConcave.png"] forState:UIControlStateDisabled];
+        [satButton setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",7" : @"7"];
         }
     
@@ -341,8 +341,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
- \brief Starts an asynchronous geocode from a given address string.
- *****************************************************************/
+                                                                 \brief Starts an asynchronous geocode from a given address string.
+                                                                 *****************************************************************/
 - (void)lookupLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
 {
     if ( !dontLookup )  // Don't lookup if we are closing up shop.
@@ -354,24 +354,24 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         inLocationString = [inLocationString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
         NSString    *uriString = [NSString stringWithFormat:[BMLTVariantDefs reverseLookupURIFormat], inLocationString];
-    
+        
 #ifdef DEBUG
         NSLog(@"BMLTAdvancedSearchViewController lookupLocationFromAddressString: \"%@\", and the URI is \"%@\".", inLocationString, uriString );
 #endif
-
+        
         BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithContentsOfURL:[NSURL URLWithString:uriString]];
         
         [myParser setDelegate:self];
         
         geocodeInProgress = YES;
-
+        
         [myParser parseAsync:NO WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
         }
 }
 
 /**************************************************************//**
- \brief Displays an error, indicating geocode failure.
- *****************************************************************/
+                                                                 \brief Displays an error, indicating geocode failure.
+                                                                 *****************************************************************/
 - (void)cantGeocode
 {
 #ifdef DEBUG
@@ -391,8 +391,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 
 #pragma mark - UITextFieldDelegate Functions -
 /**************************************************************//**
- \brief This is called when the user presses the "Enter" button on the text field editor.
- *****************************************************************/
+                                                                 \brief This is called when the user presses the "Enter" button on the text field editor.
+                                                                 *****************************************************************/
 - (BOOL)textFieldShouldReturn:(UITextField *)textField  ///< The text field object.
 {
     geocodeInProgress = NO;
@@ -408,9 +408,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
- \brief When the text is done editing, we do the same thing, but
-        without the subsequent search.
- *****************************************************************/
+                                                                 \brief When the text is done editing, we do the same thing, but
+                                                                 without the subsequent search.
+                                                                 *****************************************************************/
 - (void)textFieldDidEndEditing:(UITextField *)textField ///< The text field object.
 {
     searchAfterLookup = NO;
@@ -422,8 +422,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 
 #pragma mark - NSXMLParserDelegate Functions -
 /**************************************************************//**
- \brief Called when the parser starts on an element.
- *****************************************************************/
+                                                                 \brief Called when the parser starts on an element.
+                                                                 *****************************************************************/
 - (void)parser:(NSXMLParser *)parser            ///< The parser in question.
 didStartElement:(NSString *)elementName         ///< The XML name of the element.
   namespaceURI:(NSString *)namespaceURI         ///< The namespace of the element.
@@ -437,8 +437,8 @@ didStartElement:(NSString *)elementName         ///< The XML name of the element
 }
 
 /**************************************************************//**
- \brief Called when the parser finds characters in an element.
- *****************************************************************/
+                                                                 \brief Called when the parser finds characters in an element.
+                                                                 *****************************************************************/
 - (void)parser:(NSXMLParser *)parser        ///< The parser in question.
 foundCharacters:(NSString *)string          ///< The character data.
 {
@@ -484,8 +484,8 @@ foundCharacters:(NSString *)string          ///< The character data.
 }
 
 /**************************************************************//**
- \brief Called when the parser is done with an element.
- *****************************************************************/
+                                                                 \brief Called when the parser is done with an element.
+                                                                 *****************************************************************/
 - (void)parser:(NSXMLParser *)parser        ///< The parser in question.
 didStartElement:(NSString *)elementName     ///< The XML name of the element.
   namespaceURI:(NSString *)namespaceURI     ///< The namespace of the element.
@@ -498,8 +498,8 @@ didStartElement:(NSString *)elementName     ///< The XML name of the element.
 }
 
 /**************************************************************//**
- \brief Called if the parser encounters an error.
- *****************************************************************/
+                                                                 \brief Called if the parser encounters an error.
+                                                                 *****************************************************************/
 - (void)parser:(NSXMLParser *)parser        ///< The parser in question.
 parseErrorOccurred:(NSError *)parseError    ///< The error.
 {
@@ -516,8 +516,8 @@ parseErrorOccurred:(NSError *)parseError    ///< The error.
 }
 
 /**************************************************************//**
- \brief Called when the parser starts on the returned XML document.
- *****************************************************************/
+                                                                 \brief Called when the parser starts on the returned XML document.
+                                                                 *****************************************************************/
 - (void)parserDidStartDocument:(NSXMLParser *)parser  ///< The parser in question
 {
 #ifdef DEBUG
@@ -527,9 +527,9 @@ parseErrorOccurred:(NSError *)parseError    ///< The error.
 }
 
 /**************************************************************//**
- \brief Called when the parser is done with the document. If we could
-        not get a geocode, we flag an error.
- *****************************************************************/
+                                                                 \brief Called when the parser is done with the document. If we could
+                                                                 not get a geocode, we flag an error.
+                                                                 *****************************************************************/
 - (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser in question
 {
 #ifdef DEBUG

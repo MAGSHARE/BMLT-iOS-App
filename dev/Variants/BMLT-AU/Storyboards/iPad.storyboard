@@ -989,13 +989,13 @@
     <resources>
         <image name="LocButton.png" width="32" height="32"/>
         <image name="LocButtonHighlight.png" width="32" height="32"/>
-        <image name="LocButtonSimpleHighlight.png" width="220" height="32"/>
+        <image name="LocButtonSimpleHighlight.png" width="16" height="16"/>
         <image name="LocButtonSimpleNormal.png" width="220" height="32"/>
         <image name="LongButtonHighlight.png" width="220" height="32"/>
         <image name="LongButtonNormal.png" width="220" height="32"/>
         <image name="MButtonConcave.png" width="48" height="48"/>
         <image name="MButtonConvex.png" width="48" height="48"/>
-        <image name="SButtonConcave.png" width="48" height="48"/>
+        <image name="SButtonConcave.png" width="16" height="16"/>
         <image name="SButtonConvex.png" width="48" height="48"/>
         <image name="list.png" width="26" height="26"/>
         <image name="map.png" width="26" height="26"/>
