@@ -292,6 +292,13 @@
 		776B05551546283E00A02EB6 /* OddColor.gif in Resources */ = {isa = PBXBuildFile; fileRef = 776B054F1546283E00A02EB6 /* OddColor.gif */; };
 		776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */; };
 		776CAD8A15404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 776CAD8915404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m */; };
+		776D378C168B398C00BB2167 /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776D378B168B398C00BB2167 /* BMLTAdvancedSearchViewController.m */; };
+		776D3793168B3AA200BB2167 /* CheckBoxDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D378D168B3AA200BB2167 /* CheckBoxDisabled.png */; };
+		776D3794168B3AA200BB2167 /* CheckBoxDisabled@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D378E168B3AA200BB2167 /* CheckBoxDisabled@2X.png */; };
+		776D3795168B3AA200BB2167 /* CheckBoxHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D378F168B3AA200BB2167 /* CheckBoxHighlight.png */; };
+		776D3796168B3AA200BB2167 /* CheckBoxHighlight@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D3790168B3AA200BB2167 /* CheckBoxHighlight@2X.png */; };
+		776D3797168B3AA200BB2167 /* CheckBoxNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D3791168B3AA200BB2167 /* CheckBoxNormal.png */; };
+		776D3798168B3AA200BB2167 /* CheckBoxNormal@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D3792168B3AA200BB2167 /* CheckBoxNormal@2X.png */; };
 		777597581540F15E00D45ADA /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C32150E88E5005A707A /* BMLTAppDelegate.m */; };
 		777597591540F15E00D45ADA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C33150E88E5005A707A /* main.m */; };
 		7775975A1540F15E00D45ADA /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
@@ -341,10 +348,8 @@
 		7775B8A7168A756500C64086 /* BMLT_AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775B8A6168A756500C64086 /* BMLT_AnimationView.m */; };
 		777AD66D1688C61700E064D0 /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C32150E88E5005A707A /* BMLTAppDelegate.m */; };
 		777AD66E1688C61700E064D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C33150E88E5005A707A /* main.m */; };
-		777AD66F1688C61700E064D0 /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
 		777AD6701688C61700E064D0 /* BMLTMapResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C4F150E893C005A707A /* BMLTMapResultsViewController.m */; };
 		777AD6711688C61700E064D0 /* BMLT_Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C55150E893C005A707A /* BMLT_Prefs.m */; };
-		777AD6721688C61700E064D0 /* BMLTBrassCheckBoxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLTBrassCheckBoxButton.m */; };
 		777AD6731688C61700E064D0 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C59150E893C005A707A /* Reachability.m */; };
 		777AD6741688C61700E064D0 /* A_BMLT_ChildClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C5C150E893C005A707A /* A_BMLT_ChildClass.m */; };
 		777AD6751688C61700E064D0 /* A_BMLT_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C5E150E893C005A707A /* A_BMLT_Search.m */; };
@@ -389,8 +394,6 @@
 		777AD6C21688C61700E064D0 /* FormatCircleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DCA1541DC8300C4840F /* FormatCircleRed@2x.png */; };
 		777AD6C31688C61700E064D0 /* FormatCircleWC@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DCB1541DC8300C4840F /* FormatCircleWC@2x.png */; };
 		777AD6C41688C61700E064D0 /* FormatCircleYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DCC1541DC8300C4840F /* FormatCircleYellow@2x.png */; };
-		777AD6C51688C61700E064D0 /* GreenCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DCD1541DC8300C4840F /* GreenCheck.png */; };
-		777AD6C61688C61700E064D0 /* GreenCheckConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DCE1541DC8300C4840F /* GreenCheckConcave.png */; };
 		777AD6C71688C61700E064D0 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DCF1541DC8300C4840F /* list.png */; };
 		777AD6C81688C61700E064D0 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DD01541DC8300C4840F /* list@2x.png */; };
 		777AD6C91688C61700E064D0 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DD31541DC8300C4840F /* map.png */; };
@@ -399,10 +402,6 @@
 		777AD6CC1688C61700E064D0 /* MapMarkerBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DD61541DC8300C4840F /* MapMarkerBlue.png */; };
 		777AD6CD1688C61700E064D0 /* MapMarkerGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DD71541DC8300C4840F /* MapMarkerGreen.png */; };
 		777AD6CE1688C61700E064D0 /* MapMarkerRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DD81541DC8300C4840F /* MapMarkerRed.png */; };
-		777AD6CF1688C61700E064D0 /* MButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DD91541DC8300C4840F /* MButtonConcave.png */; };
-		777AD6D01688C61700E064D0 /* MButtonConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDA1541DC8300C4840F /* MButtonConvex.png */; };
-		777AD6D31688C61700E064D0 /* SButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDE1541DC8300C4840F /* SButtonConcave.png */; };
-		777AD6D41688C61700E064D0 /* SButtonConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DDF1541DC8300C4840F /* SButtonConvex.png */; };
 		777AD6D51688C61700E064D0 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DE01541DC8300C4840F /* search.png */; };
 		777AD6D61688C61700E064D0 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DE11541DC8300C4840F /* search@2x.png */; };
 		777AD6D71688C61700E064D0 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 77603DE21541DC8300C4840F /* settings.png */; };
@@ -410,11 +409,16 @@
 		777AD6DA1688C61700E064D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77603DE61541DC8300C4840F /* InfoPlist.strings */; };
 		777AD6DB1688C61700E064D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77603DE81541DC8300C4840F /* Localizable.strings */; };
 		777AD6DC1688C61700E064D0 /* BMLTFormatDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77603DED1541DC8300C4840F /* BMLTFormatDetailViewController.xib */; };
-		777AD6F61688C61700E064D0 /* RedXConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77974141155589770041E81D /* RedXConcave.png */; };
-		777AD6F71688C61700E064D0 /* RedXConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 7797414615558A700041E81D /* RedXConvex.png */; };
 		777AD7051688C63000E064D0 /* BMLTVariantDefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 777AD7021688C63000E064D0 /* BMLTVariantDefs.m */; };
 		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
 		77803C3F151C011D00A8ADC3 /* BMLTFormatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77803C3D151C011D00A8ADC3 /* BMLTFormatDetailViewController.m */; };
+		77815217168B2B98007F2EF6 /* BMLTBrassCheckBoxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77815216168B2B98007F2EF6 /* BMLTBrassCheckBoxButton.m */; };
+		7781522B168B2BAA007F2EF6 /* CheckBoxDisabled-Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 77815219168B2BAA007F2EF6 /* CheckBoxDisabled-Check.png */; };
+		7781522C168B2BAA007F2EF6 /* CheckBoxDisabled-Check@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 7781521A168B2BAA007F2EF6 /* CheckBoxDisabled-Check@2X.png */; };
+		77815231168B2BAA007F2EF6 /* CheckBoxHighlight-Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 7781521F168B2BAA007F2EF6 /* CheckBoxHighlight-Check.png */; };
+		77815232168B2BAA007F2EF6 /* CheckBoxHighlight-Check@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77815220168B2BAA007F2EF6 /* CheckBoxHighlight-Check@2X.png */; };
+		77815237168B2BAA007F2EF6 /* CheckBoxNormal-Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 77815225168B2BAA007F2EF6 /* CheckBoxNormal-Check.png */; };
+		77815238168B2BAA007F2EF6 /* CheckBoxNormal-Check@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77815226168B2BAA007F2EF6 /* CheckBoxNormal-Check@2X.png */; };
 		7786ABB91545EB16008AC4A9 /* LongButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB71545EB16008AC4A9 /* LongButtonHighlight.png */; };
 		7786ABBA1545EB16008AC4A9 /* LongButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB71545EB16008AC4A9 /* LongButtonHighlight.png */; };
 		7786ABBB1545EB16008AC4A9 /* LongButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7786ABB71545EB16008AC4A9 /* LongButtonHighlight.png */; };
@@ -492,6 +496,14 @@
 		77B8BD18155EEBEF00CECED5 /* Beanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B8BD17155EEBEF00CECED5 /* Beanie.png */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */; };
+		77C357A0168B3E7000B6B1EE /* MButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C35798168B3E7000B6B1EE /* MButtonConcave.png */; };
+		77C357A1168B3E7000B6B1EE /* MButtonConcave@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C35799168B3E7000B6B1EE /* MButtonConcave@2X.png */; };
+		77C357A2168B3E7000B6B1EE /* MButtonConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C3579A168B3E7000B6B1EE /* MButtonConvex.png */; };
+		77C357A3168B3E7000B6B1EE /* MButtonConvex@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C3579B168B3E7000B6B1EE /* MButtonConvex@2X.png */; };
+		77C357A4168B3E7000B6B1EE /* SButtonConcave.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C3579C168B3E7000B6B1EE /* SButtonConcave.png */; };
+		77C357A5168B3E7000B6B1EE /* SButtonConcave@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C3579D168B3E7000B6B1EE /* SButtonConcave@2X.png */; };
+		77C357A6168B3E7000B6B1EE /* SButtonConvex.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C3579E168B3E7000B6B1EE /* SButtonConvex.png */; };
+		77C357A7168B3E7000B6B1EE /* SButtonConvex@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C3579F168B3E7000B6B1EE /* SButtonConvex@2X.png */; };
 		77CBD11B1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */; };
 		77CBD11C1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */; };
 		77CBD11D1545CDAC00EE38AF /* ShadowUpsideDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */; };
@@ -686,6 +698,13 @@
 		776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTDisplayListResultsViewController.m; sourceTree = "<group>"; };
 		776CAD8815404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_DetailsPrintPageRenderer.h; sourceTree = "<group>"; };
 		776CAD8915404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_DetailsPrintPageRenderer.m; sourceTree = "<group>"; };
+		776D378B168B398C00BB2167 /* BMLTAdvancedSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTAdvancedSearchViewController.m; sourceTree = "<group>"; };
+		776D378D168B3AA200BB2167 /* CheckBoxDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckBoxDisabled.png; sourceTree = "<group>"; };
+		776D378E168B3AA200BB2167 /* CheckBoxDisabled@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxDisabled@2X.png"; sourceTree = "<group>"; };
+		776D378F168B3AA200BB2167 /* CheckBoxHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckBoxHighlight.png; sourceTree = "<group>"; };
+		776D3790168B3AA200BB2167 /* CheckBoxHighlight@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxHighlight@2X.png"; sourceTree = "<group>"; };
+		776D3791168B3AA200BB2167 /* CheckBoxNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckBoxNormal.png; sourceTree = "<group>"; };
+		776D3792168B3AA200BB2167 /* CheckBoxNormal@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxNormal@2X.png"; sourceTree = "<group>"; };
 		777597CE1540F15F00D45ADA /* SV NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SV NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7775B8A2168A755C00C64086 /* AU-Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AU-Back.png"; sourceTree = "<group>"; };
 		7775B8A3168A755C00C64086 /* AU-Transparency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AU-Transparency.png"; sourceTree = "<group>"; };
@@ -699,6 +718,13 @@
 		777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTMainBackgroundView.m; path = Miscellaneous/A_BMLTMainBackgroundView.m; sourceTree = "<group>"; };
 		77803C3C151C011D00A8ADC3 /* BMLTFormatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTFormatDetailViewController.h; sourceTree = "<group>"; };
 		77803C3D151C011D00A8ADC3 /* BMLTFormatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTFormatDetailViewController.m; sourceTree = "<group>"; };
+		77815216168B2B98007F2EF6 /* BMLTBrassCheckBoxButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTBrassCheckBoxButton.m; sourceTree = "<group>"; };
+		77815219168B2BAA007F2EF6 /* CheckBoxDisabled-Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxDisabled-Check.png"; sourceTree = "<group>"; };
+		7781521A168B2BAA007F2EF6 /* CheckBoxDisabled-Check@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxDisabled-Check@2X.png"; sourceTree = "<group>"; };
+		7781521F168B2BAA007F2EF6 /* CheckBoxHighlight-Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxHighlight-Check.png"; sourceTree = "<group>"; };
+		77815220168B2BAA007F2EF6 /* CheckBoxHighlight-Check@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxHighlight-Check@2X.png"; sourceTree = "<group>"; };
+		77815225168B2BAA007F2EF6 /* CheckBoxNormal-Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxNormal-Check.png"; sourceTree = "<group>"; };
+		77815226168B2BAA007F2EF6 /* CheckBoxNormal-Check@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxNormal-Check@2X.png"; sourceTree = "<group>"; };
 		7786ABB71545EB16008AC4A9 /* LongButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LongButtonHighlight.png; sourceTree = "<group>"; };
 		7786ABB81545EB16008AC4A9 /* LongButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LongButtonNormal.png; sourceTree = "<group>"; };
 		77882CB61548872000DBE9A1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = BMLT/libTestFlight.a; sourceTree = "<group>"; };
@@ -732,6 +758,14 @@
 		77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSearchResultsViewController.m; path = Miscellaneous/A_BMLTSearchResultsViewController.m; sourceTree = "<group>"; };
 		77BCBBDB152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_Results_MapPointAnnotationView.h; sourceTree = "<group>"; };
 		77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_Results_MapPointAnnotationView.m; sourceTree = "<group>"; };
+		77C35798168B3E7000B6B1EE /* MButtonConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MButtonConcave.png; sourceTree = "<group>"; };
+		77C35799168B3E7000B6B1EE /* MButtonConcave@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MButtonConcave@2X.png"; sourceTree = "<group>"; };
+		77C3579A168B3E7000B6B1EE /* MButtonConvex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MButtonConvex.png; sourceTree = "<group>"; };
+		77C3579B168B3E7000B6B1EE /* MButtonConvex@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MButtonConvex@2X.png"; sourceTree = "<group>"; };
+		77C3579C168B3E7000B6B1EE /* SButtonConcave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SButtonConcave.png; sourceTree = "<group>"; };
+		77C3579D168B3E7000B6B1EE /* SButtonConcave@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SButtonConcave@2X.png"; sourceTree = "<group>"; };
+		77C3579E168B3E7000B6B1EE /* SButtonConvex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SButtonConvex.png; sourceTree = "<group>"; };
+		77C3579F168B3E7000B6B1EE /* SButtonConvex@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SButtonConvex@2X.png"; sourceTree = "<group>"; };
 		77CBD11A1545CDAC00EE38AF /* ShadowUpsideDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShadowUpsideDown.png; sourceTree = "<group>"; };
 		77CE3F071516252300C93BC6 /* A_BMLTSettingsBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTSettingsBackgroundView.h; path = Miscellaneous/A_BMLTSettingsBackgroundView.h; sourceTree = "<group>"; };
 		77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSettingsBackgroundView.m; path = Miscellaneous/A_BMLTSettingsBackgroundView.m; sourceTree = "<group>"; };
@@ -1106,6 +1140,8 @@
 			children = (
 				777AD7021688C63000E064D0 /* BMLTVariantDefs.m */,
 				7775B8A6168A756500C64086 /* BMLT_AnimationView.m */,
+				77815216168B2B98007F2EF6 /* BMLTBrassCheckBoxButton.m */,
+				776D378B168B398C00BB2167 /* BMLTAdvancedSearchViewController.m */,
 				777AD7071688CCD800E064D0 /* SydneyAU.gpx */,
 				777AD7031688C63000E064D0 /* images */,
 				777AD7041688C63000E064D0 /* info.plist */,
@@ -1117,6 +1153,7 @@
 		777AD7031688C63000E064D0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				77815218168B2BAA007F2EF6 /* Checkboxes */,
 				7775B8A1168A755C00C64086 /* AU-Anim */,
 				7766021F1688E00400B1310A /* App-Icon-57.png */,
 				776602201688E00400B1310A /* App-Icon-72.png */,
@@ -1143,6 +1180,33 @@
 				77F7A48B168A1D7A00B69826 /* LocButtonHighlight@2X.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		77815218168B2BAA007F2EF6 /* Checkboxes */ = {
+			isa = PBXGroup;
+			children = (
+				776D378D168B3AA200BB2167 /* CheckBoxDisabled.png */,
+				776D378E168B3AA200BB2167 /* CheckBoxDisabled@2X.png */,
+				776D378F168B3AA200BB2167 /* CheckBoxHighlight.png */,
+				776D3790168B3AA200BB2167 /* CheckBoxHighlight@2X.png */,
+				776D3791168B3AA200BB2167 /* CheckBoxNormal.png */,
+				776D3792168B3AA200BB2167 /* CheckBoxNormal@2X.png */,
+				77815219168B2BAA007F2EF6 /* CheckBoxDisabled-Check.png */,
+				7781521A168B2BAA007F2EF6 /* CheckBoxDisabled-Check@2X.png */,
+				7781521F168B2BAA007F2EF6 /* CheckBoxHighlight-Check.png */,
+				77815220168B2BAA007F2EF6 /* CheckBoxHighlight-Check@2X.png */,
+				77815225168B2BAA007F2EF6 /* CheckBoxNormal-Check.png */,
+				77815226168B2BAA007F2EF6 /* CheckBoxNormal-Check@2X.png */,
+				77C35798168B3E7000B6B1EE /* MButtonConcave.png */,
+				77C35799168B3E7000B6B1EE /* MButtonConcave@2X.png */,
+				77C3579A168B3E7000B6B1EE /* MButtonConvex.png */,
+				77C3579B168B3E7000B6B1EE /* MButtonConvex@2X.png */,
+				77C3579C168B3E7000B6B1EE /* SButtonConcave.png */,
+				77C3579D168B3E7000B6B1EE /* SButtonConcave@2X.png */,
+				77C3579E168B3E7000B6B1EE /* SButtonConvex.png */,
+				77C3579F168B3E7000B6B1EE /* SButtonConvex@2X.png */,
+			);
+			path = Checkboxes;
 			sourceTree = "<group>";
 		};
 		77977D00150E882B00485C8D = {
@@ -1527,14 +1591,6 @@
 				777AD6C21688C61700E064D0 /* FormatCircleRed@2x.png in Resources */,
 				777AD6C31688C61700E064D0 /* FormatCircleWC@2x.png in Resources */,
 				777AD6C41688C61700E064D0 /* FormatCircleYellow@2x.png in Resources */,
-				777AD6C51688C61700E064D0 /* GreenCheck.png in Resources */,
-				777AD6C61688C61700E064D0 /* GreenCheckConcave.png in Resources */,
-				777AD6F71688C61700E064D0 /* RedXConvex.png in Resources */,
-				777AD6F61688C61700E064D0 /* RedXConcave.png in Resources */,
-				777AD6D41688C61700E064D0 /* SButtonConvex.png in Resources */,
-				777AD6D31688C61700E064D0 /* SButtonConcave.png in Resources */,
-				777AD6D01688C61700E064D0 /* MButtonConvex.png in Resources */,
-				777AD6CF1688C61700E064D0 /* MButtonConcave.png in Resources */,
 				777AD6D51688C61700E064D0 /* search.png in Resources */,
 				777AD6D61688C61700E064D0 /* search@2x.png in Resources */,
 				777AD6C71688C61700E064D0 /* list.png in Resources */,
@@ -1555,6 +1611,26 @@
 				77F7A48D168A1D7A00B69826 /* LocButton@2x.png in Resources */,
 				77F7A48E168A1D7A00B69826 /* LocButtonHighlight.png in Resources */,
 				77F7A48F168A1D7A00B69826 /* LocButtonHighlight@2X.png in Resources */,
+				7781522B168B2BAA007F2EF6 /* CheckBoxDisabled-Check.png in Resources */,
+				7781522C168B2BAA007F2EF6 /* CheckBoxDisabled-Check@2X.png in Resources */,
+				77815231168B2BAA007F2EF6 /* CheckBoxHighlight-Check.png in Resources */,
+				77815232168B2BAA007F2EF6 /* CheckBoxHighlight-Check@2X.png in Resources */,
+				77815237168B2BAA007F2EF6 /* CheckBoxNormal-Check.png in Resources */,
+				77815238168B2BAA007F2EF6 /* CheckBoxNormal-Check@2X.png in Resources */,
+				776D3793168B3AA200BB2167 /* CheckBoxDisabled.png in Resources */,
+				776D3794168B3AA200BB2167 /* CheckBoxDisabled@2X.png in Resources */,
+				776D3795168B3AA200BB2167 /* CheckBoxHighlight.png in Resources */,
+				776D3796168B3AA200BB2167 /* CheckBoxHighlight@2X.png in Resources */,
+				776D3797168B3AA200BB2167 /* CheckBoxNormal.png in Resources */,
+				776D3798168B3AA200BB2167 /* CheckBoxNormal@2X.png in Resources */,
+				77C357A0168B3E7000B6B1EE /* MButtonConcave.png in Resources */,
+				77C357A1168B3E7000B6B1EE /* MButtonConcave@2X.png in Resources */,
+				77C357A2168B3E7000B6B1EE /* MButtonConvex.png in Resources */,
+				77C357A3168B3E7000B6B1EE /* MButtonConvex@2X.png in Resources */,
+				77C357A4168B3E7000B6B1EE /* SButtonConcave.png in Resources */,
+				77C357A5168B3E7000B6B1EE /* SButtonConcave@2X.png in Resources */,
+				77C357A6168B3E7000B6B1EE /* SButtonConvex.png in Resources */,
+				77C357A7168B3E7000B6B1EE /* SButtonConvex@2X.png in Resources */,
 				7766022A1688E00400B1310A /* App-Icon-57.png in Resources */,
 				7766022B1688E00400B1310A /* App-Icon-72.png in Resources */,
 				7766022C1688E00400B1310A /* App-Icon-114.png in Resources */,
@@ -1822,10 +1898,8 @@
 			files = (
 				777AD66D1688C61700E064D0 /* BMLTAppDelegate.m in Sources */,
 				777AD66E1688C61700E064D0 /* main.m in Sources */,
-				777AD66F1688C61700E064D0 /* BMLTAdvancedSearchViewController.m in Sources */,
 				777AD6701688C61700E064D0 /* BMLTMapResultsViewController.m in Sources */,
 				777AD6711688C61700E064D0 /* BMLT_Prefs.m in Sources */,
-				777AD6721688C61700E064D0 /* BMLTBrassCheckBoxButton.m in Sources */,
 				777AD6731688C61700E064D0 /* Reachability.m in Sources */,
 				777AD6741688C61700E064D0 /* A_BMLT_ChildClass.m in Sources */,
 				777AD6751688C61700E064D0 /* A_BMLT_Search.m in Sources */,
@@ -1859,6 +1933,8 @@
 				777AD6931688C61700E064D0 /* BMLTAboutBackgroundView.m in Sources */,
 				777AD7051688C63000E064D0 /* BMLTVariantDefs.m in Sources */,
 				7775B8A7168A756500C64086 /* BMLT_AnimationView.m in Sources */,
+				77815217168B2B98007F2EF6 /* BMLTBrassCheckBoxButton.m in Sources */,
+				776D378C168B398C00BB2167 /* BMLTAdvancedSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

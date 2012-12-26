@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
@@ -546,7 +545,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" backgroundImage="SButtonConcave.png"/>
-                                <state key="highlighted" backgroundImage="SButtonConvex.png">
+                                <state key="highlighted" backgroundImage="SButtonConcave.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -562,7 +561,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" backgroundImage="MButtonConvex.png"/>
-                                <state key="highlighted" backgroundImage="MButtonConvex.png">
+                                <state key="highlighted" backgroundImage="MButtonConcave.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -993,6 +992,7 @@
         <image name="LocButtonSimpleNormal.png" width="220" height="32"/>
         <image name="LongButtonHighlight.png" width="220" height="32"/>
         <image name="LongButtonNormal.png" width="220" height="32"/>
+        <image name="MButtonConcave.png" width="48" height="48"/>
         <image name="MButtonConvex.png" width="48" height="48"/>
         <image name="SButtonConcave.png" width="48" height="48"/>
         <image name="SButtonConvex.png" width="48" height="48"/>
