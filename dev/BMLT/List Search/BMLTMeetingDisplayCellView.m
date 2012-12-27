@@ -276,7 +276,14 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
             }
         else
             {
-            town = [NSString stringWithString: (([myMeeting getValueFromField:@"location_city_subsection"]) ? (NSString *)[myMeeting getValueFromField:@"location_city_subsection"] : (NSString *)[myMeeting getValueFromField:@"location_municipality"])];
+            if ( [myMeeting getValueFromField:@"location_city_subsection"] )
+                {
+                town = (NSString *)[myMeeting getValueFromField:@"location_city_subsection"];
+                }
+            else if ( [myMeeting getValueFromField:@"location_municipality"] )
+                {
+                town = (NSString *)[myMeeting getValueFromField:@"location_municipality"];
+                }
             }
         [townLabel setTextAlignment:UITextAlignmentRight];
         [townLabel setFont:[UIFont boldSystemFontOfSize:List_Meeting_Display_Text_Size]];
