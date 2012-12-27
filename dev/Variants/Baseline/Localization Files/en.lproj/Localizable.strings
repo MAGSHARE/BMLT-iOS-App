@@ -45,6 +45,8 @@
 
 /* Error Strings */
 "COMM-ERROR" = "Search Error";
+"LOC-ERROR" = "Location Error";
+"LOC-ERROR-DENIED" = "Location Services are denied for this app. Do You need to turn them on?";
 "PARSER-TIMEOUT-SEARCH" = "The Search Took Too Long, So It Was Stopped.";
 "SERVER-TIMEOUT-ERROR" = "The Connection to the Server Took Too Long, So It Was Stopped.";
 "ERROR-CANT-LOAD-DRIVER" = "The app cannot connect to the server, and will not operate properly.";

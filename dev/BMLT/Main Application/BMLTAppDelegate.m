@@ -489,7 +489,6 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         locationManager = [[CLLocationManager alloc] init];
         [locationManager setPurpose:NSLocalizedString(@"LOCATION-PURPOSE", nil)];
         [locationManager setDistanceFilter:kCLDistanceFilterNone];
-        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
         [locationManager setDelegate:self];
         searchParams = [[NSMutableDictionary alloc] init];
         }
@@ -866,10 +865,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         This will force the map to update, and will set the main
         location to the found location.
  *****************************************************************/
-- (void)lookupMyLocation
+- (void)lookupMyLocationWithAccuracy:(int)accuracy    ///< If YES, then ten-meter accuracy will be specified.
 {
+    [locationManager stopUpdatingLocation]; // Just in case we are currently looking...
     _iveUpdatedTheMap = NO;
     locationTried = NO;
+    // If we need to get a bit fuzzier, we will.
+    [locationManager setDesiredAccuracy:accuracy];
     [locationManager startUpdatingLocation];
 }
 
@@ -883,6 +885,32 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [mySearch doSearch];
 }
 
+/**************************************************************//**
+ \brief This tries successively less accurate location searches.
+        If it gives up, then it returns NO.
+ \returns a BOOL. NO, if it has given up.
+ *****************************************************************/
+- (BOOL)tryLocationStaged
+{
+    BOOL ret = YES;
+    
+    // In this case, we try again, but at a fuzzier distance
+    if ( [locationManager desiredAccuracy] == kCLLocationAccuracyBest )
+        {
+        [self lookupMyLocationWithAccuracy:kCLLocationAccuracyNearestTenMeters];
+        }
+    else if ( [locationManager desiredAccuracy] == kCLLocationAccuracyNearestTenMeters )
+        {
+        [self lookupMyLocationWithAccuracy:kCLLocationAccuracyHundredMeters];
+        }
+    else if ( [locationManager desiredAccuracy] == kCLLocationAccuracyHundredMeters )
+        {
+        ret = NO;   // Give up, if we couldn't even get in the ball park.
+        }
+    
+    return ret;
+}
+
 #pragma mark - Core Location Delegate Methods -
 /**************************************************************//**
  \brief Called when the location manager has a failure.
@@ -890,9 +918,49 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)locationManager:(CLLocationManager *)manager    ///< The location manager in troubkle.
        didFailWithError:(NSError *)error                ///< Oh, Lord, the trouble I'm in...
 {
+    UIAlertView *myAlert = nil;
+    
+    switch ( [error code] )
+    {
+        case kCLErrorDenied:    // If denied, we give the user a special error alert, instructing them as to the issue.
+        myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"LOC-ERROR",nil) message:NSLocalizedString(@"LOC-ERROR-DENIED",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+        [myAlert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+        break;
+        
+        case kCLErrorLocationUnknown:   // We can ignore this one.
 #ifdef DEBUG
-    NSLog(@"BMLTAppDelegate::didFailWithError: %@", [error localizedDescription]);
+        NSLog(@"BMLTAppDelegate::locationManager: didFailWithError: (kCLErrorLocationUnknown) %@", [error localizedDescription]);
 #endif
+        break;
+        
+        case kCLErrorHeadingFailure:    // We don't care about this one. Try again.
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::locationManager: didFailWithError: (kCLErrorHeadingFailure) %@", [error localizedDescription]);
+#endif
+        [self lookupMyLocationWithAccuracy:kCLLocationAccuracyBest];
+        break;
+        
+        case kCLErrorDeferredAccuracyTooLow:
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::locationManager: didFailWithError: (kCLErrorDeferredAccuracyTooLow) %@", [error localizedDescription]);
+#endif
+        if ( ![self tryLocationStaged] )
+            {
+            [locationManager stopUpdatingLocation]; // We just give up.
+            myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"LOC-ERROR",nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+            [myAlert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+            }
+        break;
+        
+        default:
+#ifdef DEBUG
+        NSLog(@"BMLTAppDelegate::locationManager: didFailWithError: %@", [error localizedDescription]);
+#endif
+        [locationManager stopUpdatingLocation]; // We just give up.
+        myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"LOC-ERROR",nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+        [myAlert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+        break;
+    }
 }
 
 /**************************************************************//**
@@ -941,17 +1009,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #ifdef DEBUG
             NSLog(@"BMLTAppDelegate::didUpdateToLocation Setting the marker location to (%f, %f).", newLocation.coordinate.longitude, newLocation.coordinate.latitude);
 #endif
-            [self setSearchMapMarkerLoc:[newLocation coordinate]];
-            [activeSearchController performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
             if ( locationTried )    // This makes sure we come back twice.
                 {
 #ifdef DEBUG
                 NSLog(@"BMLTAppDelegate::didUpdateToLocation Second time around. Stopping the update.");
 #endif
                 [locationManager stopUpdatingLocation]; // Stop updating for now.
+                [self setSearchMapMarkerLoc:[newLocation coordinate]];
+                [activeSearchController performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
+                _iveUpdatedTheMap = YES;
                 }
             
-            _iveUpdatedTheMap = locationTried;
             locationTried = YES;
             }
         

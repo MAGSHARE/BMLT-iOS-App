@@ -250,7 +250,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
  *****************************************************************/
 - (IBAction)locationButtonPressed:(id)sender    ///< The button object.
 {
-    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
+    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocationWithAccuracy:kCLLocationAccuracyBest];
 }
 
 #pragma mark - MKMapViewDelegate Functions -

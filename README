@@ -33,6 +33,13 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
+NOTE ON THE VERSION 2.5 PROJECT
+-------------------------------
+
+The biggest change with the 2.5 project, is that all the original "skeuomorphic" UX has been removed ("skeuomorphic" refers
+to the appearance of real-world items and textures, such as leather and metal). The main reason for this (besides presenting
+a more modern appearance) is that the app is now much, MUCH smaller, and will respond a great deal more quickly.
+
 NOTE ON THE VERSION 2.0 PROJECT
 -------------------------------
 
@@ -70,10 +77,14 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
-== Version 2.5
+== Version 2.5.1
 * TBD
 * AU NA Meetings Release
+
+== Version 2.5
+* TBD
 * This includes a complete replacement of the original skeuomorphic UX with newer, "cleaner" UX.
+* Made handling of location errors a bit more robust.
 
 == Version 2.0.5
 * December 17, 2012

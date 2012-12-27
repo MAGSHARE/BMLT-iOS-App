@@ -433,6 +433,10 @@
                                 <rect key="frame" x="0.0" y="161" width="768" height="750"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="shadow.png" id="3q8-b4-B3z">
+                                <rect key="frame" x="0.0" y="156" width="768" height="8"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="e6g-Gx-G5K">
                                 <rect key="frame" x="274" y="116" width="220" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -611,6 +615,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="shadow.png" id="fDL-5M-eer">
+                                <rect key="frame" x="0.0" y="125" width="768" height="8"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="shadow.png" id="Gn5-3G-UFd">
+                                <rect key="frame" x="0.0" y="848" width="768" height="8"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -914,6 +926,10 @@
                                     <action selector="locationButtonPressed:" destination="crR-vv-v9x" eventType="touchUpInside" id="FIe-Dh-egw"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="shadow.png" id="zPy-d2-moM">
+                                <rect key="frame" x="0.0" y="156" width="768" height="8"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -1002,7 +1018,166 @@
         <image name="map.png" width="26" height="26"/>
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
+        <image name="shadow.png" width="1" height="8"/>
     </resources>
+    <classes>
+        <class className="A_BMLTMainBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTMainBackgroundView.h"/>
+        </class>
+        <class className="A_BMLTNavBarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTNavBarViewController.h"/>
+        </class>
+        <class className="A_BMLTSearchResultsViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSearchResultsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="actionItemClicked:"/>
+                <relationship kind="action" name="clearSearch:"/>
+            </relationships>
+        </class>
+        <class className="A_BMLTSettingsBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLTSettingsBackgroundView.h"/>
+        </class>
+        <class className="A_BMLT_SearchViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="locationButtonPressed:"/>
+                <relationship kind="outlet" name="lookupLocationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="BMLTAboutBackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutBackgroundView.h"/>
+        </class>
+        <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BMLTAdvancedSearchViewController" superclassName="A_BMLT_SearchViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAdvancedSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addressTextEntered:"/>
+                <relationship kind="action" name="backgroundClicked:"/>
+                <relationship kind="action" name="doSearchButtonPressed:"/>
+                <relationship kind="action" name="searchSpecChanged:"/>
+                <relationship kind="action" name="weekdayChanged:"/>
+                <relationship kind="action" name="weekdaySelectionChanged:"/>
+                <relationship kind="outlet" name="friButton" candidateClass="BMLT_Checkbox"/>
+                <relationship kind="outlet" name="friLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="goButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="monButton" candidateClass="BMLT_Checkbox"/>
+                <relationship kind="outlet" name="monLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="satButton" candidateClass="BMLT_Checkbox"/>
+                <relationship kind="outlet" name="satLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchLocationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchSpecAddressTextEntry" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="searchSpecSegmentedControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="sunButton" candidateClass="BMLT_Checkbox"/>
+                <relationship kind="outlet" name="sunLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thuButton" candidateClass="BMLT_Checkbox"/>
+                <relationship kind="outlet" name="thuLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tueButton" candidateClass="BMLT_Checkbox"/>
+                <relationship kind="outlet" name="tueLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="wedButton" candidateClass="BMLT_Checkbox"/>
+                <relationship kind="outlet" name="wedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weekdaysLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weekdaysSelector" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="BMLTAnimationScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAnimationScreenViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="animationView" candidateClass="BMLT_AnimationView"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BMLTBundleResourceLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTBundleResourceLabel.h"/>
+        </class>
+        <class className="BMLTDisplayListResultsViewController" superclassName="A_BMLTSearchResultsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTDisplayListResultsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sortMeetings:"/>
+            </relationships>
+        </class>
+        <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="BMLTMeetingDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMeetingDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="actionItemClicked:"/>
+                <relationship kind="action" name="callForDirections:"/>
+                <relationship kind="action" name="selectMapView:"/>
+                <relationship kind="action" name="selectSatelliteView:"/>
+                <relationship kind="outlet" name="addressButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="commentsTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="formatsContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="frequencyTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="selectMapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="selectSatelliteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="distanceSortChanged:"/>
+                <relationship kind="action" name="keepUpdatingChanged:"/>
+                <relationship kind="action" name="lookupLocationChanged:"/>
+                <relationship kind="action" name="mapResultsChanged:"/>
+                <relationship kind="action" name="numMeetingsChanged:"/>
+                <relationship kind="action" name="preferredSearchChanged:"/>
+                <relationship kind="action" name="retainStateChanged:"/>
+                <relationship kind="action" name="updateUserLocationNow:"/>
+                <relationship kind="outlet" name="aboutView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="distanceSortLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="distanceSortSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="keepUpdatingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="keepUpdatingSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="lookUpLocationSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="lookupLocationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapResultsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapResultsSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="maxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numMeetingsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numMeetingsSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="preferredSearchTypeControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="preferredSearchTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="retainStateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="retainStateSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="updateLocationButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BMLTSimpleSearchViewController" superclassName="A_BMLT_SearchViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSimpleSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="findAllMeetingsNearMe:"/>
+                <relationship kind="action" name="findAllMeetingsNearMeLaterToday:"/>
+                <relationship kind="action" name="findAllMeetingsNearMeTomorrow:"/>
+                <relationship kind="outlet" name="disabledTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="findMeetingsLaterTodayButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="findMeetingsNearMeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="findMeetingsTomorrowButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="updateLocationButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BMLTSnappyLogSlider" superclassName="UISlider">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTSnappyLogSlider.h"/>
+        </class>
+        <class className="BMLT_AnimationView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLT_AnimationView.h"/>
+        </class>
+        <class className="BMLT_Checkbox" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLT_Checkbox.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

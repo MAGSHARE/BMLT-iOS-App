@@ -91,7 +91,8 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 - (void)sortMeetingsByWeekdayAndTime;                   ///< Sorts the meeting search results by weekday and time.
 - (void)sortMeetingsByDistance;                         ///< Sorts the meeting search results by distance from your location.
 - (void)imVisitingRelatives;                            ///< This is called by other instances to prevent the app from having its state changed between calls. It is a "One-shot" operation that loses persistency between calls.
-- (void)lookupMyLocation;                               ///< Tells the app to do a CL lookup. The map (if there is one) will be updated when the location is updated.
+- (BOOL)tryLocationStaged;                              ///< This tries successively less accurate searches.
+- (void)lookupMyLocationWithAccuracy:(int)accuracy;     ///< Tells the app to do a CL lookup. The map (if there is one) will be updated when the location is updated.
 - (void)executeDeferredSearch;                          ///< Starts the search going.
 - (void)setDefaultMapRegion;                            ///< This sets the search map (iPad only) to the default size and location.
 @end

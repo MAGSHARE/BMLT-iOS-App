@@ -45,6 +45,8 @@
 
 /* Error Strings */
 "COMM-ERROR" = "Fel vid sökning";
+"LOC-ERROR" = "Location Error";
+"LOC-ERROR-DENIED" = "Location Services are denied for this app. Do You need to turn them on?";
 "PARSER-TIMEOUT-SEARCH" = "Sökningen tog för lång tid. Sökningen avbröts.";
 "SERVER-TIMEOUT-ERROR" = "Anslutningen mot servern tog för lång tid.anslutningen avbröts.";
 "ERROR-CANT-LOAD-DRIVER" = "Mottagning för data saknas. Utan mottagning fungerar inte appen som tänkt.";

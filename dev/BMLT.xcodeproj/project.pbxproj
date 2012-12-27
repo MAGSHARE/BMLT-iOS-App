@@ -509,6 +509,8 @@
 		77C357A7168B3E7000B6B1EE /* SButtonConvex@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C3579F168B3E7000B6B1EE /* SButtonConvex@2X.png */; };
 		77CE3F091516252300C93BC6 /* A_BMLTSettingsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */; };
 		77CFE116153CB874005FB181 /* BMLT_ListPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */; };
+		77D210E4168CAECB000D991A /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D210E3168CAECB000D991A /* shadow.png */; };
+		77D210E5168CAECB000D991A /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D210E3168CAECB000D991A /* shadow.png */; };
 		77D529961624D50F00AA884B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D529951624D50F00AA884B /* Default-568h@2x.png */; };
 		77D5299A1624D54F00AA884B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D529991624D54F00AA884B /* Default-568h@2x.png */; };
 		77D732A915178B38004C572D /* A_BMLTNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D732A815178B38004C572D /* A_BMLTNavBarViewController.m */; };
@@ -750,6 +752,7 @@
 		77CE3F081516252300C93BC6 /* A_BMLTSettingsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLTSettingsBackgroundView.m; path = Miscellaneous/A_BMLTSettingsBackgroundView.m; sourceTree = "<group>"; };
 		77CFE114153CB874005FB181 /* BMLT_ListPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_ListPrintPageRenderer.h; sourceTree = "<group>"; };
 		77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_ListPrintPageRenderer.m; sourceTree = "<group>"; };
+		77D210E3168CAECB000D991A /* shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow.png; sourceTree = "<group>"; };
 		77D529951624D50F00AA884B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		77D529991624D54F00AA884B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		77D732A715178B38004C572D /* A_BMLTNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLTNavBarViewController.h; path = Miscellaneous/A_BMLTNavBarViewController.h; sourceTree = "<group>"; };
@@ -1011,6 +1014,7 @@
 				77603DE11541DC8300C4840F /* search@2x.png */,
 				77603DE21541DC8300C4840F /* settings.png */,
 				77603DE31541DC8300C4840F /* settings@2x.png */,
+				77D210E3168CAECB000D991A /* shadow.png */,
 				776B053E1546233600A02EB6 /* icon-iPad.png */,
 				776B053F1546233600A02EB6 /* icon-iPhone.png */,
 				776B05401546233600A02EB6 /* icon-LargeiPad.png */,
@@ -1620,6 +1624,7 @@
 				77B54CD4168922F200AD5E83 /* iPhone.storyboard in Resources */,
 				7775B8A4168A755C00C64086 /* AU-Back.png in Resources */,
 				7775B8A5168A755C00C64086 /* AU-Transparency.png in Resources */,
+				77D210E5168CAECB000D991A /* shadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1694,6 +1699,7 @@
 				77682CE4168BA36F00DDB11C /* iPad.storyboard in Resources */,
 				7783BE68168BB7990043F5DF /* NY-Back.png in Resources */,
 				7783BE69168BB7990043F5DF /* NY-Transparency.png in Resources */,
+				77D210E4168CAECB000D991A /* shadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

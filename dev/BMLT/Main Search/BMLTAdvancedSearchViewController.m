@@ -195,7 +195,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         {
         if ( ![self myMarker] )
             {
-            [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
+            [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocationWithAccuracy:kCLLocationAccuracyBest];
             }
         [searchSpecAddressTextEntry setAlpha:0.0];
         [searchSpecAddressTextEntry setEnabled:NO];

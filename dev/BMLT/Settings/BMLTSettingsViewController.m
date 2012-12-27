@@ -259,6 +259,6 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
  *****************************************************************/
 - (IBAction)updateUserLocationNow:(id)sender    ///< The update Location button.
 {
-    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocation];
+    [[BMLTAppDelegate getBMLTAppDelegate] lookupMyLocationWithAccuracy:kCLLocationAccuracyBest];
 }
 @end
