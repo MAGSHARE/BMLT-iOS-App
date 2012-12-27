@@ -29,7 +29,7 @@
  \brief  This class will control display of mapped results.
  *****************************************************************/
 @interface BMLTMapResultsViewController : A_BMLTSearchResultsViewController <MKMapViewDelegate>
-@property (weak, nonatomic) IBOutlet MKMapView      *myMapView;
+@property (weak, nonatomic) IBOutlet MKMapView  *myMapView;
 
 - (void)setMapInit:(BOOL)isInit;
 - (BOOL)isMapInitialized;
@@ -41,5 +41,6 @@
 - (NSArray *)mapMeetingAnnotations:(NSArray *)inResults;
 - (void)determineMapSize:(NSArray *)inResults;
 - (void)displayAllMarkersIfNeeded;
+- (IBAction)toggleMapView:(id)sender;
 
 @end

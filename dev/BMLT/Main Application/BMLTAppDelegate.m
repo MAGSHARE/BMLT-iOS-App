@@ -424,14 +424,17 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
             break;
             }
         
+        A_BMLT_SearchViewController *topController = (A_BMLT_SearchViewController *)[[searchNavController navigationController] topViewController];
         if ( [searchResults count] )
             {
-            [(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] addClearSearchButton];
+            [topController addClearSearchButton];
             }
         else
             {
-            [[(A_BMLTNavBarViewController *)[[searchNavController navigationController] topViewController] navigationItem] setLeftBarButtonItem:nil];
+            [[topController navigationItem] setLeftBarButtonItem:nil];
             }
+        
+        [topController addToggleMapButton];
         }
 }
 

@@ -51,6 +51,8 @@
 "SERVER-TIMEOUT-ERROR" = "Anslutningen mot servern tog för lång tid.anslutningen avbröts.";
 "ERROR-CANT-LOAD-DRIVER" = "Mottagning för data saknas. Utan mottagning fungerar inte appen som tänkt.";
 "OK-BUTTON" = "OK";
+"TOGGLE-MAP-LABEL-MAP" = "Map View";
+"TOGGLE-MAP-LABEL-SATELLITE" = "Satellite View";
 
 /* Used in the Prefs window */
 "SETTINGS-URI-BLURB" = "Komplett källkod GPL kan laddas ner här:";

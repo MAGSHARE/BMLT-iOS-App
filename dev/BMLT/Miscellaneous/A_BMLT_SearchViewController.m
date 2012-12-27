@@ -132,6 +132,10 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 }
 @end
 
+@interface A_BMLT_SearchViewController ()
+    @property (strong, atomic)  UIBarButtonItem *_toggleButton;
+@end
+
 /**************************************************************//**
  \class A_BMLT_SearchViewController
  \brief This class acts as an abstract base for the two search dialogs.
@@ -139,8 +143,43 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         the iPad version of the app.
  *****************************************************************/
 @implementation A_BMLT_SearchViewController
-@synthesize lookupLocationButton, selectSatelliteButton, selectMapButton;
+@synthesize lookupLocationButton;
 @synthesize mapSearchView, myMarker;
+@synthesize _toggleButton;
+
+/**************************************************************//**
+ \brief  This adds the map toggle button to the navbar.
+ *****************************************************************/
+- (void)addToggleMapButton
+{
+    if ( [self mapSearchView] )
+        {        
+        NSMutableArray  *buttons = [[NSMutableArray alloc]initWithArray:[[self navigationItem] leftBarButtonItems]];
+        [buttons removeObject:[self _toggleButton]];
+        
+        NSString    *label = NSLocalizedString ( ([[self mapSearchView] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
+        
+        if ( ![self _toggleButton] )
+            {
+            [self set_toggleButton:[[UIBarButtonItem alloc] initWithTitle:label style:UIBarButtonItemStyleBordered target:self action:@selector(toggleMapView:)]];
+            }
+        else
+            {
+            [[self _toggleButton] setTitle:label];
+            }
+    
+        [buttons addObject:[self _toggleButton]];
+        
+        if ( [[[self navigationItem] rightBarButtonItems] count] )
+            {
+            [[self navigationItem] setLeftBarButtonItems:buttons animated:NO];
+            }
+        else
+            {
+            [[self navigationItem] setRightBarButtonItem:[self _toggleButton] animated:NO];
+            }
+        }
+}
 
 /**************************************************************//**
  \brief  Called just before the view will appear. We use it to set
@@ -151,7 +190,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     [super viewWillAppear:animated];
     [self setUpMap];
     [[BMLTAppDelegate getBMLTAppDelegate] setActiveSearchController:self];
-    [mapSearchView setRegion:[mapSearchView regionThatFits:[[BMLTAppDelegate getBMLTAppDelegate] searchMapRegion]]];
+    [[self mapSearchView] setRegion:[[self mapSearchView] regionThatFits:[[BMLTAppDelegate getBMLTAppDelegate] searchMapRegion]]];
     [myMarker setCoordinate:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
 
     if ( ![BMLTAppDelegate locationServicesAvailable] )
@@ -159,6 +198,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         [[self lookupLocationButton] setEnabled:NO];
         [[self lookupLocationButton] setAlpha:0];
         }
+    
+    [self addToggleMapButton];
 }
 
 /**************************************************************//**
@@ -168,12 +209,12 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 {
     BMLTAppDelegate *myAppDelegate = [BMLTAppDelegate getBMLTAppDelegate];  // Get the app delegate SINGLETON
     
-    if ( mapSearchView && !myMarker )    // This will be set in the storyboard.
+    if ( [self mapSearchView] && !myMarker )    // This will be set in the storyboard.
         {
 #ifdef DEBUG
         NSLog(@"A_BMLT_SearchViewController setUpIpadMap called (We're an iPad, baby!).");
 #endif
-        [mapSearchView setRegion:[mapSearchView regionThatFits:[myAppDelegate searchMapRegion]] animated:YES];
+        [[self mapSearchView] setRegion:[[self mapSearchView] regionThatFits:[myAppDelegate searchMapRegion]] animated:YES];
         
         CLLocationCoordinate2D  markerLoc = [myAppDelegate searchMapMarkerLoc];
         
@@ -181,17 +222,17 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         
         [myMarker setTitle:@"Marker"];
 
-        [mapSearchView setDelegate:self];
+        [[self mapSearchView] setDelegate:self];
         
-        [mapSearchView addAnnotation:myMarker];
+        [[self mapSearchView] addAnnotation:myMarker];
         
         WildcardGestureRecognizer * tapInterceptor = [[WildcardGestureRecognizer alloc] init];
         [tapInterceptor setMyController:self];
-        [mapSearchView addGestureRecognizer:tapInterceptor];
+        [[self mapSearchView] addGestureRecognizer:tapInterceptor];
         }
-    else if ( mapSearchView )   // If we are coming back, we simply reset the region.
+    else if ( [self mapSearchView] )   // If we are coming back, we simply reset the region.
         {
-        [mapSearchView setRegion:[mapSearchView regionThatFits:[myAppDelegate searchMapRegion]] animated:YES];
+        [[self mapSearchView] setRegion:[[self mapSearchView] regionThatFits:[myAppDelegate searchMapRegion]] animated:YES];
         [self updateMapWithThisLocation:[myAppDelegate searchMapMarkerLoc]];
         }
 }
@@ -201,10 +242,10 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
  *****************************************************************/
 - (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate  ///< The new coordinate for the marker.
 {
-    if ( mapSearchView && myMarker )
+    if ( [self mapSearchView] && myMarker )
         {
         [myMarker setCoordinate:inCoordinate];
-        [mapSearchView setCenterCoordinate:[myMarker coordinate] animated:YES];
+        [[self mapSearchView] setCenterCoordinate:[myMarker coordinate] animated:YES];
         }
     if ( inCoordinate.longitude != 0 || inCoordinate.latitude != 0 )
         {
@@ -314,23 +355,15 @@ fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state 
 }
 
 /**************************************************************//**
- \brief The map will be displayed as a map.
+ \brief This toggles the map view between map and satellite.
  *****************************************************************/
-- (IBAction)selectMapView:(id)sender    ///< The Map button
+- (IBAction)toggleMapView:(id)sender
 {
-    [mapSearchView setMapType:MKMapTypeStandard];
-    [selectMapButton setAlpha:0.0];
-    [selectSatelliteButton setAlpha:1.0];
+    if ( [self mapSearchView] )
+        {
+        [[self mapSearchView] setMapType:([[self mapSearchView] mapType] == MKMapTypeStandard) ? MKMapTypeHybrid : MKMapTypeStandard];
+        NSString    *label = NSLocalizedString ( ([[self mapSearchView] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
+        [[self _toggleButton] setTitle:label];
+        }
 }
-
-/**************************************************************//**
- \brief The map will be displayed as a satellite view.
- *****************************************************************/
-- (IBAction)selectSatelliteView:(id)sender  ///< The Satellite button
-{
-    [mapSearchView setMapType:MKMapTypeHybrid];
-    [selectMapButton setAlpha:1.0];
-    [selectSatelliteButton setAlpha:0.0];
-}
-
 @end

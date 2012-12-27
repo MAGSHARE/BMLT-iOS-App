@@ -51,6 +51,8 @@
 "SERVER-TIMEOUT-ERROR" = "The Connection to the Server Took Too Long, So It Was Stopped.";
 "ERROR-CANT-LOAD-DRIVER" = "The app cannot connect to the server, and will not operate properly.";
 "OK-BUTTON" = "OK";
+"TOGGLE-MAP-LABEL-MAP" = "Map View";
+"TOGGLE-MAP-LABEL-SATELLITE" = "Satellite View";
 
 /* Used in the Prefs window */
 "SETTINGS-URI-BLURB" = "Complete GPL Source Is Available Here:";
