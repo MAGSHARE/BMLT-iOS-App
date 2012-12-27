@@ -1011,8 +1011,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
             <relationships>
                 <relationship kind="action" name="locationButtonPressed:"/>
+                <relationship kind="action" name="selectMapView:"/>
+                <relationship kind="action" name="selectSatelliteView:"/>
                 <relationship kind="outlet" name="lookupLocationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="selectMapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="selectSatelliteButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="BMLTAboutBackgroundView" superclassName="UIView">

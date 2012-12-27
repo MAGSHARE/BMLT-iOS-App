@@ -52,11 +52,15 @@
 @interface A_BMLT_SearchViewController : A_BMLTNavBarViewController <MKMapViewDelegate>
     @property (strong, atomic, readwrite) BMLT_Results_MapPointAnnotation  *myMarker;    ///< This holds the marker in the search location map.
     @property (weak, atomic, readwrite) IBOutlet MKMapView  *mapSearchView;             ///< If this is an iPad, then this will point to the map view. iPhone will be nil. The property is linked in the storyboard.
-    @property (weak, atomic, readwrite) IBOutlet UIButton *lookupLocationButton;        ///< This will be for a button that allows the user to re-establish their location.
+    @property (weak, atomic, readwrite) IBOutlet UIButton   *lookupLocationButton;        ///< This will be for a button that allows the user to re-establish their location.
+    @property (weak, nonatomic)         IBOutlet UIButton   *selectSatelliteButton;
+    @property (weak, nonatomic)         IBOutlet UIButton   *selectMapButton;
 
     - (CLLocationCoordinate2D)getSearchCoordinates;                 ///< This returns whatever coordinates are to be used in the next search.
     - (void)setUpMap;                                               ///< In the case of this being an iPad, set up the search map.
     - (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate; ///< Updates the map to a new location.
     - (void)updateMap;                                              ///< Same as above, but for being called in the main thread.
     - (IBAction)locationButtonPressed:(id)sender;                   ///< Causes the app. delegate to look up the user's location again.
+    - (IBAction)selectMapView:(id)sender;                           ///< Select the map view (Responds to user input).
+    - (IBAction)selectSatelliteView:(id)sender;                     ///< Select the satellite view (Responds to user input).
 @end

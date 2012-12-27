@@ -34,12 +34,12 @@
 @property (weak, nonatomic, readwrite)  UIViewController    *myModalController;
 @property (weak, nonatomic, readwrite)  BMLT_Meeting        *myMeeting;
 @property (weak, nonatomic) IBOutlet    MKMapView           *meetingMapView;
-@property (weak, nonatomic) IBOutlet UIButton *addressButton;
-@property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
-@property (weak, nonatomic) IBOutlet UITextView *frequencyTextView;
-@property (weak, nonatomic) IBOutlet UIView *formatsContainerView;
-@property (weak, nonatomic) IBOutlet UIButton *selectSatelliteButton;
-@property (weak, nonatomic) IBOutlet UIButton *selectMapButton;
+@property (weak, nonatomic) IBOutlet    UIButton            *addressButton;
+@property (weak, nonatomic) IBOutlet    UITextView          *commentsTextView;
+@property (weak, nonatomic) IBOutlet    UITextView          *frequencyTextView;
+@property (weak, nonatomic) IBOutlet    UIView              *formatsContainerView;
+@property (weak, nonatomic) IBOutlet    UIButton            *selectSatelliteButton;
+@property (weak, nonatomic) IBOutlet    UIButton            *selectMapButton;
 
 - (void)setFormats;
 - (void)setMeetingFrequencyText;

@@ -433,6 +433,38 @@
                                 <rect key="frame" x="0.0" y="161" width="768" height="750"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ewn-TM-Ygm" userLabel="Map">
+                                <rect key="frame" x="734" y="877" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" backgroundImage="MButtonConvex.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="MButtonConvex.png"/>
+                                <state key="highlighted" backgroundImage="MButtonConcave.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectMapView:" destination="SFh-VH-MDA" eventType="touchUpInside" id="Fub-5X-mUL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Osq-HI-GfE" userLabel="Satellite">
+                                <rect key="frame" x="734" y="877" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" backgroundImage="SButtonConvex.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="SButtonConcave.png"/>
+                                <state key="highlighted" backgroundImage="SButtonConcave.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectSatelliteView:" destination="SFh-VH-MDA" eventType="touchUpInside" id="mML-CG-fSd"/>
+                                </connections>
+                            </button>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="shadow.png" id="3q8-b4-B3z">
                                 <rect key="frame" x="0.0" y="156" width="768" height="8"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -476,6 +508,8 @@
                         <outlet property="findMeetingsTomorrowButton" destination="NNa-Bu-ist" id="fys-Vy-zsx"/>
                         <outlet property="lookupLocationButton" destination="e6g-Gx-G5K" id="w1N-Bs-9dM"/>
                         <outlet property="mapSearchView" destination="nLJ-nP-ZR5" id="CYK-M2-12B"/>
+                        <outlet property="selectMapButton" destination="ewn-TM-Ygm" id="FDA-AC-6fd"/>
+                        <outlet property="selectSatelliteButton" destination="Osq-HI-GfE" id="mjg-4y-Gc1"/>
                         <outlet property="updateLocationButton" destination="e6g-Gx-G5K" id="ShF-1S-jY4"/>
                     </connections>
                 </viewController>
@@ -857,6 +891,38 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <gestureRecognizers/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EUI-2D-2J7" userLabel="Map">
+                                <rect key="frame" x="734" y="877" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" backgroundImage="MButtonConvex.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="MButtonConvex.png"/>
+                                <state key="highlighted" backgroundImage="MButtonConcave.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectMapView:" destination="crR-vv-v9x" eventType="touchUpInside" id="TmM-Em-Vz7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hKS-K9-QzQ" userLabel="Satellite">
+                                <rect key="frame" x="734" y="877" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" backgroundImage="SButtonConvex.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="SButtonConcave.png"/>
+                                <state key="highlighted" backgroundImage="SButtonConcave.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectSatelliteView:" destination="crR-vv-v9x" eventType="touchUpInside" id="W6S-iS-6JJ"/>
+                                </connections>
+                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="5yb-xE-FT8">
                                 <rect key="frame" x="74" y="110" width="244" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -949,6 +1015,8 @@
                         <outlet property="searchLocationLabel" destination="LSo-16-9lL" id="j9y-VI-KXd"/>
                         <outlet property="searchSpecAddressTextEntry" destination="dQU-Vu-HAg" id="puO-4T-XnI"/>
                         <outlet property="searchSpecSegmentedControl" destination="5yb-xE-FT8" id="3Vf-rH-Zx7"/>
+                        <outlet property="selectMapButton" destination="EUI-2D-2J7" id="7Rg-Vy-Uht"/>
+                        <outlet property="selectSatelliteButton" destination="hKS-K9-QzQ" id="gdN-DE-aA3"/>
                         <outlet property="sunButton" destination="H1C-wB-9hU" id="WaI-2a-4ew"/>
                         <outlet property="sunLabel" destination="6Zq-yw-jRb" id="vSK-hE-bJG"/>
                         <outlet property="thuButton" destination="HtH-I0-m1E" id="rGY-L7-Jcd"/>
@@ -1041,8 +1109,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
             <relationships>
                 <relationship kind="action" name="locationButtonPressed:"/>
+                <relationship kind="action" name="selectMapView:"/>
+                <relationship kind="action" name="selectSatelliteView:"/>
                 <relationship kind="outlet" name="lookupLocationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="selectMapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="selectSatelliteButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="BMLTAboutBackgroundView" superclassName="UIView">
@@ -1104,6 +1176,8 @@
         <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="selectMapView:"/>
+                <relationship kind="action" name="selectSatelliteView:"/>
                 <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
             </relationships>

@@ -139,7 +139,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         the iPad version of the app.
  *****************************************************************/
 @implementation A_BMLT_SearchViewController
-@synthesize lookupLocationButton;
+@synthesize lookupLocationButton, selectSatelliteButton, selectMapButton;
 @synthesize mapSearchView, myMarker;
 
 /**************************************************************//**
@@ -311,6 +311,26 @@ fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state 
         }
     
     return ret;
+}
+
+/**************************************************************//**
+ \brief The map will be displayed as a map.
+ *****************************************************************/
+- (IBAction)selectMapView:(id)sender    ///< The Map button
+{
+    [mapSearchView setMapType:MKMapTypeStandard];
+    [selectMapButton setAlpha:0.0];
+    [selectSatelliteButton setAlpha:1.0];
+}
+
+/**************************************************************//**
+ \brief The map will be displayed as a satellite view.
+ *****************************************************************/
+- (IBAction)selectSatelliteView:(id)sender  ///< The Satellite button
+{
+    [mapSearchView setMapType:MKMapTypeHybrid];
+    [selectMapButton setAlpha:1.0];
+    [selectSatelliteButton setAlpha:0.0];
 }
 
 @end

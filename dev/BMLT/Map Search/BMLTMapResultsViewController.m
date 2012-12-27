@@ -84,12 +84,21 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
 }
 
 /**************************************************************//**
- \brief Called when the view is about to unload.
+ \brief Called when the view has loaded.
  *****************************************************************/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setMyModalController:self];
+}
+
+/**************************************************************//**
+ \brief Called when the view has unloaded
+ *****************************************************************/
+- (void)viewDidUnload
+{
+    [self setMyMapView:nil];
+    [super viewDidUnload];
 }
 
 #pragma mark - Custom Functions -
@@ -518,8 +527,5 @@ didSelectAnnotationView:(MKAnnotationView *)inView    ///< The selected annotati
             }
         }
 }
-- (void)viewDidUnload {
-    [self setMyMapView:nil];
-    [super viewDidUnload];
-}
+
 @end
