@@ -53,6 +53,7 @@
 		774166C615472315008692FB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B615472315008692FB /* Default@2x.png */; };
 		774166C815472315008692FB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B615472315008692FB /* Default@2x.png */; };
 		77437AE21546FE8000327CBF /* Beanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 77437ADF1546FE8000327CBF /* Beanie.png */; };
+		7747C40B168BC0E200C9B148 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; };
 		774B100A168B6C7400E4BBF5 /* BMLTAdvancedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C3E150E892A005A707A /* BMLTAdvancedSearchViewController.m */; };
 		774B100B168B6C7400E4BBF5 /* BMLT_Checkbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C57150E893C005A707A /* BMLT_Checkbox.m */; };
 		774B100C168B6D1800E4BBF5 /* CheckBoxDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D378D168B3AA200BB2167 /* CheckBoxDisabled.png */; };
@@ -435,7 +436,6 @@
 		7783BE68168BB7990043F5DF /* NY-Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 7783BE66168BB7990043F5DF /* NY-Back.png */; };
 		7783BE69168BB7990043F5DF /* NY-Transparency.png in Resources */ = {isa = PBXBuildFile; fileRef = 7783BE67168BB7990043F5DF /* NY-Transparency.png */; };
 		7783BE6C168BB7A60043F5DF /* BMLT_AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7783BE6B168BB7A60043F5DF /* BMLT_AnimationView.m */; };
-		77882CBA1548872000DBE9A1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		77882CBD1548874C00DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
 		77882CBE1548876000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
 		77882CBF1548877000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
@@ -790,7 +790,6 @@
 				777597841540F15E00D45ADA /* Foundation.framework in Frameworks */,
 				777597851540F15E00D45ADA /* CoreGraphics.framework in Frameworks */,
 				77882CBF1548877000DBE9A1 /* libz.dylib in Frameworks */,
-				77882CBA1548872000DBE9A1 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,6 +820,7 @@
 				77977D12150E882B00485C8D /* Foundation.framework in Frameworks */,
 				77977D14150E882B00485C8D /* CoreGraphics.framework in Frameworks */,
 				77882CBD1548874C00DBE9A1 /* libz.dylib in Frameworks */,
+				7747C40B168BC0E200C9B148 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
