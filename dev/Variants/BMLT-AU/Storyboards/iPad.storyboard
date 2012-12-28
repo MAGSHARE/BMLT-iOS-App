@@ -61,6 +61,10 @@
                                         <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Anim-Back.png" id="s0a-zl-iG5">
+                                        <rect key="frame" x="208" y="228" width="352" height="352"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
@@ -969,6 +973,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Anim-Back.png" width="512" height="512"/>
         <image name="CheckBoxNormal.png" width="48" height="48"/>
         <image name="LocButton.png" width="32" height="32"/>
         <image name="LocButtonHighlight.png" width="32" height="32"/>

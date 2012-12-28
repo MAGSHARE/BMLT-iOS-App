@@ -39,6 +39,10 @@
 		772DA66E168A16AD00DA501F /* LocButtonSimpleHighlight@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 772DA66A168A16AD00DA501F /* LocButtonSimpleHighlight@2X.png */; };
 		772DA66F168A16AD00DA501F /* LocButtonSimpleNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 772DA66B168A16AD00DA501F /* LocButtonSimpleNormal.png */; };
 		772DA670168A16AD00DA501F /* LocButtonSimpleNormal@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 772DA66C168A16AD00DA501F /* LocButtonSimpleNormal@2X.png */; };
+		7731A7A1168E1DEC00ED4BE8 /* Anim-Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 7731A79F168E1DEC00ED4BE8 /* Anim-Back.png */; };
+		7731A7A2168E1DEC00ED4BE8 /* Anim-Transparency.png in Resources */ = {isa = PBXBuildFile; fileRef = 7731A7A0168E1DEC00ED4BE8 /* Anim-Transparency.png */; };
+		7731A7A5168E1E0900ED4BE8 /* Anim-Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 7731A7A3168E1E0900ED4BE8 /* Anim-Back.png */; };
+		7731A7A6168E1E0900ED4BE8 /* Anim-Transparency.png in Resources */ = {isa = PBXBuildFile; fileRef = 7731A7A4168E1E0900ED4BE8 /* Anim-Transparency.png */; };
 		773E4309155EC7070026FA16 /* BMLTVariantDefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 773E4308155EC7070026FA16 /* BMLTVariantDefs.m */; };
 		774166B715472315008692FB /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B115472315008692FB /* Default-Landscape@2x~ipad.png */; };
 		774166B915472315008692FB /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 774166B115472315008692FB /* Default-Landscape@2x~ipad.png */; };
@@ -358,8 +362,6 @@
 		777597831540F15E00D45ADA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D0F150E882B00485C8D /* UIKit.framework */; };
 		777597841540F15E00D45ADA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D11150E882B00485C8D /* Foundation.framework */; };
 		777597851540F15E00D45ADA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77977D13150E882B00485C8D /* CoreGraphics.framework */; };
-		7775B8A4168A755C00C64086 /* AU-Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775B8A2168A755C00C64086 /* AU-Back.png */; };
-		7775B8A5168A755C00C64086 /* AU-Transparency.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775B8A3168A755C00C64086 /* AU-Transparency.png */; };
 		7775B8A7168A756500C64086 /* BMLT_AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775B8A6168A756500C64086 /* BMLT_AnimationView.m */; };
 		777AD66D1688C61700E064D0 /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C32150E88E5005A707A /* BMLTAppDelegate.m */; };
 		777AD66E1688C61700E064D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C33150E88E5005A707A /* main.m */; };
@@ -433,8 +435,6 @@
 		77815232168B2BAA007F2EF6 /* CheckBoxHighlight-Check@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77815220168B2BAA007F2EF6 /* CheckBoxHighlight-Check@2X.png */; };
 		77815237168B2BAA007F2EF6 /* CheckBoxNormal-Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 77815225168B2BAA007F2EF6 /* CheckBoxNormal-Check.png */; };
 		77815238168B2BAA007F2EF6 /* CheckBoxNormal-Check@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 77815226168B2BAA007F2EF6 /* CheckBoxNormal-Check@2X.png */; };
-		7783BE68168BB7990043F5DF /* NY-Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 7783BE66168BB7990043F5DF /* NY-Back.png */; };
-		7783BE69168BB7990043F5DF /* NY-Transparency.png in Resources */ = {isa = PBXBuildFile; fileRef = 7783BE67168BB7990043F5DF /* NY-Transparency.png */; };
 		7783BE6C168BB7A60043F5DF /* BMLT_AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7783BE6B168BB7A60043F5DF /* BMLT_AnimationView.m */; };
 		77882CBD1548874C00DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
 		77882CBE1548876000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
@@ -597,6 +597,10 @@
 		772DA66A168A16AD00DA501F /* LocButtonSimpleHighlight@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LocButtonSimpleHighlight@2X.png"; path = "../../BMLT-AU/images/LocButtonSimpleHighlight@2X.png"; sourceTree = "<group>"; };
 		772DA66B168A16AD00DA501F /* LocButtonSimpleNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LocButtonSimpleNormal.png; path = "../../BMLT-AU/images/LocButtonSimpleNormal.png"; sourceTree = "<group>"; };
 		772DA66C168A16AD00DA501F /* LocButtonSimpleNormal@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LocButtonSimpleNormal@2X.png"; path = "../../BMLT-AU/images/LocButtonSimpleNormal@2X.png"; sourceTree = "<group>"; };
+		7731A79F168E1DEC00ED4BE8 /* Anim-Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Anim-Back.png"; sourceTree = "<group>"; };
+		7731A7A0168E1DEC00ED4BE8 /* Anim-Transparency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Anim-Transparency.png"; sourceTree = "<group>"; };
+		7731A7A3168E1E0900ED4BE8 /* Anim-Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Anim-Back.png"; sourceTree = "<group>"; };
+		7731A7A4168E1E0900ED4BE8 /* Anim-Transparency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Anim-Transparency.png"; sourceTree = "<group>"; };
 		773E4308155EC7070026FA16 /* BMLTVariantDefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTVariantDefs.m; sourceTree = "<group>"; };
 		774166B115472315008692FB /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		774166B215472315008692FB /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -690,8 +694,6 @@
 		776D3791168B3AA200BB2167 /* CheckBoxNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckBoxNormal.png; sourceTree = "<group>"; };
 		776D3792168B3AA200BB2167 /* CheckBoxNormal@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxNormal@2X.png"; sourceTree = "<group>"; };
 		777597CE1540F15F00D45ADA /* SV NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SV NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7775B8A2168A755C00C64086 /* AU-Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AU-Back.png"; sourceTree = "<group>"; };
-		7775B8A3168A755C00C64086 /* AU-Transparency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AU-Transparency.png"; sourceTree = "<group>"; };
 		7775B8A6168A756500C64086 /* BMLT_AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_AnimationView.m; sourceTree = "<group>"; };
 		777AA6B515447BCD00CC98B3 /* Northport.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Northport.gpx; path = "../spec/GPX Files/Northport.gpx"; sourceTree = "<group>"; };
 		777AD6FD1688C61700E064D0 /* AU NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AU NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -708,8 +710,6 @@
 		77815220168B2BAA007F2EF6 /* CheckBoxHighlight-Check@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxHighlight-Check@2X.png"; sourceTree = "<group>"; };
 		77815225168B2BAA007F2EF6 /* CheckBoxNormal-Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxNormal-Check.png"; sourceTree = "<group>"; };
 		77815226168B2BAA007F2EF6 /* CheckBoxNormal-Check@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxNormal-Check@2X.png"; sourceTree = "<group>"; };
-		7783BE66168BB7990043F5DF /* NY-Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NY-Back.png"; sourceTree = "<group>"; };
-		7783BE67168BB7990043F5DF /* NY-Transparency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NY-Transparency.png"; sourceTree = "<group>"; };
 		7783BE6B168BB7A60043F5DF /* BMLT_AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_AnimationView.m; sourceTree = "<group>"; };
 		77882CB61548872000DBE9A1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = BMLT/libTestFlight.a; sourceTree = "<group>"; };
 		77882CB71548872000DBE9A1 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
@@ -976,6 +976,8 @@
 		77603DA21541DC8300C4840F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7731A7A3168E1E0900ED4BE8 /* Anim-Back.png */,
+				7731A7A4168E1E0900ED4BE8 /* Anim-Transparency.png */,
 				77815218168B2BAA007F2EF6 /* Checkboxes */,
 				77AF35F2168A0FB300588DD0 /* LongButtonHighlight.png */,
 				77AF35F3168A0FB300588DD0 /* LongButtonHighlight@2X.png */,
@@ -995,7 +997,6 @@
 				77ADCC4E1545AACF0080250E /* BlueLeather.gif */,
 				771094B71545D19D001989F4 /* BrownLeather.gif */,
 				771094B81545D19D001989F4 /* DarkLeather.gif */,
-				7783BE65168BB7990043F5DF /* NY-Anim */,
 				77603DA31541DC8300C4840F /* BMLT_Animation */,
 				77603DC81541DC8300C4840F /* FormatCircleBlue@2x.png */,
 				77603DC91541DC8300C4840F /* FormatCircleGreen@2x.png */,
@@ -1096,15 +1097,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		7775B8A1168A755C00C64086 /* AU-Anim */ = {
-			isa = PBXGroup;
-			children = (
-				7775B8A2168A755C00C64086 /* AU-Back.png */,
-				7775B8A3168A755C00C64086 /* AU-Transparency.png */,
-			);
-			path = "AU-Anim";
-			sourceTree = "<group>";
-		};
 		777AA6B715447C6E00CC98B3 /* GPX Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1128,7 +1120,8 @@
 		777AD7031688C63000E064D0 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				7775B8A1168A755C00C64086 /* AU-Anim */,
+				7731A79F168E1DEC00ED4BE8 /* Anim-Back.png */,
+				7731A7A0168E1DEC00ED4BE8 /* Anim-Transparency.png */,
 				7766021F1688E00400B1310A /* App-Icon-57.png */,
 				776602201688E00400B1310A /* App-Icon-72.png */,
 				776602211688E00400B1310A /* App-Icon-114.png */,
@@ -1170,15 +1163,6 @@
 			);
 			name = Checkboxes;
 			path = "../../BMLT-AU/images/Checkboxes";
-			sourceTree = "<group>";
-		};
-		7783BE65168BB7990043F5DF /* NY-Anim */ = {
-			isa = PBXGroup;
-			children = (
-				7783BE66168BB7990043F5DF /* NY-Back.png */,
-				7783BE67168BB7990043F5DF /* NY-Transparency.png */,
-			);
-			path = "NY-Anim";
 			sourceTree = "<group>";
 		};
 		77977D00150E882B00485C8D = {
@@ -1622,9 +1606,9 @@
 				777AD6DC1688C61700E064D0 /* BMLTFormatDetailViewController.xib in Resources */,
 				77B54CD3168922F200AD5E83 /* iPad.storyboard in Resources */,
 				77B54CD4168922F200AD5E83 /* iPhone.storyboard in Resources */,
-				7775B8A4168A755C00C64086 /* AU-Back.png in Resources */,
-				7775B8A5168A755C00C64086 /* AU-Transparency.png in Resources */,
 				77D210E5168CAECB000D991A /* shadow.png in Resources */,
+				7731A7A1168E1DEC00ED4BE8 /* Anim-Back.png in Resources */,
+				7731A7A2168E1DEC00ED4BE8 /* Anim-Transparency.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1697,9 +1681,9 @@
 				774B102B168B6D1800E4BBF5 /* LocButtonHighlight@2X.png in Resources */,
 				77682CE3168BA36F00DDB11C /* iPhone.storyboard in Resources */,
 				77682CE4168BA36F00DDB11C /* iPad.storyboard in Resources */,
-				7783BE68168BB7990043F5DF /* NY-Back.png in Resources */,
-				7783BE69168BB7990043F5DF /* NY-Transparency.png in Resources */,
 				77D210E4168CAECB000D991A /* shadow.png in Resources */,
+				7731A7A5168E1E0900ED4BE8 /* Anim-Back.png in Resources */,
+				7731A7A6168E1E0900ED4BE8 /* Anim-Transparency.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2210,7 +2194,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6705E561-F1B8-46B8-BB3B-7AA801144F1E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2266,7 +2250,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9540BD11-23A0-4552-B724-21B49DB4F7FC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
