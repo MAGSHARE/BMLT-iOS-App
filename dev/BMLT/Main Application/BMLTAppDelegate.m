@@ -108,6 +108,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 @synthesize settingsViewController;     ///< This will point to our settings/info main controller.
 @synthesize reusableMeetingDetails = _details;     ///< This will hold an instance of our meeting details view controller that we will re-use.
 @synthesize currentAnimation;           ///< This will hold our current active animation (nil, otherwise).
+@synthesize mapType;                    ///< The current displayed map type.
 
 #pragma mark - Class Methods -
 /**************************************************************//**
@@ -494,6 +495,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         [locationManager setDistanceFilter:kCLDistanceFilterNone];
         [locationManager setDelegate:self];
         searchParams = [[NSMutableDictionary alloc] init];
+        mapType = MKMapTypeStandard;
         }
     
     return self;

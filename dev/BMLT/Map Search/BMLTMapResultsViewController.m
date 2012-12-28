@@ -58,7 +58,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     if (self)
         {
         [self clearLastRegion];
-        NSString    *label = NSLocalizedString ( ([[self myMapView] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
+        NSString    *label = NSLocalizedString ( ([[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
         UIBarButtonItem *theButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItemClicked:)];
         [self set_toggleButton:[[UIBarButtonItem alloc] initWithTitle:label style:UIBarButtonItemStylePlain target:self action:@selector(toggleMapView:)]];
         NSArray *buttons = [NSArray arrayWithObjects:theButton, [self _toggleButton], nil];
@@ -78,6 +78,9 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
         [self determineMapSize:[self dataArray]];
         [self setMapInit:YES];
         }
+    [[self myMapView] setMapType:[[BMLTAppDelegate getBMLTAppDelegate] mapType]];
+    NSString    *label = NSLocalizedString ( ([[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
+    [[self _toggleButton] setTitle:label];
 }
 
 /**************************************************************//**
@@ -540,7 +543,8 @@ didSelectAnnotationView:(MKAnnotationView *)inView    ///< The selected annotati
 - (IBAction)toggleMapView:(id)sender
 {
     [[self myMapView] setMapType:([[self myMapView] mapType] == MKMapTypeStandard) ? MKMapTypeHybrid : MKMapTypeStandard];
-    NSString    *label = NSLocalizedString ( ([[self myMapView] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
+    [[BMLTAppDelegate getBMLTAppDelegate] setMapType:[[self myMapView] mapType]];
+    NSString    *label = NSLocalizedString ( ([[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
     [[self _toggleButton] setTitle:label];
 }
 

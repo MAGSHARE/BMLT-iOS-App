@@ -45,6 +45,8 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
     [[[self navigationItem] titleView] sizeToFit];
     UIBarButtonItem *theButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItemClicked:)];
@@ -201,7 +203,14 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
         [meetingMapView setCenterCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate] animated:NO];
         }
     
-    [self selectMapView:nil];
+    if ( [[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard )
+        {
+        [self selectMapView:nil];
+        }
+    else
+        {
+        [self selectSatelliteView:nil];
+        }
 }
 
 /**************************************************************//**
@@ -305,6 +314,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [meetingMapView setMapType:MKMapTypeStandard];
     [selectMapButton setAlpha:0.0];
     [selectSatelliteButton setAlpha:1.0];
+    [[BMLTAppDelegate getBMLTAppDelegate] setMapType:[[self meetingMapView] mapType]];
 }
 
 /**************************************************************//**
@@ -315,6 +325,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [meetingMapView setMapType:MKMapTypeHybrid];
     [selectMapButton setAlpha:1.0];
     [selectSatelliteButton setAlpha:0.0];
+    [[BMLTAppDelegate getBMLTAppDelegate] setMapType:[[self meetingMapView] mapType]];
 }
 
 #pragma mark - MkMapAnnotationDelegate Functions -

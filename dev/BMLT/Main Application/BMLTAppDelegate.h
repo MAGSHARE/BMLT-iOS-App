@@ -63,6 +63,7 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 @property (nonatomic, readwrite, retain) BMLTMeetingDetailViewController *reusableMeetingDetails;    ///< This will hold an instance of the meeting details view that we will use over and over.
 @property (strong, atomic) BMLTAnimationScreenViewController         *currentAnimation;          ///< This holds the current active animation controller.
 @property (strong, nonatomic) BMLTSettingsViewController             *settingsViewController;    ///< This will point to our map results main controller.
+@property (nonatomic, readwrite)    int                              mapType;                    ///< This stores the current Map type (satellite or map).
 
 /// Class methods
 + (BMLTAppDelegate *)getBMLTAppDelegate;                ///< This class method allows access to the application delegate object (SINGLETON)
