@@ -973,7 +973,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Anim-Back.png" width="512" height="512"/>
+        <image name="Anim-Back.png" width="508" height="508"/>
         <image name="CheckBoxNormal.png" width="48" height="48"/>
         <image name="LocButton.png" width="32" height="32"/>
         <image name="LocButtonHighlight.png" width="32" height="32"/>
