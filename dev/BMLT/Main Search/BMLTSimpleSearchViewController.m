@@ -64,6 +64,8 @@
         {
         [self addClearSearchButton];
         }
+    
+    [self addToggleMapButton];
     [super viewWillAppear:animated];
 }
 

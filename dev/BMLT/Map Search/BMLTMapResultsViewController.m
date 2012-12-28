@@ -78,7 +78,7 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
         [self determineMapSize:[self dataArray]];
         [self setMapInit:YES];
         }
-    [[self myMapView] setMapType:[[BMLTAppDelegate getBMLTAppDelegate] mapType]];
+    [[BMLTAppDelegate getBMLTAppDelegate] toggleThisMapView:[self myMapView] fromThisButton:nil];
     NSString    *label = NSLocalizedString ( ([[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
     [[self _toggleButton] setTitle:label];
 }
@@ -542,10 +542,7 @@ didSelectAnnotationView:(MKAnnotationView *)inView    ///< The selected annotati
  *****************************************************************/
 - (IBAction)toggleMapView:(id)sender
 {
-    [[self myMapView] setMapType:([[self myMapView] mapType] == MKMapTypeStandard) ? MKMapTypeHybrid : MKMapTypeStandard];
-    [[BMLTAppDelegate getBMLTAppDelegate] setMapType:[[self myMapView] mapType]];
-    NSString    *label = NSLocalizedString ( ([[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
-    [[self _toggleButton] setTitle:label];
+    [[BMLTAppDelegate getBMLTAppDelegate] toggleThisMapView:[self myMapView] fromThisButton:[self _toggleButton]];
 }
 
 @end

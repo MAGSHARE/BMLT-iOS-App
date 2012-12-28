@@ -26,15 +26,19 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_DetailsPrintPageRenderer.h"
 
+@interface BMLTMeetingDetailViewController ()
+@property (strong, atomic)  UIBarButtonItem *_toggleButton;
+@end
+
 @implementation BMLTMeetingDetailViewController
 @synthesize addressButton;
 @synthesize commentsTextView;
 @synthesize frequencyTextView;
 @synthesize formatsContainerView;
-@synthesize selectSatelliteButton;
-@synthesize selectMapButton;
 @synthesize meetingMapView, myMeeting = _myMeeting;
 @synthesize myModalController;
+@synthesize meetingNameLabel;
+@synthesize _toggleButton;
 
 static int List_Meeting_Format_Circle_Size_Big = 30;
 
@@ -47,8 +51,10 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 {
     [super viewWillAppear:animated];
     
-    [[self navigationItem] setTitle:[_myMeeting getBMLTName]];
+    [[self navigationItem] setTitle:NSLocalizedString(@"MEETING-DETAILS", nil)];
     [[[self navigationItem] titleView] sizeToFit];
+    
+    [[self meetingNameLabel] setText:[_myMeeting getBMLTName]];
     UIBarButtonItem *theButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionItemClicked:)];
     // iPad has enough room for us to add a "Directions" button.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -61,10 +67,34 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
         {
         [[self navigationItem] setRightBarButtonItem:theButton];
         }
+    
     [self setMeetingFrequencyText];
-    [self setMeetingCommentsText];
+    
+    CGRect  description_frame = [frequencyTextView frame];
+    CGRect  address_frame = [addressButton frame];
+    CGPoint top_of_map = CGPointMake ( description_frame.origin.x, description_frame.origin.y + description_frame.size.height);
+    
+    if ( [_myMeeting getBMLTDescription] )
+        {
+        [commentsTextView setHidden:NO];
+        [self setMeetingCommentsText];
+        CGRect  comments_frame = [commentsTextView frame];
+        top_of_map = CGPointMake ( comments_frame.origin.x, comments_frame.origin.y + comments_frame.size.height);
+        }
+    else
+        {
+        [commentsTextView setHidden:YES];
+        }
+
+    CGRect  map_frame = [[self meetingMapView] frame];
+    map_frame.origin.y = top_of_map.y + description_frame.size.height;
+    map_frame.size.height = address_frame.origin.y - map_frame.origin.y;
+    [[self meetingMapView] setFrame:map_frame];
+    
     [self setMeetingLocationText];
     [self setFormats];
+    [self addToggleMapButton];
+    [[BMLTAppDelegate getBMLTAppDelegate] toggleThisMapView:[self meetingMapView] fromThisButton:nil];
 }
 
 /**************************************************************//**
@@ -92,6 +122,33 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 }
 
 #pragma mark - Custom Functions -
+
+/**************************************************************//**
+ \brief  This adds the map toggle button to the navbar.
+ *****************************************************************/
+- (void)addToggleMapButton
+{
+    if ( YES )
+        {
+        NSMutableArray  *buttons = [[NSMutableArray alloc]initWithArray:[[self navigationItem] rightBarButtonItems]];
+        [buttons removeObject:[self _toggleButton]];
+    
+        NSString    *label = NSLocalizedString ( ([[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
+    
+        if ( ![self _toggleButton] )
+            {
+            [self set_toggleButton:[[UIBarButtonItem alloc] initWithTitle:label style:UIBarButtonItemStyleBordered target:self action:@selector(toggleMapView:)]];
+            }
+        else
+            {
+            [[self _toggleButton] setTitle:label];
+            }
+    
+        [buttons addObject:[self _toggleButton]];
+    
+        [[self navigationItem] setRightBarButtonItems:buttons animated:NO];
+        }
+}
 
 /**************************************************************//**
  \brief Set up the display of the format circles.
@@ -202,15 +259,6 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
         [[[meetingMapView annotations] objectAtIndex:0] setCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate]];
         [meetingMapView setCenterCoordinate:[[_myMeeting getMeetingLocationCoords] coordinate] animated:NO];
         }
-    
-    if ( [[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard )
-        {
-        [self selectMapView:nil];
-        }
-    else
-        {
-        [self selectSatelliteView:nil];
-        }
 }
 
 /**************************************************************//**
@@ -280,6 +328,14 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 }
 
 /**************************************************************//**
+ \brief This toggles the map view between map and satellite.
+ *****************************************************************/
+- (IBAction)toggleMapView:(id)sender
+{
+    [[BMLTAppDelegate getBMLTAppDelegate] toggleThisMapView:[self meetingMapView] fromThisButton:[self _toggleButton]];
+}
+
+/**************************************************************//**
  \brief This is called to dismiss the modal dialog or popover.
  *****************************************************************/
 - (void)closeModal
@@ -304,28 +360,6 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 - (UIPrintPageRenderer *)getMyPageRenderer
 {
     return [[BMLT_DetailsPrintPageRenderer alloc] initWithMeetings:[NSArray arrayWithObject:[self myMeeting]] andMapFormatter:[[self meetingMapView] viewPrintFormatter]];
-}
-
-/**************************************************************//**
- \brief The map will be displayed as a map.
- *****************************************************************/
-- (IBAction)selectMapView:(id)sender    ///< The Map button
-{
-    [meetingMapView setMapType:MKMapTypeStandard];
-    [selectMapButton setAlpha:0.0];
-    [selectSatelliteButton setAlpha:1.0];
-    [[BMLTAppDelegate getBMLTAppDelegate] setMapType:[[self meetingMapView] mapType]];
-}
-
-/**************************************************************//**
- \brief The map will be displayed as a satellite view.
- *****************************************************************/
-- (IBAction)selectSatelliteView:(id)sender  ///< The Satellite button
-{
-    [meetingMapView setMapType:MKMapTypeHybrid];
-    [selectMapButton setAlpha:1.0];
-    [selectSatelliteButton setAlpha:0.0];
-    [[BMLTAppDelegate getBMLTAppDelegate] setMapType:[[self meetingMapView] mapType]];
 }
 
 #pragma mark - MkMapAnnotationDelegate Functions -

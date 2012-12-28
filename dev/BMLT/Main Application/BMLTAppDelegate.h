@@ -96,4 +96,5 @@ extern int kAddressLookupTimeoutPeriod_in_seconds;
 - (void)lookupMyLocationWithAccuracy:(int)accuracy;     ///< Tells the app to do a CL lookup. The map (if there is one) will be updated when the location is updated.
 - (void)executeDeferredSearch;                          ///< Starts the search going.
 - (void)setDefaultMapRegion;                            ///< This sets the search map (iPad only) to the default size and location.
+- (void)toggleThisMapView:(MKMapView *)theMap fromThisButton:(UIBarButtonItem *)theBarButton;   ///< Toggles the map view.
 @end

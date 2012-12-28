@@ -170,6 +170,9 @@
 "WEEKDAY-SHORT-NAME-5" = "Fri";
 "WEEKDAY-SHORT-NAME-6" = "Sat";
 
+/* The Name of the Meeting Details Screen */
+"MEETING-DETAILS" = "Details";
+
 /* The default title for the black marker */
 "BLACK-MARKER-TITLE" = "Your Location";
 

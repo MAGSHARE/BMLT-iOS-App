@@ -155,7 +155,7 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 {
     if ( [self mapSearchView] )
         {        
-        NSMutableArray  *buttons = [[NSMutableArray alloc]initWithArray:[[self navigationItem] leftBarButtonItems]];
+        NSMutableArray  *buttons = [[NSMutableArray alloc]initWithArray:[[self navigationItem] rightBarButtonItems]];
         [buttons removeObject:[self _toggleButton]];
         
         NSString    *label = NSLocalizedString ( ([[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
@@ -163,22 +163,17 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         if ( ![self _toggleButton] )
             {
             [self set_toggleButton:[[UIBarButtonItem alloc] initWithTitle:label style:UIBarButtonItemStyleBordered target:self action:@selector(toggleMapView:)]];
+            
+            [buttons addObject:[self _toggleButton]];
+            
+            [[self navigationItem] setRightBarButtonItems:buttons animated:NO];
             }
         else
             {
             [[self _toggleButton] setTitle:label];
             }
-    
-        [buttons addObject:[self _toggleButton]];
         
-        if ( [self isKindOfClass:[BMLTAdvancedSearchViewController class]] )
-            {
-            [[self navigationItem] setRightBarButtonItem:[self _toggleButton] animated:NO];
-            }
-        else
-            {
-            [[self navigationItem] setLeftBarButtonItems:buttons animated:NO];
-            }
+        [[BMLTAppDelegate getBMLTAppDelegate] toggleThisMapView:[self mapSearchView] fromThisButton:nil];
         }
 }
 
@@ -191,7 +186,6 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     [super viewWillAppear:animated];
     [self setUpMap];
     [[BMLTAppDelegate getBMLTAppDelegate] setActiveSearchController:self];
-    [[self mapSearchView] setMapType:[[BMLTAppDelegate getBMLTAppDelegate] mapType]];
     [[self mapSearchView] setRegion:[[self mapSearchView] regionThatFits:[[BMLTAppDelegate getBMLTAppDelegate] searchMapRegion]]];
     [myMarker setCoordinate:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc]];
 
@@ -200,8 +194,6 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         [[self lookupLocationButton] setEnabled:NO];
         [[self lookupLocationButton] setAlpha:0];
         }
-    
-    [self addToggleMapButton];
 }
 
 /**************************************************************//**
@@ -361,12 +353,6 @@ fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state 
  *****************************************************************/
 - (IBAction)toggleMapView:(id)sender
 {
-    if ( [self mapSearchView] )
-        {
-        [[self mapSearchView] setMapType:([[self mapSearchView] mapType] == MKMapTypeStandard) ? MKMapTypeHybrid : MKMapTypeStandard];
-        [[BMLTAppDelegate getBMLTAppDelegate] setMapType:[[self mapSearchView] mapType]];
-        NSString    *label = NSLocalizedString ( ([[BMLTAppDelegate getBMLTAppDelegate] mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
-        [[self _toggleButton] setTitle:label];
-        }
+    [[BMLTAppDelegate getBMLTAppDelegate] toggleThisMapView:[self mapSearchView] fromThisButton:[self _toggleButton]];
 }
 @end

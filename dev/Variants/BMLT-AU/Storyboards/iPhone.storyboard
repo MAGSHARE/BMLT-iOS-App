@@ -835,8 +835,15 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MEETING-NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Upj-Yw-RfN">
+                                <rect key="frame" x="0.0" y="25" width="320" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="MEETING-DETAILS-FREQUENCY-FORMAT" textAlignment="center" id="KYi-wM-itk" userLabel="Frequency">
-                                <rect key="frame" x="0.0" y="33" width="320" height="31"/>
+                                <rect key="frame" x="0.0" y="52" width="320" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -844,11 +851,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" text="Comments" id="Q4D-Dh-Uq5" userLabel="Comments">
-                                <rect key="frame" x="0.0" y="59" width="320" height="64"/>
+                                <rect key="frame" x="0.0" y="78" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                             </textView>
@@ -875,52 +882,12 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Wi2-eg-wY7">
-                                <rect key="frame" x="0.0" y="122" width="320" height="200"/>
+                                <rect key="frame" x="0.0" y="143" width="320" height="179"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="njF-E5-VED" id="XL1-aW-Wg4"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iev-p3-KjM" userLabel="Satellite">
-                                <rect key="frame" x="286" y="285" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <state key="normal" backgroundImage="SButtonConvex.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" backgroundImage="SButtonConcave.png"/>
-                                <state key="highlighted" backgroundImage="SButtonConcave.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectSatelliteView:" destination="njF-E5-VED" eventType="touchUpInside" id="iN5-eK-rLt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9KQ-kT-YA1" userLabel="Map">
-                                <rect key="frame" x="286" y="285" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <state key="normal" backgroundImage="MButtonConvex.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" backgroundImage="MButtonConvex.png"/>
-                                <state key="highlighted" backgroundImage="MButtonConcave.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectMapView:" destination="njF-E5-VED" eventType="touchUpInside" id="IiX-jr-AnK"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="shadow.png" id="kRL-D3-BZJ">
-                                <rect key="frame" x="0.0" y="117" width="320" height="8"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="shadow.png" id="buK-Dn-YvG">
-                                <rect key="frame" x="0.0" y="318" width="320" height="8"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -932,8 +899,7 @@
                         <outlet property="formatsContainerView" destination="z8D-a3-WKj" id="mr4-45-MeC"/>
                         <outlet property="frequencyTextView" destination="KYi-wM-itk" id="mpe-H4-Czp"/>
                         <outlet property="meetingMapView" destination="Wi2-eg-wY7" id="tjc-Km-KLS"/>
-                        <outlet property="selectMapButton" destination="9KQ-kT-YA1" id="lx7-6d-mvx"/>
-                        <outlet property="selectSatelliteButton" destination="Iev-p3-KjM" id="PmJ-YE-ZeG"/>
+                        <outlet property="meetingNameLabel" destination="Upj-Yw-RfN" id="o4W-ye-pM3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ai-Zw-P1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -980,15 +946,10 @@
         <image name="CheckBoxNormal.png" width="48" height="48"/>
         <image name="LongButtonHighlight.png" width="220" height="32"/>
         <image name="LongButtonNormal.png" width="220" height="32"/>
-        <image name="MButtonConcave.png" width="48" height="48"/>
-        <image name="MButtonConvex.png" width="48" height="48"/>
-        <image name="SButtonConcave.png" width="48" height="48"/>
-        <image name="SButtonConvex.png" width="48" height="48"/>
         <image name="list.png" width="26" height="26"/>
         <image name="map.png" width="26" height="26"/>
         <image name="search.png" width="26" height="26"/>
         <image name="settings.png" width="26" height="26"/>
-        <image name="shadow.png" width="1" height="8"/>
     </resources>
     <classes>
         <class className="A_BMLTMainBackgroundView" superclassName="UIView">
@@ -1011,12 +972,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/A_BMLT_SearchViewController.h"/>
             <relationships>
                 <relationship kind="action" name="locationButtonPressed:"/>
-                <relationship kind="action" name="selectMapView:"/>
-                <relationship kind="action" name="selectSatelliteView:"/>
+                <relationship kind="action" name="toggleMapView:"/>
                 <relationship kind="outlet" name="lookupLocationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mapSearchView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="selectMapButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="selectSatelliteButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="BMLTAboutBackgroundView" superclassName="UIView">
@@ -1078,6 +1036,7 @@
         <class className="BMLTMapResultsViewController" superclassName="A_BMLTSearchResultsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTMapResultsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="toggleMapView:"/>
                 <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
             </relationships>
@@ -1087,15 +1046,13 @@
             <relationships>
                 <relationship kind="action" name="actionItemClicked:"/>
                 <relationship kind="action" name="callForDirections:"/>
-                <relationship kind="action" name="selectMapView:"/>
-                <relationship kind="action" name="selectSatelliteView:"/>
+                <relationship kind="action" name="toggleMapView:"/>
                 <relationship kind="outlet" name="addressButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="commentsTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="formatsContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="frequencyTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="meetingMapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="selectMapButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="selectSatelliteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="meetingNameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="BMLTSettingsViewController" superclassName="A_BMLTNavBarViewController">

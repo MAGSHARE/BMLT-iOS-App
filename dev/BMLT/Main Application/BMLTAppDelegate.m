@@ -1277,4 +1277,27 @@ shouldSelectViewController:(UIViewController *)inViewController
 #endif
     searchResults = [[self class] sortMeetingListByDistance:searchResults];
 }
+
+/**************************************************************//**
+ \brief This toggles the map view between map and satellite.
+ *****************************************************************/
+- (void)toggleThisMapView:(MKMapView *)theMap               ///< The map view that is being switched.
+           fromThisButton:(UIBarButtonItem *)theBarButton   ///< The bar button that is triggering the switch.
+{
+    if ( theMap )
+        {
+        if ( !theBarButton )    // If we don't supply a bar button item, then this is not a toggle. It is an initial set.
+            {
+            [theMap setMapType:[self mapType]];
+            }
+        else
+            {
+            [theMap setMapType:([theMap mapType] == MKMapTypeStandard) ? MKMapTypeHybrid : MKMapTypeStandard];
+            }
+        [self setMapType:[theMap mapType]];
+        NSString    *label = NSLocalizedString ( ([self mapType] == MKMapTypeStandard ? @"TOGGLE-MAP-LABEL-SATELLITE" : @"TOGGLE-MAP-LABEL-MAP" ), nil);
+        [theBarButton setTitle:label];
+        }
+}
+
 @end

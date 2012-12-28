@@ -38,9 +38,9 @@
 @property (weak, nonatomic) IBOutlet    UITextView          *commentsTextView;
 @property (weak, nonatomic) IBOutlet    UITextView          *frequencyTextView;
 @property (weak, nonatomic) IBOutlet    UIView              *formatsContainerView;
-@property (weak, nonatomic) IBOutlet    UIButton            *selectSatelliteButton;
-@property (weak, nonatomic) IBOutlet    UIButton            *selectMapButton;
+@property (weak, nonatomic) IBOutlet    UILabel             *meetingNameLabel;
 
+- (void)addToggleMapButton;
 - (void)setFormats;
 - (void)setMeetingFrequencyText;
 - (void)setMeetingCommentsText;
@@ -51,8 +51,7 @@
 - (UIPrintPageRenderer *)getMyPageRenderer;
 
 - (IBAction)callForDirections:(id)sender;
-- (IBAction)selectMapView:(id)sender;
-- (IBAction)selectSatelliteView:(id)sender;
 - (IBAction)actionItemClicked:(id)sender;
+- (IBAction)toggleMapView:(id)sender;                               ///< Toggles the map between satellite and map.
 
 @end

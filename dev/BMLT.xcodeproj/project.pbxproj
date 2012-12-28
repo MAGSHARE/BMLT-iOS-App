@@ -2073,7 +2073,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6705E561-F1B8-46B8-BB3B-7AA801144F1E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2362,7 +2362,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6705E561-F1B8-46B8-BB3B-7AA801144F1E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2371,7 +2371,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2390,7 +2390,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8E0F6A0F-4C60-4338-A10C-7364633CA79E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

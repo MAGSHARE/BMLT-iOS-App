@@ -84,6 +84,7 @@ CHANGELIST
 == Version 2.5
 * TBD
 * This includes a complete replacement of the original skeuomorphic UX with newer, "cleaner" UX.
+* Rearranged the UX a bit, so that it is more obvious where we can switch between map and satellite view.
 * Made handling of location errors a bit more robust.
 
 == Version 2.0.5
