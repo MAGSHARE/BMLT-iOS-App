@@ -2150,7 +2150,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03C6E9F0-56ED-4ABB-88A4-DF8DDC96E782";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2264,8 +2264,8 @@
 		777AD6FA1688C61700E064D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2287,7 +2287,8 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2295,8 +2296,8 @@
 		777AD6FB1688C61700E064D0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Marshall";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2315,7 +2316,8 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8E0F6A0F-4C60-4338-A10C-7364633CA79E";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2323,8 +2325,8 @@
 		777AD6FC1688C61700E064D0 /* TestFlight */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2343,7 +2345,8 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2439,7 +2442,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03C6E9F0-56ED-4ABB-88A4-DF8DDC96E782";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2467,7 +2470,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "612173C1-9A60-461A-9A60-F62FC7BC7FAA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03C6E9F0-56ED-4ABB-88A4-DF8DDC96E782";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
