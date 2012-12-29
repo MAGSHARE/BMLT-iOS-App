@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx
+  version="1.0"
+  creator="GPSBabel - http://www.gpsbabel.org"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.topografix.com/GPX/1/0"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<time>2012-04-19T19:45:28Z</time>
+<bounds minlat="59.371145" minlon="16.510756" maxlat="59.371145" maxlon="16.510756"/>
+<wpt lat="59.371145" lon="16.510756">
+  <ele>0.000000</ele>
+  <name>Eskiltuna, SV</name>
+  <cmt>Eskiltuna, SV</cmt>
+  <desc>Eskiltuna, SV</desc>
+</wpt>
+</gpx>

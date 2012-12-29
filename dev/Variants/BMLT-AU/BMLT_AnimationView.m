@@ -43,11 +43,11 @@
     
     if ( self )
         {
-        UIImageView *bottomLayerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AU-Back.png"]];
+        UIImageView *bottomLayerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Anim-Back.png"]];
         [bottomLayerImage setFrame:[self bounds]];
         [self addSubview:bottomLayerImage];
         
-        _transparencyImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AU-Transparency.png"]];
+        _transparencyImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Anim-Transparency.png"]];
         [_transparencyImage setFrame:[self bounds]];
         CABasicAnimation    *fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
         [fullRotation setFromValue:[NSNumber numberWithFloat:0]];
