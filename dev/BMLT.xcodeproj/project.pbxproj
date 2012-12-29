@@ -744,7 +744,7 @@
 		776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTDisplayListResultsViewController.m; sourceTree = "<group>"; };
 		776CAD8815404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_DetailsPrintPageRenderer.h; sourceTree = "<group>"; };
 		776CAD8915404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_DetailsPrintPageRenderer.m; sourceTree = "<group>"; };
-		777597CE1540F15F00D45ADA /* SV NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SV NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		777597CE1540F15F00D45ADA /* NA Sverige.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NA Sverige.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777AA6B515447BCD00CC98B3 /* Northport.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Northport.gpx; path = "../spec/GPX Files/Northport.gpx"; sourceTree = "<group>"; };
 		777AD6FD1688C61700E064D0 /* AU NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AU NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777AD7021688C63000E064D0 /* BMLTVariantDefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTVariantDefs.m; sourceTree = "<group>"; };
@@ -1252,7 +1252,7 @@
 			children = (
 				77977D0B150E882B00485C8D /* NY NA Meetings.app */,
 				77AC71E215409E9F0060CA80 /* MNNA.app */,
-				777597CE1540F15F00D45ADA /* SV NA Meetings.app */,
+				777597CE1540F15F00D45ADA /* NA Sverige.app */,
 				777AD6FD1688C61700E064D0 /* AU NA Meetings.app */,
 			);
 			name = Products;
@@ -1403,9 +1403,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		777597561540F15E00D45ADA /* SV NA Meetings */ = {
+		777597561540F15E00D45ADA /* NA Sveridge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 777597CB1540F15E00D45ADA /* Build configuration list for PBXNativeTarget "SV NA Meetings" */;
+			buildConfigurationList = 777597CB1540F15E00D45ADA /* Build configuration list for PBXNativeTarget "NA Sveridge" */;
 			buildPhases = (
 				777597571540F15E00D45ADA /* Sources */,
 				7775977E1540F15E00D45ADA /* Frameworks */,
@@ -1415,9 +1415,9 @@
 			);
 			dependencies = (
 			);
-			name = "SV NA Meetings";
+			name = "NA Sveridge";
 			productName = BMLT;
-			productReference = 777597CE1540F15F00D45ADA /* SV NA Meetings.app */;
+			productReference = 777597CE1540F15F00D45ADA /* NA Sverige.app */;
 			productType = "com.apple.product-type.application";
 		};
 		777AD66B1688C61700E064D0 /* AU NA Meetings */ = {
@@ -1497,7 +1497,7 @@
 			targets = (
 				77977D0A150E882B00485C8D /* NY NA Meetings */,
 				77AC716915409E9F0060CA80 /* MNNA */,
-				777597561540F15E00D45ADA /* SV NA Meetings */,
+				777597561540F15E00D45ADA /* NA Sveridge */,
 				777AD66B1688C61700E064D0 /* AU NA Meetings */,
 			);
 		};
@@ -2205,7 +2205,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/BMLT\"",
 				);
-				PRODUCT_NAME = "SV NA Meetings";
+				PRODUCT_NAME = "NA Sverige";
 				PROVISIONING_PROFILE = "03C6E9F0-56ED-4ABB-88A4-DF8DDC96E782";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2231,7 +2231,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/BMLT\"",
 				);
-				PRODUCT_NAME = "SV NA Meetings";
+				PRODUCT_NAME = "NA Sverige";
 				PROVISIONING_PROFILE = "03C6E9F0-56ED-4ABB-88A4-DF8DDC96E782";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2257,7 +2257,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/BMLT\"",
 				);
-				PRODUCT_NAME = "SV NA Meetings";
+				PRODUCT_NAME = "NA Sverige";
 				PROVISIONING_PROFILE = "03C6E9F0-56ED-4ABB-88A4-DF8DDC96E782";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2536,7 +2536,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		777597CB1540F15E00D45ADA /* Build configuration list for PBXNativeTarget "SV NA Meetings" */ = {
+		777597CB1540F15E00D45ADA /* Build configuration list for PBXNativeTarget "NA Sveridge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				777597CC1540F15E00D45ADA /* Debug */,
