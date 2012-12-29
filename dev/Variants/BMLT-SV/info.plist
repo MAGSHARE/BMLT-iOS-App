@@ -11,9 +11,9 @@
 	<key>BMLTRootServerURI</key>
 	<string>http://www.nasverige.org/bmlt</string>
 	<key>BMLTServerHomeLat</key>
-	<real>59.319178000000001</real>
+	<real>59.319178</real>
 	<key>BMLTServerHomeLong</key>
-	<real>18.104089999999999</real>
+	<real>18.10409</real>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -28,11 +28,10 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>icon-iPhone.png</string>
-				<string>icon-LargeiPhone.png</string>
-				<string>icon-iPad.png</string>
-				<string>icon-LargeiPad.png</string>
-				<string>iPhone.png</string>
+				<string>App-Icon-57.png</string>
+				<string>App-Icon-114.png</string>
+				<string>App-Icon-72.png</string>
+				<string>App-Icon-144.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
