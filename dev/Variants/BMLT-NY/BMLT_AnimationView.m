@@ -44,7 +44,7 @@
     if ( self )
         {
         UIImageView *bottomLayerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Anim-Back.png"]];
-        [bottomLayerImage setFrame:[self bounds]];
+        [bottomLayerImage setFrame:CGRectInset([self bounds], 1, 1)];
         [self addSubview:bottomLayerImage];
         
         _transparencyImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Anim-Transparency.png"]];

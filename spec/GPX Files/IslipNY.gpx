@@ -5,11 +5,11 @@
   xmlns="http://www.topografix.com/GPX/1/0"
   xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
 <time>2012-04-22T17:32:54Z</time>
-<bounds minlat="40.891910784" minlon="-73.335898408" maxlat="40.891910784" maxlon="-73.335898408"/>
-<wpt lat="40.891910784" lon="-73.335898408">
+<bounds minlat="40.788925" minlon="-73.097663" maxlat="40.788925" maxlon="-73.335898408"/>
+<wpt lat="40.788925" lon="-73.097663">
   <ele>0.000000</ele>
-  <name>Northport, NY</name>
-  <cmt>Northport, NY</cmt>
-  <desc>Northport, NYe</desc>
+  <name>Islip, NY</name>
+  <cmt>Islip, NY</cmt>
+  <desc>Islip, NYe</desc>
 </wpt>
 </gpx>
