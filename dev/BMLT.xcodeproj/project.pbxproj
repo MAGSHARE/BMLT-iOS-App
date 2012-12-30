@@ -2152,7 +2152,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03C6E9F0-56ED-4ABB-88A4-DF8DDC96E782";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EE0540C-D526-437A-99BF-350712521CFF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2444,7 +2444,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03C6E9F0-56ED-4ABB-88A4-DF8DDC96E782";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EE0540C-D526-437A-99BF-350712521CFF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2472,7 +2472,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03C6E9F0-56ED-4ABB-88A4-DF8DDC96E782";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EE0540C-D526-437A-99BF-350712521CFF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
