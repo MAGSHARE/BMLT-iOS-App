@@ -1409,9 +1409,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		777597561540F15E00D45ADA /* NA Sveridge */ = {
+		777597561540F15E00D45ADA /* NA Sverige */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 777597CB1540F15E00D45ADA /* Build configuration list for PBXNativeTarget "NA Sveridge" */;
+			buildConfigurationList = 777597CB1540F15E00D45ADA /* Build configuration list for PBXNativeTarget "NA Sverige" */;
 			buildPhases = (
 				777597571540F15E00D45ADA /* Sources */,
 				7775977E1540F15E00D45ADA /* Frameworks */,
@@ -1421,7 +1421,7 @@
 			);
 			dependencies = (
 			);
-			name = "NA Sveridge";
+			name = "NA Sverige";
 			productName = BMLT;
 			productReference = 777597CE1540F15F00D45ADA /* NA Sverige.app */;
 			productType = "com.apple.product-type.application";
@@ -1502,7 +1502,7 @@
 			projectRoot = "";
 			targets = (
 				77977D0A150E882B00485C8D /* NY NA Meetings */,
-				777597561540F15E00D45ADA /* NA Sveridge */,
+				777597561540F15E00D45ADA /* NA Sverige */,
 				777AD66B1688C61700E064D0 /* AU NA Meetings */,
 				77AC716915409E9F0060CA80 /* MNNA */,
 			);
@@ -2541,7 +2541,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		777597CB1540F15E00D45ADA /* Build configuration list for PBXNativeTarget "NA Sveridge" */ = {
+		777597CB1540F15E00D45ADA /* Build configuration list for PBXNativeTarget "NA Sverige" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				777597CC1540F15E00D45ADA /* Debug */,
