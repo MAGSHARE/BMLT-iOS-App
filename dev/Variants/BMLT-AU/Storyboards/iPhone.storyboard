@@ -273,6 +273,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="ABOUT-TITLE" id="Hjk-U2-sOA"/>
                     <connections>
+                        <outlet property="logoImageView" destination="6Wq-2f-3wZ" id="z5Q-9X-Lr4"/>
                         <outlet property="versionLabel" destination="6WO-b9-OV4" id="uz5-bS-qN9"/>
                     </connections>
                 </viewController>
@@ -947,7 +948,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Anim-Back.png" width="508" height="508"/>
+        <image name="Anim-Back.png" width="256" height="256"/>
         <image name="CheckBoxNormal.png" width="48" height="48"/>
         <image name="LongButtonHighlight.png" width="220" height="32"/>
         <image name="LongButtonNormal.png" width="220" height="32"/>
@@ -988,6 +989,7 @@
         <class className="BMLTAboutViewController" superclassName="A_BMLTNavBarViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BMLTAboutViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

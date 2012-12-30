@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7707C49E1690BCC100FA8D9A /* AboutLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7707C49D1690BCC100FA8D9A /* AboutLogo.png */; };
 		7707F3151525B44C00032CCA /* A_BMLT_SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */; };
 		771094BB1545D19D001989F4 /* BrownLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 771094B71545D19D001989F4 /* BrownLeather.gif */; };
 		771094BE1545D19D001989F4 /* DarkLeather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 771094B81545D19D001989F4 /* DarkLeather.gif */; };
@@ -556,6 +557,7 @@
 
 /* Begin PBXFileReference section */
 		7700DE3C1541FDEF009A1DBB /* MainDocumentPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainDocumentPage.h; sourceTree = "<group>"; };
+		7707C49D1690BCC100FA8D9A /* AboutLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutLogo.png; sourceTree = "<group>"; };
 		7707F3131525B44C00032CCA /* A_BMLT_SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = A_BMLT_SearchViewController.h; path = Miscellaneous/A_BMLT_SearchViewController.h; sourceTree = "<group>"; };
 		7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLT_SearchViewController.m; path = Miscellaneous/A_BMLT_SearchViewController.m; sourceTree = "<group>"; };
 		771094B71545D19D001989F4 /* BrownLeather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BrownLeather.gif; sourceTree = "<group>"; };
@@ -1004,6 +1006,7 @@
 		773E41DF168E9DD700CED8D5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7707C49D1690BCC100FA8D9A /* AboutLogo.png */,
 				773E41E0168E9DD700CED8D5 /* Anim-Back.png */,
 				773E41E1168E9DD700CED8D5 /* Anim-Transparency.png */,
 				773E41E2168E9DD700CED8D5 /* App-Icon-114.png */,
@@ -1617,6 +1620,7 @@
 				773E4293168E9E4E00CED8D5 /* LongButtonHighlight@2X.png in Resources */,
 				773E4297168E9E4E00CED8D5 /* LongButtonNormal.png in Resources */,
 				773E429B168E9E4E00CED8D5 /* LongButtonNormal@2X.png in Resources */,
+				7707C49E1690BCC100FA8D9A /* AboutLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

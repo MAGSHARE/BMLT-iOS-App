@@ -114,7 +114,7 @@
 /*****************************************************************/
 + (UIColor *)infoBackgroundColor
 {
-    return [[self class] modalBackgroundColor];
+    return [[self class] windowBackgroundColor];
 }
 
 /*****************************************************************/

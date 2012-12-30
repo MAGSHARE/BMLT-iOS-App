@@ -42,14 +42,22 @@
     [super viewDidLoad];
     [[self view] setBackgroundColor:[BMLTVariantDefs infoBackgroundColor]];
     [[self versionLabel] setText:NSLocalizedString([[self versionLabel] text], nil)];
+    
+    // We may add a logo image. If so, we will use that, instead of the standard animation backing.
+    UIImage *logo = [UIImage imageNamed:@"AboutLogo.png"];
+    
+    if ( logo )
+        {
+        [[self logoImageView] setImage:logo];
+        }
 }
-
 /**************************************************************//**
  \brief  Called after the controller's view object has unloaded.
  *****************************************************************/
 - (void)viewDidUnload
 {
     [self setVersionLabel:nil];
+    [self setLogoImageView:nil];
     [super viewDidUnload];
 }
 @end
