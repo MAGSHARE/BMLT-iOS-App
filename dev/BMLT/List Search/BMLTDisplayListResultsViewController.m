@@ -26,13 +26,15 @@
 
 static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for lists of more than one result.
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTMeetingDisplaySortCellView
  \brief  This class handles display of the sort by header.
  *****************************************************************/
 @implementation BMLTMeetingDisplaySortCellView
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief sets up the control with its various initial states.
  *****************************************************************/
 - (void)setTheSortControl:(UISegmentedControl *)inControl   ///< The control to use as the sort header.
@@ -46,7 +48,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
 
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.
  *****************************************************************/
@@ -54,7 +57,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
 
 @synthesize includeSortRow, sortControl;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called after the view has loaded.
  *****************************************************************/
 - (void)viewDidLoad
@@ -63,7 +67,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
     [self setMyModalController:self];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called before the load appears. We use it to reload.
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
@@ -72,7 +77,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
     [(UITableView *)[self view] reloadData];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Specialize the implicit call, because we trigger a redraw, and
         we want to be able to use a regular array, not a mutable one.
  *****************************************************************/
@@ -86,7 +92,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
     [self setContentSizeForViewInPopover:CGSizeMake([[self view] bounds].size.width, height)];    // Make sure our popover isn't too big.
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Instantiates and returns the appropriate page renderer
  \returns an instance of BMLT_ListPrintPageRenderer, disguised as a UIPrintPageRenderer
  *****************************************************************/
@@ -97,7 +104,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
 
 #pragma mark - IBAction Functions -
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Sorts the meeting search results.
  *****************************************************************/
 - (IBAction)sortMeetings:(id)sender        ///< The Segmented Control
@@ -134,7 +142,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
 
 #pragma mark - Table Data Source Functions -
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief We have two sections in this table. This returns 2.
  \returns 2
  *****************************************************************/
@@ -147,7 +156,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
 }
 
 #pragma mark - UITableViewDataSource Delegate Required Methods -
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called to provide a single cell contents.
  \returns a table cell view, with all the data and primed for action.
  *****************************************************************/
@@ -247,7 +257,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called to indicate the number of active rows in the display.
  \returns an integer. The number of active rows.
  *****************************************************************/
@@ -263,7 +274,8 @@ static int kSortHeaderHeight = 30;  ///< The height of the "Sort By" header for 
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the proper height for the table cell.
  \returns a floating-point number that specifies how many pixels high to make the table row.
  *****************************************************************/
@@ -279,7 +291,8 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath    ///< The index.
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the user selects a table row.
  *****************************************************************/
 - (NSIndexPath *)tableView:(UITableView *)tableView

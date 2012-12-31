@@ -19,7 +19,8 @@
 
 #import <UIKit/UIKit.h>
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLTCloseModalProtocol
  \brief Simply ensures that the classes will have a proper "closeModal" method.
  *****************************************************************/

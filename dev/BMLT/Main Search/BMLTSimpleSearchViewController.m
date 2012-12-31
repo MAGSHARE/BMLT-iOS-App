@@ -21,7 +21,8 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTSimpleSearchViewController  -Implementation
  \brief  This class will present the user with a simple "one-button" interface.
  *****************************************************************/
@@ -33,7 +34,8 @@
 @synthesize findMeetingsLaterTodayButton;
 @synthesize findMeetingsTomorrowButton;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
@@ -69,7 +71,8 @@
     [super viewWillAppear:animated];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Called after the controller's view object has unloaded.
  *****************************************************************/
 - (void)viewDidUnload
@@ -83,7 +86,8 @@
 }
 
 #pragma mark IB Actions
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Do a simple meeting lookup.
  *****************************************************************/
 - (IBAction)findAllMeetingsNearMe:(id)sender    ///< The object that called this.
@@ -104,7 +108,8 @@
     [myAppDelegate searchForMeetingsNearMe:location];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Do a simple meeting lookup, for meetings later today.
  *****************************************************************/
 - (IBAction)findAllMeetingsNearMeLaterToday:(id)sender    ///< The object that called this.
@@ -125,7 +130,8 @@
     [myAppDelegate searchForMeetingsNearMeLaterToday:location];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Do a simple meeting lookup, for meetings tomorrow.
  *****************************************************************/
 - (IBAction)findAllMeetingsNearMeTomorrow:(id)sender    ///< The object that called this.

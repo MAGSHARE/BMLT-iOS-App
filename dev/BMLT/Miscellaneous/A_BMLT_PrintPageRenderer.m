@@ -21,14 +21,16 @@
 
 #import "A_BMLT_PrintPageRenderer.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class A_BMLT_PrintPageRenderer
  \brief This is an abstract base class that implements a print formatter.
  *****************************************************************/
 @implementation A_BMLT_PrintPageRenderer
 @synthesize myMeetings = _myMeetings;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief initializer with the meetings to be displayed.
  \returns self
  *****************************************************************/
@@ -47,7 +49,8 @@
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is how many pages we'll need to print.
  \returns an integer. Always 0, as this is an abstract class.
  *****************************************************************/
@@ -59,7 +62,8 @@
     return 0;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Prepares for drawing. Set up any initial stuff here.
  *****************************************************************/
 - (void)prepareForDrawingPages:(NSRange)range   ///< The range of pages to be drawn.
@@ -69,7 +73,8 @@
 #endif
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Draw the header for the printed page.
  *****************************************************************/
 - (void)drawHeaderForPageAtIndex:(NSInteger)index  ///< The page index
@@ -80,7 +85,8 @@
 #endif
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is ignored in the superclass.
  *****************************************************************/
 - (void)drawContentForPageAtIndex:(NSInteger)index  ///< The page index
@@ -91,7 +97,8 @@
 #endif
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Draw the footer for the printed page.
  *****************************************************************/
 - (void)drawFooterForPageAtIndex:(NSInteger)index  ///< The page index

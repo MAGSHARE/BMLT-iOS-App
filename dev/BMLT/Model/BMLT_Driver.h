@@ -24,7 +24,8 @@
 @class A_BMLT_Search;
 @class BMLT_Server;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLT_Driver
  \brief  This is a class that describes a "driver," that manages one or
          more connetions to BMLT root servers, and handles searches.

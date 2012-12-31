@@ -20,7 +20,8 @@
 #import "BMLTVariantDefs.h"
 #import "BMLTAppDelegate.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
                                                                  \brief  See the "BMLTVariantDefs.h" file for details.
                                                                  *****************************************************************/
 @implementation BMLTVariantDefs

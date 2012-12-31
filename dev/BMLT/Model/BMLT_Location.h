@@ -21,7 +21,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_Location
  \brief This class holds information about a meeting location.
  *****************************************************************/

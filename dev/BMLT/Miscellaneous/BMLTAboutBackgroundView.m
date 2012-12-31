@@ -19,13 +19,15 @@
 
 #import "BMLTAboutBackgroundView.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  A_BMLTSettingsBackgroundView    -Implementation
  \brief  This class will simply apply the settings background to a view.
  *****************************************************************/
 @implementation BMLTAboutBackgroundView
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Set the view backgound to the standard light linen color.
  \returns   self
  *****************************************************************/

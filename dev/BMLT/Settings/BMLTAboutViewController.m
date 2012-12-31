@@ -19,7 +19,8 @@
 
 #import "BMLTAboutViewController.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTAboutViewController -Private Interface
  \brief  Simply displays information about the app.
  *****************************************************************/
@@ -27,14 +28,16 @@
 
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTAboutViewController -Implementation
  \brief  Simply displays information about the app.
  *****************************************************************/
 @implementation BMLTAboutViewController
 @synthesize versionLabel;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
 - (void)viewDidLoad
@@ -51,7 +54,8 @@
         [[self logoImageView] setImage:logo];
         }
 }
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Called after the controller's view object has unloaded.
  *****************************************************************/
 - (void)viewDidUnload

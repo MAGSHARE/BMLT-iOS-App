@@ -38,7 +38,8 @@ int         kFontSizeOfComments         = 9;    ///< The size of the comments st
 int         kLeftPadding                = 4;    ///< The number of pixels in from the left edge of the paper.
 int         kRightPadding               = 4;    ///< The number of pixels in from the right edge of the paper.
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_ListPrintPageRenderer
         If the map formatter is nil, then just a list will be printed. If it is non-nil, then the first page will be the printed map.
  \brief This is a concrete class that implements a list display print.
@@ -46,7 +47,8 @@ int         kRightPadding               = 4;    ///< The number of pixels in fro
 @implementation BMLT_ListPrintPageRenderer
 @synthesize myMapFormatter; ///< This will contain the map print formatter.
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initializer with initial info.
  \returns self
  *****************************************************************/
@@ -63,7 +65,8 @@ int         kRightPadding               = 4;    ///< The number of pixels in fro
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is how many pages we'll need to print.
  \returns an integer, with the number of pages to print.
  *****************************************************************/
@@ -76,7 +79,8 @@ int         kRightPadding               = 4;    ///< The number of pixels in fro
     return pages;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief 
  *****************************************************************/
 - (void)prepareForDrawingPages:(NSRange)range
@@ -90,7 +94,8 @@ int         kRightPadding               = 4;    ///< The number of pixels in fro
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This will draw up the content for this list of meetings.
  *****************************************************************/
 - (void)drawContentForPageAtIndex:(NSInteger)index  ///< The page index
@@ -120,7 +125,8 @@ int         kRightPadding               = 4;    ///< The number of pixels in fro
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This will draw one meeting in the list.
  *****************************************************************/
 - (int)drawOneMeeting:(BMLT_Meeting *)inMeeting    ///< The meeting object to be drawn.
@@ -200,7 +206,8 @@ int         kRightPadding               = 4;    ///< The number of pixels in fro
     return ceil ( ret );
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This sets the town and state.
  *****************************************************************/
 - (int)drawTownStateDayAndTime:(BMLT_Meeting *)inMeeting    ///< The meeting object to be drawn.
@@ -245,7 +252,8 @@ int         kRightPadding               = 4;    ///< The number of pixels in fro
     return ceil ( lineHeight );
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This sets the town and state.
  *****************************************************************/
 - (int)drawAddress:(BMLT_Meeting *)inMeeting
@@ -266,7 +274,8 @@ int         kRightPadding               = 4;    ///< The number of pixels in fro
     return ceil ( lineHeight );
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This writes out the format names.
  *****************************************************************/
 - (int)drawFormats:(BMLT_Meeting *)inMeeting
@@ -288,7 +297,8 @@ int         kRightPadding               = 4;    ///< The number of pixels in fro
     return ceil ( lineHeight );
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This writes out any comments about the meeting.
  *****************************************************************/
 - (int)drawComments:(BMLT_Meeting *)inMeeting

@@ -25,7 +25,8 @@
 
 static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum distance apart for map annotations, before they are combined.
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTMapResultsViewController -Private Interface
  \brief  This class will control display of mapped results.
  *****************************************************************/
@@ -40,7 +41,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
 @property (strong, atomic)  UIBarButtonItem *_toggleButton;
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTMapResultsViewController -Implementation
  \brief  This class will control display of mapped results.
  *****************************************************************/
@@ -48,7 +50,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
 @synthesize myMapView = _myMapView;  ///< This is our MkMapView object.
 
 #pragma mark - View Lifecycle -
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initializer (with coder, because it comes from the storyboard).
  \returns self
  *****************************************************************/
@@ -67,7 +70,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the view is about to be drawn.
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated   ///< YES, if the appearance will be animated.
@@ -83,7 +87,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     [[self _toggleButton] setTitle:label];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called after the view has been drawn.
  *****************************************************************/
 - (void)viewDidAppear:(BOOL)animated   ///< YES, if the appearance was animated.
@@ -92,7 +97,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     [self dismissListPopover];      ///< This deselects any selected annotations.
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the view has loaded.
  *****************************************************************/
 - (void)viewDidLoad
@@ -101,7 +107,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     [self setMyModalController:self];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the view has unloaded
  *****************************************************************/
 - (void)viewDidUnload
@@ -111,7 +118,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
 }
 
 #pragma mark - Custom Functions -
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Accessor -Set the initialization state of the map;
  *****************************************************************/
 - (void)setMapInit:(BOOL)isInit
@@ -119,7 +127,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     _map_initialized = isInit;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Accessor -Is the map initialized?
  \returns YES, if the map is new, and needs an initial setup.
  *****************************************************************/
@@ -128,7 +137,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     return _map_initialized;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This draws annotations for the meetings passed in.
  *****************************************************************/
 - (void)displayMapAnnotations:(NSArray *)inResults  ///< This is an NSArray of BMLT_Meeting objects. Each one represents a meeting.
@@ -148,7 +158,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This simply clears our cached position (which we use to
         calculate the necessity for a redraw).
  *****************************************************************/
@@ -160,7 +171,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     [self setMapInit:NO];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This wipes out everything.
  *****************************************************************/
 - (void)clearMapCompletely
@@ -174,7 +186,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     [self setMapInit:NO];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This scans through the list of meetings, and will produce
         a region that encompasses them all. It then scales the
         map to cover that region.
@@ -223,7 +236,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     [self displayMapAnnotations:inResults];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This function looks for meetings in close proximity to each
         other, and collects them into "red markers."
  \returns an NSArray of BMLT_Results_MapPointAnnotation objects.
@@ -321,7 +335,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This checks the cached location, to see if we have strayed
         far enough to warrant a redraw of the annotations.
  *****************************************************************/
@@ -344,7 +359,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     lastRegion = [[self myMapView] region];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This displays a list of meetings (for a red marker).
         It will use a popover for iPad.
  *****************************************************************/
@@ -385,7 +401,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Cleans up when the popover is closed. Closes the popover, if necessary.
  *****************************************************************/
 - (void)dismissListPopover
@@ -401,7 +418,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     _selectedAnnotation = nil;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Instantiates and returns the appropriate page renderer
  \returns an instance of BMLT_MapPrintPageRenderer, disguised as a UIPrintPageRenderer
  *****************************************************************/
@@ -412,7 +430,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
 
 #pragma mark - UIPopoverControllerDelegate Functions -
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the popover closes.
  *****************************************************************/
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
@@ -424,7 +443,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
 
 #pragma mark - MKMapViewDelegate Functions -
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns the marker/annotation view to be displayed in the map view.
  \returns the annotation view requested.
  *****************************************************************/
@@ -465,7 +485,8 @@ static int  BMLT_Meeting_Distance_Threshold_In_Pixels = 16; ///< The minimum dis
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief When the region changes, we check to see if we need to redraw the markers.
  *****************************************************************/
 - (void)mapView:(MKMapView *)mapView    ///< The map view
@@ -480,7 +501,8 @@ regionDidChangeAnimated:(BOOL)animated  ///< Whether or not to animate the chang
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when a marker is selected.
  *****************************************************************/
 - (void)mapView:(MKMapView *)mapView                ///< The map view.
@@ -537,7 +559,8 @@ didSelectAnnotationView:(MKAnnotationView *)inView    ///< The selected annotati
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This toggles the map view between map and satellite.
  *****************************************************************/
 - (IBAction)toggleMapView:(id)sender

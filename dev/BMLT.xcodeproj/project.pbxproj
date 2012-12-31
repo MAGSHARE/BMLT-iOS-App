@@ -851,10 +851,10 @@
 				771D0C33150E88E5005A707A /* main.m */,
 				771D0C31150E88E5005A707A /* BMLTAppDelegate.h */,
 				771D0C32150E88E5005A707A /* BMLTAppDelegate.m */,
-				771D0C58150E893C005A707A /* Reachability.h */,
-				771D0C59150E893C005A707A /* Reachability.m */,
 				771D0C54150E893C005A707A /* BMLT_Prefs.h */,
 				771D0C55150E893C005A707A /* BMLT_Prefs.m */,
+				771D0C58150E893C005A707A /* Reachability.h */,
+				771D0C59150E893C005A707A /* Reachability.m */,
 			);
 			path = "Main Application";
 			sourceTree = "<group>";

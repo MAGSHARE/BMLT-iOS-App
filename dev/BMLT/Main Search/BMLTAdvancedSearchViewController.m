@@ -25,7 +25,8 @@
 static BOOL geocodeInProgress = NO;     ///< Used to look for a successful geocode.
 static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a search happens after the lookup for the return key (Handled differently for the iPad).
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTAdvancedSearchViewController    -Private Interface
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
@@ -35,7 +36,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTAdvancedSearchViewController    -Implementation
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
@@ -45,7 +47,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 @synthesize searchLocationLabel, searchSpecSegmentedControl, searchSpecAddressTextEntry;
 @synthesize goButton;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initializer -allocates our parameter dictionary.
  \returns self
  *****************************************************************/
@@ -62,7 +65,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief The only reason we intercept this, is to stop lookups.
  *****************************************************************/
 - (void)viewWillDisappear:(BOOL)animated    ///< YES, if this is an animated disappearance (we don't care).
@@ -70,7 +74,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     dontLookup = YES;   // We set this to avoid lookups when we close.
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Make sure that the text box is shown, if there is no choice.
  *****************************************************************/
 - (void)viewWillAppear:(BOOL)animated
@@ -93,7 +98,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [super viewWillAppear:animated];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Sets up all the localized strings and whatnot.
  *****************************************************************/
 - (void)viewDidLoad
@@ -129,7 +135,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [self setParamsForWeekdaySelection];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the view is unloaded.
  *****************************************************************/
 - (void)viewDidUnload
@@ -151,7 +158,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [super viewDidUnload];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the weekday selection segmented control is changed.
  *****************************************************************/
 - (IBAction)weekdaySelectionChanged:(id)sender  ///< The segmented control.
@@ -169,7 +177,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [self setParamsForWeekdaySelection];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the search button is pressed.
  *****************************************************************/
 - (IBAction)doSearchButtonPressed:(id)sender    ///< The search button.
@@ -183,7 +192,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc] withParams:myParams];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when there is a click in the background.
  *****************************************************************/
 - (IBAction)backgroundClicked:(id)sender
@@ -196,7 +206,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [searchSpecAddressTextEntry resignFirstResponder];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when one of the weekday checkboxes is selected.
  *****************************************************************/
 - (IBAction)weekdayChanged:(id)sender   //< The checkbox
@@ -204,7 +215,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [self setParamsForWeekdaySelection];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the search spec segmented control changes.
  *****************************************************************/
 - (IBAction)searchSpecChanged:(id)sender    ///< The segmented control
@@ -233,7 +245,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the user has entered an address.
  *****************************************************************/
 - (IBAction)addressTextEntered:(id)sender   ///< The text entry field.
@@ -252,7 +265,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     dontLookup = NO;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Sets up the parameters for the search, based on the state of the checkboxes.
  *****************************************************************/
 - (void)setParamsForWeekdaySelection
@@ -352,7 +366,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Starts an asynchronous geocode from a given address string.
  *****************************************************************/
 - (void)geocodeLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
@@ -428,7 +443,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 #pragma mark - UITextFieldDelegate Functions -
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is called when the user presses the "Enter" button on the text field editor.
  *****************************************************************/
 - (BOOL)textFieldShouldReturn:(UITextField *)textField  ///< The text field object.
@@ -445,7 +461,8 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     return NO;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief When the text is done editing, we do the same thing, but
  without the subsequent search.
  *****************************************************************/

@@ -20,7 +20,8 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLT_SearchViewController.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTSimpleSearchViewController
  \brief  This class will present the user with a simple "one-button" interface.
  *****************************************************************/

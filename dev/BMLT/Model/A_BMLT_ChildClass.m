@@ -17,7 +17,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/**************************************************************//**
+/******************************************************************/
+/**
  \file      A_BMLT_ChildClass.m
  \brief     This file implements a class meant as a superclass for
             classes that can instances contained within other instances
@@ -26,7 +27,8 @@
 
 #import "A_BMLT_ChildClass.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class A_BMLT_ChildClass
  \brief This class simply gives subclasses the ability to have a
         single "owner" or "parent" object. It is designed to be an abstract class.
@@ -35,7 +37,8 @@
 
 #pragma mark - Override Functions -
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief     Initializer
  \returns   self
  *****************************************************************/
@@ -44,13 +47,15 @@
     return [self initWithParent:nil];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief de-initializer
  *****************************************************************/
 
 #pragma mark - Class-Specific Functions -
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief     Initializer with a parent object
  \returns   self
  *****************************************************************/
@@ -66,7 +71,8 @@
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Accessor - set the parent object
  *****************************************************************/
 - (void)setParentObject:(id)inParentObject
@@ -75,7 +81,8 @@
     parentObject = inParentObject;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief     Accessor - get the parent object
  \returns   the parent object
  *****************************************************************/

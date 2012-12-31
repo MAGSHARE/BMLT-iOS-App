@@ -18,7 +18,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/**************************************************************//**
+/******************************************************************/
+/**
  \file BMLT_CheckBox.m
  \brief This class extends the standard UIButton class, to implement
         a boolean checkbox.
@@ -26,14 +27,16 @@
 
 #import "BMLT_Checkbox.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BrassCheckBox
  \brief This implements a special "checkbox" interface element.
  *****************************************************************/
 @implementation BMLT_Checkbox
 @synthesize isChecked = _isOn;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Overload of the inherited initWith Frame, to read in the image.
  \returns self
  *****************************************************************/
@@ -53,7 +56,8 @@
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Overload of the initWithCoder, so that the selector can be caught.
  \returns self
  *****************************************************************/
@@ -70,7 +74,8 @@
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the state.
  *****************************************************************/
 - (void)setIsChecked:(BOOL)inIsOn    ///< YES, if the state is to be ON.
@@ -98,7 +103,8 @@
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Toggles the state.
  *****************************************************************/
 - (BOOL)toggleState
@@ -108,7 +114,8 @@
     return [self isChecked];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is a responder. It toggles if the user clicked inside.
  *****************************************************************/
 - (void)buttonClickedInside:(id)sender  ///< The Control event sender.

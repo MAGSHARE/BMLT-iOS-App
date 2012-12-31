@@ -42,7 +42,8 @@ enum
     kWeekdaySelectValue_Sat
 };
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTAdvancedSearchViewController
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/

@@ -23,7 +23,8 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_AnimationView.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLTAnimationScreenViewController
  \brief This implements a view with the animated globe and, if necessary,
         a failure message. It is pushed onto the search stack.
@@ -37,7 +38,8 @@
     [[self view] setBackgroundColor:[BMLTVariantDefs windowBackgroundColor]];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called just before the screen appears. We use it to set a
         "tracker" variable in the app delegate, and to set the title.
  *****************************************************************/
@@ -49,7 +51,8 @@
     [[BMLTAppDelegate getBMLTAppDelegate] executeDeferredSearch];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief We take this opportunity to remove ourselves from the "tracker."
  *****************************************************************/
 - (void)viewDidDisappear:(BOOL)animated
@@ -60,7 +63,8 @@
     // Release any retained subviews of the main view.
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief We follow the same rules as all the other views.
  \returns YES, if the autorotation is approved.
  *****************************************************************/

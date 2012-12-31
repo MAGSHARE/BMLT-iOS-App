@@ -22,7 +22,8 @@
 #import <UIKit/UIKit.h>
 
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class A_BMLT_PrintPageRenderer
  \brief This is an abstract base class that implements a print formatter.
  *****************************************************************/

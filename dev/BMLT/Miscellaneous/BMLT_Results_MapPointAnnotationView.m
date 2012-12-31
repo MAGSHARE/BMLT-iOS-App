@@ -26,12 +26,14 @@ static int kRegularAnnotationOffsetUp   = 24; /**< This is how many pixels to sh
 static int kRegularAnnotationOffsetTop  = 4;  /**< This is how many pixels to pad the top number display. */
 int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to shift the annotation view right. */
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_Results_MapPointAnnotationView
  \brief This is the base class for the standard meetings pins.
  *****************************************************************/
 @implementation BMLT_Results_MapPointAnnotationView
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initializes the annotation in the standard MapKiot manner.
  \returns self
  *****************************************************************/
@@ -49,7 +51,8 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This tells the annotation to figure out which image it will use.
         In this class, it will choose a blue marker for just one
         meeting, or go all Neo with a red one, for multiple meetings.
@@ -66,7 +69,8 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This draws the marker. We add the index number to the
         marker, so it can be associated with the listed meetings.
  *****************************************************************/
@@ -94,14 +98,16 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
 
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_Results_BlackAnnotationView
  \brief This class replaces the red/blue choice with a black marker,
         representing the user's location. It will have a popup title.
  *****************************************************************/
 @implementation BMLT_Results_BlackAnnotationView
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief We choose black.
  *****************************************************************/
 - (void)selectImage
@@ -111,7 +117,8 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
 
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_Results_MapPointAnnotation
  \brief This is the annotation controller class that we use to manage
         the markers.
@@ -120,7 +127,8 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
 
 @synthesize isSelected = _selected, coordinate = _coordinate, title, subtitle, displayIndex, myMeetings;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initialize with a coordinate, and a list of meetings.
  \returns self.
  *****************************************************************/
@@ -139,7 +147,8 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Sets the selected property, and triggers a redraw.
  *****************************************************************/
 - (void)setIsSelected:(BOOL)isSelected
@@ -147,7 +156,8 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
     _selected = isSelected;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns the number of meetings represented by this marker.
  \returns an integer. The number of meetings represented by the marker.
  *****************************************************************/
@@ -161,7 +171,8 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
     return 0;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Gets a particular meeting from a list.
  \returns a BMLT_Meeting object for the selected meeting.
  *****************************************************************/
@@ -170,7 +181,8 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
     return [[self getMyMeetings] objectAtIndex:index];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Adds a meeting to the list.
  *****************************************************************/
 - (void)addMeeting:(BMLT_Meeting *)inMeeting    ///< The meeting object to be added.
@@ -183,7 +195,8 @@ int kRegularAnnotationOffsetRight       = 7;  /**< This is how many pixels to sh
     [myMeetings addObject:inMeeting];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the raw list of meetings.
  \returns an array of BMLT_Meeting objects.
  *****************************************************************/

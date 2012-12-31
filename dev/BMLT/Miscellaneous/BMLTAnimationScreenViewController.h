@@ -23,7 +23,8 @@
 
 @class BMLT_AnimationView;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLTAnimationScreenViewController
  \brief This implements a view with the animated globe and, if necessary,
         a failure message. It is pushed onto the search stack.

@@ -23,7 +23,8 @@
 #import "BMLT_Format.h"
 #import "BMLTAppDelegate.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  A_BMLTSearchResultsViewController
  \brief  This class will control display of listed results.
  *****************************************************************/
@@ -31,7 +32,8 @@
 
 @synthesize dataArray = _dataArray, myModalController;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Specialize the implicit call, because we trigger a redraw, and
  we want to be able to use a regular array, not a mutable one.
  *****************************************************************/
@@ -41,7 +43,8 @@
     [[self view] setNeedsDisplay];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This pushes a meeting detail screen into view.
  *****************************************************************/
 - (void)viewMeetingDetails:(BMLT_Meeting *)inMeeting    ///< The meeting being displayed.
@@ -50,7 +53,8 @@
     [BMLTAppDelegate viewMeetingDetails:inMeeting inContext:[self myModalController]];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the "Action Item" in the NavBar is clicked.
  *****************************************************************/
 - (IBAction)actionItemClicked:(id)sender
@@ -61,7 +65,8 @@
     [self printView];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is called when someone clicks on a format button.
  *****************************************************************/
 - (void)displayFormatDetail:(id)inSender
@@ -96,7 +101,8 @@
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is called to dismiss the modal dialog or popover.
  *****************************************************************/
 - (void)closeModal
@@ -121,7 +127,8 @@
     printModal = nil;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Instantiates and returns the appropriate page renderer
  \returns nil, for this class. It needs to be overloaded.
  *****************************************************************/
@@ -130,7 +137,8 @@
     return nil;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Prints the view displayed on the screen.
  *****************************************************************/
 - (void)printView
@@ -185,7 +193,8 @@
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is called when the "Clear Search" button is pressed.
  *****************************************************************/
 - (IBAction)clearSearch:(id)sender

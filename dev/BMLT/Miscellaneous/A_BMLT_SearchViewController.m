@@ -24,7 +24,8 @@
 static int kSearchAnnotationOffsetRight   = 7;  /**< This is how many pixels to shift the annotation view right. */
 static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to shift the annotation view up. */
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class WildcardGestureRecognizer
  \brief This is used to find taps anywhere in the map.
         It is inspired (and cribbed) from here:
@@ -33,7 +34,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 @implementation WildcardGestureRecognizer
 @synthesize myController;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initialize the gesture recognizer.
  \returns self
  *****************************************************************/
@@ -48,7 +50,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the touch has completed, and the recognizer has decided it was legit.
  *****************************************************************/
 - (void)touchesEnded:(NSSet *)touches   ///< The touches involved. We ignore this.
@@ -74,14 +77,16 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 }
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_Search_BlackAnnotationView
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
 @implementation BMLT_Search_BlackAnnotationView
 @synthesize coordinate = _coordinate;                           ///< The annotation/marker coordinate.
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief We simply switch on the draggable bit, here.
  \returns self
  *****************************************************************/
@@ -101,7 +106,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
 \brief Ensure the proper image is displayed for dragging.
 *****************************************************************/
 - (void)selectImage
@@ -109,7 +115,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     [self setImage:[UIImage imageNamed:@"MapMarkerBlack.png"]];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Handles dragging. Changes the image while dragging.
  *****************************************************************/
 - (void)setDragState:(MKAnnotationViewDragState)newDragState    ///< The upcoming drag state
@@ -137,7 +144,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     @property (strong, atomic)  UIBarButtonItem *_toggleButton;
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class A_BMLT_SearchViewController
  \brief This class acts as an abstract base for the two search dialogs.
         its only purpose is to handle the interactive map presented in
@@ -148,7 +156,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 @synthesize mapSearchView, myMarker;
 @synthesize _toggleButton;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  This adds the map toggle button to the navbar.
  *****************************************************************/
 - (void)addToggleMapButton
@@ -177,7 +186,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Called just before the view will appear. We use it to set
          up the map (in an iPad).
  *****************************************************************/
@@ -196,7 +206,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  If this is an iPad, we'll set up the map.
  *****************************************************************/
 - (void)setUpMap
@@ -231,7 +242,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Updates the map to a new location.
  *****************************************************************/
 - (void)updateMapWithThisLocation:(CLLocationCoordinate2D)inCoordinate  ///< The new coordinate for the marker.
@@ -256,7 +268,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 #endif
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This function exists only to allow the parser to call it in the main thread.
  *****************************************************************/
 - (void)updateMap
@@ -268,7 +281,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     [self updateMapWithThisLocation:newLoc];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This returns whatever coordinates are to be used in the next search.
  \returns the long/lat coordinates of the search location.
  *****************************************************************/
@@ -280,7 +294,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
     return [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Look up the user's location.
  *****************************************************************/
 - (IBAction)locationButtonPressed:(id)sender    ///< The button object.
@@ -289,7 +304,8 @@ static int kSearchAnnotationOffsetUp      = 24;  /**< This is how many pixels to
 }
 
 #pragma mark - MKMapViewDelegate Functions -
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the map is moved, scrolled, panned, etc.
  *****************************************************************/
 - (void)mapView:(MKMapView *)mapView    ///< The map view
@@ -301,7 +317,8 @@ regionDidChangeAnimated:(BOOL)animated  ///< Whether or not the change was anima
     [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapRegion:[mapView region]];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the marker is dragged.
  *****************************************************************/
 - (void)mapView:(MKMapView *)mapView                    ///< The map view.
@@ -323,7 +340,8 @@ fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state 
 }
 
 #pragma mark - MkMapAnnotationDelegate Functions -
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns the view for the marker in the center of the map.
  \returns an annotation view, representing the marker.
  *****************************************************************/
@@ -348,7 +366,8 @@ fromOldState:(MKAnnotationViewDragState)oldState        ///< The original state 
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This toggles the map view between map and satellite.
  *****************************************************************/
 - (IBAction)toggleMapView:(id)sender

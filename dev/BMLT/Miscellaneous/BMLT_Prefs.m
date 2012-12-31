@@ -17,7 +17,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/**************************************************************//**
+/******************************************************************/
+/**
  \file  BMLT_Prefs.m
  \brief This file implements two preferences classes for the BMLT
         app. One, is a preference for a single server connection,
@@ -32,13 +33,15 @@ static  BMLT_Prefs  *s_thePrefs = nil;    ///< The SINGLETON instance.
 
 static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace period, in minutes for a meeting to be declared "too late."
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_Prefs
  \brief This class is a preference for a single server connection.
  *****************************************************************/
 @implementation BMLT_ServerPref
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief     Initialize an instance of BMLT_ServerPref
  \returns   self
  *****************************************************************/
@@ -47,7 +50,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [self initWithCoder:nil];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief     Initialize an instance of BMLT_ServerPref with some initial data.
             The URI is saved as a string.
  \returns   self
@@ -68,7 +72,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief     Initialize an instance of BMLT_ServerPref from an NSCoder
  \returns   self
  *****************************************************************/
@@ -86,7 +91,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Saves the state to an NSCoder
  *****************************************************************/
 -(void)encodeWithCoder:(NSCoder *)encoder   ///< The coder that will receive the data
@@ -96,7 +102,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     [encoder encodeObject:serverURI forKey:@"serverURI"];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Sets the root server URI
  *****************************************************************/
 - (void)setServerURI:(NSString *)inURI  ///< The URI, as a string
@@ -104,7 +111,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     serverURI = inURI;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the server name.
  *****************************************************************/
 - (void)setServerName:(NSString *)inName    ///< The name of the server
@@ -112,7 +120,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     serverName = inName;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the server description
  *****************************************************************/
 - (void)setServerDescription:(NSString *)inDescription  ///< The server description
@@ -120,7 +129,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     serverDescription = inDescription;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns the URI as a string
  \returns a string, containing the textual URI.
  *****************************************************************/
@@ -129,7 +139,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return serverURI;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the server name
  \returns a string, containing the server name.
  *****************************************************************/
@@ -138,7 +149,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return serverName;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the server description
  \returns a string, containing the server description.
  *****************************************************************/
@@ -149,7 +161,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
 
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_Prefs
  \brief This class is a global SINGLETON instance with all of the
         prefs.
@@ -158,7 +171,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
 
 @synthesize startWithMap, preferDistanceSort, lookupMyLocation, gracePeriod, startWithSearch, preferAdvancedSearch, searchTypePref, preferSearchResultsAsMap, preserveAppStateOnSuspend, keepUpdatingLocation, resultCount;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This gets the SINGLETON instance, and creates one, if necessary.
  \returns a reference to a BMLT_Prefs object, whic is the SINGLETON.
  *****************************************************************/
@@ -196,7 +210,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return s_thePrefs;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns the path to the prefs storage locker in the app sandbox.
  \returns a string, containing the doc path with the file name.
  *****************************************************************/
@@ -207,7 +222,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [documentDirectory stringByAppendingPathComponent:@"BMLT.data"];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns the number of servers available (usually 1).
  \returns an integer. The number of server objects.
  *****************************************************************/
@@ -216,7 +232,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [[BMLT_Prefs getServers] count];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the instance of a server object at the given index.
  \returns a reference to an instance of BMLT_ServerPref.
  *****************************************************************/
@@ -225,7 +242,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return (BMLT_ServerPref *)[[BMLT_Prefs getServers] objectAtIndex:inIndex];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief returns an array of all the available BMLT_ServerPref objects.
  \returns an array of all the available BMLT_ServerPref objects.
  *****************************************************************/
@@ -234,7 +252,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [s_thePrefs servers];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns YES, if the pref for starting with map search is on.
  \returns a boolean, with the state of the pref. YES means start with map search.
  *****************************************************************/
@@ -243,7 +262,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [s_thePrefs startWithMap];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns YES, if the user prefers distance sorting for list searches.
  \returns a boolean with YES meaning sort by distance to start.
  *****************************************************************/
@@ -252,7 +272,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [s_thePrefs preferDistanceSort];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns YES, if the user wants to look up their location upon startup.
  \returns a boolean. YES means look up on start up.
  *****************************************************************/
@@ -261,7 +282,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [s_thePrefs lookupMyLocation];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns YES, if the user wants to start a search upon startup.
  \returns a boolean. YES means start up with a search.
  *****************************************************************/
@@ -270,7 +292,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [s_thePrefs startWithSearch];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns YES, if the user wants to start new searches as advanced.
  \returns a boolean. YES means start new searches as advanced.
  *****************************************************************/
@@ -279,7 +302,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [s_thePrefs preferAdvancedSearch];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief returns the "meeting missed" grace period. This is how many
         minutes must pass before the meeting is not listed in the
         "find nearby meetings now" search.
@@ -290,7 +314,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [s_thePrefs gracePeriod];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Save the changes into the prefs persistent storage.
  *****************************************************************/
 + (void)saveChanges
@@ -304,7 +329,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Check to make sure that Location Services are available
  \returns YES, if Location Services are available
  *****************************************************************/
@@ -313,7 +339,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return [CLLocationManager locationServicesEnabled] != NO && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initializer from a coder.
  \returns self
  *****************************************************************/
@@ -447,7 +474,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns the array of servers from prefs.
  \returns a array of BMLT_Server objects.
  *****************************************************************/
@@ -456,7 +484,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return servers;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Creates a new server, with the given root URI and name.
  \returns an integer. The index of the new server object.
  *****************************************************************/
@@ -498,7 +527,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Deletes the server at the given root URI.
  \returns a boolean. YES if successful.
  *****************************************************************/
@@ -527,7 +557,8 @@ static int BMLT_Pref_Default_Value_Grace_Period = 15;   ///< The default grace p
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Store into an encoder
  *****************************************************************/
 -(void)encodeWithCoder:(NSCoder *)encoder   ///< The encoder that will receive the stored state.

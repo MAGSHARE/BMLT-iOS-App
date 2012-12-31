@@ -8,7 +8,8 @@
 
 #import "BMLTBundleResourceLabel.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLTGetInfoLabel
  \brief This class implements a label that displays the Get Info String.
         This allows a transparent name display that can be easily
@@ -16,7 +17,8 @@
  *****************************************************************/
 @implementation BMLTBundleResourceLabel
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initializer -Grabs the string, and sets it as the display.
  \returns self
  *****************************************************************/

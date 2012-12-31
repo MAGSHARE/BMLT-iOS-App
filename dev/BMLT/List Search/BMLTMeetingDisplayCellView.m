@@ -32,7 +32,8 @@ int List_Meeting_Display_Line_Height                   = 25;
 
 @implementation BMLTMeetingDisplayCellView
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief     This is the initializer with a meeting and other info.
  \returns   self
  *****************************************************************/
@@ -74,7 +75,8 @@ int List_Meeting_Display_Line_Height                   = 25;
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is where we fill out all the values.
  *****************************************************************/
 - (void)layoutSubviews
@@ -88,7 +90,8 @@ int List_Meeting_Display_Line_Height                   = 25;
     [self setFormats];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief 
  *****************************************************************/
 - (void)drawRect:(CGRect)rect
@@ -99,7 +102,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
 #endif
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is the controller for our modal dialogs (We like to use the top).
  *****************************************************************/
 - (void)setMyModalController:(BMLTDisplayListResultsViewController *)inController   ///< The controller in question.
@@ -107,7 +111,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
     myModalController = inController;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This is an accessor to get our controller.
  \returns The reference to our modal controller.
  *****************************************************************/
@@ -116,7 +121,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
     return myModalController;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns the meeting object for this cell.
  \returns the meeting object in question.
  *****************************************************************/
@@ -125,7 +131,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
     return myMeeting;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Sets the item that draws the annotation key.
  *****************************************************************/
 - (void)setAnnotation
@@ -150,7 +157,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This sets up the meeting name header.
  *****************************************************************/
 - (void)setMeetingName
@@ -172,7 +180,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This sets up the weekday and time info.
  *****************************************************************/
 - (void)setWeekdayAndTime
@@ -252,7 +261,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This sets the town and state.
  *****************************************************************/
 - (void)setTownAndState
@@ -294,7 +304,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This sets up the address information.
  *****************************************************************/
 - (void)setLocationAndAddress
@@ -327,7 +338,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This displays the distance, as given by the meeting.
  *****************************************************************/
 - (void)setDistance
@@ -359,7 +371,8 @@ forViewPrintFormatter:(UIViewPrintFormatter *)formatter
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief This sets up the format clickable circles.
  *****************************************************************/
 - (void)setFormats

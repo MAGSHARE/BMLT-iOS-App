@@ -21,7 +21,8 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTNavBarViewController.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTSnappyLogSlider
  \brief  This is a very simple overload of UISlider to make "detents."
          It also assumes the slider is base-10 logarithmic.
@@ -30,7 +31,8 @@
 
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTSettingsViewController
  \brief  Allows the user to change the settings/preferences.
  *****************************************************************/

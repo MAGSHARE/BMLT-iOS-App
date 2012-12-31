@@ -20,7 +20,8 @@
 #import "A_BMLTNavBarViewController.h"
 #import "BMLTAppDelegate.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class A_BMLTNavBarViewController - Private Interface
  \brief This class acts as a base class for the nav controllers.
         Its purpose is to assign the correct strings to everything.
@@ -29,14 +30,16 @@
 
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class A_BMLTNavBarViewController
  \brief This class acts as a base class for the nav controllers.
         Its purpose is to assign the correct strings to everything.
  *****************************************************************/
 @implementation A_BMLTNavBarViewController
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  This adds a "Clear Search" button to the navbar left.
  *****************************************************************/
 - (void)addClearSearchButton
@@ -69,7 +72,8 @@
 #endif
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Called to validate the autorotation.
  \returns    a BOOL. YES if the rotation is approved.
  *****************************************************************/
@@ -85,7 +89,8 @@
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  This just makes sure that the print popover goes away.
  *****************************************************************/
 - (void)viewWillDisappear:(BOOL)animated
@@ -93,7 +98,8 @@
     [[UIPrintInteractionController sharedPrintController] dismissAnimated:YES];    
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief We read in the current string, and do a localized lookup on
         it. We do this for the nav title, as well as the button on
         each side. If the string has already been changed, no prob.

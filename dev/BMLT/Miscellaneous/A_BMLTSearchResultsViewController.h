@@ -25,7 +25,8 @@
 @class BMLTFormatDetailViewController;
 @class BMLT_Meeting;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  BMLTSearchResultsViewController
  \brief  This abstract base class will control display of listed results.
  *****************************************************************/

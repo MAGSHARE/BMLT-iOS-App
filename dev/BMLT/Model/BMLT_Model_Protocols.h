@@ -22,7 +22,8 @@
 
 @class BMLT_Server, BMLT_Driver;
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_ParentProtocol
  \brief Makes the classes derived provide a "get my children" accessor.
  *****************************************************************/
@@ -30,7 +31,8 @@
 - (NSArray *)getChildObjects;
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_NameDescProtocol
  \brief Makes the classes derived provide a name and description.
  *****************************************************************/
@@ -41,7 +43,8 @@
 - (NSString *)getBMLTDescription;
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_ServerDelegateProtocol
  \brief Classes like meetings and formats get callbacks while parsing.
  *****************************************************************/
@@ -50,7 +53,8 @@
 - (void)serverFAIL:(BMLT_Server *)inServer;
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_DriverDelegateProtocol
  \brief Classes like servers get callbacks while parsing.
  *****************************************************************/

@@ -23,7 +23,8 @@
 
 @class A_BMLT_SearchViewController; ///< Forward declaration for the gesture recognizer.
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class WildcardGestureRecognizer
  \brief This is used to find taps anywhere in the map.
         It is inspired (and cribbed) from here:
@@ -33,7 +34,8 @@
     @property (atomic, assign) A_BMLT_SearchViewController  *myController;  ///< This will hold the view controller that we'll use to update.
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_Search_BlackAnnotationView
  \brief We modify the black annotation view to allow dragging.
  *****************************************************************/
@@ -43,7 +45,8 @@
     - (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier coordinate:(CLLocationCoordinate2D)inCoordinate;
 @end
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class A_BMLT_SearchViewController
  \brief This class acts as an abstract base for the two search dialogs.
  its only purpose is to handle the interactive map presented in

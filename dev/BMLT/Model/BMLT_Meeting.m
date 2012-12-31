@@ -17,7 +17,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/**************************************************************//**
+/******************************************************************/
+/**
  \file BMLT_Meeting.m
  \brief This contains all the relevant data for one NA meeting.
  *****************************************************************/
@@ -32,7 +33,8 @@
 #import "BMLTAppDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class BMLT_Meeting
  \brief This class holds information about a meeting.
  *****************************************************************/
@@ -43,7 +45,8 @@
 
 #pragma mark - Override Functions -
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initializer
  \returns self
  *****************************************************************/
@@ -54,7 +57,8 @@
 
 #pragma mark - Class-Specific Functions -
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Initializer with simple input data (name & description)
  \returns self
  *****************************************************************/
@@ -79,7 +83,8 @@
     return self;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the local BMLT meeting ID.
  *****************************************************************/
 - (void)setMeetingID:(NSInteger)inID    ///< The local BMLT meeting ID
@@ -87,7 +92,8 @@
     meeting_id = inID;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the meeting start time.
  *****************************************************************/
 - (void)setStartTime:(NSDate *)inStartTime  ///< The start time (only the time is used in the date).
@@ -95,7 +101,8 @@
     startTime = inStartTime;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the duration of the meeting.
  *****************************************************************/
 - (void)setDuration:(NSTimeInterval)inDuration  ///< The length of the meeting.
@@ -103,7 +110,8 @@
     duration = inDuration;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the server object for this meeting connection.
  *****************************************************************/
 - (void)setMyServer:(BMLT_Server *)inServerObject   ///< The server that "owns" this meeting.
@@ -111,7 +119,8 @@
     myServer = inServerObject;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the meeting location
  \returns the meeting location, as a BMLT_Location instance.
  *****************************************************************/
@@ -120,7 +129,8 @@
     return location_object;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the BMLT root server meeting ID
  \returns an integer, containing the meeting ID.
  *****************************************************************/
@@ -129,7 +139,8 @@
     return meeting_id;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the start time, as an integer
  \returns an integer, containing the military start time.
  *****************************************************************/
@@ -138,7 +149,8 @@
     return ordinalStartTime;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief return the start time as an NSDate object
  \returns an NSDate object, with the start time.
  *****************************************************************/
@@ -147,7 +159,8 @@
     return startTime;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the duration, as a time interval object
  \returns an NSTimeInterval object, with the duration.
  *****************************************************************/
@@ -156,7 +169,8 @@
     return duration;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Return the meeting formats, as an array of BMLT_Format objects.
  \returns an array of BMLT_Format objects, containing the meeting formats.
  *****************************************************************/
@@ -165,7 +179,8 @@
     return formats;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Returns the various miscellaneous firelds for the meeting.
         Most BMLT meeting data is held as KVP (Key/Value Pair) data,
         so this returns the data in a dictionary.
@@ -176,7 +191,8 @@
     return moreFields;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the meeting location as coordinates
  \returns Gets the long/lat coordinate of the meeting as a CLLocation.
  *****************************************************************/
@@ -185,7 +201,8 @@
     return [location_object getLocationCoords];
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the weekday the meeting gathers, as an integer.
  *****************************************************************/
 - (void)setWeekday:(int)inWeekday   ///< The weekday (1= Sunday, 7= Saturday).
@@ -193,7 +210,8 @@
     weekday = inWeekday;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the weekday as an integer.
  \returns an integer, from 1 (Sunday) to 7 (Saturday).
  *****************************************************************/
@@ -202,7 +220,8 @@
     return weekday;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the weekday as a string
  \returns a string, containing the localized weekday.
  *****************************************************************/
@@ -213,7 +232,8 @@
     return NSLocalizedString( key, nil);
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get an arbitrary KVP value from a meeting data field.
  \returns an object, representing that data.
  *****************************************************************/
@@ -282,7 +302,8 @@
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Find out what fields are available from this meeting object.
  \returns an array of strings, with the KVP keys for the meeting's data.
  *****************************************************************/
@@ -328,7 +349,8 @@
     return ret;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the meeting's BMLT_Server object "owner."
  \returns a BMLT_Server object
  *****************************************************************/
@@ -339,7 +361,8 @@
 
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_NameDescProtocol
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the meeting name.
  *****************************************************************/
 - (void)setBMLTName:(NSString *)inName  ///< The name of the meeting.
@@ -347,7 +370,8 @@
     bmlt_name = inName;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Set the meeting description
  *****************************************************************/
 - (void)setBMLTDescription:(NSString *)inDescription    ///< The meeting description.
@@ -356,7 +380,8 @@
 }
 
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the meeting name.
  \returns a string, containing the meeting name.
  *****************************************************************/
@@ -365,7 +390,8 @@
     return bmlt_name;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Get the meeting description.
  \returns a string, containing the meeting description.
  *****************************************************************/
@@ -375,7 +401,8 @@
 }
 
 #pragma mark - NSXMLParserDelegate
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the parser starts on one of the meeting element's
  eclosed data elements.
  *****************************************************************/
@@ -391,7 +418,8 @@ didStartElement:(NSString *)elementName         ///< The name of the element
     currentElement = elementName;
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the XML parser is reading element characters.
         Yeah, it's a cascading if/else mess, and I'll refactor it
         Real Soon Now...
@@ -586,7 +614,8 @@ foundCharacters:(NSString *)string      ///< The characters
         }
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the XML parser is done with the element.
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser    ///< The parser object
@@ -634,7 +663,8 @@ foundCharacters:(NSString *)string      ///< The characters
 
     // We only use these for debug. Otherwise, we ignore errors and premature endings.
 #ifdef _CONNECTION_PARSE_TRACE_
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the parser receives an error.
  *****************************************************************/
 - (void)parser:(NSXMLParser *)parser        ///< The parser object
@@ -643,7 +673,8 @@ parseErrorOccurred:(NSError *)parseError    ///< The error object
     NSLog(@"\tERROR: BMLT_Meeting Parser Error:%@", [parseError localizedDescription] );
 }
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief Called when the parser ends the document (should never happen).
  *****************************************************************/
 - (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser object

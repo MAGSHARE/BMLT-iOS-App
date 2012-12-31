@@ -20,7 +20,8 @@
 
 #import "A_BMLT_ChildClass.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  A_BMLT_ServiceBodyHierClass
  \brief  An abstract class that is used to describe anobject that contains
          information about an NA Service Body.

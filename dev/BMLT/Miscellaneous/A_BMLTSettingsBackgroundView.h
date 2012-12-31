@@ -19,7 +19,8 @@
 
 #import <UIKit/UIKit.h>
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  A_BMLTSettingsBackgroundView    -Interface
  \brief  This class will simply apply the settings background to a view.
  *****************************************************************/

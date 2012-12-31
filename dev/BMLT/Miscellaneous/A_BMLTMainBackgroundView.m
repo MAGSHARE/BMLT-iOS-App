@@ -19,13 +19,15 @@
 
 #import "A_BMLTMainBackgroundView.h"
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \class  A_BMLTMainBackgroundView    -Implementation
  \brief  This class will apply the main background color/pattern to a view.
  *****************************************************************/
 @implementation A_BMLTMainBackgroundView
 
-/**************************************************************//**
+/******************************************************************/
+/**
  \brief  Set the view backgound to the appropriate color.
  \returns   self
  *****************************************************************/
