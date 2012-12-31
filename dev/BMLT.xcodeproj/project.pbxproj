@@ -568,7 +568,6 @@
 		771D0C8F150E8986005A707A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		771D0C91150E899B005A707A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		771D0C93150E89BC005A707A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		772C161B151B46B800830596 /* BMLTVariantDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTVariantDefs.h; sourceTree = "<group>"; };
 		7731A79F168E1DEC00ED4BE8 /* Anim-Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Anim-Back.png"; sourceTree = "<group>"; };
 		7731A7A0168E1DEC00ED4BE8 /* Anim-Transparency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Anim-Transparency.png"; sourceTree = "<group>"; };
 		77335560168E278F001C0B08 /* MapMarkerBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MapMarkerBlack@2x.png"; sourceTree = "<group>"; };
@@ -712,6 +711,7 @@
 		77882CB61548872000DBE9A1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = BMLT/libTestFlight.a; sourceTree = "<group>"; };
 		77882CB71548872000DBE9A1 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		77882CBC1548874C00DBE9A1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7795A22A16925085004409D2 /* BMLTVariantDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTVariantDefs.h; sourceTree = "<group>"; };
 		77977D0B150E882B00485C8D /* NY NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NY NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77977D0F150E882B00485C8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77977D11150E882B00485C8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1030,6 +1030,7 @@
 		77603DA01541DC8300C4840F /* Baseline */ = {
 			isa = PBXGroup;
 			children = (
+				7795A22A16925085004409D2 /* BMLTVariantDefs.h */,
 				77B5B92416924FA200AAE31D /* BMLT_AnimationView.h */,
 				774EB4CF168F3B6B006C663F /* BMLT_AnimationView.m */,
 				77603DA21541DC8300C4840F /* images */,
@@ -1248,7 +1249,6 @@
 			children = (
 				77882CB71548872000DBE9A1 /* TestFlight.h */,
 				77D90B031514C5340059EF41 /* BMLT-Prefix.pch */,
-				772C161B151B46B800830596 /* BMLTVariantDefs.h */,
 				77A5600E153CF44E0039CCDD /* BMLTCloseModalProtocol.h */,
 			);
 			name = "Project Files";
