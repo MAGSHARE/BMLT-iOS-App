@@ -456,7 +456,6 @@
 		77AC718815409E9F0060CA80 /* BMLTMeetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7799D299151FA633007FE822 /* BMLTMeetingDetailViewController.m */; };
 		77AC718915409E9F0060CA80 /* A_BMLT_SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */; };
 		77AC718A15409E9F0060CA80 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */; };
-		77AC718B15409E9F0060CA80 /* BMLT_AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77111E7D1531306D001ACF4C /* BMLT_AnimationView.m */; };
 		77AC718C15409E9F0060CA80 /* BMLTAnimationScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F6C3691531D1A90038784D /* BMLTAnimationScreenViewController.m */; };
 		77AC718D15409E9F0060CA80 /* BMLT_ListPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CFE115153CB874005FB181 /* BMLT_ListPrintPageRenderer.m */; };
 		77AC718E15409E9F0060CA80 /* A_BMLT_PrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A5600C153CF0520039CCDD /* A_BMLT_PrintPageRenderer.m */; };
@@ -486,6 +485,7 @@
 		77B54CD3168922F200AD5E83 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD1168922F200AD5E83 /* iPad.storyboard */; };
 		77B54CD4168922F200AD5E83 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD2168922F200AD5E83 /* iPhone.storyboard */; };
 		77B566C01690BE8A00F3CF3F /* AboutLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B566BF1690BE8A00F3CF3F /* AboutLogo.png */; };
+		77B5B92216924F8200AAE31D /* BMLT_AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B5B92116924F8200AAE31D /* BMLT_AnimationView.m */; };
 		77B8BD18155EEBEF00CECED5 /* Beanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 77B8BD17155EEBEF00CECED5 /* Beanie.png */; };
 		77BC71981512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BC71971512BFA1000BEFC0 /* A_BMLTSearchResultsViewController.m */; };
 		77BCBBDD152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BCBBDC152933D700CDBCF6 /* BMLT_Results_MapPointAnnotationView.m */; };
@@ -518,8 +518,6 @@
 		7707F3141525B44C00032CCA /* A_BMLT_SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = A_BMLT_SearchViewController.m; path = Miscellaneous/A_BMLT_SearchViewController.m; sourceTree = "<group>"; };
 		771094B71545D19D001989F4 /* BrownLeather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = BrownLeather.gif; sourceTree = "<group>"; };
 		771094B81545D19D001989F4 /* DarkLeather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = DarkLeather.gif; sourceTree = "<group>"; };
-		77111E7C1531306D001ACF4C /* BMLT_AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_AnimationView.h; sourceTree = "<group>"; };
-		77111E7D1531306D001ACF4C /* BMLT_AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_AnimationView.m; sourceTree = "<group>"; };
 		7711417015125CD100BCCE00 /* BMLTSimpleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLTSimpleSearchViewController.h; sourceTree = "<group>"; };
 		7711417115125CD100BCCE00 /* BMLTSimpleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTSimpleSearchViewController.m; sourceTree = "<group>"; };
 		77167D4E1517D205006E50E8 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = ../README; sourceTree = "<group>"; };
@@ -743,6 +741,8 @@
 		77B54CD1168922F200AD5E83 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = "../../BMLT-AU/Storyboards/iPad.storyboard"; sourceTree = "<group>"; };
 		77B54CD2168922F200AD5E83 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone.storyboard; path = "../../BMLT-AU/Storyboards/iPhone.storyboard"; sourceTree = "<group>"; };
 		77B566BF1690BE8A00F3CF3F /* AboutLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutLogo.png; sourceTree = "<group>"; };
+		77B5B92116924F8200AAE31D /* BMLT_AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_AnimationView.m; sourceTree = "<group>"; };
+		77B5B92416924FA200AAE31D /* BMLT_AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_AnimationView.h; sourceTree = "<group>"; };
 		77B8BD17155EEBEF00CECED5 /* Beanie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beanie.png; sourceTree = "<group>"; };
 		77BBAEF215417694001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		77BBAEF4154176A4001F5BCC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
@@ -895,8 +895,6 @@
 				77F6C3691531D1A90038784D /* BMLTAnimationScreenViewController.m */,
 				771D0C56150E893C005A707A /* BMLT_Checkbox.h */,
 				771D0C57150E893C005A707A /* BMLT_Checkbox.m */,
-				77111E7C1531306D001ACF4C /* BMLT_AnimationView.h */,
-				77111E7D1531306D001ACF4C /* BMLT_AnimationView.m */,
 				771A40EB15408EA000EF34DF /* BMLTBundleResourceLabel.h */,
 				771A40EC15408EA000EF34DF /* BMLTBundleResourceLabel.m */,
 			);
@@ -1032,6 +1030,7 @@
 		77603DA01541DC8300C4840F /* Baseline */ = {
 			isa = PBXGroup;
 			children = (
+				77B5B92416924FA200AAE31D /* BMLT_AnimationView.h */,
 				774EB4CF168F3B6B006C663F /* BMLT_AnimationView.m */,
 				77603DA21541DC8300C4840F /* images */,
 				77603DE51541DC8300C4840F /* Localization Files */,
@@ -1272,6 +1271,7 @@
 		77BBAEF3154176A4001F5BCC /* BMLT-MN */ = {
 			isa = PBXGroup;
 			children = (
+				77B5B92116924F8200AAE31D /* BMLT_AnimationView.m */,
 				773E4308155EC7070026FA16 /* BMLTVariantDefs.m */,
 				77FAF18C155C301E00ADE3FC /* StPaulMn.gpx */,
 				77FAF174155C2F8200ADE3FC /* images */,
@@ -1970,7 +1970,6 @@
 				77AC718815409E9F0060CA80 /* BMLTMeetingDetailViewController.m in Sources */,
 				77AC718915409E9F0060CA80 /* A_BMLT_SearchViewController.m in Sources */,
 				77AC718A15409E9F0060CA80 /* BMLT_Results_MapPointAnnotationView.m in Sources */,
-				77AC718B15409E9F0060CA80 /* BMLT_AnimationView.m in Sources */,
 				77AC718C15409E9F0060CA80 /* BMLTAnimationScreenViewController.m in Sources */,
 				77AC718D15409E9F0060CA80 /* BMLT_ListPrintPageRenderer.m in Sources */,
 				77AC718E15409E9F0060CA80 /* A_BMLT_PrintPageRenderer.m in Sources */,
@@ -1978,6 +1977,7 @@
 				77AC719015409E9F0060CA80 /* BMLTBundleResourceLabel.m in Sources */,
 				77DCF09E1545D4FE00979BF6 /* BMLTAboutBackgroundView.m in Sources */,
 				773E4309155EC7070026FA16 /* BMLTVariantDefs.m in Sources */,
+				77B5B92216924F8200AAE31D /* BMLT_AnimationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
