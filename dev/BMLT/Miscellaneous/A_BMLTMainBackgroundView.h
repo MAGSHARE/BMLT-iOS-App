@@ -25,5 +25,4 @@
  \brief  This class will apply the main background color/pattern to a view.
  *****************************************************************/
 @interface A_BMLTMainBackgroundView : UIView
-
 @end
