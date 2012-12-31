@@ -130,6 +130,28 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 }
 
 /**************************************************************//**
+ \brief Called when the view is unloaded.
+ *****************************************************************/
+- (void)viewDidUnload
+{
+    [self setSunLabel:nil];
+    [self setSunButton:nil];
+    [self setMonLabel:nil];
+    [self setMonButton:nil];
+    [self setTueLabel:nil];
+    [self setTueButton:nil];
+    [self setWedLabel:nil];
+    [self setWedButton:nil];
+    [self setThuLabel:nil];
+    [self setThuButton:nil];
+    [self setFriLabel:nil];
+    [self setFriButton:nil];
+    [self setSatLabel:nil];
+    [self setSatButton:nil];
+    [super viewDidUnload];
+}
+
+/**************************************************************//**
  \brief Called when the weekday selection segmented control is changed.
  *****************************************************************/
 - (IBAction)weekdaySelectionChanged:(id)sender  ///< The segmented control.
@@ -221,7 +243,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 #endif
     if ( !dontLookup && [searchSpecAddressTextEntry text] && ([searchSpecSegmentedControl selectedSegmentIndex] == 1) )
         {
-        [self lookupLocationFromAddressString:[searchSpecAddressTextEntry text]];
+        [self geocodeLocationFromAddressString:[searchSpecAddressTextEntry text]];
         }
     else if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
         {
@@ -333,49 +355,75 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 /**************************************************************//**
  \brief Starts an asynchronous geocode from a given address string.
  *****************************************************************/
-- (void)lookupLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
+- (void)geocodeLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
 {
     if ( !dontLookup )  // Don't lookup if we are closing up shop.
         {
-        [[NSURLCache sharedURLCache] setMemoryCapacity:0];
-        [[NSURLCache sharedURLCache] setDiskCapacity:0];
+        CLLocationCoordinate2D  markerLoc = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];  // This tells us where we want to check.
         
-        inLocationString = [inLocationString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-        inLocationString = [inLocationString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        // Create a bias region.
+        CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:markerLoc radius:100000 /*meters*/ identifier:@"You are here"];
         
-        NSString    *uriString = [NSString stringWithFormat:[BMLTVariantDefs reverseLookupURIFormat], inLocationString];
+        CLGeocoder  *myGeocoder = [[CLGeocoder alloc] init];    // We temporarily create a geocoder for this.
         
-#ifdef DEBUG
-        NSLog(@"BMLTAdvancedSearchViewController lookupLocationFromAddressString: \"%@\", and the URI is \"%@\".", inLocationString, uriString );
-#endif
-        
-        BMLT_Parser *myParser = [[BMLT_Parser alloc] initWithContentsOfURL:[NSURL URLWithString:uriString]];
-        
-        [myParser setDelegate:self];
-        
-        geocodeInProgress = YES;
-        
-        [myParser parseAsync:NO WithTimeout:kAddressLookupTimeoutPeriod_in_seconds];
-        }
-}
+        [myGeocoder geocodeAddressString:inLocationString
+                                inRegion:region
+                       completionHandler:^(NSArray* placemarks, NSError* error) // The completion handler deals with the result of the geocode.
+                                        {
+                                        // If we failed to geocode, we alert the user.
+                                        if ( !placemarks || ![placemarks count] )
+                                            {
+                                            searchAfterLookup = NO;
+                                            geocodeInProgress = NO;
+                                            dontLookup = NO;
+                                            UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GEOCODE-FAILURE",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
+                                            [myAlert show];
+                                            
+                                            if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
+                                                {
+                                                [goButton setEnabled:NO];
+                                                }
+                                            }
+                                        else    // Otherwise, we find the nearest geocoded place, and use that.
+                                            {
+                                            CLLocation  *currentLoc = [[CLLocation alloc] initWithLatitude:markerLoc.latitude longitude:markerLoc.longitude];
+                                            CLLocation  *markerLocation = currentLoc;
+                                            
+                                            float       lastDistance = MAXFLOAT;
+                                            
+                                            for (CLPlacemark* aPlacemark in placemarks)
+                                                {
+                                                CLLocationDistance meters = [[aPlacemark location] distanceFromLocation:markerLocation];
+                                                
+                                                if ( meters < lastDistance )
+                                                    {
+                                                    lastDistance = meters;
+                                                    currentLoc = [aPlacemark location];
 
-/**************************************************************//**
- \brief Displays an error, indicating geocode failure.
- *****************************************************************/
-- (void)cantGeocode
-{
 #ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController cantGeocode. Alert displayed." );
+                                                    NSLog(@"BMLTAdvancedSearchViewController::geocodeLocationFromAddressString: completionBlock: Setting the marker location to (%f, %f).", [currentLoc coordinate].longitude, [currentLoc coordinate].latitude);
 #endif
-    searchAfterLookup = NO;
-    geocodeInProgress = NO;
-    dontLookup = NO;
-    UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GEOCODE-FAILURE",nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK-BUTTON",nil) otherButtonTitles:nil];
-    [myAlert show];
-    
-    if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
-        {
-        [goButton setEnabled:NO];
+                                                    }
+                                                }
+                                        
+                                            [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:[currentLoc coordinate]];
+                                            
+                                            [goButton setEnabled:YES];
+                                            
+                                            [self performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
+                                            
+                                            if ( searchAfterLookup )
+                                                {
+#ifdef DEBUG
+                                                NSLog(@"BMLTAdvancedSearchViewController geocodeLocationFromAddressString completionBlock:. Starting a Search." );
+#endif
+                                                searchAfterLookup = NO;
+                                                [goButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                                                }
+                                            
+                                            }
+                                        }
+         ];
         }
 }
 
@@ -393,7 +441,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 #ifdef DEBUG
     NSLog(@"BMLTAdvancedSearchViewController textFieldShouldReturn: searchAfterLookup = \"%@\".", searchAfterLookup ? @"YES" : @"NO");
 #endif
-    [self lookupLocationFromAddressString:[textField text]];
+    [self geocodeLocationFromAddressString:[textField text]];
     return NO;
 }
 
@@ -406,167 +454,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     searchAfterLookup = NO;
     if ( [[textField text] length] && ([searchSpecSegmentedControl selectedSegmentIndex] > 0) && !([[self view] isHidden]) )
         {
-        [self lookupLocationFromAddressString:[textField text]];
+        [self geocodeLocationFromAddressString:[textField text]];
         }
-}
-
-#pragma mark - NSXMLParserDelegate Functions -
-/**************************************************************//**
- \brief Called when the parser starts on an element.
- *****************************************************************/
-- (void)parser:(NSXMLParser *)parser            ///< The parser in question.
-didStartElement:(NSString *)elementName         ///< The XML name of the element.
-  namespaceURI:(NSString *)namespaceURI         ///< The namespace of the element.
- qualifiedName:(NSString *)qName                ///< The XML q-name of the element.
-    attributes:(NSDictionary *)attributeDict    ///< The element's attributes.
-{
-    currentElement = elementName;
-#ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController Parser Start %@ element", elementName );
-#endif
-}
-
-/**************************************************************//**
- \brief Called when the parser finds characters in an element.
- *****************************************************************/
-- (void)parser:(NSXMLParser *)parser        ///< The parser in question.
-foundCharacters:(NSString *)string          ///< The character data.
-{
-#ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController Parser foundCharacters: \"%@\"", string );
-#endif
-    if ( [currentElement isEqualToString:@"coordinates"] )
-        {
-        NSArray *coords = [string componentsSeparatedByString:@","];
-        if ( coords && ([coords count] > 1) )
-            {
-            CLLocationCoordinate2D  lastLookup;
-            
-            lastLookup.longitude = [(NSString *)[coords objectAtIndex:0] doubleValue];
-            lastLookup.latitude = [(NSString *)[coords objectAtIndex:1] doubleValue];
-            
-            if ( lastLookup.longitude != 0 && lastLookup.latitude != 0 )
-                {
-#ifdef DEBUG
-                NSLog(@"BMLTAdvancedSearchViewController::parser: foundCharacters: Setting the marker location to (%f, %f).", lastLookup.longitude, lastLookup.latitude);
-#endif
-                [[BMLTAppDelegate getBMLTAppDelegate] setSearchMapMarkerLoc:lastLookup];
-                
-                [goButton setEnabled:YES];
-                
-                geocodeInProgress = NO;
-#ifdef DEBUG
-                NSLog(@"BMLTAdvancedSearchViewController::parser: foundCharacters: set location to: %f, %f", lastLookup.longitude, lastLookup.latitude );
-#endif
-                }
-            else
-                {
-                if ( ![BMLTAppDelegate locationServicesAvailable] && ![self mapSearchView] )
-                    {
-                    [goButton setEnabled:NO];
-                    }
-#ifdef DEBUG
-                NSLog(@"BMLTAdvancedSearchViewController::parser: foundCharacters: NULL location!");
-#endif
-                }
-            }
-        }
-}
-
-/**************************************************************//**
- \brief Called when the parser is done with an element.
- *****************************************************************/
-- (void)parser:(NSXMLParser *)parser        ///< The parser in question.
-didStartElement:(NSString *)elementName     ///< The XML name of the element.
-  namespaceURI:(NSString *)namespaceURI     ///< The namespace of the element.
- qualifiedName:(NSString *)qName            ///< The XML q-name of the element.
-{
-#ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController Parser Stop %@ element", elementName );
-#endif
-    currentElement = nil;
-}
-
-/**************************************************************//**
- \brief Called if the parser encounters an error.
- *****************************************************************/
-- (void)parser:(NSXMLParser *)parser        ///< The parser in question.
-parseErrorOccurred:(NSError *)parseError    ///< The error.
-{
-#ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController Parser Error: %@", [parseError localizedDescription] );
-#endif
-    if ( geocodeInProgress )
-        {
-        [self performSelectorOnMainThread:@selector(cantGeocode) withObject:nil waitUntilDone:YES];
-        }
-    
-    geocodeInProgress = NO;
-    searchAfterLookup = NO;
-}
-
-/**************************************************************//**
- \brief Called when the parser starts on the returned XML document.
- *****************************************************************/
-- (void)parserDidStartDocument:(NSXMLParser *)parser  ///< The parser in question
-{
-#ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController Parser Starting" );
-#endif
-    currentElement = nil;
-}
-
-/**************************************************************//**
- \brief Called when the parser is done with the document. If we could
-        not get a geocode, we flag an error.
-*****************************************************************/
-- (void)parserDidEndDocument:(NSXMLParser *)parser  ///< The parser in question
-{
-#ifdef DEBUG
-    NSLog(@"BMLTAdvancedSearchViewController Parser Complete" );
-#endif
-    
-    [(BMLT_Parser *)parser cancelTimeout];
-    currentElement = nil;
-    if ( geocodeInProgress )
-        {
-#ifdef DEBUG
-        NSLog(@"BMLTAdvancedSearchViewController parserDidEndDocument. Error. Nothing returned. Pitch a fit." );
-#endif
-        [self performSelectorOnMainThread:@selector(cantGeocode) withObject:nil waitUntilDone:NO];
-        }
-    else
-        {
-        [self performSelectorOnMainThread:@selector(updateMap) withObject:nil waitUntilDone:NO];
-        
-        if ( searchAfterLookup )
-            {
-#ifdef DEBUG
-            NSLog(@"BMLTAdvancedSearchViewController parserDidEndDocument. Starting a Search." );
-#endif
-            searchAfterLookup = NO;
-            [goButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-            }
-        }
-    
-    geocodeInProgress = NO;
-    dontLookup = NO;
-}
-- (void)viewDidUnload {
-    [self setSunLabel:nil];
-    [self setSunButton:nil];
-    [self setMonLabel:nil];
-    [self setMonButton:nil];
-    [self setTueLabel:nil];
-    [self setTueButton:nil];
-    [self setWedLabel:nil];
-    [self setWedButton:nil];
-    [self setThuLabel:nil];
-    [self setThuButton:nil];
-    [self setFriLabel:nil];
-    [self setFriButton:nil];
-    [self setSatLabel:nil];
-    [self setSatButton:nil];
-    [super viewDidUnload];
 }
 @end

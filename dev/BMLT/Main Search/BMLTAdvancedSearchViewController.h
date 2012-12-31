@@ -46,7 +46,7 @@ enum
  \class  BMLTAdvancedSearchViewController
  \brief  This class will present the user with a powerful search specification interface.
  *****************************************************************/
-@interface BMLTAdvancedSearchViewController : A_BMLT_SearchViewController <UITextFieldDelegate, NSXMLParserDelegate>
+@interface BMLTAdvancedSearchViewController : A_BMLT_SearchViewController <UITextFieldDelegate>
 @property (atomic, weak, readonly)  IBOutlet UILabel                *weekdaysLabel;     ///< The label item for the weekdays.
 @property (atomic, weak, readonly)  IBOutlet UISegmentedControl     *weekdaysSelector;  ///< The mode selector for the weekday selection.
 
@@ -84,7 +84,6 @@ enum
 - (IBAction)addressTextEntered:(id)sender;
 
 - (void)setParamsForWeekdaySelection;
-- (void)lookupLocationFromAddressString:(NSString *)inLocationString;
-- (void)cantGeocode;
+- (void)geocodeLocationFromAddressString:(NSString *)inLocationString;
 
 @end

@@ -77,9 +77,14 @@ The new app will read the prefs from the original, but this is really meant to b
 
 CHANGELIST
 ----------
+== Version 2.5.2
+* TBD
+* NA Sverige Release
+
 == Version 2.5.1
 * TBD
 * AU NA Meetings Release
+* Replaced the original Google geocoder with the built-in one (Should have done that ages ago). This affects the Advanced Search window.
 
 == Version 2.5
 * TBD
