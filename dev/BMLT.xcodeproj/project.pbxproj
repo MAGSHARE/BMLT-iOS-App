@@ -304,6 +304,7 @@
 		77682CE7168BA37000DDB11C /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD1168922F200AD5E83 /* iPad.storyboard */; };
 		77682CE8168BA37100DDB11C /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD2168922F200AD5E83 /* iPhone.storyboard */; };
 		77682CE9168BA37100DDB11C /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B54CD1168922F200AD5E83 /* iPad.storyboard */; };
+		7768A10516911AE600A0779F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; };
 		776BAD981519F90A008C608C /* BMLTDisplayListResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776BAD961519F90A008C608C /* BMLTDisplayListResultsViewController.m */; };
 		776CAD8A15404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 776CAD8915404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m */; };
 		777597581540F15E00D45ADA /* BMLTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D0C32150E88E5005A707A /* BMLTAppDelegate.m */; };
@@ -806,6 +807,7 @@
 				777AD69A1688C61700E064D0 /* Foundation.framework in Frameworks */,
 				777AD69B1688C61700E064D0 /* CoreGraphics.framework in Frameworks */,
 				777AD69C1688C61700E064D0 /* libz.dylib in Frameworks */,
+				7768A10516911AE600A0779F /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,6 +1202,7 @@
 				77167D4E1517D205006E50E8 /* README */,
 				77977D15150E882B00485C8D /* BMLT */,
 				77D90B951514C6A60059EF41 /* Variants */,
+				77977D0E150E882B00485C8D /* Frameworks */,
 				77977D0C150E882B00485C8D /* Products */,
 				7700DE3C1541FDEF009A1DBB /* MainDocumentPage.h */,
 				77167D4F1517D21F006E50E8 /* LICENSE.txt */,
@@ -1232,7 +1235,6 @@
 				77977D13150E882B00485C8D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		77977D15150E882B00485C8D /* BMLT */ = {
@@ -1307,7 +1309,6 @@
 				77BBAEF5154176A4001F5BCC /* BMLT-SV */,
 				77D90B961514C6A60059EF41 /* BMLT-NY */,
 				777AD7011688C63000E064D0 /* BMLT-AU */,
-				77977D0E150E882B00485C8D /* Frameworks */,
 			);
 			path = Variants;
 			sourceTree = "<group>";
@@ -2068,7 +2069,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EE0540C-D526-437A-99BF-350712521CFF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AC176B5A-F3A9-40B2-86E4-A0455492B8DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2122,7 +2123,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "NA Sverige";
-				PROVISIONING_PROFILE = "2EE0540C-D526-437A-99BF-350712521CFF";
+				PROVISIONING_PROFILE = "AC176B5A-F3A9-40B2-86E4-A0455492B8DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2148,7 +2149,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "NA Sverige";
-				PROVISIONING_PROFILE = "2EE0540C-D526-437A-99BF-350712521CFF";
+				PROVISIONING_PROFILE = "AC176B5A-F3A9-40B2-86E4-A0455492B8DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2174,7 +2175,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "NA Sverige";
-				PROVISIONING_PROFILE = "2EE0540C-D526-437A-99BF-350712521CFF";
+				PROVISIONING_PROFILE = "AC176B5A-F3A9-40B2-86E4-A0455492B8DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2205,7 +2206,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EE0540C-D526-437A-99BF-350712521CFF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AC176B5A-F3A9-40B2-86E4-A0455492B8DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2233,7 +2234,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EE0540C-D526-437A-99BF-350712521CFF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AC176B5A-F3A9-40B2-86E4-A0455492B8DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2261,7 +2262,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EE0540C-D526-437A-99BF-350712521CFF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AC176B5A-F3A9-40B2-86E4-A0455492B8DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2357,7 +2358,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EE0540C-D526-437A-99BF-350712521CFF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AC176B5A-F3A9-40B2-86E4-A0455492B8DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2385,7 +2386,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EE0540C-D526-437A-99BF-350712521CFF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AC176B5A-F3A9-40B2-86E4-A0455492B8DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
