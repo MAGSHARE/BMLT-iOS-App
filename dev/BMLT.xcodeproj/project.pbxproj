@@ -703,7 +703,6 @@
 		776CAD8815404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMLT_DetailsPrintPageRenderer.h; sourceTree = "<group>"; };
 		776CAD8915404BBF001BD51D /* BMLT_DetailsPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLT_DetailsPrintPageRenderer.m; sourceTree = "<group>"; };
 		777597CE1540F15F00D45ADA /* NA Sverige.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NA Sverige.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		777AA6B515447BCD00CC98B3 /* Northport.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Northport.gpx; path = "../spec/GPX Files/Northport.gpx"; sourceTree = "<group>"; };
 		777AD6FD1688C61700E064D0 /* AU NA Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AU NA Meetings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777AD7021688C63000E064D0 /* BMLTVariantDefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMLTVariantDefs.m; sourceTree = "<group>"; };
 		777AD7041688C63000E064D0 /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
@@ -1156,14 +1155,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		777AA6B715447C6E00CC98B3 /* GPX Files */ = {
-			isa = PBXGroup;
-			children = (
-				777AA6B515447BCD00CC98B3 /* Northport.gpx */,
-			);
-			name = "GPX Files";
-			sourceTree = "<group>";
-		};
 		777AD7011688C63000E064D0 /* BMLT-AU */ = {
 			isa = PBXGroup;
 			children = (
@@ -1206,7 +1197,6 @@
 				77977D0C150E882B00485C8D /* Products */,
 				7700DE3C1541FDEF009A1DBB /* MainDocumentPage.h */,
 				77167D4F1517D21F006E50E8 /* LICENSE.txt */,
-				777AA6B715447C6E00CC98B3 /* GPX Files */,
 			);
 			sourceTree = "<group>";
 		};
