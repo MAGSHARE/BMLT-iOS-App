@@ -359,10 +359,10 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 {
     if ( !dontLookup )  // Don't lookup if we are closing up shop.
         {
-        CLLocationCoordinate2D  markerLoc = [[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc];  // This tells us where we want to check.
+        CLLocationCoordinate2D centerLoc = [BMLTVariantDefs mapDefaultCenter];  // We center on the app's specified starting location
         
         // Create a bias region.
-        CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:markerLoc radius:100000 /*meters*/ identifier:@"You are here"];
+        CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:centerLoc radius:1.0 identifier:@"Default App Location"];
         
         CLGeocoder  *myGeocoder = [[CLGeocoder alloc] init];    // We temporarily create a geocoder for this.
         
@@ -386,14 +386,14 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
                                             }
                                         else    // Otherwise, we find the nearest geocoded place, and use that.
                                             {
-                                            CLLocation  *currentLoc = [[CLLocation alloc] initWithLatitude:markerLoc.latitude longitude:markerLoc.longitude];
-                                            CLLocation  *markerLocation = currentLoc;
+                                            CLLocation  *currentLoc = [[CLLocation alloc] initWithLatitude:centerLoc.latitude longitude:centerLoc.longitude];
+                                            CLLocation  *centerLocation = currentLoc;
                                             
                                             float       lastDistance = MAXFLOAT;
                                             
                                             for (CLPlacemark* aPlacemark in placemarks)
                                                 {
-                                                CLLocationDistance meters = [[aPlacemark location] distanceFromLocation:markerLocation];
+                                                CLLocationDistance meters = [[aPlacemark location] distanceFromLocation:centerLocation];
                                                 
                                                 if ( meters < lastDistance )
                                                     {
