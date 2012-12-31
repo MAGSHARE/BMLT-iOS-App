@@ -26,7 +26,7 @@
 static int _LOG_MIN = 5;       /**< The number of meetings in a search test for the Min level of the slider. */
 static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of the slider. */
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLTSnappyLogSlider
  \brief  This is a very simple overload of UISlider to make "detents."
@@ -34,7 +34,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
  *****************************************************************/
 @implementation BMLTSnappyLogSlider
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This looks for the nearest integer value (after the log),
         and "snaps" the slider to it.
@@ -54,7 +54,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
 }
 @end
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLTSettingsViewController  -Implementation
  \brief  Allows the user to change the settings/preferences.
@@ -81,7 +81,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
 @synthesize aboutView;
 @synthesize myAboutViewController;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
@@ -162,7 +162,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called after the controller's view object has unloaded.
  *****************************************************************/
@@ -189,7 +189,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
     [super viewDidUnload];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called when the user flicks the lookup on startup switch.
  *****************************************************************/
@@ -200,7 +200,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
     [BMLT_Prefs saveChanges];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called when the user flicks the keep updating location switch.
  *****************************************************************/
@@ -211,7 +211,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
     [BMLT_Prefs saveChanges];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called when the user flicks the saved state switch.
  *****************************************************************/
@@ -222,7 +222,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
     [BMLT_Prefs saveChanges];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called when the user flicks the return results as a map switch.
  *****************************************************************/
@@ -233,7 +233,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
     [BMLT_Prefs saveChanges];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called when the user flicks the prefer distance sort switch.
  *****************************************************************/
@@ -244,7 +244,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
     [BMLT_Prefs saveChanges];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called when the user selects a preffered search type.
  *****************************************************************/
@@ -255,7 +255,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
     [BMLT_Prefs saveChanges];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called when the user selects a new meeting count.
  *****************************************************************/
@@ -266,7 +266,7 @@ static int _LOG_MAX = 20;      /**< The number of meetings for the Max level of 
     [BMLT_Prefs saveChanges];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called when the user wants to update their location now.
  *****************************************************************/

@@ -22,7 +22,7 @@
 #import "A_BMLT_ChildClass.h"
 #import "SearchDelegate.h"
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  A_BMLT_Search
  \brief  This class contains a search instance, with criteria and

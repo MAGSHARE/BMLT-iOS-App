@@ -22,7 +22,7 @@
 
 @class A_BMLT_Search;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class SearchDelegate
  \brief Template for classes that want to be delegates of a search.

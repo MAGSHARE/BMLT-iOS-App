@@ -35,7 +35,7 @@
 
 extern int kAddressLookupTimeoutPeriod_in_seconds;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLTAppDelegate
  \brief This is the main application delegate class for the BMLT application

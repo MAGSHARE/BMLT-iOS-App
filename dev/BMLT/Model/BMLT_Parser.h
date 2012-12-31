@@ -21,7 +21,7 @@
 #import <Foundation/Foundation.h>
 #import "BMLT_Server.h"
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Parser
  \brief This is a special overload of the NSXMLParser class that is

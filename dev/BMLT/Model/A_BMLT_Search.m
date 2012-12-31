@@ -17,7 +17,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/******************************************************************/
+/*****************************************************************/
 /**
  \file      A_BMLT_Search.m
  \brief     This file implements the main search object of the app.
@@ -34,7 +34,7 @@
 
 static int meeting_search_timeout_period_in_seconds = 30;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  A_BMLT_Search
  \brief  This class contains a search instance, with criteria and
@@ -44,7 +44,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
 
 #pragma mark - Override Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Initializer
  \returns   self
@@ -54,7 +54,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     return [self initWithCriteria:nil andName:nil andDescription:nil];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief un-initializer
  *****************************************************************/
@@ -65,7 +65,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
 
 #pragma mark - Class-Specific Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Initializer with search criteria
  \returns   self
@@ -93,7 +93,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     return self;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Add a single search criteria to the search object
  *****************************************************************/
@@ -119,7 +119,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     [searchCriteria setObject:inValue forKey:inKey];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief See if there is a search under way (async)
  \returns YES if there is a search going on.
@@ -129,7 +129,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     return searchInProgress;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Get the search criteria dictionary
  \returns   A dictionary, with all the search criteria
@@ -139,7 +139,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     return searchCriteria;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Executes the search asynchronously
  *****************************************************************/
@@ -239,7 +239,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
 
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_ParentProtocol
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Gets all the child objects of the search (the results)
  \returns   An array of meeting objects
@@ -250,7 +250,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
 }
 
 #pragma mark - BMLT_NameDescProtocol
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Set the name of this search
  *****************************************************************/
@@ -259,7 +259,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     bmlt_name = inName;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Set the description of the search
  *****************************************************************/
@@ -269,7 +269,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
 }
 
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Get the name of the search
  \returns   a string -the search name
@@ -279,7 +279,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     return bmlt_name;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Get the search description
  \returns   a string -the description
@@ -289,7 +289,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     return bmlt_description;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Set the delegate to receive search notifications
  *****************************************************************/
@@ -298,7 +298,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     myDelegate = inDelegate;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Add a single result to the search results array
  *****************************************************************/
@@ -318,7 +318,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
 #endif
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Get the search delegate
  \returns   The search "owner."
@@ -328,7 +328,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     return myDelegate;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Clears all the search results, and the criteria
  *****************************************************************/
@@ -345,7 +345,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
     searchInProgress = NO;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Get the search results
  \returns   an array of meeting objects
@@ -356,7 +356,7 @@ static int meeting_search_timeout_period_in_seconds = 30;
 }
 
 #pragma mark - NSXMLParserDelegate
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief The parse of one element in the XML response is beginning
  *****************************************************************/
@@ -372,7 +372,7 @@ didStartElement:(NSString *)elementName         ///< The name of the element
 #endif
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Character data have been found in the elemnt
  *****************************************************************/
@@ -384,7 +384,7 @@ foundCharacters:(NSString *)string      ///< The character data
 #endif
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief The element being parsed is closing
  *****************************************************************/
@@ -398,7 +398,7 @@ foundCharacters:(NSString *)string      ///< The character data
 #endif
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called if there was an error in parsing the XML
  *****************************************************************/
@@ -413,7 +413,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error object
     [parser abortParsing];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when parsing is complete.
  *****************************************************************/

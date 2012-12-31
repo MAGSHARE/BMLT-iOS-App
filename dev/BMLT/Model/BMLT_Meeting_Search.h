@@ -20,7 +20,7 @@
 
 #import "A_BMLT_Search.h"
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Meeting_Search
  \brief A concrete implementation of the search, based on meetings.

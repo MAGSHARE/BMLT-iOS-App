@@ -34,7 +34,7 @@ extern int  kFontSizeOfFormats;             ///< The size of the formats strings
 extern int  kFontSizeOfComments;            ///< The size of the comments string.
 extern int  kDisplayGap;                    ///< The vertical space between lines, in the meeting display.
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_ListPrintPageRenderer
  \brief This is a concrete class that implements a list display print.

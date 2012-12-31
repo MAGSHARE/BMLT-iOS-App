@@ -27,7 +27,7 @@ enum
     _PREFER_ADVANCED_SEARCH     ///< Start on the Advanced Search.
 };
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Prefs
  \brief This class is a preference for a single server connection.
@@ -49,7 +49,7 @@ enum
 
 @end
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Prefs
  \brief This class is a global SINGLETON instance with all of the

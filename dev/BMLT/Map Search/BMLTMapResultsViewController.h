@@ -24,7 +24,7 @@
 
 @class BMLT_Meeting;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLTMapResultsViewController
  \brief  This class will control display of mapped results.

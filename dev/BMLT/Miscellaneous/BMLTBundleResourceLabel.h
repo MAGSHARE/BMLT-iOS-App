@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLTGetInfoLabel
  \brief This class implements a label that displays the Get Info String.

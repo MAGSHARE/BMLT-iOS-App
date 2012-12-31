@@ -25,7 +25,7 @@
 extern int kRegularAnnotationOffsetRight;   /**< This is how many pixels to shift the annotation view right. */
 @class BMLT_Meeting;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Results_MapPointAnnotationView
  \brief We add a a red or blue marker to the annotation. Each marker
@@ -35,7 +35,7 @@ extern int kRegularAnnotationOffsetRight;   /**< This is how many pixels to shif
 - (void)selectImage;
 @end
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Results_MapPointAnnotationView
  \brief We make the annotation a black marker with a simple callout.
@@ -43,7 +43,7 @@ extern int kRegularAnnotationOffsetRight;   /**< This is how many pixels to shif
 @interface BMLT_Results_BlackAnnotationView : BMLT_Results_MapPointAnnotationView
 @end
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Results_MapPointAnnotation
  \brief Handles annotations in the results map.

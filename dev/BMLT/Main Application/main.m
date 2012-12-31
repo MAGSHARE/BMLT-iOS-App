@@ -22,7 +22,7 @@
 
 #import "BMLTAppDelegate.h"
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief The main context.
  \returns 0 if the application launched and ran successfully.

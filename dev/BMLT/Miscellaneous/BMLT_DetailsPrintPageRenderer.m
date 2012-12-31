@@ -27,7 +27,7 @@
 
 static float    kHeaderHeight   = 100.0;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Initializer with initial info.
  \returns self
@@ -47,7 +47,7 @@ static float    kHeaderHeight   = 100.0;
     return self;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is how many pages we'll need to print.
  \returns an integer. Always 1
@@ -60,7 +60,7 @@ static float    kHeaderHeight   = 100.0;
     return 1;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This will draw up the header, which contains most of the info.
  *****************************************************************/

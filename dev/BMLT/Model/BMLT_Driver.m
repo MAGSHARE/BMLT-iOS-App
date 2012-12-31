@@ -17,7 +17,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/******************************************************************/
+/*****************************************************************/
 /**
  \file  BMLT_Driver.m
  \brief This is the main "driver" implementation file for connecting
@@ -33,7 +33,7 @@
 
 static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLT_Driver
  \brief  This is a class that describes a "driver," that manages one or
@@ -41,7 +41,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
  *****************************************************************/
 @implementation BMLT_Driver
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief   SINGLETON fetcher
  \returns a BMLT_Driver instance. It allocates it, if not already done.
@@ -56,7 +56,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
     return g_driver;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Given a URI string, the driver returns the BMLT_Server
             instance that connects to that URI.
@@ -90,7 +90,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
     return ret;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Initializes and instantiates the servers.
         This works by triggering the server setup. The server is
@@ -120,7 +120,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Get the validated server objects.
  \returns   An array of BMLT_Server objects
@@ -134,7 +134,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 
 #pragma mark - Override Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief   initializer
  \returns self
@@ -146,7 +146,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 
 #pragma mark - Class-Specific Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Initializer with server objects.
  \returns   self
@@ -165,7 +165,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
     return self;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Sets the server objects from an array
  *****************************************************************/
@@ -180,7 +180,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Adds a single server object to the internal array
  *****************************************************************/
@@ -200,7 +200,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Remove the referenced server object
  *****************************************************************/
@@ -209,7 +209,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
     [serverObjects removeObject:inServer];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Asynchronous add server
         This works by telling the server object to initialize itself,
@@ -231,7 +231,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Tell the driver about our delegate. Drivers retain delegates.
  *****************************************************************/
@@ -240,7 +240,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
     myDelegate = inDelegate;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Get the driver's delegate object
  \returns   A delegate object, cast to an NSObject
@@ -252,7 +252,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_ParentProtocol
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Return the servers
  \returns   An array of BMLT_Server objects
@@ -263,7 +263,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 #pragma mark - BMLT_NameDescProtocol
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Set the driver's name.
  *****************************************************************/
@@ -278,7 +278,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Set the driver's description.
  *****************************************************************/
@@ -294,7 +294,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Get the driver's name.
  \returns   A string. The name of the driver.
@@ -304,7 +304,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
     return bmlt_name;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Get the driver's description.
  \returns   a string. The description for the driver.
@@ -315,7 +315,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
 }
 
 #pragma mark - BMLT_ServerDelegateProtocol
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is called when the server object is initialized and valid.
  *****************************************************************/
@@ -327,7 +327,7 @@ static  BMLT_Driver *g_driver = nil;    ///< This will be a SINGLETON
     [self addServerObject:inServer];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is called when the server screws the pooch.
  *****************************************************************/

@@ -17,7 +17,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/******************************************************************/
+/*****************************************************************/
 /**
  \file  BMLT_Format.m
  \brief This class describes a format code (used to display meeting
@@ -33,7 +33,7 @@ static int format_Name_Text_Size = 12;    ///< This defines the text size of the
 int List_Meeting_Format_Circle_Size = 24;   ///< These govern the display of the format code circles.
 int List_Meeting_Format_Line_Padding = 2;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_FormatButton -Implementation
  \brief This class describes a format button to be displayed (I know,
@@ -42,7 +42,7 @@ int List_Meeting_Format_Line_Padding = 2;
  *****************************************************************/
 @implementation BMLT_FormatButton
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief 
  \returns 
@@ -61,7 +61,7 @@ int List_Meeting_Format_Line_Padding = 2;
     return self;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief 
  *****************************************************************/
@@ -92,7 +92,7 @@ int List_Meeting_Format_Line_Padding = 2;
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief 
  \returns 
@@ -104,7 +104,7 @@ int List_Meeting_Format_Line_Padding = 2;
 
 @end
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class FormatUIElements
  \brief This class contains elements used to display a format.
@@ -117,7 +117,7 @@ int List_Meeting_Format_Line_Padding = 2;
 
 @end
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Format
  \brief This class contains information about BMLT formats.
@@ -131,7 +131,7 @@ int List_Meeting_Format_Line_Padding = 2;
 
 #pragma mark - Static Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Static function to return the indicator color and image for the format.
  \returns a FormatUIElements object, containing the display options
@@ -177,7 +177,7 @@ int List_Meeting_Format_Line_Padding = 2;
 
 #pragma mark - Override Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Initializer
  \returns self
@@ -189,7 +189,7 @@ int List_Meeting_Format_Line_Padding = 2;
 
 #pragma mark - Class-Specific Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Initializes with various initial setup data
  \returns self
@@ -212,7 +212,7 @@ int List_Meeting_Format_Line_Padding = 2;
 
 #pragma mark - Protocol Functions
 #pragma mark - BMLT_NameDescProtocol
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Set the meeting name.
  *****************************************************************/
@@ -221,7 +221,7 @@ int List_Meeting_Format_Line_Padding = 2;
     bmlt_name = inName;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Set the meeting description
  *****************************************************************/
@@ -231,7 +231,7 @@ int List_Meeting_Format_Line_Padding = 2;
 }
 
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Get the meeting name.
  \returns a string, containing the meeting name.
@@ -241,7 +241,7 @@ int List_Meeting_Format_Line_Padding = 2;
     return bmlt_name;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Get the meeting description.
  \returns a string, containing the meeting description.
@@ -252,7 +252,7 @@ int List_Meeting_Format_Line_Padding = 2;
 }
 
 #pragma mark - NSXMLParserDelegate
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the parser starts on one of the format element's
  eclosed data elements.
@@ -269,7 +269,7 @@ didStartElement:(NSString *)elementName         ///< The name of the element
     [self setCurrentElement:elementName];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the XML parser is reading element characters.
  *****************************************************************/
@@ -319,7 +319,7 @@ foundCharacters:(NSString *)string      ///< The characters
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the XML parser is done with the element.
  *****************************************************************/
@@ -351,7 +351,7 @@ foundCharacters:(NSString *)string      ///< The characters
 
     // We only use these for debug. Otherwise, we ignore errors and premature endings.
 #ifdef _CONNECTION_PARSE_TRACE_
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the parser receives an error.
  *****************************************************************/
@@ -361,7 +361,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error object
     NSLog(@"\tERROR: BMLT_Meeting Parser Error:%@", [parseError localizedDescription] );
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the parser ends the document (should never happen).
  *****************************************************************/

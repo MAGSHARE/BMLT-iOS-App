@@ -19,7 +19,7 @@
 
 #import <UIKit/UIKit.h>
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  A_BMLTMainBackgroundView    -Implementation
  \brief  This class will apply the main background color/pattern to a view.

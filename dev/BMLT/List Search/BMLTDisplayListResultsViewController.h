@@ -20,7 +20,7 @@
 #import <UIKit/UIKit.h>
 #import "A_BMLTSearchResultsViewController.h"
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLTMeetingDisplaySortCellView
  \brief  This class handles display of the sort by header.
@@ -29,7 +29,7 @@
 - (void)setTheSortControl:(UISegmentedControl *)inControl;
 @end
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLTDisplayListResultsViewController
  \brief  This class handles display of listed search results.

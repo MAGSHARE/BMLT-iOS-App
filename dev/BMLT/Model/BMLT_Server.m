@@ -17,7 +17,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this code.  If not, see <http://www.gnu.org/licenses/>.
 //
-/******************************************************************/
+/*****************************************************************/
 /**
  \file  BMLT_Server.m
  \brief This is a class that maintains information about a BMLT
@@ -30,7 +30,7 @@
 static int initial_query_timeout_in_seconds = 10;
 static int format_query_timeout_in_seconds = 20;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Server
  \brief This class models a BMLT root server.
@@ -38,7 +38,7 @@ static int format_query_timeout_in_seconds = 20;
 @implementation BMLT_Server
 
 #pragma mark - Override Functions -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is the default initializer for this class. It calls the
         main initializer.
@@ -60,14 +60,14 @@ static int format_query_timeout_in_seconds = 20;
     return self;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Bye now.
  *****************************************************************/
 
 #pragma mark - Class-Specific Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is the main initializer for this class.
  \returns the initialized instance of the class.
@@ -96,7 +96,7 @@ static int format_query_timeout_in_seconds = 20;
     return self;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Sets the server delegate for this object.
  *****************************************************************/
@@ -105,7 +105,7 @@ static int format_query_timeout_in_seconds = 20;
     delegate = inDelegate;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Accessor - Get the object delegate.
  \returns the delegate for this onject.
@@ -115,7 +115,7 @@ static int format_query_timeout_in_seconds = 20;
     return delegate;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Accessor - Get the cached server formats.
  \returns an NSArray of BMLT_format objects.
@@ -125,7 +125,7 @@ static int format_query_timeout_in_seconds = 20;
     return cachedFormats;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Accessor - Get the cached Server languages.
  \returns an NSArray of NSString, with the language enumerators.
@@ -135,7 +135,7 @@ static int format_query_timeout_in_seconds = 20;
     return languages;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Accessor - Get the server version.
  \returns an NSString, with the server version.
@@ -145,7 +145,7 @@ static int format_query_timeout_in_seconds = 20;
     return version;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Queries the server for its version. If the server returns
  a good version, then we consider it a valid BMLT server.
@@ -174,7 +174,7 @@ static int format_query_timeout_in_seconds = 20;
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Queries the server for its version. If the server returns
  a good version, then we consider it a valid BMLT server.
@@ -202,7 +202,7 @@ static int format_query_timeout_in_seconds = 20;
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Queries the server. If it is valid, we add it to the driver.
  *****************************************************************/
@@ -211,7 +211,7 @@ static int format_query_timeout_in_seconds = 20;
     [self verifyServer];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Is the server a valid BMLT root server?
  \returns YES, if so.
@@ -221,7 +221,7 @@ static int format_query_timeout_in_seconds = 20;
     return nil != version;  // If we have a version, we are a valid server.
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Adds the given format object to the cached array.
  \returns YES, if the format was added. NO if the format was already
@@ -247,7 +247,7 @@ static int format_query_timeout_in_seconds = 20;
 #pragma mark - Protocol Functions
 
 #pragma mark - NSXMLParserDelegate
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the parser starts on one of the XML element's
  eclosed data elements.
@@ -298,7 +298,7 @@ didStartElement:(NSString *)elementName         ///< The name of the element
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Callback    -The XML parser has some string data for us.
  *****************************************************************/
@@ -319,7 +319,7 @@ foundCharacters:(NSString *)string      ///< The string data
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the XML parser is done with the element.
  *****************************************************************/
@@ -361,7 +361,7 @@ foundCharacters:(NSString *)string      ///< The string data
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Callback -Called when the parser encounters an error.
  *****************************************************************/
@@ -380,7 +380,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error that the parser wants
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Callback -The document is done.
  *****************************************************************/
@@ -393,7 +393,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error that the parser wants
 }
 
 #pragma mark - Timeout Handler -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Callback -Handles a timeout error.
  *****************************************************************/
@@ -405,7 +405,7 @@ parseErrorOccurred:(NSError *)parseError    ///< The error that the parser wants
     [self performSelectorOnMainThread:@selector(showTimeoutAlert) withObject:nil waitUntilDone:YES];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Shows the timeout error alert.
  *****************************************************************/

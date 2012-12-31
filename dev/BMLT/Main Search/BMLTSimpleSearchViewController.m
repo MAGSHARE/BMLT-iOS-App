@@ -21,7 +21,7 @@
 #import "BMLTAppDelegate.h"
 #import "BMLT_Prefs.h"
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLTSimpleSearchViewController  -Implementation
  \brief  This class will present the user with a simple "one-button" interface.
@@ -34,7 +34,7 @@
 @synthesize findMeetingsLaterTodayButton;
 @synthesize findMeetingsTomorrowButton;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called after the controller's view object has loaded.
  *****************************************************************/
@@ -71,7 +71,7 @@
     [super viewWillAppear:animated];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called after the controller's view object has unloaded.
  *****************************************************************/
@@ -86,7 +86,7 @@
 }
 
 #pragma mark IB Actions
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Do a simple meeting lookup.
  *****************************************************************/
@@ -108,7 +108,7 @@
     [myAppDelegate searchForMeetingsNearMe:location];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Do a simple meeting lookup, for meetings later today.
  *****************************************************************/
@@ -130,7 +130,7 @@
     [myAppDelegate searchForMeetingsNearMeLaterToday:location];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Do a simple meeting lookup, for meetings tomorrow.
  *****************************************************************/

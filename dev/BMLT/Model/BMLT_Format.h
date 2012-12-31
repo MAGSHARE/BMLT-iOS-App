@@ -25,7 +25,7 @@ extern int List_Meeting_Format_Line_Padding;
 
 @class BMLT_Format; ///< We'll define this class in just a bit.
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_FormatButton
  \brief This class describes a format button to be displayed (I know,
@@ -43,7 +43,7 @@ extern int List_Meeting_Format_Line_Padding;
 
 @class UIColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class FormatUIElements
  \brief This class contains elements used to display a format.
@@ -61,7 +61,7 @@ extern int List_Meeting_Format_Line_Padding;
 
 @end
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Format
  \brief This class contains information about BMLT formats.

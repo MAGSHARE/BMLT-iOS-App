@@ -21,7 +21,7 @@
 #import <Foundation/Foundation.h>
 #import "BMLT_Model_Protocols.h"
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class A_BMLT_ChildClass
  \brief This class simply gives subclasses the ability to have a

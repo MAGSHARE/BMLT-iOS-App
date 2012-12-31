@@ -22,7 +22,7 @@
 #import "BMLT_Format.h"
 #import "BMLT_Parser.h"
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class BMLT_Server
  \brief This class models a BMLT root server.

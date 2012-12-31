@@ -20,7 +20,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLTVariantDefs
  \brief  This class will be a static class that provides various
@@ -28,140 +28,140 @@
  *****************************************************************/
 @interface BMLTVariantDefs : NSObject
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the distance units to be used for this app.
  \returns   A string. Either "MI" (miles) or "KM" (Kilomters).
  *****************************************************************/
 + (NSString *)distanceUnits;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the map coverage size (projection).
  \returns   The number of kilometers (square) to be displayed..
  *****************************************************************/
 + (float)initialMapProjection;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the map center long/lat.
  \returns   The coordinate of the map center.
  *****************************************************************/
 + (CLLocationCoordinate2D)mapDefaultCenter;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the color (or texture) to use for the main window background.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)windowBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the color to be used as the background for the search windows.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)searchBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the color to be used as the main view background for the list results (seldom seen).
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)listResultsBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the color to be used as the background for the "Multiple Meetings" header.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)multiMeetingsBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the color to be used for the text for the "Multiple Meetings" header.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)multiMeetingsTextColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the color to be used as the main view background for the map results (seldom seen).
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)mapResultsBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This returns the color to be used as the view background for the single meeting details page.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)meetingDetailBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This is the background to be used for iPhone modal dialogs.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)modalBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief    This is the background for popover windows on the iPad
  \returns  The color to be used. 
  *****************************************************************/
 + (UIColor *)popoverBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This is the background for the Settings screen.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)settingsBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This is the background for the Info/About screen.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)infoBackgroundColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This is the background for odd rows in the list results.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)getSortOddColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     This is the background for even rows in the list results.
  \returns   The color to be used.
  *****************************************************************/
 + (UIColor *)getSortEvenColor;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Returns the page size, in points of PDF output pages.
  \returns   a CGSize, in points.
  *****************************************************************/
 + (CGSize)pdfPageSize;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Returns the temporary File Name Format for PDF files.
  \returns   an NSString, meant to be used as a format, with an integer number.
  *****************************************************************/
 + (NSString *)pdfTempFileNameFormat;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Returns the root server URI for this variant.
  \returns   The URI of the Root Server.
  *****************************************************************/
 + (NSURL *)rootServerURI;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     Returns the URI for Web-based directions to the given
             location (long/lat) from the given location.
@@ -169,7 +169,7 @@
  *****************************************************************/
 + (NSURL *)directionsURITo:(CLLocationCoordinate2D)inTo;
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief     In some cases, we may get back too many meetings. This
             function returns the threshold, at which we stop a

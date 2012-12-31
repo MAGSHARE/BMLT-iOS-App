@@ -57,7 +57,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     kTransition_EnteringSettings        ///< Coming from another tab to the settings tab.
 };
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLTAppDelegate -Private Interface
  \brief  This is the main application delegate class for the BMLT application
@@ -82,7 +82,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 - (void)simpleClearSearch;                              ///< Just clears the search results with no frou-frou.
 @end
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \class  BMLTAppDelegate
  \brief  This is the main application delegate class for the BMLT application
@@ -113,7 +113,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 @synthesize mapType;                    ///< The current displayed map type.
 
 #pragma mark - Class Methods -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  This class method allows access to the application delegate object (SINGLETON)
  *****************************************************************/
@@ -122,7 +122,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     return g_AppDelegate;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Check to make sure that Location Services are available
  \returns YES, if Location Services are available
@@ -133,7 +133,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
             && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Check to make sure that we can reach the root server.
  \returns YES, if the server is available.
@@ -143,7 +143,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     return [g_AppDelegate hostActive];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief returns the date/time of the "too late" meeting start time.
  \returns an NSDate, set to the time (either now, or with the grace period)
@@ -155,7 +155,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     return [NSDate dateWithTimeIntervalSinceNow:interval];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Pushes the meeting details screen onto the current nav stack.
  *****************************************************************/
@@ -194,7 +194,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     [details setMapLocation];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Sorts a meeting list results array by weekday and time.
  \returns an array of BMLT_Meeting objects, sorted the desired way.
@@ -229,7 +229,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     return sortedArray;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Sorts a meeting list results array by distance.
  \returns an array of BMLT_Meeting objects, sorted the desired way.
@@ -264,7 +264,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 }
 
 #pragma mark - Private methods -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Return the prefs object for this app.
  \returns the app delegate's BMLT_Prefs instance.
@@ -274,7 +274,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     return myPrefs;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Manages the transition from one view to another. Just like
         it says on the tin.
@@ -320,7 +320,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Displays an alert, mentioning that there is no valid connection.
  *****************************************************************/
@@ -337,7 +337,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Displays an alert for no meetings found.
  *****************************************************************/
@@ -349,7 +349,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     [[currentAnimation messageLabel] setText:NSLocalizedString(@"NO-SEARCH-RESULTS",nil)];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is called to tell the app to display the search results.
  *****************************************************************/
@@ -404,7 +404,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 #endif
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Selects the initial search screen, depending on the user's choice.
  *****************************************************************/
@@ -454,7 +454,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This clears the search without resetting the view.
  *****************************************************************/
@@ -464,7 +464,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     mySearch = nil;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This sets the search map (iPad only) to the default size and location.
  *****************************************************************/
@@ -494,7 +494,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
 }
 
 #pragma mark - Standard Instance Methods -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Initialize the object
  \returns    self
@@ -519,7 +519,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     return self;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Just make sure that we stop the netmon service and the
         location lookup.
@@ -531,7 +531,7 @@ enum    ///< These enums reflect values set by the storyboard, and govern the tr
     [locationManager stopUpdatingLocation];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  Called when the app has finished its launch setup.
  \returns    a BOOL. The app is go for launch.
@@ -589,7 +589,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     return YES;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the app is about to go into the background.
         We suspend the location and network availability updates
@@ -603,7 +603,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     _amISick = NO;  // Make sure the user is informed of network outages when they come back.
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the app is about to show up.
         We renew the updates (check if we have keep location up to
@@ -650,7 +650,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 #pragma mark - Custom Instance Methods -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is the base search. Params are passed in.
  *****************************************************************/
@@ -700,7 +700,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Begins a lookup search, in which a location is found first,
         then all meetings near there are returned.
@@ -713,7 +713,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self searchForMeetingsNearMe:inMyLocation withParams:nil];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Same as above, except we only look for meetings later today.
  *****************************************************************/
@@ -738,7 +738,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self searchForMeetingsNearMe:inMyLocation];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Same as above, except we only look for meetings tomorrow.
  *****************************************************************/
@@ -761,7 +761,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self searchForMeetingsNearMe:inMyLocation];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Enables and Disables the UITabBar items in accordance with the current state.
  *****************************************************************/
@@ -791,7 +791,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Clears all the search results, and the results views.
  *****************************************************************/
@@ -821,7 +821,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self setUpTabBarItems];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Clears all the search results, and the results views.
  This version assumes YES, and is a shorthand for the button.
@@ -831,7 +831,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self clearAllSearchResults:YES];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Clears all the search results, and the results views.
  This version assumes NO, and is a shorthand for the button.
@@ -842,7 +842,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 #ifdef DEBUG
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Debug-only accessor, so we can log assignment to this data member.
  *****************************************************************/
@@ -853,7 +853,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 #endif
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Starts the animation.
  *****************************************************************/
@@ -870,7 +870,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Stops the animation.
  *****************************************************************/
@@ -887,7 +887,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     currentAnimation = nil;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is called by other instances to prevent the app from
         having its state changed between calls.
@@ -898,7 +898,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     _visitingRelatives = YES;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Tells the app to do a CL lookup. The map (if there is one)
         will be updated when the location is updated.
@@ -915,7 +915,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [locationManager startUpdatingLocation];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief If there is an extrenal search abort, it is sent here.
  *****************************************************************/
@@ -926,7 +926,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [mySearch doSearch];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This tries successively less accurate location searches.
         If it gives up, then it returns NO.
@@ -954,7 +954,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 #pragma mark - Core Location Delegate Methods -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the location manager has a failure.
  *****************************************************************/
@@ -1006,7 +1006,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the location manager updates. Makes sure that
         the update is fresh.
@@ -1078,7 +1078,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 #pragma mark - UITabBarControllerDelegate code -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This animates the view transitions, and also sets up anything
         that needs doing between views. It stops the tab bar controller
@@ -1106,7 +1106,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 }
 
 #pragma mark - Network Monitor Methods -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This method starts an asynchronous test of the network,
         ensuring that we can reach the root server. This is running
@@ -1134,7 +1134,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     [hostReachable startNotifier];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This stops the network monitoring service.
  *****************************************************************/
@@ -1150,7 +1150,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is the connectivity test callback.
         The BMLT servers will only be instantiated if the network is OK.
@@ -1232,7 +1232,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 }
 
 #pragma mark - SearchDelegate Functions -
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief If there is an extrenal search abort, it is sent here.
  *****************************************************************/
@@ -1243,7 +1243,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 #endif
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This starts the search going, which is an XML parser
         transaction with the root server. We are the search delegate,
@@ -1261,7 +1261,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     deferredSearch = YES;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief When the XML parse is complete, we get this call, with the
         complete search results.
@@ -1291,7 +1291,7 @@ shouldSelectViewController:(UIViewController *)inViewController
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Simply return the search results.
  \returns a A_BMLT_Search reference, with our internal search results.
@@ -1303,7 +1303,7 @@ shouldSelectViewController:(UIViewController *)inViewController
 
 #pragma mark - Special Meeting Sort Sauce -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Sort the search results by weekday first, then start time.
  *****************************************************************/
@@ -1315,7 +1315,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     searchResults = [[self class] sortMeetingListByWeekdayAndTime:searchResults];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Sort the meetings by distance first, then weekday, then start time.
  *****************************************************************/
@@ -1327,7 +1327,7 @@ shouldSelectViewController:(UIViewController *)inViewController
     searchResults = [[self class] sortMeetingListByDistance:searchResults];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This toggles the map view between map and satellite.
  *****************************************************************/

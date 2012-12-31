@@ -44,7 +44,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 
 #pragma mark - View lifecycle
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Sets up the view, with all its parts.
  *****************************************************************/
@@ -98,7 +98,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [[BMLTAppDelegate getBMLTAppDelegate] toggleThisMapView:[self meetingMapView] fromThisButton:nil];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the device is rotated.
  \returns NO, unless portrait (iPhone), or YES for everything (iPad).
@@ -115,7 +115,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     return ret;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  This just makes sure that the print popover goes away.
  *****************************************************************/
@@ -126,7 +126,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 
 #pragma mark - Custom Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief  This adds the map toggle button to the navbar.
  *****************************************************************/
@@ -154,7 +154,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Set up the display of the format circles.
  *****************************************************************/
@@ -201,7 +201,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Set up the display of the text as to when and how long the meeting meets.
  *****************************************************************/
@@ -225,7 +225,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [frequencyTextView setText:[NSString stringWithFormat:NSLocalizedString ( @"MEETING-DETAILS-FREQUENCY-FORMAT", nil ), [_myMeeting getWeekday], time]];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Display the comments for the meeting.
  *****************************************************************/
@@ -234,7 +234,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [commentsTextView setText:[_myMeeting getBMLTDescription]];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Creates and displays a location string, based on the location coordinates of the meeting.
  *****************************************************************/
@@ -247,7 +247,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [addressButton setTitle:theAddress forState:UIControlStateNormal];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Sets up the location of the meeting on the map view.
  *****************************************************************/
@@ -270,7 +270,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Prints the view displayed on the screen.
  *****************************************************************/
@@ -326,7 +326,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
         }
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Called when the "Action Item" in the NavBar is clicked.
  *****************************************************************/
@@ -338,7 +338,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [self printView];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This toggles the map view between map and satellite.
  *****************************************************************/
@@ -347,7 +347,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     [[BMLTAppDelegate getBMLTAppDelegate] toggleThisMapView:[self meetingMapView] fromThisButton:[self _toggleButton]];
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This is called to dismiss the modal dialog or popover.
  *****************************************************************/
@@ -366,7 +366,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     printModal = nil;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Instantiates and returns the appropriate page renderer
  \returns an instance of BMLT_DetailsPrintPageRenderer, disguised as a UIPrintPageRenderer
@@ -378,7 +378,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
 
 #pragma mark - MkMapAnnotationDelegate Functions -
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief Returns the view for the marker in the center of the map.
  \returns an annotation view, representing the marker.
@@ -396,7 +396,7 @@ static int List_Meeting_Format_Circle_Size_Big = 30;
     return ret;
 }
 
-/******************************************************************/
+/*****************************************************************/
 /**
  \brief This will use the Web browser to get directions to the
         meeting from the user's current location.
