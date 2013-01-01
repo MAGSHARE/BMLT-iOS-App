@@ -189,7 +189,16 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [searchSpecAddressTextEntry resignFirstResponder];
     [[BMLTAppDelegate getBMLTAppDelegate] clearAllSearchResultsNo];
     
-    [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc] withParams:myParams];
+    // If we have an address, then we need to make sure that we resolve it.
+    if ( [[searchSpecAddressTextEntry text] length] && ([searchSpecSegmentedControl selectedSegmentIndex] == 1) )
+        {
+        searchAfterLookup = YES;
+        [self geocodeLocationFromAddressString:[searchSpecAddressTextEntry text]];
+        }
+    else
+        {
+        [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:[[BMLTAppDelegate getBMLTAppDelegate] searchMapMarkerLoc] withParams:myParams];
+        }
 }
 
 /*****************************************************************/
@@ -370,7 +379,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
 /**
  \brief Starts an asynchronous geocode from a given address string.
  *****************************************************************/
-- (void)geocodeLocationFromAddressString:(NSString *)inLocationString    ///< The location, as a readable address string.
+- (void)geocodeLocationFromAddressString:(NSString *)inLocationString   ///< The location, as a readable address string.
 {
     if ( !dontLookup )  // Don't lookup if we are closing up shop.
         {
@@ -433,9 +442,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
                                                 NSLog(@"BMLTAdvancedSearchViewController geocodeLocationFromAddressString completionBlock:. Starting a Search." );
 #endif
                                                 searchAfterLookup = NO;
-                                                [goButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                                                [[BMLTAppDelegate getBMLTAppDelegate] searchForMeetingsNearMe:[[BMLTAppDelegate getBMLTAppDelegate]
+                                                                                                               searchMapMarkerLoc] withParams:myParams];
                                                 }
-                                            
                                             }
                                         }
          ];
