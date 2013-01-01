@@ -89,6 +89,7 @@ CHANGELIST
 * TBD
 * AU NA Meetings Release
 * Replaced the original Google geocoder with the built-in one (Should have done that ages ago). This affects the Advanced Search window.
+* Fixed an old bug, in which pressing the "GO" button in the Advanced Search screen on an iPad ignored entered text (unless "Return" had been previously hit).
 
 == Version 2.5
 * TBD
