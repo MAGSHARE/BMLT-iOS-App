@@ -2067,7 +2067,8 @@
 		7723B82D1561840500A2BC84 /* TestFlight */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Monte Jarvis (6P3Y6YW3P3)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Monte Jarvis (6P3Y6YW3P3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2086,7 +2087,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				PROVISIONING_PROFILE = "050EFE45-3DB5-4B62-BA85-576EBD5CB9CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1E2F2886-114A-4639-BDF6-93B5919407F2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2384,7 +2385,8 @@
 		77AC71E015409E9F0060CA80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Monte Jarvis (6P3Y6YW3P3)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Monte Jarvis (6P3Y6YW3P3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2403,7 +2405,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				PROVISIONING_PROFILE = "050EFE45-3DB5-4B62-BA85-576EBD5CB9CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1E2F2886-114A-4639-BDF6-93B5919407F2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2411,8 +2413,8 @@
 		77AC71E115409E9F0060CA80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Monte Jarvis";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Monte Jarvis (6P3Y6YW3P3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2431,8 +2433,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				PROVISIONING_PROFILE = "1031B3A0-0509-48E1-BA24-2B312155EC2C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1E2F2886-114A-4639-BDF6-93B5919407F2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
