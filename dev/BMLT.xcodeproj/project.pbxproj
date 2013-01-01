@@ -384,6 +384,7 @@
 		777AD7051688C63000E064D0 /* BMLTVariantDefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 777AD7021688C63000E064D0 /* BMLTVariantDefs.m */; };
 		777B520F15192409002EDC83 /* A_BMLTMainBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B520E15192409002EDC83 /* A_BMLTMainBackgroundView.m */; };
 		77803C3F151C011D00A8ADC3 /* BMLTFormatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77803C3D151C011D00A8ADC3 /* BMLTFormatDetailViewController.m */; };
+		7783E6821693A1A300F99D1D /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CB61548872000DBE9A1 /* libTestFlight.a */; };
 		77882CBD1548874C00DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
 		77882CBE1548876000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
 		77882CBF1548877000DBE9A1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77882CBC1548874C00DBE9A1 /* libz.dylib */; };
@@ -771,6 +772,7 @@
 				77AC719715409E9F0060CA80 /* Foundation.framework in Frameworks */,
 				77AC719815409E9F0060CA80 /* CoreGraphics.framework in Frameworks */,
 				77882CBE1548876000DBE9A1 /* libz.dylib in Frameworks */,
+				7783E6821693A1A300F99D1D /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1937,7 +1939,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1E2F2886-114A-4639-BDF6-93B5919407F2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0D113D09-3ACC-4C76-9546-DDC3865E9AAE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2255,7 +2257,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1E2F2886-114A-4639-BDF6-93B5919407F2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0D113D09-3ACC-4C76-9546-DDC3865E9AAE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2283,7 +2285,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = MNNA;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1E2F2886-114A-4639-BDF6-93B5919407F2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0D113D09-3ACC-4C76-9546-DDC3865E9AAE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
