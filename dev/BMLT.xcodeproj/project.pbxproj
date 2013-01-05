@@ -1328,9 +1328,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				77977D0A150E882B00485C8D /* NY NA Meetings */,
-				777597561540F15E00D45ADA /* NA Sverige */,
 				777AD66B1688C61700E064D0 /* AU NA Meetings */,
+				777597561540F15E00D45ADA /* NA Sverige */,
+				77977D0A150E882B00485C8D /* NY NA Meetings */,
 				77AC716915409E9F0060CA80 /* MNNA */,
 			);
 		};
