@@ -172,6 +172,9 @@
 
 /* The Name of the Meeting Details Screen */
 "MEETING-DETAILS" = "Details";
+"C" = "Slutet Möte är till för de individer som identifierar sig som beroende eller för de som är osäkra och tror att de kanske har drogproblem.";
+
+"O" = "Öppet Möte är ett NA-möte där vem som helst som är intresserad av hur vi har funnit tillfrisknande från Beroendesjukdomen kan närvara.";
 
 /* The default title for the black marker */
 "BLACK-MARKER-TITLE" = "Din Plats";

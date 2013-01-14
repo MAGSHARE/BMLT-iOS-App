@@ -294,7 +294,18 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     [[self friButton] setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
     [[self satButton] setImage:[UIImage imageNamed:button_asset] forState:UIControlStateDisabled];
     
-    NSInteger   wd = 0;
+    int   wd = 0;
+    
+    // The reason for this weirdness, is because the blasted enum was constantly failing the test, even though it should
+    // have passed, and this was quicker than doing a bunch of digging to find out exactly why (int)1 was not equal to
+    // kWeekdaySelectValue_Sun.
+    int comparator_Sun = (int)kWeekdaySelectValue_Sun;
+    int comparator_Mon = (int)kWeekdaySelectValue_Mon;
+    int comparator_Tue = (int)kWeekdaySelectValue_Tue;
+    int comparator_Wed = (int)kWeekdaySelectValue_Wed;
+    int comparator_Thu = (int)kWeekdaySelectValue_Thu;
+    int comparator_Fri = (int)kWeekdaySelectValue_Fri;
+    int comparator_Sat = (int)kWeekdaySelectValue_Sat;
     
     // What we're doing here, is seeing if either the "Later Today" or "Tomorrow" checkboxes are selected. If so, we then set the wd variable to the chosen weekday. Otherwise, it is 0.
     if ( ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow) || ([weekdaysSelector selectedSegmentIndex] == kWeekdaySelectToday) )
@@ -302,7 +313,7 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         NSDate              *date = [BMLTAppDelegate getLocalDateAutoreleaseWithGracePeriod:YES];
         NSCalendar          *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         NSDateComponents    *weekdayComponents = [gregorian components:(NSWeekdayCalendarUnit) fromDate:date];
-        wd = [weekdayComponents weekday];
+        wd = (int)[weekdayComponents weekday];
         weekdayComponents = [gregorian components:(NSHourCalendarUnit) fromDate:date];
         NSInteger           hr = [weekdayComponents hour];
         weekdayComponents = [gregorian components:(NSMinuteCalendarUnit) fromDate:date];
@@ -311,9 +322,9 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
         if ( [weekdaysSelector selectedSegmentIndex] == kWeekdaySelectTomorrow )
             {
             wd++;
-            if ( wd > kWeekdaySelectValue_Sat )
+            if ( wd > comparator_Sat )
                 {
-                wd = kWeekdaySelectValue_Sun;
+                wd = (int)kWeekdaySelectValue_Sun;
                 }
             }
         else
@@ -325,44 +336,44 @@ static BOOL searchAfterLookup = NO;     ///< Used for the iPhone to make sure a 
     
     NSString *weekday = @"";
     
-    // If we are on the chosen weekday, or our button is enabled, and our buttin is on, then add this day to the list.
-    if ( ((wd == kWeekdaySelectValue_Sun) || [[self sunButton] isEnabled]) && [[self sunButton] isChecked] )
+    // If we are on the chosen weekday, or our button is enabled, and our button is on, then add this day to the list.
+    if ( (wd == comparator_Sun) || ([[self sunButton] isEnabled] && [[self sunButton] isChecked]) )
         {
         [[self sunButton] setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = @"1";
         }
     
-    if ( (wd == kWeekdaySelectValue_Mon) || ([[self monButton] isEnabled] && [[self monButton] isChecked]) )
+    if ( (wd == comparator_Mon) || ([[self monButton] isEnabled] && [[self monButton] isChecked]) )
         {
         [[self monButton] setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",2" : @"2"];
         }
     
-    if ( (wd == kWeekdaySelectValue_Tue) || ([[self tueButton] isEnabled] && [[self tueButton] isChecked]) )
+    if ( (wd == comparator_Tue) || ([[self tueButton] isEnabled] && [[self tueButton] isChecked]) )
         {
         [[self tueButton] setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",3" : @"3"];
         }
     
-    if ( (wd == kWeekdaySelectValue_Wed) || ([[self wedButton] isEnabled] && [[self wedButton] isChecked]) )
+    if ( (wd == comparator_Wed) || ([[self wedButton] isEnabled] && [[self wedButton] isChecked]) )
         {
         [[self wedButton] setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",4" : @"4"];
         }
     
-    if ( (wd == kWeekdaySelectValue_Thu) || ([[self thuButton] isEnabled] && [[self thuButton] isChecked]) )
+    if ( (wd == comparator_Thu) || ([[self thuButton] isEnabled] && [[self thuButton] isChecked]) )
         {
         [[self thuButton] setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",5" : @"5"];
         }
     
-    if ( (wd == kWeekdaySelectValue_Fri) || ([[self friButton] isEnabled] && [[self friButton] isChecked]) )
+    if ( (wd == comparator_Fri) || ([[self friButton] isEnabled] && [[self friButton] isChecked]) )
         {
         [[self friButton] setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",6" : @"6"];
         }
     
-    if ( (wd == kWeekdaySelectValue_Sat) || ([[self satButton] isEnabled] && [[self satButton] isChecked]) )
+    if ( (wd == comparator_Sat) || ([[self satButton] isEnabled] && [[self satButton] isChecked]) )
         {
         [[self satButton] setImage:[UIImage imageNamed:@"CheckBoxDisabled-Check.png"] forState:UIControlStateDisabled];
         weekday = [weekday stringByAppendingString:[weekday length] > 0 ? @",7" : @"7"];
