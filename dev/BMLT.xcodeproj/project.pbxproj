@@ -1911,7 +1911,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73CD2F8C-4F4F-4312-BA73-7F5543919B0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -1947,7 +1947,8 @@
 		7723B82E1561840500A2BC84 /* TestFlight */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -1966,7 +1967,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "NA Sverige";
-				PROVISIONING_PROFILE = "73CD2F8C-4F4F-4312-BA73-7F5543919B0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -1974,7 +1975,8 @@
 		777597CC1540F15E00D45ADA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -1992,7 +1994,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "NA Sverige";
-				PROVISIONING_PROFILE = "73CD2F8C-4F4F-4312-BA73-7F5543919B0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2000,7 +2002,8 @@
 		777597CD1540F15E00D45ADA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Marshall (TFYG5M63S3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMLT/BMLT-Prefix.pch";
@@ -2018,7 +2021,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "NA Sverige";
-				PROVISIONING_PROFILE = "73CD2F8C-4F4F-4312-BA73-7F5543919B0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2049,7 +2052,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73CD2F8C-4F4F-4312-BA73-7F5543919B0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2077,7 +2080,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73CD2F8C-4F4F-4312-BA73-7F5543919B0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2105,7 +2108,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "AU NA Meetings";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73CD2F8C-4F4F-4312-BA73-7F5543919B0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -2201,7 +2204,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73CD2F8C-4F4F-4312-BA73-7F5543919B0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2229,7 +2232,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73CD2F8C-4F4F-4312-BA73-7F5543919B0C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
