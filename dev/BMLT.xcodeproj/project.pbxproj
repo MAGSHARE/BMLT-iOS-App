@@ -1967,7 +1967,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "NA Sverige";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9119BD81-04ED-40B4-AABC-27F0EE280447";
 				WRAPPER_EXTENSION = app;
 			};
 			name = TestFlight;
@@ -1994,7 +1994,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "NA Sverige";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9119BD81-04ED-40B4-AABC-27F0EE280447";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2021,7 +2021,7 @@
 					"\"$(SRCROOT)/BMLT\"",
 				);
 				PRODUCT_NAME = "NA Sverige";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "750959A4-C89E-42CB-8ED4-8DEE1D14B954";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9119BD81-04ED-40B4-AABC-27F0EE280447";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
