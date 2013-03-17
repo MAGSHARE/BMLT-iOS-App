@@ -9,7 +9,7 @@
 	<key>BMLTLeadText</key>
 	<string>Find NA Meetings In Florida</string>
 	<key>BMLTRootServerURI</key>
-	<string>http://bmlt.newyorkna.org/main_server</string>
+	<string>http://naflorida.org/bmlt_server</string>
 	<key>BMLTServerHomeLat</key>
 	<string>40.771133</string>
 	<key>BMLTServerHomeLong</key>
